@@ -20,6 +20,11 @@
 | `build_dict.py` | 把 `strings.json` 编译成 `zh_cn.dict` | NOTES 4.2 |
 | `apply_translations.py` | 把 `batches/*.json` 译文注入 `strings.json` | NOTES 4.2 |
 | `dict_stats.py` | 覆盖率报告 → `_dict\STATUS.md` | NOTES 4.2 |
+| `audit_translations.py` | ★ 全表审计：en/zh 的 `[标记]`/换行/占位符/首尾空白，四项全 0 才算过 | NOTES 4.5 |
+| `prep_batches.py` | 未译项分流（规则化不译桶 + 待译）后切批，输出 `_dict\work\full_NN.src.json` | NOTES 4.5 |
+| `merge_work.py` | `work\full_NN.{src,zh}.json` → `batches\full_NN.json` | NOTES 4.5 |
+| `check_batch.py` | 单批译稿校验，不过 0 不许入库 | NOTES 4.5 |
+| `pack_skips.py` | 把译稿里标 `@` 的「人工判定不译」固化到 `_dict\skipped_manual.json` | NOTES 4.5 |
 
 Python 脚本一律用 `..\.venv\Scripts\python.exe` 跑（装了 UnityPy / dnfile / dncil /
 fontTools / Pillow）。

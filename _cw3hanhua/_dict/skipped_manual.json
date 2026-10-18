@@ -1,0 +1,3961 @@
+{
+ "_说明": "全量翻译时人工判定「不译」的条目（565 条）。规则化分流的不译桶（标识符/文件名/哈希/星球名音节等，见 NOTES 4.5 桶表）不在此列，可用 tools/prep_batches.py 重算。本文件记录的是**人工决策**，勿删。",
+ "count": 565,
+ "items": [
+  {
+   "en": "()",
+   "i": 2,
+   "cls": "(asset)",
+   "batch": "full_01",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "30.1 30.1 4X",
+   "i": 7,
+   "cls": "(asset)",
+   "batch": "full_01",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "CN 1",
+   "i": 16,
+   "cls": "(asset)",
+   "batch": "full_01",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "CN 2",
+   "i": 17,
+   "cls": "(asset)",
+   "batch": "full_01",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "CN 3",
+   "i": 18,
+   "cls": "(asset)",
+   "batch": "full_01",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "CREEPER WORLD",
+   "i": 20,
+   "cls": "(asset)",
+   "batch": "full_01",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "CTRL-C",
+   "i": 21,
+   "cls": "(asset)",
+   "batch": "full_01",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "CTRL-V",
+   "i": 22,
+   "cls": "(asset)",
+   "batch": "full_01",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "SHIFT-A",
+   "i": 107,
+   "cls": "(asset)",
+   "batch": "full_01",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "SHIFT-C",
+   "i": 0,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "SHIFT-D",
+   "i": 1,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "SHIFT-E",
+   "i": 2,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "SHIFT-F",
+   "i": 3,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "SHIFT-G",
+   "i": 4,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "SHIFT-I",
+   "i": 5,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "SHIFT-M",
+   "i": 6,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "SHIFT-O",
+   "i": 7,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "SHIFT-T",
+   "i": 8,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "SHIFT-X",
+   "i": 9,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "This is a great big long label",
+   "i": 37,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "This is a message",
+   "i": 38,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Time:1:00:00.0",
+   "i": 39,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "View Demo Screen",
+   "i": 44,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "[00ff00]100",
+   "i": 45,
+   "cls": "(asset)",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": " i = ",
+   "i": 49,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", a = ",
+   "i": 50,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", d = ",
+   "i": 51,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", e = ",
+   "i": 52,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", g = ",
+   "i": 53,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", h = ",
+   "i": 54,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", l = ",
+   "i": 55,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", n = ",
+   "i": 56,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", o = ",
+   "i": 57,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", p = ",
+   "i": 58,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", r = ",
+   "i": 59,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", s = ",
+   "i": 60,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", t = ",
+   "i": 61,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", u = ",
+   "i": 62,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ", w = ",
+   "i": 63,
+   "cls": "<>__AnonType0`15",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "UI Root (2D)",
+   "i": 64,
+   "cls": "<DelayedCoverDismiss>c__Iterator13,<GenerateImage>c__Iterator26,BuildHandlers,CRPLInfoPanel,CRPLTowerManager,ChosenTexture,ColonialSpaceGUIHandlers,ColonialSpaceManager,CommandCenter,CrplCore,EditMapGUI,EntryManager,GalGUIHandlers,GalManager,GalaxySpace,GameEventManager,GameEventWidgetManager,GameSpace,GeneralHandlers,InGameMenuHandlers,IndicatorArrowManager,InfoPanel,InputManager,MainMenu,MenuHandlers,MessageArtifactManager,MiniMapManager,OrbitalHandlers,PlanetManager,SaveGameManager,SectorManager,SettingsHandler,SystemManager,TerraformCommandCenter,TerraformMenuHandlers",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Unlit/Transparent Colored",
+   "i": 65,
+   "cls": "<GenerateImage>c__Iterator26,PreviewManager",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "atlas-64textures",
+   "i": 66,
+   "cls": "<GenerateImage>c__Iterator26,GameMap,TexturePickerManager",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "atlas2-64textures",
+   "i": 67,
+   "cls": "<GenerateImage>c__Iterator26,GameMap,TexturePickerManager",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "atlas3-16textures",
+   "i": 68,
+   "cls": "<GenerateImage>c__Iterator26",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Tessellator Collider Generated",
+   "i": 75,
+   "cls": "<Update_Coroutine>c__Iterator5",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "invalid index in DeleteArrayElement: ",
+   "i": 76,
+   "cls": "ArrayHelper",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Multiple audio items with name '",
+   "i": 77,
+   "cls": "AudioCategory",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "_audioController == null",
+   "i": 78,
+   "cls": "AudioCategory",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": " not found",
+   "i": 79,
+   "cls": "AudioController",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "' does not exist",
+   "i": 80,
+   "cls": "AudioController,AudioObject",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "')",
+   "i": 81,
+   "cls": "AudioController",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Audio item with name '",
+   "i": 82,
+   "cls": "AudioController,AudioObject",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "AudioCategory does not exist: ",
+   "i": 83,
+   "cls": "AudioController",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "AudioObject prefab does not have the PoolableObject component. Pooling will not work.",
+   "i": 84,
+   "cls": "AudioController",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "AudioObject prefab must have the AudioObject script component!",
+   "i": 85,
+   "cls": "AudioController",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "AudioObject:",
+   "i": 86,
+   "cls": "AudioController",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "No AudioObject prefab specified in AudioController.",
+   "i": 87,
+   "cls": "AudioController",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "No audio category with name ",
+   "i": 88,
+   "cls": "AudioController",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "No item specified in audio sub-item with ITEM mode (audio item: '",
+   "i": 89,
+   "cls": "AudioController",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "_UnregisterAdditionalAudioController: AudioController ",
+   "i": 90,
+   "cls": "AudioController",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "AudioObject does not have an AudioSource component!",
+   "i": 91,
+   "cls": "AudioObject",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "audio.clip == null in ",
+   "i": 92,
+   "cls": "AudioObject",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "subItem == null",
+   "i": 93,
+   "cls": "AudioObject",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "CLIP: ",
+   "i": 94,
+   "cls": "AudioSubItem",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "ITEM: ",
+   "i": 95,
+   "cls": "AudioSubItem",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": " with clip ",
+   "i": 96,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "ClockStone Audio Toolkit - Demo",
+   "i": 97,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Create new category with custom AudioClip",
+   "i": 98,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Cross-fade to music track 1",
+   "i": 99,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_02",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Cross-fade to music track 2",
+   "i": 0,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Custom Category",
+   "i": 1,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Finish gatling gun sequence [Unity v4.1]",
+   "i": 2,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Finished playing ",
+   "i": 3,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Global Volume",
+   "i": 4,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Loop Playlist",
+   "i": 5,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Next Track on Playlist",
+   "i": 6,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Pause All Audio",
+   "i": 7,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Play Both",
+   "i": 8,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Play Music Playlist",
+   "i": 9,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Play Sound with alternatives",
+   "i": 10,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Play Sound with random pitch",
+   "i": 11,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Play custom AudioClip",
+   "i": 12,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Play gapless audio loop [Unity v4.1]",
+   "i": 13,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Play intro-loop-outro sequence\ngatling gun [Unity v4.1]",
+   "i": 14,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Play random loop sequence [Unity v4.1]",
+   "i": 15,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Previous Track on Playlist",
+   "i": 16,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Remove custom AudioClip",
+   "i": 17,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Shuffle Playlist ",
+   "i": 18,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Sound Muted",
+   "i": 19,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Stop Music",
+   "i": 20,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Video tutorial & more info...",
+   "i": 21,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "misplaced EndDisabledGroup",
+   "i": 22,
+   "cls": "AudioToolkitDemo",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": " is out of bounds!",
+   "i": 23,
+   "cls": "AutoSpriteBase,Sprite",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "\" does not seem to have been built to an atlas yet.",
+   "i": 24,
+   "cls": "AutoSpriteBase",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "\" has not been assigned a material, and can therefore not be included in the atlas build.",
+   "i": 25,
+   "cls": "AutoSpriteBase",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "\" is not associated with a SpriteManager, and can therefore not be included in the atlas build.",
+   "i": 26,
+   "cls": "AutoSpriteBase",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "\" not found!",
+   "i": 27,
+   "cls": "AutoSpriteBase,Sprite",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "ERROR: Animation \"",
+   "i": 28,
+   "cls": "AutoSpriteBase,Sprite",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "ERROR: Animation index ",
+   "i": 29,
+   "cls": "AutoSpriteBase,Sprite",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Sprite \"",
+   "i": 30,
+   "cls": "AutoSpriteBase",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Shader \"BlurConeTap\" {\n\tProperties { _MainTex (\"\", any) = \"\" {} }\n\tSubShader {\n\t\tPass {\n\t\t\tZTest Always Cull Off ZWrite Off Fog { Mode Off }\n\t\t\tSetTexture [_MainTex] {constantColor (0,0,0,0.25) combine texture * constant alpha}\n\t\t\tSetTexture [_MainTex] {constantColor (0,0,0,0.25) combine texture * constant + previous}\n\t\t\tSetTexture [_MainTex] {constantColor (0,0,0,0.25) combine texture * constant + previous}\n\t\t\tSetTexture [_MainTex] {constantColor (0,0,0,0.25) combine texture * constant + previous}\n\t\t}\n\t}\n\tFallback off\n}",
+   "i": 31,
+   "cls": "BlurEffect",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Price: ",
+   "i": 32,
+   "cls": "BuildHandlers",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "\\n",
+   "i": 33,
+   "cls": "ByteReader,CrplCore",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "{0:F1}",
+   "i": 34,
+   "cls": "CNBarManager,CommandNodeInfoPanelManager",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "-c",
+   "i": 35,
+   "cls": "CRPLTowerManager",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "-l",
+   "i": 36,
+   "cls": "CRPLTowerManager",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "-r",
+   "i": 37,
+   "cls": "CRPLTowerManager",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "-s",
+   "i": 38,
+   "cls": "CRPLTowerManager",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": " does not exist",
+   "i": 39,
+   "cls": "CW3SteamAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "' progress callback, (",
+   "i": 40,
+   "cls": "CW3SteamAchievements,StatsAndAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "' unlocked!",
+   "i": 41,
+   "cls": "CW3SteamAchievements,StatsAndAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "*********** RESET ALL STATS AND ACHIEVEMENTS!!!! ***************************",
+   "i": 42,
+   "cls": "CW3SteamAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Achievement '",
+   "i": 43,
+   "cls": "CW3SteamAchievements,StatsAndAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "CW3SteamAchievements Awake",
+   "i": 44,
+   "cls": "CW3SteamAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "CW3SteamAchievements Enabled. ",
+   "i": 45,
+   "cls": "CW3SteamAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "GetStat: ",
+   "i": 46,
+   "cls": "CW3SteamAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "RequestStats - failed, ",
+   "i": 47,
+   "cls": "CW3SteamAchievements,StatsAndAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "SetStat: ",
+   "i": 48,
+   "cls": "CW3SteamAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "StoreStats - failed, ",
+   "i": 49,
+   "cls": "CW3SteamAchievements,StatsAndAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "UnlockAchievementAtSteam: ",
+   "i": 50,
+   "cls": "CW3SteamAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "] = ",
+   "i": 51,
+   "cls": "CW3SteamAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "] [",
+   "i": 52,
+   "cls": "CW3SteamAchievements",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "CallResult function was null, you must either set it in the CallResult Constructor or in Set()",
+   "i": 53,
+   "cls": "CallResult`1",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Callback number not found for struct ",
+   "i": 54,
+   "cls": "CallbackIdentities",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Callback function must not be null.",
+   "i": 55,
+   "cls": "Callback`1",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "COLLECTION ERROR: ",
+   "i": 56,
+   "cls": "CollectorManager",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ".cw3",
+   "i": 57,
+   "cls": "ColonialSpaceManager,FileManager,MapPreviewManager,PlanetManager,SystemManager,SystemStats,TerraformMenuHandlers,WorldMachineManager",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "<<",
+   "i": 58,
+   "cls": "ColonialSpaceManager",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": ">>",
+   "i": 59,
+   "cls": "ColonialSpaceManager",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Apply Filters (",
+   "i": 60,
+   "cls": "ColonialSpaceManager",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Author:",
+   "i": 61,
+   "cls": "ColonialSpaceManager,MySectorGUI",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "Auto:",
+   "i": 62,
+   "cls": "ColonialSpaceManager,WorldMachineManager",
+   "batch": "full_03",
+   "why": "@ 标记跳过（人工判定不译）"
+  },
+  {
+   "en": "WWW Error: ",
+   "i": 43,
+   "cls": "ColonialSpaceManager,MySectorGUI,ResultsManager,WorldMachineManager",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "author:",
+   "i": 44,
+   "cls": "ColonialSpaceManager,MapEntry",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "maps/",
+   "i": 45,
+   "cls": "ColonialSpaceManager",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "thumbnails/",
+   "i": 46,
+   "cls": "ColonialSpaceManager",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "~Time:",
+   "i": 47,
+   "cls": "ColonialSpaceManager",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "%[-]",
+   "i": 51,
+   "cls": "CommandCenter",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "AC ",
+   "i": 52,
+   "cls": "CommandCenter",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "[ffffa0]\"",
+   "i": 58,
+   "cls": "CommandCenter",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "{0:F2}",
+   "i": 59,
+   "cls": "CommandCenter,TotemManager",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Count cannot be less than zero",
+   "i": 60,
+   "cls": "Crc32",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Calling a nonexistent function: ",
+   "i": 61,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Duplicate Functions defined: ",
+   "i": 62,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " or \"",
+   "i": 63,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " or <-",
+   "i": 64,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\"",
+   "i": 65,
+   "cls": "CrplCompiler,EditMapGUI,NGUITools,VectorLine",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" or @",
+   "i": 66,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "->",
+   "i": 67,
+   "cls": "CrplCompiler,MessageDialogManager",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "->!",
+   "i": 68,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "-?",
+   "i": 69,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "-?!",
+   "i": 70,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ". Perhaps you meant ->",
+   "i": 71,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": A ')' is missing a matching '('",
+   "i": 72,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": A 'break' must be found inside a 'while/endwhile block' or if 'do/loop' block",
+   "i": 73,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": A 'do' is missing a matching 'loop'",
+   "i": 74,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": A 'loop' is missing a matching 'do'",
+   "i": 75,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": A 'once' is missing a matching 'endonce'",
+   "i": 76,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": A 'repeat' must not be found outside of a 'while/endwhile block'",
+   "i": 77,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": A 'while' is missing a matching 'endwhile'",
+   "i": 78,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": A dot is only allowed in string literals and floating point numbers: ",
+   "i": 79,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": A string literal in an input var definition must have a quote at the beginning and at the end: ",
+   "i": 80,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": A string literal must have a quote at the beginning and at the end: ",
+   "i": 81,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": A variable or function name must be alphanumeric: ",
+   "i": 82,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": An '(' is missing a matching ')'",
+   "i": 83,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": An 'else' must be nested within an 'if'",
+   "i": 84,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": An 'endif' is missing a matching 'if'",
+   "i": 85,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": An 'endonce' is missing a matching 'once'",
+   "i": 86,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": An 'endwhile' is missing a matching 'while'",
+   "i": 87,
+   "cls": "CrplCompiler",
+   "batch": "full_04",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": An 'if' is missing a matching 'endif'",
+   "i": 0,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": An input var must have some default value: ",
+   "i": 1,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": Duplicate input var declared: ",
+   "i": 2,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": Functions must not be nested within conditionals or loops",
+   "i": 3,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": Improperly formatted input var.  There must be a name for the var and a default value.: ",
+   "i": 4,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": Improperly formatted number in an input var: ",
+   "i": 5,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": In an input var a dot is only allowed in string literals and floating point numbers: ",
+   "i": 6,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": Invalid Token: ",
+   "i": 7,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": Only one :Destroy label is permitted",
+   "i": 8,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "<-",
+   "i": 9,
+   "cls": "CrplCompiler,MessageDialogManager",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "<-!",
+   "i": 10,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Line ",
+   "i": 11,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Line unknown: Every 'while/endwhile' block must contain a 'repeat' statement",
+   "i": 12,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Line: ",
+   "i": 13,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Success!",
+   "i": 14,
+   "cls": "CrplCompiler",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " at line ",
+   "i": 15,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ") per game loop.",
+   "i": 16,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "WARNING: Exceeded max number of instructions(",
+   "i": 17,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "WARNING: GetKey on illegal value: ",
+   "i": 18,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "WARNING: GetKeyDown on illegal value: ",
+   "i": 19,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "WARNING: GetKeyUp on illegal value: ",
+   "i": 20,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "WARNING: Loop stack vars not present at line: ",
+   "i": 21,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "WARNING: Taking item from an empty stack: ",
+   "i": 22,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "WARNING: Taking item from and empty stack: ",
+   "i": 23,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\\t",
+   "i": 24,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "corePool is full.  Dropping core",
+   "i": 25,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "float: ",
+   "i": 26,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "int: ",
+   "i": 27,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "null: ",
+   "i": 28,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "string: ",
+   "i": 29,
+   "cls": "CrplCore",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Data Deserialize Exception contents: ",
+   "i": 39,
+   "cls": "Data",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Data Deserialize Exception: ",
+   "i": 40,
+   "cls": "Data",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Data Error",
+   "i": 41,
+   "cls": "DataErrorException",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "List Loaded GameObjects",
+   "i": 53,
+   "cls": "DetectLeaks",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "List Loaded Sounds",
+   "i": 54,
+   "cls": "DetectLeaks",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "List Loaded Textures",
+   "i": 55,
+   "cls": "DetectLeaks",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Mono Garbage Collect",
+   "i": 56,
+   "cls": "DetectLeaks",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Unload Unused Assets",
+   "i": 57,
+   "cls": "DetectLeaks",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Cant handle non file archives",
+   "i": 58,
+   "cls": "DiskArchiveStorage",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "No temporary stream has been created",
+   "i": 59,
+   "cls": "DiskArchiveStorage,MemoryArchiveStorage",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "{0}.{1}{2}.tmp",
+   "i": 60,
+   "cls": "DiskArchiveStorage",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" when attempting to call PositionOnScreen()",
+   "i": 61,
+   "cls": "EZScreenPlacement",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Render camera not yet assigned to EZScreenPlacement component of \"",
+   "i": 62,
+   "cls": "EZScreenPlacement",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" which points to \"",
+   "i": 63,
+   "cls": "EZScreenPlacementMirror",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" would create a circular dependency.  Please check your placement dependencies to resolve this.",
+   "i": 64,
+   "cls": "EZScreenPlacementMirror",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "ERROR: The Relative Object you recently assigned on \"",
+   "i": 65,
+   "cls": "EZScreenPlacementMirror",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ".crpl",
+   "i": 66,
+   "cls": "EditMapGUI",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ".crpl\n# Created on: ",
+   "i": 67,
+   "cls": "EditMapGUI",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "128x128 PP",
+   "i": 68,
+   "cls": "EditMapGUI",
+   "batch": "full_05",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "256x256 PP",
+   "i": 0,
+   "cls": "EditMapGUI",
+   "batch": "full_06",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "64x64 PP",
+   "i": 1,
+   "cls": "EditMapGUI",
+   "batch": "full_06",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Exceeds MaxDate",
+   "i": 16,
+   "cls": "ExtendedPathFilter",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Exceeds MinDate",
+   "i": 17,
+   "cls": "ExtendedPathFilter",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "{0:F1} {1:F1} {2}X",
+   "i": 18,
+   "cls": "FPS,GameSpace",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "*.jpg",
+   "i": 19,
+   "cls": "FileManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ".jpg",
+   "i": 20,
+   "cls": "FileManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "RenameDir Error",
+   "i": 21,
+   "cls": "FileManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Screenshots/",
+   "i": 22,
+   "cls": "FileManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "colonialspace/",
+   "i": 23,
+   "cls": "FileManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "creeperworld3/",
+   "i": 24,
+   "cls": "FileManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "keydata.dat",
+   "i": 25,
+   "cls": "FileManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "steam-",
+   "i": 26,
+   "cls": "FileManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "steam-uninitialized",
+   "i": 27,
+   "cls": "FileManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "*.cw3",
+   "i": 28,
+   "cls": "GalGUIHandlers",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Far York",
+   "i": 29,
+   "cls": "GalGUIHandlers,SystemManager,Terrain",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "AddEditSelectedStar : ",
+   "i": 33,
+   "cls": "GalManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "AddEditSelectedStar. actually added",
+   "i": 34,
+   "cls": "GalManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Space-Music",
+   "i": 41,
+   "cls": "GalManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\\Resources\\",
+   "i": 42,
+   "cls": "GalManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Sprite/Vertex Colored, Fast",
+   "i": 43,
+   "cls": "GalSunManager,MapPreviewManager",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " w,h: ",
+   "i": 45,
+   "cls": "GalaxySpace",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Alien-Atmosphere",
+   "i": 46,
+   "cls": "GalaxySpace",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Create AudioController",
+   "i": 47,
+   "cls": "GalaxySpace",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Mouse ScrollWheel",
+   "i": 49,
+   "cls": "GalaxySpace,GameSpace,SGT_InputHelper,SectorManager,SystemManager,UICamera",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Null Screenshot data",
+   "i": 51,
+   "cls": "GalaxySpace,GameSpace",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Setting Res",
+   "i": 53,
+   "cls": "GalaxySpace",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " spore(s) in ",
+   "i": 62,
+   "cls": "GameSpace",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "-pam-",
+   "i": 63,
+   "cls": "GameSpace",
+   "batch": "full_07",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "GameSpace.OnApplicationQuit",
+   "i": 4,
+   "cls": "GameSpace",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "ZoomIdeal final height: ",
+   "i": 14,
+   "cls": "GameSpace",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "ZoomIdeal final s: ",
+   "i": 15,
+   "cls": "GameSpace",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "ZoomIdeal: ",
+   "i": 16,
+   "cls": "GameSpace",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "alpha_Aigues-Mortes",
+   "i": 17,
+   "cls": "GameSpace",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "cellRoundedHeight: ",
+   "i": 18,
+   "cls": "GameSpace",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "newHeight: ",
+   "i": 19,
+   "cls": "GameSpace",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "{0:D}:{1:D2}",
+   "i": 20,
+   "cls": "GameSpace",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "{0:D}:{1:D2}.{2:D}",
+   "i": 21,
+   "cls": "GameSpace",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "{0:D}:{1:D2}:{2:D2}",
+   "i": 22,
+   "cls": "GameSpace",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "{0:D}:{1:D2}:{2:D2}.{3:D}",
+   "i": 23,
+   "cls": "GameSpace",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "GameStats[]",
+   "i": 40,
+   "cls": "GameStats",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "1X",
+   "i": 85,
+   "cls": "GeneralHandlers,WorldMachineManager",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "1XButton",
+   "i": 86,
+   "cls": "GeneralHandlers",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "2X",
+   "i": 87,
+   "cls": "GeneralHandlers,WorldMachineManager",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "2XButton",
+   "i": 88,
+   "cls": "GeneralHandlers",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "3X",
+   "i": 89,
+   "cls": "GeneralHandlers",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "3XButton",
+   "i": 90,
+   "cls": "GeneralHandlers",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "4X",
+   "i": 91,
+   "cls": "GeneralHandlers",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "4XButton",
+   "i": 92,
+   "cls": "GeneralHandlers",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "[00e000]FLOWING",
+   "i": 95,
+   "cls": "GeneralHandlers",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "[00e000]Sound On",
+   "i": 96,
+   "cls": "GeneralHandlers",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "[ff0000]Sound Off",
+   "i": 98,
+   "cls": "GeneralHandlers",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "No downsample shader assigned! Disabling glow.",
+   "i": 99,
+   "cls": "GlowEffect",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "UtilityFramesPerSecond needs a GUIText component!",
+   "i": 100,
+   "cls": "HUDFPS",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "{0:F2} FPS",
+   "i": 101,
+   "cls": "HUDFPS",
+   "batch": "full_08",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "2a_MiddleScrollCheckbox",
+   "i": 9,
+   "cls": "InputManager",
+   "batch": "full_09",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Creeper World 3 Keys\r\n",
+   "i": 10,
+   "cls": "InputManager",
+   "batch": "full_09",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "JPEGEncoder not complete, cannot get bytes!",
+   "i": 15,
+   "cls": "JPGEncoder",
+   "batch": "full_09",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Creeper World III",
+   "i": 16,
+   "cls": "KeyEntryGUI,PreludeManager",
+   "batch": "full_09",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "2.12 Steam",
+   "i": 28,
+   "cls": "MainMenu",
+   "batch": "full_09",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Game Version: 2.12",
+   "i": 31,
+   "cls": "MainMenu",
+   "batch": "full_09",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Main-Screen-Theme",
+   "i": 34,
+   "cls": "MainMenu",
+   "batch": "full_09",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "OnApplicationQuit()",
+   "i": 36,
+   "cls": "MainMenu",
+   "batch": "full_09",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Using base game data dir: ",
+   "i": 39,
+   "cls": "MainMenu",
+   "batch": "full_09",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Using base settings dir: ",
+   "i": 40,
+   "cls": "MainMenu",
+   "batch": "full_09",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VER=",
+   "i": 41,
+   "cls": "MainMenu",
+   "batch": "full_09",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "u=",
+   "i": 51,
+   "cls": "MainMenu",
+   "batch": "full_09",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Screen Res: (",
+   "i": 0,
+   "cls": "MenuHandlers,PixelSizeScript",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Abrax... Imper...???",
+   "i": 1,
+   "cls": "MessageDialogManager",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " completionTime=",
+   "i": 6,
+   "cls": "MissionData",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " conversationShown=",
+   "i": 7,
+   "cls": "MissionData",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " lastCompletionTime=",
+   "i": 8,
+   "cls": "MissionData",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " lastPlayed=",
+   "i": 9,
+   "cls": "MissionData",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " lastScore=",
+   "i": 10,
+   "cls": "MissionData",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " playCount=",
+   "i": 11,
+   "cls": "MissionData",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " rating=",
+   "i": 12,
+   "cls": "MissionData",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " score=",
+   "i": 13,
+   "cls": "MissionData",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " submittedScore=",
+   "i": 14,
+   "cls": "MissionData",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "MissionData[GUID=",
+   "i": 15,
+   "cls": "MissionData",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "DUMP: ",
+   "i": 16,
+   "cls": "MissionStats",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "MortarShell not Created",
+   "i": 17,
+   "cls": "MortarBarrelManager,ThorBigGunManager,ThorGunManager",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Desc: (",
+   "i": 22,
+   "cls": "MySectorGUI",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Email:",
+   "i": 24,
+   "cls": "MySectorGUI",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "UploadMap: ",
+   "i": 31,
+   "cls": "MySectorGUI",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "<null>",
+   "i": 34,
+   "cls": "NGUITools",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Missing terminating escape character",
+   "i": 35,
+   "cls": "NameFilter",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Noise shaders are not set up! Disabling noise effect.",
+   "i": 36,
+   "cls": "NoiseEffect",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "POOL:",
+   "i": 38,
+   "cls": "ObjectPool",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " not created with ObjectPoolController",
+   "i": 39,
+   "cls": "ObjectPoolController",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "' is not poolable",
+   "i": 40,
+   "cls": "ObjectPoolController",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Can not preload because prefab '",
+   "i": 41,
+   "cls": "ObjectPoolController",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Poolable object ",
+   "i": 42,
+   "cls": "ObjectPoolController",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "maxLen == kNoLen",
+   "i": 44,
+   "cls": "Parser",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "switch is not full",
+   "i": 45,
+   "cls": "Parser",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "switch must be single",
+   "i": 46,
+   "cls": "Parser",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Cannot seek past end",
+   "i": 47,
+   "cls": "PartialInputStream",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Negative position is invalid",
+   "i": 48,
+   "cls": "PartialInputStream",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "resetEffect killing: ",
+   "i": 49,
+   "cls": "ParticleSpiralEffect",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Object for PoolableReference must be poolable",
+   "i": 53,
+   "cls": "PoolableReference`1",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Knuckle Cracker",
+   "i": 67,
+   "cls": "PreludeManager",
+   "batch": "full_10",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Decrypted: ",
+   "i": 6,
+   "cls": "RC4",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Encrypted: ",
+   "i": 7,
+   "cls": "RC4",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "This is a key",
+   "i": 8,
+   "cls": "RC4",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "This is a test string",
+   "i": 9,
+   "cls": "RC4",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " isRegistered:",
+   "i": 10,
+   "cls": "RegisteredComponent",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " isUnregistered:",
+   "i": 11,
+   "cls": "RegisteredComponent",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "RegisteredComponent: Awake() / OnDestroy() not correctly called. Object: ",
+   "i": 12,
+   "cls": "RegisteredComponent",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "RegisteredComponentController error: Tried to register same instance twice",
+   "i": 13,
+   "cls": "RegisteredComponentController",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "RegisteredComponentController error: Tried to unregister unknown instance",
+   "i": 14,
+   "cls": "RegisteredComponentController",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " has no receiver!",
+   "i": 44,
+   "cls": "SGT_Helper",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "' shader",
+   "i": 45,
+   "cls": "SGT_Helper",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Failed to find the '",
+   "i": 46,
+   "cls": "SGT_Helper",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "SendSingleMessage ",
+   "i": 47,
+   "cls": "SGT_Helper",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Mouse X",
+   "i": 48,
+   "cls": "SGT_InputHelper",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Mouse Y",
+   "i": 49,
+   "cls": "SGT_InputHelper",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "MultiMesh Child",
+   "i": 51,
+   "cls": "SGT_MultiMesh",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "The root GameObject has not been set for this MultiMesh!",
+   "i": 52,
+   "cls": "SGT_MultiMesh",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "(Displaced)",
+   "i": 56,
+   "cls": "SGT_SurfaceDisplacement",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " task is over budget by ",
+   "i": 57,
+   "cls": "SGT_SurfaceTessellator",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Tessellator Generated",
+   "i": 58,
+   "cls": "SGT_SurfaceTessellator",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "The ",
+   "i": 59,
+   "cls": "SGT_SurfaceTessellator",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Could not load ammo: ",
+   "i": 60,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Tried to load internal system data and failed: ",
+   "i": 61,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "artifactstats.dat",
+   "i": 62,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "dmd.dat",
+   "i": 63,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "dmdnamecache.dat",
+   "i": 64,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "favorites.dat",
+   "i": 65,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "inhibited.dat",
+   "i": 66,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "missionstats.dat",
+   "i": 67,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "reports.dat",
+   "i": 68,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "sector.dat",
+   "i": 69,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "sectors/",
+   "i": 70,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "system.dat",
+   "i": 71,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "systemstats.dat",
+   "i": 72,
+   "cls": "SaveGameManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Scripts Successfully compiled into ",
+   "i": 80,
+   "cls": "ScriptManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " opcodes.\n",
+   "i": 81,
+   "cls": "ScriptManager",
+   "batch": "full_11",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Could not find location for star 2",
+   "i": 0,
+   "cls": "SectorManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Hunter Seeker",
+   "i": 1,
+   "cls": "SectorManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Null currentStar",
+   "i": 6,
+   "cls": "SectorManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "snowmaker (JM)",
+   "i": 7,
+   "cls": "SectorManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Can't Read 1",
+   "i": 8,
+   "cls": "SevenZipHelper",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "input .lzma is too short",
+   "i": 9,
+   "cls": "SevenZipHelper",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "3D Graphics Settings",
+   "i": 12,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Bottom-left",
+   "i": 13,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Bottom-right",
+   "i": 14,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Compound Control - Toggle Listbox",
+   "i": 15,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Enemy Shadows",
+   "i": 16,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "I'm listItem number ",
+   "i": 17,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Im\na\ntest\nBox",
+   "i": 18,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Im a Button",
+   "i": 19,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Im a Label",
+   "i": 20,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Im a Toggle button",
+   "i": 21,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Im a textfield",
+   "i": 22,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Im a textfield\nIm the second line\nIm the third line\nIm the fourth line",
+   "i": 23,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Metal Vista",
+   "i": 24,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Object Glow",
+   "i": 25,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Orange Unity",
+   "i": 26,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Particle Effects",
+   "i": 27,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Soft Shadows",
+   "i": 28,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Top-left",
+   "i": 29,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Top-right",
+   "i": 30,
+   "cls": "SkinTest",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "**********************ALERT NULL ",
+   "i": 31,
+   "cls": "SniperBarrelManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "en-US",
+   "i": 32,
+   "cls": "SplashManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Unity Bug",
+   "i": 36,
+   "cls": "Sprite",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" has not been assigned to a SpriteManager!",
+   "i": 37,
+   "cls": "SpriteRoot",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Managed sprite \"",
+   "i": 38,
+   "cls": "SpriteRoot",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "?",
+   "i": 39,
+   "cls": "StarManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Achieved: ",
+   "i": 40,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "AverageSpeed: ",
+   "i": 41,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "FeetTraveled: ",
+   "i": 42,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "MaxFeetTraveled: ",
+   "i": 43,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "NumGames: ",
+   "i": 44,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "NumLosses: ",
+   "i": 45,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "NumWins: ",
+   "i": 46,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "RESET STATS AND ACHIEVEMENTS",
+   "i": 47,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Received stats and achievements from Steam\n",
+   "i": 48,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "STAT testStat1: ",
+   "i": 49,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "StoreStats - some failed to validate",
+   "i": 50,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "StoreStats - success",
+   "i": 51,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "m_flGameDurationSeconds: ",
+   "i": 52,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "m_flGameFeetTraveled: ",
+   "i": 53,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "m_ulTickCountGameStart: ",
+   "i": 54,
+   "cls": "StatsAndAchievements",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Restarting App",
+   "i": 55,
+   "cls": "SteamManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "SteamManager Initialization sucess.",
+   "i": 56,
+   "cls": "SteamManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "SteamManager.Awake",
+   "i": 57,
+   "cls": "SteamManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Tried to Initialize the SteamAPI twice in one session!",
+   "i": 58,
+   "cls": "SteamManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "cannot be less than zero",
+   "i": 59,
+   "cls": "StrangeCRC",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" was found on sprite \"",
+   "i": 62,
+   "cls": "SuperSpriteAnimElement",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\". Please verify the spelling and capitalization of the name, including any extra spaces, etc.",
+   "i": 63,
+   "cls": "SuperSpriteAnimElement",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "SuperSprite error: No animation by the name of \"",
+   "i": 64,
+   "cls": "SuperSpriteAnimElement",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Choix,",
+   "i": 65,
+   "cls": "SystemManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Defi",
+   "i": 66,
+   "cls": "SystemManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Flick",
+   "i": 67,
+   "cls": "SystemManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Jojo,",
+   "i": 68,
+   "cls": "SystemManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Krig",
+   "i": 69,
+   "cls": "SystemManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Meso,",
+   "i": 70,
+   "cls": "SystemManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Ormos,",
+   "i": 71,
+   "cls": "SystemManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Otrav,",
+   "i": 72,
+   "cls": "SystemManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Ruine,",
+   "i": 73,
+   "cls": "SystemManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Seedet,",
+   "i": 74,
+   "cls": "SystemManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Null sun. Making a black hole",
+   "i": 80,
+   "cls": "SystemManager",
+   "batch": "full_12",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "[ff7f7f]Crosslaw",
+   "i": 4,
+   "cls": "SystemManager",
+   "batch": "full_13",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "[ff7f7f]Far York",
+   "i": 5,
+   "cls": "SystemManager",
+   "batch": "full_13",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "[ff7f7f]Lemal",
+   "i": 6,
+   "cls": "SystemManager",
+   "batch": "full_13",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "[ff7f7f]Mistet",
+   "i": 7,
+   "cls": "SystemManager",
+   "batch": "full_13",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "[ff7f7f]Seedet",
+   "i": 8,
+   "cls": "SystemManager",
+   "batch": "full_13",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "[ff7f7f]Telos",
+   "i": 9,
+   "cls": "SystemManager",
+   "batch": "full_13",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "[ff7f7f]Tempus",
+   "i": 10,
+   "cls": "SystemManager",
+   "batch": "full_13",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ".png",
+   "i": 33,
+   "cls": "TerraformCommandCenter",
+   "batch": "full_13",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "TerrainBrightness = {",
+   "i": 1,
+   "cls": "Terrain",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "TerrainLevels = {",
+   "i": 2,
+   "cls": "Terrain",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "The Rock",
+   "i": 3,
+   "cls": "Terrain",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "OpenCustomImageFile: ",
+   "i": 8,
+   "cls": "TexturePickerManager",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "!Empty",
+   "i": 14,
+   "cls": "Tree",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Heap invariant violated",
+   "i": 15,
+   "cls": "Tree",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "TweenVolume needs an AudioSource to work with",
+   "i": 16,
+   "cls": "TweenVolume",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Can't switch coordinates until the atlas material has a valid texture",
+   "i": 17,
+   "cls": "UIAtlas",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " has nothing for UIButtonColor to color",
+   "i": 18,
+   "cls": "UIButtonColor",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " on a parent object in order to work",
+   "i": 19,
+   "cls": "UICenterOnChild",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " requires ",
+   "i": 20,
+   "cls": "UICenterOnChild",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " needs the 'Root For Bounds' parameter to be set",
+   "i": 21,
+   "cls": "UIDraggableCamera",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " (AlphaClip)",
+   "i": 22,
+   "cls": "UIDrawCall",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " (SoftClip)",
+   "i": 23,
+   "cls": "UIDrawCall",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Mesh0 for ",
+   "i": 24,
+   "cls": "UIDrawCall",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Mesh1 for ",
+   "i": 25,
+   "cls": "UIDrawCall",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Too many vertices on one panel: ",
+   "i": 26,
+   "cls": "UIDrawCall",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "UIWidgets must fill the buffer with 4 vertices per quad. Found ",
+   "i": 27,
+   "cls": "UIDrawCall",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Unlit/Depth Cutout",
+   "i": 28,
+   "cls": "UIDrawCall",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Attempting to print using an invalid font!",
+   "i": 29,
+   "cls": "UIFont",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "_UIDrawCall [",
+   "i": 30,
+   "cls": "UIPanel",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Expected to find widgets to work with",
+   "i": 31,
+   "cls": "UIPanelAlpha",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "SendMessage is bugged when you try to pass 'null' in the parameter field. It behaves as if no parameter was specified.",
+   "i": 33,
+   "cls": "UIRoot",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "UIRoot should not be active at the same time as UIOrthoCamera. Disabling UIOrthoCamera.",
+   "i": 34,
+   "cls": "UIRoot",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Slider thumb is only supported with Horizontal or Vertical fill direction",
+   "i": 35,
+   "cls": "UISlider",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "UISlider expected to find a foreground object or a box collider to work with",
+   "i": 36,
+   "cls": "UISlider",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " seems to have a null sprite!",
+   "i": 37,
+   "cls": "UISprite",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ") is too small.\nConsider using a bigger one.",
+   "i": 38,
+   "cls": "UISprite",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "The tiled sprite (",
+   "i": 39,
+   "cls": "UISprite",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "You can't place widgets on a layer different than the UIPanel that manages them.\nIf you want to move widgets to a different layer, parent them to a new panel instead.",
+   "i": 40,
+   "cls": "UIWidget",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Exception caught in UVAnimation.SetAnim(). Make sure you have re-built your atlases!\nException: ",
+   "i": 41,
+   "cls": "UVAnimation",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Open Folder",
+   "i": 42,
+   "cls": "UniFileBrowserExample",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "You selected file: ",
+   "i": 43,
+   "cls": "UniFileBrowserExample",
+   "batch": "full_14",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "You selected folder: ",
+   "i": 0,
+   "cls": "UniFileBrowserExample",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "You selected these files:\n",
+   "i": 1,
+   "cls": "UniFileBrowserExample",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "You're saving file: ",
+   "i": 2,
+   "cls": "UniFileBrowserExample",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Multiple Rotation Images specified but rotationAnimation is Null",
+   "i": 4,
+   "cls": "UnitManager",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Trying to connect to a null unit",
+   "i": 12,
+   "cls": "UnitManager",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Targets: ",
+   "i": 14,
+   "cls": "UnitToBuildManager",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " found in the scene.",
+   "i": 15,
+   "cls": "UnitySingleton`1",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Auto created object does not have component ",
+   "i": 16,
+   "cls": "UnitySingleton`1",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "No singleton component ",
+   "i": 17,
+   "cls": "UnitySingleton`1",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " array for \"",
+   "i": 18,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " array in \"",
+   "i": 19,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " needs at least 1 segment",
+   "i": 20,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " with an index of ",
+   "i": 21,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " would exceed the length of the Vector array for \"",
+   "i": 22,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " would exceed the length of the Vector2 array for \"",
+   "i": 23,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" doesn't have",
+   "i": 24,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" must be exactly half the length of points array",
+   "i": 25,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" must be exactly half the length of points array for a discrete line (one entry per line segment)",
+   "i": 26,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" must be length of points array minus one",
+   "i": 27,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" must be length of points array minus one for a continuous line (one entry per line segment)",
+   "i": 28,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" must be same length as points array",
+   "i": 29,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" must be the same length as the points array",
+   "i": 30,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" must not be resized. Use Resize if you need to change the length of the points array",
+   "i": 31,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" when calling ZeroPoints. StartIndex: ",
+   "i": 32,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\" when using LineType.Discrete",
+   "i": 33,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\", but SetWidths has not been used",
+   "i": 34,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\", but VectorLine.SetWidths has not been used",
+   "i": 35,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\"...use fewer points",
+   "i": 36,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "' is not valid",
+   "i": 37,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ", EndIndex: ",
+   "i": 38,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ", array length: ",
+   "i": 39,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": The length of the array for continuous lines needs to be at least the number of segments plus one for \"",
+   "i": 40,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": The length of the array for discrete lines needs to be at least twice the number of segments for \"",
+   "i": 41,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": ": The number of segments cannot exceed the number of points in the array for \"",
+   "i": 42,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Calling VectorLine.MakeRect with an index of ",
+   "i": 43,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Must supply a Vector2 array instead of a Vector3 array for \"",
+   "i": 44,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Must supply a Vector3 array instead of a Vector2 array for \"",
+   "i": 45,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Shader \"Vertex Colors/Alpha\" {Category{Tags {\"Queue\"=\"Transparent\" \"IgnoreProjector\"=\"True\" \"RenderType\"=\"Transparent\"}SubShader {Cull Off ZWrite On Blend SrcAlpha OneMinusSrcAlpha Pass {BindChannels {Bind \"Color\", color Bind \"Vertex\", vertex}}}}}",
+   "i": 46,
+   "cls": "VectorLine",
+   "batch": "full_15",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "The points array for \"",
+   "i": 0,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "The points array must contain at least two points",
+   "i": 1,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Vector ",
+   "i": 2,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.",
+   "i": 3,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.BytesToVector2Array: Incorrect input byte length...must be a multiple of 8",
+   "i": 4,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.BytesToVector3Array: Incorrect input byte length...must be a multiple of 12",
+   "i": 5,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.Draw called with smooth line widths for \"",
+   "i": 6,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.Draw3D called with smooth line widths for \"",
+   "i": 7,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.Draw3D can only be used with a Vector3 array, which \"",
+   "i": 8,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.Draw3D: You must call SetCamera or SetCamera3D before calling Draw3D for \"",
+   "i": 9,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.Draw: The points array for \"",
+   "i": 10,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.Draw: You must call SetCamera before calling Draw for \"",
+   "i": 11,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.DrawViewport called with smooth line widths for \"",
+   "i": 12,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.DrawViewport can only be used with a Vector2 array, which \"",
+   "i": 13,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.DrawViewport can't be used with VectorPoints",
+   "i": 14,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.DrawViewport: You must call SetCamera before calling DrawViewport for \"",
+   "i": 15,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.GetLinePoint needs at least 2 points in the points2 array",
+   "i": 16,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.GetLinePoint only works with Vector2 points",
+   "i": 17,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.GetLinePoint3D needs at least 2 points in the points3 array",
+   "i": 18,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.GetLinePoint3D only works with Vector3 points",
+   "i": 19,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeCurve needs exactly 4 points in the curve points array",
+   "i": 20,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeEllipse needs at least 3 segments",
+   "i": 21,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeLine: Must call SetLineParameters before using MakeLine with these parameters",
+   "i": 22,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeRect: The length of the array for continuous lines needs to be at least 5 for \"",
+   "i": 23,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeRect: The length of the array for discrete lines needs to be at least 8 for \"",
+   "i": 24,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeSpline needs at least 2 spline points",
+   "i": 25,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeSpline was called with a Vector2 spline points array, but the line uses Vector3 points",
+   "i": 26,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeSpline was called with a Vector3 spline points array, but the line uses Vector2 points",
+   "i": 27,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeText can only be used with a discrete line",
+   "i": 28,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeText: Character '",
+   "i": 29,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeWireframe can't use a null mesh",
+   "i": 30,
+   "cls": "VectorLine",
+   "batch": "full_16",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeWireframe only works with Vector3 points",
+   "i": 0,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.MakeWireframe only works with a discrete line",
+   "i": 1,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.Resize: Must have an even points array length for \"",
+   "i": 2,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetCamera3D: no camera tagged \"Main Camera\" found. Please call SetCamera3D with a specific camera instead.",
+   "i": 3,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetCamera: no camera tagged \"Main Camera\" found",
+   "i": 4,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetColors: Length of color",
+   "i": 5,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetColors: Length of lineColors array in \"",
+   "i": 6,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetColors: line colors array must not be null",
+   "i": 7,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetColorsSmooth must be used with a line rather than points",
+   "i": 8,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetColorsSmooth: Length of color",
+   "i": 9,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetLine needs at least two points",
+   "i": 10,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetLine3D needs at least two points",
+   "i": 11,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetTextureScale: You must call SetCamera3D before calling SetTextureScale",
+   "i": 12,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetWidths: Length of line widths",
+   "i": 13,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetWidths: line widths array must be the same length as the points array for \"",
+   "i": 14,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine.SetWidths: line widths array must not be null",
+   "i": 15,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine: Calling ",
+   "i": 16,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine: Length of color array for \"",
+   "i": 17,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine: Must have an even points array length for \"",
+   "i": 18,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine: Must use LineType.Continuous if using Joins.Fill for \"",
+   "i": 19,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine: exceeded maximum vertex count of 65534 for \"",
+   "i": 20,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine: index out of range for \"",
+   "i": 21,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorLine: the points array is null for \"",
+   "i": 22,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Vectorline: the colors array is null for \"",
+   "i": 23,
+   "cls": "VectorLine",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": " Bounds",
+   "i": 24,
+   "cls": "VectorManager",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorManager: GetBounds can only be used with a Vector3 array",
+   "i": 25,
+   "cls": "VectorManager",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorManager: object number exceeds array length in DistanceRemove",
+   "i": 26,
+   "cls": "VectorManager",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorManager: object number exceeds array length in VisibilityRemove",
+   "i": 27,
+   "cls": "VectorManager",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "VectorManager: object number exceeds array length in VisibilityStaticRemove",
+   "i": 28,
+   "cls": "VectorManager",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Directory name is invalid",
+   "i": 29,
+   "cls": "WindowsNameTransform",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "\\\\",
+   "i": 30,
+   "cls": "WindowsNameTransform",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "invalid path character",
+   "i": 31,
+   "cls": "WindowsNameTransform",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "invalid replacement character",
+   "i": 32,
+   "cls": "WindowsNameTransform",
+   "batch": "full_17",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "ReadBoolArrayNode returning null",
+   "i": 103,
+   "cls": "XMLHelper",
+   "batch": "full_18",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "Tween Error: Hash requires an even number of arguments!",
+   "i": 104,
+   "cls": "iTween",
+   "batch": "full_18",
+   "why": "未在译稿中出现（默认跳过）"
+  },
+  {
+   "en": "{0}.{1}.{2}.{3}:{4}",
+   "i": 105,
+   "cls": "servernetadr_t",
+   "batch": "full_18",
+   "why": "未在译稿中出现（默认跳过）"
+  }
+ ]
+}

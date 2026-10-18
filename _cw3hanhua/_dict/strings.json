@@ -2267,7 +2267,7 @@
   },
   {
    "en": "[ffffe0]Precursor worlds.[ffffff]\nBefore space as we know it was formed,\nthese worlds were the pillars of reality.\n[ff5050]To Access:\n[ff0000]Collect 50 Artifacts of Odin in Prospector.",
-   "zh": "",
+   "zh": "[ffffe0]先民世界。[ffffff]\n在我们所知的空间成形之前，\n这些世界是现实的支柱。\n[ff5050]进入条件：\n[ff0000]在探矿者星区收集 50 件奥丁圣物。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2280,7 +2280,7 @@
   },
   {
    "en": "Original Music\r\nComposed and Produced by:\r\nFinn M-K\r\nhttp://www.composerprofiles.com/profile-finn-m-k\r\nhttps://soundcloud.com/finnmk",
-   "zh": "",
+   "zh": "原创音乐\r\n作曲与制作：\r\nFinn M-K\r\nhttp://www.composerprofiles.com/profile-finn-m-k\r\nhttps://soundcloud.com/finnmk",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2293,7 +2293,7 @@
   },
   {
    "en": "Click and Drag unit to move.  Double Click unit to edit properties.",
-   "zh": "",
+   "zh": "点击并拖动单位以移动。双击单位以编辑属性。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2306,7 +2306,7 @@
   },
   {
    "en": "[20ff00]LEFT MOUSE TO ADD[ffffff].  [ff0000]RIGHT MOUSE TO REMOVE",
-   "zh": "",
+   "zh": "[20ff00]左键添加[ffffff]。  [ff0000]右键移除",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2319,7 +2319,7 @@
   },
   {
    "en": "  Visit KnuckleCracker.com \nfor the amazing full version!",
-   "zh": "",
+   "zh": "  访问 KnuckleCracker.com \n获取精彩的完整版！",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2332,7 +2332,7 @@
   },
   {
    "en": "[ffffa0]\"SHIFT-T\" to select terrain height under mouse.",
-   "zh": "",
+   "zh": "[ffffa0]\"SHIFT-T\" 选取鼠标下的地形高度。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2345,7 +2345,7 @@
   },
   {
    "en": "Press '[ffff00]C[-]' to clone the last edited unit.",
-   "zh": "",
+   "zh": "按 '[ffff00]C[-]' 克隆上次编辑的单位。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2358,7 +2358,7 @@
   },
   {
    "en": "Continue the journey!\nVisit KnuckleCracker.com",
-   "zh": "",
+   "zh": "继续旅程！\n访问 KnuckleCracker.com",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2371,7 +2371,7 @@
   },
   {
    "en": "Press and hold 'M' over a planet to drag it.",
-   "zh": "",
+   "zh": "在星球上按住 'M' 可拖动它。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2384,7 +2384,7 @@
   },
   {
    "en": "Left Click a destination to initiate warp.",
-   "zh": "",
+   "zh": "左键点击目的地以启动跃迁。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2397,7 +2397,7 @@
   },
   {
    "en": "SELECT A WORMHOLE TO JUMP TO THAT SECTOR",
-   "zh": "",
+   "zh": "选择虫洞以跃迁至该星区",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2410,7 +2410,7 @@
   },
   {
    "en": "Connect to Totems to generate Aether",
-   "zh": "",
+   "zh": "连接图腾以产生以太",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2423,7 +2423,7 @@
   },
   {
    "en": "Press '[ffff00]X[-]' to delete unit.",
-   "zh": "",
+   "zh": "按 '[ffff00]X[-]' 删除单位。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2436,7 +2436,7 @@
   },
   {
    "en": "Copyright 2016 Knuckle Cracker, LLC",
-   "zh": "",
+   "zh": "版权所有 2016 Knuckle Cracker, LLC",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2449,7 +2449,7 @@
   },
   {
    "en": "Press '[ffff00]B[-]' to build unit.",
-   "zh": "",
+   "zh": "按 '[ffff00]B[-]' 建造单位。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2462,7 +2462,7 @@
   },
   {
    "en": "Calibrating Planetary Scanners...",
-   "zh": "",
+   "zh": "正在校准行星扫描仪…",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2475,7 +2475,7 @@
   },
   {
    "en": "Choose a Slot to Load or Restart",
-   "zh": "",
+   "zh": "选择存档位以载入或重新开始",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2501,7 +2501,7 @@
   },
   {
    "en": "REFRESHING. PLEASE WAIT.... ",
-   "zh": "",
+   "zh": "正在刷新，请稍候…… ",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2514,7 +2514,7 @@
   },
   {
    "en": "A new version is available!",
-   "zh": "",
+   "zh": "有新版本可用！",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2527,7 +2527,7 @@
   },
   {
    "en": "Auto Launch (If Target Set)",
-   "zh": "",
+   "zh": "自动发射（已设目标时）",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2540,7 +2540,7 @@
   },
   {
    "en": "Spore Launch in 30 seconds!",
-   "zh": "",
+   "zh": "30 秒后发射孢子！",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2553,7 +2553,7 @@
   },
   {
    "en": "Enable AC Collection Field",
-   "zh": "",
+   "zh": "启用 AC 收集场",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2566,7 +2566,7 @@
   },
   {
    "en": "'ARTIFACTS OF ODIN' SCORE",
-   "zh": "",
+   "zh": "「奥丁圣物」得分",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2579,7 +2579,7 @@
   },
   {
    "en": "Dispatch Excess AC as Ore",
-   "zh": "",
+   "zh": "将多余 AC 作为矿输出",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2592,7 +2592,7 @@
   },
   {
    "en": "Scroll to Current System",
-   "zh": "",
+   "zh": "滚动至当前星系",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2605,7 +2605,7 @@
   },
   {
    "en": "Terraform Nearest First",
-   "zh": "",
+   "zh": "优先改造最近地形",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2618,7 +2618,7 @@
   },
   {
    "en": "Create \nFinalized Map",
-   "zh": "",
+   "zh": "创建 \n成品地图",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2631,7 +2631,7 @@
   },
   {
    "en": "Creeper and Digitalis",
-   "zh": "",
+   "zh": "Creeper 与魔苋",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2644,7 +2644,7 @@
   },
   {
    "en": "DESTROY RESOURCE PACK",
-   "zh": "",
+   "zh": "销毁资源包",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2657,7 +2657,7 @@
   },
   {
    "en": "Fresh Ideas In Gaming",
-   "zh": "",
+   "zh": "游戏中的新鲜创意",
    "cat": "asset",
    "grade": "ui",
    "kind": "TextMesh",
@@ -2670,7 +2670,7 @@
   },
   {
    "en": "Get the FULL Version!",
-   "zh": "",
+   "zh": "获取完整版！",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2683,7 +2683,7 @@
   },
   {
    "en": "RESOURCE TO TRANSPORT",
-   "zh": "",
+   "zh": "待运输资源",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2696,7 +2696,7 @@
   },
   {
    "en": "Charge without Forge",
-   "zh": "",
+   "zh": "无锻造厂充能",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2709,7 +2709,7 @@
   },
   {
    "en": "Clear Current Target",
-   "zh": "",
+   "zh": "清除当前目标",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2722,7 +2722,7 @@
   },
   {
    "en": "INHIBITORS DESTROYED",
-   "zh": "",
+   "zh": "已摧毁抑制器",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2735,7 +2735,7 @@
   },
   {
    "en": "Available Tech Pods",
-   "zh": "",
+   "zh": "可用科技舱",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2748,7 +2748,7 @@
   },
   {
    "en": "Bertha Auto Target ",
-   "zh": "",
+   "zh": "贝莎炮自动瞄准 ",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2761,7 +2761,7 @@
   },
   {
    "en": "Conversation Editor",
-   "zh": "",
+   "zh": "对话编辑器",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2774,7 +2774,7 @@
   },
   {
    "en": "Numen Control Panel",
-   "zh": "",
+   "zh": "符文方尖碑控制面板",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2787,7 +2787,7 @@
   },
   {
    "en": "FIRE MAIN \nCANNONS",
-   "zh": "",
+   "zh": "主炮 \n开火",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2800,7 +2800,7 @@
   },
   {
    "en": "Available Aether:",
-   "zh": "",
+   "zh": "可用以太：",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2813,7 +2813,7 @@
   },
   {
    "en": "Shortcut: SHIFT-A",
-   "zh": "",
+   "zh": "快捷键：SHIFT-A",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2826,7 +2826,7 @@
   },
   {
    "en": "Targeting Control",
-   "zh": "",
+   "zh": "瞄准控制",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2852,7 +2852,7 @@
   },
   {
    "en": "Custom Data Path",
-   "zh": "",
+   "zh": "自定义数据路径",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2865,7 +2865,7 @@
   },
   {
    "en": "Delete Digitalis",
-   "zh": "",
+   "zh": "删除魔苋",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2878,7 +2878,7 @@
   },
   {
    "en": "Import From File",
-   "zh": "",
+   "zh": "从文件导入",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2891,7 +2891,7 @@
   },
   {
    "en": "Orbiting Planets",
-   "zh": "",
+   "zh": "环绕行星",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2904,7 +2904,7 @@
   },
   {
    "en": "Totem Efficiency",
-   "zh": "",
+   "zh": "图腾效率",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2930,7 +2930,7 @@
   },
   {
    "en": "Click To Engage",
-   "zh": "",
+   "zh": "点击交战",
    "cat": "asset",
    "grade": "ui",
    "kind": "TextMesh",
@@ -2943,7 +2943,7 @@
   },
   {
    "en": "Editing Overlay",
-   "zh": "",
+   "zh": "编辑叠加层",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2956,7 +2956,7 @@
   },
   {
    "en": "Packet Dispatch",
-   "zh": "",
+   "zh": "能量包派送",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2969,7 +2969,7 @@
   },
   {
    "en": "RETURN TO ORBIT",
-   "zh": "",
+   "zh": "返回轨道",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2982,7 +2982,7 @@
   },
   {
    "en": "Show Creeper/AC",
-   "zh": "",
+   "zh": "显示 Creeper 与 AC",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2995,7 +2995,7 @@
   },
   {
    "en": "Show Explosions",
-   "zh": "",
+   "zh": "显示爆炸",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3008,7 +3008,7 @@
   },
   {
    "en": "Show Map Border",
-   "zh": "",
+   "zh": "显示地图边界",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3021,7 +3021,7 @@
   },
   {
    "en": "Show Sector Map",
-   "zh": "",
+   "zh": "显示星区地图",
    "cat": "asset",
    "grade": "ui",
    "kind": "TextMesh",
@@ -3034,7 +3034,7 @@
   },
   {
    "en": "Target Priority",
-   "zh": "",
+   "zh": "目标优先级",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3047,7 +3047,7 @@
   },
   {
    "en": "CN Info Panels",
-   "zh": "",
+   "zh": "CN 信息面板",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3060,7 +3060,7 @@
   },
   {
    "en": "Current Level:",
-   "zh": "",
+   "zh": "当前关卡：",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3073,7 +3073,7 @@
   },
   {
    "en": "Delete Creeper",
-   "zh": "",
+   "zh": "删除 Creeper",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3086,7 +3086,7 @@
   },
   {
    "en": "Digitalis Only",
-   "zh": "",
+   "zh": "仅魔苋",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3099,7 +3099,7 @@
   },
   {
    "en": "Launch Mission",
-   "zh": "",
+   "zh": "发射任务",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3112,7 +3112,7 @@
   },
   {
    "en": "Map Dimensions",
-   "zh": "",
+   "zh": "地图尺寸",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3125,7 +3125,7 @@
   },
   {
    "en": "Opaque Creeper",
-   "zh": "",
+   "zh": "不透明 Creeper",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3138,7 +3138,7 @@
   },
   {
    "en": "Packet Receive",
-   "zh": "",
+   "zh": "能量包接收",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3151,7 +3151,7 @@
   },
   {
    "en": "Reset Missions",
-   "zh": "",
+   "zh": "重置任务",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3164,7 +3164,7 @@
   },
   {
    "en": "Return to Main",
-   "zh": "",
+   "zh": "返回主菜单",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3177,7 +3177,7 @@
   },
   {
    "en": "Show Air Units",
-   "zh": "",
+   "zh": "显示空中单位",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3216,7 +3216,7 @@
   },
   {
    "en": "Coming Soon !",
-   "zh": "",
+   "zh": "即将推出！",
    "cat": "asset",
    "grade": "ui",
    "kind": "TextMesh",
@@ -3229,7 +3229,7 @@
   },
   {
    "en": "Create Planet",
-   "zh": "",
+   "zh": "创建星球",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3242,7 +3242,7 @@
   },
   {
    "en": "DISCHARGE ALL",
-   "zh": "",
+   "zh": "全部释放",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3255,7 +3255,7 @@
   },
   {
    "en": "Edit Settings",
-   "zh": "",
+   "zh": "编辑设置",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3268,7 +3268,7 @@
   },
   {
    "en": "Load Snapshot",
-   "zh": "",
+   "zh": "载入快照",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3281,7 +3281,7 @@
   },
   {
    "en": "Map Selection",
-   "zh": "",
+   "zh": "地图选择",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3294,7 +3294,7 @@
   },
   {
    "en": "Random Coords",
-   "zh": "",
+   "zh": "随机坐标",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3307,7 +3307,7 @@
   },
   {
    "en": "Show D-Growth",
-   "zh": "",
+   "zh": "显示魔苋生长",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3320,7 +3320,7 @@
   },
   {
    "en": "Skip Epilogue",
-   "zh": "",
+   "zh": "跳过尾声",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3333,7 +3333,7 @@
   },
   {
    "en": "Tech Upgrades",
-   "zh": "",
+   "zh": "科技升级",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3346,7 +3346,7 @@
   },
   {
    "en": "Creeper Only",
-   "zh": "",
+   "zh": "仅 Creeper",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3359,7 +3359,7 @@
   },
   {
    "en": "Fire Convert",
-   "zh": "",
+   "zh": "发射转换",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3372,7 +3372,7 @@
   },
   {
    "en": "Forge Limits",
-   "zh": "",
+   "zh": "锻造厂上限",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3385,7 +3385,7 @@
   },
   {
    "en": "Map Textures",
-   "zh": "",
+   "zh": "地图纹理",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3398,7 +3398,7 @@
   },
   {
    "en": "Map: 300x300",
-   "zh": "",
+   "zh": "地图：300x300",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3411,7 +3411,7 @@
   },
   {
    "en": "Mission Time",
-   "zh": "",
+   "zh": "任务时间",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3424,7 +3424,7 @@
   },
   {
    "en": "Opening Text",
-   "zh": "",
+   "zh": "开场文字",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3437,7 +3437,7 @@
   },
   {
    "en": "Replay Intro",
-   "zh": "",
+   "zh": "重播开场",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3450,7 +3450,7 @@
   },
   {
    "en": "Show Soylent",
-   "zh": "",
+   "zh": "显示营养液",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3463,7 +3463,7 @@
   },
   {
    "en": "Terrain Type",
-   "zh": "",
+   "zh": "地形类型",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3476,7 +3476,7 @@
   },
   {
    "en": "Update Check",
-   "zh": "",
+   "zh": "检查更新",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3489,7 +3489,7 @@
   },
   {
    "en": "Char Images",
-   "zh": "",
+   "zh": "字符图集",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3502,7 +3502,7 @@
   },
   {
    "en": "Click Here!",
-   "zh": "",
+   "zh": "点击这里！",
    "cat": "asset",
    "grade": "ui",
    "kind": "TextMesh",
@@ -3515,7 +3515,7 @@
   },
   {
    "en": "Fire Freeze",
-   "zh": "",
+   "zh": "发射冻结",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3528,7 +3528,7 @@
   },
   {
    "en": "Latest News",
-   "zh": "",
+   "zh": "最新消息",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3541,7 +3541,7 @@
   },
   {
    "en": "Leave World",
-   "zh": "",
+   "zh": "离开世界",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3554,7 +3554,7 @@
   },
   {
    "en": "START HERE!",
-   "zh": "",
+   "zh": "从这里开始！",
    "cat": "asset",
    "grade": "ui",
    "kind": "TextMesh",
@@ -3567,7 +3567,7 @@
   },
   {
    "en": "Score: 9999",
-   "zh": "",
+   "zh": "得分：9999",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3580,7 +3580,7 @@
   },
   {
    "en": "Unit Limits",
-   "zh": "",
+   "zh": "单位上限",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3606,7 +3606,7 @@
   },
   {
    "en": "Load World",
-   "zh": "",
+   "zh": "载入世界",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3619,7 +3619,7 @@
   },
   {
    "en": "Reset Time",
-   "zh": "",
+   "zh": "重置时间",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3632,7 +3632,7 @@
   },
   {
    "en": "Save Slots",
-   "zh": "",
+   "zh": "存档位",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3645,7 +3645,7 @@
   },
   {
    "en": "Sector Map",
-   "zh": "",
+   "zh": "星区地图",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3658,7 +3658,7 @@
   },
   {
    "en": "Skip Intro",
-   "zh": "",
+   "zh": "跳过开场",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3671,7 +3671,7 @@
   },
   {
    "en": "Sniper Gun",
-   "zh": "",
+   "zh": "狙击枪",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3684,7 +3684,7 @@
   },
   {
    "en": "Terra\nForm",
-   "zh": "",
+   "zh": "地形\n改造",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3697,7 +3697,7 @@
   },
   {
    "en": "Always On",
-   "zh": "",
+   "zh": "常开",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3710,7 +3710,7 @@
   },
   {
    "en": "Close Map",
-   "zh": "",
+   "zh": "关闭地图",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3723,7 +3723,7 @@
   },
   {
    "en": "Delete AC",
-   "zh": "",
+   "zh": "删除 AC",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3736,7 +3736,7 @@
   },
   {
    "en": "Fire Mass",
-   "zh": "",
+   "zh": "发射质量",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3749,7 +3749,7 @@
   },
   {
    "en": "Load File",
-   "zh": "",
+   "zh": "载入文件",
    "cat": "asset",
    "grade": "ui",
    "kind": "TextMesh",
@@ -3762,7 +3762,7 @@
   },
   {
    "en": "Load Game",
-   "zh": "",
+   "zh": "载入游戏",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3775,7 +3775,7 @@
   },
   {
    "en": "Main Menu",
-   "zh": "",
+   "zh": "主菜单",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3788,7 +3788,7 @@
   },
   {
    "en": "Set Theme",
-   "zh": "",
+   "zh": "设置主题",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3801,7 +3801,7 @@
   },
   {
    "en": "Show Mist",
-   "zh": "",
+   "zh": "显示迷雾",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3814,7 +3814,7 @@
   },
   {
    "en": "Load Map",
-   "zh": "",
+   "zh": "载入地图",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3827,7 +3827,7 @@
   },
   {
    "en": "Sound On",
-   "zh": "",
+   "zh": "声音开启",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3840,7 +3840,7 @@
   },
   {
    "en": "Up Cost:",
-   "zh": "",
+   "zh": "升级费用：",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3853,7 +3853,7 @@
   },
   {
    "en": "Aether:",
-   "zh": "",
+   "zh": "以太：",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3866,7 +3866,7 @@
   },
   {
    "en": "Launch!",
-   "zh": "",
+   "zh": "发射！",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3879,7 +3879,7 @@
   },
   {
    "en": "FIRE !",
-   "zh": "",
+   "zh": "开火！",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3892,7 +3892,7 @@
   },
   {
    "en": "Lost !",
-   "zh": "",
+   "zh": "失败！",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3905,7 +3905,7 @@
   },
   {
    "en": "Start!",
-   "zh": "",
+   "zh": "开始！",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3918,7 +3918,7 @@
   },
   {
    "en": "Oh My",
-   "zh": "",
+   "zh": "天哪",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3931,7 +3931,7 @@
   },
   {
    "en": "To Edit, you must set a default application to open '.crpl' files.\nOn Windows, select an editor (like Notepad.exe, or the freely available Notepad++). Alternately, you can browse to the script on disk, right click, select properties, and click the 'Change' button next to 'Opens With'.\nYou only have to do this once.\nOn OSX, right click the file and select 'Open With'.\n\nHere is the file you are trying to edit: \n\n",
-   "zh": "",
+   "zh": "要编辑脚本，你必须为 '.crpl' 文件设置默认打开程序。\n在 Windows 上，请选择一个编辑器（如 Notepad.exe，或免费的 Notepad++）。你也可以在磁盘上找到该脚本，右键点击、选择属性，然后点击「打开方式」旁边的「更改」按钮。\n你只需设置一次。\n在 OSX 上，右键点击文件并选择「打开方式」。\n\n你正在尝试编辑的文件是： \n\n",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -3951,7 +3951,7 @@
   },
   {
    "en": "Select a terrain level, then select a texture below from the palette.\nClick the 'APPLY IMAGE TO TERRAIN' button to assign the image to the selected terrain level.\nOnce finished, click the 'Close and Apply Changes' button to apply all changes to the map.\nThe numbers under each terrain level are brightness. 0 is dark, 100 is bright, 50 is normal",
-   "zh": "",
+   "zh": "先选择一个地形等级，再从下方调色板中选择一个纹理。\n点击「将图像应用到地形」按钮，把该图像指定给所选的地形等级。\n完成后，点击「关闭并应用更改」按钮，把所有更改应用到地图。\n每个地形等级下方的数字是亮度。0 为最暗，100 为最亮，50 为正常。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -3971,7 +3971,7 @@
   },
   {
    "en": "Resizing the map will increase or decrease the amount of land.\nIf you decrease either dimension, terrain/units will get clipped on the right and/or the bottom.  Any clipped items will be lost!\n\nNOTE THAT THE GAME WILL BE AUTOMATICALLY SAVED AND RELOADED AFTER YOU APPLY.  SO MAKE A BACKUP COPY FIRST!",
-   "zh": "",
+   "zh": "调整地图尺寸会增加或减少陆地面积。\n若减小某一维度，地形/单位将在右侧和/或底部被裁掉。被裁掉的内容将永久丢失！\n\n注意：应用后游戏会自动保存并重新载入。所以请先做好备份！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -3991,7 +3991,7 @@
   },
   {
    "en": "Reporting a map notifies Knuckle Cracker that this map contains inappropriate content.  ONLY RERPORT MAPS THAT CONTAIN OFFENSIVE AND/OR INAPPROPRIATE CONTENT.  Do not report a map if your don't like it, or can't finish it.",
-   "zh": "",
+   "zh": "举报地图会通知 Knuckle Cracker 该地图含有不当内容。请仅举报含有冒犯性和/或不当内容的地图。不要因为你不喜欢或打不过某张地图就举报它。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4011,7 +4011,7 @@
   },
   {
    "en": "YOU ARE ABOUT TO RESET ALL PROGRESS IN THIS SECTOR.  ALL MISSION PROGRESS WILL BE LOST IF YOU CONTINUE!!! ALL SAVE GAMES FOR THESE MISSIONS WILL BE DELETED!!! ARE YOU ABSOLUTELY SURE YOU WANT TO CONTINUE?",
-   "zh": "",
+   "zh": "你即将重置本星区的全部进度。若继续，所有任务进度都将丢失！！！这些任务的存档也将一并删除！！！你确定要继续吗？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4051,7 +4051,7 @@
   },
   {
    "en": "Finalizing a map will create a copy of the map in your finalized list.  From there you can play, post scores, and optionally upload the mission to share with others.",
-   "zh": "",
+   "zh": "完成一张地图会在你的已完成列表中创建一份副本。在那里你可以游玩、提交得分，并可选择上传该任务与他人分享。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4071,7 +4071,7 @@
   },
   {
    "en": "This mission was made with a more recent version of the game. You should update to the latest game version else the mission may not play properly.",
-   "zh": "",
+   "zh": "此任务由更新版本的游戏制作。你应当更新到最新游戏版本，否则该任务可能无法正常运行。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4091,7 +4091,7 @@
   },
   {
    "en": "Jump to the 'Prospector Zone' and leave this Sector? Note you may directly access the Prospector Zone from the main menu as well.",
-   "zh": "",
+   "zh": "跳跃至「探矿者星区」并离开本星区？注意，你也可以直接从主菜单进入探矿者星区。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4111,7 +4111,7 @@
   },
   {
    "en": "Jump to 'Tormented Space' and leave this Sector? Note you may directly access Tormented Space from the main menu as well.",
-   "zh": "",
+   "zh": "跳跃至「折磨空间」并离开本星区？注意，你也可以直接从主菜单进入折磨空间。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4131,7 +4131,7 @@
   },
   {
    "en": "Jump to 'Alpha Sector' and leave this Sector? Note you may directly access the Alpha Sector from the main menu as well.",
-   "zh": "",
+   "zh": "跳跃至「阿尔法星区」并离开本星区？注意，你也可以直接从主菜单进入阿尔法星区。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4171,7 +4171,7 @@
   },
   {
    "en": "[ffffd0]Many worlds... many Artifacts of Odin.[ffffff]\nPlay missions and collect as many\nArtifacts of Odin as you can.",
-   "zh": "",
+   "zh": "[ffffd0]众多世界……众多奥丁圣物。[ffffff]\n游玩任务，尽可能多地收集\n奥丁圣物。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4211,7 +4211,7 @@
   },
   {
    "en": "Navigate to reachable worlds by clicking on them.\nTo expand your network, 'Launch' missions and complete objectives.",
-   "zh": "",
+   "zh": "点击可到达的世界即可前往。\n要扩展你的网络，请「发射」任务并完成目标。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4231,7 +4231,7 @@
   },
   {
    "en": "[ffffd0](D)ial (M)ap (D)evice.[ffffff]\nDial up the map of your nightmares.\nComplete and get online naming rights!",
-   "zh": "",
+   "zh": "[ffffd0](D)ial (M)ap (D)evice。[ffffff]\n拨号连接你梦魇中的地图。\n完成即可获得在线命名权！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4251,7 +4251,7 @@
   },
   {
    "en": "[ffffd0]Precursor worlds.[ffffff]\nBefore space as we know it was formed\nthese worlds were the pillars of reality.",
-   "zh": "",
+   "zh": "[ffffd0]先驱者世界。[ffffff]\n在我们所知的空间形成之前，\n这些世界是现实的支柱。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4271,7 +4271,7 @@
   },
   {
    "en": "[ffffd0]You are the supreme being.[ffffff]\nMake your own custom worlds and upload\nthem to KnuckleCracker.com.",
-   "zh": "",
+   "zh": "[ffffd0]你就是至高存在。[ffffff]\n创造你自己的定制世界，\n并上传到 KnuckleCracker.com。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4291,7 +4291,7 @@
   },
   {
    "en": "[ffffd0]A vast and tormented region.[ffffff]\nFree as many systems as possible\nin these 'challenging' worlds.",
-   "zh": "",
+   "zh": "[ffffd0]一片辽阔而受尽折磨的区域。[ffffff]\n在这些「富有挑战」的世界中\n尽可能多地解放星系。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4311,7 +4311,7 @@
   },
   {
    "en": "' already exists! Are you sure you want to overwrite?  All auto saves for this map will also be deleted!",
-   "zh": "",
+   "zh": "」已存在！你确定要覆盖吗？该地图的所有自动存档也会一并删除！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4331,7 +4331,7 @@
   },
   {
    "en": "EXITING MISSION\nAre you sure want want to exit the mission?\nGame will be auto saved to the 'auto' slot.",
-   "zh": "",
+   "zh": "退出任务\n你确定要退出该任务吗？\n游戏将自动保存到「auto」存档位。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4351,7 +4351,7 @@
   },
   {
    "en": "Relays creates long distance connections,\nbut only to other Relays.\nRelays also double packet speed.",
-   "zh": "",
+   "zh": "中继器建立长距离连接，\n但只能连接其他中继器。\n中继器还能使能量包速度翻倍。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4371,7 +4371,7 @@
   },
   {
    "en": "Enter your product key below.\nIf you don't have a key, visit knucklecracker.com for purchase info.",
-   "zh": "",
+   "zh": "请在下方输入你的产品密钥。\n若没有密钥，请访问 knucklecracker.com 了解购买信息。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4492,7 +4492,7 @@
   },
   {
    "en": "Closing the Game.  Are you sure you want to exit? Game will be auto saved to the 'auto' slot.",
-   "zh": "",
+   "zh": "正在关闭游戏。你确定要退出吗？游戏将自动保存到「auto」存档位。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4592,7 +4592,7 @@
   },
   {
    "en": "The backbone of any network.\n Collects energy based on green soylent field it projects.",
-   "zh": "",
+   "zh": "任何网络的骨干。\n 根据它所投射的绿色营养液场收集能量。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4692,7 +4692,7 @@
   },
   {
    "en": "[ffffd0]Online Metaverse.[ffffff]\nBrowse and download the creations\nof other players.",
-   "zh": "",
+   "zh": "[ffffd0]在线元界。[ffffff]\n浏览并下载其他玩家\n创作的内容。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4732,7 +4732,7 @@
   },
   {
    "en": "[ffffd0]Credits[ffffff]\nWhat could be so special about Credits\nthat they are locked?",
-   "zh": "",
+   "zh": "[ffffd0]制作名单[ffffff]\n制作名单究竟有什么特别之处，\n竟然会被锁定？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4752,7 +4752,7 @@
   },
   {
    "en": "Mortars fire shells that damage deep Creeper.\nMortars do not require line of sight.",
-   "zh": "",
+   "zh": "迫击炮发射的炮弹可伤害深处的 Creeper。\n迫击炮不需要视线。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4792,7 +4792,7 @@
   },
   {
    "en": "[ffffd0]Story Mode.[ffffff]\nPlay and complete missions to unlock\nother sectors.",
-   "zh": "",
+   "zh": "[ffffd0]故事模式。[ffffff]\n游玩并完成任务以解锁\n其他星区。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4812,7 +4812,7 @@
   },
   {
    "en": "Ore Mines extract ore from ore deposits.\nOre is used to make Anti-Creeper (AC)",
-   "zh": "",
+   "zh": "矿场从矿床中开采矿石。\n矿石用于制造反 Creeper（AC）。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4832,7 +4832,7 @@
   },
   {
    "en": "Sprayers fire Anti-Creeper.\nSprayers can also collect AC and dispatch as ore.",
-   "zh": "",
+   "zh": "喷吐者发射反 Creeper。\n喷吐者也能收集 AC 并以矿石形式发出。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4952,7 +4952,7 @@
   },
   {
    "en": "Newton Mont: \"For this, I present our newest nominee for Research Fellow.",
-   "zh": "",
+   "zh": "牛顿·蒙特：「为此，我提名我们最新的研究员人选。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5054,7 +5054,7 @@
   },
   {
    "en": "Super Gun that can hit any part of map.\nDoes massive damage to Creeper.",
-   "zh": "",
+   "zh": "可打击地图任意位置的超级火炮。\n对 Creeper 造成巨大伤害。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5115,7 +5115,7 @@
   },
   {
    "en": "Shield around Carcere lowered!\nFly there and engage ground operations.",
-   "zh": "",
+   "zh": "Carcere 外围的护盾已降下！\n飞往那里并展开地面作战。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5175,7 +5175,7 @@
   },
   {
    "en": "Custom Images. Must be 256x256 png files. Click 'Pick' to load image.",
-   "zh": "",
+   "zh": "自定义图像。必须是 256x256 的 png 文件。点击「选取」载入图像。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5195,7 +5195,7 @@
   },
   {
    "en": "Primary defense weapon.  Fires at nearest Creeper.\nDoes light damage.",
-   "zh": "",
+   "zh": "主要防御武器。向最近的 Creeper 开火。\n造成轻微伤害。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5215,7 +5215,7 @@
   },
   {
    "en": "Terps terraform land.\nPaint terrain by pressing the Terraform button.",
-   "zh": "",
+   "zh": "挖掘机改造地形。\n按下地形改造按钮即可绘制地形。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5276,7 +5276,7 @@
   },
   {
    "en": "\n[ff5050]To Access:\n[ff0000][ff0000]Unlock via Arc Eternal missions.",
-   "zh": "",
+   "zh": "\n[ff5050]解锁条件：\n[ff0000][ff0000]通过永恒之弧任务解锁。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5316,7 +5316,7 @@
   },
   {
    "en": "\n[ff5050]To Access:\n[ff0000]Complete first 10 Arc Eternal missions.",
-   "zh": "",
+   "zh": "\n[ff5050]解锁条件：\n[ff0000]完成前 10 个永恒之弧任务。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5356,7 +5356,7 @@
   },
   {
    "en": "\n[ff5050]To Access:\n[ff0000]Complete first 5 Arc Eternal missions.",
-   "zh": "",
+   "zh": "\n[ff5050]解锁条件：\n[ff0000]完成前 5 个永恒之弧任务。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5397,7 +5397,7 @@
   },
   {
    "en": "Further, we have identified two means by which it may be revealed.",
-   "zh": "",
+   "zh": "此外，我们已经确认了两种可能揭示它的方法。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5417,7 +5417,7 @@
   },
   {
    "en": "But no matter how great humanity became, it would always succumb.",
-   "zh": "",
+   "zh": "但无论人类变得多么伟大，终将屈服。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5437,7 +5437,7 @@
   },
   {
    "en": "Strafers are remote strike craft.\nTarget them at remote Creeper.",
-   "zh": "",
+   "zh": "俯冲机是远程打击飞行器。\n将它们瞄准远处的 Creeper。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5457,7 +5457,7 @@
   },
   {
    "en": "But like all things crafted by human hands, it was not to last.",
-   "zh": "",
+   "zh": "但正如人类双手创造的一切，它无法永存。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5477,7 +5477,7 @@
   },
   {
    "en": "Empires would rise and fall, each more brilliant than the last.",
-   "zh": "",
+   "zh": "帝国兴衰更替，一个比一个辉煌。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5497,7 +5497,7 @@
   },
   {
    "en": "Packet trasporter.\nLand in remote locations to provide packets.",
-   "zh": "",
+   "zh": "能量包传送装置。\n降落在远处以提供能量包。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5517,7 +5517,7 @@
   },
   {
    "en": "Planet will be delete as well as all auto saves and save slots!",
-   "zh": "",
+   "zh": "星球将被删除，同时所有自动存档与存档位也会被删除！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5557,7 +5557,7 @@
   },
   {
    "en": "\n[ff5050]To Access:\n[ff0000]Complete All Arc Eternal missions.",
-   "zh": "",
+   "zh": "\n[ff5050]解锁条件：\n[ff0000]完成全部永恒之弧任务。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5597,7 +5597,7 @@
   },
   {
    "en": "Click the Star to access the sector map\nand leave this sector!",
-   "zh": "",
+   "zh": "点击恒星进入星区地图\n并离开本星区！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5618,7 +5618,7 @@
   },
   {
    "en": "Sample the sound with 'Play'.  Use the string name in scripts.",
-   "zh": "",
+   "zh": "用「播放」试听音效。在脚本中使用该字符串名称。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5638,7 +5638,7 @@
   },
   {
    "en": "Bombers deliver AC remotely.\nTarget them at remote locations.",
-   "zh": "",
+   "zh": "轰炸机可远程投送 AC。\n将它们瞄准远处目标。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5658,7 +5658,7 @@
   },
   {
    "en": "His journey on the first great exodus was not to be his last.",
-   "zh": "",
+   "zh": "他在第一次大逃亡中的旅程并非终点。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5678,7 +5678,7 @@
   },
   {
    "en": "\n[ff5050]To Access:\n[ff0000]Unlock via Arc Eternal missions.",
-   "zh": "",
+   "zh": "\n[ff5050]解锁条件：\n[ff0000]通过永恒之弧任务解锁。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5699,7 +5699,7 @@
   },
   {
    "en": "Yet, a small group of less than 50 thousand humans survived.",
-   "zh": "",
+   "zh": "然而，一小群不足 5 万的人类幸存了下来。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5739,7 +5739,7 @@
   },
   {
    "en": "A peace that would endure for many millennia was created.",
-   "zh": "",
+   "zh": "一个将持续数千年的和平时代被建立起来。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5779,7 +5779,7 @@
   },
   {
    "en": "enemy Nexus and the founding of a new, sole human colony.",
-   "zh": "",
+   "zh": "敌人的枢纽，以及一个全新且唯一的人类殖民地的建立。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5819,7 +5819,7 @@
   },
   {
    "en": "Their impossible journey ended in the destruction of the",
-   "zh": "",
+   "zh": "他们那不可能的旅程，以摧毁",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5879,7 +5879,7 @@
   },
   {
    "en": "Thousands of worlds were destroyed by an unknown enemy.",
-   "zh": "",
+   "zh": "成千上万个世界被未知的敌人毁灭。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5979,7 +5979,7 @@
   },
   {
    "en": "All they had achieved ended when the Creeper arrived.",
-   "zh": "",
+   "zh": "当 Creeper 降临时，他们的一切成就都终结了。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5999,7 +5999,7 @@
   },
   {
    "en": "Beams defend against Aerial Spores from Spore Towers.",
-   "zh": "",
+   "zh": "光束可防御来自孢子塔的空中孢子。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6039,7 +6039,7 @@
   },
   {
    "en": "Reactors generate energy.\nThey can be packed tightly.",
-   "zh": "",
+   "zh": "反应堆产生能量。\n它们可以紧密堆叠。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6079,7 +6079,7 @@
   },
   {
    "en": "Creeper respulsion field.\nCan also block spore hits.",
-   "zh": "",
+   "zh": "Creeper 排斥场。\n也能阻挡孢子命中。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6179,7 +6179,7 @@
   },
   {
    "en": "Device for destroying Emitters and other enemies.",
-   "zh": "",
+   "zh": "用于摧毁发射器及其他敌人的装置。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6199,7 +6199,7 @@
   },
   {
    "en": "Invalid Key.  Double check the key and try again.",
-   "zh": "",
+   "zh": "密钥无效。请仔细核对后重试。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6219,7 +6219,7 @@
   },
   {
    "en": "Now, when the last of the great human empires has",
-   "zh": "",
+   "zh": "如今，当最后一个伟大的人类帝国",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6239,7 +6239,7 @@
   },
   {
    "en": "Seloi Science Academy, Standing Council Directors",
-   "zh": "",
+   "zh": "塞洛伊科学院，常任议会主管",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6319,7 +6319,7 @@
   },
   {
    "en": "Planet is shielded. Keys needed from planet(s):\n",
-   "zh": "",
+   "zh": "行星受到护盾保护。需要从以下行星获取钥匙：\n",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6379,7 +6379,7 @@
   },
   {
    "en": "Guarded and watched over for billions of years,",
-   "zh": "",
+   "zh": "在被守护与守望了数十亿年之后，",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6419,7 +6419,7 @@
   },
   {
    "en": "humans had spread into a great galactic empire.",
-   "zh": "",
+   "zh": "人类已扩张成一个庞大的银河帝国。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6459,7 +6459,7 @@
   },
   {
    "en": "Siphons extract resources from Resource Packs.",
-   "zh": "",
+   "zh": "虹吸器从资源包中提取资源。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6519,7 +6519,7 @@
   },
   {
    "en": "[ffffd0]Credits[ffffff]\nExplore the dungeon...",
-   "zh": "",
+   "zh": "[ffffd0]制作名单[ffffff]\n探索这个地牢……",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6640,7 +6640,7 @@
   },
   {
    "en": "Unknown weapon technology.\nOrigins uncertain.",
-   "zh": "",
+   "zh": "未知的武器技术。\n来源不明。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6720,7 +6720,7 @@
   },
   {
    "en": "Upgrade center.\nRequires Aether from Totems.",
-   "zh": "",
+   "zh": "升级中心。\n需要来自图腾的以太。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6801,7 +6801,7 @@
   },
   {
    "en": "DMD name NOT submitted. Name already taken!",
-   "zh": "",
+   "zh": "DMD 名称未提交。该名称已被占用！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6841,7 +6841,7 @@
   },
   {
    "en": "Newton Mont, Arc Project Research Director ",
-   "zh": "",
+   "zh": "牛顿·蒙特，永恒之弧项目研究主管 ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6982,7 +6982,7 @@
   },
   {
    "en": "By the year 13271 in the first Common Era,",
-   "zh": "",
+   "zh": "到公元 13271 年，",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7002,7 +7002,7 @@
   },
   {
    "en": "Texture Palette.  Chose any texture below.",
-   "zh": "",
+   "zh": "纹理调色板。请从下方选择任意纹理。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7047,7 +7047,7 @@
   },
   {
    "en": "Yet again humanity held back the darkness.",
-   "zh": "",
+   "zh": "人类又一次挡住了黑暗。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7087,7 +7087,7 @@
   },
   {
    "en": "Again and again the Creeper would return.",
-   "zh": "",
+   "zh": "Creeper 一次又一次地卷土重来。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7107,7 +7107,7 @@
   },
   {
    "en": "\"  to select terrain height under mouse.",
-   "zh": "",
+   "zh": "\" 以选取鼠标下的地形高度。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7127,7 +7127,7 @@
   },
   {
    "en": "Each dimension limited to range 20 - 256",
-   "zh": "",
+   "zh": "每个维度限制在 20 - 256 之间",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7167,7 +7167,7 @@
   },
   {
    "en": "Select current terrain image from above.",
-   "zh": "",
+   "zh": "从上方选择当前地形图像。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7267,7 +7267,7 @@
   },
   {
    "en": "Specify a reason for reporting the map:",
-   "zh": "",
+   "zh": "请说明举报该地图的原因：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7287,7 +7287,7 @@
   },
   {
    "en": "Thirty years later, the enemy returned.",
-   "zh": "",
+   "zh": "三十年后，敌人回来了。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7307,7 +7307,7 @@
   },
   {
    "en": "(Only Letters, Numbers, _ -  allowed.)",
-   "zh": "",
+   "zh": "（仅允许字母、数字、_ 和 - ）",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7351,7 +7351,7 @@
   },
   {
    "en": "Missions you can't even imagine await.",
-   "zh": "",
+   "zh": "超乎想象的任务在等着你。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7371,7 +7371,7 @@
   },
   {
    "en": "New or improved score/time. Submit it!",
-   "zh": "",
+   "zh": "新的或更好的得分/时间。提交它！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7411,7 +7411,7 @@
   },
   {
    "en": "The arc of the moral universe is long,",
-   "zh": "",
+   "zh": "道德宇宙的弧线很长，",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7531,7 +7531,7 @@
   },
   {
    "en": "Don't delay, the fate of our universe",
-   "zh": "",
+   "zh": "别再犹豫，我们宇宙的命运",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7551,7 +7551,7 @@
   },
   {
    "en": "Eons would pass between each culling.",
-   "zh": "",
+   "zh": "每次清洗之间都隔着万古岁月。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7571,7 +7571,7 @@
   },
   {
    "en": "Not Named.  Play and you can name it!",
-   "zh": "",
+   "zh": "尚未命名。游玩后你就可以为它命名！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7751,7 +7751,7 @@
   },
   {
    "en": "Anti Runner and special enemy unit.",
-   "zh": "",
+   "zh": "反空降兵及特殊敌方单位。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7832,7 +7832,7 @@
   },
   {
    "en": "Retrieving Map List from Server...",
-   "zh": "",
+   "zh": "正在从服务器获取地图列表…",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7933,7 +7933,7 @@
   },
   {
    "en": "CAN NOT FIRE. NO ACTIVE TOTEMS!!!",
-   "zh": "",
+   "zh": "无法开火。没有激活的图腾！！！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7973,7 +7973,7 @@
   },
   {
    "en": "Control additional Command Nodes.",
-   "zh": "",
+   "zh": "控制额外的指挥节点。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7993,7 +7993,7 @@
   },
   {
    "en": "Max Tech Levels.  -1 = unlimited.",
-   "zh": "",
+   "zh": "科技等级上限。-1 = 不限制。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8013,7 +8013,7 @@
   },
   {
    "en": "or make your own with the editor!",
-   "zh": "",
+   "zh": "或者用编辑器创造你自己的！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8213,7 +8213,7 @@
   },
   {
    "en": "But your journey has just begun!",
-   "zh": "",
+   "zh": "但你的旅程才刚刚开始！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8273,7 +8273,7 @@
   },
   {
    "en": "Planetary Shield [ff7f7f]LOCKED!",
-   "zh": "",
+   "zh": "行星护盾[ff7f7f]已锁定！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8313,7 +8313,7 @@
   },
   {
    "en": "Transcript:  4281999 Part 1 of 2",
-   "zh": "",
+   "zh": "记录： 4281999 第 1 部分，共 2 部分",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8353,7 +8353,7 @@
   },
   {
    "en": "World Secure!\n Completion Time: ",
-   "zh": "",
+   "zh": "世界已肃清！\n 通关时间： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8393,7 +8393,7 @@
   },
   {
    "en": "A finalized map with the name '",
-   "zh": "",
+   "zh": "一个同名的已完成地图「",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8433,7 +8433,7 @@
   },
   {
    "en": "Newton Mont: \"It would seem so.",
-   "zh": "",
+   "zh": "牛顿·蒙特：「看来确实如此。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8453,7 +8453,7 @@
   },
   {
    "en": "Unit Limits.  -1 mean unlimited",
-   "zh": "",
+   "zh": "单位上限。  -1 表示不限制",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8493,7 +8493,7 @@
   },
   {
    "en": "Air Exclusion Towers Destroyed",
-   "zh": "",
+   "zh": "摧毁禁空塔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8573,7 +8573,7 @@
   },
   {
    "en": "Create a project from this map",
-   "zh": "",
+   "zh": "从此地图创建项目",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8613,7 +8613,7 @@
   },
   {
    "en": "Through it all, one man slept.",
-   "zh": "",
+   "zh": "历经这一切，只有一个人沉睡着。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8633,7 +8633,7 @@
   },
   {
    "en": "Uploading map.  Please wait...",
-   "zh": "",
+   "zh": "正在上传地图，请稍候……",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8653,7 +8653,7 @@
   },
   {
    "en": "slipped away into the night...",
-   "zh": "",
+   "zh": "悄然消逝在夜色中……",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8713,7 +8713,7 @@
   },
   {
    "en": "Date:  1014, 0201, 144th C.E.",
-   "zh": "",
+   "zh": "日期： 1014, 0201, 公元 144 年",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8753,7 +8753,7 @@
   },
   {
    "en": "  [ffffff]Upgrading to Lvl: ",
-   "zh": "",
+   "zh": "  [ffffff]升级至等级： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8793,7 +8793,7 @@
   },
   {
    "en": "Name could not be retrieved.",
-   "zh": "",
+   "zh": "无法获取名称。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8857,7 +8857,7 @@
   },
   {
    "en": "Not Named.  You can name it!",
-   "zh": "",
+   "zh": "尚未命名。你可以为它命名！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8941,7 +8941,7 @@
   },
   {
    "en": "Refresh Map List From Server",
-   "zh": "",
+   "zh": "从服务器刷新地图列表",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8961,7 +8961,7 @@
   },
   {
    "en": "his time to awaken has come.",
-   "zh": "",
+   "zh": "他苏醒的时刻已经到来。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8981,7 +8981,7 @@
   },
   {
    "en": "Continue Without Submitting",
-   "zh": "",
+   "zh": "不提交，继续",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9041,7 +9041,7 @@
   },
   {
    "en": "Dr. Martin Luther King, Jr.",
-   "zh": "",
+   "zh": "马丁·路德·金博士",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9061,7 +9061,7 @@
   },
   {
    "en": "Experience Interval (0=off)",
-   "zh": "",
+   "zh": "经验间隔（0=关闭）",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9101,7 +9101,7 @@
   },
   {
    "en": "Message Artifacts Collected",
-   "zh": "",
+   "zh": "收集信息圣物",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9121,7 +9121,7 @@
   },
   {
    "en": "Newton Mont: \"Yes, Council.",
-   "zh": "",
+   "zh": "牛顿·蒙特：「是的，议会。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9163,7 +9163,7 @@
   },
   {
    "en": "more enemies, more awesome.",
-   "zh": "",
+   "zh": "更多敌人，更加精彩。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9203,7 +9203,7 @@
   },
   {
    "en": "Delete this finalized map?",
-   "zh": "",
+   "zh": "删除这张已完成的地图？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9223,7 +9223,7 @@
   },
   {
    "en": "Directory does not exist: ",
-   "zh": "",
+   "zh": "目录不存在： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9243,7 +9243,7 @@
   },
   {
    "en": "Map Successfully Uploaded!",
-   "zh": "",
+   "zh": "地图上传成功！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9383,7 +9383,7 @@
   },
   {
    "en": "Count (0 means unlimited)",
-   "zh": "",
+   "zh": "数量（0 表示不限制）",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9423,7 +9423,7 @@
   },
   {
    "en": "Orbital Convert Collected",
-   "zh": "",
+   "zh": "收集轨道转化",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9443,7 +9443,7 @@
   },
   {
    "en": "Random Seed and Placement",
-   "zh": "",
+   "zh": "随机种子与放置",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9505,7 +9505,7 @@
   },
   {
    "en": "Warping currently locked!",
-   "zh": "",
+   "zh": "跳跃当前已锁定！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9525,7 +9525,7 @@
   },
   {
    "en": "but bends toward justice.",
-   "zh": "",
+   "zh": "却终究向正义弯折。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9545,7 +9545,7 @@
   },
   {
    "en": "is in your capable hands!",
-   "zh": "",
+   "zh": "就掌握在你手中！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9605,7 +9605,7 @@
   },
   {
    "en": "APPLY VALUES & RECOMPILE",
-   "zh": "",
+   "zh": "应用数值并重新编译",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9625,7 +9625,7 @@
   },
   {
    "en": "Accept License Agreement",
-   "zh": "",
+   "zh": "接受许可协议",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9645,7 +9645,7 @@
   },
   {
    "en": "Orbital Freeze Collected",
-   "zh": "",
+   "zh": "收集轨道冻结",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9665,7 +9665,7 @@
   },
   {
    "en": "Play thousands of worlds",
-   "zh": "",
+   "zh": "畅玩数千个世界",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9705,7 +9705,7 @@
   },
   {
    "en": "Tech Artifacts Collected",
-   "zh": "",
+   "zh": "收集科技圣物",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9725,7 +9725,7 @@
   },
   {
    "en": "The game continues with:",
-   "zh": "",
+   "zh": "游戏将在以下内容中继续：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9805,7 +9805,7 @@
   },
   {
    "en": "AC Packet Request Delay",
-   "zh": "",
+   "zh": "AC 能量包请求延迟",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9825,7 +9825,7 @@
   },
   {
    "en": "Browsing Colonial Space",
-   "zh": "",
+   "zh": "正在浏览殖民空间",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9845,7 +9845,7 @@
   },
   {
    "en": "Close and Apply Changes",
-   "zh": "",
+   "zh": "关闭并应用更改",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9865,7 +9865,7 @@
   },
   {
    "en": "Create Project from Map",
-   "zh": "",
+   "zh": "从地图创建项目",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9975,7 +9975,7 @@
   },
   {
    "en": "Multiple Units Selected",
-   "zh": "",
+   "zh": "已选择多个单位",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10015,7 +10015,7 @@
   },
   {
    "en": "Online DMD Mission Name",
-   "zh": "",
+   "zh": "在线 DMD 任务名称",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10079,7 +10079,7 @@
   },
   {
    "en": "The demo is complete...",
-   "zh": "",
+   "zh": "试玩版已通关……",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10099,7 +10099,7 @@
   },
   {
    "en": "Void Horizontal Ridges:",
-   "zh": "",
+   "zh": "虚空水平山脊：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10161,7 +10161,7 @@
   },
   {
    "en": "20th Century, 1st C.E.",
-   "zh": "",
+   "zh": "公元 1 世纪，20 世纪",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10181,7 +10181,7 @@
   },
   {
    "en": "APPLY IMAGE TO TERRAIN",
-   "zh": "",
+   "zh": "将图像应用到地形",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10244,7 +10244,7 @@
   },
   {
    "en": "Checking for Update...",
-   "zh": "",
+   "zh": "正在检查更新…",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10304,7 +10304,7 @@
   },
   {
    "en": "Finalized map created.",
-   "zh": "",
+   "zh": "已完成地图已创建。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10325,7 +10325,7 @@
   },
   {
    "en": "In the Prospector Zone",
-   "zh": "",
+   "zh": "位于探矿者星区",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10345,7 +10345,7 @@
   },
   {
    "en": "Max Runner Population:",
-   "zh": "",
+   "zh": "空降兵人口上限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10365,7 +10365,7 @@
   },
   {
    "en": "Min Runner Population:",
-   "zh": "",
+   "zh": "空降兵人口下限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10385,7 +10385,7 @@
   },
   {
    "en": "More tech, more story,",
-   "zh": "",
+   "zh": "更多科技，更多故事，",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10425,7 +10425,7 @@
   },
   {
    "en": "Orbital Mass Collected",
-   "zh": "",
+   "zh": "收集轨道质量",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10445,7 +10445,7 @@
   },
   {
    "en": "Peak Energy Production",
-   "zh": "",
+   "zh": "能量峰值产量",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10465,7 +10465,7 @@
   },
   {
    "en": "Runner Creeper Payload",
-   "zh": "",
+   "zh": "空降兵携带 Creeper",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10485,7 +10485,7 @@
   },
   {
    "en": "Runner Nests Destroyed",
-   "zh": "",
+   "zh": "摧毁空降兵巢穴",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10505,7 +10505,7 @@
   },
   {
    "en": "Settings Code Applied!",
-   "zh": "",
+   "zh": "设置代码已应用！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10525,7 +10525,7 @@
   },
   {
    "en": "Spore Towers Destroyed",
-   "zh": "",
+   "zh": "摧毁孢子塔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10545,7 +10545,7 @@
   },
   {
    "en": "TechPod Energy Storage",
-   "zh": "",
+   "zh": "科技舱能量储量",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10606,7 +10606,7 @@
   },
   {
    "en": "CRPL Towers Destroyed",
-   "zh": "",
+   "zh": "摧毁 CRPL 塔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10626,7 +10626,7 @@
   },
   {
    "en": "Communication Error: ",
-   "zh": "",
+   "zh": "通信错误： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10666,7 +10666,7 @@
   },
   {
    "en": "Highest Mission Score",
-   "zh": "",
+   "zh": "最高任务得分",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10686,7 +10686,7 @@
   },
   {
    "en": "In the Credits System",
-   "zh": "",
+   "zh": "位于制作名单星系",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10706,7 +10706,7 @@
   },
   {
    "en": "KEY ALREADY USED BY: ",
-   "zh": "",
+   "zh": "该按键已被占用： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10726,7 +10726,7 @@
   },
   {
    "en": "Max Emitter Interval:",
-   "zh": "",
+   "zh": "最大发射器间隔：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10746,7 +10746,7 @@
   },
   {
    "en": "Max Emitter Strength:",
-   "zh": "",
+   "zh": "最大发射器强度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10766,7 +10766,7 @@
   },
   {
    "en": "Min Emitter Interval:",
-   "zh": "",
+   "zh": "最小发射器间隔：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10786,7 +10786,7 @@
   },
   {
    "en": "Min Emitter Strength:",
-   "zh": "",
+   "zh": "最小发射器强度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10826,7 +10826,7 @@
   },
   {
    "en": "Orbital Convert Fired",
-   "zh": "",
+   "zh": "发射轨道转化",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10846,7 +10846,7 @@
   },
   {
    "en": "Retrieving scores....",
-   "zh": "",
+   "zh": "正在获取得分……",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10866,7 +10866,7 @@
   },
   {
    "en": "Shield Keys Collected",
-   "zh": "",
+   "zh": "收集护盾钥匙",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10950,7 +10950,7 @@
   },
   {
    "en": "Void Vertical Ridges:",
-   "zh": "",
+   "zh": "虚空垂直山脊：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11030,7 +11030,7 @@
   },
   {
    "en": "\nAdditional Number: ",
-   "zh": "",
+   "zh": "\n额外数量： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11130,7 +11130,7 @@
   },
   {
    "en": "Air Exclusion Count:",
-   "zh": "",
+   "zh": "禁空塔数量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11150,7 +11150,7 @@
   },
   {
    "en": "Air Exclusion Towers",
-   "zh": "",
+   "zh": "禁空塔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11170,7 +11170,7 @@
   },
   {
    "en": "Checking for News...",
-   "zh": "",
+   "zh": "正在检查新闻…",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11190,7 +11190,7 @@
   },
   {
    "en": "DMD Maps Completed: ",
-   "zh": "",
+   "zh": "已完成 DMD 地图： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11210,7 +11210,7 @@
   },
   {
    "en": "Free Build Nullifier",
-   "zh": "",
+   "zh": "免费建造灭除器",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11230,7 +11230,7 @@
   },
   {
    "en": "Highest Mission Time",
-   "zh": "",
+   "zh": "最短任务时间",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11270,7 +11270,7 @@
   },
   {
    "en": "Image Rotation (Deg)",
-   "zh": "",
+   "zh": "图像旋转（度）",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11290,7 +11290,7 @@
   },
   {
    "en": "In Arc Eternal space",
-   "zh": "",
+   "zh": "位于永恒之弧空间",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11310,7 +11310,7 @@
   },
   {
    "en": "Inhibitors Destroyed",
-   "zh": "",
+   "zh": "摧毁抑制器",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11330,7 +11330,7 @@
   },
   {
    "en": "Launching Mission...",
-   "zh": "",
+   "zh": "正在发射任务…",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11370,7 +11370,7 @@
   },
   {
    "en": "Lowest Mission Score",
-   "zh": "",
+   "zh": "最低任务得分",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11390,7 +11390,7 @@
   },
   {
    "en": "Max Runner Interval:",
-   "zh": "",
+   "zh": "空降兵间隔上限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11410,7 +11410,7 @@
   },
   {
    "en": "Min Runner Interval:",
-   "zh": "",
+   "zh": "空降兵间隔下限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11450,7 +11450,7 @@
   },
   {
    "en": "Most Played Recently",
-   "zh": "",
+   "zh": "近期最热门",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11470,7 +11470,7 @@
   },
   {
    "en": "New Height (20-256):",
-   "zh": "",
+   "zh": "新高度（20-256）：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11490,7 +11490,7 @@
   },
   {
    "en": "Orbital Freeze Fired",
-   "zh": "",
+   "zh": "发射轨道冻结",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11510,7 +11510,7 @@
   },
   {
    "en": "Packet Request Delay",
-   "zh": "",
+   "zh": "能量包请求延迟",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11530,7 +11530,7 @@
   },
   {
    "en": "Paste from Clipboard",
-   "zh": "",
+   "zh": "从剪贴板粘贴",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11550,7 +11550,7 @@
   },
   {
    "en": "Runner Emit Interval",
-   "zh": "",
+   "zh": "空降兵发射间隔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11590,7 +11590,7 @@
   },
   {
    "en": "TechPod Packet Speed",
-   "zh": "",
+   "zh": "科技舱能量包速度",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11630,7 +11630,7 @@
   },
   {
    "en": "The sleeper awakens.",
-   "zh": "",
+   "zh": "沉睡者苏醒了。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11712,7 +11712,7 @@
   },
   {
    "en": "Artifact Placement:",
-   "zh": "",
+   "zh": "圣物放置：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11732,7 +11732,7 @@
   },
   {
    "en": "Command Nodes Built",
-   "zh": "",
+   "zh": "建造指挥节点",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11752,7 +11752,7 @@
   },
   {
    "en": "Digitalis Destroyed",
-   "zh": "",
+   "zh": "消灭魔苋",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11772,7 +11772,7 @@
   },
   {
    "en": "In the Alpha Sector",
-   "zh": "",
+   "zh": "位于阿尔法星区",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11792,7 +11792,7 @@
   },
   {
    "en": "Inhibitor Interval:",
-   "zh": "",
+   "zh": "抑制器间隔：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11812,7 +11812,7 @@
   },
   {
    "en": "Inhibitor Strength:",
-   "zh": "",
+   "zh": "抑制器强度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11832,7 +11832,7 @@
   },
   {
    "en": "Landing Pad Height:",
-   "zh": "",
+   "zh": "登陆平台高度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11852,7 +11852,7 @@
   },
   {
    "en": "Looking at Projects",
-   "zh": "",
+   "zh": "正在查看项目",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11872,7 +11872,7 @@
   },
   {
    "en": "Lowest Mission Time",
-   "zh": "",
+   "zh": "最长任务时间",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11892,7 +11892,7 @@
   },
   {
    "en": "Max Runner Payload:",
-   "zh": "",
+   "zh": "空降兵载荷上限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11912,7 +11912,7 @@
   },
   {
    "en": "Max Spore Interval:",
-   "zh": "",
+   "zh": "孢子间隔上限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11932,7 +11932,7 @@
   },
   {
    "en": "Min Runner Payload:",
-   "zh": "",
+   "zh": "空降兵载荷下限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11952,7 +11952,7 @@
   },
   {
    "en": "Min Spore Interval:",
-   "zh": "",
+   "zh": "孢子间隔下限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11972,7 +11972,7 @@
   },
   {
    "en": "Network Connectable",
-   "zh": "",
+   "zh": "可连接网络",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11992,7 +11992,7 @@
   },
   {
    "en": "New Width (20-256):",
-   "zh": "",
+   "zh": "新宽度（20-256）：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12032,7 +12032,7 @@
   },
   {
    "en": "Pulse Cannons Built",
-   "zh": "",
+   "zh": "建造脉冲炮",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12052,7 +12052,7 @@
   },
   {
    "en": "Requests AC Packets",
-   "zh": "",
+   "zh": "请求 AC 能量包",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12072,7 +12072,7 @@
   },
   {
    "en": "Ridge Start Height:",
-   "zh": "",
+   "zh": "山脊起始高度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12092,7 +12092,7 @@
   },
   {
    "en": "Starting Experience",
-   "zh": "",
+   "zh": "初始经验",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12112,7 +12112,7 @@
   },
   {
    "en": "Submitting Score...",
-   "zh": "",
+   "zh": "正在提交得分……",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12256,7 +12256,7 @@
   },
   {
    "en": "  Current Height: ",
-   "zh": "",
+   "zh": "  当前高度： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12324,7 +12324,7 @@
   },
   {
    "en": "Aether Pack Count:",
-   "zh": "",
+   "zh": "以太包数量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12364,7 +12364,7 @@
   },
   {
    "en": "Counts for Victory",
-   "zh": "",
+   "zh": "计入胜利条件",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12384,7 +12384,7 @@
   },
   {
    "en": "Create Landing Pad",
-   "zh": "",
+   "zh": "创建登陆平台",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12404,7 +12404,7 @@
   },
   {
    "en": "Emitters Destroyed",
-   "zh": "",
+   "zh": "摧毁发射器",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12424,7 +12424,7 @@
   },
   {
    "en": "Energy Pack Count:",
-   "zh": "",
+   "zh": "能量包数量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12464,7 +12464,7 @@
   },
   {
    "en": "Horizontal Ridges:",
-   "zh": "",
+   "zh": "水平山脊：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12505,7 +12505,7 @@
   },
   {
    "en": "In Tormented Space",
-   "zh": "",
+   "zh": "位于折磨空间",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12525,7 +12525,7 @@
   },
   {
    "en": "Include Digitalis:",
-   "zh": "",
+   "zh": "包含魔苋：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12585,7 +12585,7 @@
   },
   {
    "en": "Max Initial Delay:",
-   "zh": "",
+   "zh": "最大初始延迟：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12605,7 +12605,7 @@
   },
   {
    "en": "Max Runner Health:",
-   "zh": "",
+   "zh": "空降兵生命值上限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12625,7 +12625,7 @@
   },
   {
    "en": "Max Spore Payload:",
-   "zh": "",
+   "zh": "孢子载荷上限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12645,7 +12645,7 @@
   },
   {
    "en": "Min Initial Delay:",
-   "zh": "",
+   "zh": "最小初始延迟：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12665,7 +12665,7 @@
   },
   {
    "en": "Min Runner Health:",
-   "zh": "",
+   "zh": "空降兵生命值下限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12685,7 +12685,7 @@
   },
   {
    "en": "Min Spore Payload:",
-   "zh": "",
+   "zh": "孢子载荷下限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12705,7 +12705,7 @@
   },
   {
    "en": "Orbital Mass Fired",
-   "zh": "",
+   "zh": "发射轨道质量",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12725,7 +12725,7 @@
   },
   {
    "en": "Ore Deposit Count:",
-   "zh": "",
+   "zh": "矿床数量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12745,7 +12745,7 @@
   },
   {
    "en": "Prospector Zone : ",
-   "zh": "",
+   "zh": "探矿者星区： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12765,7 +12765,7 @@
   },
   {
    "en": "Pulse Cannon Shots",
-   "zh": "",
+   "zh": "脉冲炮射击次数",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12785,7 +12785,7 @@
   },
   {
    "en": "Return to Map List",
-   "zh": "",
+   "zh": "返回地图列表",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12805,7 +12805,7 @@
   },
   {
    "en": "Runner Nest Count:",
-   "zh": "",
+   "zh": "空降兵巢穴数量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12845,7 +12845,7 @@
   },
   {
    "en": "Singularity Weapon",
-   "zh": "",
+   "zh": "奇点武器",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12865,7 +12865,7 @@
   },
   {
    "en": "Spore Tower Count:",
-   "zh": "",
+   "zh": "孢子塔数量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12905,7 +12905,7 @@
   },
   {
    "en": "Supports Digitalis",
-   "zh": "",
+   "zh": "支持魔苋",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12925,7 +12925,7 @@
   },
   {
    "en": "TechPod AC Storage",
-   "zh": "",
+   "zh": "科技舱 AC 储量",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12945,7 +12945,7 @@
   },
   {
    "en": "TechPod Fire Range",
-   "zh": "",
+   "zh": "科技舱射程",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12965,7 +12965,7 @@
   },
   {
    "en": "TechPod Move Speed",
-   "zh": "",
+   "zh": "科技舱移动速度",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13005,7 +13005,7 @@
   },
   {
    "en": "Tormented Space : ",
-   "zh": "",
+   "zh": "折磨空间： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13025,7 +13025,7 @@
   },
   {
    "en": "Type message here.",
-   "zh": "",
+   "zh": "在此输入消息。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13065,7 +13065,7 @@
   },
   {
    "en": "Upgrading to Lvl: ",
-   "zh": "",
+   "zh": "正在升级至等级： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13186,7 +13186,7 @@
   },
   {
    "en": "Alternative Noise",
-   "zh": "",
+   "zh": "替代噪声",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13206,7 +13206,7 @@
   },
   {
    "en": "Artifacts of Odin",
-   "zh": "",
+   "zh": "奥丁圣物",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13226,7 +13226,7 @@
   },
   {
    "en": "Browsing DMD Maps",
-   "zh": "",
+   "zh": "正在浏览 DMD 地图",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13246,7 +13246,7 @@
   },
   {
    "en": "Confirm Deletion:",
-   "zh": "",
+   "zh": "确认删除：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13271,7 +13271,7 @@
   },
   {
    "en": "Copy to Clipboard",
-   "zh": "",
+   "zh": "复制到剪贴板",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13291,7 +13291,7 @@
   },
   {
    "en": "Create Power Zone",
-   "zh": "",
+   "zh": "创建供能区",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13311,7 +13311,7 @@
   },
   {
    "en": "Creeper Destroyed",
-   "zh": "",
+   "zh": "消灭 Creeper",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13354,7 +13354,7 @@
   },
   {
    "en": "Custom Characters",
-   "zh": "",
+   "zh": "自定义角色",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13374,7 +13374,7 @@
   },
   {
    "en": "EXPLOSION w/SOUND",
-   "zh": "",
+   "zh": "爆炸（带音效）",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13414,7 +13414,7 @@
   },
   {
    "en": "Image Color Alpha",
-   "zh": "",
+   "zh": "图像颜色透明度",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13434,7 +13434,7 @@
   },
   {
    "en": "Image Color Green",
-   "zh": "",
+   "zh": "图像颜色绿",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13454,7 +13454,7 @@
   },
   {
    "en": "Include Inhibitor",
-   "zh": "",
+   "zh": "包含抑制器",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13474,7 +13474,7 @@
   },
   {
    "en": "Landing Pad Size:",
-   "zh": "",
+   "zh": "登陆平台尺寸：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13494,7 +13494,7 @@
   },
   {
    "en": "Load a saved slot",
-   "zh": "",
+   "zh": "载入存档位",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13514,7 +13514,7 @@
   },
   {
    "en": "Load slot 'Auto'?",
-   "zh": "",
+   "zh": "载入存档位「Auto」？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13554,7 +13554,7 @@
   },
   {
    "en": "Max Runner Speed:",
-   "zh": "",
+   "zh": "空降兵速度上限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13574,7 +13574,7 @@
   },
   {
    "en": "Max Tendril Dist:",
-   "zh": "",
+   "zh": "最大触须距离：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13614,7 +13614,7 @@
   },
   {
    "en": "Min Runner Speed:",
-   "zh": "",
+   "zh": "空降兵速度下限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13634,7 +13634,7 @@
   },
   {
    "en": "Min Tendril Dist:",
-   "zh": "",
+   "zh": "最小触须距离：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13705,7 +13705,7 @@
   },
   {
    "en": "New Key Binding: ",
-   "zh": "",
+   "zh": "新按键绑定： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13726,7 +13726,7 @@
   },
   {
    "en": "Not In Edit Mode!",
-   "zh": "",
+   "zh": "不处于编辑模式！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13746,7 +13746,7 @@
   },
   {
    "en": "Nullifier Damages",
-   "zh": "",
+   "zh": "灭除器伤害",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13766,7 +13766,7 @@
   },
   {
    "en": "Playing a mission",
-   "zh": "",
+   "zh": "正在游玩任务",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13786,7 +13786,7 @@
   },
   {
    "en": "Remove Sub-Images",
-   "zh": "",
+   "zh": "移除子图像",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13806,7 +13806,7 @@
   },
   {
    "en": "Runner Move Speed",
-   "zh": "",
+   "zh": "空降兵移动速度",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13826,7 +13826,7 @@
   },
   {
    "en": "Runners Destroyed",
-   "zh": "",
+   "zh": "消灭空降兵",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13866,7 +13866,7 @@
   },
   {
    "en": "TechPod Fire Rate",
-   "zh": "",
+   "zh": "科技舱射速",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13886,7 +13886,7 @@
   },
   {
    "en": "Void Ridge Width:",
-   "zh": "",
+   "zh": "虚空山脊宽度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13906,7 +13906,7 @@
   },
   {
    "en": "[ff0000]Sound Off",
-   "zh": "",
+   "zh": "[ff0000]声音关闭",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14074,7 +14074,7 @@
   },
   {
    "en": "Aether per Pack:",
-   "zh": "",
+   "zh": "每包以太：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14114,7 +14114,7 @@
   },
   {
    "en": "Artifact of Odin",
-   "zh": "",
+   "zh": "奥丁圣物",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14134,7 +14134,7 @@
   },
   {
    "en": "Attached Scripts",
-   "zh": "",
+   "zh": "附加脚本",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14154,7 +14154,7 @@
   },
   {
    "en": "Bloom Frequency:",
-   "zh": "",
+   "zh": "绽放频率：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14174,7 +14174,7 @@
   },
   {
    "en": "Collectors Built",
-   "zh": "",
+   "zh": "建造收集器",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14194,7 +14194,7 @@
   },
   {
    "en": "Confirm Removal:",
-   "zh": "",
+   "zh": "确认移除：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14214,7 +14214,7 @@
   },
   {
    "en": "Continue Playing",
-   "zh": "",
+   "zh": "继续游戏",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14234,7 +14234,7 @@
   },
   {
    "en": "Delete this map?",
-   "zh": "",
+   "zh": "删除这张地图？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14254,7 +14254,7 @@
   },
   {
    "en": "Don't show again",
-   "zh": "",
+   "zh": "不再显示",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14274,7 +14274,7 @@
   },
   {
    "en": "Enemy Placement:",
-   "zh": "",
+   "zh": "敌人放置：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14294,7 +14294,7 @@
   },
   {
    "en": "Energy per Pack:",
-   "zh": "",
+   "zh": "每包能量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14314,7 +14314,7 @@
   },
   {
    "en": "Finalized Worlds",
-   "zh": "",
+   "zh": "已完成的世界",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14355,7 +14355,7 @@
   },
   {
    "en": "Group(optional):",
-   "zh": "",
+   "zh": "分组（可选）：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14377,7 +14377,7 @@
   },
   {
    "en": "Image Color Blue",
-   "zh": "",
+   "zh": "图像颜色蓝",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14418,7 +14418,7 @@
   },
   {
    "en": "Max Spore Count:",
-   "zh": "",
+   "zh": "孢子数量上限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14438,7 +14438,7 @@
   },
   {
    "en": "Message Artifact",
-   "zh": "",
+   "zh": "信息圣物",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14466,7 +14466,7 @@
   },
   {
    "en": "Min Spore Count:",
-   "zh": "",
+   "zh": "孢子数量下限：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14486,7 +14486,7 @@
   },
   {
    "en": "Missions Results",
-   "zh": "",
+   "zh": "任务结果",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14506,7 +14506,7 @@
   },
   {
    "en": "Most Played Ever",
-   "zh": "",
+   "zh": "历史最热门",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14526,7 +14526,7 @@
   },
   {
    "en": "Nullifiers Built",
-   "zh": "",
+   "zh": "建造灭除器",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14586,7 +14586,7 @@
   },
   {
    "en": "Requests Packets",
-   "zh": "",
+   "zh": "请求能量包",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14606,7 +14606,7 @@
   },
   {
    "en": "Restart Mission?",
-   "zh": "",
+   "zh": "重新开始任务？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14626,7 +14626,7 @@
   },
   {
    "en": "SCORE SUBMITTED!",
-   "zh": "",
+   "zh": "得分已提交！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14668,7 +14668,7 @@
   },
   {
    "en": "Saved to Slot 0.",
-   "zh": "",
+   "zh": "已保存到存档位 0。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14688,7 +14688,7 @@
   },
   {
    "en": "Saved to Slot 1.",
-   "zh": "",
+   "zh": "已保存到存档位 1。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14708,7 +14708,7 @@
   },
   {
    "en": "Saved to Slot 2.",
-   "zh": "",
+   "zh": "已保存到存档位 2。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14728,7 +14728,7 @@
   },
   {
    "en": "Saved to Slot 3.",
-   "zh": "",
+   "zh": "已保存到存档位 3。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14748,7 +14748,7 @@
   },
   {
    "en": "Shader Quality: ",
-   "zh": "",
+   "zh": "着色器质量： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14768,7 +14768,7 @@
   },
   {
    "en": "Spawn Interval: ",
-   "zh": "",
+   "zh": "生成间隔： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14789,7 +14789,7 @@
   },
   {
    "en": "Spores Destroyed",
-   "zh": "",
+   "zh": "消灭孢子",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14809,7 +14809,7 @@
   },
   {
    "en": "Thor Super Shots",
-   "zh": "",
+   "zh": "索尔超载射击次数",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14829,7 +14829,7 @@
   },
   {
    "en": "Upgrade to Lvl: ",
-   "zh": "",
+   "zh": "升级至等级： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14849,7 +14849,7 @@
   },
   {
    "en": "Vertical Ridges:",
-   "zh": "",
+   "zh": "垂直山脊：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14869,7 +14869,7 @@
   },
   {
    "en": "[00e000]Sound On",
-   "zh": "",
+   "zh": "[00e000]声音开启",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15017,7 +15017,7 @@
   },
   {
    "en": "Alpha Sector : ",
-   "zh": "",
+   "zh": "阿尔法星区： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15037,7 +15037,7 @@
   },
   {
    "en": "Anti-AoO Range:",
-   "zh": "",
+   "zh": "反 AoO 范围：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15057,7 +15057,7 @@
   },
   {
    "en": "Apply Filters (",
-   "zh": "",
+   "zh": "应用筛选 (",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15077,7 +15077,7 @@
   },
   {
    "en": "Character Names",
-   "zh": "",
+   "zh": "角色名称",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15097,7 +15097,7 @@
   },
   {
    "en": "Combine Patches",
-   "zh": "",
+   "zh": "合并地块",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15117,7 +15117,7 @@
   },
   {
    "en": "Current Width: ",
-   "zh": "",
+   "zh": "当前宽度： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15157,7 +15157,7 @@
   },
   {
    "en": "Destroy Effects",
-   "zh": "",
+   "zh": "摧毁特效",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15177,7 +15177,7 @@
   },
   {
    "en": "Dial Map Device",
-   "zh": "",
+   "zh": "拨号地图装置",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15237,7 +15237,7 @@
   },
   {
    "en": "Fractal Control",
-   "zh": "",
+   "zh": "分形控制",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15257,7 +15257,7 @@
   },
   {
    "en": "Fully Upgraded!",
-   "zh": "",
+   "zh": "已完全升级！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15277,7 +15277,7 @@
   },
   {
    "en": "Image Color Red",
-   "zh": "",
+   "zh": "图像颜色红",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15297,7 +15297,7 @@
   },
   {
    "en": "Input Variables",
-   "zh": "",
+   "zh": "输入变量",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15337,7 +15337,7 @@
   },
   {
    "en": "Lowest as Void:",
-   "zh": "",
+   "zh": "最低处视为虚空：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15357,7 +15357,7 @@
   },
   {
    "en": "Max Bloom Size:",
-   "zh": "",
+   "zh": "最大绽放尺寸：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15377,7 +15377,7 @@
   },
   {
    "en": "Max Field Size:",
-   "zh": "",
+   "zh": "最大场范围：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15397,7 +15397,7 @@
   },
   {
    "en": "Min Bloom Size:",
-   "zh": "",
+   "zh": "最小绽放尺寸：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15417,7 +15417,7 @@
   },
   {
    "en": "Min Field Size:",
-   "zh": "",
+   "zh": "最小场范围：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15437,7 +15437,7 @@
   },
   {
    "en": "Mission Failure",
-   "zh": "",
+   "zh": "任务失败",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15457,7 +15457,7 @@
   },
   {
    "en": "Mission Results",
-   "zh": "",
+   "zh": "任务结果",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15497,7 +15497,7 @@
   },
   {
    "en": "Online DMD Name",
-   "zh": "",
+   "zh": "在线 DMD 名称",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15517,7 +15517,7 @@
   },
   {
    "en": "Ore Pack Count:",
-   "zh": "",
+   "zh": "矿包数量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15537,7 +15537,7 @@
   },
   {
    "en": "Pack Placement:",
-   "zh": "",
+   "zh": "包放置：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15597,7 +15597,7 @@
   },
   {
    "en": "Resources Seed:",
-   "zh": "",
+   "zh": "资源种子：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15617,7 +15617,7 @@
   },
   {
    "en": "Restart Mission",
-   "zh": "",
+   "zh": "重新开始任务",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15640,7 +15640,7 @@
   },
   {
    "en": "Runner Max Pop.",
-   "zh": "",
+   "zh": "空降兵人口上限",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15660,7 +15660,7 @@
   },
   {
    "en": "Save to slot 0?",
-   "zh": "",
+   "zh": "保存到存档位 0？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15680,7 +15680,7 @@
   },
   {
    "en": "Save to slot 1?",
-   "zh": "",
+   "zh": "保存到存档位 1？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15700,7 +15700,7 @@
   },
   {
    "en": "Save to slot 2?",
-   "zh": "",
+   "zh": "保存到存档位 2？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15720,7 +15720,7 @@
   },
   {
    "en": "Save to slot 3?",
-   "zh": "",
+   "zh": "保存到存档位 3？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15740,7 +15740,7 @@
   },
   {
    "en": "Sirens & Devils",
-   "zh": "",
+   "zh": "警笛与恶魔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15760,7 +15760,7 @@
   },
   {
    "en": "Totem Placement",
-   "zh": "",
+   "zh": "图腾放置",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15780,7 +15780,7 @@
   },
   {
    "en": "Validate Finish",
-   "zh": "",
+   "zh": "验证结束",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15800,7 +15800,7 @@
   },
   {
    "en": "[00e000]FLOWING",
-   "zh": "",
+   "zh": "[00e000]流动中",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15861,7 +15861,7 @@
   },
   {
    "en": " More Messages",
-   "zh": "",
+   "zh": " 更多消息",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15921,7 +15921,7 @@
   },
   {
    "en": "AE Field Range",
-   "zh": "",
+   "zh": "AE 场范围",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15941,7 +15941,7 @@
   },
   {
    "en": "Aether Packets",
-   "zh": "",
+   "zh": "以太能量包",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15961,7 +15961,7 @@
   },
   {
    "en": "Arc Eternal : ",
-   "zh": "",
+   "zh": "永恒之弧： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16001,7 +16001,7 @@
   },
   {
    "en": "CANCEL & CLOSE",
-   "zh": "",
+   "zh": "取消并关闭",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16026,7 +16026,7 @@
   },
   {
    "en": "Claim Victory!",
-   "zh": "",
+   "zh": "宣告胜利！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16046,7 +16046,7 @@
   },
   {
    "en": "Current Score:",
-   "zh": "",
+   "zh": "当前得分：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16066,7 +16066,7 @@
   },
   {
    "en": "Default Values",
-   "zh": "",
+   "zh": "默认数值",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16086,7 +16086,7 @@
   },
   {
    "en": "Downloading...",
-   "zh": "",
+   "zh": "正在下载…",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16106,7 +16106,7 @@
   },
   {
    "en": "Drop-down List",
-   "zh": "",
+   "zh": "下拉列表",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16126,7 +16126,7 @@
   },
   {
    "en": "Emitter Count:",
-   "zh": "",
+   "zh": "发射器数量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16146,7 +16146,7 @@
   },
   {
    "en": "Energy Storage",
-   "zh": "",
+   "zh": "能量储量",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16189,7 +16189,7 @@
   },
   {
    "en": "I DO NOT AGREE",
-   "zh": "",
+   "zh": "我不同意",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16230,7 +16230,7 @@
   },
   {
    "en": "Image Offset X",
-   "zh": "",
+   "zh": "图像偏移 X",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16250,7 +16250,7 @@
   },
   {
    "en": "Image Offset Y",
-   "zh": "",
+   "zh": "图像偏移 Y",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16270,7 +16270,7 @@
   },
   {
    "en": "Image Offset Z",
-   "zh": "",
+   "zh": "图像偏移 Z",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16290,7 +16290,7 @@
   },
   {
    "en": "LAUNCH MISSION",
-   "zh": "",
+   "zh": "发射任务",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16310,7 +16310,7 @@
   },
   {
    "en": "Landing Pad X:",
-   "zh": "",
+   "zh": "登陆平台 X：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16330,7 +16330,7 @@
   },
   {
    "en": "Landing Pad Y:",
-   "zh": "",
+   "zh": "登陆平台 Y：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16350,7 +16350,7 @@
   },
   {
    "en": "Loki Imperator",
-   "zh": "",
+   "zh": "洛基统领",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16370,7 +16370,7 @@
   },
   {
    "en": "My Played List",
-   "zh": "",
+   "zh": "我的游玩列表",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16390,7 +16390,7 @@
   },
   {
    "en": "Nuke 'em Rico!",
-   "zh": "",
+   "zh": "核平他们，里科！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16410,7 +16410,7 @@
   },
   {
    "en": "Orbital Weapon",
-   "zh": "",
+   "zh": "轨道武器",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16435,7 +16435,7 @@
   },
   {
    "en": "OreMines Built",
-   "zh": "",
+   "zh": "建造矿场",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16455,7 +16455,7 @@
   },
   {
    "en": "Reactors Built",
-   "zh": "",
+   "zh": "建造反应堆",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16475,7 +16475,7 @@
   },
   {
    "en": "Resource Packs",
-   "zh": "",
+   "zh": "资源包",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16515,7 +16515,7 @@
   },
   {
    "en": "Retrieving....",
-   "zh": "",
+   "zh": "正在获取……",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16539,7 +16539,7 @@
   },
   {
    "en": "Screen Res: ()",
-   "zh": "",
+   "zh": "屏幕分辨率：()",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16559,7 +16559,7 @@
   },
   {
    "en": "Size and Theme",
-   "zh": "",
+   "zh": "尺寸与主题",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16579,7 +16579,7 @@
   },
   {
    "en": "Sprayers Built",
-   "zh": "",
+   "zh": "建造喷吐者",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16599,7 +16599,7 @@
   },
   {
    "en": "Strafers Built",
-   "zh": "",
+   "zh": "建造俯冲机",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16619,7 +16619,7 @@
   },
   {
    "en": "Take Map Space",
-   "zh": "",
+   "zh": "占用地图空间",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16639,7 +16639,7 @@
   },
   {
    "en": "Texture Picker",
-   "zh": "",
+   "zh": "纹理选取器",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16659,7 +16659,7 @@
   },
   {
    "en": "Thunder Dreams",
-   "zh": "",
+   "zh": "雷霆之梦",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16681,7 +16681,7 @@
   },
   {
    "en": "Update Patches",
-   "zh": "",
+   "zh": "更新地块",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16701,7 +16701,7 @@
   },
   {
    "en": "Validate Start",
-   "zh": "",
+   "zh": "验证开始",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16721,7 +16721,7 @@
   },
   {
    "en": "World Projects",
-   "zh": "",
+   "zh": "世界项目",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16741,7 +16741,7 @@
   },
   {
    "en": "[ff0000]PAUSED",
-   "zh": "",
+   "zh": "[ff0000]已暂停",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16861,7 +16861,7 @@
   },
   {
    "en": "APPLY & CLOSE",
-   "zh": "",
+   "zh": "应用并关闭",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16886,7 +16886,7 @@
   },
   {
    "en": "Add Gas Giant",
-   "zh": "",
+   "zh": "添加工气巨行星",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16906,7 +16906,7 @@
   },
   {
    "en": "Air Exclusion",
-   "zh": "",
+   "zh": "禁空",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16931,7 +16931,7 @@
   },
   {
    "en": "Berthas Built",
-   "zh": "",
+   "zh": "建造贝莎炮",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16951,7 +16951,7 @@
   },
   {
    "en": "Bombers Built",
-   "zh": "",
+   "zh": "建造轰炸机",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16971,7 +16971,7 @@
   },
   {
    "en": "Build Packets",
-   "zh": "",
+   "zh": "建造包",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16991,7 +16991,7 @@
   },
   {
    "en": "Build Patches",
-   "zh": "",
+   "zh": "构建地块",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17012,7 +17012,7 @@
   },
   {
    "en": "Command Nodes",
-   "zh": "",
+   "zh": "指挥节点",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17032,7 +17032,7 @@
   },
   {
    "en": "Cue the Swarm",
-   "zh": "",
+   "zh": "放虫群出来",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17052,7 +17052,7 @@
   },
   {
    "en": "Current Time:",
-   "zh": "",
+   "zh": "当前时间：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17072,7 +17072,7 @@
   },
   {
    "en": "Delete Planet",
-   "zh": "",
+   "zh": "删除星球",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17092,7 +17092,7 @@
   },
   {
    "en": "Editing a map",
-   "zh": "",
+   "zh": "正在编辑地图",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17112,7 +17112,7 @@
   },
   {
    "en": "Emit Interval",
-   "zh": "",
+   "zh": "发射间隔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17134,7 +17134,7 @@
   },
   {
    "en": "Enemies Seed:",
-   "zh": "",
+   "zh": "敌人种子：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17194,7 +17194,7 @@
   },
   {
    "en": "Group Filter:",
-   "zh": "",
+   "zh": "分组筛选：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17214,7 +17214,7 @@
   },
   {
    "en": "Highest Rated",
-   "zh": "",
+   "zh": "最高评分",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17275,7 +17275,7 @@
   },
   {
    "en": "Image Scale X",
-   "zh": "",
+   "zh": "图像缩放 X",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17295,7 +17295,7 @@
   },
   {
    "en": "Image Scale Y",
-   "zh": "",
+   "zh": "图像缩放 Y",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17315,7 +17315,7 @@
   },
   {
    "en": "Initial Delay",
-   "zh": "",
+   "zh": "初始延迟",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17335,7 +17335,7 @@
   },
   {
    "en": "Key Binding: ",
-   "zh": "",
+   "zh": "按键绑定： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17355,7 +17355,7 @@
   },
   {
    "en": "LIMIT REACHED",
-   "zh": "",
+   "zh": "已达上限",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17395,7 +17395,7 @@
   },
   {
    "en": "Max Tendrils:",
-   "zh": "",
+   "zh": "最大触须数：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17415,7 +17415,7 @@
   },
   {
    "en": "Min Tendrils:",
-   "zh": "",
+   "zh": "最小触须数：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17435,7 +17435,7 @@
   },
   {
    "en": "Mortars Built",
-   "zh": "",
+   "zh": "建造迫击炮",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17455,7 +17455,7 @@
   },
   {
    "en": "Mortars, Baby",
-   "zh": "",
+   "zh": "迫击炮，宝贝",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17475,7 +17475,7 @@
   },
   {
    "en": "Ore Placement",
-   "zh": "",
+   "zh": "矿放置",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17495,7 +17495,7 @@
   },
   {
    "en": "Ore per Pack:",
-   "zh": "",
+   "zh": "每包矿：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17515,7 +17515,7 @@
   },
   {
    "en": "Requests Ammo",
-   "zh": "",
+   "zh": "请求弹药",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17535,7 +17535,7 @@
   },
   {
    "en": "Resource Pack",
-   "zh": "",
+   "zh": "资源包",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17560,7 +17560,7 @@
   },
   {
    "en": "Retrieving...",
-   "zh": "",
+   "zh": "正在获取…",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17580,7 +17580,7 @@
   },
   {
    "en": "Runner Health",
-   "zh": "",
+   "zh": "空降兵生命值",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17600,7 +17600,7 @@
   },
   {
    "en": "Screen Res: (",
-   "zh": "",
+   "zh": "屏幕分辨率: (",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17622,7 +17622,7 @@
   },
   {
    "en": "Shields Built",
-   "zh": "",
+   "zh": "建造护盾",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17642,7 +17642,7 @@
   },
   {
    "en": "Siphons Built",
-   "zh": "",
+   "zh": "建造虹吸器",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17662,7 +17662,7 @@
   },
   {
    "en": "Sitch Patches",
-   "zh": "",
+   "zh": "缝合地块",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17682,7 +17682,7 @@
   },
   {
    "en": "Sniper Target",
-   "zh": "",
+   "zh": "狙击目标",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17702,7 +17702,7 @@
   },
   {
    "en": "Snipers Built",
-   "zh": "",
+   "zh": "建造狙击手",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17722,7 +17722,7 @@
   },
   {
    "en": "Split Patches",
-   "zh": "",
+   "zh": "拆分地块",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17742,7 +17742,7 @@
   },
   {
    "en": "Spore Payload",
-   "zh": "",
+   "zh": "孢子载荷",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17762,7 +17762,7 @@
   },
   {
    "en": "Sprayer Blobs",
-   "zh": "",
+   "zh": "喷吐者黏液",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17782,7 +17782,7 @@
   },
   {
    "en": "Strafer Shots",
-   "zh": "",
+   "zh": "俯冲机射击次数",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17802,7 +17802,7 @@
   },
   {
    "en": "Submitting...",
-   "zh": "",
+   "zh": "正在提交…",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17824,7 +17824,7 @@
   },
   {
    "en": "Tech Artifact",
-   "zh": "",
+   "zh": "科技圣物",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17849,7 +17849,7 @@
   },
   {
    "en": "Terrain Seed:",
-   "zh": "",
+   "zh": "地形种子：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17889,7 +17889,7 @@
   },
   {
    "en": "Totem Packets",
-   "zh": "",
+   "zh": "图腾能量包",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17909,7 +17909,7 @@
   },
   {
    "en": "Unit Settings",
-   "zh": "",
+   "zh": "单位设置",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17929,7 +17929,7 @@
   },
   {
    "en": "Victory March",
-   "zh": "",
+   "zh": "胜利进行曲",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17952,7 +17952,7 @@
   },
   {
    "en": "Wave Interval",
-   "zh": "",
+   "zh": "波次间隔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18121,7 +18121,7 @@
   },
   {
    "en": "Aether Spent",
-   "zh": "",
+   "zh": "以太消耗",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18141,7 +18141,7 @@
   },
   {
    "en": "Ammo Packets",
-   "zh": "",
+   "zh": "弹药包",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18261,7 +18261,7 @@
   },
   {
    "en": "Command Node",
-   "zh": "",
+   "zh": "指挥节点",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18281,7 +18281,7 @@
   },
   {
    "en": "Edit DMD Map",
-   "zh": "",
+   "zh": "编辑 DMD 地图",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18301,7 +18301,7 @@
   },
   {
    "en": "Exit Mission",
-   "zh": "",
+   "zh": "退出任务",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18323,7 +18323,7 @@
   },
   {
    "en": "Forges Built",
-   "zh": "",
+   "zh": "建造锻造厂",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18343,7 +18343,7 @@
   },
   {
    "en": "Guppys Built",
-   "zh": "",
+   "zh": "建造补给船",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18363,7 +18363,7 @@
   },
   {
    "en": "In Progress:",
-   "zh": "",
+   "zh": "进行中：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18383,7 +18383,7 @@
   },
   {
    "en": "Inhibitor X:",
-   "zh": "",
+   "zh": "抑制器 X：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18403,7 +18403,7 @@
   },
   {
    "en": "Inhibitor Y:",
-   "zh": "",
+   "zh": "抑制器 Y：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18423,7 +18423,7 @@
   },
   {
    "en": "KEY(no edit)",
-   "zh": "",
+   "zh": "键（不可编辑）",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18443,7 +18443,7 @@
   },
   {
    "en": "Load slot 0?",
-   "zh": "",
+   "zh": "载入存档位 0？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18463,7 +18463,7 @@
   },
   {
    "en": "Load slot 1?",
-   "zh": "",
+   "zh": "载入存档位 1？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18483,7 +18483,7 @@
   },
   {
    "en": "Load slot 2?",
-   "zh": "",
+   "zh": "载入存档位 2？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18503,7 +18503,7 @@
   },
   {
    "en": "Load slot 3?",
-   "zh": "",
+   "zh": "载入存档位 3？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18523,7 +18523,7 @@
   },
   {
    "en": "Map Height: ",
-   "zh": "",
+   "zh": "地图高度： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18543,7 +18543,7 @@
   },
   {
    "en": "Missions Won",
-   "zh": "",
+   "zh": "获胜任务数",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18563,7 +18563,7 @@
   },
   {
    "en": "My Sector : ",
-   "zh": "",
+   "zh": "我的星区： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18583,7 +18583,7 @@
   },
   {
    "en": "Num Ratings:",
-   "zh": "",
+   "zh": "评分人数：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18623,7 +18623,7 @@
   },
   {
    "en": "Ore Deposits",
-   "zh": "",
+   "zh": "矿床",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18643,7 +18643,7 @@
   },
   {
    "en": "Packet Speed",
-   "zh": "",
+   "zh": "能量包速度",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18666,7 +18666,7 @@
   },
   {
    "en": "Persistence:",
-   "zh": "",
+   "zh": "持续性：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18686,7 +18686,7 @@
   },
   {
    "en": "Project Name",
-   "zh": "",
+   "zh": "项目名称",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18706,7 +18706,7 @@
   },
   {
    "en": "Pulse Cannon",
-   "zh": "",
+   "zh": "脉冲炮",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18743,7 +18743,7 @@
   },
   {
    "en": "Relays Built",
-   "zh": "",
+   "zh": "建造中继器",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18763,7 +18763,7 @@
   },
   {
    "en": "Reset Values",
-   "zh": "",
+   "zh": "重置数值",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18783,7 +18783,7 @@
   },
   {
    "en": "Ridge Slope:",
-   "zh": "",
+   "zh": "山脊坡度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18803,7 +18803,7 @@
   },
   {
    "en": "Ridge Width:",
-   "zh": "",
+   "zh": "山脊宽度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18823,7 +18823,7 @@
   },
   {
    "en": "Runner Nests",
-   "zh": "",
+   "zh": "空降兵巢穴",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18843,7 +18843,7 @@
   },
   {
    "en": "Sniper Shots",
-   "zh": "",
+   "zh": "狙击手射击次数",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18883,7 +18883,7 @@
   },
   {
    "en": "Spore Towers",
-   "zh": "",
+   "zh": "孢子塔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18903,7 +18903,7 @@
   },
   {
    "en": "Submit Score",
-   "zh": "",
+   "zh": "提交得分",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18925,7 +18925,7 @@
   },
   {
    "en": "Totem Count:",
-   "zh": "",
+   "zh": "图腾数量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19005,7 +19005,7 @@
   },
   {
    "en": "User Filter:",
-   "zh": "",
+   "zh": "用户筛选：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19025,7 +19025,7 @@
   },
   {
    "en": "View Hidden:",
-   "zh": "",
+   "zh": "查看隐藏项：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19087,7 +19087,7 @@
   },
   {
    "en": "Add Message",
-   "zh": "",
+   "zh": "添加消息",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19107,7 +19107,7 @@
   },
   {
    "en": "Beam Target",
-   "zh": "",
+   "zh": "光束目标",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19127,7 +19127,7 @@
   },
   {
    "en": "Beams Built",
-   "zh": "",
+   "zh": "建造光束",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19147,7 +19147,7 @@
   },
   {
    "en": "Best Score:",
-   "zh": "",
+   "zh": "最佳得分：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19167,7 +19167,7 @@
   },
   {
    "en": "Blue Sizzle",
-   "zh": "",
+   "zh": "蓝色嘶响",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19207,7 +19207,7 @@
   },
   {
    "en": "Build Speed",
-   "zh": "",
+   "zh": "建造速度",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19230,7 +19230,7 @@
   },
   {
    "en": "Building...",
-   "zh": "",
+   "zh": "正在建造…",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19250,7 +19250,7 @@
   },
   {
    "en": "COMPILE ALL",
-   "zh": "",
+   "zh": "全部编译",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19270,7 +19270,7 @@
   },
   {
    "en": "Cell Height",
-   "zh": "",
+   "zh": "地块高度",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19290,7 +19290,7 @@
   },
   {
    "en": "Collected: ",
-   "zh": "",
+   "zh": "已收集： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19333,7 +19333,7 @@
   },
   {
    "en": "Downloaded:",
-   "zh": "",
+   "zh": "已下载：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19373,7 +19373,7 @@
   },
   {
    "en": "Game Saved.",
-   "zh": "",
+   "zh": "游戏已保存。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19393,7 +19393,7 @@
   },
   {
    "en": "IN PROGRESS",
-   "zh": "",
+   "zh": "进行中",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19434,7 +19434,7 @@
   },
   {
    "en": "Lacunarity:",
-   "zh": "",
+   "zh": "空隙度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19454,7 +19454,7 @@
   },
   {
    "en": "Last Played",
-   "zh": "",
+   "zh": "最近游玩",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19474,7 +19474,7 @@
   },
   {
    "en": "Last Posted",
-   "zh": "",
+   "zh": "最近发布",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19494,7 +19494,7 @@
   },
   {
    "en": "Map Width: ",
-   "zh": "",
+   "zh": "地图宽度： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19514,7 +19514,7 @@
   },
   {
    "en": "Max AC Ammo",
-   "zh": "",
+   "zh": "AC 弹药上限",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19534,7 +19534,7 @@
   },
   {
    "en": "Max Height:",
-   "zh": "",
+   "zh": "最大高度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19554,7 +19554,7 @@
   },
   {
    "en": "Median Time",
-   "zh": "",
+   "zh": "中位时间",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19594,7 +19594,7 @@
   },
   {
    "en": "Min Height:",
-   "zh": "",
+   "zh": "最小高度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19614,7 +19614,7 @@
   },
   {
    "en": "Min Rating:",
-   "zh": "",
+   "zh": "最低评分：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19634,7 +19634,7 @@
   },
   {
    "en": "Not Played:",
-   "zh": "",
+   "zh": "未游玩：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19694,7 +19694,7 @@
   },
   {
    "en": "Online Maps",
-   "zh": "",
+   "zh": "在线地图",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19714,7 +19714,7 @@
   },
   {
    "en": "Open Folder",
-   "zh": "",
+   "zh": "打开文件夹",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19734,7 +19734,7 @@
   },
   {
    "en": "Ore Deposit",
-   "zh": "",
+   "zh": "矿床",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19759,7 +19759,7 @@
   },
   {
    "en": "Ore Packets",
-   "zh": "",
+   "zh": "矿能量包",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19779,7 +19779,7 @@
   },
   {
    "en": "Product Key",
-   "zh": "",
+   "zh": "产品密钥",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19799,7 +19799,7 @@
   },
   {
    "en": "Random Seed",
-   "zh": "",
+   "zh": "随机种子",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19820,7 +19820,7 @@
   },
   {
    "en": "Ring Slices",
-   "zh": "",
+   "zh": "星环切片",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19840,7 +19840,7 @@
   },
   {
    "en": "Runner Nest",
-   "zh": "",
+   "zh": "空降兵巢穴",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19930,7 +19930,7 @@
   },
   {
    "en": "Spore Count",
-   "zh": "",
+   "zh": "孢子数量",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19950,7 +19950,7 @@
   },
   {
    "en": "Spore Tower",
-   "zh": "",
+   "zh": "孢子塔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19981,7 +19981,7 @@
   },
   {
    "en": "Start Delay",
-   "zh": "",
+   "zh": "启动延迟",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20003,7 +20003,7 @@
   },
   {
    "en": "Submit Name",
-   "zh": "",
+   "zh": "提交名称",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20023,7 +20023,7 @@
   },
   {
    "en": "Tech Levels",
-   "zh": "",
+   "zh": "科技等级",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20043,7 +20043,7 @@
   },
   {
    "en": "Terps Built",
-   "zh": "",
+   "zh": "建造挖掘机",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20063,7 +20063,7 @@
   },
   {
    "en": "Thors Built",
-   "zh": "",
+   "zh": "建造索尔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20083,7 +20083,7 @@
   },
   {
    "en": "Time Range:",
-   "zh": "",
+   "zh": "时间范围：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20103,7 +20103,7 @@
   },
   {
    "en": "Total Score",
-   "zh": "",
+   "zh": "总得分",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20123,7 +20123,7 @@
   },
   {
    "en": "Upload Map:",
-   "zh": "",
+   "zh": "上传地图：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20143,7 +20143,7 @@
   },
   {
    "en": "UploadMap: ",
-   "zh": "",
+   "zh": "上传地图: ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20213,7 +20213,7 @@
   },
   {
    "en": "Window full",
-   "zh": "",
+   "zh": "窗口已满",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20415,7 +20415,7 @@
   },
   {
    "en": "AC Packets",
-   "zh": "",
+   "zh": "AC 能量包",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20435,7 +20435,7 @@
   },
   {
    "en": "AC Storage",
-   "zh": "",
+   "zh": "AC 储量",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20478,7 +20478,7 @@
   },
   {
    "en": "Add Planet",
-   "zh": "",
+   "zh": "添加行星",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20498,7 +20498,7 @@
   },
   {
    "en": "Amplitude:",
-   "zh": "",
+   "zh": "振幅：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20518,7 +20518,7 @@
   },
   {
    "en": "Attendees:",
-   "zh": "",
+   "zh": "出席者：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20538,7 +20538,7 @@
   },
   {
    "en": "Best Time:",
-   "zh": "",
+   "zh": "最佳时间：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20558,7 +20558,7 @@
   },
   {
    "en": "Cell Width",
-   "zh": "",
+   "zh": "地块宽度",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20578,7 +20578,7 @@
   },
   {
    "en": "Character ",
-   "zh": "",
+   "zh": "角色 ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20598,7 +20598,7 @@
   },
   {
    "en": "Click or '",
-   "zh": "",
+   "zh": "点击或 '",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20618,7 +20618,7 @@
   },
   {
    "en": "Completed:",
-   "zh": "",
+   "zh": "已完成：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20638,7 +20638,7 @@
   },
   {
    "en": "Data Error",
-   "zh": "",
+   "zh": "数据错误",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20658,7 +20658,7 @@
   },
   {
    "en": "Destroyed!",
-   "zh": "",
+   "zh": "已被摧毁！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20681,7 +20681,7 @@
   },
   {
    "en": "Favorites:",
-   "zh": "",
+   "zh": "收藏：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20721,7 +20721,7 @@
   },
   {
    "en": "Interval: ",
-   "zh": "",
+   "zh": "间隔： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20745,7 +20745,7 @@
   },
   {
    "en": "Map Size: ",
-   "zh": "",
+   "zh": "地图尺寸： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20767,7 +20767,7 @@
   },
   {
    "en": "Max Width:",
-   "zh": "",
+   "zh": "最大宽度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20827,7 +20827,7 @@
   },
   {
    "en": "Min Width:",
-   "zh": "",
+   "zh": "最小宽度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20847,7 +20847,7 @@
   },
   {
    "en": "My Ratings",
-   "zh": "",
+   "zh": "我的评分",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20867,7 +20867,7 @@
   },
   {
    "en": "New Planet",
-   "zh": "",
+   "zh": "新行星",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20887,7 +20887,7 @@
   },
   {
    "en": "Next Crazy",
-   "zh": "",
+   "zh": "下一个随机关卡",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20927,7 +20927,7 @@
   },
   {
    "en": "Post Score",
-   "zh": "",
+   "zh": "提交得分",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20947,7 +20947,7 @@
   },
   {
    "en": "Power Zone",
-   "zh": "",
+   "zh": "供能区",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20973,7 +20973,7 @@
   },
   {
    "en": "Prev Crazy",
-   "zh": "",
+   "zh": "上一个随机关卡",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20993,7 +20993,7 @@
   },
   {
    "en": "Report Map",
-   "zh": "",
+   "zh": "举报地图",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21013,7 +21013,7 @@
   },
   {
    "en": "Shield Key",
-   "zh": "",
+   "zh": "护盾钥匙",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21044,7 +21044,7 @@
   },
   {
    "en": "Sort Order",
-   "zh": "",
+   "zh": "排序方式",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21084,7 +21084,7 @@
   },
   {
    "en": "Stretch X:",
-   "zh": "",
+   "zh": "拉伸 X：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21104,7 +21104,7 @@
   },
   {
    "en": "Stretch Y:",
-   "zh": "",
+   "zh": "拉伸 Y：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21124,7 +21124,7 @@
   },
   {
    "en": "Thor Shots",
-   "zh": "",
+   "zh": "索尔射击次数",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21144,7 +21144,7 @@
   },
   {
    "en": "Total Time",
-   "zh": "",
+   "zh": "总时间",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21325,7 +21325,7 @@
   },
   {
    "en": "Enter Key",
-   "zh": "",
+   "zh": "输入密钥",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21345,7 +21345,7 @@
   },
   {
    "en": "Full Ammo",
-   "zh": "",
+   "zh": "弹药满载",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21386,7 +21386,7 @@
   },
   {
    "en": "Hide Text",
-   "zh": "",
+   "zh": "隐藏文本",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21406,7 +21406,7 @@
   },
   {
    "en": "Loki Hive",
-   "zh": "",
+   "zh": "洛基巢穴",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21426,7 +21426,7 @@
   },
   {
    "en": "Main menu",
-   "zh": "",
+   "zh": "主菜单",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21446,7 +21446,7 @@
   },
   {
    "en": "Map Code:",
-   "zh": "",
+   "zh": "地图代码：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21466,7 +21466,7 @@
   },
   {
    "en": "Map Name:",
-   "zh": "",
+   "zh": "地图名称：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21486,7 +21486,7 @@
   },
   {
    "en": "My Sector",
-   "zh": "",
+   "zh": "我的星区",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21527,7 +21527,7 @@
   },
   {
    "en": "Payload: ",
-   "zh": "",
+   "zh": "载荷： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21567,7 +21567,7 @@
   },
   {
    "en": "Quality: ",
-   "zh": "",
+   "zh": "画质： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21587,7 +21587,7 @@
   },
   {
    "en": "Rate Map:",
-   "zh": "",
+   "zh": "评价地图：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21630,7 +21630,7 @@
   },
   {
    "en": "Targets: ",
-   "zh": "",
+   "zh": "目标: ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21650,7 +21650,7 @@
   },
   {
    "en": "The Chase",
-   "zh": "",
+   "zh": "追逐",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21710,7 +21710,7 @@
   },
   {
    "en": "Unknown: ",
-   "zh": "",
+   "zh": "未知： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21776,7 +21776,7 @@
   },
   {
    "en": "AE Tower",
-   "zh": "",
+   "zh": "反发射器塔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21799,7 +21799,7 @@
   },
   {
    "en": "Aether: ",
-   "zh": "",
+   "zh": "以太： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21819,7 +21819,7 @@
   },
   {
    "en": "All Time",
-   "zh": "",
+   "zh": "全部时间",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21899,7 +21899,7 @@
   },
   {
    "en": "Convert:",
-   "zh": "",
+   "zh": "转化：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21919,7 +21919,7 @@
   },
   {
    "en": "DEV GUID",
-   "zh": "",
+   "zh": "开发者 GUID",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21940,7 +21940,7 @@
   },
   {
    "en": "Emit Amt",
-   "zh": "",
+   "zh": "发射量",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21962,7 +21962,7 @@
   },
   {
    "en": "Energy: ",
-   "zh": "",
+   "zh": "能量： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22009,7 +22009,7 @@
   },
   {
    "en": "Key Exit",
-   "zh": "",
+   "zh": "密钥退出",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22029,7 +22029,7 @@
   },
   {
    "en": "Max Ammo",
-   "zh": "",
+   "zh": "弹药上限",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22049,7 +22049,7 @@
   },
   {
    "en": "Sector: ",
-   "zh": "",
+   "zh": "星区： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22069,7 +22069,7 @@
   },
   {
    "en": "Set Name",
-   "zh": "",
+   "zh": "设置名称",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22089,7 +22089,7 @@
   },
   {
    "en": "Spores: ",
-   "zh": "",
+   "zh": "孢子： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22109,7 +22109,7 @@
   },
   {
    "en": "Start #:",
-   "zh": "",
+   "zh": "起始编号：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22129,7 +22129,7 @@
   },
   {
    "en": "Start At",
-   "zh": "",
+   "zh": "起始于",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22250,7 +22250,7 @@
   },
   {
    "en": "Author:",
-   "zh": "",
+   "zh": "作者:",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22272,7 +22272,7 @@
   },
   {
    "en": "Build: ",
-   "zh": "",
+   "zh": "建造： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22292,7 +22292,7 @@
   },
   {
    "en": "DLoads:",
-   "zh": "",
+   "zh": "下载量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22312,7 +22312,7 @@
   },
   {
    "en": "Error: ",
-   "zh": "",
+   "zh": "错误： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22337,7 +22337,7 @@
   },
   {
    "en": "Freeze:",
-   "zh": "",
+   "zh": "冻结：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22357,7 +22357,7 @@
   },
   {
    "en": "Level: ",
-   "zh": "",
+   "zh": "等级： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22377,7 +22377,7 @@
   },
   {
    "en": "No way!",
-   "zh": "",
+   "zh": "不可能！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22397,7 +22397,7 @@
   },
   {
    "en": "Price: ",
-   "zh": "",
+   "zh": "价格: ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22422,7 +22422,7 @@
   },
   {
    "en": "Rating:",
-   "zh": "",
+   "zh": "评分：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22442,7 +22442,7 @@
   },
   {
    "en": "Score: ",
-   "zh": "",
+   "zh": "得分： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22462,7 +22462,7 @@
   },
   {
    "en": "Scores:",
-   "zh": "",
+   "zh": "得分：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22482,7 +22482,7 @@
   },
   {
    "en": "Smooth:",
-   "zh": "",
+   "zh": "平滑：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22502,7 +22502,7 @@
   },
   {
    "en": "Status:",
-   "zh": "",
+   "zh": "状态：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22522,7 +22522,7 @@
   },
   {
    "en": "Un-Hide",
-   "zh": "",
+   "zh": "取消隐藏",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22927,7 +22927,7 @@
   },
   {
    "en": "ALERT:",
-   "zh": "",
+   "zh": "警报：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22987,7 +22987,7 @@
   },
   {
    "en": "Email:",
-   "zh": "",
+   "zh": "邮箱:",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23052,7 +23052,7 @@
   },
   {
    "en": "Map #:",
-   "zh": "",
+   "zh": "地图编号：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23072,7 +23072,7 @@
   },
   {
    "en": "News: ",
-   "zh": "",
+   "zh": "新闻： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23092,7 +23092,7 @@
   },
   {
    "en": "Pan X:",
-   "zh": "",
+   "zh": "平移 X：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23112,7 +23112,7 @@
   },
   {
    "en": "Pan Y:",
-   "zh": "",
+   "zh": "平移 Y：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23132,7 +23132,7 @@
   },
   {
    "en": "Saved.",
-   "zh": "",
+   "zh": "已保存。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23152,7 +23152,7 @@
   },
   {
    "en": "Score:",
-   "zh": "",
+   "zh": "得分：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23172,7 +23172,7 @@
   },
   {
    "en": "Tech: ",
-   "zh": "",
+   "zh": "科技： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23192,7 +23192,7 @@
   },
   {
    "en": "Theme:",
-   "zh": "",
+   "zh": "主题：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23212,7 +23212,7 @@
   },
   {
    "en": "Time: ",
-   "zh": "",
+   "zh": "时间： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23232,7 +23232,7 @@
   },
   {
    "en": "Title:",
-   "zh": "",
+   "zh": "标题：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23272,7 +23272,7 @@
   },
   {
    "en": "~Time:",
-   "zh": "",
+   "zh": "~时间:",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23292,7 +23292,7 @@
   },
   {
    "en": "  T: ",
-   "zh": "",
+   "zh": "  地形： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23312,7 +23312,7 @@
   },
   {
    "en": " for ",
-   "zh": "",
+   "zh": " 用时 ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23352,7 +23352,7 @@
   },
   {
    "en": "Amt: ",
-   "zh": "",
+   "zh": "数量： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23376,7 +23376,7 @@
   },
   {
    "en": "Auto:",
-   "zh": "",
+   "zh": "自动:",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23398,7 +23398,7 @@
   },
   {
    "en": "Desc:",
-   "zh": "",
+   "zh": "描述：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23418,7 +23418,7 @@
   },
   {
    "en": "FPS: ",
-   "zh": "",
+   "zh": "帧率： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23464,7 +23464,7 @@
   },
   {
    "en": "Lost!",
-   "zh": "",
+   "zh": "已失去！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23487,7 +23487,7 @@
   },
   {
    "en": "Lvl: ",
-   "zh": "",
+   "zh": "等级： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23507,7 +23507,7 @@
   },
   {
    "en": "Map: ",
-   "zh": "",
+   "zh": "地图： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23527,7 +23527,7 @@
   },
   {
    "en": "Mass:",
-   "zh": "",
+   "zh": "质量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23547,7 +23547,7 @@
   },
   {
    "en": "Mine:",
-   "zh": "",
+   "zh": "我的：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23567,7 +23567,7 @@
   },
   {
    "en": "Name:",
-   "zh": "",
+   "zh": "名称：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23589,7 +23589,7 @@
   },
   {
    "en": "Ore: ",
-   "zh": "",
+   "zh": "矿： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23629,7 +23629,7 @@
   },
   {
    "en": "Size:",
-   "zh": "",
+   "zh": "尺寸：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23651,7 +23651,7 @@
   },
   {
    "en": "Soon!",
-   "zh": "",
+   "zh": "即将开放！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23674,7 +23674,7 @@
   },
   {
    "en": "Text:",
-   "zh": "",
+   "zh": "文本：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23694,7 +23694,7 @@
   },
   {
    "en": "Time:",
-   "zh": "",
+   "zh": "时间：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23754,7 +23754,7 @@
   },
   {
    "en": "Num:",
-   "zh": "",
+   "zh": "数量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23895,7 +23895,7 @@
   },
   {
    "en": "M: ",
-   "zh": "",
+   "zh": "  地图： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23955,7 +23955,7 @@
   },
   {
    "en": "DEACTIVATE",
-   "zh": "",
+   "zh": "停用",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -23979,7 +23979,7 @@
   },
   {
    "en": "Production",
-   "zh": "",
+   "zh": "生产",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -24018,7 +24018,7 @@
   },
   {
    "en": "Collector",
-   "zh": "",
+   "zh": "收集器",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24068,7 +24068,7 @@
   },
   {
    "en": "Digitalis",
-   "zh": "",
+   "zh": "魔苋",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24094,7 +24094,7 @@
   },
   {
    "en": "Nullifier",
-   "zh": "",
+   "zh": "灭除器",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24144,7 +24144,7 @@
   },
   {
    "en": "Structure",
-   "zh": "",
+   "zh": "建筑",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24168,7 +24168,7 @@
   },
   {
    "en": "Continue",
-   "zh": "",
+   "zh": "继续",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24193,7 +24193,7 @@
   },
   {
    "en": "Settings",
-   "zh": "",
+   "zh": "设置",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -24206,7 +24206,7 @@
   },
   {
    "en": "Cancels",
-   "zh": "",
+   "zh": "取消",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -24219,7 +24219,7 @@
   },
   {
    "en": "Command",
-   "zh": "",
+   "zh": "指挥",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24243,7 +24243,7 @@
   },
   {
    "en": "Credits",
-   "zh": "",
+   "zh": "制作名单",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24294,7 +24294,7 @@
   },
   {
    "en": "Current",
-   "zh": "",
+   "zh": "当前",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24321,7 +24321,7 @@
   },
   {
    "en": "Emitter",
-   "zh": "",
+   "zh": "发射器",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24366,7 +24366,7 @@
   },
   {
    "en": "Packets",
-   "zh": "",
+   "zh": "能量包",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24393,7 +24393,7 @@
   },
   {
    "en": "Primary",
-   "zh": "",
+   "zh": "主要",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -24406,7 +24406,7 @@
   },
   {
    "en": "Reactor",
-   "zh": "",
+   "zh": "反应堆",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24597,7 +24597,7 @@
   },
   {
    "en": "Scripts",
-   "zh": "",
+   "zh": "脚本",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24624,7 +24624,7 @@
   },
   {
    "en": "Sprayer",
-   "zh": "",
+   "zh": "喷吐者",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24673,7 +24673,7 @@
   },
   {
    "en": "Strafer",
-   "zh": "",
+   "zh": "俯冲机",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24716,7 +24716,7 @@
   },
   {
    "en": "Weapons",
-   "zh": "",
+   "zh": "武器",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24847,7 +24847,7 @@
   },
   {
    "en": "Bertha",
-   "zh": "",
+   "zh": "贝莎炮",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24896,7 +24896,7 @@
   },
   {
    "en": "Bomber",
-   "zh": "",
+   "zh": "轰炸机",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24939,7 +24939,7 @@
   },
   {
    "en": "CANCEL",
-   "zh": "",
+   "zh": "取消",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24991,7 +24991,7 @@
   },
   {
    "en": "Cancel",
-   "zh": "",
+   "zh": "取消",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25032,7 +25032,7 @@
   },
   {
    "en": "Cannon",
-   "zh": "",
+   "zh": "炮",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25056,7 +25056,7 @@
   },
   {
    "en": "DISARM",
-   "zh": "",
+   "zh": "解除",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25080,7 +25080,7 @@
   },
   {
    "en": "Energy",
-   "zh": "",
+   "zh": "能量",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25130,7 +25130,7 @@
   },
   {
    "en": "Height",
-   "zh": "",
+   "zh": "高度",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25156,7 +25156,7 @@
   },
   {
    "en": "Mortar",
-   "zh": "",
+   "zh": "迫击炮",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25205,7 +25205,7 @@
   },
   {
    "en": "Return",
-   "zh": "",
+   "zh": "返回",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25237,7 +25237,7 @@
   },
   {
    "en": "Shield",
-   "zh": "",
+   "zh": "护盾",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25282,7 +25282,7 @@
   },
   {
    "en": "Siphon",
-   "zh": "",
+   "zh": "虹吸器",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25332,7 +25332,7 @@
   },
   {
    "en": "Sniper",
-   "zh": "",
+   "zh": "狙击手",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25382,7 +25382,7 @@
   },
   {
    "en": "Sounds",
-   "zh": "",
+   "zh": "音效",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25406,7 +25406,7 @@
   },
   {
    "en": "Titans",
-   "zh": "",
+   "zh": "泰坦",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25430,7 +25430,7 @@
   },
   {
    "en": "Weapon",
-   "zh": "",
+   "zh": "武器",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -25443,7 +25443,7 @@
   },
   {
    "en": "Window",
-   "zh": "",
+   "zh": "窗口",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -25456,7 +25456,7 @@
   },
   {
    "en": "Worlds",
-   "zh": "",
+   "zh": "世界",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25493,7 +25493,7 @@
   },
   {
    "en": "Apply",
-   "zh": "",
+   "zh": "应用",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25525,7 +25525,7 @@
   },
   {
    "en": "Click",
-   "zh": "",
+   "zh": "点击",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25549,7 +25549,7 @@
   },
   {
    "en": "Forge",
-   "zh": "",
+   "zh": "锻造厂",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25591,7 +25591,7 @@
   },
   {
    "en": "Guppy",
-   "zh": "",
+   "zh": "补给船",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25634,7 +25634,7 @@
   },
   {
    "en": "Large",
-   "zh": "",
+   "zh": "大",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25671,7 +25671,7 @@
   },
   {
    "en": "Misc.",
-   "zh": "",
+   "zh": "杂项",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -25684,7 +25684,7 @@
   },
   {
    "en": "Relay",
-   "zh": "",
+   "zh": "中继器",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25733,7 +25733,7 @@
   },
   {
    "en": "Right",
-   "zh": "",
+   "zh": "右",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25781,7 +25781,7 @@
   },
   {
    "en": "Small",
-   "zh": "",
+   "zh": "小",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25805,7 +25805,7 @@
   },
   {
    "en": "Sound",
-   "zh": "",
+   "zh": "音效",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25844,7 +25844,7 @@
   },
   {
    "en": "Total",
-   "zh": "",
+   "zh": "总计",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -25857,7 +25857,7 @@
   },
   {
    "en": "Video",
-   "zh": "",
+   "zh": "视频",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -25870,7 +25870,7 @@
   },
   {
    "en": "Width",
-   "zh": "",
+   "zh": "宽度",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25896,7 +25896,7 @@
   },
   {
    "en": "Ammo",
-   "zh": "",
+   "zh": "弹药",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25922,7 +25922,7 @@
   },
   {
    "en": "Auto",
-   "zh": "",
+   "zh": "自动",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -25935,7 +25935,7 @@
   },
   {
    "en": "Beam",
-   "zh": "",
+   "zh": "光束",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26041,7 +26041,7 @@
   },
   {
    "en": "Game",
-   "zh": "",
+   "zh": "游戏",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26084,7 +26084,7 @@
   },
   {
    "en": "Huge",
-   "zh": "",
+   "zh": "巨大",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26108,7 +26108,7 @@
   },
   {
    "en": "Keys",
-   "zh": "",
+   "zh": "按键",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26132,7 +26132,7 @@
   },
   {
    "en": "Left",
-   "zh": "",
+   "zh": "左",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26156,7 +26156,7 @@
   },
   {
    "en": "Load",
-   "zh": "",
+   "zh": "载入",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26188,7 +26188,7 @@
   },
   {
    "en": "MENU",
-   "zh": "",
+   "zh": "菜单",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -26201,7 +26201,7 @@
   },
   {
    "en": "Name",
-   "zh": "",
+   "zh": "名称",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26234,7 +26234,7 @@
   },
   {
    "en": "Next",
-   "zh": "",
+   "zh": "下一个",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26261,7 +26261,7 @@
   },
   {
    "en": "None",
-   "zh": "",
+   "zh": "无",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26298,7 +26298,7 @@
   },
   {
    "en": "PLAY",
-   "zh": "",
+   "zh": "开始游戏",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -26311,7 +26311,7 @@
   },
   {
    "en": "Prev",
-   "zh": "",
+   "zh": "上一个",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26335,7 +26335,7 @@
   },
   {
    "en": "Save",
-   "zh": "",
+   "zh": "保存",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26365,7 +26365,7 @@
   },
   {
    "en": "Tech",
-   "zh": "",
+   "zh": "科技",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26389,7 +26389,7 @@
   },
   {
    "en": "Terp",
-   "zh": "",
+   "zh": "挖掘机",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26432,7 +26432,7 @@
   },
   {
    "en": "Thor",
-   "zh": "",
+   "zh": "索尔",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26480,7 +26480,7 @@
   },
   {
    "en": "Void",
-   "zh": "",
+   "zh": "虚空",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26530,7 +26530,7 @@
   },
   {
    "en": "Ore",
-   "zh": "",
+   "zh": "矿",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -26567,7 +26567,7 @@
   },
   {
    "en": "Use",
-   "zh": "",
+   "zh": "使用",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",
@@ -26843,7 +26843,7 @@
   },
   {
    "en": "OK",
-   "zh": "",
+   "zh": "确定",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -27229,7 +27229,7 @@
   },
   {
    "en": "DISCHARGE 100",
-   "zh": "",
+   "zh": "释放 100",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27242,7 +27242,7 @@
   },
   {
    "en": "DISCHARGE 300",
-   "zh": "",
+   "zh": "释放 300",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27268,7 +27268,7 @@
   },
   {
    "en": "Procedural 1",
-   "zh": "",
+   "zh": "程序生成 1",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27281,7 +27281,7 @@
   },
   {
    "en": "Singularity",
-   "zh": "",
+   "zh": "奇点",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27294,7 +27294,7 @@
   },
   {
    "en": "Transparent",
-   "zh": "",
+   "zh": "透明",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27307,7 +27307,7 @@
   },
   {
    "en": "Visibility",
-   "zh": "",
+   "zh": "可见性",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27320,7 +27320,7 @@
   },
   {
    "en": "Projects",
-   "zh": "",
+   "zh": "项目",
    "cat": "asset",
    "grade": "other",
    "kind": "TextMesh",
@@ -27333,7 +27333,7 @@
   },
   {
    "en": "Cannons",
-   "zh": "",
+   "zh": "炮",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27346,7 +27346,7 @@
   },
   {
    "en": "DESTROY",
-   "zh": "",
+   "zh": "摧毁",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27359,7 +27359,7 @@
   },
   {
    "en": "Flowing",
-   "zh": "",
+   "zh": "流动中",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27372,7 +27372,7 @@
   },
   {
    "en": "Massive",
-   "zh": "",
+   "zh": "巨型",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27385,7 +27385,7 @@
   },
   {
    "en": "Orbital",
-   "zh": "",
+   "zh": "轨道",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27398,7 +27398,7 @@
   },
   {
    "en": "Runners",
-   "zh": "",
+   "zh": "空降兵",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27411,7 +27411,7 @@
   },
   {
    "en": "UPGRADE",
-   "zh": "",
+   "zh": "升级",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27424,7 +27424,7 @@
   },
   {
    "en": "Awaken",
-   "zh": "",
+   "zh": "苏醒",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27437,7 +27437,7 @@
   },
   {
    "en": "Browse",
-   "zh": "",
+   "zh": "浏览",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27450,7 +27450,7 @@
   },
   {
    "en": "Medium",
-   "zh": "",
+   "zh": "中",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27463,7 +27463,7 @@
   },
   {
    "en": "Onward",
-   "zh": "",
+   "zh": "前进",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27476,7 +27476,7 @@
   },
   {
    "en": "Page 1",
-   "zh": "",
+   "zh": "第 1 页",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27489,7 +27489,7 @@
   },
   {
    "en": "Page 2",
-   "zh": "",
+   "zh": "第 2 页",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27502,7 +27502,7 @@
   },
   {
    "en": "Paused",
-   "zh": "",
+   "zh": "已暂停",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27515,7 +27515,7 @@
   },
   {
    "en": "Square",
-   "zh": "",
+   "zh": "方形",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27528,7 +27528,7 @@
   },
   {
    "en": "+Digi",
-   "zh": "",
+   "zh": "+魔苋",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27541,7 +27541,7 @@
   },
   {
    "en": "+Wall",
-   "zh": "",
+   "zh": "+墙",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27554,7 +27554,7 @@
   },
   {
    "en": "-Digi",
-   "zh": "",
+   "zh": "-魔苋",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27567,7 +27567,7 @@
   },
   {
    "en": "-Wall",
-   "zh": "",
+   "zh": "-墙",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27593,7 +27593,7 @@
   },
   {
    "en": "Beams",
-   "zh": "",
+   "zh": "光束",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27606,7 +27606,7 @@
   },
   {
    "en": "Build",
-   "zh": "",
+   "zh": "建造",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27619,7 +27619,7 @@
   },
   {
    "en": "Round",
-   "zh": "",
+   "zh": "圆形",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27632,7 +27632,7 @@
   },
   {
    "en": "Slots",
-   "zh": "",
+   "zh": "存档位",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27645,7 +27645,7 @@
   },
   {
    "en": "Adv.",
-   "zh": "",
+   "zh": "高级",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27658,7 +27658,7 @@
   },
   {
    "en": "Exit",
-   "zh": "",
+   "zh": "退出",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27671,7 +27671,7 @@
   },
   {
    "en": "Terr",
-   "zh": "",
+   "zh": "地形",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27684,7 +27684,7 @@
   },
   {
    "en": "Wind",
-   "zh": "",
+   "zh": "风",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27697,7 +27697,7 @@
   },
   {
    "en": "Zoom",
-   "zh": "",
+   "zh": "缩放",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -27788,7 +27788,7 @@
   },
   {
    "en": "Web",
-   "zh": "",
+   "zh": "网页",
    "cat": "asset",
    "grade": "other",
    "kind": "TextMesh",
@@ -28129,7 +28129,7 @@
   },
   {
    "en": "Council Director 5: \"Bring in this young man.  We wish to question him directly.\"",
-   "zh": "",
+   "zh": "议会主管 5：「带这个年轻人进来。我们要直接审问他。」",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -28149,7 +28149,7 @@
   },
   {
    "en": "Council Director 1: \"And how have you reached these conclusions, Director Mont?\"",
-   "zh": "",
+   "zh": "议会主管 1：「那么，Mont 主管，你是如何得出这些结论的？」",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -28189,7 +28189,7 @@
   },
   {
    "en": "We also believe the Loki are aware of only one method to reveal the Arc.\"",
-   "zh": "",
+   "zh": "我们还认为，洛基只知道一种揭示永恒之弧的方法。",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -28249,7 +28249,7 @@
   },
   {
    "en": "Newton Mont: \" 'Platius', Council.  His name is 'Platius Abraxis' \"",
-   "zh": "",
+   "zh": "牛顿·蒙特：「'普拉提乌斯'，议会。他的名字是 '普拉提乌斯·阿布拉克斯'」",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -28269,7 +28269,7 @@
   },
   {
    "en": "Council Director 4: \"So, the Creeper and the Arc are intertwined?\"",
-   "zh": "",
+   "zh": "议会主管 4：「那么，Creeper 与永恒之弧是相互纠缠的？」",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -28409,7 +28409,7 @@
   },
   {
    "en": "Newton Mont: \"Council, our team has confirmed your suspicions.\"",
-   "zh": "",
+   "zh": "牛顿·蒙特：「议会，我们的团队已经证实了你们的猜测。」",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -28469,7 +28469,7 @@
   },
   {
    "en": "Council Director 3: \"What is this man's name, Director Mont?\"",
-   "zh": "",
+   "zh": "议会主管 3：「这个人叫什么名字，蒙特主管？」",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -28690,7 +28690,7 @@
   },
   {
    "en": "Council Director 2: \"Then it is true. The Arc exists.\"",
-   "zh": "",
+   "zh": "议会主管 2：「那么这是真的。永恒之弧确实存在。」",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -28873,7 +28873,7 @@
   },
   {
    "en": "One, we believe, is being employed by the Loki.\"",
-   "zh": "",
+   "zh": "我们认为，其中一种正被洛基使用。",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -29094,7 +29094,7 @@
   },
   {
    "en": "His insights led us to our conclusions.\"",
-   "zh": "",
+   "zh": "他的见解引导我们得出了结论。」",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -29298,7 +29298,7 @@
   },
   {
    "en": "Could not find location for star 1",
-   "zh": "",
+   "zh": "找不到恒星 1 的位置",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -29747,7 +29747,7 @@
   },
   {
    "en": "Invalid Settings Code",
-   "zh": "",
+   "zh": "设置代码无效",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -29970,7 +29970,7 @@
   },
   {
    "en": "Null input var value",
-   "zh": "",
+   "zh": "输入变量值为空",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -30260,7 +30260,7 @@
   },
   {
    "en": "Invalid Parameter",
-   "zh": "",
+   "zh": "参数无效",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -30381,7 +30381,7 @@
   },
   {
    "en": "Invalid Game Key",
-   "zh": "",
+   "zh": "游戏密钥无效",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -31076,7 +31076,7 @@
   },
   {
    "en": "Conversation",
-   "zh": "",
+   "zh": "对话",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -32424,7 +32424,7 @@
   },
   {
    "en": "Deactivate",
-   "zh": "",
+   "zh": "停用",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -32554,7 +32554,7 @@
   },
   {
    "en": "NO SCRIPTS",
-   "zh": "",
+   "zh": "无脚本",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -32574,7 +32574,7 @@
   },
   {
    "en": "No results",
-   "zh": "",
+   "zh": "无结果",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -32594,7 +32594,7 @@
   },
   {
    "en": "Not Played",
-   "zh": "",
+   "zh": "未游玩",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -32637,7 +32637,7 @@
   },
   {
    "en": "Properties",
-   "zh": "",
+   "zh": "属性",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -32752,7 +32752,7 @@
   },
   {
    "en": "Screenshot",
-   "zh": "",
+   "zh": "截图",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -33151,7 +33151,7 @@
   },
   {
    "en": "Inhibitor",
-   "zh": "",
+   "zh": "抑制器",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -33280,7 +33280,7 @@
   },
   {
    "en": "PURCHASED",
-   "zh": "",
+   "zh": "已购买",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -33305,7 +33305,7 @@
   },
   {
    "en": "Resources",
-   "zh": "",
+   "zh": "资源",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -33416,7 +33416,7 @@
   },
   {
    "en": "SUBMITTED",
-   "zh": "",
+   "zh": "已提交",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -33438,7 +33438,7 @@
   },
   {
    "en": "Selection",
-   "zh": "",
+   "zh": "选择",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -33518,7 +33518,7 @@
   },
   {
    "en": "Submitted",
-   "zh": "",
+   "zh": "已提交",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -33751,7 +33751,7 @@
   },
   {
    "en": "ACTIVATE",
-   "zh": "",
+   "zh": "激活",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -35488,7 +35488,7 @@
   },
   {
    "en": "DEPLOYED",
-   "zh": "",
+   "zh": "已部署",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -35529,7 +35529,7 @@
   },
   {
    "en": "Depleted",
-   "zh": "",
+   "zh": "已耗尽",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -35552,7 +35552,7 @@
   },
   {
    "en": "Download",
-   "zh": "",
+   "zh": "下载",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -35572,7 +35572,7 @@
   },
   {
    "en": "Emitters",
-   "zh": "",
+   "zh": "发射器",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -35592,7 +35592,7 @@
   },
   {
    "en": "Epilogue",
-   "zh": "",
+   "zh": "尾声",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -35717,7 +35717,7 @@
   },
   {
    "en": "Managers",
-   "zh": "",
+   "zh": "管理器",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -35739,7 +35739,7 @@
   },
   {
    "en": "Messages",
-   "zh": "",
+   "zh": "消息",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -35762,7 +35762,7 @@
   },
   {
    "en": "RESUPPLY",
-   "zh": "",
+   "zh": "补给",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -35785,7 +35785,7 @@
   },
   {
    "en": "Reported",
-   "zh": "",
+   "zh": "已举报",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -35805,7 +35805,7 @@
   },
   {
    "en": "Seamless",
-   "zh": "",
+   "zh": "无缝",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -35900,7 +35900,7 @@
   },
   {
    "en": "Uploaded",
-   "zh": "",
+   "zh": "已上传",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -35943,7 +35943,7 @@
   },
   {
    "en": "Wormhole",
-   "zh": "",
+   "zh": "虫洞",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -36386,7 +36386,7 @@
   },
   {
    "en": "Convert",
-   "zh": "",
+   "zh": "转换",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -36609,7 +36609,7 @@
   },
   {
    "en": "DEFAULT",
-   "zh": "",
+   "zh": "默认",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -36649,7 +36649,7 @@
   },
   {
    "en": "Default",
-   "zh": "",
+   "zh": "默认",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -36702,7 +36702,7 @@
   },
   {
    "en": "Destroy",
-   "zh": "",
+   "zh": "摧毁",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -36726,7 +36726,7 @@
   },
   {
    "en": "Details",
-   "zh": "",
+   "zh": "详情",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -36793,7 +36793,7 @@
   },
   {
    "en": "Enemies",
-   "zh": "",
+   "zh": "敌人",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -36834,7 +36834,7 @@
   },
   {
    "en": "I AGREE",
-   "zh": "",
+   "zh": "我同意",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -36914,7 +36914,7 @@
   },
   {
    "en": "Mortars",
-   "zh": "",
+   "zh": "迫击炮",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37057,7 +37057,7 @@
   },
   {
    "en": "Planets",
-   "zh": "",
+   "zh": "星球",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37143,7 +37143,7 @@
   },
   {
    "en": "Restart",
-   "zh": "",
+   "zh": "重新开始",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37166,7 +37166,7 @@
   },
   {
    "en": "Results",
-   "zh": "",
+   "zh": "结果",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37189,7 +37189,7 @@
   },
   {
    "en": "Reverse",
-   "zh": "",
+   "zh": "反向",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37275,7 +37275,7 @@
   },
   {
    "en": "Started",
-   "zh": "",
+   "zh": "创建",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37315,7 +37315,7 @@
   },
   {
    "en": "Stunned",
-   "zh": "",
+   "zh": "眩晕",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37339,7 +37339,7 @@
   },
   {
    "en": "Surface",
-   "zh": "",
+   "zh": "地表",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37364,7 +37364,7 @@
   },
   {
    "en": "Terrain",
-   "zh": "",
+   "zh": "地形",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37388,7 +37388,7 @@
   },
   {
    "en": "UNKNOWN",
-   "zh": "",
+   "zh": "未知",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37736,7 +37736,7 @@
   },
   {
    "en": "1 week",
-   "zh": "",
+   "zh": "1 周",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37756,7 +37756,7 @@
   },
   {
    "en": "3 days",
-   "zh": "",
+   "zh": "3 天",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37964,7 +37964,7 @@
   },
   {
    "en": "Bottom",
-   "zh": "",
+   "zh": "底部",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38004,7 +38004,7 @@
   },
   {
    "en": "CREATE",
-   "zh": "",
+   "zh": "创建",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38026,7 +38026,7 @@
   },
   {
    "en": "Camera",
-   "zh": "",
+   "zh": "摄像机",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38088,7 +38088,7 @@
   },
   {
    "en": "Create",
-   "zh": "",
+   "zh": "创建",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38110,7 +38110,7 @@
   },
   {
    "en": "Custom",
-   "zh": "",
+   "zh": "自定义",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38140,7 +38140,7 @@
   },
   {
    "en": "Delete",
-   "zh": "",
+   "zh": "删除",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38205,7 +38205,7 @@
   },
   {
    "en": "Disarm",
-   "zh": "",
+   "zh": "解除",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38284,7 +38284,7 @@
   },
   {
    "en": "Filter",
-   "zh": "",
+   "zh": "筛选",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38304,7 +38304,7 @@
   },
   {
    "en": "Freeze",
-   "zh": "",
+   "zh": "冻结",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38347,7 +38347,7 @@
   },
   {
    "en": "Galaxy",
-   "zh": "",
+   "zh": "星系",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38568,7 +38568,7 @@
   },
   {
    "en": "Newest",
-   "zh": "",
+   "zh": "最新",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38608,7 +38608,7 @@
   },
   {
    "en": "Origin",
-   "zh": "",
+   "zh": "原点",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38648,7 +38648,7 @@
   },
   {
    "en": "Packet",
-   "zh": "",
+   "zh": "能量包",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38711,7 +38711,7 @@
   },
   {
    "en": "Planet",
-   "zh": "",
+   "zh": "星球",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38741,7 +38741,7 @@
   },
   {
    "en": "Played",
-   "zh": "",
+   "zh": "游玩",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38761,7 +38761,7 @@
   },
   {
    "en": "Player",
-   "zh": "",
+   "zh": "玩家",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38822,7 +38822,7 @@
   },
   {
    "en": "Random",
-   "zh": "",
+   "zh": "随机",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38842,7 +38842,7 @@
   },
   {
    "en": "Rating",
-   "zh": "",
+   "zh": "评分",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38864,7 +38864,7 @@
   },
   {
    "en": "Remove",
-   "zh": "",
+   "zh": "移除",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38884,7 +38884,7 @@
   },
   {
    "en": "Report",
-   "zh": "",
+   "zh": "举报",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38904,7 +38904,7 @@
   },
   {
    "en": "Ridges",
-   "zh": "",
+   "zh": "山脊",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38924,7 +38924,7 @@
   },
   {
    "en": "Runner",
-   "zh": "",
+   "zh": "空降兵",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39047,7 +39047,7 @@
   },
   {
    "en": "Scores",
-   "zh": "",
+   "zh": "得分",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39068,7 +39068,7 @@
   },
   {
    "en": "Sector",
-   "zh": "",
+   "zh": "星区",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39114,7 +39114,7 @@
   },
   {
    "en": "Select",
-   "zh": "",
+   "zh": "选择",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39135,7 +39135,7 @@
   },
   {
    "en": "Shadow",
-   "zh": "",
+   "zh": "阴影",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39222,7 +39222,7 @@
   },
   {
    "en": "Submit",
-   "zh": "",
+   "zh": "提交",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39244,7 +39244,7 @@
   },
   {
    "en": "System",
-   "zh": "",
+   "zh": "恒星系",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39350,7 +39350,7 @@
   },
   {
    "en": "Toggle",
-   "zh": "",
+   "zh": "切换",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39374,7 +39374,7 @@
   },
   {
    "en": "Totems",
-   "zh": "",
+   "zh": "图腾",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39394,7 +39394,7 @@
   },
   {
    "en": "Upload",
-   "zh": "",
+   "zh": "上传",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39414,7 +39414,7 @@
   },
   {
    "en": "Winner",
-   "zh": "",
+   "zh": "胜者",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39830,7 +39830,7 @@
   },
   {
    "en": "Bombs",
-   "zh": "",
+   "zh": "炸弹",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39850,7 +39850,7 @@
   },
   {
    "en": "CLOSE",
-   "zh": "",
+   "zh": "关闭",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39967,7 +39967,7 @@
   },
   {
    "en": "Clear",
-   "zh": "",
+   "zh": "清除",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39994,7 +39994,7 @@
   },
   {
    "en": "Close",
-   "zh": "",
+   "zh": "关闭",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40082,7 +40082,7 @@
   },
   {
    "en": "Error",
-   "zh": "",
+   "zh": "错误",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40102,7 +40102,7 @@
   },
   {
    "en": "FLASH",
-   "zh": "",
+   "zh": "闪烁",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40195,7 +40195,7 @@
   },
   {
    "en": "Forum",
-   "zh": "",
+   "zh": "论坛",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40258,7 +40258,7 @@
   },
   {
    "en": "Ghost",
-   "zh": "",
+   "zh": "幽灵",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40321,7 +40321,7 @@
   },
   {
    "en": "Image",
-   "zh": "",
+   "zh": "图像",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40383,7 +40383,7 @@
   },
   {
    "en": "Label",
-   "zh": "",
+   "zh": "标签",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40444,7 +40444,7 @@
   },
   {
    "en": "Limit",
-   "zh": "",
+   "zh": "上限",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40567,7 +40567,7 @@
   },
   {
    "en": "Music",
-   "zh": "",
+   "zh": "音乐",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40633,7 +40633,7 @@
   },
   {
    "en": "Numen",
-   "zh": "",
+   "zh": "符文方尖碑",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40782,7 +40782,7 @@
   },
   {
    "en": "Owner",
-   "zh": "",
+   "zh": "作者",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40822,7 +40822,7 @@
   },
   {
    "en": "Pause",
-   "zh": "",
+   "zh": "暂停",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40848,7 +40848,7 @@
   },
   {
    "en": "Plays",
-   "zh": "",
+   "zh": "次数",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40971,7 +40971,7 @@
   },
   {
    "en": "READY",
-   "zh": "",
+   "zh": "就绪",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -41035,7 +41035,7 @@
   },
   {
    "en": "Range",
-   "zh": "",
+   "zh": "范围",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -41123,7 +41123,7 @@
   },
   {
    "en": "Score",
-   "zh": "",
+   "zh": "得分",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -41190,7 +41190,7 @@
   },
   {
    "en": "Stars",
-   "zh": "",
+   "zh": "恒星",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -41320,7 +41320,7 @@
   },
   {
    "en": "Totem",
-   "zh": "",
+   "zh": "图腾",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -41376,7 +41376,7 @@
   },
   {
    "en": "UNSET",
-   "zh": "",
+   "zh": "未设置",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -41398,7 +41398,7 @@
   },
   {
    "en": "Units",
-   "zh": "",
+   "zh": "单位",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -41970,7 +41970,7 @@
   },
   {
    "en": "Cost",
-   "zh": "",
+   "zh": "花费",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42063,7 +42063,7 @@
   },
   {
    "en": "Down",
-   "zh": "",
+   "zh": "下",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42123,7 +42123,7 @@
   },
   {
    "en": "Edit",
-   "zh": "",
+   "zh": "编辑",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42287,7 +42287,7 @@
   },
   {
    "en": "Halo",
-   "zh": "",
+   "zh": "光环",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42349,7 +42349,7 @@
   },
   {
    "en": "Hide",
-   "zh": "",
+   "zh": "隐藏",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42389,7 +42389,7 @@
   },
   {
    "en": "INFO",
-   "zh": "",
+   "zh": "信息",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42449,7 +42449,7 @@
   },
   {
    "en": "Icon",
-   "zh": "",
+   "zh": "图标",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42470,7 +42470,7 @@
   },
   {
    "en": "Info",
-   "zh": "",
+   "zh": "信息",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42767,7 +42767,7 @@
   },
   {
    "en": "MAIN",
-   "zh": "",
+   "zh": "主",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42840,7 +42840,7 @@
   },
   {
    "en": "Mass",
-   "zh": "",
+   "zh": "质量",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42863,7 +42863,7 @@
   },
   {
    "en": "Mesh",
-   "zh": "",
+   "zh": "网格",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42968,7 +42968,7 @@
   },
   {
    "en": "Mute",
-   "zh": "",
+   "zh": "静音",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42994,7 +42994,7 @@
   },
   {
    "en": "NONE",
-   "zh": "",
+   "zh": "无",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -43158,7 +43158,7 @@
   },
   {
    "en": "Play",
-   "zh": "",
+   "zh": "开始",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -43244,7 +43244,7 @@
   },
   {
    "en": "Quit",
-   "zh": "",
+   "zh": "退出",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -43264,7 +43264,7 @@
   },
   {
    "en": "Rand",
-   "zh": "",
+   "zh": "随机",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -43369,7 +43369,7 @@
   },
   {
    "en": "Size",
-   "zh": "",
+   "zh": "大小",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -43429,7 +43429,7 @@
   },
   {
    "en": "Star",
-   "zh": "",
+   "zh": "恒星",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -43566,7 +43566,7 @@
   },
   {
    "en": "Time",
-   "zh": "",
+   "zh": "时间",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -43588,7 +43588,7 @@
   },
   {
    "en": "Tiny",
-   "zh": "",
+   "zh": "极小",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -43634,7 +43634,7 @@
   },
   {
    "en": "Type",
-   "zh": "",
+   "zh": "类型",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -43677,7 +43677,7 @@
   },
   {
    "en": "Unit",
-   "zh": "",
+   "zh": "单位",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -43784,7 +43784,7 @@
   },
   {
    "en": "ADD",
-   "zh": "",
+   "zh": "添加",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -43911,7 +43911,7 @@
   },
   {
    "en": "All",
-   "zh": "",
+   "zh": "全部",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -43931,7 +43931,7 @@
   },
   {
    "en": "Amt",
-   "zh": "",
+   "zh": "数量",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -44543,7 +44543,7 @@
   },
   {
    "en": "Fav",
-   "zh": "",
+   "zh": "收藏",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -44799,7 +44799,7 @@
   },
   {
    "en": "HUD",
-   "zh": "",
+   "zh": "HUD",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -45161,7 +45161,7 @@
   },
   {
    "en": "Map",
-   "zh": "",
+   "zh": "地图",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -45181,7 +45181,7 @@
   },
   {
    "en": "Max",
-   "zh": "",
+   "zh": "最大",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -45201,7 +45201,7 @@
   },
   {
    "en": "Med",
-   "zh": "",
+   "zh": "中",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -45644,7 +45644,7 @@
   },
   {
    "en": "SET",
-   "zh": "",
+   "zh": "设置",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -45807,7 +45807,7 @@
   },
   {
    "en": "Sun",
-   "zh": "",
+   "zh": "恒星",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -45859,7 +45859,7 @@
   },
   {
    "en": "TOP",
-   "zh": "",
+   "zh": "顶部",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -45962,7 +45962,7 @@
   },
   {
    "en": "Top",
-   "zh": "",
+   "zh": "顶部",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -46768,7 +46768,7 @@
   },
   {
    "en": "UP",
-   "zh": "",
+   "zh": "上",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -46788,7 +46788,7 @@
   },
   {
    "en": "Up",
-   "zh": "",
+   "zh": "上",
    "cat": "dll",
    "grade": "other",
    "ops": [

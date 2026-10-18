@@ -16,7 +16,7 @@
 | 文本在哪收口 | `UILabel.set_text`（**322** 个调用点）+ 未激活 label 的全量 sweep + TextMesh 的 **15** 个写入点 |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用） |
 | 游戏本体 | 原版，零改动；BepInEx 的开关只靠 `winhttp.dll` 改名 |
-| 当前进度 | 字体层**已打通**（A1–A3b 全过）；文本层：静态全量收集 + 词表骨架已就绪（4.2），待填译文 |
+| 当前进度 | 字体层**已打通**（A1–A3b 全过）；文本层：词表 **1140 / 2383 条已译**，`zh_cn.dict` 已重编（4.5），**可见 UI 文本已清零**；下一步 = 实测 + 布局微调 |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 这是本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL） |
 | 探针报「Awake=0」 | **先读 6.1a/6.1b**：v1.0 与静态补丁类都拦不到 `Awake`，计数恒为 0；只看最终判定行 |
@@ -43,7 +43,7 @@
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见 6.8） |
 | 字体层插件 | `BepInEx/plugins/CW3Hanhua.dll` = **v0.8.0 合并图集**（`plugin/CW3Hanhua.cs`）<br>把中文字形并进 GUI Atlas，不拆 draw call。**已实测通过** |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（原图集 1:1 贴左上 + 三套中文字形）<br>`atlas_zh.bin` 字形表（插件直读）**这两个是字体层的全部运行时输入** |
-| 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` = **v0.8.0 文本层**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`；F4 开关 / F5 单次 sweep / F9 重载词表。**未实测** |
+| 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` = **v0.8.0 文本层**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`（**现 1140 条**，2026-10-18 全量翻译入库，见 4.5）；F4 开关 / F5 单次 sweep / F9 重载词表。**未实测** |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**（json 提供度量、png 提供字形位图）<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。**改了字集必须重跑 `build_atlas.py`** |
 | 探针插件 | `BepInEx/plugins/CW3HanhuaMini.dll`（`plugin/MiniProbe.cs` **v2.3**：`__HarmonyPatches` 自检 +
 | | 字段/场景旁证；**补丁计数恒为 0 且不可信**，见 6.1a/6.1b） |
@@ -272,10 +272,11 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | B1 | 静态全量收集 + 词表骨架 | ✅ |
 | B2 | `set_text` prefix（**已实现，待实测**） | 🟡 |
 | B3 | prefix 接词表 + sweep（**已实现，待实测**） | 🟡 |
-| C1 | 翻译：主菜单 + 设置页 | 🟡 第一批 153 条（ui+both）已入库 |
-| C2 | 翻译：游戏内 HUD / 建造菜单 / 悬停 | ⬜ |
-| C3 | 翻译：教程 / 剧情 / 长文本 | ⬜ |
-| D | 布局微调 / 术语统一 / 打包 | ⬜ |
+| C1 | 翻译：主菜单 + 设置页 | ✅ 首批 153 条 |
+| C2 | 翻译：游戏内 HUD / 建造菜单 / 悬停 | ✅ 全量批 full_01–21 已入库 |
+| C3 | 翻译：教程 / 剧情 / 长文本 | ✅ 同上（序章旁白/尾声议会/圣物说明都在里面） |
+| C4 | 翻译：剩余 1243 条按设计不译 | ✅ 分流完毕，理由见 4.5 |
+| D | 布局微调 / 术语统一 / 打包 | ⬜ **下一步：实测 + 布局微调** |
 
 **为什么字体层先做**：否则中文显示成方块，无法区分"字体没做"还是"翻译错"。
 **为什么先用英文验证**：文本不变时，布局/裁剪/遮挡的异常只能归因于字体层。
@@ -357,8 +358,8 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 # 1) 写批次：_dict\batches\<名字>.json  {"items": {"英文原文": "译文"}}
 & $p _cw3hanhua\tools\apply_translations.py --dry-run   # 先看匹配情况，问题会列出来
 & $p _cw3hanhua\tools\apply_translations.py             # 只填空，不覆盖
-& $p _cw3hanhua\tools\check_charset.py _cw3hanhua\_dict\strings.json   # 缺字就补烘
-& $p _cw3hanhua\tools\build_dict.py            # 编出 zh_cn.dict
+& $p _cw3hanhua\tools\check_charset.py _dict\strings.json   # 缺字就补烘（★ 别写成 _cw3hanhua\_dict\...，那样会变 0 文件扫描）
+& $p _cw3hanhua\tools\build_dict.py --include-other  # 编出 zh_cn.dict（要带上 other 档，否则单词级 UI 词不进包）
 ```
 
 **译文纪律**
@@ -389,6 +390,76 @@ BepInEx 5 按文件名顺序装载插件，`CW3Hanhua.dll` → `CW3HanhuaText.dl
 **换场景时 `swaps.Clear()`** —— 旧引用全死了，不清会让新场景的对象被误判为"已替换"。
 
 **按键**：F4 开/关 | F5 单次 sweep（详单日志）| F9 重载词表（改完 dict 不用重启游戏）
+
+### 4.5 全量翻译（2026-10-18，词表 1140 / 2383）
+
+**结论**：`strings.json` 2383 条里，**1140 条已译**（ui 880 / other 260），
+**剩余 1243 条按设计不译**。评测口径：`plugins/CW3HanhuaText.dll` 读的 `zh_cn.dict`
+从 153 条涨到 **1140 条（49 327 字节，FNV 校验通过）**，`check_charset.py` 报
+`用到字符 943 个（汉字 857）✓ 汉字全部在字集内` —— **没有新增缺字，不用重烘图集**。
+
+`kind` 维度（判断"玩家到底看不看得见"）：
+| kind | 条数 | 已译 |
+|---|---:|---:|
+| UILabel | 454 | **369** |
+| TextMesh | 17 | **15** |
+| None（纯 DLL 字符串，多为日志/资源名） | 1912 | 756 |
+
+未译的 85 条 UILabel/TextMesh 全部是**故意不译**的：单字母 `A`–`Z`、`F0`–`F12`、
+`SHIFT`/`CTRL`、`SHIFT-A`…`SHIFT-X`、`CTRL-C`/`CTRL-V`（组合键规则）、
+`Alternate`/`Backslash`/`Equals`/`Escape`/`Minus`/`Space`/`Tab`（按键绑定名）、
+`Alpha1`–`Alpha8`、`CN 1`–`CN 3`、占位文案（`This is a message`/`This is a great big long label`/
+`View Demo Screen`/`Time:1:00:00.0`）。**换句话说：可见 UI 文本已清零。**
+
+**剩余 1243 条的桶（`strings.json` 自算，可复现）**
+
+| 桶 | 条数 | 为什么不译 |
+|---|---:|---|
+| 第三方库/框架日志 | 471 | VectorLine / CrplCore / CrplCompiler / AudioToolkit / NGUI / SGT_* / iTween / SevenZip 等，写 `Debug.Log`，控制台才看得到 |
+| 标识符/资源名 | 237 | `PRODUCTIONINTERVAL`/`ACBackground`/`1XButton`/`Andro` 之类，改了就断 |
+| 程序化星球名 | 146 | `RandomPlanetName` 音节碎片（`Aber`/`Abra`/`Ale`…），拼出来的名字要保留原文风味 |
+| 其它未译 | 133 | 见上（按键名、占位文案、`', a = '` 调试碎片、`{0:D}:{1:D2}` 格式串） |
+| 自定义图资源名 | 118 | `CustomImages` 的 `Custom0`/`Custom0_256`，资产 key |
+| Steam 成就日志 | 61 | `StatsAndAchievements` 的 `m_flGameDurationSeconds: ` / `STAT testStat1: ` |
+| 文件名 | 36 | `*.dat`/`*.xml`/`maps/`/`thumbnails/` |
+| 调试日志 | 17 | `ops` 里带 `call Log` |
+| 1–2 字符符号 | 13 | `()`/`<<`/`>>`/`-c`/`~` |
+| 哈希 | 11 | 32 位 hex |
+
+**新增工具**（都在 `tools/`，Python 用 `.venv`）
+
+| 脚本 | 作用 |
+|---|---|
+| `prep_batches.py` | 把未译项按规则分流（不译桶 + 待译），切 `full_NN.src.json` |
+| `merge_work.py` | `full_NN.src.json` + `full_NN.zh.json` → `_dict/batches/full_NN.json` |
+| `check_batch.py` | 译稿校验：条数/首尾空格/`\n` 数/`[标记]`/占位符，**不过 0 不许入库** |
+| `audit_translations.py` | ★ 全表审计（en/zh 的标记、换行、占位符、首尾空白），**四项全 0 才算过** |
+| `pack_skips.py` | 把 `work/*.zh.json` 里标 `@` 的「人工判定不译」固化到 `_dict/skipped_manual.json` |
+
+**工作目录 `_dict/work/` 已清理**（2026-10-18）：`full_NN.src.json` / `.zh.json` /
+`_skipped.json` / `left_01.json` 已删——译稿全部并入 `_dict/batches/`（22 份、1140 条，
+`apply_translations.py --dry-run` 复核过「新增 0、已相同 1140」）。删前用
+`pack_skips.py` 把 565 条「人工判定不译」固化成 `_dict/skipped_manual.json`（94 KB），
+**这个文件别删**：它记录了"这些条目是特意跳过的"，否则以后有人会重翻一遍。
+若还要再切批次：`prep_batches.py` 会重建 `work/`。
+
+**译稿格式的坑**：`{"zh": ["...", "..."]}` 数组形式**漏一项就整体错位**（踩过一次：89 vs 88，
+后 60 条全串行）。`check_batch.py` 已支持并**推荐**序号字典 `{"zh": {"3": "译文"}}`，
+缺省项视为 `@`（跳过不译），不会错位。
+
+**批次清单**：`full_01`…`full_18`（共 745 条）+ `full_19_uiwords`（97 条单词级 UI）+
+`full_20_words`（118 条）+ `full_21_lastui`（27 条：`[ff0000]Sound Off`/`Return`/`PURCHASED`/DMD 表头等）。
+`full_03`/`full_16` 全跳（音频库与 VectorLine 日志）。
+
+**几条译法备忘**（术语表之外新定的）：
+- `Return` → `返回`（`ColonialSpaceManager.DrawMapBox` / `WorldMachineManager.DoWorldMachineWindow` 的按钮，不是回车键）
+- DMD 名册表头：`Owner`→`作者`、`Map`→`地图`、`Started`→`创建`、`Played`→`游玩`、`Plays`/`Plays`→`次数`、`Filter`→`筛选`、`Score`→`得分`、`Player`→`玩家`
+- `[00e000]FLOWING`→`[00e000]流动中`，与已有的 `[ff0000]PAUSED`→`[ff0000]已暂停` 对齐
+- `Targets: `/`Price: ` 这类**拼接前缀**照样译，靠 `check_batch.py` 保住尾部空格
+- **`Author:`/`Email:`/`Desc: (`/`Screen Res: (`/`Apply Filters (`/`UploadMap: ` 已译**（它们确实出现在地图信息面板上）；`', a = '` 系列调试碎片不译
+
+**下一道坎**：`zh_cn.dict` 已更新，但插件**仍未实测**（B2/B3 都是 🟡）。
+改词表后游戏内按 **F9 重载** 即可，不用重启游戏。
 
 ### 4.4 ★ 合并图集方案（2026-10-18，解决遮挡的最终方案）
 
@@ -887,6 +958,11 @@ _cw3hanhua/
 │   ├─ collect_ui_strings.py   静态全量收集（4.2）
 │   ├─ build_dict.py           编译 zh_cn.dict
 │   ├─ apply_translations.py   批次译文注入 strings.json
+│   ├─ audit_translations.py   ★ 全表一致性审计（标记/换行/占位符/首尾空白）
+│   ├─ prep_batches.py         未译分流 + 切批（会重建 _dict/work/）
+│   ├─ merge_work.py           work/ 译稿 → batches/
+│   ├─ check_batch.py          单批译稿校验
+│   ├─ pack_skips.py           「人工判定不译」固化 → _dict/skipped_manual.json
 │   └─ dict_stats.py           覆盖率报告 → _dict/STATUS.md
 ├─ plugin/             ★ 两个在用源文件：CW3Hanhua.cs（字体层 v0.8.0）
 │                      CW3HanhuaText.cs（文本层 v0.8.0）
@@ -894,7 +970,8 @@ _cw3hanhua/
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）
 │                      ★ 工具链：font_{16,20,28}.{json,png}（重烘图集的必需输入）
 ├─ _dict/              ★ 词表：strings.json（唯一数据）/ glossary.md（术语表）
-│                      / zh_cn.dict（编译产物）/ STATUS.md（自动生成）/ batches/
+│                      / zh_cn.dict（编译产物）/ STATUS.md（自动生成）/ batches/（22 份批次）
+│                      / skipped_manual.json（565 条「人工判定不译」，勿删）
 ├─ _diag/              ilspy 反编译源码：UIFont / UIAtlas / UISprite / UILabel /
 │                      UIPanel / UIDrawCall / UIWidget / BMFont / NGUITools
 │                      ★ 改插件前必查；不进版本库（gitignore），可随时重生成

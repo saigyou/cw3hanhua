@@ -53,3 +53,8 @@ __pycache__/
 
 # ---------- 临时文件 ----------
 /_cw3hanhua/_tmp/
+
+# 全量翻译工作目录（译稿已并入 batches/，「不译」决策在 _dict/skipped_manual.json）
+/_cw3hanhua/_dict/work/
+# 一次性统计脚本的产物（已删除，此处防止再误入库）
+/_cw3hanhua/_tmp_dump*

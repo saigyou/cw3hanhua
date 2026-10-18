@@ -1,0 +1,31 @@
+{
+ "items": {
+  "[ff0000]Sound Off": "[ff0000]声音关闭",
+  "[00e000]Sound On": "[00e000]声音开启",
+  "[00e000]FLOWING": "[00e000]流动中",
+  "Open Folder": "打开文件夹",
+  "Targets: ": "目标: ",
+  "Price: ": "价格: ",
+  "Author:": "作者:",
+  "Email:": "邮箱:",
+  "Auto:": "自动:",
+  "~Time:": "~时间:",
+  "Screen Res: (": "屏幕分辨率: (",
+  "Apply Filters (": "应用筛选 (",
+  "UploadMap: ": "上传地图: ",
+  "Data Error": "数据错误",
+  "Return": "返回",
+  "PURCHASED": "已购买",
+  "Mortars": "迫击炮",
+  "Bombs": "炸弹",
+  "Conversation": "对话",
+  "Filter": "筛选",
+  "Map": "地图",
+  "Owner": "作者",
+  "Started": "创建",
+  "Played": "游玩",
+  "Plays": "次数",
+  "Score": "得分",
+  "Player": "玩家"
+ }
+}
