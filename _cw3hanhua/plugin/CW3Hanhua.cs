@@ -1,5 +1,5 @@
 // ============================================================================
-//  CW3 汉化插件 v0.8.0 —— 合并图集字体层（见 NOTES 4.4）
+//  CW3 汉化插件 v0.8.2 —— 合并图集字体层（见 NOTES 4.4）+ 合并 HUD（NOTES 4.3）
 //
 //  方案：不拆 draw call。
 //    把中文字形并进游戏原有的 GUI Atlas（512x1024 → 4096x8192），
@@ -20,7 +20,7 @@
 //  按键：
 //    F3   字体层开关（换图集 / 还原）
 //    F11  dump
-//    F12  HUD
+//    F12  HUD 开关（两个插件的状态合并成同一块，画在左上角）
 //
 //  编译：tools\build_plugin.cmd（封装了 csc 3.5 /platform:x86 /codepage:65001 与全部引用）
 // ============================================================================
@@ -36,10 +36,10 @@ using UnityEngine;
 
 namespace CW3Hanhua
 {
-    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua Core", "0.8.0")]
+    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua Core", "0.8.2")]
     public class HanhuaPlugin : BaseUnityPlugin
     {
-        const string Ver = "0.8.0";
+        const string Ver = "0.8.2";
 
         static HanhuaPlugin inst;
         static string reportPath;
@@ -952,6 +952,36 @@ namespace CW3Hanhua
         }
 
         // ================================================================ HUD
+        // ★ 2026-10-19：两个插件的 HUD 合并成一个（原先字体层画左上角、文本层画左下角）。
+        //   宿主 = 字体层（字母序先装载、信息多，F12 也在这里）；文本层那一行通过
+        //   TextPlugin.HudLine() **反射**取回 —— 两个 DLL 之间没有编译期引用，
+        //   仍保持"独立编译、独立开关"（NOTES 4.3 开头那条约束）。
+        //   反向兜底：字体层没装载时，文本层自己画那一行（CW3HanhuaText.cs 的 OnGUI）。
+        static MethodInfo peerHudLine;
+        static bool peerSearchedOnce;
+
+        /// <summary>找 TextPlugin.HudLine()。BepInEx 是逐个装载插件的，第一次 OnGUI 时
+        /// 对方可能还没就绪，所以**不做永久否定缓存**：找不到就每 60 帧再找一次。</summary>
+        static MethodInfo FindPeerHudLine()
+        {
+            if (peerHudLine != null) return peerHudLine;
+            if (peerSearchedOnce && (frame % 60) != 0) return null;
+            peerSearchedOnce = true;
+            try
+            {
+                Assembly[] asms = AppDomain.CurrentDomain.GetAssemblies();
+                for (int i = 0; i < asms.Length; i++)
+                {
+                    Type t = asms[i].GetType("CW3Hanhua.TextPlugin", false);
+                    if (t == null) continue;
+                    MethodInfo m = t.GetMethod("HudLine", BindingFlags.Static | BindingFlags.Public);
+                    if (m != null) { peerHudLine = m; return m; }
+                }
+            }
+            catch (Exception) { }
+            return null;
+        }
+
         void OnGUI()
         {
             if (!showHud) return;
@@ -959,19 +989,27 @@ namespace CW3Hanhua
             try
             {
                 GUI.color = Color.white;
-                string[] lines = new string[]
-                {
-                    "CW3 汉化 v" + Ver + "   F3 字体=" + (fontOn ? "开" : "关")
-                        + "   F11 dump   F12 关HUD",
-                    "场景=" + sceneName + "  帧=" + frame + "  已装载字号=" + DictKeys(fontDataCache),
-                    "图集=" + (mergedAtlasApplied ? "合并(4096x8192)" : "原版(512x1024)")
+                List<string> lines = new List<string>();
+                lines.Add("CW3 汉化  字体层 v" + Ver + "   F3 字体=" + (fontOn ? "开" : "关")
+                        + "   F11 dump   F12 关HUD");
+                lines.Add("场景=" + sceneName + "  帧=" + frame + "  已装载字号=" + DictKeys(fontDataCache));
+                lines.Add("图集=" + (mergedAtlasApplied ? "合并(4096x8192)" : "原版(512x1024)")
                         + "  UIFont备份=" + fontBackups.Count
                         + (loadError.Length > 0 ? ("   !! " + loadError) : "")
-                        + "  最近: " + lastEvent
-                };
-                int w = 1180, h = 20 * lines.Length + 14;
+                        + "  最近: " + lastEvent);
+
+                MethodInfo peer = FindPeerHudLine();
+                if (peer == null) lines.Add("文本层: 未装载（CW3HanhuaText.dll）");
+                else
+                {
+                    string s = null;
+                    try { s = (string)peer.Invoke(null, null); } catch (Exception) { }
+                    lines.Add((s != null && s.Length > 0) ? s : "文本层: 状态不可用");
+                }
+
+                int w = 1180, h = 20 * lines.Count + 14;
                 GUI.Box(new Rect(4, 4, w, h), "");
-                for (int i = 0; i < lines.Length; i++)
+                for (int i = 0; i < lines.Count; i++)
                     GUI.Label(new Rect(14, 12 + 20 * i, w - 20, 20), lines[i]);
             }
             catch (Exception) { }

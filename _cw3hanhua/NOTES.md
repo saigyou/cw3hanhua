@@ -10,7 +10,7 @@
 
 | 问题 | 答案 |
 |---|---|
-| 怎么改 | **不改游戏文件**：BepInEx 5 + 一个插件 DLL + 一个外置词表 |
+| 怎么改 | **不改游戏文件**：BepInEx 5 + 插件 DLL + 外置词表 + 外置图集（资产只**读**不写，见 4.4a） |
 | 字体怎么办 | **离线烘 BMFont 图集 → 运行时替换 `UIFont.mFont`**，走游戏原生的**位图分支**（3.4） |
 | ~~动态字体~~ | 只在 **TextMesh** 上可用；**UILabel 上已证伪**（3.2） |
 | 文本在哪收口 | `UILabel.set_text`（**322** 个调用点）+ 未激活 label 的全量 sweep + TextMesh 的 **15** 个写入点 |
@@ -41,9 +41,9 @@
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | 主菜单 | **现正常**（曾出现"3D 按钮点不动"，靠重启电脑恢复，见第六节） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见 6.8） |
-| 字体层插件 | `BepInEx/plugins/CW3Hanhua.dll` = **v0.8.0 合并图集**（`plugin/CW3Hanhua.cs`）<br>把中文字形并进 GUI Atlas，不拆 draw call。**已实测通过** |
+| 字体层插件 | `BepInEx/plugins/CW3Hanhua.dll` = **v0.8.2 合并图集 + 合并 HUD**（`plugin/CW3Hanhua.cs`）<br>把中文字形并进 GUI Atlas，不拆 draw call。**已实测通过** |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（原图集 1:1 贴左上 + 三套中文字形）<br>`atlas_zh.bin` 字形表（插件直读）**这两个是字体层的全部运行时输入** |
-| 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` = **v0.8.0 文本层**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`（**现 1140 条**，2026-10-18 全量翻译入库，见 4.5）；F4 开关 / F5 单次 sweep / F9 重载词表。**未实测** |
+| 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` = **v0.8.3 文本层**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`（**现 1140 条**，2026-10-18 全量翻译入库，见 4.5）；F4 开关 / F5 单次 sweep / F9 重载词表。**拼接串已实测通过**（2026-10-19，主菜单六个悬浮框全部中文）；F4 还原路径仍待实测（v0.8.1 修了还原缺陷，见 4.3；v0.8.3 加拼接串兜底，见 3.3） |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**（json 提供度量、png 提供字形位图）<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。**改了字集必须重跑 `build_atlas.py`** |
 | 探针插件 | `BepInEx/plugins/CW3HanhuaMini.dll`（`plugin/MiniProbe.cs` **v2.3**：`__HarmonyPatches` 自检 +
 | | 字段/场景旁证；**补丁计数恒为 0 且不可信**，见 6.1a/6.1b） |
@@ -101,6 +101,34 @@ NGUI 的 `UIFont` 确实完整编译了动态字体分支（`Print`/`WrapText`/`
 - 实测游戏确实在调（一次会话 24 次，内容是悬停描述等 DLL 文本）
 - **但资产里序列化的 `mText` 不经过 setter**（反序列化直接写字段）
   → 必须再做一次 **sweep**，且要**含未激活的 label**（350 个）
+
+#### ⚠ 拼接串：词表里查不到整串（v0.8.3 修的）
+
+主菜单那圈悬浮说明（Story / Prospector / Tormented / MySector / Alpha / Colonial）
+是**运行时拼出来的**，拼完才 `set_text`：
+
+```
+MainMenu.OnMouseEnterEntryManager / MainMenu.Update:
+  ldstr '[ffffd0]You are the supreme being.[ffffff]\nMake your own custom worlds...'
+  stloc.0
+  ...if (locked):
+  ldloc.0 ; ldstr '\n[ff5050]To Access:\n[ff0000]Complete first 5 Arc Eternal missions.'
+  call String.Concat(String, String) ; stloc.0
+  ...
+  ldloc.0 ; callvirt UILabel.set_text(String)
+```
+
+静态收集器 `tools/collect_ui_strings.py` **只认 `ldstr`**，所以词表里只有两个半截，
+没有拼好的整串 → 精确匹配必然落空，悬浮框就一直是英文。
+
+修法：`Lookup` 精确匹配失败后调 `LookupConcat` —— 在 `'\n'` 处切成 head/tail，
+两段**各自精确命中**词表才拼接返回，否则返回 null（宁可留英文，不拼中英混杂）。
+从右往左找切点（动态拼接多是「正文 + 追加段」），递归限 2 层。
+
+其余已知拼接点（都已核过，两半都在词表里）：
+`[ffffd0](D)ial (M)ap (D)evice...`、`[ffffd0]Credits[ffffff]...`（两种变体）、
+以及 4 种 `To Access` 后缀 —— 注意有一处是 `[ff0000][ff0000]` **重复色标**，
+词表按原样存了这一条，别"顺手清理"。
 
 ### 3.4 ★ UIFont 位图替换（当前采用的方案）
 
@@ -270,8 +298,9 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | A3a | 英文验证（位置/布局/遮挡） | ✅ |
 | A3b | 中文验证 | ✅ |
 | B1 | 静态全量收集 + 词表骨架 | ✅ |
-| B2 | `set_text` prefix（**已实现，待实测**） | 🟡 |
-| B3 | prefix 接词表 + sweep（**已实现，待实测**） | 🟡 |
+| B2 | `set_text` prefix（**v0.8.1 已实现，含还原记录，待实测**） | 🟡 |
+| B3 | prefix 接词表 + sweep（**v0.8.1 已实现，待实测**） | 🟡 |
+| B4 | HUD 合并成左上角一块（**v0.8.2 已实现，待实测**） | 🟡 |
 | C1 | 翻译：主菜单 + 设置页 | ✅ 首批 153 条 |
 | C2 | 翻译：游戏内 HUD / 建造菜单 / 悬停 | ✅ 全量批 full_01–21 已入库 |
 | C3 | 翻译：教程 / 剧情 / 长文本 | ✅ 同上（序章旁白/尾声议会/圣物说明都在里面） |
@@ -371,9 +400,10 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 - 组合键（`SHIFT-E` / `SHIFT-End` / `CTRL-C`）整串保留英文 —— 玩家要按着它去找键。
 - 改术语先改 `glossary.md`，再批量改批次。
 
-### 4.3 文本层插件（`CW3HanhuaText.cs` v0.8.0）
+### 4.3 文本层插件（`CW3HanhuaText.cs` v0.8.3）
 
 **为什么单独一个 DLL**：字体层已验证通过、不想动；两层独立开关，出问题时能立刻判断是谁的锅。
+（v0.8.2 起两块 HUD 合并成左上角一块，**但仍不互相引用**，见 4.1 末尾「HUD 合并」。）
 BepInEx 5 按文件名顺序装载插件，`CW3Hanhua.dll` → `CW3HanhuaText.dll` 的顺序是**字母序碰巧正确**的，
 **改文件名可能改变装载顺序**。文本层的 prefix 装在 `Awake` 里（早于场景创建），所以能拦到首批文本。
 
@@ -385,9 +415,39 @@ BepInEx 5 按文件名顺序装载插件，`CW3Hanhua.dll` → `CW3HanhuaText.dl
 | ② 周期 sweep：所有 UILabel | 资产里序列化的 `mText`（**不经 setter**，见 3.3） | 每 30 帧 `FindObjectsOfTypeAll`，含未激活 |
 | ③ 周期 sweep：所有 TextMesh | 主菜单大按钮等 15 个写入点 | 同上 |
 
+三条路径内部都只走一个 `Lookup()`；**拼接串的兜底也在 `Lookup()` 里**（v0.8.3 的
+`LookupConcat`，见 3.3「拼接串」），所以三条路径自动都有拼接能力，不需要各自处理。
+
 **改文本会触发重复替换**：sweep 每 30 帧跑一次，如果不清标记，译文会被当成新原文再查一遍
-（虽然查不到，但会浪费并污染"未命中"日志）。插件用 `swaps` 列表按引用去重。
-**换场景时 `swaps.Clear()`** —— 旧引用全死了，不清会让新场景的对象被误判为"已替换"。
+（虽然查不到，但会浪费并污染"未命中"日志）。
+
+#### ⚠ 还原记录（v0.8.1 修的缺陷）
+
+关闭文本层要把中文换回英文，所以每次替换都要**登记**原文。v0.8.0 的实现有两个漏洞：
+
+1. `swaps` 是 `List<Swap>`，换场景时 `swaps.Clear()`。
+   → 常驻 UI / `DontDestroyOnLoad` 的对象跨场景存活，它的记录被清掉了，
+   之后 `RestoreAll()` 对它是空操作 → **关 F4 后留下中英混杂**。
+2. 只有 sweep（路径 ②③）登记记录，prefix（路径 ①）不登记。
+   → 运行时动态设置的文本（弹窗、提示、悬浮说明）**根本无处还原**。
+
+v0.8.1 的修法：
+
+| 项 | 做法 |
+|---|---|
+| 容器 | `Dictionary<int, Swap>`，键 = `GetInstanceID()` |
+| 换场景 | 调 `PruneSwaps()`，**只删已销毁的**（`s.label == null && s.mesh == null`，Unity 的 `==` 对已销毁对象返回 true），活着的必须留住 |
+| prefix | 命中时也 `swaps[id] = new Swap {...}` |
+| 过期记录 | prefix 里 `zh == null` 时删记录 —— 但只在 `HasLetter(__0)` 为真时删 |
+| 判定"已替换" | `ReferenceEquals(s.label, l) && s.zh == l.text` |
+| 还原统计 | 顺带数出「M 处对象已销毁」 |
+
+★ **`HasLetter` 守卫不能省**：`ReplaceLabels` 里 `l.text = zh` 会**再次**触发 prefix，
+此时 `__0` 是中文、查不到词表（`zh == null`）。若无守卫，刚写好的记录会立刻被自己删掉。
+
+★ **`IsSwapped` 为什么要比 `s.zh == l.text`**：`InstanceID` 会被回收给新对象，
+`ReferenceEquals` 是防止串号；但即使对象对上了，游戏也可能已把标签改成新的英文串
+（分数、计时器每帧都变），那时记录已过期，必须**重新翻译**而不是跳过。
 
 **按键**：F4 开/关 | F5 单次 sweep（详单日志）| F9 重载词表（改完 dict 不用重启游戏）
 
@@ -559,8 +619,41 @@ sm.mainTexture = mergedTex;        // 只换图集材质的主纹理
 四个坑全部修完后的状态：F3 开 → 中文正常显示、遮挡关系与原版一致、无方块；
 F3 关 → 完整还原。详见第一节状态表。
 
+#### 4.4a 资产只读不写（「不改游戏文件」到底指什么）
+
+**游戏资产一个字节都没被写过。** `sharedassets2.assets` 的
+`LastWriteTime` / `CreationTime` 都还是 Steam 安装时刻 **2026/10/16 21:00:04**；
+`CW3_Data` 下唯一被改过的文件是 `output_log.txt`（游戏自己写的日志）。
+
+**只读的读法**（`tools/build_atlas.py:60-96` `load_gui_atlas()`）：
+
+```python
+env = UnityPy.load(p)                    # 只读打开
+d   = o.read_typetree()                  # 只读
+raw = bytes(d["image data"])             # 取原始字节
+base = raw[: w * h * 4]                  # 前 w*h*4 = RGBA32 基础层（其后是 11 级 mip）
+img = Image.frombytes("RGBA", (w, h), base)
+img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
+```
+
+全部 `tools\*.py` 里**没有任何** `env.save()` / `save_assets()` / `write_typetree`；
+仅有的三个 `.save()` 写的都是 PNG（`bake_font.py:242`、`:268`、`build_atlas.py:244`）。
+
+**「改资产让图集可读」这条方案从未执行，也不需要了。**
+`m_IsReadable = False` 只约束 **Unity 运行时 API**（`GetPixels32` 报
+`UnityException: Texture 'GUI Atlas' is not readable`）。
+离线用 Python 直接取 `image data` 字段的原始字节，是**文件里的数据**，绕开该限制；
+运行时则**完全不需要读旧纹理**——只要把材质的主纹理引用指过去：
+
+```csharp
+sm.mainTexture = mergedTex;   // CW3Hanhua.cs:419，纯内存引用替换
+```
+
+（早期探针 `AtlasWriteProbe` 验证过 `Blit` 到自建纹理 + `ReadPixels` 能拿回 8388608 像素，
+即 GPU 绕路也可行，但离线解码更简单可靠，故弃用。）
+
 **探针全部退役**：三个图集探针（`AtlasProbe` / `AtlasWriteProbe` / `UIFeasibilityProbe`）
-已连源码一起删除（2026-10-18 清理），结论都在 4.4 —— 图集可写、显存够、`maxTextureSize=16384`。
+已连源码一起删除（2026-10-18 清理），结论都在 4.4 / 4.4a —— 图集可写、显存够、`maxTextureSize=16384`。
 只剩 `MiniProbe.cs`（`CW3HanhuaMini.dll`）作运行时自检。
 `build_plugin.cmd` 只编 `CW3Hanhua.cs` 和 `CW3HanhuaText.cs` 两个。
 
@@ -587,15 +680,38 @@ C# 端一开始只累加了 key/zh 而漏掉 `uint16` 长度前缀，两边字�
 
 ### 4.1 字体烘焙与插件按键
 
-**插件按键（`plugin/CW3Hanhua.cs` v0.8.0）**
+**插件按键（`plugin/CW3Hanhua.cs` v0.8.2）**
 
 | 键 | 作用 |
 |---|---|
 | **F3** | 字体层开关（换合并图集 / 还原）—— 主功能 |
 | **F11** | dump 到 `BepInEx/CW3HanhuaFont.txt`（draw call / 材质 / 队列） |
-| **F12** | HUD 开关 |
+| **F12** | HUD 开关（**两个插件的状态合并画在左上角，见下**） |
 
 文本层插件另一套：**F4** 开关 / **F5** 单次 sweep / **F9** 重载词表。
+
+#### HUD 合并（2026-10-19）
+
+原先是两块：字体层左上角 3 行（v0.8.0），文本层左下角 1 行（`GUI.Box(Rect(8, Screen.height-30, ...))`）。
+现在**只留左上角一块、4 行**（字体层 3 行 + 文本层 1 行）。
+
+```csharp
+// CW3Hanhua.cs —— 宿主：把对方那行拼进自己的 GUI
+Assembly[] asms = AppDomain.CurrentDomain.GetAssemblies();
+Type t = asms[i].GetType("CW3Hanhua.TextPlugin", false);
+MethodInfo m = t.GetMethod("HudLine", BindingFlags.Static | BindingFlags.Public);
+
+// CW3HanhuaText.cs —— 被调用方：只读地报状态，不碰 UI
+public static string HudLine() { return "文本层 v" + Ver + "  F4=" + ... }
+```
+
+- **为什么用反射而不是直接引用**：两个 DLL 保持**无编译期依赖**（4.3 开头那条"独立编译、独立开关"的约束）。
+  BepInEx 按文件名序装载，`CW3Hanhua.dll` 先于 `CW3HanhuaText.dll`，所以字体层第一次 `OnGUI`
+  时对方可能还没就绪 → 找不到**不缓存否定结果**，每 60 帧重试一次。
+- **反向兜底**：字体层没装载时（只剩文本层），`TextPlugin.OnGUI` 自己画左下角那一条；
+  它每 60 帧探一次 `CW3Hanhua.HanhuaPlugin` 类型是否存在，在就完全不画。
+  于是**永远只有一块 HUD**，两个插件装哪个组合都成立。
+- 两个插件各有一个**独立**的 HUD 开关（字体层的 `showHud` / F12），合并的这块归字体层管。
 
 **装载流程**（v0.8.0，详见 4.4）：读 `atlas_zh.png` 建 4096×8192 纹理 → 换
 `atlas.spriteMaterial.mainTexture` → 重算全部 `UISprite.UpdateUVs(true)` + `MarkAsChanged()`
@@ -964,8 +1080,8 @@ _cw3hanhua/
 │   ├─ check_batch.py          单批译稿校验
 │   ├─ pack_skips.py           「人工判定不译」固化 → _dict/skipped_manual.json
 │   └─ dict_stats.py           覆盖率报告 → _dict/STATUS.md
-├─ plugin/             ★ 两个在用源文件：CW3Hanhua.cs（字体层 v0.8.0）
-│                      CW3HanhuaText.cs（文本层 v0.8.0）
+├─ plugin/             ★ 两个在用源文件：CW3Hanhua.cs（字体层 v0.8.2）
+│                      CW3HanhuaText.cs（文本层 v0.8.2）
 │                      MiniProbe.cs（探针 v2.3，补丁计数不可信，见 6.1a）
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）
 │                      ★ 工具链：font_{16,20,28}.{json,png}（重烘图集的必需输入）
@@ -987,6 +1103,7 @@ _cw3hanhua/
 `.gitignore` 用「顶层白名单 + 子目录黑名单」，只放行 `_cw3hanhua\`、`BepInEx\config\`、
 `AGENTS.md`、`doorstop_config.ini`。
 ★ **本目录就是游戏安装目录，永远不要在这里执行 `git clean`** —— 会连游戏本体一起删掉。
+
 
 ### 维护纪律
 
