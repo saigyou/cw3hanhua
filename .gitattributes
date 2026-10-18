@@ -1,0 +1,23 @@
+# ============================================================
+# 行尾统一：本项目所有自有文本文件都是 LF、无 BOM。
+#
+# 本机全局 core.autocrlf = true，若不表态，git 会把它们检出成 CRLF，
+# 于是第一次 commit 之后每个文件都显示「已修改」。
+#
+# * -text  = 彻底关闭行尾转换，字节原样进出。
+#            （比 text=auto eol=lf 更严格：连二进制嗅探都不做，
+#             避免 git 把 .fnt / .json 判成文本而改写）
+#
+# 例外：cmd/bat 由 cmd.exe 解析，OEM 代码页 + 必须 CRLF，另行标注。
+# ============================================================
+* -text
+
+*.cmd  text eol=crlf
+*.bat  text eol=crlf
+
+# 二进制：显式声明，让 git diff / merge 不去碰
+*.dll     binary
+*.exe     binary
+*.png     binary
+*.bin     binary
+*.pyc     binary

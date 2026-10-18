@@ -1,0 +1,55 @@
+# ============================================================
+# Creeper World 3 汉化工程
+# 仓库根 = 游戏安装根目录
+#
+# 思路：顶层用【白名单】（只放行工程相关项），子目录内再用黑名单细化。
+# 这样游戏本体、Steam、Unity 运行时产生的任何东西都不会误入库。
+#
+# ★★★ 警告 ★★★
+# 本目录就是游戏安装目录。git clean -xdf / git clean -fd 会删掉
+# 整个游戏（CW3.exe、CW3_Data 全部处于被忽略状态）。
+# 永远不要在这里执行 git clean。
+# ============================================================
+
+# ---------- 顶层：默认全部忽略 ----------
+/*
+!/.gitignore
+!/.gitattributes
+!/AGENTS.md
+!/doorstop_config.ini
+!/.doorstop_version
+!/_cw3hanhua/
+!/BepInEx/
+
+# ---------- BepInEx：只保留装机补丁的配置 ----------
+# core/ 是 BepInEx 自带二进制，重装即可；plugins/ 是编译产物
+/BepInEx/*
+!/BepInEx/config/
+/BepInEx/config/*
+!/BepInEx/config/BepInEx.cfg
+!/BepInEx/config/BepInEx.cfg.orig_entrypoint
+
+# 插件编译产物：用 _cw3hanhua\tools\build_plugin.cmd 重建
+/BepInEx/plugins/*.dll
+/BepInEx/plugins/*.dll.off
+# 探针往 BepInEx 根目录写的报告、运行日志、缓存
+/BepInEx/*.txt
+/BepInEx/*.log
+/BepInEx/cache/
+
+# ---------- 工程目录：排除大块外部资产 ----------
+# Python 虚拟环境
+/_cw3hanhua/.venv/
+# NGUI 上游源码（自带 .git，嵌套会变 gitlink）
+/_cw3hanhua/_ngui_repo/
+# ILSpy 反编译工具二进制
+/_cw3hanhua/tools/ilspycmd/
+# ★ 反编译源码：随时可用 tools\ilspy.cmd 重生成，不必入库
+#   例：& tools\ilspy.cmd CW3_Data\Managed\Assembly-CSharp.dll -t UIFont
+/_cw3hanhua/_diag/
+# Python 缓存
+__pycache__/
+*.pyc
+
+# ---------- 临时文件 ----------
+/_cw3hanhua/_tmp/
