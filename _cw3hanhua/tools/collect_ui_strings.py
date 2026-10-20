@@ -86,6 +86,22 @@ RE_REGEX = re.compile(r"^[\^\[].*\$")                      # ^[a-z0-9_]+$ / [^ '
 RE_TEMPLATE_NAME = re.compile(r"^Custom[A-Za-z0-9_]*(\d+pp|_128)$")   # Custom12pp / Custom37_128
 RE_STAT_KEY = re.compile(r"^STAT_[A-Z_]+$")               # STAT_xxx 统计键
 RE_RICHTEXT_PREFIX = re.compile(r"^(\[[-\w#]+\])+\s*\S")  # 颜色标记 + 正文
+# ★ 中日韩字符。游戏原文全是英文，资产里出现 CJK 只可能是我们烘进去的译文
+#   （tools/bake_textmesh_assets.py），扫资产时必须跳过，否则会把中文当源串收进来。
+RE_CJK = re.compile(r"[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff00-\uffef]")
+# 过场叙事（Prelude/Epilogue/Demo）的台词：这些 FixedUpdate 里每一条 ldstr
+# 都是直接传给 ShowText 的一句台词，不存在"键名/分隔线"的可能。
+# ★ 为什么必须特判：台词里天然带这类"噪声特征"，
+#   'presents' 命中 RE_IDENT（下划线小写标识符，它恰好全小写无下划线）、
+#   '-- EARTH --' 与 '--Transcript Follows--' / '--Transcript Ends--' 命中 RE_DASHED
+#   （分隔线）→ 三条真台词被静默丢掉，过场里就留英文。
+RE_NARRATIVE_REF = re.compile(r"^(PreludeManager|EpilogueManager|DemoScreenManager)\.FixedUpdate$")
+
+
+def _is_narrative_only(ctx):
+    """这条串是否**只**被过场叙事的 FixedUpdate 引用。"""
+    refs = [r for r in (ctx.get("refs") or []) if r]
+    return bool(refs) and all(RE_NARRATIVE_REF.match(r) for r in refs)
 
 
 def classify(s, ctx=None):
@@ -107,6 +123,11 @@ def classify(s, ctx=None):
     trail_space = body_raw != body_raw.rstrip() and len(body) >= 2
     if not body:
         return "noise", "空白"
+    # ★ 过场叙事台词：整串都是要显示的话，先于所有噪声规则放行，
+    #   否则 'presents' / '-- EARTH --' / '--Transcript Ends--' 会被
+    #   「下划线小写标识符」「分隔线」两条规则吃掉（见 _is_narrative_only）。
+    if _is_narrative_only(ctx):
+        return "ui", "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
     if RE_URL.match(body):
         return "noise", "网址"
     if RE_ENGINE.search(body):
@@ -450,6 +471,7 @@ def scan_assets():
         + [p for p in os.listdir(DATA) if p.startswith("level") and os.path.isfile(os.path.join(DATA, p))]
         + (["mainData"] if os.path.exists(os.path.join(DATA, "mainData")) else [])
     )
+    n_cjk = 0
     CLASS_UILabel = 114
     CLASS_TextMesh = 102
     try:
@@ -483,29 +505,63 @@ def scan_assets():
                     continue
                 t = d.get("m_Text") if cid == CLASS_TextMesh else d.get("mText")
                 if isinstance(t, str) and t.strip():
+                    # ★ 跳过已经是中文的资产文本。
+                    #   改资产（tools/bake_textmesh_assets.py）会把 19 条 TextMesh
+                    #   的英文烘成中文，之后再跑本脚本，这些中文会被当成"新发现的
+                    #   源串"收进 strings.json（'载入文件'、'制作组'…），既翻不了
+                    #   也把词表弄脏。判定：含 CJK 就跳过 —— 游戏原文里没有中日韩字。
+                    if RE_CJK.search(t):
+                        n_cjk += 1
+                        continue
                     rows.append(dict(file=fn, pid=pid,
                                      kind="TextMesh" if cid == CLASS_TextMesh else "UILabel",
                                      text=t))
                     n += 1
         stats[fn] = n
+    if n_cjk:
+        print("资产文本跳过已是中文的 %d 条（资产已被 bake 过，见 NOTES 4.6）" % n_cjk)
     print("资产文本 %d 条，分布 %s" % (len(rows), stats))
     return rows, stats
 
 
 def save(items, path, merge):
-    old = {}
+    """写 strings.json。merge=True 时把旧文件里已有的译文带过来。
+
+    ★ --merge 的两个方向都必须成立（这里踩过一次，丢了 19 条译文）：
+      1. 条目还在：沿用旧译文（旧译稿是人写的，比空值有价值）；
+      2. 条目**这一轮没扫到**：也要把旧记录整条搬回来。
+         什么情况下会扫不到？改资产（bake_textmesh_assets.py）把英文烘成中文后，
+         资产里那 19 条英文源串就再也扫不出来了 —— 如果只按"新扫到的条目"
+         合并，这 19 条的译文会被静默丢弃，zh_cn.dict 少 19 条，
+         而界面上那些字已经是中文、看不出异常，极难发现。
+    """
+    old_recs = {}
     if merge and os.path.exists(path):
         try:
             with open(path, encoding="utf-8") as f:
                 data = json.load(f)
             for it in data.get("strings", []):
                 if it.get("zh"):
-                    old[it["en"]] = it["zh"]
+                    old_recs[it["en"]] = it
         except Exception:
             pass
     for it in items:
-        if it["en"] in old:
-            it["zh"] = old[it["en"]]
+        if it["en"] in old_recs:
+            it["zh"] = old_recs[it["en"]]["zh"]
+    # 把旧文件里有译文、这一轮却没扫到的条目补回来（见上面第 2 条）
+    if merge and old_recs:
+        now = set(r["en"] for r in items)
+        carried = [rec for en, rec in old_recs.items() if en not in now]
+        if carried:
+            for rec in carried:
+                rec.setdefault("files", [])
+                rec.setdefault("refs", [])
+            items.extend(carried)
+            print("合并: 补回 %d 条本轮未扫到但已有译文的条目" % len(carried))
+            for rec in carried[:20]:
+                print("    + %r → %r" % (rec["en"], rec["zh"]))
+            if len(carried) > 20:
+                print("    … 还有 %d 条" % (len(carried) - 20))
     # 排序：先 ui 再 other；再按来源（both/asset 优先，它们一定会显示）
     rank_cat = {"both": 0, "asset": 1, "dll": 2}
     rank_grade = {"ui": 0, "other": 1}

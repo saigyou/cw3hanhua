@@ -13,9 +13,9 @@
 | 怎么改 | **不改游戏文件**：BepInEx 5 + 两个插件 DLL + 外置词表 + 外置图集 |
 | 字体怎么办 | **离线烘 BMFont 图集 → 运行时把中文字形并进 GUI Atlas**，走游戏原生的**位图分支**（3.4 / 4.4） |
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
-| TextMesh 文本怎么变中文 | 只能**改资产**把中文烘进 prefab（3.6 / 4.6）；`TextMesh.set_text` 是 extern，钩不上 |
+| TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅（**v0.9.0 已实测通过**）/ TextMesh 层 ⬜ 待改资产 |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅（**v0.9.0 已实测通过**）/ TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 🟡 **v0.10.0 待实测** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -41,10 +41,10 @@
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
 | 字体层插件 | `BepInEx/plugins/CW3Hanhua.dll` **v0.8.2**（`plugin/CW3Hanhua.cs`）<br>合并图集 + 合并 HUD。**已实测通过** |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192 + `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4） |
-| 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` **v0.9.0**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`（**1140 条**）。`ProcessText` prefix+postfix，**动态文本与资产序列化的 `mText` 一并覆盖**。**已实测通过（2026-10-20）** |
+| 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` **v0.10.0**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`（**1144 条**）。`ProcessText` prefix+postfix 覆盖全部 UILabel；**另打 5 个 TextMesh 写入点**（3 个 `ShowText` prefix + 2 个 name setter postfix）。UILabel 部分**已实测通过**，TextMesh 补丁**待实测** |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
 | 按键 | 字体层 **F3** 开关 / **F11** dump / **F12** HUD；文本层 **F4** 开关 / **F5** 打印未命中 / **F9** 重载词表 |
-| 待办 | **TextMesh 改资产**（4.6）；15 条资源条模板串的碎片替换（4.7） |
+| 待办 | 15 条资源条模板串的碎片替换（4.7）；`Andro` / `DMD` / `'4'` 是否翻待定（4.7） |
 
 **启用 / 停用 BepInEx**
 
@@ -273,7 +273,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 |---|---|---|
 | ① 字体层 | 字形从哪来 | 离线烘 BMFont → **并进 GUI Atlas**（4.4） |
 | ② UILabel 文本 | 英文串怎么变中文 | `ProcessText` prefix+postfix（全部 1029 个 label，3.3） |
-| ③ TextMesh 文本 | 同上 | **改资产把中文烘进 prefab**（4.6） |
+| ③ TextMesh 文本 | 同上 | **两条腿**：静态的 19 条改资产烘进 prefab（4.6）；运行时才写的那几条打代码补丁（4.6a） |
 
 | # | 阶段 | 状态 |
 |---|---|---|
@@ -284,9 +284,9 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | B1 | 静态全量收集 + 词表骨架 | ✅ |
 | B2 | `ProcessText` prefix+postfix+finalizer | ✅ **v0.9.0 实测通过** |
 | B4 | HUD 合并成左上角一块 | ✅ **v0.8.2 实测通过** |
-| B6 | 改资产：TextMesh 中文烘进 prefab（19 条） | 🟡 **已用修好的脚本重烘，待实测**（`script_type_index` bug 已修，见 4.6） |
-| B7 | ③ 类运行时覆盖对象的代码补丁 | ⬜ 步骤 6，待 B6 实测后 |
-| C1–C3 | 翻译：主菜单 / HUD / 建造菜单 / 剧情 | ✅ 全量批 full_01–21 入库 1140 条 |
+| B6 | 改资产：TextMesh 中文烘进 prefab（19 条） | ✅ **实测通过**（`script_type_index` bug 修好后，见 4.6） |
+| B7 | ③ 类运行时覆盖对象的代码补丁（v0.10.0） | 🟡 **已实现，待实测**（4.6a） |
+| C1–C3 | 翻译：主菜单 / HUD / 建造菜单 / 剧情 | ✅ 全量批 full_01–22 入库 1144 条 |
 | C4 | 剩余按设计不译的分流 | ✅ |
 | D | 打包 / 分发 | ⬜ |
 
@@ -371,12 +371,12 @@ public static string HudLine() { return "文本层 v" + Ver + "  F4=" + ... }
 
 | 脚本 | 作用 | 产物 |
 |---|---|---|
-| `collect_ui_strings.py` | 静态全量收集 + 分类 + 去重（`--no-assets` 跳过资产扫描，5.5s ↔ 全量 476s） | `_dict/strings.json` |
-| `test_classify.py` | `classify()` 的回归样例（改 `RE_*` 必跑） | 终端 |
-| `dict_stats.py` | 覆盖率报告 | `_dict/STATUS.md` |
-| `build_dict.py` | 编译成插件读的二进制词表 | `_dict/zh_cn.dict` |
-| `check_charset.py` | 译文缺字检查（复用 bake_font 的字符集定义） | 终端 |
-| `bake_font.py` | 烘字形；`gb2312_chars()` / `charset_for(sizes)` 同时供上面两个用 | `_font/` |
+| collect_ui_strings.py | 静态全量收集 + 分类 + 去重（`--no-assets` 跳过资产扫描，5.5s ↔ 全量 170s） | `_dict/strings.json` |
+| test_classify.py | `classify()` 的回归样例（改 `RE_*` 必跑） | 终端 |
+| dict_stats.py | 覆盖率报告 | `_dict/STATUS.md` |
+| build_dict.py | 编译成插件读的二进制词表（**必须带 `--include-other`**，否则 250 条 other 档译文被丢） | `_dict/zh_cn.dict` |
+| check_charset.py | 译文缺字检查（复用 bake_font 的字符集定义） | 终端 |
+| bake_font.py | 烘字形；`gb2312_chars()` / `charset_for(sizes)` 同时供上面两个用 | `_font/` |
 
 **分类三档**（`strings.json` 每条的 `grade`）
 
@@ -386,29 +386,41 @@ public static string HudLine() { return "文本层 v" + Ver + "  F4=" + ... }
 | `other` | 单个词（`Yes`/`Creeper`/`Close`）、代码片段、疑似调试消息 | 拿不准，后翻 |
 | `noise` | 标识符 / PascalCase / 资源名 / 标准库异常 / 节点路径 / 正则 / 纯数字 | 丢弃 |
 
-**当前量化结果**（2026-10-20 重跑，可复现）：
+**当前量化结果**（2026-10-20 晚重跑，可复现）：
 
 | 项 | 数量 |
 |---|---|
 | IL 字符串引用 | 11001（Assembly-CSharp）+ 238（firstpass） |
-| 资产文本 | 472 条（UILabel 455 + TextMesh 17） |
-| 去重后候选 | **2400**（ui 1278 + other 1093 + none 29） |
-| 来源 | both 297 / asset 175 / dll 1928 |
-| 已译 | **1140**（ui 880 + other 260） |
+| 资产文本 | 467 条（UILabel 455 + TextMesh 12；另有 19 条已被 bake 成中文，按 CJK 跳过） |
+| 去重后候选 | **2404**（ui 1292 + other 1083 + none 29） |
+| 来源 | both 292 / asset 175 / dll 1937 |
+| 已译 | **1144**（ui 880 + other 260 + 4 条过场叙事） |
 
 > **数字口径**：`ui` 不是"一定会显示"，是"几乎一定"；`other` 里约 900 条是单词，
 > 需要人工判定。**不要拿 ui 条数当工作量上限。**
+
+**★★ `--merge` 踩过的两个坑（2026-10-20，务必看）**
+
+1. **资产被 bake 过之后再跑收集，会把中文当源串收进来** —— `bake_textmesh_assets.py`
+   把 19 条 TextMesh 英文烘成中文后，`scan_assets()` 读到的是中文，
+   于是 `'载入文件'`、`'制作组'` 这类译文被当成"新发现的源串"写进 `strings.json`（实测混进 22 条）。
+   修法：`scan_assets()` 里用 `RE_CJK` 跳过任何含中日韩字符的文本（游戏原文全是英文）。
+2. **只按"新扫到的条目"合并会静默丢译文** —— 上面那 19 条英文源串一旦扫不到，
+   它们的译文就会被丢弃（实测丢了 10 条，`zh_cn.dict` 直接少 10 条），
+   而界面上那些字已经是中文、**完全看不出异常**。
+   修法：`save(merge=True)` 除了沿用同名条目的译文，还要把
+   **"旧文件里有译文、这一轮却没扫到"的条目整条搬回来**，并打印补回了哪些。
 
 **词表骨架**（`_dict/`）
 
 ```
 _dict/
 ├─ strings.json     ★ 唯一词表。每条 {en, zh, grade, cat, kind, cls, refs, note}
-│                   翻一条 = 把 zh 从 "" 填成中文。--merge 重跑不会丢译文。
+│                   翻一条 = 把 zh 从 "" 填成中文。--merge 重跑不会丢译文（含上面第 2 条的搬回逻辑）。
 ├─ glossary.md      术语表。改译名只能在这里改，译文里不许随手换。
 ├─ zh_cn.dict       由 build_dict.py 生成，插件直接读
 ├─ STATUS.md        由 dict_stats.py 生成，勿手改
-├─ batches/         22 份批次源（full_01…21 + 19/20/21 的单词级补充）
+├─ batches/         23 份批次源（full_01…22 + 19/20/21 的单词级补充）
 └─ skipped_manual.json  565 条「人工判定不译」，**别删**（否则以后有人会重翻一遍）
 ```
 
@@ -447,17 +459,19 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 - 译稿用**序号字典** `{"zh": {"3": "译文"}}`，缺省项视为 `@`（跳过不译）；
   **不要用数组形式**（漏一项就整体错位，踩过一次：89 vs 88，后 60 条全串行）。
 
-### 4.3 文本层插件（`CW3HanhuaText.cs` v0.9.0）
+### 4.3 文本层插件（`CW3HanhuaText.cs` v0.10.0）
 
 **为什么单独一个 DLL**：字体层已验证通过、不想动；两层独立开关，出问题时能立刻判断是谁的锅。
 BepInEx 5 按文件名顺序装载，`CW3Hanhua.dll` → `CW3HanhuaText.dll` 是**字母序碰巧正确**的，
 **改文件名可能改变装载顺序**。prefix 装在 `Awake` 里（早于场景创建），能拦到首批文本。
 
-**替换路径（只剩一条）**
+**替换路径（UILabel 一条 + TextMesh 五个写入点）**
 
 | 路径 | 覆盖什么 | 实现 |
 |---|---|---|
 | `UILabel.ProcessText` **prefix + postfix/finalizer** | **全部 1029 个 UILabel**：运行时动态文本 + 资产序列化的 `mText` | 见 3.3 |
+| `PreludeManager/EpilogueManager/DemoScreenManager.ShowText` **prefix 改 `__0`** | 三段过场的全部台词（31 + 21 + 10 处调用） | 见 4.6a |
+| `StarManager.set_starName` / `PlanetManager.set_planetName` **postfix 只改 TextMesh** | 星区名 / 星球名的显示 | 见 4.6a，**不能改入参** |
 
 **代价（可接受）**：`label.text` 与屏上显示不一致（屏上中文、`.text` 英文）。
 `mSize` 是按中文算的 —— 这正是我们要的，字宽/换行/`mShrinkToFit` 全对。
@@ -472,6 +486,8 @@ IL = `set_hasChanged(true)` + `UIWidget.MarkAsChanged()`），失败才反射调
 
 ★ **F4 的边界**：只能还原**本层经手**的文本。改资产烘进 prefab 的中文不归本层管、
 关不掉 —— 要还原得跑 `tools/bake_textmesh_assets.py --restore`（4.6）。
+TextMesh 那五个写入点登记在独立的 `meshSwaps`（`MeshSwap = {mesh, en}`）里，
+`RestoreAll` 直接 `mesh.text = en` 就够（TextMesh 没有 processed 中间层，不必 `ForceRefresh`）。
 
 **换场景 / 还原记录**
 
@@ -493,8 +509,8 @@ IL = `set_hasChanged(true)` + `UIWidget.MarkAsChanged()`），失败才反射调
 - `missSeen` + **F5**：`ProcessText` 查不到译文时记一条，F5 打印清单。
   列出来的说明"走了 UILabel 但没译文"（补词表 + F9 重载即可）；
   界面上仍英文、清单里又没有的，才是真正**必须改资产**的对象（TextMesh 那批）。
-- **HUD 第 4 行**：`文本层 v0.9.0  F4=…  词表=…  prefix=调用/命中  拼接=…  未命中=…`。
-  `prefix` 计数不动 = 补丁没装上。
+- **HUD 第 4 行**：`文本层 v0.10.0  F4=…  词表=…  prefix=调用/命中  拼接=…  未命中=…  mesh=调用/命中`。
+  `prefix` 计数不动 = 补丁没装上；`mesh` 计数不动 = TextMesh 那五个补丁没装上或那段文本没被写过。
 
 **★ 装补丁必须自检**：`Harmony.Patch` 失败时**只往日志写一行 Error、不抛异常**
 （外层 try/catch 什么也接不到，表现为"什么都没发生"）。所以装完立刻回读
@@ -635,17 +651,22 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 
 ### 4.5 全量翻译
 
-**结论**：`strings.json` **2400 条里 1140 条已译**（ui 880 / other 260），
-**其余 1260 条按设计不译**。插件读的 `zh_cn.dict` = **1140 条**（49 312 字节，FNV 校验通过）；
+**结论**：`strings.json` **2404 条里 1144 条已译**（ui 880 / other 260 / 过场叙事 4），
+**其余 1260 条按设计不译**。插件读的 `zh_cn.dict` = **1144 条**（49 481 字节，FNV 校验通过）；
 `check_charset.py` 报 `用到字符 943 个（汉字 857）✓ 汉字全部在字集内` —— **不用重烘图集**。
+
+> 2026-10-20 晚补的 4 条是过场叙事台词：`presents`→`出品`、`-- EARTH --`→`—— 地球 ——`、
+> `--Transcript Follows--`→`—— 以下为会议记录 ——`、`--Transcript Ends--`→`—— 会议记录结束 ——`。
+> 它们原本被 `classify()` 当噪声（下划线小写标识符 / 分隔线）丢掉，见 4.2 的叙事特判。
+> `Knuckle Cracker` 与 `Creeper World III` 按术语表**保留英文**。
 
 `kind` 维度（判断"玩家到底看不看得见"）：
 
 | kind | 条数 | 已译 |
 |---|---:|---:|
 | UILabel | 455 | **369** |
-| TextMesh | 17 | **15** |
-| None（纯 DLL 字符串，多为日志/资源名） | 1928 | 756 |
+| TextMesh | 12 | **10**（另 19 条已烘进资产，收集时按 CJK 跳过） |
+| None（纯 DLL 字符串，多为日志/资源名） | 1937 | 765 |
 
 未译的 UILabel/TextMesh 全部是**故意不译**的：单字母 `A`–`Z`、`F0`–`F12`、
 `SHIFT`/`CTRL`、`SHIFT-A`…`SHIFT-X`、`CTRL-C`/`CTRL-V`（组合键规则）、
@@ -833,14 +854,12 @@ mainData 49 / resources.assets 2185 / sharedassets6 11，不同的都是 0）。
 > level1 那 20 个解析不出的 MonoBehaviour（缺 `Assembly-UnityScript.dll`），
 > 不是烘焙造成的，别拿它判断脚本对不对。
 
-**③ 类留给代码路线的备选方案（步骤 6 的依据）**
+**③ 类留给代码路线（步骤 6，已实现 → 见 4.6a）**
 `TextMesh.set_text` 全游戏只有 **8 个宿主方法 / 15 个调用点**（`ilx callers --type TextMesh set_text`）：
 `TextLabel.set_text`×5（prefab 驱动，`ilx callers` 命中 0 处）、`PlanetManager.set_planetName`×2、
 `StarManager.set_starName`×2、`StarManager.Refresh`×2、`CRPLTowerManager.set_text`×1、
 `DemoScreenManager.ShowText`(params=9)、`EpilogueManager.ShowText`(params=8)、
-`PreludeManager.ShowText`(params=7)。补丁只能打在这 8 个宿主方法上（改 `__0` 入参）。
-**别误伤**：`StarManager.Refresh` 传的是进度串（`"3/12"`）；`CRPLTowerManager.set_text`
-传的是玩家 CRPL 脚本内容。
+`PreludeManager.ShowText`(params=7)。补丁只能打在这 8 个宿主方法上。
 
 **★ 读 MonoBehaviour typetree 的必要条件**（两个扫描脚本都踩过）：
 必须 `TypeTreeGenerator("5.2.3f1")` + `load_local_dll_folder(CW3_Data/Managed)` 并赋给
@@ -848,6 +867,47 @@ mainData 49 / resources.assets 2185 / sharedassets6 11，不同的都是 0）。
 （`level1` 实测：无 generator 时 258/1827 成功，有 generator 时 1807/1827）。
 **没有 generator 时读不到会表现为「扫出 0 个」，很容易误判成"资产里没有"。**
 另：`resources.assets` 解 typetree 极慢（**138 秒**），全量扫描要给足超时。
+
+### 4.6a TextMesh 的代码补丁（`CW3HanhuaText.cs` v0.10.0，步骤 6）
+
+改资产能覆盖**静态**的 19 条，但有一批 TextMesh 的文本是**运行时才写**的，
+资产里只是占位值（`'Andro'`、`'4'`、空模板），烘中文也留不住 → 只能打代码补丁。
+
+**★ 五个补丁点，分两种改法，不能混**
+
+| 方法 | 改法 | 为什么 |
+|---|---|---|
+| `PreludeManager.ShowText`（params=7, `0x060011BF`） | **prefix 改 `__0`** | arg1 是纯文案，IL `008F ldarg.1 / 0090 callvirt TextMesh.set_text` |
+| `EpilogueManager.ShowText`（params=8, `0x06000B81`） | **prefix 改 `__0`** | 同上（`009C/009D`） |
+| `DemoScreenManager.ShowText`（params=9, `0x06000B4C`） | **prefix 改 `__0`** | 同上（`00A9/00AA`） |
+| `StarManager.set_starName`（`0x06000DC5`） | **postfix，只改 `starTitle`** | ★ 见下 |
+| `PlanetManager.set_planetName`（`0x06000D75`） | **postfix，只改 `planetTitle`** | ★ 同上 |
+
+★★ **为什么 name setter 绝不能改入参**：IL 是
+`0000 ldarg.0 / 0001 ldarg.1 / 0002 stfld _starName` —— 先把名字存进**数据字段**再写 TextMesh。
+`get_starName` 有 **10 个调用方**，其中 `SystemManager.LaunchMission` 拿它拼**存档文件名**：
+`'Alpha Sector : ' + get_starName() + ' : ' + … + '.cw3'`（`'Prospector Zone : '`/`'Tormented Space : '`/
+`'Arc Eternal : '` 同构）；`EditSystemGUI.DoStar`、`StarManager.WriteXML` 也用它。
+`get_planetName` 更是有 19 个调用方（`ShowStorySystemMessageForPlanet`×12、`LaunchMission`×4…）。
+**改入参 = 存档路径变中文 = 毁存档。** 所以只改显示用的那个 TextMesh 字段
+（`starTitle`/`planetTitle` 只被各自的 setter 与 `Awake` 碰，改它不影响任何逻辑）。
+
+**故意不打的三个**
+
+- `StarManager.Refresh`（`0x06000DD4`）：只写 `starInfo` 的进度串（`"3/12"` / `"?"`），纯数字，不翻。
+- `CRPLTowerManager.set_text`（`0x06001846`）：传的是玩家 CRPL 脚本产出
+  （调用方 `CrplCore.ProcessCommands`、`CRPLTowerManager.ReadXML`），翻了就毁了玩家脚本。
+- `TextLabel.set_text`（`0x06001149`）：`ilx callers` 命中 **0 处**（prefab/UnityEvent 驱动），
+  资产里那 5 个 `'4'` 是模板占位，没有词表条目 → 无处施力。
+
+**实现要点**
+- 三个 `ShowText` 的参数量不同（7/8/9），但**共用一个 prefix 方法** `PrefixAnyShowText(ref string __0)` ——
+  Harmony 按**参数名**匹配，只声明关心的那个即可。
+- postfix 签名用 `(object __instance)`，运行时按字段名取 `TextMesh`；
+  装之前校验 `FieldInfo.FieldType == typeof(TextMesh)`，类型不对就报错不装。
+- 登记进独立的 `Dictionary<int, MeshSwap> meshSwaps`（`MeshSwap = {mesh, en}`），
+  与 UILabel 的 `swaps` 分开；F4 还原时 `mesh.text = en` 即可。
+- HUD 第 4 行加 `mesh=调用/命中`，计数不动就说明补丁没装上或那段文本没被写过。
 
 ### 4.7 待办与已知缺口
 
@@ -885,9 +945,9 @@ CommandCenter.GetUnitTitleDisplay(UnitManager)   token=0x06000A33  RVA=0x46EA4  
 
 #### ② 其它待确认
 
-- 4.6 步骤 3–6 全部待做。
-- ③ 类 5 个运行时覆盖对象（`StarTitle` / `PlanetTitle` / `StarInfo` / `CRPLTextMesh`）
-  是否需要代码路线，要等改完资产实测后判断。
+- **`Andro` / `DMD` / `'4'` 三个是否翻译未定**：`Andro`（`resources.assets` pid=1640/1644，
+  `Wormhole/StarTitle` 与 `Star/StarTitle`）与 `DMD`（`level1` pid=3342，`Star/SpriteLabel`）
+  词表里都没有译文；`'4'` 是 `TextLabel` prefab 的五层占位值（`ilx callers` 命中 0 处，无处施力）。
 - 打包/分发方案未定（BepInEx + 两个 DLL + `_font/` + `_dict/` 的目录形态）。
 
 ---
@@ -1092,11 +1152,11 @@ _cw3hanhua/
 │   ├─ pack_skips.py           「人工判定不译」固化 → _dict/skipped_manual.json
 │   └─ dict_stats.py           覆盖率报告 → _dict/STATUS.md
 ├─ plugin/             ★ 两个在用源文件：CW3Hanhua.cs（字体层 v0.8.2）
-│                      CW3HanhuaText.cs（文本层 v0.9.0）
+│                      CW3HanhuaText.cs（文本层 v0.10.0）
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）
 │                      ★ 工具链：font_{16,20,28}.{json,png}（重烘图集的必需输入）
 ├─ _dict/              ★ 词表：strings.json（唯一数据）/ glossary.md（术语表）
-│                      / zh_cn.dict（编译产物）/ STATUS.md（自动生成）/ batches/（22 份批次）
+│                      / zh_cn.dict（编译产物）/ STATUS.md（自动生成）/ batches/（23 份批次）
 │                      / skipped_manual.json（565 条「人工判定不译」，勿删）
 ├─ _diag/              ilspy 反编译源码 + 只读扫描脚本（scan_textmesh.py / scan_uilabel.py）
 │                      ★ 改插件前必查；不进版本库（gitignore），可随时重生成

@@ -1,5 +1,5 @@
 // ============================================================================
-//  CW3 汉化 · 文本层 v0.9.0 —— 词表 + UILabel.ProcessText prefix 替换
+//  CW3 汉化 · 文本层 v0.10.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点
 //
 //  与字体层（CW3Hanhua.cs）**独立编译、独立运行**：
 //    字体层负责"字形从哪来"，本层负责"英文串怎么变中文"。两层可分别开关，
@@ -8,8 +8,15 @@
 //  词表：_cw3hanhua/_dict/zh_cn.dict（tools/build_dict.py 生成）
 //    格式见 build_dict.py 头注释：CWH1 + count + [klen,key,zlen,zh]* + uint32 FNV
 //
-//  本层的替换路径，只剩一条：
+//  本层的替换路径：
 //    ① Harmony prefix + postfix on UILabel.ProcessText —— 全部 1029 个 UILabel 的总收口
+//    ② 五个 TextMesh 写入点（v0.10.0，步骤 6）—— 资产改不到的那几条
+//         PreludeManager / EpilogueManager / DemoScreenManager 的 ShowText：prefix 改 __0
+//         StarManager.set_starName / PlanetManager.set_planetName：postfix 只改 TextMesh
+//       为什么后者不能改入参：见 PatchTextMeshWriters 里的注释（会毁存档路径）
+//
+//  ★ v0.10.0：加 ②。改资产能覆盖 19 条静态 TextMesh，但有一批文本是运行时才写的
+//    （星区名/星球名、三段过场的台词），资产里只是占位值，烘中文也留不住。
 //
 //  ★ v0.9.0：补丁点从 `set_text` 挪到 `ProcessText`。
 //    `set_text` 只有 322 个调用点，**资产里序列化的 mText 一个都不走它**
@@ -64,10 +71,10 @@ using UnityEngine;
 
 namespace CW3Hanhua
 {
-    [BepInPlugin("cw3hanhua.text", "CW3 Hanhua Text", "0.9.0")]
+    [BepInPlugin("cw3hanhua.text", "CW3 Hanhua Text", "0.10.0")]
     public class TextPlugin : BaseUnityPlugin
     {
-        const string Ver = "0.9.0";
+        const string Ver = "0.10.0";
 
         static TextPlugin inst;
         static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
@@ -94,6 +101,19 @@ namespace CW3Hanhua
         //   切场景只该丢弃**已销毁**的对象，仍然活着的必须留住以便还原。
         class Swap { public UILabel label; public string en; public string zh; }
         static readonly Dictionary<int, Swap> swaps = new Dictionary<int, Swap>();
+
+        // ---------------------------------------------------------------- TextMesh（v0.10.0，步骤 6）
+        // TextMesh 的 `set_text` 是 extern icall（UnityEngine.dll 里 RVA=0x0，没有 IL 体），
+        // Harmony 打不上 —— 这就是为什么这批对象只剩「改资产」和「改上游 C# 方法」两条路。
+        // 改资产已经做完（19 条烘进 prefab，见 tools/bake_textmesh_assets.py）；
+        // 这里处理**改资产解决不了**的那几个：它们在资产里是占位值，运行时被代码重写。
+        //   写了中文资产也留不住（一读档就被英文盖掉），只能在写入点动手。
+        class MeshSwap { public TextMesh mesh; public string en; }
+        static readonly Dictionary<int, MeshSwap> meshSwaps = new Dictionary<int, MeshSwap>();
+
+        // 统计（和 UILabel 的分开，HUD 里分别看，判断是哪条路在生效）
+        static int meshCalls;
+        static int meshHits;
 
         // 走过 ProcessText 但词表里查不到的串（去重、上限 400）。
         // v0.9.0 起补丁点在 ProcessText，所以这里收到的是**全部 UILabel** 的未命中
@@ -185,7 +205,160 @@ namespace CW3Hanhua
             }
             catch (Exception e) { Say("!! 装 patch 失败: " + e); }
 
+            PatchTextMeshWriters();
+
             Say("按键: F4 文本层开关 | F5 打印未命中清单 | F9 重载词表");
+        }
+
+        // ================================================================ TextMesh 写入点（正文路径）
+        /// <summary>★ v0.10.0（六步计划的步骤 6）：给「必须走代码路线」的 TextMesh 写入点打补丁。
+        ///
+        /// 为什么这批不能靠改资产：它们在资产里只是**占位值**，运行时会被代码覆盖。
+        ///   `Star/StarTitle` 与 `Wormhole/StarTitle` 里存的是 `'Andro'`，
+        ///   一进游戏 `StarManager.set_starName` 就把它换成真正的星名；
+        ///   三段过场叙事（Prelude / Epilogue / DemoScreen）同理，
+        ///   资产里是模板，每句话都是 `ShowText` 现场造对象写进去的。
+        ///   → 中文烘进资产也留不住，只能在写入的瞬间换。
+        ///
+        /// 为什么改上游方法而不是 TextMesh.set_text：后者是 extern icall
+        ///   （UnityEngine.dll 里 RVA=0x0，没有 IL 体），Harmony 根本打不上。
+        ///   全游戏只有 8 个 C# 方法写过 TextMesh、共 15 个调用点，逐个来。
+        ///
+        /// ★ 参数改法分两种，不能一刀切：
+        ///   `ShowText` 的 arg1 是**纯文案** → prefix 改入参 `__0` 最干净，
+        ///     原方法体照常用它 set_text，连描边/淡入都不受影响。
+        ///   `set_starName` / `set_planetName` 的 arg1 是**数据字段**（先 stfld _starName
+        ///     再写 TextMesh）→ 绝不能改入参：`get_starName` 有 10 个调用方，
+        ///     `SystemManager.LaunchMission` 拿它拼存档文件名
+        ///     （`'Alpha Sector : ' + get_starName() + ' : ' + … + '.cw3'`），
+        ///     改成中文会让存档路径变成中文。所以这两个走 postfix，只改 TextMesh。</summary>
+        void PatchTextMeshWriters()
+        {
+            // ---- ① 三段过场叙事：prefix 改文案入参 ----
+            // 调用方：PreludeManager.FixedUpdate ×31、EpilogueManager.FixedUpdate ×21、
+            //         DemoScreenManager.FixedUpdate ×10（各自唯一的调用方）
+            PrefixShowText(typeof(PreludeManager), "PreludeManager.ShowText");
+            PrefixShowText(typeof(EpilogueManager), "EpilogueManager.ShowText");
+            PrefixShowText(typeof(DemoScreenManager), "DemoScreenManager.ShowText");
+
+            // ---- ② 星名 / 星球名：postfix 只改 TextMesh，不碰数据字段 ----
+            PatchNameSetter(typeof(StarManager), "set_starName", "starTitle",
+                "StarManager.set_starName", "PostfixStarName");
+            PatchNameSetter(typeof(PlanetManager), "set_planetName", "planetTitle",
+                "PlanetManager.set_planetName", "PostfixPlanetName");
+
+            // 说明：以下三条**故意不打**，理由都写在这里，免得后来者以为是漏了
+            //   StarManager.Refresh —— 只写 starInfo（"3/12" 这种进度串），没词可翻
+            //   CRPLTowerManager.set_text —— 玩家 CRPL 脚本产出的文字，翻了会毁脚本
+            //   TextLabel.set_text —— ilx callers 命中 0 处（prefab/UnityEvent 驱动），
+            //     资产里那 5 个 `'4'` 是 prefab 模板占位，不在任何场景里显示
+        }
+
+        static void PrefixShowText(Type t, string label)
+        {
+            try
+            {
+                MethodInfo m = AccessTools.Method(t, "ShowText", null, null);
+                if (m == null) { Say("  （" + label + " 没找到，跳过）"); return; }
+                Harmony h = new Harmony("cw3hanhua.text.tm." + m.Name + "." + t.Name);
+                PatchProcessor p = h.CreateProcessor(m);
+                p.AddPrefix(new HarmonyMethod(typeof(TextPlugin).GetMethod("PrefixAnyShowText",
+                    BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)));
+                p.Patch();
+                Patches pi = Harmony.GetPatchInfo(m);
+                int n = pi == null ? -1 : pi.Prefixes.Count;
+                Say("★ TextMesh patch: " + label + "  prefix=" + n + (n == 1 ? "" : "  !! 没装上"));
+            }
+            catch (Exception e) { Say("!! 装 " + label + " 补丁失败: " + e.Message); }
+        }
+
+        /// <summary>三个 ShowText 共用：它们的第 1 个参数都是要显示的那句话。
+        /// 用 `ref string __0` 而不是具体签名的原因：三个方法的参数个数不同
+        /// （7 / 8 / 9），只声明关心的那个参数，Harmony 按名匹配，其余不碰。</summary>
+        static void PrefixAnyShowText(ref string __0)
+        {
+            if (!textOn || __0 == null) return;
+            try
+            {
+                meshCalls++;
+                string zh = Lookup(__0);
+                if (zh == null || zh == __0) { NoteMiss(__0); return; }
+                meshHits++;
+                __0 = zh;
+            }
+            catch (Exception) { }
+        }
+
+        static void PatchNameSetter(Type t, string method, string meshField, string label, string postfixName)
+        {
+            try
+            {
+                MethodInfo m = AccessTools.Method(t, method, null, null);
+                FieldInfo f = AccessTools.Field(t, meshField);
+                if (m == null || f == null) { Say("  （" + label + " / " + meshField + " 没找到，跳过）"); return; }
+                if (f.FieldType != typeof(TextMesh))
+                {
+                    Say("  （" + label + " 的 " + meshField + " 不是 TextMesh（" + f.FieldType.Name + "），跳过）");
+                    return;
+                }
+                if (t == typeof(StarManager)) fldStarTitle = f;
+                else if (t == typeof(PlanetManager)) fldPlanetTitle = f;
+
+                Harmony h = new Harmony("cw3hanhua.text.tm." + method);
+                PatchProcessor p = h.CreateProcessor(m);
+                // 两个 setter 各用一个具名 postfix：不用 `__originalMethod` 分派，
+                // 少一层间接、日志里一眼能看出是哪个方法触发的。
+                p.AddPostfix(new HarmonyMethod(typeof(TextPlugin).GetMethod(postfixName,
+                    BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)));
+                p.Patch();
+                Patches pi = Harmony.GetPatchInfo(m);
+                int n = pi == null ? -1 : pi.Postfixes.Count;
+                Say("★ TextMesh patch: " + label + "  postfix=" + n + "（只改 " + meshField + "）"
+                    + (n == 1 ? "" : "  !! 没装上"));
+            }
+            catch (Exception e) { Say("!! 装 " + label + " 补丁失败: " + e.Message); }
+        }
+
+        static FieldInfo fldStarTitle, fldPlanetTitle;
+
+        /// <summary>星名 setter 跑完之后，只把 starTitle 那个 TextMesh 换成中文。
+        /// 数据字段 `_starName` 保持英文 —— 存档文件名、XML、`get_starName` 的 10 个
+        /// 调用方全指望它是英文。</summary>
+        static void PostfixStarName(object __instance)
+        {
+            if (!textOn || __instance == null) return;
+            try
+            {
+                TextMesh tm = fldStarTitle == null ? null : fldStarTitle.GetValue(__instance) as TextMesh;
+                if (tm != null) TranslateMesh(tm);
+            }
+            catch (Exception) { }
+        }
+
+        /// <summary>同 PostfixStarName，对象是 `_planetName` / `planetTitle`。</summary>
+        static void PostfixPlanetName(object __instance)
+        {
+            if (!textOn || __instance == null) return;
+            try
+            {
+                TextMesh tm = fldPlanetTitle == null ? null : fldPlanetTitle.GetValue(__instance) as TextMesh;
+                if (tm != null) TranslateMesh(tm);
+            }
+            catch (Exception) { }
+        }
+
+        /// <summary>把一个 TextMesh 的当前文本换成中文（就地查表）。
+        /// 记录到 meshSwaps 仅为了 F4 能还原 —— TextMesh 没有 `mText/mProcessedText` 之分，
+        /// 改了就是改了，没有「临时」这回事。</summary>
+        static void TranslateMesh(TextMesh tm)
+        {
+            string en = tm.text;
+            if (en == null || en.Length == 0) return;
+            string zh = Lookup(en);
+            if (zh == null || zh == en) { NoteMiss(en); return; }
+            int id = tm.GetInstanceID();
+            if (id != 0 && !meshSwaps.ContainsKey(id)) meshSwaps[id] = new MeshSwap { mesh = tm, en = en };
+            tm.text = zh;
         }
 
         // ================================================================ 词表读取
@@ -465,6 +638,18 @@ namespace CW3Hanhua
                 }
             }
             if (dead != null) for (int i = 0; i < dead.Count; i++) swaps.Remove(dead[i]);
+
+            if (meshSwaps.Count == 0) return;
+            List<int> deadM = null;
+            foreach (KeyValuePair<int, MeshSwap> kv in meshSwaps)
+            {
+                if (kv.Value.mesh == null)
+                {
+                    if (deadM == null) deadM = new List<int>();
+                    deadM.Add(kv.Key);
+                }
+            }
+            if (deadM != null) for (int i = 0; i < deadM.Count; i++) meshSwaps.Remove(deadM[i]);
         }
 
         void RestoreAll()
@@ -487,7 +672,27 @@ namespace CW3Hanhua
                 catch (Exception) { remove.Add(kv.Key); }
             }
             for (int i = 0; i < remove.Count; i++) swaps.Remove(remove[i]);
-            Say("  已还原 " + n + " 处文本" + (dead > 0 ? "（" + dead + " 处对象已销毁）" : ""));
+
+            // TextMesh 那批：直接写回英文即可。TextMesh 没有「processed」中间层，
+            // 改了 text 立刻重建网格，不需要 ForceRefresh 那套。
+            // 但**只有我们改过的**才还原 —— 资产里烘进去的中文不归本层管（那要 --restore）。
+            int nm = 0, dm = 0;
+            List<int> removeM = new List<int>();
+            foreach (KeyValuePair<int, MeshSwap> kv in meshSwaps)
+            {
+                MeshSwap s = kv.Value;
+                try
+                {
+                    if (s.mesh != null) { s.mesh.text = s.en; nm++; }
+                    else dm++;
+                }
+                catch (Exception) { }
+                removeM.Add(kv.Key);
+            }
+            for (int i = 0; i < removeM.Count; i++) meshSwaps.Remove(removeM[i]);
+
+            Say("  已还原 " + n + " 处文本" + (dead > 0 ? "（" + dead + " 处对象已销毁）" : "")
+                + (nm + dm > 0 ? "；TextMesh " + nm + " 处" + (dm > 0 ? "（" + dm + " 处已销毁）" : "") : ""));
         }
 
         /// <summary>逼一个 UILabel 重新跑 ProcessText（不依赖 set_text 的 `mText != arg` 判断）。
@@ -607,7 +812,7 @@ namespace CW3Hanhua
                 return "文本层 v" + Ver + "  F4=" + (textOn ? "开" : "关")
                     + "  词表=" + dictCount
                     + "  prefix=" + prefixCalls + "/" + prefixHits + "  拼接=" + hitConcat
-                    + "  未命中=" + missSeen.Count;
+                    + "  mesh=" + meshCalls + "/" + meshHits + "  未命中=" + missSeen.Count;
             }
             catch (Exception) { return "文本层: 状态读取异常"; }
         }

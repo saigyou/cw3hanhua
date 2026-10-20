@@ -1,6 +1,6 @@
 {
  "version": 2,
- "generated": "2026-10-20 18:53:48",
+ "generated": "2026-10-20 23:08:12",
  "baked_charset": 7544,
  "strings": [
   {
@@ -782,32 +782,6 @@
    "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
   },
   {
-   "en": "Prospector Zone",
-   "zh": "探矿者星区",
-   "cat": "both",
-   "grade": "ui",
-   "ops": [
-    "call op_Equality",
-    "callvirt"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "SectorManager"
-   ],
-   "refs": [
-    "SectorManager.OnMyMouseDown",
-    "SectorManager.CreateSector0"
-   ],
-   "hits": 2,
-   "note": "多词英文，几乎一定是显示文本",
-   "kind": "TextMesh",
-   "files": [
-    "level1"
-   ]
-  },
-  {
    "en": "Select Group 1:",
    "zh": "选择编队 1:",
    "cat": "both",
@@ -948,32 +922,6 @@
    "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
   },
   {
-   "en": "Tormented Space",
-   "zh": "折磨空间",
-   "cat": "both",
-   "grade": "ui",
-   "ops": [
-    "call op_Equality",
-    "callvirt"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "SectorManager"
-   ],
-   "refs": [
-    "SectorManager.OnMyMouseDown",
-    "SectorManager.CreateSector0"
-   ],
-   "hits": 2,
-   "note": "多词英文，几乎一定是显示文本",
-   "kind": "TextMesh",
-   "files": [
-    "level1"
-   ]
-  },
-  {
    "en": "Build Reactor:",
    "zh": "建造反应堆:",
    "cat": "both",
@@ -1014,36 +962,6 @@
    "refs": [],
    "hits": 1,
    "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
-  },
-  {
-   "en": "Colonial Space",
-   "zh": "殖民空间",
-   "cat": "both",
-   "grade": "ui",
-   "ops": [
-    "call",
-    "callvirt",
-    "stelem.ref"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "ColonialSpaceManager",
-    "GalaxySpace",
-    "SectorManager"
-   ],
-   "refs": [
-    "ColonialSpaceManager.OnGUI",
-    "SectorManager.CreateSector0",
-    "GalaxySpace..cctor"
-   ],
-   "hits": 3,
-   "note": "多词英文，几乎一定是显示文本",
-   "kind": "TextMesh",
-   "files": [
-    "level1"
-   ]
   },
   {
    "en": "ENERGY STORAGE",
@@ -1517,32 +1435,6 @@
    "refs": [],
    "hits": 1,
    "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
-  },
-  {
-   "en": "Alpha Sector",
-   "zh": "阿尔法星区",
-   "cat": "both",
-   "grade": "ui",
-   "ops": [
-    "call op_Equality",
-    "callvirt"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "SectorManager"
-   ],
-   "refs": [
-    "SectorManager.OnMyMouseDown",
-    "SectorManager.CreateSector0"
-   ],
-   "hits": 2,
-   "note": "多词英文，几乎一定是显示文本",
-   "kind": "TextMesh",
-   "files": [
-    "level1"
-   ]
   },
   {
    "en": "Build Forge:",
@@ -4908,6 +4800,46 @@
    "note": "以句号结尾（句子样式）"
   },
   {
+   "en": "Council Director 5: \"Bring in this young man.  We wish to question him directly.\"",
+   "zh": "议会主管 5：「带这个年轻人进来。我们要直接审问他。」",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "mul"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "EpilogueManager"
+   ],
+   "refs": [
+    "EpilogueManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
+  },
+  {
+   "en": "Council Director 1: \"And how have you reached these conclusions, Director Mont?\"",
+   "zh": "议会主管 1：「那么，Mont 主管，你是如何得出这些结论的？」",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "mul"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "EpilogueManager"
+   ],
+   "refs": [
+    "EpilogueManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
+  },
+  {
    "en": ": A 'break' must be found inside a 'while/endwhile block' or if 'do/loop' block",
    "zh": "",
    "cat": "dll",
@@ -5105,7 +5037,7 @@
     "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "RegisteredComponent: Awake() / OnDestroy() not correctly called. Object: ",
@@ -5168,6 +5100,26 @@
    ],
    "hits": 1,
    "note": "多词英文，几乎一定是显示文本"
+  },
+  {
+   "en": "We also believe the Loki are aware of only one method to reveal the Arc.\"",
+   "zh": "我们还认为，洛基只知道一种揭示永恒之弧的方法。",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "mul"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "EpilogueManager"
+   ],
+   "refs": [
+    "EpilogueManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": ": A dot is only allowed in string literals and floating point numbers: ",
@@ -5472,6 +5424,26 @@
    "note": "以句号结尾（句子样式）"
   },
   {
+   "en": "Newton Mont: \" 'Platius', Council.  His name is 'Platius Abraxis' \"",
+   "zh": "牛顿·蒙特：「'普拉提乌斯'，议会。他的名字是 '普拉提乌斯·阿布拉克斯'」",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "call"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "EpilogueManager"
+   ],
+   "refs": [
+    "EpilogueManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
+  },
+  {
    "en": "VectorManager: object number exceeds array length in DistanceRemove",
    "zh": "",
    "cat": "dll",
@@ -5533,6 +5505,26 @@
    "note": "多词英文，几乎一定是显示文本"
   },
   {
+   "en": "Council Director 4: \"So, the Creeper and the Arc are intertwined?\"",
+   "zh": "议会主管 4：「那么，Creeper 与永恒之弧是相互纠缠的？」",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "mul"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "EpilogueManager"
+   ],
+   "refs": [
+    "EpilogueManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
+  },
+  {
    "en": "Further, we have identified two means by which it may be revealed.",
    "zh": "此外，我们已经确认了两种可能揭示它的方法。",
    "cat": "dll",
@@ -5550,7 +5542,7 @@
     "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "But no matter how great humanity became, it would always succumb.",
@@ -5570,7 +5562,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Strafers are remote strike craft.\nTarget them at remote Creeper.",
@@ -5610,7 +5602,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Empires would rise and fall, each more brilliant than the last.",
@@ -5630,7 +5622,27 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
+  },
+  {
+   "en": "Newton Mont: \"Council, our team has confirmed your suspicions.\"",
+   "zh": "牛顿·蒙特：「议会，我们的团队已经证实了你们的猜测。」",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "mul"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "EpilogueManager"
+   ],
+   "refs": [
+    "EpilogueManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Packet trasporter.\nLand in remote locations to provide packets.",
@@ -5794,6 +5806,26 @@
    "note": "以句号结尾（句子样式）"
   },
   {
+   "en": "Council Director 3: \"What is this man's name, Director Mont?\"",
+   "zh": "议会主管 3：「这个人叫什么名字，蒙特主管？」",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "mul"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "EpilogueManager"
+   ],
+   "refs": [
+    "EpilogueManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
+  },
+  {
    "en": "His journey on the first great exodus was not to be his last.",
    "zh": "他在第一次大逃亡中的旅程并非终点。",
    "cat": "dll",
@@ -5811,7 +5843,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "\n[ff5050]To Access:\n[ff0000]Unlock via Arc Eternal missions.",
@@ -5852,7 +5884,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": ": Functions must not be nested within conditionals or loops",
@@ -5892,7 +5924,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "VectorLine.MakeText can only be used with a discrete line",
@@ -5932,7 +5964,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "The root GameObject has not been set for this MultiMesh!",
@@ -5972,7 +6004,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "多词英文，几乎一定是显示文本"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "VectorLine.MakeWireframe only works with a discrete line",
@@ -6032,7 +6064,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Tween Error: Hash requires an even number of arguments!",
@@ -6073,6 +6105,26 @@
    ],
    "hits": 1,
    "note": "多词英文，几乎一定是显示文本"
+  },
+  {
+   "en": "Council Director 2: \"Then it is true. The Arc exists.\"",
+   "zh": "议会主管 2：「那么这是真的。永恒之弧确实存在。」",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "mul"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "EpilogueManager"
+   ],
+   "refs": [
+    "EpilogueManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Tried to Initialize the SteamAPI twice in one session!",
@@ -6132,7 +6184,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Beams defend against Aerial Spores from Spore Towers.",
@@ -6372,7 +6424,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "多词英文，几乎一定是显示文本"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Seloi Science Academy, Standing Council Directors",
@@ -6392,7 +6444,7 @@
     "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "多词英文，几乎一定是显示文本"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "The points array must contain at least two points",
@@ -6453,6 +6505,26 @@
    ],
    "hits": 1,
    "note": "多词英文，几乎一定是显示文本"
+  },
+  {
+   "en": "One, we believe, is being employed by the Loki.\"",
+   "zh": "我们认为，其中一种正被洛基使用。",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "mul"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "EpilogueManager"
+   ],
+   "refs": [
+    "EpilogueManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Planet is shielded. Keys needed from planet(s):\n",
@@ -6532,7 +6604,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "多词英文，几乎一定是显示文本"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Tried to load internal system data and failed: ",
@@ -6572,7 +6644,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "No downsample shader assigned! Disabling glow.",
@@ -6994,7 +7066,7 @@
     "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Received stats and achievements from Steam\n",
@@ -7135,7 +7207,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "多词英文，几乎一定是显示文本"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Texture Palette.  Chose any texture below.",
@@ -7200,7 +7272,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": ": An 'else' must be nested within an 'if'",
@@ -7240,7 +7312,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "\"  to select terrain height under mouse.",
@@ -7301,6 +7373,26 @@
    ],
    "hits": 1,
    "note": "多词英文，几乎一定是显示文本"
+  },
+  {
+   "en": "His insights led us to our conclusions.\"",
+   "zh": "他的见解引导我们得出了结论。」",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "mul"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "EpilogueManager"
+   ],
+   "refs": [
+    "EpilogueManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Select current terrain image from above.",
@@ -7440,7 +7532,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "(Only Letters, Numbers, _ -  allowed.)",
@@ -7504,7 +7596,7 @@
     "DemoScreenManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "New or improved score/time. Submit it!",
@@ -7564,7 +7656,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "多词英文，几乎一定是显示文本"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "WARNING: GetKeyDown on illegal value: ",
@@ -7684,7 +7776,7 @@
     "DemoScreenManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "多词英文，几乎一定是显示文本"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Eons would pass between each culling.",
@@ -7704,7 +7796,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Not Named.  Play and you can name it!",
@@ -8166,7 +8258,7 @@
     "DemoScreenManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "21458256d4614ba281fa0607f803722d",
@@ -8366,7 +8458,7 @@
     "DemoScreenManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Can not preload because prefab '",
@@ -8466,7 +8558,7 @@
     "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "含数据的格式串（128x128 / Score: 9999）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "VectorLine.MakeText: Character '",
@@ -8606,7 +8698,7 @@
     "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Unit Limits.  -1 mean unlimited",
@@ -8786,7 +8878,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Uploading map.  Please wait...",
@@ -8826,7 +8918,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "  [ffffff]Aether:[-][ff0000] ",
@@ -8968,7 +9060,7 @@
     "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Video tutorial & more info...",
@@ -9319,7 +9411,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "  [ffffff]Ammo:[-][00ffff] ",
@@ -9440,7 +9532,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Experience Interval (0=off)",
@@ -9520,7 +9612,7 @@
     "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Sprite/Vertex Colored, Fast",
@@ -9562,7 +9654,7 @@
     "DemoScreenManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "  [ffffff]Ore:[-][ff0000] ",
@@ -9965,7 +10057,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "is in your capable hands!",
@@ -9985,7 +10077,7 @@
     "DemoScreenManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "m_flGameDurationSeconds: ",
@@ -10125,7 +10217,7 @@
     "DemoScreenManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "多词英文，几乎一定是显示文本"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "SectorManager_Crosshairs",
@@ -10185,7 +10277,7 @@
     "DemoScreenManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "ZoomIdeal final height: ",
@@ -10539,7 +10631,7 @@
     "DemoScreenManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Void Horizontal Ridges:",
@@ -10584,6 +10676,26 @@
    "note": "多词英文，几乎一定是显示文本"
   },
   {
+   "en": "--Transcript Follows--",
+   "zh": "—— 以下为会议记录 ——",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "call"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "EpilogueManager"
+   ],
+   "refs": [
+    "EpilogueManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
+  },
+  {
    "en": ". Perhaps you meant ->",
    "zh": "",
    "cat": "dll",
@@ -10621,7 +10733,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "APPLY IMAGE TO TERRAIN",
@@ -10845,7 +10957,7 @@
     "DemoScreenManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "多词英文，几乎一定是显示文本"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Next Track on Playlist",
@@ -12090,7 +12202,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以句号结尾（句子样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Unload Unused Assets",
@@ -12153,6 +12265,26 @@
    ],
    "hits": 1,
    "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
+   "en": "--Transcript Ends--",
+   "zh": "—— 会议记录结束 ——",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "call"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "EpilogueManager"
+   ],
+   "refs": [
+    "EpilogueManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Artifact Placement:",
@@ -15777,7 +15909,7 @@
     "PreludeManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "多词英文，几乎一定是显示文本"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Lowest as Void:",
@@ -16020,6 +16152,28 @@
    "note": "多词英文，几乎一定是显示文本"
   },
   {
+   "en": "Prospector Zone",
+   "zh": "探矿者星区",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "call op_Equality",
+    "callvirt"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SectorManager"
+   ],
+   "refs": [
+    "SectorManager.OnMyMouseDown",
+    "SectorManager.CreateSector0"
+   ],
+   "hits": 2,
+   "note": "多词英文，几乎一定是显示文本"
+  },
+  {
    "en": "RenameDir Error",
    "zh": "",
    "cat": "dll",
@@ -16200,6 +16354,28 @@
     "GameSpace.Update"
    ],
    "hits": 1,
+   "note": "多词英文，几乎一定是显示文本"
+  },
+  {
+   "en": "Tormented Space",
+   "zh": "折磨空间",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "call op_Equality",
+    "callvirt"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SectorManager"
+   ],
+   "refs": [
+    "SectorManager.OnMyMouseDown",
+    "SectorManager.CreateSector0"
+   ],
+   "hits": 2,
    "note": "多词英文，几乎一定是显示文本"
   },
   {
@@ -16487,6 +16663,32 @@
    ],
    "hits": 1,
    "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
+  },
+  {
+   "en": "Colonial Space",
+   "zh": "殖民空间",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "call",
+    "callvirt",
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "ColonialSpaceManager",
+    "GalaxySpace",
+    "SectorManager"
+   ],
+   "refs": [
+    "ColonialSpaceManager.OnGUI",
+    "SectorManager.CreateSector0",
+    "GalaxySpace..cctor"
+   ],
+   "hits": 3,
+   "note": "多词英文，几乎一定是显示文本"
   },
   {
    "en": "Current Score:",
@@ -18584,6 +18786,28 @@
    "note": "多词英文，几乎一定是显示文本"
   },
   {
+   "en": "Alpha Sector",
+   "zh": "阿尔法星区",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "call op_Equality",
+    "callvirt"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SectorManager"
+   ],
+   "refs": [
+    "SectorManager.OnMyMouseDown",
+    "SectorManager.CreateSector0"
+   ],
+   "hits": 2,
+   "note": "多词英文，几乎一定是显示文本"
+  },
+  {
    "en": "Ammo Packets",
    "zh": "弹药包",
    "cat": "dll",
@@ -19548,6 +19772,26 @@
    ],
    "hits": 2,
    "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
+  },
+  {
+   "en": "-- EARTH --",
+   "zh": "—— 地球 ——",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "conv.r4"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "PreludeManager"
+   ],
+   "refs": [
+    "PreludeManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Add Message",
@@ -20998,7 +21242,7 @@
     "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
-   "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "Best Time:",
@@ -22691,6 +22935,26 @@
    ],
    "hits": 2,
    "note": "多词英文，几乎一定是显示文本"
+  },
+  {
+   "en": "presents",
+   "zh": "出品",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "call"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "PreludeManager"
+   ],
+   "refs": [
+    "PreludeManager.FixedUpdate"
+   ],
+   "hits": 1,
+   "note": "过场叙事台词（Prelude/Epilogue/Demo 的 ShowText 实参）"
   },
   {
    "en": "string: ",
@@ -24707,33 +24971,6 @@
    "kind": "UILabel",
    "files": [
     "level3"
-   ]
-  },
-  {
-   "en": "Credits",
-   "zh": "制作组",
-   "cat": "both",
-   "grade": "other",
-   "ops": [
-    "stelem.ref",
-    "stloc.1"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "GameSpace",
-    "SystemManager"
-   ],
-   "refs": [
-    "SystemManager.LaunchMission",
-    "GameSpace.Update"
-   ],
-   "hits": 2,
-   "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
-   "kind": "TextMesh",
-   "files": [
-    "level1"
    ]
   },
   {
@@ -28677,46 +28914,6 @@
    "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
   },
   {
-   "en": "Council Director 5: \"Bring in this young man.  We wish to question him directly.\"",
-   "zh": "议会主管 5：「带这个年轻人进来。我们要直接审问他。」",
-   "cat": "dll",
-   "grade": "other",
-   "ops": [
-    "mul"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "EpilogueManager"
-   ],
-   "refs": [
-    "EpilogueManager.FixedUpdate"
-   ],
-   "hits": 1,
-   "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
-  },
-  {
-   "en": "Council Director 1: \"And how have you reached these conclusions, Director Mont?\"",
-   "zh": "议会主管 1：「那么，Mont 主管，你是如何得出这些结论的？」",
-   "cat": "dll",
-   "grade": "other",
-   "ops": [
-    "mul"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "EpilogueManager"
-   ],
-   "refs": [
-    "EpilogueManager.FixedUpdate"
-   ],
-   "hits": 1,
-   "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
-  },
-  {
    "en": ": The number of segments cannot exceed the number of points in the array for \"",
    "zh": "",
    "cat": "dll",
@@ -28732,26 +28929,6 @@
    ],
    "refs": [
     "VectorLine.CheckArrayLength"
-   ],
-   "hits": 1,
-   "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
-  },
-  {
-   "en": "We also believe the Loki are aware of only one method to reveal the Arc.\"",
-   "zh": "我们还认为，洛基只知道一种揭示永恒之弧的方法。",
-   "cat": "dll",
-   "grade": "other",
-   "ops": [
-    "mul"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "EpilogueManager"
-   ],
-   "refs": [
-    "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
    "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
@@ -28795,46 +28972,6 @@
    ],
    "hits": 1,
    "note": "疑似调试/异常消息，但含空格 —— 需人工确认"
-  },
-  {
-   "en": "Newton Mont: \" 'Platius', Council.  His name is 'Platius Abraxis' \"",
-   "zh": "牛顿·蒙特：「'普拉提乌斯'，议会。他的名字是 '普拉提乌斯·阿布拉克斯'」",
-   "cat": "dll",
-   "grade": "other",
-   "ops": [
-    "call"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "EpilogueManager"
-   ],
-   "refs": [
-    "EpilogueManager.FixedUpdate"
-   ],
-   "hits": 1,
-   "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
-  },
-  {
-   "en": "Council Director 4: \"So, the Creeper and the Arc are intertwined?\"",
-   "zh": "议会主管 4：「那么，Creeper 与永恒之弧是相互纠缠的？」",
-   "cat": "dll",
-   "grade": "other",
-   "ops": [
-    "mul"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "EpilogueManager"
-   ],
-   "refs": [
-    "EpilogueManager.FixedUpdate"
-   ],
-   "hits": 1,
-   "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
   },
   {
    "en": "Render camera not yet assigned to EZScreenPlacement component of \"",
@@ -28957,26 +29094,6 @@
    "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
   },
   {
-   "en": "Newton Mont: \"Council, our team has confirmed your suspicions.\"",
-   "zh": "牛顿·蒙特：「议会，我们的团队已经证实了你们的猜测。」",
-   "cat": "dll",
-   "grade": "other",
-   "ops": [
-    "mul"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "EpilogueManager"
-   ],
-   "refs": [
-    "EpilogueManager.FixedUpdate"
-   ],
-   "hits": 1,
-   "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
-  },
-  {
    "en": "VectorLine.Resize: Must have an even points array length for \"",
    "zh": "",
    "cat": "dll",
@@ -29012,26 +29129,6 @@
    ],
    "refs": [
     "VectorManager.GetBounds"
-   ],
-   "hits": 1,
-   "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
-  },
-  {
-   "en": "Council Director 3: \"What is this man's name, Director Mont?\"",
-   "zh": "议会主管 3：「这个人叫什么名字，蒙特主管？」",
-   "cat": "dll",
-   "grade": "other",
-   "ops": [
-    "mul"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "EpilogueManager"
-   ],
-   "refs": [
-    "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
    "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
@@ -29238,26 +29335,6 @@
    "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
   },
   {
-   "en": "Council Director 2: \"Then it is true. The Arc exists.\"",
-   "zh": "议会主管 2：「那么这是真的。永恒之弧确实存在。」",
-   "cat": "dll",
-   "grade": "other",
-   "ops": [
-    "mul"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "EpilogueManager"
-   ],
-   "refs": [
-    "EpilogueManager.FixedUpdate"
-   ],
-   "hits": 1,
-   "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
-  },
-  {
    "en": "VectorLine.Draw3D called with smooth line widths for \"",
    "zh": "",
    "cat": "dll",
@@ -29416,26 +29493,6 @@
    ],
    "refs": [
     "VectorLine.SetupMesh"
-   ],
-   "hits": 1,
-   "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
-  },
-  {
-   "en": "One, we believe, is being employed by the Loki.\"",
-   "zh": "我们认为，其中一种正被洛基使用。",
-   "cat": "dll",
-   "grade": "other",
-   "ops": [
-    "mul"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "EpilogueManager"
-   ],
-   "refs": [
-    "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
    "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
@@ -29637,26 +29694,6 @@
    ],
    "refs": [
     "AudioToolkitDemo.DrawGuiRightSide"
-   ],
-   "hits": 1,
-   "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
-  },
-  {
-   "en": "His insights led us to our conclusions.\"",
-   "zh": "他的见解引导我们得出了结论。」",
-   "cat": "dll",
-   "grade": "other",
-   "ops": [
-    "mul"
-   ],
-   "srcs": [
-    "Assembly-CSharp.dll"
-   ],
-   "cls": [
-    "EpilogueManager"
-   ],
-   "refs": [
-    "EpilogueManager.FixedUpdate"
    ],
    "hits": 1,
    "note": "代码片段/调试消息（含运算符/引号/成员访问）—— 需人工确认"
@@ -36952,6 +36989,29 @@
    "refs": [
     "EditMapGUI.DoProspectorArtifact",
     "ProspectorArtifactManager..cctor"
+   ],
+   "hits": 2,
+   "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认"
+  },
+  {
+   "en": "Credits",
+   "zh": "制作组",
+   "cat": "dll",
+   "grade": "other",
+   "ops": [
+    "stelem.ref",
+    "stloc.1"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "GameSpace",
+    "SystemManager"
+   ],
+   "refs": [
+    "SystemManager.LaunchMission",
+    "GameSpace.Update"
    ],
    "hits": 2,
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认"
