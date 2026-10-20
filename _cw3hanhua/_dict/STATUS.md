@@ -1,14 +1,14 @@
 # CW3 词表状态（自动生成，勿手改）
 
-生成时间：2026-10-18 13:05:01    数据：`_dict/strings.json`
+生成时间：2026-10-20 18:53:48    数据：`_dict/strings.json`
 
 ## 1. 总览
 
 | 可信度 | 条数 | 已译 | 完成率 |
 |---|---:|---:|---:|
-| ui | 1261 | 880 | 69.8% |
+| ui | 1278 | 880 | 68.9% |
 | other | 1093 | 260 | 23.8% |
-| **合计** | **2383** | **1140** | **47.8%** |
+| **合计** | **2400** | **1140** | **47.5%** |
 
 > `ui` = 几乎一定是显示文本；`other` = 拿不准（单个词/代码片段），先翻 `ui`。
 
@@ -17,8 +17,8 @@
 | 来源 | 含义 | 条数 | 已译 |
 |---|---|---:|---:|
 | both | 资产 + DLL 都有（最该先翻） | 297 | 226 |
-| asset | 只在资产里序列化（不走 setter，靠 sweep） | 174 | 158 |
-| dll | 只在 DLL 里（走 set_text） | 1912 | 756 |
+| asset | 只在资产里序列化（不走 setter；UILabel 走 ProcessText 补丁，TextMesh 改资产） | 175 | 158 |
+| dll | 只在 DLL 里（走 ProcessText） | 1928 | 756 |
 
 ## 3. 按命中类名分组（看哪块界面还没动）
 
@@ -29,11 +29,12 @@
 | CrplCore | 132 | 17 | `WARNING: Loop stack vars not present at ` |
 | VectorLine | 86 | 0 | `VectorLine.SetCamera3D: no camera tagged` |
 | GameSpace | 120 | 40 | `GameSpace.OnApplicationQuit` |
-| (资产) | 376 | 304 | `This is a great big long label` |
+| (资产) | 377 | 304 | `This is a great big long label` |
 | SystemManager | 71 | 16 | `21458256d4614ba281fa0607f803722d` |
 | CrplCompiler | 43 | 0 | `: A string literal in an input var defin` |
 | CW3SteamAchievements | 43 | 0 | `*********** RESET ALL STATS AND ACHIEVEM` |
 | GameEventWidgetManager | 69 | 33 | `UI Root (2D)` |
+| CommandCenter | 62 | 32 | `  [ffffff]Building:[-][00ff00] ` |
 | AudioToolkitDemo | 30 | 2 | `Play intro-loop-outro sequence
 gatling g` |
 | GalGUIHandlers | 29 | 3 | `UI Root (2D)` |
@@ -48,7 +49,6 @@ Im the` |
 | GalaxySpace | 23 | 6 | `Create AudioController` |
 | ColonialSpaceManager | 87 | 71 | `UI Root (2D)` |
 | <>__AnonType0`15 | 15 | 0 | `, a = ` |
-| CommandCenter | 46 | 32 | `UI Root (2D)` |
 | EditMapGUI | 158 | 145 | `.crpl
 # Created on: ` |
 | AudioController | 12 | 0 | `AudioObject prefab does not have the Poo` |

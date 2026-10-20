@@ -1,8 +1,8 @@
 # CW3 汉化项目 · 技术文档
 
-> **这是唯一文档。** 本文只保留**结论、证据、可复现操作**；
-> 试错过程不单独存档（2026-10-18 已清理 `_archive/`），历史结论都压进本文对应章节。
-> 维护纪律见文末第十节。
+> **这是唯一文档。** 只保留**结论、证据、可复现操作**。
+> 过程性叙述、已废弃的方法不单独存档 —— 历史结论压成一句留在对应章节，或者直接删。
+> 维护纪律见文末。
 
 ---
 
@@ -10,16 +10,14 @@
 
 | 问题 | 答案 |
 |---|---|
-| 怎么改 | **不改游戏文件**：BepInEx 5 + 插件 DLL + 外置词表 + 外置图集（资产只**读**不写，见 4.4a） |
-| 字体怎么办 | **离线烘 BMFont 图集 → 运行时替换 `UIFont.mFont`**，走游戏原生的**位图分支**（3.4） |
-| ~~动态字体~~ | 只在 **TextMesh** 上可用；**UILabel 上已证伪**（3.2） |
-| 文本在哪收口 | `UILabel.set_text`（**322** 个调用点）+ 未激活 label 的全量 sweep + TextMesh 的 **15** 个写入点 |
-| 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用） |
-| 游戏本体 | 原版，零改动；BepInEx 的开关只靠 `winhttp.dll` 改名 |
-| 当前进度 | 字体层**已打通**（A1–A3b 全过）；文本层：词表 **1140 / 2383 条已译**，`zh_cn.dict` 已重编（4.5），**可见 UI 文本已清零**；下一步 = 实测 + 布局微调 |
-| 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 这是本项目最有效的动作 |
-| 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL） |
-| 探针报「Awake=0」 | **先读 6.1a/6.1b**：v1.0 与静态补丁类都拦不到 `Awake`，计数恒为 0；只看最终判定行 |
+| 怎么改 | **不改游戏文件**：BepInEx 5 + 两个插件 DLL + 外置词表 + 外置图集 |
+| 字体怎么办 | **离线烘 BMFont 图集 → 运行时把中文字形并进 GUI Atlas**，走游戏原生的**位图分支**（3.4 / 4.4） |
+| UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
+| TextMesh 文本怎么变中文 | 只能**改资产**把中文烘进 prefab（3.6 / 4.6）；`TextMesh.set_text` 是 extern，钩不上 |
+| 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅（**v0.9.0 已实测通过**）/ TextMesh 层 ⬜ 待改资产 |
+| 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
+| 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
 ### 协作硬规则（用户明确要求过）
 
@@ -28,7 +26,9 @@
    （实测：活跃的 `steam.exe` PID 28188 能用 `-Id` 拿到，却不在全表 42 个进程里）。
    **「枚举看不到」≠「没在运行」**；`-ErrorAction SilentlyContinue` 还会把权限错误吞成"没找到"。
 2. **不要自行启动 Steam 或游戏本体。** 需要时明确告知用户要做什么。
-3. **实验前先讨论。** 一次只改一个变量。
+3. **实验前先讨论。组改之前先问。** 一次只改一个变量。
+4. **除非用户显式命令，否则不要 git 提交。**
+5. **只维护这一份文档，不要新建 md。**
 
 ---
 
@@ -36,18 +36,15 @@
 
 | 项 | 状态 |
 |---|---|
-| 游戏本体 | **原版**（Steam 校验 + 重装核对过 `level1`/`level2`/`sharedassets0`/`sharedassets2`） |
-| 资产改动 | **无** |
+| 游戏本体 | **原版**，资产零改动（4.4a） |
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
-| 主菜单 | **现正常**（曾出现"3D 按钮点不动"，靠重启电脑恢复，见第六节） |
-| BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见 6.8） |
-| 字体层插件 | `BepInEx/plugins/CW3Hanhua.dll` = **v0.8.2 合并图集 + 合并 HUD**（`plugin/CW3Hanhua.cs`）<br>把中文字形并进 GUI Atlas，不拆 draw call。**已实测通过** |
-| 合并图集 | `_font/atlas_zh.png` 4096×8192（原图集 1:1 贴左上 + 三套中文字形）<br>`atlas_zh.bin` 字形表（插件直读）**这两个是字体层的全部运行时输入** |
-| 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` = **v0.8.3 文本层**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`（**现 1140 条**，2026-10-18 全量翻译入库，见 4.5）；F4 开关 / F5 单次 sweep / F9 重载词表。**拼接串已实测通过**（2026-10-19，主菜单六个悬浮框全部中文）；F4 还原路径仍待实测（v0.8.1 修了还原缺陷，见 4.3；v0.8.3 加拼接串兜底，见 3.3） |
-| 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**（json 提供度量、png 提供字形位图）<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。**改了字集必须重跑 `build_atlas.py`** |
-| 探针插件 | `BepInEx/plugins/CW3HanhuaMini.dll`（`plugin/MiniProbe.cs` **v2.3**：`__HarmonyPatches` 自检 +
-| | 字段/场景旁证；**补丁计数恒为 0 且不可信**，见 6.1a/6.1b） |
-| 工具 | `tools\ilx.exe`（IL 检查）、`tools\ilspy.cmd`（反编译 C#）、`tools\bake_font.py`、`tools\check_charset.py`、**`tools\collect_ui_strings.py` / `dict_stats.py` / `build_dict.py`（文本层，见 4.2）**、`.venv`（UnityPy / dnfile / **dncil** / fontTools / Pillow） |
+| BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
+| 字体层插件 | `BepInEx/plugins/CW3Hanhua.dll` **v0.8.2**（`plugin/CW3Hanhua.cs`）<br>合并图集 + 合并 HUD。**已实测通过** |
+| 合并图集 | `_font/atlas_zh.png` 4096×8192 + `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4） |
+| 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` **v0.9.0**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`（**1140 条**）。`ProcessText` prefix+postfix，**动态文本与资产序列化的 `mText` 一并覆盖**。**已实测通过（2026-10-20）** |
+| 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
+| 按键 | 字体层 **F3** 开关 / **F11** dump / **F12** HUD；文本层 **F4** 开关 / **F5** 打印未命中 / **F9** 重载词表 |
+| 待办 | **TextMesh 改资产**（4.6）；15 条资源条模板串的碎片替换（4.7） |
 
 **启用 / 停用 BepInEx**
 
@@ -58,7 +55,7 @@ Rename-Item "$g\winhttp.dll" winhttp.dll.off   # 停用
 ```
 
 `BepInEx\config\BepInEx.cfg` 的 `[Preloader.Entrypoint]` **必须**是
-`Assembly-CSharp.dll` / `SteamManager` / `Awake`，否则启动即崩（第七节）。
+`Assembly-CSharp.dll` / `SteamManager` / `Awake`，否则启动即崩（附录 A）。
 
 ---
 
@@ -68,39 +65,69 @@ Rename-Item "$g\winhttp.dll" winhttp.dll.off   # 停用
 
 | 载体 | 规模 | 字体机制 |
 |---|---|---|
-| **Unity TextMesh** | 27 个（level1 里 14 个 = 主菜单大按钮） | `UnityEngine.Font`（Aldrich 动态字体，无汉字） |
-| **NGUI UILabel** | **1206 对象 / 1029 条有文字**（level1 里 354 个，同一时刻仅约 4 个 active） | `UIFont` → BMFont **预烘焙图集** |
-| **DLL 写死字符串** | 822 条（与资产去重后 **1324 条唯一串**） | 最终都落到上面两种载体上 |
+| **Unity TextMesh** | 30 个对象 / 27 个有文字（level1 里 14 个 = 主菜单大按钮） | `UnityEngine.Font`（Aldrich 动态字体，无汉字） |
+| **NGUI UILabel** | 1206 对象 / **1029 条有文字**（level1 里 354 个，同一时刻仅约 4 个 active） | `UIFont` → BMFont **预烘焙图集** |
+| **DLL 写死字符串** | 822 条（与资产去重后 **2400 条唯一串**） | 最终都落到上面两种载体上 |
 
-**不是 uGUI**：全部资产里 `UnityEngine.UI.Text` 为 **0** 个。
+**不是 uGUI**：全部资产里 `UnityEngine.UI.Text` 为 **0** 个；`Assembly-CSharp.dll` 里
+搜 `UnityEngine.UI` / `Canvas` 全部无命中。文本只有上面两条链路。
 
 ### 3.2 ⚠ 动态字体只能用于 TextMesh，**UILabel 上不可靠**
 
 NGUI 的 `UIFont` 确实完整编译了动态字体分支（`Print`/`WrapText`/`CalculatePrintedSize`
-都调 `Font.RequestCharactersInTexture` + `GetCharacterInfo`），**TextMesh 路线实测可用**：
-`Font.CreateDynamicFontFromOSFont("Microsoft YaHei", 20)` + `TextMesh.font` +
-`MeshRenderer.material` → 主菜单 14 个 TextMesh 全部正常显示中文。
+都调 `Font.RequestCharactersInTexture` + `GetCharacterInfo`），但 UILabel 上实测不成立
+（排版错乱）。**TextMesh 路线实测可用**：`Font.CreateDynamicFontFromOSFont("Microsoft YaHei", 20)`
++ `TextMesh.font`。
 
-**但 UILabel 路线（改 `UIFont.dynamicFont`）经 v0.1→v0.6 六轮实测无法收敛**：
+> **本项目 TextMesh 走的是改资产不是动态字体**（4.6），因为动态字体每次改文本仍要过一次
+> 赋值，改资产则是对象一出现就是中文。动态字体这条能力留着当备用方案。
 
-| 现象 | 根因 |
-|---|---|
-| 大量 label 空白 / 文字跑出框 | `UIFont.Print` 动态分支的 `mDynamicFontOffset` 恒为 0 |
-| 手动改 offset 无效 | **`MarkAsDirty()` 内部无条件调 `RecalculateDynamicOffset()`**，把 offset 覆盖成 `size + yMax` |
-| 不同 label 基线相差 1.13 个字高 | CW3 的动态分支是**从未被游戏使用过的代码路径**，基线/对齐不完整 |
-| 文字被按钮盖住 | 材质一变就拆 draw call（见 3.8①） |
+**TextMesh 的字体资产本身不是障碍**：全游戏只有两个 `Font`（`sharedassets0.assets` 的
+`Aldrich-Regular` pid 755、`arial` pid 756），cmap 里 **CJK 汉字 0 个**；但运行时能显示中文，
+说明 Unity 5 的 Windows 动态字体在回退到系统字体，与 `m_FontData` 有无字形无关。
+`ilx find RequestCharactersInTexture` 命中 0 项 —— 游戏代码不碰动态字体 API。
 
-> **`RecalculateDynamicOffset()` 是存在的**（`public`，`_diag/UIFont.cs:571`）。
-> 曾有文档误记"不存在"，原因是反射用了 `NonPublic` 去找 `public` 方法。
-> **结论：放弃用动态字体改造 UILabel。**
+### 3.3 ★ UILabel 在 `UILabel.ProcessText` 上收口（v0.9.0 主方案）
 
-### 3.3 文本可以在 `UILabel.set_text` 上收口
+- `UILabel.set_text`（token **`0x06000474`**，`il=31`）是可打补丁的普通方法，
+  程序集内 **322 个调用点**（`ilx callers --type UILabel set_text`）。
+- **但资产里序列化的 `mText` 不经过 setter**（反序列化直接写字段）→ `set_text` 补丁覆盖不到。
+- ★ **`UILabel.ProcessText`（token `0x06000490`，RVA=0x1DD48，`il=301`）才是所有 UILabel 的唯一收口**：
+  只有 3 个调用方，**全在上屏路径上** ——
+  `UILabel.get_processedText` / `UILabel.get_relativeSize` / `UILabel.MakePixelPerfect`。
+  任何画得出来的 label 都必然执行它，**包括资产序列化的那些**：
+  `get_processedText`（`il=23`）先 `call get_hasChanged()`，不脏则 `brfalse` 跳过；
+  `get_hasChanged`（`il=44`）拿 `mLastText` 比 `get_text()` —— `mLastText` **不序列化**，
+  初值 null ≠ 英文 → 首帧必然触发一次 `ProcessText`。
 
-- `UILabel.set_text` 是**可打补丁的普通方法**（token **`0x06000474`**，有 IL 体）
-- 程序集内 **322 个调用点**（`ilx callers --type UILabel set_text`）
-- 实测游戏确实在调（一次会话 24 次，内容是悬停描述等 DLL 文本）
-- **但资产里序列化的 `mText` 不经过 setter**（反序列化直接写字段）
-  → 必须再做一次 **sweep**，且要**含未激活的 label**（350 个）
+**实现**：prefix 把 `mText` 临时换中文 → 原方法体算出中文 `mProcessedText` / `mSize` /
+localScale → postfix（+finalizer 兜异常）把 `mText`/`mLastText` 写回英文。
+**效果：屏上中文，`label.text` 永远英文。**
+
+★ **两个字段都必须还原**：`ProcessText` 开头 `000E–0015` 就是 `mLastText = mText`，
+若只还原 `mText`，`get_hasChanged`（比 `mLastText` 与 `get_text()`）永远不等
+→ 每帧重复 `WrapText`，白烧 CPU 且 `mShrinkToFit` 反复缩。
+★ **finalizer 不能省**：`ProcessText` 抛异常时 postfix 不执行，`mText` 会永远卡在中文
+→ 下面那张表里的判定全坏。
+
+**为什么 `label.text` 必须留英文**（游戏逻辑拿它当数据）：
+
+| 位置 | 拿 label.text 干什么 | 改中文的后果 |
+|---|---|---|
+| `CommandCenter.DeactivateSelectedUnits`（`0x06000A83 il=49`） | `get_text` 与 `'ACTIVATE'` 比 `op_Equality` | 永远 false → 单位停用后无法重新启用 |
+| `CommandCenter.StopResupplySelectedUnits`（`0x06000A85 il=49`） | 与 `'RESUPPLY'` 比 | 永远 false → 补给开关失效 |
+| `CommandCenter.DisarmSelectedUnits`（`0x06000A84 il=49`） | 与 `'ARM'` 比 | 碰巧无害（`'ARM'` 未译，本来走 false 分支） |
+| `TerraformCommandCenter.HandleUnitInteraction`（`0x06000AD8`） | `UnitToBuildLabel.text` 当 unitType 传给 `CreateUnit(String,Int32,Int32)` | 建造失败（`CreateUnit` 内逐个比 24 个英文常量：`'Collector'` `'Relay'` … `'Shield Key'`） |
+| `CRPLTowerManager.get_popupText`（`0x06001843 il=11`） | `return popupTextLabel.text`（label 就是存储） | 弹出文本变中文、且被 `WriteXML` 写进存档 |
+| `CRPLTowerManager.WriteXML`（`0x06001878 il=461 eh=3`） | `tem_t` 节点写 `TextMesh.get_text()` | CRPL 自定义文本进存档 |
+
+反向确认安全：`ilx fields --type UILabel mProcessedText` 显示只有 `UILabel.get_processedText`
+一处 `ldfld`（其余 9 写 6 读都在 `ProcessText` 内部）→ **没有任何游戏逻辑读 `mProcessedText`**。
+
+其余 `get_text` 调用点无害（都是读回自己的旧值做拼接/判空）：`UIInput.Init` ×2、
+`UIInput.OnSelect` ×2、`UIInput.set_defaultText`、`UILocalize.Localize`、
+`InputManager.OnPress`、`NumenManager.SetPriceAndLevelLabels`、`ResourcePackManager.Update`、
+`UnitToBuildManager.SetInfoLabel`、`UILabel.get_hasChanged`、`UILabel.set_hasChanged`。
 
 #### ⚠ 拼接串：词表里查不到整串（v0.8.3 修的）
 
@@ -118,10 +145,9 @@ MainMenu.OnMouseEnterEntryManager / MainMenu.Update:
   ldloc.0 ; callvirt UILabel.set_text(String)
 ```
 
-静态收集器 `tools/collect_ui_strings.py` **只认 `ldstr`**，所以词表里只有两个半截，
-没有拼好的整串 → 精确匹配必然落空，悬浮框就一直是英文。
+静态收集器只认 `ldstr`，所以词表里只有两个半截，没有拼好的整串 → 精确匹配必然落空。
 
-修法：`Lookup` 精确匹配失败后调 `LookupConcat` —— 在 `'\n'` 处切成 head/tail，
+**修法**：`Lookup` 精确匹配失败后调 `LookupConcat` —— 在 `'\n'` 处切成 head/tail，
 两段**各自精确命中**词表才拼接返回，否则返回 null（宁可留英文，不拼中英混杂）。
 从右往左找切点（动态拼接多是「正文 + 追加段」），递归限 2 层。
 
@@ -130,26 +156,17 @@ MainMenu.OnMouseEnterEntryManager / MainMenu.Update:
 以及 4 种 `To Access` 后缀 —— 注意有一处是 `[ff0000][ff0000]` **重复色标**，
 词表按原样存了这一条，别"顺手清理"。
 
-### 3.4 ★ UIFont 位图替换（当前采用的方案）
+> **`LookupConcat` 只切 `\n`**，所以「同一行内拼接数字」的情形它管不了 —— 见 4.7 的
+> 资源条模板串。
 
-`UIFont : MonoBehaviour`（不是 ScriptableObject）。运行时把 3 个原始 UIFont 改造成位图字体：
+### 3.4 ★ 字体层：把中文字形并进 GUI Atlas
 
-```
-Aldrich16    size=20    主菜单/设置文字
-Tempesta     size=16    版本号、按钮、悬停描述
-RadioStars22 size=28    大标题
-```
+**一句话**：不新建材质、不改 `mAtlas`，而是**把 4096×8192 的新图集直接换给
+`atlas.spriteMaterial.mainTexture`**，于是文字与精灵仍是同一份材质 → 同一个 draw call →
+遮挡关系天然与原版一致。细节与踩过的坑见 **4.4**。
 
-```csharp
-SetField(f, "mAtlas", null);
-SetField(f, "mDynamicFont", null);        // ★ 关键：走位图分支
-SetField(f, "mFont", 自建BMFont);
-SetField(f, "mMat", 自建材质);
-SetField(f, "mUVRect", new Rect(0,0,1,1));
-f.MarkAsDirty();
-```
-
-**必须处理的四个坑见 3.8。**
+> 早期方案是「拆 draw call：`mAtlas=null` + 自建材质」，**已废弃**（会破坏遮挡，
+> 见 3.8 ①）。
 
 ### 3.5 BMFont / BMGlyph 字段语义
 
@@ -187,85 +204,54 @@ u1.x = u0.x + invX * glyph.width;
 u1.y = u0.y - invY * glyph.height;
 ```
 
-**`mBase` 在整个 `Print` 中从未被使用。** 把 `mAtlas` 置空、`mUVRect=(0,0,1,1)` 后，
+**`mBase` 在整个 `Print` 中从未被使用。** `mUVRect=(0,0,1,1)` 时
 `glyph.x/y` 就是图集内的像素坐标。
 
-### 3.6 CW3 自带的多语言系统是**死的**
+### 3.6 TextMesh 走不通代码路线
+
+`UnityEngine.TextMesh.set_text` / `get_text` 都是 **RVA=0x0 的 extern icall，没有方法体**
+（`ilx dump TextMesh set_text get_text --dll CW3_Data\Managed\UnityEngine.dll` → 「无方法体 / extern」）
+→ **Harmony 打不上**。这与 `UILabel.set_text`（有 IL 体）形成关键区别。
+
+**所以 TextMesh 只有两条路**：改资产（4.6，采用）或给上游 8 个宿主方法打 prefix（4.6 备选）。
+全部 15 个 `TextMesh.set_text` 调用点已查清，见 4.6。
+
+### 3.7 CW3 自带的多语言系统是**死的**
 
 `Localization` 实例 1 个、`mDictionary` 条目 **0**、`mLanguage` 空、`Get` **零调用**。
-`Get` 找不到就原样返回 key（恒等函数）。汉化只能靠 `set_text` / sweep / 字体层。
+`Get` 找不到就原样返回 key（恒等函数）。汉化只能靠 `ProcessText` 补丁 / 改资产 / 字体层。
 
-### 3.7 其它有用的事实
+### 3.8 其它有用的事实
 
 - 文本里有 NGUI 富文本标记（`[ffffd0]...[ffffff]`）和 `\n`，**翻译时必须原样保留**
-- 全程序集只有 `UICamera` 用 `Physics.Raycast`；CW3 自己用 `RaycastAll` + `ScreenPointToRay`
 - **`Assembly-CSharp` 里有全局 `Path` 类**，会抢掉 `System.IO.Path` → 必须写全名
 - Unity 5.2 没有 `UnityEngine.SceneManagement` → 用 `Application.loadedLevelName`
-- `UIPanel` 没有 `SetDirty()` → 用 `UILabel.MarkAsChanged()`
 - Unity 5.2.3 没有 `GameObject.scene`（5.3+ 才有）→ 用系统库编译能过、运行时出错
-- 全程序集 8289 个方法有 IL 体（`ilx stats` 可复现）
+- `UIPanel` 没有 `SetDirty()` → 用 `UILabel.MarkAsChanged()`
+- `UIFont` 是 MonoBehaviour（不是 ScriptableObject）→ `new GameObject().AddComponent<UIFont>()`
+- 全程序集 **8289** 个方法有 IL 体（`ilx stats` 可复现）
+- 全程序集只有 `UICamera` 用 `Physics.Raycast`；CW3 自己用 `RaycastAll` + `ScreenPointToRay`
 - **`TextureFormat.Alpha8` 在 Unity 5.2 采样出 RGB=0**，画字体必须用 RGBA32「RGB=白 + A=覆盖率」
 - `GetPixels32` / `SetPixels32` 的索引 0 都是**左下**，两者约定一致，**不要翻转**
+- **`UILabel` 自己没有 `Update` / `LateUpdate`**，文本靠
+  `UIPanel.LateUpdate → Fill → UILabel.OnFill → ProcessText` 驱动。Unity **不保证脚本间
+  `LateUpdate` 顺序**（本作没设 Script Execution Order）→ 任何「改 label 文本」的代码
+  必须放在 `Update` 里，否则要等下一帧 `Fill` 才上屏。TextMesh 则改完立刻重建网格。
 
-### 3.8 ★ NGUI 位图字体接入的四个坑（2026-10-17 实测，全部踩过）
+#### 3.8a NGUI 位图字体的两个现行坑
 
-#### ① 材质独立 → 拆 draw call → **渲染顺序变成任意的**（最隐蔽，卡最久）
+> **另有两条属于已废弃的「拆 draw call」方案**（材质独立导致渲染顺序任意、改 `UIFont.mMat`
+> 后 label 必须重新赋 `material` 才会注册进 panel）—— **v0.9.0 的合并图集方案根本不拆
+> draw call，这两条不会再碰到**，故不展开。若将来有人想回到独立材质路线，先读
+> `UIWidget.material` 的 setter：它才是 `CreatePanel()`（注册控件）的唯一入口。
 
-- 原版：字体与 sprite **共用 GUI Atlas 材质** → 同一 `UIDrawCall` → 遮挡由 mesh 内三角形顺序决定
-- 换独立材质后 → 拆成两个 draw call。而 **CW3 这版 `UIDrawCall` 完全不设 `renderQueue`/`sortingOrder`**
-  （全文件搜不到）→ 同队列透明物体交给 Unity 按包围盒距离排序 → 两个 draw call 变换相同 →
-  **排序任意** → 背景可能后画把文字盖住
-- **症状**：有大背景图的界面（设置面板）文字"消失"；**但超框的字露在背景外反而可见**
-  —— 这个"露出来的部分"是判定遮挡而非未渲染的关键证据
-- ★★ **最终解（2026-10-18）：不要拆 draw call。** 把中文字形并进 GUI Atlas 本身，
-  让 `UIFont.mAtlas` 继续指向 GUI Atlas（`UIFont.material` getter 里 `if (mAtlas != null) return mAtlas.spriteMaterial;`
-  优先级最高），于是文字与背景用**同一个材质对象** → `UIPanel.Fill` 的引用相等成立 →
-  同一个 draw call → 遮挡关系**天然恢复原版**。见 4.4。
-- ⚠ **四条走不通的路（勿重试）**：
-  1. 字形材质固定 `renderQueue=3001` → 悬停框浮在设置界面之上
-  2. 按 `UIWidget.depth` 分层 → 无效，跨面板顺序跟 widget.depth 无关
-  3. 按面板兄弟序号给背景+文字分层 → 悬停框对了，但**连带破坏所有其它 UI 遮挡**
-  4. 只给文字分层、背景不动 → 文字永远后画，悬停框照样浮着
-  根因都是：**在错误的层面上打补丁**。真正的分界线是「有没有拆 draw call」。
-- **证据**：`UIDrawCall` 是 `DontDestroyOnLoad` 的独立根对象（`UIPanel.GetDrawCall` 里
-  `new GameObject("_UIDrawCall [...]")`），不在任何面板底下；`UIPanel` 也**没有 `depth` 字段**
-  （只有 `depthPass`）。所以 NGUI 自己就**没有**跨面板排序机制。
-- **辅助事实**：`UIDrawCall.UpdateMaterials` 里 `mClippedMat = new Material(mSharedMat)` 之后紧跟
-  `CopyPropertiesFromMaterial(mSharedMat)`，**会**继承 renderQueue（旧文档说"不继承"是错的）。
-- **副作用解释**：悬停文本框是**半透明背景**，它压在文字上时文字就"发暗"
-  —— 同一个遮挡问题，只是半透明所以表现为变暗而非消失
+**① 不能整张图集当 `_MainTex` 交给裁剪**
+`UIDrawCall.OnWillRenderObject` 里 NGUI 的裁剪不是 shader 读 `_ClipRange`，而是对材质做
+**纹理重映射**（`mainTextureOffset` / `mainTextureScale`），它假定 `_MainTex` 就是面板内容本身。
+字体图集整张用（`mUVRect=(0,0,1,1)`）会被打乱 UV。`SoftClip` 面板（`KeyMappingsPanel`）
+会踩到。**接入真正的滚动列表时必须处理。**
 
-#### ② `UIWidget.material` 的 setter 才是控件注册进 panel 的入口
-
-```csharp
-set {
-    if (mMat != value) {
-        if (mMat != null && mPanel != null) mPanel.RemoveWidget(this);
-        mPanel = null; mMat = value;
-        if (mMat != null) CreatePanel();      // ← 只有这里才注册
-    }
-}
-```
-
-而 `UILabel.material` 的 getter **只在 `base.material == null` 时才回落**到 `mFont.material`。
-所以改 `UIFont.mMat`（字体级）后，label 自己的 `mMat` 仍是旧材质 →
-`UIPanel.Fill()` 里 `uIWidget.material == mat` 匹配不上 → 该 label 不进任何 draw call。
-**修法**：改完字体后对每个相关 label 把 `material` 重新赋一次（`null` → 新材质）。
-
-#### ③ 不能整张图集当 `_MainTex` 交给裁剪
-
-`UIDrawCall.OnWillRenderObject` 里，NGUI 的裁剪不是 shader 读 `_ClipRange`，而是对材质做**纹理重映射**：
-
-```csharp
-mClippedMat.mainTextureOffset = (-clipRange.x/z, -clipRange.y/w);
-mClippedMat.mainTextureScale  = (1/z, 1/w);
-```
-
-它**假定 `_MainTex` 就是面板内容本身**。字体图集整张用（`mUVRect=(0,0,1,1)`）会被这层重映射打乱 UV。
-本次实测中 `SettingsPanel` 恰好没有裁剪、只有 `KeyMappingsPanel` 是 `SoftClip`，所以未成为主因，
-**但接入真正的滚动列表时必须处理。**
-
-#### ④ `UIPanel.LateUpdate` 只重填"几何变了"的材质
+**② `UIPanel.LateUpdate` 只重填"几何变了"的材质**
 
 ```csharp
 if (uIWidget.UpdateGeometry(this, forceVisible) && !mChanged.Contains(uIWidget.material))
@@ -283,13 +269,11 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 
 ### 4.0 执行计划与进度
 
-**路线**：字体层用**位图图集**（游戏原生分支），文本层用 `set_text` + 词表。两层正交可独立验证。
-
 | 层 | 解决什么 | 手段 |
 |---|---|---|
-| ① 字体层 | 字形从哪来 | 离线烘 BMFont → 运行时填 `UIFont.mFont/mMat/mUVRect`，`mDynamicFont=null` |
-| ② UILabel 文本层 | 英文串怎么变中文 | `set_text` prefix（322 调用点）+ 全量 sweep（354 个，含未激活） |
-| ③ TextMesh 文本层 | 同上 | 动态字体（已验证）+ 15 个写入点 hook 或周期 sweep |
+| ① 字体层 | 字形从哪来 | 离线烘 BMFont → **并进 GUI Atlas**（4.4） |
+| ② UILabel 文本 | 英文串怎么变中文 | `ProcessText` prefix+postfix（全部 1029 个 label，3.3） |
+| ③ TextMesh 文本 | 同上 | **改资产把中文烘进 prefab**（4.6） |
 
 | # | 阶段 | 状态 |
 |---|---|---|
@@ -298,25 +282,82 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | A3a | 英文验证（位置/布局/遮挡） | ✅ |
 | A3b | 中文验证 | ✅ |
 | B1 | 静态全量收集 + 词表骨架 | ✅ |
-| B2 | `set_text` prefix（**v0.8.1 已实现，含还原记录，待实测**） | 🟡 |
-| B3 | prefix 接词表 + sweep（**v0.8.1 已实现，待实测**） | 🟡 |
-| B4 | HUD 合并成左上角一块（**v0.8.2 已实现，待实测**） | 🟡 |
-| C1 | 翻译：主菜单 + 设置页 | ✅ 首批 153 条 |
-| C2 | 翻译：游戏内 HUD / 建造菜单 / 悬停 | ✅ 全量批 full_01–21 已入库 |
-| C3 | 翻译：教程 / 剧情 / 长文本 | ✅ 同上（序章旁白/尾声议会/圣物说明都在里面） |
-| C4 | 翻译：剩余 1243 条按设计不译 | ✅ 分流完毕，理由见 4.5 |
-| D | 布局微调 / 术语统一 / 打包 | ⬜ **下一步：实测 + 布局微调** |
+| B2 | `ProcessText` prefix+postfix+finalizer | ✅ **v0.9.0 实测通过** |
+| B4 | HUD 合并成左上角一块 | ✅ **v0.8.2 实测通过** |
+| B6 | 改资产：TextMesh 中文烘进 prefab | ⬜ **下一步** |
+| C1–C3 | 翻译：主菜单 / HUD / 建造菜单 / 剧情 | ✅ 全量批 full_01–21 入库 1140 条 |
+| C4 | 剩余按设计不译的分流 | ✅ |
+| D | 打包 / 分发 | ⬜ |
+
+> 已废弃的阶段（不要再做）：**B3** 的 `set_text` prefix + 周期 sweep、
+> **B5** 的「缓存 + 每帧快扫」、**B7** 的逐个打 prefix。
+> 前两者的教训见 4.3 末，B7 的依据见 4.6。
 
 **为什么字体层先做**：否则中文显示成方块，无法区分"字体没做"还是"翻译错"。
 **为什么先用英文验证**：文本不变时，布局/裁剪/遮挡的异常只能归因于字体层。
 
-> **2026-10-18 修正**：此前本节把 B1 标成"下一步"，但字数层插件（v0.7.0）里**一行 Harmony 都没有**，
-> B2/B3 实际从未开工。见 4.2。
+### 4.1 字体烘焙与插件按键
 
-### 4.2 文本层：静态全量收集与词表骨架（2026-10-18）
+**按键（`plugin/CW3Hanhua.cs` v0.8.2）**
 
-**为什么不靠跑游戏收集字符串**：一次会话只能覆盖走过的路径（主菜单、设置页），
-剧情/任务/教程要走很远才出现，**全量量化不可能靠回放**。改用静态分析：
+| 键 | 作用 |
+|---|---|
+| **F3** | 字体层开关（换合并图集 / 还原）—— 主功能 |
+| **F11** | dump 到 `BepInEx/CW3HanhuaFont.txt`（draw call / 材质 / 队列） |
+| **F12** | HUD 开关（两个插件的状态合并画在左上角） |
+
+文本层另一套：**F4** 开关 / **F5** 打印未命中清单 / **F9** 重载词表。
+
+**装载流程**（详见 4.4）：读 `atlas_zh.png` 建 4096×8192 纹理 →
+换 `atlas.spriteMaterial.mainTexture` → 重算全部 `UISprite.UpdateUVs(true)` + `MarkAsChanged()`
+→ 读 `atlas_zh.bin` 建 BMFont → 反射填 `mFont`/`mUVRect`/`mDyn`/`mPMA`（**`mAtlas` 不动**）。
+
+#### HUD 合并
+
+原先两块：字体层左上角 3 行，文本层左下角 1 行（`GUI.Box(Rect(8, Screen.height-30, ...))`）。
+现在**只留左上角一块 4 行**。
+
+```csharp
+// CW3Hanhua.cs —— 宿主：把对方那行拼进自己的 GUI
+Type t = AppDomain.CurrentDomain.GetAssemblies()[i].GetType("CW3Hanhua.TextPlugin", false);
+MethodInfo m = t.GetMethod("HudLine", BindingFlags.Static | BindingFlags.Public);
+
+// CW3HanhuaText.cs —— 被调用方：只读地报状态，不碰 UI
+public static string HudLine() { return "文本层 v" + Ver + "  F4=" + ... }
+```
+
+- **为什么用反射而不是直接引用**：两个 DLL 必须保持**无编译期依赖**（独立编译、独立开关，
+  出问题能立刻判断是谁的锅）。BepInEx 按文件名序装载，`CW3Hanhua.dll` 先于
+  `CW3HanhuaText.dll` → 字体层第一次 `OnGUI` 时对方可能还没就绪，所以
+  **不缓存否定结果**，每 60 帧重试一次。
+- **反向兜底**：只剩文本层时，`TextPlugin.OnGUI` 自己画左下角那一条（每 60 帧探一次
+  `CW3Hanhua.HanhuaPlugin` 类型是否存在，在就完全不画）。→ **永远只有一块 HUD**。
+- HUD 归字体层的 `showHud` / F12 管；`HudLine()` 是反射契约，**签名不能改**。
+
+**字形烘焙**（产出 `font_<size>.{png,json}`，是 `build_atlas.py` 的输入）
+
+```powershell
+# 当前参数：雅黑 Bold + 0.80
+& .venv\Scripts\python.exe tools\bake_font.py --font "C:\Windows\Fonts\msyhbd.ttc" --scale 0.80
+# 纵向单独压（汉字满格、Latin 偏窄，等比缩放无法两方向同时对齐）
+... --scale 0.80 --scale-y 0.76
+# 缺字时（check_charset.py 会直接打印这条命令）
+... --extra "缺的字"
+```
+
+烘完必须重跑 `build_atlas.py` 才生效。
+
+**字集**：GB2312 全集（符号区 + 一级 3755 + 二级 3008）+ ASCII 95 + 常用符号 = **7544 字**。
+- **必须含符号区**：中文标点全在 GB2312 1–9 区
+- **必须含二级**：渲 / 阈 / 阱 这类常用字在一级（16–55 区）之外
+
+**调字号的两个已知约束**：① 当前 0.80 是靠英文调的，中文观感可能不同；
+② 雅黑 Bold 笔画粗、覆盖率高于 Aldrich，所以粗体要比常规体用更小的 scale。
+
+### 4.2 文本层：静态全量收集与词表
+
+**为什么不靠跑游戏收集字符串**：一次会话只能覆盖走过的路径，剧情/任务/教程要走很远才出现，
+**全量量化不可能靠回放**。改用静态分析：
 
 ```
 路 1  IL：每条 ldstr 后面紧跟的指令若"消费"了它（call/concat/stfld…）→ 这条字符串进了逻辑
@@ -325,14 +366,15 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 路 2  资产：UILabel.mText / TextMesh.m_Text 序列化值（反序列化不经 setter，必须单独收）
 ```
 
-**产物与工具**（都在 `tools/`，Python 用 `.venv`）
+**工具**（都在 `tools/`，Python 用 `.venv`）
 
 | 脚本 | 作用 | 产物 |
 |---|---|---|
-| `collect_ui_strings.py` | 静态全量收集 + 分类 + 去重 | `_dict/strings.json` |
-| `dict_stats.py` | 覆盖率报告（按可信度/来源/类名分组 + 缺字） | `_dict/STATUS.md` |
+| `collect_ui_strings.py` | 静态全量收集 + 分类 + 去重（`--no-assets` 跳过资产扫描，5.5s ↔ 全量 476s） | `_dict/strings.json` |
+| `test_classify.py` | `classify()` 的回归样例（改 `RE_*` 必跑） | 终端 |
+| `dict_stats.py` | 覆盖率报告 | `_dict/STATUS.md` |
 | `build_dict.py` | 编译成插件读的二进制词表 | `_dict/zh_cn.dict` |
-| `check_charset.py` | 译文缺字检查（**复用 bake_font 的字符集定义**） | 终端 |
+| `check_charset.py` | 译文缺字检查（复用 bake_font 的字符集定义） | 终端 |
 | `bake_font.py` | 烘字形；`gb2312_chars()` / `charset_for(sizes)` 同时供上面两个用 | `_font/` |
 
 **分类三档**（`strings.json` 每条的 `grade`）
@@ -343,18 +385,18 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | `other` | 单个词（`Yes`/`Creeper`/`Close`）、代码片段、疑似调试消息 | 拿不准，后翻 |
 | `noise` | 标识符 / PascalCase / 资源名 / 标准库异常 / 节点路径 / 正则 / 纯数字 | 丢弃 |
 
-**当前量化结果**（2026-10-18，`collect_ui_strings.py` 可复现）：
+**当前量化结果**（2026-10-20 重跑，可复现）：
 
 | 项 | 数量 |
 |---|---|
 | IL 字符串引用 | 11001（Assembly-CSharp）+ 238（firstpass） |
-| 资产文本 | 1056 条序列化值 |
-| 去重后候选 | **2383**（ui 1261 + other 1093 + …） |
-| 丢弃 | 约 2700 条（标识符 1001 / PascalCase 983 / 库异常 300 / 资源名 208 …） |
-| 来源 | both 297 / asset 174 / dll 1912 |
+| 资产文本 | 472 条（UILabel 455 + TextMesh 17） |
+| 去重后候选 | **2400**（ui 1278 + other 1093 + none 29） |
+| 来源 | both 297 / asset 175 / dll 1928 |
+| 已译 | **1140**（ui 880 + other 260） |
 
 > **数字口径**：`ui` 不是"一定会显示"，是"几乎一定"；`other` 里约 900 条是单词，
-> 需要人工判定（`Yes` 要翻，`GalaxyNavMapOpen` 不翻）。**不要拿 ui 条数当工作量上限**。
+> 需要人工判定。**不要拿 ui 条数当工作量上限。**
 
 **词表骨架**（`_dict/`）
 
@@ -363,165 +405,114 @@ _dict/
 ├─ strings.json     ★ 唯一词表。每条 {en, zh, grade, cat, kind, cls, refs, note}
 │                   翻一条 = 把 zh 从 "" 填成中文。--merge 重跑不会丢译文。
 ├─ glossary.md      术语表。改译名只能在这里改，译文里不许随手换。
-├─ zh_cn.dict       由 build_dict.py 生成，插件直接读（格式见脚本头注释）
-└─ STATUS.md        由 dict_stats.py 生成，勿手改
+├─ zh_cn.dict       由 build_dict.py 生成，插件直接读
+├─ STATUS.md        由 dict_stats.py 生成，勿手改
+├─ batches/         22 份批次源（full_01…21 + 19/20/21 的单词级补充）
+└─ skipped_manual.json  565 条「人工判定不译」，**别删**（否则以后有人会重翻一遍）
 ```
 
 **二进制词表格式**（`zh_cn.dict`，小端）
 
 ```
 "CWH1"                      4 字节
-int32 count                 条数
-count × { uint16 klen, UTF-8 en, uint16 zlen, UTF-8 zh }
-uint32 FNV-1a               校验（★ 无符号：用 ReadUInt32，别用 ReadInt32）
+int32 count                 条数（offset 4）
+count × { uint16 klen, UTF-8 en, uint16 zlen, UTF-8 zh }   ← 从 offset 8 开始，长度是 2 字节
+uint32 FNV-1a               校验（★ 无符号：用 ReadUInt32，别用 ReadInt32；范围 raw[8:-4]）
 ```
 
-**已定的译名**（见 `glossary.md`）：**Creeper / Anti-Creeper / AC 保留英文**（2026-10-18 用户决定），
-其余按术语表。注意 Creeper 保留英文后，中文里夹英文的排版问题要到 C1 实测时再看。
+**已定的译名**（见 `glossary.md`）：**Creeper / Anti-Creeper / AC 保留英文**（用户决定）。
 
 **工作流**
 
 ```powershell
 $p = "_cw3hanhua\.venv\Scripts\python.exe"
-& $p _cw3hanhua\tools\dict_stats.py            # 看还差多少、哪块没动
+& $p _cw3hanhua\tools\dict_stats.py            # 看还差多少
 # 1) 写批次：_dict\batches\<名字>.json  {"items": {"英文原文": "译文"}}
-& $p _cw3hanhua\tools\apply_translations.py --dry-run   # 先看匹配情况，问题会列出来
+& $p _cw3hanhua\tools\apply_translations.py --dry-run   # 先看匹配情况
 & $p _cw3hanhua\tools\apply_translations.py             # 只填空，不覆盖
-& $p _cw3hanhua\tools\check_charset.py _dict\strings.json   # 缺字就补烘（★ 别写成 _cw3hanhua\_dict\...，那样会变 0 文件扫描）
-& $p _cw3hanhua\tools\build_dict.py --include-other  # 编出 zh_cn.dict（要带上 other 档，否则单词级 UI 词不进包）
+& $p _cw3hanhua\tools\check_charset.py _dict\strings.json   # 缺字就补烘
+& $p _cw3hanhua\tools\build_dict.py --include-other  # 编出 zh_cn.dict
+# 改完词表游戏内按 F9 重载，不用重启
 ```
 
 **译文纪律**
 
-- 只改 `batches/*.json`，**不要手改 `strings.json`**：`apply_translations.py` 会用原文精确匹配，
-  手改容易和批次对不上，重新收集时会被覆盖。
+- 只改 `batches/*.json`，**不要手改 `strings.json`**（`apply_translations.py` 用原文精确匹配，
+  手改容易和批次对不上）。
 - 译文里的 `[颜色]` 标记、`\n`、首尾空格**必须保留**。像 `PACKET SPEED.  `（两个尾空格）
   是拼接前缀，尾空格删掉就会和后面的数字粘在一起。
-- 组合键（`SHIFT-E` / `SHIFT-End` / `CTRL-C`）整串保留英文 —— 玩家要按着它去找键。
+- 组合键（`SHIFT-E` / `SHIFT-A` / `CTRL-C`）整串保留英文 —— 玩家要按着它去找键。
 - 改术语先改 `glossary.md`，再批量改批次。
+- 译稿用**序号字典** `{"zh": {"3": "译文"}}`，缺省项视为 `@`（跳过不译）；
+  **不要用数组形式**（漏一项就整体错位，踩过一次：89 vs 88，后 60 条全串行）。
 
-### 4.3 文本层插件（`CW3HanhuaText.cs` v0.8.3）
+### 4.3 文本层插件（`CW3HanhuaText.cs` v0.9.0）
 
 **为什么单独一个 DLL**：字体层已验证通过、不想动；两层独立开关，出问题时能立刻判断是谁的锅。
-（v0.8.2 起两块 HUD 合并成左上角一块，**但仍不互相引用**，见 4.1 末尾「HUD 合并」。）
-BepInEx 5 按文件名顺序装载插件，`CW3Hanhua.dll` → `CW3HanhuaText.dll` 的顺序是**字母序碰巧正确**的，
-**改文件名可能改变装载顺序**。文本层的 prefix 装在 `Awake` 里（早于场景创建），所以能拦到首批文本。
+BepInEx 5 按文件名顺序装载，`CW3Hanhua.dll` → `CW3HanhuaText.dll` 是**字母序碰巧正确**的，
+**改文件名可能改变装载顺序**。prefix 装在 `Awake` 里（早于场景创建），能拦到首批文本。
 
-**三条替换路径**
+**替换路径（只剩一条）**
 
 | 路径 | 覆盖什么 | 实现 |
 |---|---|---|
-| ① `UILabel.set_text` prefix | 运行时动态文本（322 个调用点） | 改写 `__0`（**改参数，不改 `__result`** —— 见 5.6 第一个假象） |
-| ② 周期 sweep：所有 UILabel | 资产里序列化的 `mText`（**不经 setter**，见 3.3） | 每 30 帧 `FindObjectsOfTypeAll`，含未激活 |
-| ③ 周期 sweep：所有 TextMesh | 主菜单大按钮等 15 个写入点 | 同上 |
+| `UILabel.ProcessText` **prefix + postfix/finalizer** | **全部 1029 个 UILabel**：运行时动态文本 + 资产序列化的 `mText` | 见 3.3 |
 
-三条路径内部都只走一个 `Lookup()`；**拼接串的兜底也在 `Lookup()` 里**（v0.8.3 的
-`LookupConcat`，见 3.3「拼接串」），所以三条路径自动都有拼接能力，不需要各自处理。
+**代价（可接受）**：`label.text` 与屏上显示不一致（屏上中文、`.text` 英文）。
+`mSize` 是按中文算的 —— 这正是我们要的，字宽/换行/`mShrinkToFit` 全对。
+若要 `get_text()` 也返回中文，就得改 `mText` 并自己兜住 3.3 那 6 处判定，
+**当前故意不做**。
 
-**改文本会触发重复替换**：sweep 每 30 帧跑一次，如果不清标记，译文会被当成新原文再查一遍
-（虽然查不到，但会浪费并污染"未命中"日志）。
+**F4 的还原**：`mText` 一直是英文（中文只在 `ProcessText` 内部临时存在），所以不需要
+写回英文，只要逼它重算一次 `mProcessedText`。**踩过的坑**：写 `s.label.text = s.en` 是
+**无效的** —— `set_text` 里 `if (mText != arg)` 不成立就什么都不做，`mProcessedText` 还是中文。
+正确做法是 `ForceRefresh(label)` → 优先 `UILabel.MarkAsChanged()`（public，
+IL = `set_hasChanged(true)` + `UIWidget.MarkAsChanged()`），失败才反射调私有的 `set_hasChanged(true)`。
 
-#### ⚠ 还原记录（v0.8.1 修的缺陷）
+★ **F4 的边界**：只能还原**本层经手**的文本。改资产烘进 prefab 的中文不归本层管、
+关不掉 —— 要还原得跑 `tools/bake_textmesh_assets.py --restore`（4.6）。
 
-关闭文本层要把中文换回英文，所以每次替换都要**登记**原文。v0.8.0 的实现有两个漏洞：
-
-1. `swaps` 是 `List<Swap>`，换场景时 `swaps.Clear()`。
-   → 常驻 UI / `DontDestroyOnLoad` 的对象跨场景存活，它的记录被清掉了，
-   之后 `RestoreAll()` 对它是空操作 → **关 F4 后留下中英混杂**。
-2. 只有 sweep（路径 ②③）登记记录，prefix（路径 ①）不登记。
-   → 运行时动态设置的文本（弹窗、提示、悬浮说明）**根本无处还原**。
-
-v0.8.1 的修法：
+**换场景 / 还原记录**
 
 | 项 | 做法 |
 |---|---|
-| 容器 | `Dictionary<int, Swap>`，键 = `GetInstanceID()` |
-| 换场景 | 调 `PruneSwaps()`，**只删已销毁的**（`s.label == null && s.mesh == null`，Unity 的 `==` 对已销毁对象返回 true），活着的必须留住 |
-| prefix | 命中时也 `swaps[id] = new Swap {...}` |
-| 过期记录 | prefix 里 `zh == null` 时删记录 —— 但只在 `HasLetter(__0)` 为真时删 |
-| 判定"已替换" | `ReferenceEquals(s.label, l) && s.zh == l.text` |
-| 还原统计 | 顺带数出「M 处对象已销毁」 |
+| 容器 | `Dictionary<int, Swap>`，键 = `GetInstanceID()`，`Swap = {label, en, zh}` |
+| 换场景 | `PruneSwaps()`，**只删已销毁的**（`s.label == null`），活着的必须留住 |
+| 过期记录 | `Lookup(mText)` 为 null 时删记录 —— 但**只在 `HasLetter(en)` 为真时删** |
 
-★ **`HasLetter` 守卫不能省**：`ReplaceLabels` 里 `l.text = zh` 会**再次**触发 prefix，
-此时 `__0` 是中文、查不到词表（`zh == null`）。若无守卫，刚写好的记录会立刻被自己删掉。
+★ **`HasLetter` 守卫不能省**：prefix 把 `mText` 换成中文之后，原方法内部若再触发一次
+同一实例的 `ProcessText`（`UIFont.WrapText` 读 `relativeSize` 就会），此时读到的 `mText`
+已是中文、查不到词表。若无守卫，刚写好的记录会立刻被自己删掉。`HasLetter` 对中文恒为 false。
 
-★ **`IsSwapped` 为什么要比 `s.zh == l.text`**：`InstanceID` 会被回收给新对象，
-`ReferenceEquals` 是防止串号；但即使对象对上了，游戏也可能已把标签改成新的英文串
-（分数、计时器每帧都变），那时记录已过期，必须**重新翻译**而不是跳过。
+★ **不能用 `List` + 切场景 `Clear()`**（v0.8.0 的缺陷）：常驻 UI / `DontDestroyOnLoad`
+对象跨场景存活，记录被清掉后 `RestoreAll()` 对它是空操作 → 关 F4 留下中英混杂。
 
-**按键**：F4 开/关 | F5 单次 sweep（详单日志）| F9 重载词表（改完 dict 不用重启游戏）
+**排查工具**
 
-### 4.5 全量翻译（2026-10-18，词表 1140 / 2383）
+- `missSeen` + **F5**：`ProcessText` 查不到译文时记一条，F5 打印清单。
+  列出来的说明"走了 UILabel 但没译文"（补词表 + F9 重载即可）；
+  界面上仍英文、清单里又没有的，才是真正**必须改资产**的对象（TextMesh 那批）。
+- **HUD 第 4 行**：`文本层 v0.9.0  F4=…  词表=…  prefix=调用/命中  拼接=…  未命中=…`。
+  `prefix` 计数不动 = 补丁没装上。
 
-**结论**：`strings.json` 2383 条里，**1140 条已译**（ui 880 / other 260），
-**剩余 1243 条按设计不译**。评测口径：`plugins/CW3HanhuaText.dll` 读的 `zh_cn.dict`
-从 153 条涨到 **1140 条（49 327 字节，FNV 校验通过）**，`check_charset.py` 报
-`用到字符 943 个（汉字 857）✓ 汉字全部在字集内` —— **没有新增缺字，不用重烘图集**。
+**★ 装补丁必须自检**：`Harmony.Patch` 失败时**只往日志写一行 Error、不抛异常**
+（外层 try/catch 什么也接不到，表现为"什么都没发生"）。所以装完立刻回读
+`Harmony.GetPatchInfo(m)`，核对 `Prefixes/Postfixes/Finalizers` 各 1、`ILManipulators` 为 0，
+不合格就打印警告。**这是 v0.9.0 首次实测"完全没中文"的直接教训。**
 
-`kind` 维度（判断"玩家到底看不看得见"）：
-| kind | 条数 | 已译 |
-|---|---:|---:|
-| UILabel | 454 | **369** |
-| TextMesh | 17 | **15** |
-| None（纯 DLL 字符串，多为日志/资源名） | 1912 | 756 |
+#### 已废弃：sweep 路线（不要再实现）
 
-未译的 85 条 UILabel/TextMesh 全部是**故意不译**的：单字母 `A`–`Z`、`F0`–`F12`、
-`SHIFT`/`CTRL`、`SHIFT-A`…`SHIFT-X`、`CTRL-C`/`CTRL-V`（组合键规则）、
-`Alternate`/`Backslash`/`Equals`/`Escape`/`Minus`/`Space`/`Tab`（按键绑定名）、
-`Alpha1`–`Alpha8`、`CN 1`–`CN 3`、占位文案（`This is a message`/`This is a great big long label`/
-`View Demo Screen`/`Time:1:00:00.0`）。**换句话说：可见 UI 文本已清零。**
+删掉的是：`Sweep` / `RebuildCache` / `ReplaceLabels` / `ReplaceMeshes` / `LateUpdate` /
+`IsSwapped` / `labelCache` / `meshCache` / `CacheRebuildFrames` / 全部命中计数。
 
-**剩余 1243 条的桶（`strings.json` 自算，可复现）**
+- **UILabel 周期 sweep**：被 `ProcessText` 补丁一并覆盖，零闪烁，不需要了。
+- **TextMesh 周期 sweep / 每帧快扫**：用户实测两次都不满意。理论上限就是
+  「总有一帧是英文」——只要靠**事后扫描**，英文必然先上屏一次，把窗口从 0.5s 压到 0.17s
+  也只是压小、没有消除。**结论：TextMesh 只能改资产。**
 
-| 桶 | 条数 | 为什么不译 |
-|---|---:|---|
-| 第三方库/框架日志 | 471 | VectorLine / CrplCore / CrplCompiler / AudioToolkit / NGUI / SGT_* / iTween / SevenZip 等，写 `Debug.Log`，控制台才看得到 |
-| 标识符/资源名 | 237 | `PRODUCTIONINTERVAL`/`ACBackground`/`1XButton`/`Andro` 之类，改了就断 |
-| 程序化星球名 | 146 | `RandomPlanetName` 音节碎片（`Aber`/`Abra`/`Ale`…），拼出来的名字要保留原文风味 |
-| 其它未译 | 133 | 见上（按键名、占位文案、`', a = '` 调试碎片、`{0:D}:{1:D2}` 格式串） |
-| 自定义图资源名 | 118 | `CustomImages` 的 `Custom0`/`Custom0_256`，资产 key |
-| Steam 成就日志 | 61 | `StatsAndAchievements` 的 `m_flGameDurationSeconds: ` / `STAT testStat1: ` |
-| 文件名 | 36 | `*.dat`/`*.xml`/`maps/`/`thumbnails/` |
-| 调试日志 | 17 | `ops` 里带 `call Log` |
-| 1–2 字符符号 | 13 | `()`/`<<`/`>>`/`-c`/`~` |
-| 哈希 | 11 | 32 位 hex |
+残留的 `missSeen` 保留，但只作排查工具（见上）。
 
-**新增工具**（都在 `tools/`，Python 用 `.venv`）
-
-| 脚本 | 作用 |
-|---|---|
-| `prep_batches.py` | 把未译项按规则分流（不译桶 + 待译），切 `full_NN.src.json` |
-| `merge_work.py` | `full_NN.src.json` + `full_NN.zh.json` → `_dict/batches/full_NN.json` |
-| `check_batch.py` | 译稿校验：条数/首尾空格/`\n` 数/`[标记]`/占位符，**不过 0 不许入库** |
-| `audit_translations.py` | ★ 全表审计（en/zh 的标记、换行、占位符、首尾空白），**四项全 0 才算过** |
-| `pack_skips.py` | 把 `work/*.zh.json` 里标 `@` 的「人工判定不译」固化到 `_dict/skipped_manual.json` |
-
-**工作目录 `_dict/work/` 已清理**（2026-10-18）：`full_NN.src.json` / `.zh.json` /
-`_skipped.json` / `left_01.json` 已删——译稿全部并入 `_dict/batches/`（22 份、1140 条，
-`apply_translations.py --dry-run` 复核过「新增 0、已相同 1140」）。删前用
-`pack_skips.py` 把 565 条「人工判定不译」固化成 `_dict/skipped_manual.json`（94 KB），
-**这个文件别删**：它记录了"这些条目是特意跳过的"，否则以后有人会重翻一遍。
-若还要再切批次：`prep_batches.py` 会重建 `work/`。
-
-**译稿格式的坑**：`{"zh": ["...", "..."]}` 数组形式**漏一项就整体错位**（踩过一次：89 vs 88，
-后 60 条全串行）。`check_batch.py` 已支持并**推荐**序号字典 `{"zh": {"3": "译文"}}`，
-缺省项视为 `@`（跳过不译），不会错位。
-
-**批次清单**：`full_01`…`full_18`（共 745 条）+ `full_19_uiwords`（97 条单词级 UI）+
-`full_20_words`（118 条）+ `full_21_lastui`（27 条：`[ff0000]Sound Off`/`Return`/`PURCHASED`/DMD 表头等）。
-`full_03`/`full_16` 全跳（音频库与 VectorLine 日志）。
-
-**几条译法备忘**（术语表之外新定的）：
-- `Return` → `返回`（`ColonialSpaceManager.DrawMapBox` / `WorldMachineManager.DoWorldMachineWindow` 的按钮，不是回车键）
-- DMD 名册表头：`Owner`→`作者`、`Map`→`地图`、`Started`→`创建`、`Played`→`游玩`、`Plays`/`Plays`→`次数`、`Filter`→`筛选`、`Score`→`得分`、`Player`→`玩家`
-- `[00e000]FLOWING`→`[00e000]流动中`，与已有的 `[ff0000]PAUSED`→`[ff0000]已暂停` 对齐
-- `Targets: `/`Price: ` 这类**拼接前缀**照样译，靠 `check_batch.py` 保住尾部空格
-- **`Author:`/`Email:`/`Desc: (`/`Screen Res: (`/`Apply Filters (`/`UploadMap: ` 已译**（它们确实出现在地图信息面板上）；`', a = '` 系列调试碎片不译
-
-**下一道坎**：`zh_cn.dict` 已更新，但插件**仍未实测**（B2/B3 都是 🟡）。
-改词表后游戏内按 **F9 重载** 即可，不用重启游戏。
-
-### 4.4 ★ 合并图集方案（2026-10-18，解决遮挡的最终方案）
+### 4.4 ★ 合并图集方案（字体的最终方案）
 
 **思路**：不拆 draw call —— 把中文字形并进 GUI Atlas 本身，`UIFont.mAtlas` 继续指向它。
 
@@ -538,7 +529,7 @@ GUI Atlas 原图 512x1024（RGBA32 + 11 级 mip）
       _font/atlas_zh.bin（707KB，插件直读；格式 CWA1 + W/H/nSizes + 每字号字形表 + FNV）
 ```
 
-#### ⚠⚠ 坐标约定：精灵和字形都是【顶左原点】（踩了四轮才对）
+#### ⚠ 坐标约定：精灵和字形都是【顶左原点】
 
 ```csharp
 // NGUIMath.ConvertToTexCoords —— 这个翻转换算成立，前提就是 rect 本身是顶左原点
@@ -563,7 +554,7 @@ zero4.y = zero3.y - num9 * (float)glyph.height;
 **原图放顶部的原因**：`build_atlas.py` 顶部断言 —— 中文字形 `y_top < 1024` 就直接报错退出，
 物理上不可能压到原图区。
 
-#### ⚠⚠ 灰度图必须转成 alpha（第二个 bug）
+#### ⚠ 灰度图必须转成 alpha
 
 `font_XX.png` 是 PIL **`L` 模式**（白字黑底）。直接 `convert("RGBA")` 会把黑底变成
 **alpha=255 的不透明黑块**（实测成品像素 `(0,0,0,255)` 满屏）。
@@ -576,7 +567,7 @@ gimg.putalpha(g)          # RGB 全 255，alpha 承载覆盖率
 
 理由：draw call 的顶点色（`label.color` / 富文本标记）会乘上纹理 RGB，所以 RGB 必须全白。
 
-#### ⚠⚠ 换纹理后必须手动重算精灵 UV（第三个 bug）
+#### ⚠ 换纹理后必须手动重算精灵 UV
 
 `UISprite.UpdateUVs` 里 `mOuterUV = ConvertToTexCoords(mOuter, texture.width, texture.height)`
 的结果**缓存在 `mOuterUV` 字段**，换纹理不会自动失效 → 旧的 UV（按 512×1024 算）套到
@@ -592,40 +583,35 @@ sm.mainTexture = mergedTex;        // 只换图集材质的主纹理
 // ★ 不动 mainTextureScale / mainTextureOffset（裁剪 draw call 每帧会写它们，共享材质一动就打架）
 ```
 
-**UIFont 的改动（与旧方案的关键差异）**
+**UIFont 的改动**
 
-| 字段 | 旧方案（拆 draw call，已废弃） | 新方案（合并） |
-|---|---|---|
-| `mAtlas` | **置 null** | **保持不动** |
-| `mMat` | 新建独立材质 | 指回 `atlas.spriteMaterial` |
-| `mUVRect` | (0,0,1,1) | (0,0,1,1) |
-| `mFont.texWidth/Height` | 2048×4096 等 | **4096×8192**（大图集尺寸） |
-| `mDynamicFont` | null | null（走位图分支） |
-| `mPMA` | — | -1 |
+| 字段 | 值 |
+|---|---|
+| `mAtlas` | **保持不动**（指向 GUI Atlas） |
+| `mMat` | 指回 `atlas.spriteMaterial` |
+| `mUVRect` | (0,0,1,1) |
+| `mFont.texWidth/Height` | **4096×8192**（大图集尺寸） |
+| `mDynamicFont` | null（走位图分支） |
+| `mPMA` | -1 |
 
 ★ **`mAtlas` 必须保持指向 GUI Atlas** —— `UIFont.material` getter 里
 `if (mAtlas != null) return mAtlas.spriteMaterial;` 优先级最高，所以文字和精灵自动共用
-同一份材质 → 同一个 draw call → 遮挡关系恢复原版。这正是整套方案的意义。
+同一份材质 → 同一个 draw call → 遮挡关系恢复原版。**这正是整套方案的意义。**
 
-**为什么 UV 不用改 spriteList**：`UISprite.UpdateUVs` 的换算是
-**每次刷新时用「精灵像素坐标 ÷ 纹理尺寸」实时算**的。原图 1:1 贴顶部，`outer` 像素坐标不变
+**为什么 UV 不用改 spriteList**：`UISprite.UpdateUVs` 的换算是**每次刷新时用
+「精灵像素坐标 ÷ 纹理尺寸」实时算**的。原图 1:1 贴顶部，`outer` 像素坐标不变
 → 重算后 UV 自动正确。**但重算必须手动触发**（见上面的 UV 缓存坑）。
 
 **F3 关闭时必须还原纹理**，否则精灵仍按 4096×8192 的 UV 采样 512×1024 的图，整个 UI 错乱。
 `RestoreFont()` 里做了这件事（备份 `origAtlasTex/Scale/Offset`），
 **但不要 `Destroy(mergedTex)`** —— 裁剪 draw call 的 `mClippedMat` 可能仍引用它。
 
-**★ 实测结论（2026-10-18，用户实测通过）**：合并图集方案可行。
-四个坑全部修完后的状态：F3 开 → 中文正常显示、遮挡关系与原版一致、无方块；
-F3 关 → 完整还原。详见第一节状态表。
+### 4.4a 资产只读不写（「不改游戏文件」到底指什么）
 
-#### 4.4a 资产只读不写（「不改游戏文件」到底指什么）
+**游戏资产一个字节都没被写过。** `sharedassets2.assets` 的 `LastWriteTime` / `CreationTime`
+都还是 Steam 安装时刻；`CW3_Data` 下唯一被改过的文件是 `output_log.txt`（游戏自己写的）。
 
-**游戏资产一个字节都没被写过。** `sharedassets2.assets` 的
-`LastWriteTime` / `CreationTime` 都还是 Steam 安装时刻 **2026/10/16 21:00:04**；
-`CW3_Data` 下唯一被改过的文件是 `output_log.txt`（游戏自己写的日志）。
-
-**只读的读法**（`tools/build_atlas.py:60-96` `load_gui_atlas()`）：
+**只读的读法**（`tools/build_atlas.py` 的 `load_gui_atlas()`）：
 
 ```python
 env = UnityPy.load(p)                    # 只读打开
@@ -636,108 +622,170 @@ img = Image.frombytes("RGBA", (w, h), base)
 img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 ```
 
-全部 `tools\*.py` 里**没有任何** `env.save()` / `save_assets()` / `write_typetree`；
-仅有的三个 `.save()` 写的都是 PNG（`bake_font.py:242`、`:268`、`build_atlas.py:244`）。
+全部 `tools\*.py` 里**没有任何** `env.save()` / `save_assets()` / `write_typetree`。
 
-**「改资产让图集可读」这条方案从未执行，也不需要了。**
+**「改资产让图集可读」这条方案从未执行，也不需要。**
 `m_IsReadable = False` 只约束 **Unity 运行时 API**（`GetPixels32` 报
-`UnityException: Texture 'GUI Atlas' is not readable`）。
-离线用 Python 直接取 `image data` 字段的原始字节，是**文件里的数据**，绕开该限制；
-运行时则**完全不需要读旧纹理**——只要把材质的主纹理引用指过去：
+`Texture 'GUI Atlas' is not readable`）。离线用 Python 直接取 `image data` 字段的原始字节，
+是**文件里的数据**，绕开该限制；运行时则只要把材质的主纹理引用指过去即可。
 
-```csharp
-sm.mainTexture = mergedTex;   // CW3Hanhua.cs:419，纯内存引用替换
-```
+> ⚠ **4.6 的「改资产」是唯一会写游戏文件的操作**，会先备份、由脚本完成，
+> 与「当前资产零改动」不矛盾（那个状态描述的是现在）。
 
-（早期探针 `AtlasWriteProbe` 验证过 `Blit` 到自建纹理 + `ReadPixels` 能拿回 8388608 像素，
-即 GPU 绕路也可行，但离线解码更简单可靠，故弃用。）
+### 4.5 全量翻译
 
-**探针全部退役**：三个图集探针（`AtlasProbe` / `AtlasWriteProbe` / `UIFeasibilityProbe`）
-已连源码一起删除（2026-10-18 清理），结论都在 4.4 / 4.4a —— 图集可写、显存够、`maxTextureSize=16384`。
-只剩 `MiniProbe.cs`（`CW3HanhuaMini.dll`）作运行时自检。
-`build_plugin.cmd` 只编 `CW3Hanhua.cs` 和 `CW3HanhuaText.cs` 两个。
+**结论**：`strings.json` **2400 条里 1140 条已译**（ui 880 / other 260），
+**其余 1260 条按设计不译**。插件读的 `zh_cn.dict` = **1140 条**（49 312 字节，FNV 校验通过）；
+`check_charset.py` 报 `用到字符 943 个（汉字 857）✓ 汉字全部在字集内` —— **不用重烘图集**。
 
-**踩过的坑：词表校验恒失败**（2026-10-18 实测发现）
-`build_dict.py` 算 FNV 的范围是 `raw[8:-4]`（magic + count 之后），
-C# 端一开始只累加了 key/zh 而漏掉 `uint16` 长度前缀，两边字节流不同 → 恒报"校验失败"。
-**数据本身是好的**（153 条都正确读入），但校验形同虚设。
-修法：C# 端把长度前缀也写进 `body`，与 Python 逐字节对应。
-> 教训：**自检要跨语言**。Python 内部往返自检通过 ≠ C# 端也对；
-> 必须拿同一份产物在**两个实现**里各算一遍。
+`kind` 维度（判断"玩家到底看不看得见"）：
 
-**环境陷阱（本轮踩到）**
+| kind | 条数 | 已译 |
+|---|---:|---:|
+| UILabel | 455 | **369** |
+| TextMesh | 17 | **15** |
+| None（纯 DLL 字符串，多为日志/资源名） | 1928 | 756 |
 
-1. **pip install 在本项目 venv 里会失败**：沙箱下 pip 往临时目录写 `*.whl.metadata` 报
-   `PermissionError`。解决办法：用 `urllib` 下 wheel，再 `zipfile` 解到 `site-packages`。
-   `dncil`（dnfile 配套的 IL 解析器）就是这样装的，**已装好**。
-2. `dnfile` 自己**不能解析方法体 IL**（`MethodDef.get_method` 不存在），必须配 `dncil`。
-3. `dncil` 用 `CilMethodBody(CilMethodBodyReaderBytes(raw[off:]))`，
-   `off = pe.get_offset_from_rva(m.Rva)`；Token 是 `(table<<24|rid)`，**没有** `Token.Type`。
-4. 用 `UnityPy` + `TypeTreeGenerator("5.2.3f1")` 读资产会刷
-   `The given key 'Assembly-UnityScript.dll' was not present` —— **无害**，只是那几个类解析不出来。
-5. `_cw3hanhua\_tmp\` 里的 pip 残留目录（pip 以更高完整性创建，Low IL 的 shell 连 ACL 都读不了）
-   **需用户手动删**，已于 2026-10-18 清理完毕。以后装包优先走 `zipfile` 解压，别用 pip。
+未译的 UILabel/TextMesh 全部是**故意不译**的：单字母 `A`–`Z`、`F0`–`F12`、
+`SHIFT`/`CTRL`、`SHIFT-A`…`SHIFT-X`、`CTRL-C`/`CTRL-V`（组合键规则）、
+`Alternate`/`Backslash`/`Equals`/`Escape`/`Minus`/`Space`/`Tab`（按键绑定名）、
+`Alpha1`–`Alpha8`、`CN 1`–`CN 3`、`DEV`/`VER`/`DMD`/`Andro`（标识符）、
+占位文案（`This is a message`/`This is a great big long label`/`View Demo Screen`/
+`Time:1:00:00.0`）。**换句话说：可见 UI 文本已清零。**
 
-### 4.1 字体烘焙与插件按键
+**剩余 1260 条的桶**（`strings.json` 自算，可复现）
 
-**插件按键（`plugin/CW3Hanhua.cs` v0.8.2）**
+| 桶 | 条数 | 为什么不译 |
+|---|---:|---|
+| 第三方库/框架日志 | 471 | VectorLine / CrplCore / CrplCompiler / AudioToolkit / NGUI / SGT_* / iTween / SevenZip，只进控制台 |
+| 标识符/资源名 | 237 | `PRODUCTIONINTERVAL`/`ACBackground`/`1XButton` 之类，改了就断 |
+| 程序化星球名 | 146 | `RandomPlanetName` 音节碎片（`Aber`/`Abra`/`Ale`…），保留原文风味 |
+| 其它未译 | 133 | 按键名、占位文案、`', a = '` 调试碎片、`{0:D}:{1:D2}` 格式串 |
+| 自定义图资源名 | 118 | `CustomImages` 的 `Custom0`/`Custom0_256`，资产 key |
+| Steam 成就日志 | 61 | `m_flGameDurationSeconds: ` / `STAT testStat1: ` |
+| 文件名 | 36 | `*.dat`/`*.xml`/`maps/`/`thumbnails/` |
+| 资源条模板串 | 17 | 见 4.7（**待做碎片替换**） |
+| 调试日志 | 17 | `ops` 里带 `call Log` |
+| 1–2 字符符号 | 13 | `()`/`<<`/`>>`/`-c`/`~` |
+| 哈希 | 11 | 32 位 hex |
 
-| 键 | 作用 |
+**批次清单**：`full_01`…`full_18`（745 条）+ `full_19_uiwords`（97 条单词级 UI）+
+`full_20_words`（118 条）+ `full_21_lastui`（27 条）。`full_03`/`full_16` 全跳（音频库与
+VectorLine 日志）。
+
+**几条译法备忘**（术语表之外新定的）：
+- `Return` → `返回`（`ColonialSpaceManager.DrawMapBox` / `WorldMachineManager.DoWorldMachineWindow`
+  的按钮，不是回车键）
+- DMD 名册表头：`Owner`→`作者`、`Map`→`地图`、`Started`→`创建`、`Played`→`游玩`、
+  `Plays`→`次数`、`Filter`→`筛选`、`Score`→`得分`、`Player`→`玩家`
+- `[00e000]FLOWING`→`[00e000]流动中`，与 `[ff0000]PAUSED`→`[ff0000]已暂停` 对齐
+- `Targets: `/`Price: ` 这类**拼接前缀**照样译，靠 `check_batch.py` 保住尾部空格
+- `Credits` → **制作组**（"制作名单"实测宽 4.00em = 英文 3.82em 的 105%，会溢出）
+
+**字宽实测**（决定要不要为排版改写译文）：**每个汉字 = 1.000 em**（与字号无关），
+Aldrich 空格 = 0.300 em。18 条主菜单译文平均只占英文宽的 **68%**，唯一超标的是
+`Credits`（已改）。→ **不需要任何"插空格/缩字号"的特殊手段**，直接替换即可。
+（另：`zh_cn.dict` 是 TextMesh 与 UILabel 共用的，往词表里塞空格会污染 UILabel 路径。）
+
+### 4.6 下一步：改资产让 TextMesh 显示中文
+
+**目标**：把中文写进 prefab 的 `m_Text` / `mText`，对象一出现就是中文，零闪烁。
+
+**盘点结果**（`_cw3hanhua/_diag/scan_textmesh.py`，只读，全部 19 个资产文件）
+
+| 项 | 数量 |
 |---|---|
-| **F3** | 字体层开关（换合并图集 / 还原）—— 主功能 |
-| **F11** | dump 到 `BepInEx/CW3HanhuaFont.txt`（draw call / 材质 / 队列） |
-| **F12** | HUD 开关（**两个插件的状态合并画在左上角，见下**） |
+| TextMesh 对象 | 30 |
+| 有文本 | 27 |
+| 唯一文本 | 21 条（词表已有 18，缺 3：`4`×5、`Andro`×2、`DMD`×1） |
 
-文本层插件另一套：**F4** 开关 / **F5** 单次 sweep / **F9** 重载词表。
+分布：`level1` 14 · `resources.assets` 12（9 有文本）· `level2` 1 · `level5` 1 ·
+`mainData` 1 · `sharedassets6.assets` 1 · 其余 12 个文件全 0。
 
-#### HUD 合并（2026-10-19）
+**三类划分**
 
-原先是两块：字体层左上角 3 行（v0.8.0），文本层左下角 1 行（`GUI.Box(Rect(8, Screen.height-30, ...))`）。
-现在**只留左上角一块、4 行**（字体层 3 行 + 文本层 1 行）。
+| 类 | 数量 | 说明 |
+|---|---|---|
+| ① 纯静态可改 | 20 | 主菜单大按钮、标题、序章旁白 —— 直接改 |
+| ② prefab 占位值 | 5 | `TextLabel` 的 `4`（`m_Alignment=0` `m_CharacterSize=2.0`） |
+| ③ 运行时覆盖 | 5 | `StarTitle`/`Wormhole/StarTitle` 的 `Andro`、3 个空模板 `StarInfo`/`PlanetTitle`/`CRPLTextMesh` —— **改资产无效**，留给代码路线 |
 
-```csharp
-// CW3Hanhua.cs —— 宿主：把对方那行拼进自己的 GUI
-Assembly[] asms = AppDomain.CurrentDomain.GetAssemblies();
-Type t = asms[i].GetType("CW3Hanhua.TextPlugin", false);
-MethodInfo m = t.GetMethod("HudLine", BindingFlags.Static | BindingFlags.Public);
+**排版参数实测**：23 个有文本的 TextMesh **无一例外 `m_Anchor=4`(中中) + `m_Alignment=1`(居中)**
+（`TextLabel` 那 5 个例外：左对齐、`m_CharacterSize=2.0`）。字号主界面 35–40，
+`Credits`/`Settings`/`Web` 36，`Click To Engage` 18，`Show Sector Map` 26，`Andro` 15，
+`TextLabel` 48，`Fresh Ideas In Gaming` 96。**字体引用**：level/mainData/sharedassets6 的
+TextMesh 全指 `Aldrich`（`{m_FileID:1, m_PathID:755}`），`resources.assets` 的指
+unity 内置 Arial（`{m_FileID:5, m_PathID:10102}`）—— **两条都无 CJK 字形，但都不影响**
+（见 3.2 末）。
 
-// CW3HanhuaText.cs —— 被调用方：只读地报状态，不碰 UI
-public static string HudLine() { return "文本层 v" + Ver + "  F4=" + ... }
+**用户已定的执行顺序**
+
+```
+3. 备份要修改的资产
+4. 把资产修改固化为一个脚本（tools/bake_textmesh_assets.py）：
+   先把备份放回游戏目录（清除之前修改的影响），再对被放回的资产写入中文
+5. 执行脚本
+6. 必须走代码路线的对象（上面 ③ 类），在插件中打补丁
 ```
 
-- **为什么用反射而不是直接引用**：两个 DLL 保持**无编译期依赖**（4.3 开头那条"独立编译、独立开关"的约束）。
-  BepInEx 按文件名序装载，`CW3Hanhua.dll` 先于 `CW3HanhuaText.dll`，所以字体层第一次 `OnGUI`
-  时对方可能还没就绪 → 找不到**不缓存否定结果**，每 60 帧重试一次。
-- **反向兜底**：字体层没装载时（只剩文本层），`TextPlugin.OnGUI` 自己画左下角那一条；
-  它每 60 帧探一次 `CW3Hanhua.HanhuaPlugin` 类型是否存在，在就完全不画。
-  于是**永远只有一块 HUD**，两个插件装哪个组合都成立。
-- 两个插件各有一个**独立**的 HUD 开关（字体层的 `showHud` / F12），合并的这块归字体层管。
+`--restore` 子命令同样需要（F4 关不掉烧进 prefab 的中文，见 4.3）。
 
-**装载流程**（v0.8.0，详见 4.4）：读 `atlas_zh.png` 建 4096×8192 纹理 → 换
-`atlas.spriteMaterial.mainTexture` → 重算全部 `UISprite.UpdateUVs(true)` + `MarkAsChanged()`
-→ 读 `atlas_zh.bin` 建 BMFont → 反射填 `mFont`/`mUVRect`/`mDyn`/`mPMA`（**`mAtlas` 不动**）。
+**③ 类留给代码路线的备选方案（步骤 6 的依据）**
+`TextMesh.set_text` 全游戏只有 **8 个宿主方法 / 15 个调用点**（`ilx callers --type TextMesh set_text`）：
+`TextLabel.set_text`×5（prefab 驱动，`ilx callers` 命中 0 处）、`PlanetManager.set_planetName`×2、
+`StarManager.set_starName`×2、`StarManager.Refresh`×2、`CRPLTowerManager.set_text`×1、
+`DemoScreenManager.ShowText`(params=9)、`EpilogueManager.ShowText`(params=8)、
+`PreludeManager.ShowText`(params=7)。补丁只能打在这 8 个宿主方法上（改 `__0` 入参）。
+**别误伤**：`StarManager.Refresh` 传的是进度串（`"3/12"`）；`CRPLTowerManager.set_text`
+传的是玩家 CRPL 脚本内容。
 
-**字形烘焙**（产出 `font_<size>.{png,json}`，是 `build_atlas.py` 的输入）
+**★ 读 MonoBehaviour typetree 的必要条件**（两个扫描脚本都踩过）：
+必须 `TypeTreeGenerator("5.2.3f1")` + `load_local_dll_folder(CW3_Data/Managed)` 并赋给
+`env.typetree_generator`，否则 `read_typetree()` 对 86% 的 MonoBehaviour 抛异常
+（`level1` 实测：无 generator 时 258/1827 成功，有 generator 时 1807/1827）。
+**没有 generator 时读不到会表现为「扫出 0 个」，很容易误判成"资产里没有"。**
+另：`resources.assets` 解 typetree 极慢（**138 秒**），全量扫描要给足超时。
 
-```powershell
-# 当前参数：雅黑 Bold + 0.80
-& .venv\Scripts\python.exe tools\bake_font.py --font "C:\Windows\Fonts\msyhbd.ttc" --scale 0.80
-# 纵向单独压（汉字满格、Latin 偏窄，等比缩放无法两方向同时对齐）
-... --scale 0.80 --scale-y 0.76
-# 缺字时（check_charset.py 会直接打印这条命令）
-... --extra "缺的字"
+### 4.7 待办与已知缺口
+
+#### ① 资源条模板串（15 条）—— 已定方案：碎片替换，**暂不实施**
+
+建造中/悬停时显示的单位标题是**运行时 `String.Concat` 拼的**：
+
+```
+CommandCenter.GetUnitTitleDisplay(UnitManager)   token=0x06000A33  RVA=0x46EA4  il=876
+  0000: UnitManager.GetUnitGameName()          → unitName（如 "Collector"）
+  0015: newarr Object, size 6
+        [0] = unitName
+        [1] = "  [ffffff]Building:[-][00ff00] "   ← 模板串夹在中间
+        [2] = health   [3] = "/"   [4] = BUILD_COST   [5] = "[-]"
+  0054: String.Concat(Object[])                → 再 set_text
 ```
 
-烘完必须重跑 `build_atlas.py` 才能生效。
+最终文本形如 `Collector  [ffffff]Building:[-][00ff00] 100/50[-]`。
+**模板既不在头也不在尾** → 精确匹配和前缀匹配都无效（曾误判为"前缀匹配"，
+反汇编后证伪）。`LookupConcat` 只切 `\n`，也兜不住。
 
-**字集**：GB2312 全集（符号区 + 一级 3755 + 二级 3008）+ ASCII 95 + 常用符号 = **7544 字**。
-- **必须含符号区**：中文标点全在 GB2312 1–9 区
-- **必须含二级**：渲 / 阈 / 阱 这类常用字在一级（16–55 区）之外
+**已定方案（用户 2026-10-20 拍板）：碎片替换** —— `Lookup` 失败后用一张
+「已知碎片表」在整串里做 `IndexOf` + 原地替换（碎片含色标与空格，精确整碎片命中才换）。
 
-**调字号的两个已知约束**
+**暂不实施，先做 4.6。** 实施时还要先补这批模板串的译文。词表现状（`strings.json` 里
+以 `  [ffffff]` / `[-]` 开头的模板条目共 **17 条，目前只译了 1 条**）：
 
-1. **当前 0.80 是靠英文调的**，中文观感可能不同，等有真正中文文本要复调
-2. 雅黑 Bold 笔画粗、覆盖率高于 Aldrich，所以**粗体要比常规体用更小的 scale**
+| 状态 | 条目 |
+|---|---|
+| 已译 | `  [ffffff]Upgrading to Lvl: ` → `  [ffffff]升级至等级： ` |
+| 有条目未译（16 条） | `Building:` / `Building...` / `Health:` / `Cargo:` / `Ore:` / `Armed:` / `Pad:`（两种颜色）/ `Ammo:`（两种颜色）/ `Energy:`（两种颜色）/ `Aether:` / `Fully Upgraded!` / `AC:` / `[-] [00ff00]` |
+| 单个词已译（碎片替换可直接用） | `Energy` → `能量`、`Ammo` → `弹药`、`Aether:` → `以太：`、`Fully Upgraded!` → `已完全升级！` |
+
+`AC:` 按术语表**保留英文**（AC = Anti-Creeper）。
+
+#### ② 其它待确认
+
+- 4.6 步骤 3–6 全部待做。
+- ③ 类 5 个运行时覆盖对象（`StarTitle` / `PlanetTitle` / `StarInfo` / `CRPLTextMesh`）
+  是否需要代码路线，要等改完资产实测后判断。
+- 打包/分发方案未定（BepInEx + 两个 DLL + `_font/` + `_dict/` 的目录形态）。
 
 ---
 
@@ -748,7 +796,6 @@ public static string HudLine() { return "文本层 v" + Ver + "  F4=" + ... }
 游戏重装后，shell 的受限进程可能无法写工作区（连游戏目录根都不行），但磁盘权限本身正常
 （`diagnose-windows-sandbox-acl` 判定 `NOT_THIS_CLASS`）。
 **`write`/`edit` 文件工具仍正常**；`csc.exe` 输出 DLL 可能失败。
-2026-10-17 实测已恢复，可正常写入。
 
 ### 5.2 编译插件
 
@@ -771,22 +818,33 @@ $g = "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3"
   "源文件.cs"
 ```
 
-- **`/platform:x86` 必须**（游戏 32 位）
+- **`/platform:x86` 必须**（游戏 32 位）。用 64 位 pwsh 的
+  `[System.Reflection.Assembly]::LoadFrom` 加载插件会报
+  `The assembly architecture is not compatible` → **验证插件只能靠 `ilx`，不能靠 PowerShell 反射**
 - **`/codepage:65001` 必须**（源码含中文，否则 csc 3.5 按 ANSI 读成乱码）
 - **必须引用游戏自带 `Managed` 目录的 DLL**（Unity 打包版 `mscorlib 2.0.5.0`）
-- 目标框架只能是 **net35**（游戏跑在 Mono 2.x）。用 VS2022 的 Roslyn 也能编 net35，
-  但要 `/noconfig /nostdlib+` 并显式引用游戏 DLL；用 4.0+ csc 按默认方式编会引用
-  `mscorlib 4.0`，加载即失败
-- **`.cmd` 必须是 ASCII + CRLF**：cmd.exe 按 OEM 代码页（936）解析批处理，
-  写 UTF-8 中文注释会被切碎成乱码命令（2026-10-18 踩过：报一堆
-  `'★失败' is not recognized as an internal or external command`）。
+- 目标框架只能是 **net35**（游戏跑在 Mono 2.x）
+- **`.cmd` 必须是 ASCII + CRLF**：cmd.exe 按 OEM 代码页解析批处理，
+  写 UTF-8 中文注释会被切碎成乱码命令
 
 ### 5.3 C# 3.0 的坑（用 csc 3.5 时）
 
-1. **没有命名实参、没有可选参数、没有字符串插值**
+1. **没有命名实参、没有可选参数、没有字符串插值**（`bool fast = false` → `CS0241`，
+   要写成重载）
 2. **HarmonyX 的 `AccessTools.Method` 是 4 参数带默认值** → 必须写全
-   `AccessTools.Method(t, "name", null, null)`（`AccessTools.PropertySetter(t,n)` 只有 2 参数）
-3. **`Harmony.Patch` 用 6 参数重载**：不用的槽位传字面 `null`，**不要**传 `new HarmonyMethod(null)`
+   `AccessTools.Method(t, "name", null, null)`
+3. **`Harmony.Patch` 的槽位次序反直觉，首选 `PatchProcessor`**：
+   ```csharp
+   PatchProcessor proc = h.CreateProcessor(m);
+   proc.AddPrefix(new HarmonyMethod(...));
+   proc.AddPostfix(new HarmonyMethod(...));
+   proc.AddFinalizer(new HarmonyMethod(...));
+   proc.Patch();          // 名字即语义，不会数错
+   ```
+   6 参数重载的真实次序（实测 `0Harmony.dll` 的 IL，`Harmony.Patch token=0x060000CD`）：
+   `arg2→Prefix  arg3→Postfix  arg4→Transpiler  arg5→**Finalizer**  arg6→ILManipulator`
+   —— **finalizer 在倒数第二位，不是最后**。5 参数重载在本版本标了 `[Obsolete]`
+   → 编译报 `CS0619`，用不了。
 4. **游戏程序集里有全局 `Path` 类** → 写 `System.IO.Path.Combine`
 5. Unity 5.2 没有 `SceneManagement` → 用 `Application.loadedLevelName`
 6. `UIPanel` 没有 `SetDirty()` → 用 `UILabel.MarkAsChanged()`
@@ -797,28 +855,31 @@ $g = "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3"
 **主用 `tools\ilx.exe`（Mono.Cecil 0.10.4）**：
 
 ```powershell
-$t = "C:\...\Creeper World 3\_cw3hanhua\tools"
-& "$t\ilx.exe" dump UILabel set_text              # 精读 IL
-& "$t\ilx.exe" callers set_enabled                # 谁调用了它
-& "$t\ilx.exe" callers --type UILabel set_text    # 按声明类型过滤
-& "$t\ilx.exe" fields enabled                     # 谁直接读写字段
-& "$t\ilx.exe" find MainMenu                      # 按名字搜类型/方法/字段
-& "$t\ilx.exe" stats                              # 全程序集方法清单
+$t = "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3\_cw3hanhua\tools"
+$d = "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3\CW3_Data\Managed\Assembly-CSharp.dll"
+
+& "$t\ilx.exe" dump UILabel set_text --dll $d      # 精读 IL ★ 必须带 --dll
+& "$t\ilx.exe" callers --type UILabel set_text     # 按声明类型过滤调用点
+& "$t\ilx.exe" fields --type UILabel mProcessedText   # 谁直接读写字段（查成员只能用这个）
+& "$t\ilx.exe" find MainMenu --dll $d              # 按名字搜类型/方法/字段
+& "$t\ilx.exe" stats --dll $d                      # 全程序集方法清单
 ```
+
+★ **`find` 只匹配类型/方法/字段名** —— 查**字符串字面量**、GameObject 名（`'ACTIVATE'`、
+`'UnitToBuildLabel'`）一律命中 0 项，要用 `dump` 或 `callers`。
+★ 不带 `--dll` 会默认查 `Assembly-CSharp.dll`，查其它程序集时容易误得「命中 0 项」。
+★ **`fields` 才能查"谁读写某字段"**；`find "Type::member"` 这种写法命中 0。
 
 **★ `tools\ilspy.cmd <dll> -t <类型>` 把方法反编译成 C#** —— 本项目最有效的排查手段。
 NGUI 行为怪异时**先反编译再推理**，产物在 `_cw3hanhua/_diag/`。
 
-**⚠ 手写 IL 解析器曾有三类解码 bug，历史数字被污染过**：tiny header 用 `hdr>>2` 取 size
-（8289 个方法里 3992 个读多）、`throw` 标成 4 字节、`conv.ovf.*`/`ldftn`/`constrained.`
-整段缺失导致失步。后果：`set_enabled` 曾统计成 371（真 **249**）、`UILabel.set_text` 曾
-292（真 **322**）、`TextMesh.set_text` 曾 12（真 **15**）。修好后与 `ilx` 在全部 8289 个
-方法上指令数完全一致。
-→ 手写解析器 `il.py` / `ilscan.py` / `ilscan_field.py` 已删除（2026-10-18），
-**只信 `ilx`**。（教训留在这一行就够了，不必留着一份会记错的代码。）
+**⚠ 手写 IL 解析器曾被删除**：三类解码 bug（tiny header、`throw` 长度、`conv.ovf.*` 缺失）
+污染过历史数字（`set_enabled` 371 vs 真 249、`UILabel.set_text` 292 vs 真 322、
+`TextMesh.set_text` 12 vs 真 15）。**只信 `ilx`**，不要再手写解析器。
 
-**其它**：早期全量文本扫描 `scan_all_text.py` 已删除，**现行口径是 `tools\collect_ui_strings.py`**（见 4.2）。
-Python 脚本一律用 `_cw3hanhua\.venv\Scripts\python.exe` 跑。
+**其它**：Python 脚本一律用 `_cw3hanhua\.venv\Scripts\python.exe` 跑。
+控制台中文乱码解法：`$env:PYTHONIOENCODING="utf-8"` +
+`[Console]::OutputEncoding = [System.Text.Encoding]::UTF8`。
 
 ### 5.5 游戏状态文件的坑
 
@@ -829,196 +890,24 @@ Python 脚本一律用 `_cw3hanhua\.venv\Scripts\python.exe` 跑。
 
 | 假象 | 真实原因 |
 |---|---|
+| **补丁完全没装上，界面一个字不变，但外层 try/catch 什么也没接到** | **finalizer 传到了第 6 个槽位（ILManipulator）**。Harmony 只往日志写一行 `[Error] Failed to patch … TargetParameterCountException`，**不抛异常**。用 `PatchProcessor` 可根除，并且装完必须回读 `GetPatchInfo` 自检 |
 | 误判「`__result` 改写失效」 | 改写补丁被传进了 **prefix** 槽位；prefix 里改的值会被原方法返回值覆盖 |
 | 补丁全部不生效，抛 `ArgumentNullException` | prefix 写成 `new HarmonyMethod(null)`（包装了 null 方法） |
 | 误判「Harmony detour 无效」 | 自检目标是**空方法**被 JIT 内联；加 `[MethodImpl(NoInlining)]` 后正常 |
-| HUD 探测值无意义 | 压根没给被显示的那个方法打补丁 |
+| 补丁拦不到某个方法，计数恒为 0 | 该方法的执行**早于补丁安装**（`SteamManager.Awake` 就属于这类：BepInEx 的 Chainloader 在它内部才触发，任何在 BepInEx 生命周期内装的补丁都拦不到它） |
 | HUD 文字黑字看不清 | `GUI.color` 污染后续绘制，画完 `GUI.Box` 未恢复 |
-| 场景 UI 枚举全为 0 | 枚举放在 `Awake`，此时场景 UI 尚未创建 |
 
----
+### 5.7 已退役的东西（别找，别重建）
 
-## 六、环境故障档案：「SteamManager.Awake 不执行」
-
-> 与汉化无关，但会让**游戏完全不能玩**。根因已查清，**触发条件未查明**（当前无法复现）。
-
-### 6.1 指纹与症状
-
-**`BepInEx/CW3Mini.txt` 的最终判定行**（`plugin/MiniProbe.cs` v2.0 产出）：
-`★ 故障特征：计数 0 且两个标志均为假` ← 只有这一行才是命中。
-
-症状：3D 按钮**能悬停、点不动**；CW5 广告消失；NGUI 按钮（Exit Game / Music Credits）正常；日志无异常。
-
-> ### ⚠ 6.1a v1.0 探针的假故障（2026-10-18 查实，**已修**）
->
-> **v1.0 报的 `SteamManager.Awake 次数 = 0` 不可信，≠ 故障。** 用户实测主菜单一切正常。
->
-> **根因：时序竞争。** v1.0 在插件 `Start()` 里 `harmony.Patch`，而 `SteamManager` 是第一个被创建的
-> 脚本，它的 `Awake` 早在插件 `Start` 之前就跑完了 → 补丁挂上时方法已经执行过 → 永远记 0。
->
-> **铁证**：同一份产物里 `s_instance = 非空`、`s_EverInialized = True`、`m_bInitialized = True`
-> —— 这三个字段**只有 `Awake` 会写**（IL 实证：`0x0027 stsfld s_instance`、`0x00C5 call SteamAPI.Init`
-> → `0x00CA stfld m_bInitialized`）。值全对而计数为 0，只能是补丁没拦到。
->
-> **v2.0 的修法**（`plugin/MiniProbe.cs`，已编译进 `BepInEx/plugins/CW3HanhuaMini.dll`）：
-> 1. 改用 Harmony **静态补丁类**（BepInEx 的构建时补丁器在加载 `Assembly-CSharp` 时装补丁，早于任何 `Awake`）
-> 2. **三路交叉验证**：计数 + `s_EverInialized` + `m_bInitialized`；只要后两个为真而计数为 0，
->    一律判「探针失效」而**不判故障**
-> 3. 运行时兜底安装前先查 `s_EverInialized`，已为真就明确标注「晚装，计数无意义」
-> 4. 新增 `MainMenu.Awake` 的 pre/post/finalizer —— 主菜单是否真的被异常打断，从此有直接证据
->
-> **另一个必须记住的坑**：`SteamManager / MainMenu` 是 **internal 类**，
-> `[HarmonyPatch(typeof(T), ...)]` 编不过（泛型约束要 public），**必须用字符串形式**
-> `[HarmonyPatch("SteamManager", "Awake")]`。
->
-> **为何不能靠重新调用 `get_Instance` 来补救**：它是懒加载，`s_instance` 非空就原样返回，
-> 不会重新触发 `Awake`；而 `Awake` 在 `s_EverInialized=True` 时会 `throw`（IL `0x0036`），
-> 任何 late hook 都碰不得。只读字段才是安全手段。
->
-> ### ⚠ 6.1b 静态补丁类也来不及（2026-10-18 实测，v2.1 已加自检）
->
-> v2.0 的假设「静态补丁类早于所有 `Awake`」**是错的**，实测证据（2026-10-18 12:20:54 启动）：
->
-> | 观测 | 推论 |
-> |---|---|
-> | 插件 `Awake` 时 `s_instance=非空 s_EverInialized=True` | `SteamManager` 已在插件 `Awake` **之前**完成初始化 |
-> | 日志无任何 HarmonyX 关于静态补丁类的报错 | 不能靠「没报错」证明装上了 |
-> | `OnEnable` 补丁**装上了**但 `次数=0` | 连 `OnEnable` 都在补丁安装前跑完了 |
->
-> **机制**：BepInEx 的 `Chainloader`（HarmonyX 的静态补丁类扫描发生在这里）是在
-> `SteamManager.Awake` **内部**被触发的。所以静态补丁类装得上，但对 `SteamManager.Awake`
-> 而言已经太晚 —— **任何在 BepInEx 生命周期内安装的补丁都拦不到它**。
->
-> **v2.1 的做法：不再猜，直接查**（`VerifyStaticPatchClasses()`）：
-> 读 `SteamManager` 类型上的静态字段 `__HarmonyPatches`（`BindingFlags.Static|Public|NonPublic`，
-> 注意 `AccessTools.Field` 只接受 `Type`，读方法上的字段得用裸反射），列出实际挂着的补丁项。
-> 判定因此能区分四种情况：**补丁拦到了** / **补丁在但跑太晚** / **补丁压根不在** / **真故障**。
->
-> **实测结论（2026-10-18 12:23:28 启动，v2.1）**：
-> `补丁自检 = 静态补丁类未生效` —— `SteamManager.Awake` 的 `__HarmonyPatches` **完全为空**，
-> 不是「装了但太晚」，而是**压根没装上**。HarmonyX 对静态补丁类的扫描没有覆盖到本 DLL，且
-> **没有任何报错**（重要：日志干净 ≠ 补丁生效）。
-> → 结论：**走 BepInEx 插件这条路，`SteamManager.Awake` 的补丁计数永远会是 0**，
-> 不要再用计数当证据；一切以字段旁证为准。
->
-> **对真故障判定的影响**：真故障下 `s_EverInialized` 与 `m_bInitialized` 必然都是假，
-> 所以「计数 0 + 两标志全假」**不依赖补丁是否装上**，依然成立（这可能正是当初 v1.0
-> 在真故障时也能报对的原因 —— 计数是假的，但结论碰巧对）。
->
-> **v2.2/v2.3 补的第二条旁证（MainMenu）**：`MainMenu.Awake` 计数同样不可信。改为读场景对象：
-> `MainMenu.Awake` 在 IL `0x0091` 才 `UberFind.Find("UI Root (2D)", "GameVersion")`。
-> ⚠ **`UberFind.Find(root, child)` 不是"找 MainMenu 的子对象"** —— 反编译实证它是
-> `GameObject.Find(root)` 全局找根 + `GetComponentsInChildren` 按名字找子。
-> v2.2 首版用 `mm.transform.Find("GameVersion")` 找错方向，实测报"找不到"（12:25:11 启动）；
-> v2.3 改成与游戏完全一致的两步查找。这条旁证**不依赖 mm 引用，也不依赖任何补丁**。
-
->
-> **要真拦到 `Awake`，补丁必须早于 BepInEx 插件加载** —— 这条路本项目不走，
-> 因为探针的定位是**只读诊断**，靠字段/场景旁证已经足够。
->
-> **假象台账（新增，勿重走）**：
-> | 假象 | 真相 |
-> |---|---|
-> | 日志里没有 HarmonyX 报错 → 补丁装上了 | `__HarmonyPatches` 为空，压根没装 |
-> | 计数 = 0 → Awake 没执行 | 三个状态字段全为真，Awake 明显执行过 |
-> | 静态补丁类 = 构建时安装 = 早于 Awake | Chainloader 在 `SteamManager.Awake` 内部才触发 |
-
-
-### 6.2 因果链
-
-```
-系统级运行时状态异常（内核态/服务层，重启电脑才清除）
-  ↓ SteamManager.Awake 从未执行（对象存在、enabled=True、finalizer 未触发 → 没被调用，不是崩溃）
-  ↓ SteamAPI.Init() 从未调用 → m_bInitialized=False
-  ↓ MainMenu.Awake → UpdateCheck → FileManager.GetKey() → SteamUser.GetSteamID()
-  ↓ 抛 InvalidOperationException: Steamworks is not initialized.
-  ↓ MainMenu.Awake 无 try/catch（异常子句数=0）→ Awake 中断
-  ↓ NewsCheck() 排在后面 → 永不执行 → CW5 广告消失
-  ↓ MainMenu.Start/Update 永不执行 → 3D 按钮点击无反应
-  ↓ 组件最终 enabled=False（场景里 m_Enabled=1，没有任何代码关它）
-```
-
-**`enabled=False` 是异常中断的后果，不是被谁显式关闭的** —— 这是"谁关掉了 MainMenu"这个
-长期悬案的答案：**问题问错了**。
-
-**为什么只有 3D 按钮失效**：悬停走 Unity 的 `OnMouseEnter/OnMouseExit`（`EntryManager`），
-NGUI 按钮走 `UICamera`，都不经过 `MainMenu.Update`。
-
-### 6.3 关键 IL 证据
-
-| 位置 | 事实 |
+| 东西 | 退役原因 |
 |---|---|
-| `SteamManager.Awake` | `call SteamAPI.Init` → `stfld m_bInitialized` → `brtrue`，**失败即 LogError 后 ret** |
-| `SteamManager.get_Instance` | **懒加载**：`newobj GameObject` + `AddComponent<SteamManager>()` |
-| `FileManager.GetKey` | 判空 → 空则返回 `'steam-uninitialized'` → 否则 `SteamUser.GetSteamID()` |
-| `MainMenu.Awake` | 异常子句数 **0** |
-| 全程序集 `set_enabled` | **249** 处，**无一指向 MainMenu** |
-
-### 6.4 已排除的假设
-
-资产被改坏（回滚后照旧）· 插件逻辑（空插件照旧）· 代码关掉 MainMenu（249 处无一指向）·
-场景里就是 disabled（`m_Enabled=1`）· HUD 挡输入 · 缺 Collider（都有，`RaycastAll` 能命中）·
-游戏文件损坏（**重装**照旧）· BepInEx 破坏 Steamworks（**彻底移除**照旧）·
-Steam 客户端问题（**重启 Steam** 无效，日志显示已 `Logged On 'OK'`）· AppID 未传（实测 `280220` 正常）·
-缺 `steam_appid.txt` · 补丁打错程序集 · Steamworks.NET 报错（其 `SteamAPI_Init() failed` **从未出现**）
-
-### 6.5 唯一有效的恢复手段
-
-**彻底重启电脑。** 重装游戏、重启 Steam、移除 BepInEx 均无效
-→ 病根在**系统级运行时状态**（WFP 内核过滤 / LSP / 内核命名管道 / Steam 网络栈残留）。
-普通 DLL 注入只存在于进程内存，无法解释"活过游戏退出、活过 Steam 重启、活不过系统重启"。
-
-> ⚠ 注意第一节硬规则：当时那个高完整性 Steam 进程**可能从未被真正结束**，
-> 所以"重启 Steam 无效"这一步的排除范围需要重算。
-
-### 6.6 复现时怎么取证
-
-1. **看 `BepInEx\CW3Mini.txt` 的最终判定行**。只有
-   `★ 故障特征：计数 0 且两个标志均为假` 才算命中；
-   看到「探针失效」一律**不是**故障（见 6.1a）。同时看 `MainMenu.Awake 次数 / 异常次数`：
-   故障时应当出现「`MainMenu.Awake` 抛异常」。
-2. 冻结系统现场：采一份指纹快照存到 `_diag\fingerprint_<时间戳>.txt`。
-   （`collect_fingerprint.ps1` 已于 2026-10-18 删除——它只是一次性取证工具，
-   判读要点全在本节，需要时现写即可。）
-   重点看管道（第 3 节）、`netsh wfp show state`（第 4 节）、非微软 LSP（第 5 节）、`gameprocess_log`（第 9 节）
-3. 记录坏掉之前最后做过什么
-
-> 第 4、5 节需管理员权限；文件用 **UTF-8 with BOM** 保存
-> （PowerShell 5.1 读无 BOM 的 UTF-8 会把中文当 ANSI）。
-
-### 6.7 对汉化的影响
-
-**没有影响**（汉化只操作 UI 字体与文本）。但**分发时要考虑**：玩家机器若也出现此故障，
-汉化装了也没用（游戏本身跑不起来）。
-
-### 6.8 BepInEx 的重装与登记
-
-> `_bepinex_backup/` 已于 2026-10-18 删除（占 2 MB，且 BepInEx 重装成本很低）。
-> **改过的只有一处**，就是下面的 `BepInEx.cfg`；其余文件都是 BepInEx 原版。
-
-要恢复：从 [BepInEx 5.4.23.5 x86](https://github.com/BepInEx/BepInEx/releases/tag/v5.4.23.5)
-重新解压到游戏根目录，然后把 `BepInEx\config\BepInEx.cfg` 的 `[Preloader.Entrypoint]`
-改成下面三行（**原版三行是 `UnityEngine.dll` / `Application` / `.cctor`**，改回去即还原）：
-
-```ini
-Assembly = Assembly-CSharp.dll
-Type = SteamManager
-Method = Awake
-```
-
-装完检查三件事：
-
-```powershell
-$g = "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3"
-Test-Path "$g\winhttp.dll"                     # 必须 True
-Get-Content "$g\.doorstop_version"             # 应含 4.5.0
-Get-Content "$g\BepInEx\config\BepInEx.cfg" -Encoding UTF8 |
-  Select-String -Pattern '^Assembly|^Type|^Method'   # 三行 = 上面的值
-```
+| `AtlasProbe` / `AtlasWriteProbe` / `UIFeasibilityProbe` | 三个图集探针，结论已在 4.4 / 4.4a，源码已删 |
+| 手写 IL 解析器 `il.py` / `ilscan.py` / `ilscan_field.py` | 有解码 bug，只信 `ilx`（5.4） |
+| `scan_all_text.py` / `collect_fingerprint.ps1` / `_archive/` / `_bepinex_backup/` | 一次性或过时工具，现行口径见 4.2 / 5.4 |
 
 ---
 
-## 七、附录：BepInEx 与 NGUI 版本
+## 六、附录：BepInEx 与 NGUI 版本
 
 ### A. BepInEx 注入方案
 
@@ -1036,13 +925,26 @@ Method = Awake
 `AddComponent(Type)` 会原生 AV（`0xC0000005`）。
 
 - `BepInEx.dll` **不需要修改**：`SHA256 = 8255B28902886085C578B9E427D3073C97002DB85176D2090CDEDA90EF14CE70`
-- **必须用 BepInEx 5**：be6 的 MonoMod 在这套老 Mono 上 `ReflectionHelper` 静态初始化 NRE，换注入点也绕不过
-- **无害警告** `Could not find property ... isBatchMode`（Unity 5.6+ API）——反是 `AccessTools` 初始化成功的正面信号
-- **启动方式**：Steam 正版目录从 Steam 启动不需要 `steam_appid.txt`；副本目录直接双击 `CW3.exe`
-  需要同目录放该文件（内容 `280220`）。两种情况都需要 **Steam 客户端正在运行**
-- **卸载**：删 `winhttp.dll`、`doorstop_config.ini`、`.doorstop_version`、`BepInEx\` 四项。
-  升级/重装**务必保留 `BepInEx.cfg`**，否则注入点被还原，游戏无法启动
+- **必须用 BepInEx 5**：be6 的 MonoMod 在这套老 Mono 上 `ReflectionHelper` 静态初始化 NRE
+- **无害警告** `Could not find property ... isBatchMode`（Unity 5.6+ API）—— 反是
+  `AccessTools` 初始化成功的正面信号
+- **启动方式**：Steam 正版目录从 Steam 启动不需要 `steam_appid.txt`；副本目录直接双击
+  `CW3.exe` 需要同目录放该文件（内容 `280220`）。两种情况都需要 **Steam 客户端正在运行**
 - 其它可用注入点（全局命名空间）：`SteamManager`（已验证）、`Localization`
+
+**重装与登记**：从 [BepInEx 5.4.23.5 x86](https://github.com/BepInEx/BepInEx/releases/tag/v5.4.23.5)
+重新解压到游戏根目录，然后改上面三行。装完检查三件事：
+
+```powershell
+$g = "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3"
+Test-Path "$g\winhttp.dll"                     # 必须 True
+Get-Content "$g\.doorstop_version"             # 应含 4.5.0
+Get-Content "$g\BepInEx\config\BepInEx.cfg" -Encoding UTF8 |
+  Select-String -Pattern '^Assembly|^Type|^Method'   # 三行 = 上面的值
+```
+
+**卸载**：删 `winhttp.dll`、`doorstop_config.ini`、`.doorstop_version`、`BepInEx\` 四项。
+升级/重装**务必保留 `BepInEx.cfg`**，否则注入点被还原，游戏无法启动。
 
 ### B. NGUI 版本定位
 
@@ -1055,11 +957,10 @@ CW3 的 NGUI 代码编译在 `Assembly-CSharp.dll`（无命名空间）。最接
 `git -C _ngui_repo show 625abae8:Assets/NGUI/Scripts/UI/UILabel.cs`。
 
 `UILabel` 判别特征：26 个字段，**同时具备 `mLastScale` 且不具备 `mFontSize`/`mFontStyle`/`mOverflow`**。
-仓库 clone 在 `_ngui_repo/`（只有 `master`，无 tag）。
 
 ---
 
-## 八、目录与维护纪律
+## 七、目录与维护纪律
 
 ```
 _cw3hanhua/
@@ -1075,46 +976,44 @@ _cw3hanhua/
 │   ├─ build_dict.py           编译 zh_cn.dict
 │   ├─ apply_translations.py   批次译文注入 strings.json
 │   ├─ audit_translations.py   ★ 全表一致性审计（标记/换行/占位符/首尾空白）
+│   ├─ test_classify.py        classify() 回归样例
 │   ├─ prep_batches.py         未译分流 + 切批（会重建 _dict/work/）
 │   ├─ merge_work.py           work/ 译稿 → batches/
 │   ├─ check_batch.py          单批译稿校验
 │   ├─ pack_skips.py           「人工判定不译」固化 → _dict/skipped_manual.json
 │   └─ dict_stats.py           覆盖率报告 → _dict/STATUS.md
 ├─ plugin/             ★ 两个在用源文件：CW3Hanhua.cs（字体层 v0.8.2）
-│                      CW3HanhuaText.cs（文本层 v0.8.2）
-│                      MiniProbe.cs（探针 v2.3，补丁计数不可信，见 6.1a）
+│                      CW3HanhuaText.cs（文本层 v0.9.0）
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）
 │                      ★ 工具链：font_{16,20,28}.{json,png}（重烘图集的必需输入）
 ├─ _dict/              ★ 词表：strings.json（唯一数据）/ glossary.md（术语表）
 │                      / zh_cn.dict（编译产物）/ STATUS.md（自动生成）/ batches/（22 份批次）
 │                      / skipped_manual.json（565 条「人工判定不译」，勿删）
-├─ _diag/              ilspy 反编译源码：UIFont / UIAtlas / UISprite / UILabel /
-│                      UIPanel / UIDrawCall / UIWidget / BMFont / NGUITools
+├─ _diag/              ilspy 反编译源码 + 只读扫描脚本（scan_textmesh.py / scan_uilabel.py）
 │                      ★ 改插件前必查；不进版本库（gitignore），可随时重生成
 ├─ _ngui_repo/         NGUI 仓库 clone，77 MB（gitignore；查上游源码用）
 └─ .venv/              Python 环境（UnityPy / dnfile / dncil / fontTools / Pillow，gitignore）
 ```
 
-`_diag/` **不进版本库**：里面全是 `tools\ilspy.cmd` 一次就能重生成的反编译产物
+`_diag/` **不进版本库**：里面是 `tools\ilspy.cmd` 一次就能重生成的反编译产物
 （例如 `& tools\ilspy.cmd CW3_Data\Managed\Assembly-CSharp.dll -t UIFont`）。
-它叫 `diag` 是因为最初是个「诊断产物」目录，后来实际装的都是反编译源码，名字沿用下来。
+它叫 `diag` 是因为最初是个「诊断产物」目录，名字沿用下来。
 
 **版本控制**：仓库根 = 游戏安装根目录（`.git` 与 `CW3.exe` 同级）。
 `.gitignore` 用「顶层白名单 + 子目录黑名单」，只放行 `_cw3hanhua\`、`BepInEx\config\`、
 `AGENTS.md`、`doorstop_config.ini`。
 ★ **本目录就是游戏安装目录，永远不要在这里执行 `git clean`** —— 会连游戏本体一起删掉。
 
-
 ### 维护纪律
 
 1. **只维护这一份文档。** 不要新建 `XXX.md` —— 新内容写进对应章节。
-2. **控制篇幅，但不要为行数牺牲信息。** 本文只留**结论、证据、可复现操作**。
-   判断标准是「这条信息会不会在下一次动手时救我一命」，而不是具体行数。
-   **过时的中间过程直接删**（2026-10-18 教训：`_archive/` 攒了 54 个文件从来没人回看，
-   真正被反复用的是本文和反编译源码）。
+2. **控制篇幅，但不要为行数牺牲信息。** 只留**结论、证据、可复现操作**。
+   判断标准是「这条信息会不会在下一次动手时救我一命」。
+   **过时的中间过程、已废弃的方法直接删**（历史结论压成一句就够，或者进 5.7 的退役表）。
 3. **数字必须可复现。** 引用调用点/指令数时写明用 `tools\ilx.exe` 的哪条命令
    或 `tools\collect_ui_strings.py` 的哪次输出；手写解析器的数字一律不要引用（见 5.4）。
-   文本条数的唯一权威是 `_dict/strings.json`（现行口径 2383 条候选，见 4.2）。
+   文本条数的唯一权威是 `_dict/strings.json`（现行 **2400** 条候选）。
 4. **结论必须有证据等级**：区分「IL 静态证据」「运行时实测」「源码推断」。
-   不要把推断写成事实 —— 本项目曾多次因"看起来像"而下错结论，浪费了大量往返。
-5. **失败与假象也要记**，一张"已排除假设"表比结论本身更省时间（6.5 / 5.6）。
+   不要把推断写成事实 —— 本项目曾多次因"看起来像"而下错结论（最近一次：
+   把资源条模板串的修法说成"前缀匹配"，反汇编后才证伪，见 4.7）。
+5. **失败与假象也要记**，一张"已排除假设"表比结论本身更省时间（5.6）。

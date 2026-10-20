@@ -69,7 +69,7 @@
 | Colonial Space | 殖民空间 | |
 | Alpha Sector | 阿尔法星区 | |
 | Arc Eternal | 永恒之弧 | |
-| Credits | 制作名单 | |
+| Credits | 制作组 | ★ 字宽实测：英文 `Credits`=3.82 em（Aldrich），"制作名单"=4.00 em（105%，溢出），"制作组"=3.00 em（78%，安全），见 NOTES 3.3 |
 | Knuckle Cracker | Knuckle Cracker | 开发商名，保留英文 |
 | Odin | 奥丁 | |
 | Digitalis | 魔苋 | |

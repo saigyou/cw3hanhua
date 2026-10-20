@@ -14,7 +14,13 @@
             - 出现在 "Foo: " + x 这类拼接里（会拼进 label）              → concat / format
           → 这就是静态版的"运行时 set_text 观测"，覆盖全部调用点而非走过的路径
     路 2  资产里序列化的 mText / m_Text（UILabel / TextMesh）
-          → 反序列化**不经过 setter**（NOTES 3.3），必须单独收集，靠 sweep 处理
+          → 反序列化**不经过 setter**（NOTES 3.3），必须单独收集。
+            UILabel 的那些由插件的 `UILabel.ProcessText` 补丁处理（v0.9.0）；
+            TextMesh 的钩不上（`set_text` 是 extern），只能改资产（NOTES 4.6）。
+
+    跑得慢的主因是 resources.assets 解 typetree 要 100 多秒；
+    只关心代码串时用 --no-assets 跳过资产（原来那份 strings.json 里的资产条目会丢，
+    所以正式全量跑不要带这个开关）。
 
 只读：不修改任何游戏文件。产物写在 _cw3hanhua/_dict/。
 
@@ -70,7 +76,13 @@ RE_NODE_PATH = re.compile(r"(^/|\w/[\w/]+$|^\w:/)")
 RE_DASHED = re.compile(r"(--+|[=-]{3,}|_{3,})")
 # 像文本其实是代码/资源的
 RE_FORMAT_SPEC = re.compile(r"\{\d+(:[^}]*)?\}")          # {0:D} 占位符
-RE_REGEX = re.compile(r"^[\^\[].*[\$\]]$")                # ^[a-z0-9_]+$
+# 正则表达式样式：`^[a-z0-9_]+$` / `[^ 'a-zA-Z0-9_-]+$` 这类。
+# ★ 旧版是 `^[\^\[].*[\$\]]$` —— 只要以 ^ 或 [ 开头、以 $ 或 ] 结尾就算正则，
+#   把资产里 **显示文本** `[Music Credits]`（音乐制作组标题）误判成 noise 丢掉。
+#   资产串大量带方括号，这条误伤面很大。
+#   新口径：必须 **以 `$` 结尾**（真正的正则锚点）且以 ^ / [ 开头。
+#   于是 `[Music Credits]`（以 ] 结尾）通过，`^[a-z0-9_]+$` 与 `[^ 'a-z]+$` 仍被拦下。
+RE_REGEX = re.compile(r"^[\^\[].*\$")                      # ^[a-z0-9_]+$ / [^ 'a-z]+$
 RE_TEMPLATE_NAME = re.compile(r"^Custom[A-Za-z0-9_]*(\d+pp|_128)$")   # Custom12pp / Custom37_128
 RE_STAT_KEY = re.compile(r"^STAT_[A-Z_]+$")               # STAT_xxx 统计键
 RE_RICHTEXT_PREFIX = re.compile(r"^(\[[-\w#]+\])+\s*\S")  # 颜色标记 + 正文
@@ -304,6 +316,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=OUT_JSON)
     ap.add_argument("--merge", action="store_true", help="保留已有 strings.json 里的 zh 译文")
+    ap.add_argument("--no-assets", action="store_true",
+                    help="跳过资产扫描（resources.assets 要 100 多秒；只改代码串时用它提速）")
     args = ap.parse_args()
 
     t0 = time.time()
@@ -341,7 +355,11 @@ def main():
             e["refs"].append("%s.%s" % (r["cls"], r["method"]))
 
     # ---------- 路 2：资产里的序列化文本
-    asset_rows, asset_stats = scan_assets()
+    if args.no_assets:
+        asset_rows, asset_stats = [], {}
+        print("资产扫描: 已按 --no-assets 跳过")
+    else:
+        asset_rows, asset_stats = scan_assets()
 
     # ---------- 分类与统计
     drop = Counter()
@@ -357,25 +375,35 @@ def main():
                         ops=sorted(e["ops"]), srcs=sorted(e["srcs"]),
                         cls=sorted(e["cls"]), refs=e["refs"], hits=e["count"],
                         note=reason))
+    # ★ 同一串可能在多个资产文件里各有一份（例如每个 level 都有一份模板 label），
+    #   旧的 files=[a["file"]] 只记第一处，排查"这串出现在哪几个场景"时信息不够。
+    #   这里改成累加去重（保持出现顺序）。
+    def _add_file(rec, fn):
+        fs = rec.get("files")
+        if fs is None:
+            rec["files"] = [fn]
+        elif fn not in fs:
+            fs.append(fn)
+
+    by_en = {r["en"]: r for r in out}
     for a in asset_rows:
         cat, reason = classify(a["text"])
         if cat == "noise":
             drop[reason] += 1
             continue
-        merged = a["text"] in seen
-        if merged:
+        rec = by_en.get(a["text"])
+        if rec is not None:
             # 资产里序列化的文本反序列化不经 setter，和 DLL 里有同名字符串是两件事，
             # 但翻译只需要一份 → 在已有的那条上打标，不再重复一条。
-            for r in out:
-                if r["en"] == a["text"]:
-                    r["cat"] = "both"
-                    r["kind"] = a["kind"]
-                    r["files"] = [a["file"]]
-                    break
+            rec["cat"] = "both"
+            rec["kind"] = a["kind"]
+            _add_file(rec, a["file"])
             continue
+        rec = dict(en=a["text"], zh="", cat="asset", grade=cat, kind=a["kind"],
+                   files=[a["file"]], refs=[], hits=1, note=reason)
+        out.append(rec)
+        by_en[a["text"]] = rec
         seen.add(a["text"])
-        out.append(dict(en=a["text"], zh="", cat="asset", grade=cat, kind=a["kind"],
-                        files=[a["file"]], refs=[], hits=1, note=reason))
     print("去重后候选字符串: %d" % len(out))
     print("")
 

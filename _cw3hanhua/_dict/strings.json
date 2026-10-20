@@ -1,6 +1,6 @@
 {
  "version": 2,
- "generated": "2026-10-18 13:05:01",
+ "generated": "2026-10-20 18:53:48",
  "baked_charset": 7544,
  "strings": [
   {
@@ -10,6 +10,8 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level2",
+    "level3",
     "resources.assets"
    ],
    "refs": [],
@@ -23,6 +25,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -36,6 +39,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -49,6 +53,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -62,6 +67,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -75,6 +81,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -88,6 +95,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -101,6 +109,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -114,6 +123,7 @@
    "grade": "ui",
    "kind": "TextMesh",
    "files": [
+    "level5",
     "sharedassets6.assets"
    ],
    "refs": [],
@@ -127,6 +137,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -140,6 +151,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -153,6 +165,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level2",
     "level3"
    ],
    "refs": [],
@@ -166,6 +179,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -179,6 +193,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level2",
     "level3"
    ],
    "refs": [],
@@ -192,6 +207,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -205,6 +221,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -218,6 +235,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -231,6 +249,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -257,6 +276,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -270,6 +290,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -283,6 +304,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level2",
     "level3"
    ],
    "refs": [],
@@ -323,6 +345,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -350,6 +373,8 @@
    "note": "多词英文，几乎一定是显示文本",
    "kind": "UILabel",
    "files": [
+    "level2",
+    "level3",
     "resources.assets"
    ]
   },
@@ -360,6 +385,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level2",
     "level3"
    ],
    "refs": [],
@@ -373,6 +399,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -386,6 +413,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -399,6 +427,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -412,6 +441,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -425,6 +455,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -438,6 +469,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -451,6 +483,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -490,6 +523,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -503,6 +537,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -516,6 +551,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -529,6 +565,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -542,6 +579,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -555,6 +593,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -568,6 +607,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -581,6 +621,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -594,6 +635,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -607,6 +649,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -620,6 +663,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -633,6 +677,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -646,6 +691,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -659,6 +705,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -672,6 +719,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -685,6 +733,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -698,6 +747,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -711,6 +761,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -763,6 +814,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -776,6 +828,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -789,6 +842,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -802,6 +856,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -815,6 +870,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -828,6 +884,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -841,6 +898,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -854,6 +912,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -867,6 +926,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -880,6 +940,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -919,6 +980,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -932,6 +994,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -945,6 +1008,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1001,6 +1065,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1014,6 +1079,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1027,6 +1093,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1080,6 +1147,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1093,6 +1161,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1106,6 +1175,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1119,6 +1189,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1145,6 +1216,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1158,6 +1230,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1171,6 +1244,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1184,6 +1258,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1197,6 +1272,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1210,6 +1286,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1223,6 +1300,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1260,6 +1338,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1273,6 +1352,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1286,6 +1366,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1299,6 +1380,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1312,6 +1394,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1349,6 +1432,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level2",
     "level3"
    ],
    "refs": [],
@@ -1386,6 +1470,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1399,6 +1484,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1425,6 +1511,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1464,6 +1551,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1477,6 +1565,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1490,6 +1579,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1503,6 +1593,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1516,6 +1607,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1529,6 +1621,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1556,6 +1649,7 @@
    "note": "多词英文，几乎一定是显示文本",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -1566,6 +1660,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1579,6 +1674,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1592,6 +1688,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1605,6 +1702,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1642,6 +1740,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1685,6 +1784,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1698,6 +1798,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1711,6 +1812,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1724,6 +1826,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1737,6 +1840,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1750,6 +1854,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1763,6 +1868,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1776,6 +1882,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1789,6 +1896,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1802,6 +1910,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1854,6 +1963,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1945,6 +2055,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -1985,6 +2096,7 @@
    "note": "多词英文，几乎一定是显示文本",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level2"
    ]
   },
@@ -2022,6 +2134,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -2035,6 +2148,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -2061,6 +2175,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -2074,6 +2189,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -2100,6 +2216,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -2113,6 +2230,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level2",
     "level3"
    ],
    "refs": [],
@@ -2168,6 +2286,8 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level2",
+    "level3",
     "resources.assets"
    ],
    "refs": [],
@@ -2194,6 +2314,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -2207,6 +2328,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -2233,6 +2355,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -2246,6 +2369,7 @@
    "grade": "ui",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -3040,6 +3164,19 @@
    "kind": "UILabel",
    "files": [
     "level3"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "多词英文，几乎一定是显示文本"
+  },
+  {
+   "en": "[Music Credits]",
+   "zh": "",
+   "cat": "asset",
+   "grade": "ui",
+   "kind": "UILabel",
+   "files": [
+    "level1"
    ],
    "refs": [],
    "hits": 1,
@@ -4732,7 +4869,7 @@
   },
   {
    "en": "[ffffd0]Credits[ffffff]\nWhat could be so special about Credits\nthat they are locked?",
-   "zh": "[ffffd0]制作名单[ffffff]\n制作名单究竟有什么特别之处，\n竟然会被锁定？",
+   "zh": "[ffffd0]制作组[ffffff]\n制作组究竟有什么特别之处，\n竟然会被锁定？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6519,7 +6656,7 @@
   },
   {
    "en": "[ffffd0]Credits[ffffff]\nExplore the dungeon...",
-   "zh": "[ffffd0]制作名单[ffffff]\n探索这个地牢……",
+   "zh": "[ffffd0]制作组[ffffff]\n探索这个地牢……",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8392,6 +8529,26 @@
    "note": "多词英文，几乎一定是显示文本"
   },
   {
+   "en": "  [ffffff]Building:[-][00ff00] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 1,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
    "en": "A finalized map with the name '",
    "zh": "一个同名的已完成地图「",
    "cat": "dll",
@@ -8672,6 +8829,88 @@
    "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
   },
   {
+   "en": "  [ffffff]Aether:[-][ff0000] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 1,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
+   "en": "  [ffffff]Energy:[-][00ff00] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 1,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
+   "en": "  [ffffff]Energy:[-][ff0000] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay",
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 2,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
+   "en": "  [ffffff]Health:[-][00ff00] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay",
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 2,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
    "en": " seems to have a null sprite!",
    "zh": "",
    "cat": "dll",
@@ -8750,6 +8989,109 @@
    ],
    "hits": 1,
    "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
+  },
+  {
+   "en": "[-][ffffff]  Pad:[-][a0ffff] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 1,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
+   "en": "[-][ffffff]  Pad:[-][ff7f7f] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay",
+    "CommandCenter.GetUnitTitleDisplay",
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 3,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
+   "en": "  [ffffff]Armed:[-][ff0000] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 1,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
+   "en": "  [ffffff]Cargo:[-][ff0000] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay",
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 2,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
+   "en": "  [ffffff]Fully Upgraded![-]",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 1,
+   "note": "带富文本颜色前缀的显示文本"
   },
   {
    "en": "  [ffffff]Upgrading to Lvl: ",
@@ -8980,6 +9322,47 @@
    "note": "以句号结尾（句子样式）"
   },
   {
+   "en": "  [ffffff]Ammo:[-][00ffff] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 1,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
+   "en": "  [ffffff]Ammo:[-][ff0000] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay",
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 2,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
    "en": "Continue Without Submitting",
    "zh": "不提交，继续",
    "cat": "dll",
@@ -9182,6 +9565,26 @@
    "note": "以句号结尾（句子样式）"
   },
   {
+   "en": "  [ffffff]Ore:[-][ff0000] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 1,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
    "en": "CW3SteamAchievements Awake",
    "zh": "",
    "cat": "dll",
@@ -9360,6 +9763,27 @@
    ],
    "hits": 1,
    "note": "多词英文，几乎一定是显示文本"
+  },
+  {
+   "en": "  [ffffff]AC:[-][00ffff] ",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay",
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 2,
+   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
   },
   {
    "en": " needs at least 1 segment",
@@ -9582,6 +10006,26 @@
    ],
    "hits": 1,
    "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+  },
+  {
+   "en": "  [ffffff]Building...[-]",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 1,
+   "note": "带富文本颜色前缀的显示文本"
   },
   {
    "en": " task is over budget by ",
@@ -10686,7 +11130,7 @@
   },
   {
    "en": "In the Credits System",
-   "zh": "位于制作名单星系",
+   "zh": "位于制作组星系",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19044,6 +19488,26 @@
    "note": "以冒号/感叹号/问号/省略号结尾（标签样式）"
   },
   {
+   "en": "[-] [00ff00]",
+   "zh": "",
+   "cat": "dll",
+   "grade": "ui",
+   "ops": [
+    "stelem.ref"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "CommandCenter"
+   ],
+   "refs": [
+    "CommandCenter.GetUnitTitleDisplay"
+   ],
+   "hits": 1,
+   "note": "带富文本颜色前缀的显示文本"
+  },
+  {
    "en": " with clip ",
    "zh": "",
    "cat": "dll",
@@ -23997,6 +24461,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24010,6 +24475,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24063,6 +24529,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level3",
     "sharedassets4.assets"
    ]
   },
@@ -24211,6 +24678,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24243,7 +24711,7 @@
   },
   {
    "en": "Credits",
-   "zh": "制作名单",
+   "zh": "制作组",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -24316,6 +24784,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -24398,6 +24867,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24459,6 +24929,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24472,6 +24943,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24485,6 +24957,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24498,6 +24971,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24511,6 +24985,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24524,6 +24999,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24537,6 +25013,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24550,6 +25027,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24563,6 +25041,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24576,6 +25055,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24589,6 +25069,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24748,6 +25229,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24761,6 +25243,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24774,6 +25257,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24787,6 +25271,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24800,6 +25285,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24813,6 +25299,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24826,6 +25313,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24839,6 +25327,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24960,6 +25449,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -24970,6 +25460,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -24983,6 +25474,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -25027,6 +25519,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level2",
     "level3"
    ]
   },
@@ -25109,6 +25602,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -25122,6 +25616,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -25232,6 +25727,8 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
+    "level3",
     "level7"
    ]
   },
@@ -25448,6 +25945,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -25520,6 +26018,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -25663,6 +26162,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -25676,6 +26176,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -25776,6 +26277,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -25826,6 +26328,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -25836,6 +26339,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -25862,6 +26366,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -25927,6 +26432,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level2",
     "level3"
    ],
    "refs": [],
@@ -26036,6 +26542,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -26127,6 +26634,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -26183,6 +26691,8 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level2",
+    "level3",
     "resources.assets"
    ]
   },
@@ -26256,6 +26766,8 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level2",
+    "level3",
     "resources.assets"
    ]
   },
@@ -26293,6 +26805,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -26330,6 +26843,8 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level2",
+    "level3",
     "resources.assets"
    ]
   },
@@ -26509,6 +27024,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26522,6 +27038,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26559,6 +27076,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26734,6 +27252,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -26744,6 +27263,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26757,6 +27277,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26770,6 +27291,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26783,6 +27305,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26796,6 +27319,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26809,6 +27333,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26822,6 +27347,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26835,6 +27361,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26876,6 +27403,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level2",
     "level3"
    ]
   },
@@ -26886,6 +27414,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26899,6 +27428,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26912,6 +27442,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26925,6 +27456,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26938,6 +27470,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26951,6 +27484,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26964,6 +27498,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -26977,6 +27512,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -27011,6 +27547,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -27021,6 +27558,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -27048,6 +27586,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -27058,6 +27597,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -27085,6 +27625,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -27109,6 +27650,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -27119,6 +27661,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -27146,6 +27689,7 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ]
   },
@@ -27156,6 +27700,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -27198,6 +27743,8 @@
    "note": "单个单词：可能是按钮文字（Yes/Creeper），也可能是资源名 —— 需人工确认",
    "kind": "UILabel",
    "files": [
+    "level1",
+    "level2",
     "level3"
    ]
   },
@@ -27208,6 +27755,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],
@@ -27221,6 +27769,7 @@
    "grade": "other",
    "kind": "UILabel",
    "files": [
+    "level1",
     "level3"
    ],
    "refs": [],

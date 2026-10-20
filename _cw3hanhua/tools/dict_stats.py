@@ -100,9 +100,9 @@ def main():
         if it.get("zh"):
             src[key][1] += 1
     meaning = {
-        "asset": "只在资产里序列化（不走 setter，靠 sweep）",
+        "asset": "只在资产里序列化（不走 setter；UILabel 走 ProcessText 补丁，TextMesh 改资产）",
         "both": "资产 + DLL 都有（最该先翻）",
-        "dll": "只在 DLL 里（走 set_text）",
+        "dll": "只在 DLL 里（走 ProcessText）",
     }
     for k in ("both", "asset", "dll"):
         if k in src:
