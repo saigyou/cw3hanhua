@@ -51,6 +51,10 @@
 __pycache__/
 *.pyc
 
+# ★ 游戏原始资产备份（约 84 MB）。绝不能入库：这是游戏本体文件，
+#   由 tools\bake_textmesh_assets.py --backup 从游戏目录复制生成。
+/_cw3hanhua/_assets_orig/
+
 # ---------- 临时文件 ----------
 /_cw3hanhua/_tmp/
 

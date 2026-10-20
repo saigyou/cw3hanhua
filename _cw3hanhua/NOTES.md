@@ -284,13 +284,14 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | B1 | 静态全量收集 + 词表骨架 | ✅ |
 | B2 | `ProcessText` prefix+postfix+finalizer | ✅ **v0.9.0 实测通过** |
 | B4 | HUD 合并成左上角一块 | ✅ **v0.8.2 实测通过** |
-| B6 | 改资产：TextMesh 中文烘进 prefab | ⬜ **下一步** |
+| B6 | 改资产：TextMesh 中文烘进 prefab（19 条） | 🟡 **已用修好的脚本重烘，待实测**（`script_type_index` bug 已修，见 4.6） |
+| B7 | ③ 类运行时覆盖对象的代码补丁 | ⬜ 步骤 6，待 B6 实测后 |
 | C1–C3 | 翻译：主菜单 / HUD / 建造菜单 / 剧情 | ✅ 全量批 full_01–21 入库 1140 条 |
 | C4 | 剩余按设计不译的分流 | ✅ |
 | D | 打包 / 分发 | ⬜ |
 
 > 已废弃的阶段（不要再做）：**B3** 的 `set_text` prefix + 周期 sweep、
-> **B5** 的「缓存 + 每帧快扫」、**B7** 的逐个打 prefix。
+> **B5** 的「缓存 + 每帧快扫」。这两个都已 `❌`。
 > 前两者的教训见 4.3 末，B7 的依据见 4.6。
 
 **为什么字体层先做**：否则中文显示成方块，无法区分"字体没做"还是"翻译错"。
@@ -687,9 +688,10 @@ Aldrich 空格 = 0.300 em。18 条主菜单译文平均只占英文宽的 **68%*
 `Credits`（已改）。→ **不需要任何"插空格/缩字号"的特殊手段**，直接替换即可。
 （另：`zh_cn.dict` 是 TextMesh 与 UILabel 共用的，往词表里塞空格会污染 UILabel 路径。）
 
-### 4.6 下一步：改资产让 TextMesh 显示中文
+### 4.6 改资产让 TextMesh 显示中文（2026-10-20 已执行）
 
-**目标**：把中文写进 prefab 的 `m_Text` / `mText`，对象一出现就是中文，零闪烁。
+**目标**：把中文写进 prefab 的 `m_Text`，对象一出现就是中文，零闪烁。
+`TextMesh.set_text` 是 extern icall（RVA=0），Harmony 打不上，所以这批只能改资产。
 
 **盘点结果**（`_cw3hanhua/_diag/scan_textmesh.py`，只读，全部 19 个资产文件）
 
@@ -718,17 +720,118 @@ TextMesh 全指 `Aldrich`（`{m_FileID:1, m_PathID:755}`），`resources.assets`
 unity 内置 Arial（`{m_FileID:5, m_PathID:10102}`）—— **两条都无 CJK 字形，但都不影响**
 （见 3.2 末）。
 
-**用户已定的执行顺序**
+**★ 已落地：`tools/bake_textmesh_assets.py`（2026-10-20 执行通过）**
 
-```
-3. 备份要修改的资产
-4. 把资产修改固化为一个脚本（tools/bake_textmesh_assets.py）：
-   先把备份放回游戏目录（清除之前修改的影响），再对被放回的资产写入中文
-5. 执行脚本
-6. 必须走代码路线的对象（上面 ③ 类），在插件中打补丁
+```powershell
+# 备份（幂等，永不覆盖已有备份）→ _cw3hanhua\_assets_orig\（71.5 MB，已 gitignore）
+$env:PYTHONPATH = (Resolve-Path "_cw3hanhua\.venv\Lib\site-packages").Path
+& "C:\Python314\python.exe" _cw3hanhua\tools\bake_textmesh_assets.py --backup
+& "C:\Python314\python.exe" _cw3hanhua\tools\bake_textmesh_assets.py --dry-run   # 看会改什么
+& "C:\Python314\python.exe" _cw3hanhua\tools\bake_textmesh_assets.py             # 恢复+烘焙
+& "C:\Python314\python.exe" _cw3hanhua\tools\bake_textmesh_assets.py --restore   # 全部还原
 ```
 
-`--restore` 子命令同样需要（F4 关不掉烧进 prefab 的中文，见 4.3）。
+脚本行为：**先把备份复制回游戏目录（清除旧修改）→ 再从备份副本重新烘焙 → 写回**，
+所以反复运行结果幂等（实测第二次跑打印「已是原始状态，无需恢复」）。
+只改 ① 类 20 条中的 19 条（`DMD` 词表无译文，跳过）；②③ 类不动。
+自带回读校验（写完重新解析资产、逐条比对中文），实测 **19/19 通过**。
+
+**改后体积变化**（UnityPy 重打包会重排字符串表，不必惊慌）：
+`level1` 833288→833304 · `level2` 102840→102840 · `level5` 10776→10000 ·
+`mainData` 173728→172176 · `resources.assets` 65430296→65430304 · `sharedassets6.assets` 8396920→8393536。
+
+**★ 沙箱坑：`.venv\Scripts\python.exe` 一个字节都写不进去（2026-10-20 卡了近 1 小时）**
+
+现象：烘焙脚本报 `PermissionError: [Errno 13] Permission denied: 'CW3_Data\level1'`，
+但**同一个提权 shell 里** `pwsh` 能写、`C:\Python314\python.exe` 能写、只有 venv 的 python 不能。
+
+根因：DSH 沙箱让「**从工作区目录内启动的可执行文件**」以 **Low 完整性级别**运行，
+而游戏资产文件是 Medium —— Windows 的 no-write-up 规则禁止低完整性进程覆盖高完整性文件。
+（新建文件、写 `_cw3hanhua` 下自己的文件都不受影响，所以 `--backup`、`_diag` 写 JSON 都"正常"，
+只有覆盖游戏资产这一步失败，极易误判成"文件被占用"。）
+
+解法：**用系统 python 解释器 + venv 的 site-packages**（由沙箱外的 `C:\Python314` 启动，
+拿 Medium 完整性）。脚本里 `precheck_writable()` 会把这条建议直接印出来。
+`_cw3hanhua\tools\collect_ui_strings.py` 等只读脚本用 venv 跑没问题。
+
+**★ `--restore` 的静默失效（2026-10-20 用户实测发现，已修）**
+
+现象：资产已烘焙成中文后跑 `--restore`，**什么都没发生，也没有任何报错，退出码 0**。
+
+根因：`main()` 里 `--restore` 的判断排在 `plan = scan(d)` **之后**，而 `scan()` 是按
+「英文原文查词表」生成计划的 —— 资产里已经是中文，查不到任何命中 → `plan` 为空 →
+命中 `if not plan: print("没有需要改的 TextMesh"); return 0`，**永远走不到 `--restore` 分支**。
+计划与恢复本来毫无关系（恢复只需要 manifest），所以修法是把 `--restore` 提到最前面、
+完全不依赖 `scan()`。
+
+顺带加的护栏：`--backup` 现在要求 `plan` 非空。否则「之前没备份、而现在资产已是中文」时
+运行 `--backup`，会把**中文状态当成原件**冻存进 `_assets_orig/`，此后 `--restore` 只会还原出
+中文，**永远回不到英文**且无从察觉。
+
+修后实测：`--restore` 六个文件全部写回，sha256 与 `manifest.json` **逐字节一致**；
+再跑一次打印「已是原始状态，无需恢复」（幂等）；随后完整跑一遍恢复正常，19/19 校验通过。
+
+**回归自检**（`_cw3hanhua/_diag/diff_bake.py`，只读）：拿烘焙前扫的
+`_diag/uilabel_inventory.json` 当基线，重扫现役资产逐条对比 → 实测
+**1029 条 UILabel 文本变了 0 / 丢了 0 / 增了 0**，完全未被触碰；六个文件的对象数也没变
+（`level1` 5196、`resources.assets` 2185 等）。
+
+> ★ 两个对比陷阱，都踩过：
+> ① **不能直接读 `_assets_orig/` 里的备份做 diff** —— 备份离开 `CW3_Data/` 后，MonoBehaviour 的
+> MonoScript 要跨文件引 `sharedassets0.assets`，UnityPy 报 `FileNotFoundError: File
+> sharedassets0.assets not found in ...\_assets_orig`，备份侧 **0/1827** 可读（现役 1807/1827）。
+> **备份只能整体拷回，不能就地解析。**
+> ② 基线只记**非空**文本（1029 条），而全场有 1206 个 UILabel —— 多出的 177 个 `mText` 是空串。
+> 对比前必须滤空，否则会误报「新增 177 条、有 UILabel 被波及」。
+
+**★★ 最大的坑：UnityPy 会把 `script_type_index` 抹平 → 主菜单按钮点不动（2026-10-20 定位并修复）**
+
+现象：烘焙后进游戏，**主菜单所有按钮都点不动**；`--restore` 还原资产后立刻恢复。
+不崩溃、不报错，日志里只有一堆 `MainMenu` 的 `NullReferenceException`。
+
+根因在 UnityPy 1.25.4 的 `UnityPy/files/ObjectReader.py:109-112`：
+
+```python
+if 11 <= header.version < 17:
+    script_type_index = reader.read_short()
+    if serialized_type:
+        serialized_type.script_type_index = script_type_index   # ★ 写进共享的 type 表
+```
+
+`serialized_type` 是**整张类型表里共享的那一个对象**（`:94-97` 按 `class_id` 找），
+每读到一个对象就覆盖它一次；到 `write()`（`:175`
+`writer.write_short(self.serialized_type.script_type_index)`）时，**所有对象都写回最后
+读到的那个值**。→ 每个对象 2 字节的脚本索引被抹成同一个数。
+
+后果不是崩溃，而是**静默的功能损坏**：Unity 加载 MonoBehaviour 时靠这个索引找脚本类，
+索引错位 → 组件绑到错误的脚本 → 运行时变成「C# 壳还在、native ptr=0」的死组件。
+`MainMenu` 的 6 个 sprite 字段里 3 个（`creditsSprite`/`exitGameSprite`/`loadFileSprite`）
+在 `Awake` 时就已经是死的 → `MainMenu.Update` 的悬停比较链里
+`callvirt Component.get_gameObject()` 抛 NRE → Update 中途返回，**永远走不到 IL `0477`
+的 `Input.GetMouseButtonDown` / `0482 OnMyMouseDown`** → 点击全丢。
+
+**踩过的弯路（务必记住）**：因为 `get_raw_data()` 逐字节相同，一度判定「烘焙无辜」，
+静态查了对象表 / type_id / externals 顺序 / 类型表 / 对齐 / 区间重叠 / 6 个组件的
+raw md5 / GameObject 重名 / 脚本实例数 —— **十几项全部清白**，完全找不到原因。
+教训：**「对象数据未变」不等于「文件可用」**，坏的可能在 metadata 里那几字节。
+决定性实验是**纯往返**：`UnityPy.load()` → `sf.save()`，一个文本都不改 ——
+`level1` 就出现 **316 字节差异，全部落在 metadata 区**（`data_offset`=148048 之前），
+每处只差 1 字节，间距 84/140/112/56/196，正好是对象记录的步长。
+
+**修法**（已固化进 `bake_textmesh_assets.py` 的 `install_unitypy_fix()`）：
+monkey-patch `ObjectReader.from_reader`，读完从 `reader.Position` 回退 2 字节
+（version 15/16 还要多退 1 字节的 `is_stripped`）把**每个对象自己的**索引记下来；
+再 patch `ObjectReader.write`，写前把 `serialized_type.script_type_index` 设回该对象的值。
+★ 键必须用 `(id(assets_file), path_id)` —— **不同资产文件的 path_id 各自编号会重号**。
+
+**验证**：纯往返差异字节 **316 → 0**、文件逐字节完全相同；修复后烘焙的六个文件
+逐对象比对 `script_type_index` **与原件全部一致**（level1 5196 / level2 859 / level5 78 /
+mainData 49 / resources.assets 2185 / sharedassets6 11，不同的都是 0）。
+
+> 顺带澄清一个假象：`read_typetree()` 里这 6 个组件的 `m_Script` 读出来是垃圾
+> `{'m_FileID': 16777216, 'm_PathID': 1895825408}` —— **原件里也是这个值**，属于
+> level1 那 20 个解析不出的 MonoBehaviour（缺 `Assembly-UnityScript.dll`），
+> 不是烘焙造成的，别拿它判断脚本对不对。
 
 **③ 类留给代码路线的备选方案（步骤 6 的依据）**
 `TextMesh.set_text` 全游戏只有 **8 个宿主方法 / 15 个调用点**（`ilx callers --type TextMesh set_text`）：
@@ -826,6 +929,12 @@ $g = "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3"
 - 目标框架只能是 **net35**（游戏跑在 Mono 2.x）
 - **`.cmd` 必须是 ASCII + CRLF**：cmd.exe 按 OEM 代码页解析批处理，
   写 UTF-8 中文注释会被切碎成乱码命令
+- **`if exist (...)` 块里的 `echo` 文案不许出现裸 `)`** —— 踩过：诊断层那段的
+  `echo == CW3HanhuaDiag.dll (TEMP diag, 查完即删) ==` 里有一个 `)`，cmd.exe 在
+  **第一个不平衡的 `)`** 处就闭合了 if 块，后面的 csc 命令行全漏到块外**无条件执行**。
+  于是删掉 `CW3HanhuaDiag.cs` 之后编译照样报
+  `error CS2001: 未能找到源文件…CW3HanhuaDiag.cs` / `CS2008: 未指定输入`，
+  而 `if exist` 明明为假 —— 极易误判成"文件没删干净"。块内一律用 `-` 或 `[]`。
 
 ### 5.3 C# 3.0 的坑（用 csc 3.5 时）
 
