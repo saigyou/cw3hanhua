@@ -1,5 +1,5 @@
 // ============================================================================
-//  CW3 汉化插件 v0.8.2 —— 合并图集字体层（见 NOTES 4.4）+ 合并 HUD（NOTES 4.3）
+//  CW3 汉化插件 v0.8.3 —— 合并图集字体层（见 NOTES 4.4）+ 合并 HUD（NOTES 4.3）
 //
 //  方案：不拆 draw call。
 //    把中文字形并进游戏原有的 GUI Atlas（512x1024 → 4096x8192），
@@ -17,10 +17,13 @@
 //    _cw3hanhua/_font/atlas_zh.png   4096x8192 合并图集
 //    _cw3hanhua/_font/atlas_zh.bin   字形表（插件直读，手写二进制比 JSON 可靠）
 //
-//  按键：
-//    F3   字体层开关（换图集 / 还原）
-//    F11  dump
-//    F12  HUD 开关（两个插件的状态合并成同一块，画在左上角）
+//  按键（共 6 个，全部列在 HUD 上；HUD 只报开关状态，不报内部数字）：
+//    字体层  F3   字体层开关（换合并图集 / 还原原图集）
+//            F11  dump → BepInEx/CW3HanhuaFont.txt（详细数字都在这里，不在 HUD 上）
+//            F12  HUD 开关（两个插件的状态合并成同一块，画在左上角）
+//    文本层  F4   文本层开关（接词表替换 / 还原）
+//            F5   打印未命中清单（缺哪些译文）
+//            F9   重载词表（改完 zh_cn.dict 不用重启）
 //
 //  编译：tools\build_plugin.cmd（封装了 csc 3.5 /platform:x86 /codepage:65001 与全部引用）
 // ============================================================================
@@ -36,10 +39,10 @@ using UnityEngine;
 
 namespace CW3Hanhua
 {
-    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua Core", "0.8.2")]
+    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua Core", "0.8.3")]
     public class HanhuaPlugin : BaseUnityPlugin
     {
-        const string Ver = "0.8.2";
+        const string Ver = "0.8.3";
 
         static HanhuaPlugin inst;
         static string reportPath;
@@ -86,36 +89,10 @@ namespace CW3Hanhua
         // ---------------------------------------------------------------- 状态
         static int frame;
         static string sceneName = "";
-        static int sceneStartFrame;
         static string lastEvent = "(无)";
-        static int lastLabelCount;
         static int materialFixCount;
 
 
-        /// <summary>控件所属 UIPanel（找不到返回 null）。</summary>
-        static UIPanel FindPanel(Component c)
-        {
-            try
-            {
-                Transform t = c.transform;
-                while (t != null)
-                {
-                    UIPanel p = t.GetComponent<UIPanel>();
-                    if (p != null) return p;
-                    t = t.parent;
-                }
-            }
-            catch (Exception) { }
-            return null;
-        }
-
-        /// <summary>控件所属面板的完整路径（诊断用，例如 "Camera/PopupHelp"）。</summary>
-        static string PanelPath(Component c)
-        {
-            UIPanel p = FindPanel(c);
-            if (p == null) return "(无面板)";
-            try { return PathOf(p.gameObject); } catch (Exception) { return "(?)"; }
-        }
 
         // ================================================================ 已废弃的方案（留作教训）
         //
@@ -183,12 +160,6 @@ namespace CW3Hanhua
             return 16;
         }
 
-        static int SafeFontSize(Font f, int fallback)
-        {
-            try { if (f != null) { int s = f.fontSize; if (s > 0) return s; } } catch (Exception) { }
-            return fallback;
-        }
-
         static void SafeMarkAsDirty(UIFont f)
         {
             try { if (f != null) f.MarkAsDirty(); } catch (Exception) { }
@@ -233,7 +204,8 @@ namespace CW3Hanhua
             Say("反射: mAtlas=" + Ok(fAtlas) + " mMat=" + Ok(fMat) + " mUVRect=" + Ok(fUV)
                 + " mDynamicFont=" + Ok(fDyn) + " mFont(BMFont)=" + Ok(fBMFont));
             Say("");
-            Say("按键: F3 字体层开关 | F11 dump | F12 HUD");
+            Say("按键(字体层): F3 字体层开关 | F11 dump | F12 HUD");
+            Say("按键(文本层): F4 文本层开关 | F5 未命中清单 | F9 重载词表");
             Say("");
         }
 
@@ -249,7 +221,6 @@ namespace CW3Hanhua
                     Say("");
                     Say("=== 场景切换 #" + frame + ": '" + sceneName + "' -> '" + sc + "' ===");
                     sceneName = sc;
-                    sceneStartFrame = frame;
                     PruneDead();
                 }
 
@@ -262,12 +233,13 @@ namespace CW3Hanhua
                     RefreshAllLabelMaterials();
                 }
 
-                // ★ 2026-10-18 精简按键：只留 3 个真正有用的。
-                //   已删：F2 TextMesh（TextMesh 路线已废弃）、F6 关裁剪（诊断完）、
-                //         F7/F8 中文测试（现在真实文本就是中文了）、F10 全部还原（F3 已能关）
+                // 按键：字体层这 3 个（文本层的 F4/F5/F9 在 CW3HanhuaText.cs 里）。
+                //   HUD 第一行会把 6 个键全列出来 —— 加/删按键时**两处都要改**。
+                //   历史：F2 TextMesh / F6 关裁剪 / F7 F8 中文测试 / F10 全部还原，
+                //   都随对应方案废弃而删除，不要在 HUD 里"保留"它们。
                 if (Input.GetKeyDown(KeyCode.F3)) ToggleFont();
                 if (Input.GetKeyDown(KeyCode.F11)) DumpReport();
-                if (Input.GetKeyDown(KeyCode.F12)) { showHud = !showHud; lastEvent = "HUD=" + showHud; }
+                if (Input.GetKeyDown(KeyCode.F12)) { showHud = !showHud; }
             }
             catch (Exception e) { Say("!! Update 异常: " + e.Message); }
         }
@@ -733,20 +705,16 @@ namespace CW3Hanhua
                 }
             }
             catch (Exception) { }
-            lastLabelCount = n;
         }
 
         /// <summary>
-        /// 周期性兜底：面板/页签later 才激活时，label 会在激活瞬间重新 Fill，
+        /// 周期性兜底：面板/页签 later 才激活时，label 会在激活瞬间重新 Fill，
         /// 但那时它的 mMat 仍是旧材质。这里定期扫一遍，把仍持有旧材质的 label 纠正过来。
         ///
-        /// ★★ 2026-10-18 修正：**不能把材质设回字体级共享材质**。
-        ///   之前这里写 l.material = lf.material（字体级的那个），
-        ///   而 FixRenderOrder 已经把 label 换成了「按面板克隆的副本」，
-        ///   于是每 30 帧二者互相覆盖 —— 日志里 "兜底 修正了 354 个 label（累计 2890）"
-        ///   就是它在反复冲掉面板材质，导致分层永远不生效。
-        ///   现在：只处理「材质根本不是我们的字形材质」的 label（首次绑定），
-        ///   已经是我们克隆副本的一律跳过，交给 FixRenderOrder 管。
+        /// ★ 合并图集方案下文字的材质**就是图集材质**（不再按面板克隆副本，
+        ///   那套分层方案已证伪并删除，见文件上半部「已废弃的方案」）。
+        ///   所以这里只做一件事：材质不是我们的图集材质时（首次绑定 / 激活时被重填）
+        ///   设回 `lf.material`；已经是了就不干预。
         /// </summary>
         void RefreshAllLabelMaterials()
         {
@@ -805,13 +773,7 @@ namespace CW3Hanhua
             catch (Exception) { }
         }
 
-        void RestoreAll()
-        {
-            Say("");
-            Say("======== 全部还原 ========");
-            RestoreFont();
-            fontOn = false;
-        }
+        // ※ 原 RestoreAll()（F10 全部还原）已删：F3 本身就能关，F10 早已不再绑定。
 
         void PruneDead()
         {
@@ -824,11 +786,25 @@ namespace CW3Hanhua
         {
             Say("");
             Say("======== F11: dump（第 " + frame + " 帧）========");
-            Say("  场景='" + sceneName + "'  插件=v" + Ver);
-            Say("  开关: 字体=" + fontOn);
+            Say("  插件=v" + Ver + "  开关: 字体=" + fontOn + "  HUD=" + showHud);
+            Say("  场景='" + sceneName + "'  帧=" + frame);
             Say("  已装载字号: " + DictKeys(fontDataCache));
+            Say("  合并图集=" + (mergedAtlasApplied ? "已启用 (4096x8192)" : "未启用 (原版 512x1024)")
+                + "  UIFont 备份=" + fontBackups.Count + "  累计兜底修正=" + materialFixCount);
             if (loadError.Length > 0) Say("  !! 最近装载错误: " + loadError);
-            Say("  UIFont 备份=" + fontBackups.Count + "  合并图集=" + (mergedAtlasApplied ? "已启用" : "未启用"));
+            if (mergedAtlasError.Length > 0) Say("  !! 最近图集错误: " + mergedAtlasError);
+            Say("  最近事件: " + lastEvent);
+
+            // ★ HUD 上只留按键与开关状态（用户要求：内部数字不要暴露）。
+            //   所有数字集中到 F11 这一份 dump 里 —— 包括文本层的（反射取 DumpLine）。
+            try
+            {
+                MethodInfo md = FindPeerMethod("DumpLine");
+                string s = null;
+                if (md != null) { try { s = (string)md.Invoke(null, null); } catch (Exception) { } }
+                Say("  " + ((s != null && s.Length > 0) ? s : "文本层: 未装载（CW3HanhuaText.dll）或状态不可用"));
+            }
+            catch (Exception) { }
 
             try
             {
@@ -875,7 +851,7 @@ namespace CW3Hanhua
                         + " depth=" + l.depth
                         + " panel=" + NameOf(lpanel)
                         + " clip=" + ((lpanel != null) ? lpanel.clipping.ToString() : "?")
-                        + " mat=" + NameOf(lmat) + "(" + ((lmat != null) ? ("q=" + lmat.renderQueue) : "-") + ")"
+                        + " mat=" + NameOf(lmat)
                         + " color=" + l.color
                         + " 文本=[" + Trunc(t, 40) + "]");
                 }
@@ -883,14 +859,18 @@ namespace CW3Hanhua
             }
             catch (Exception e) { Say("  UILabel dump 异常: " + e.Message); }
 
-            // ★ 关键诊断：UIDrawCall 是**真正决定渲染顺序**的东西，
-            //   它的 sharedMaterial 才是最终上传给 GPU 的材质。
+            // ★ 诊断 draw call：它的 sharedMaterial 才是最终上传给 GPU 的材质，
             //   label.material 只是"请求"，未必等于 draw call 实际用的材质。
+            //   ★ 自合并图集方案起**文字与背景共用同一份图集材质**，所以这里只看
+            //     两件事：① 材质是不是合并图集（"合并图集" / "原版"）；
+            //     ② 顶点数是否为 0（顶点 0 = 该 draw call 没被 Fill 到）。
+            //     历史列（renderQueue、材质实例 ID）属于已废弃的"拆 draw call +
+            //     按队列分层"诊断口径，NOTES 4.4 已证明无意义，故删掉。
             try
             {
                 UnityEngine.Object[] dcs = Resources.FindObjectsOfTypeAll(typeof(UIDrawCall));
                 Say("");
-                Say("  --- UIDrawCall（共 " + dcs.Length + " 个，真正决定渲染顺序）---");
+                Say("  --- UIDrawCall（共 " + dcs.Length + " 个）---");
                 for (int i = 0; i < dcs.Length; i++)
                 {
                     UIDrawCall dc = dcs[i] as UIDrawCall;
@@ -904,11 +884,9 @@ namespace CW3Hanhua
                     {
                         Material m = mats[k];
                         if (m == null) { sb.Append(" [null]"); continue; }
-                        // 新方案下文字与背景共用图集材质，材质只可能是"图集材质"这一种
                         bool isAtlas = mergedAtlasApplied && mergedTex != null
                                        && ReferenceEquals(m.mainTexture, mergedTex);
-                        sb.Append(" ").Append(isAtlas ? "合并图集" : NameOf(m))
-                          .Append("(id=").Append(m.GetInstanceID()).Append(" q=").Append(m.renderQueue).Append(")");
+                        sb.Append(" ").Append(isAtlas ? "合并图集" : ("原版/" + NameOf(m)));
                     }
                     int verts = -1;
                     try { MeshFilter mf = dc.GetComponent<MeshFilter>(); if (mf != null && mf.sharedMesh != null) verts = mf.sharedMesh.vertexCount; } catch (Exception) { }
@@ -920,28 +898,10 @@ namespace CW3Hanhua
             Say("  （完整记录见 " + reportPath + "）");
         }
 
-        /// <summary>材质的诊断信息：实例 ID + 队列 + 纹理 ID。
-        /// 光看材料名没用 —— 我们的每个面板副本都叫 'Unlit/Transparent Colored'，
-        /// 必须靠 ID/队列才能分辨到底换没换、队列多少。</summary>
-        static string MatInfo(Material m)
-        {
-            if (m == null) return "(null)";
-            try
-            {
-                int texId = (m.mainTexture != null) ? m.mainTexture.GetInstanceID() : 0;
-                return "(id=" + m.GetInstanceID() + " q=" + m.renderQueue + " tex=" + texId + ")";
-            }
-            catch (Exception) { return "(?)"; }
-        }
-
+        /// <summary>BMFont 的真字形数（`BMFont.glyphCount` 是 public 属性，见 ilx find BMFont）。</summary>
         static int bmGlyphCount(BMFont bm)
         {
-            try
-            {
-                // BMFont 没暴露 glyph 数量，用 GetGlyph 探测太慢；这里只报 charSize/tex
-                return bm != null ? 1 : 0;
-            }
-            catch (Exception) { return 0; }
+            try { return (bm != null) ? bm.glyphCount : 0; } catch (Exception) { return 0; }
         }
 
         static string DictKeys<T>(Dictionary<int, T> d)
@@ -952,21 +912,31 @@ namespace CW3Hanhua
         }
 
         // ================================================================ HUD
-        // ★ 2026-10-19：两个插件的 HUD 合并成一个（原先字体层画左上角、文本层画左下角）。
-        //   宿主 = 字体层（字母序先装载、信息多，F12 也在这里）；文本层那一行通过
+        // ★ 2026-10-21 重做：HUD 只承担两件事 ——
+        //     ① 把**所有能按的键**摆在眼前（用户要求：能按的键都要提供出来）；
+        //     ② 报告两个开关的当前状态，以及出错时的原因。
+        //   内部数字（字号表、备份数、帧号、码表统计、补丁自检…）一律不上 HUD，
+        //   全部挪到 F11 的 dump 文件里 —— 看 HUD 的人不需要它们。
+        //
+        //   宿主 = 字体层（字母序先装载、F12 也在它这儿）；文本层那一段通过
         //   TextPlugin.HudLine() **反射**取回 —— 两个 DLL 之间没有编译期引用，
-        //   仍保持"独立编译、独立开关"（NOTES 4.3 开头那条约束）。
-        //   反向兜底：字体层没装载时，文本层自己画那一行（CW3HanhuaText.cs 的 OnGUI）。
-        static MethodInfo peerHudLine;
-        static bool peerSearchedOnce;
+        //   保持"独立编译、独立开关"（NOTES 4.3 开头那条约束）。
+        //   反向兜底：字体层没装载时，文本层自己画一条（CW3HanhuaText.cs 的 OnGUI）。
+        static readonly Dictionary<string, MethodInfo> peerMethods = new Dictionary<string, MethodInfo>();
+        static readonly string[] peerMethodNames = { "HudLine", "ErrorLine", "DumpLine" };
+        static int peerScanFrame = -1000;
+        static bool peerTextPluginSeen;
 
-        /// <summary>找 TextPlugin.HudLine()。BepInEx 是逐个装载插件的，第一次 OnGUI 时
-        /// 对方可能还没就绪，所以**不做永久否定缓存**：找不到就每 60 帧再找一次。</summary>
-        static MethodInfo FindPeerHudLine()
+        /// <summary>找 TextPlugin 的某个 `public static string` 无参方法。
+        /// BepInEx 是逐个装载插件的，第一次 OnGUI 时对方可能还没就绪，
+        /// 所以**不做永久否定缓存**：没找齐就每 60 帧再扫一次程序集。
+        /// 一次扫描会把三个已知方法**全部**缓存（否则每帧只解一个，F11 早按会误报）。</summary>
+        static MethodInfo FindPeerMethod(string name)
         {
-            if (peerHudLine != null) return peerHudLine;
-            if (peerSearchedOnce && (frame % 60) != 0) return null;
-            peerSearchedOnce = true;
+            MethodInfo hit;
+            if (peerMethods.TryGetValue(name, out hit) && hit != null) return hit;
+            if (peerScanFrame >= 0 && (frame - peerScanFrame) < 60) return null;
+            peerScanFrame = frame;
             try
             {
                 Assembly[] asms = AppDomain.CurrentDomain.GetAssemblies();
@@ -974,12 +944,30 @@ namespace CW3Hanhua
                 {
                     Type t = asms[i].GetType("CW3Hanhua.TextPlugin", false);
                     if (t == null) continue;
-                    MethodInfo m = t.GetMethod("HudLine", BindingFlags.Static | BindingFlags.Public);
-                    if (m != null) { peerHudLine = m; return m; }
+                    peerTextPluginSeen = true;
+                    for (int k = 0; k < peerMethodNames.Length; k++)
+                    {
+                        MethodInfo m = t.GetMethod(peerMethodNames[k], BindingFlags.Static | BindingFlags.Public);
+                        if (m != null) peerMethods[peerMethodNames[k]] = m;
+                    }
+                    break;
                 }
             }
             catch (Exception) { }
-            return null;
+            return peerMethods.TryGetValue(name, out hit) ? hit : null;
+        }
+
+        /// <summary>反射调对方的一个无参 string 方法，失败返回 null。</summary>
+        static string PeerString(string name)
+        {
+            try
+            {
+                MethodInfo m = FindPeerMethod(name);
+                if (m == null) return null;
+                object r = m.Invoke(null, null);
+                return r as string;
+            }
+            catch (Exception) { return null; }
         }
 
         void OnGUI()
@@ -990,24 +978,38 @@ namespace CW3Hanhua
             {
                 GUI.color = Color.white;
                 List<string> lines = new List<string>();
-                lines.Add("CW3 汉化  字体层 v" + Ver + "   F3 字体=" + (fontOn ? "开" : "关")
-                        + "   F11 dump   F12 关HUD");
-                lines.Add("场景=" + sceneName + "  帧=" + frame + "  已装载字号=" + DictKeys(fontDataCache));
-                lines.Add("图集=" + (mergedAtlasApplied ? "合并(4096x8192)" : "原版(512x1024)")
-                        + "  UIFont备份=" + fontBackups.Count
-                        + (loadError.Length > 0 ? ("   !! " + loadError) : "")
-                        + "  最近: " + lastEvent);
 
-                MethodInfo peer = FindPeerHudLine();
-                if (peer == null) lines.Add("文本层: 未装载（CW3HanhuaText.dll）");
-                else
+                // ---- 第 1 行：全部按键 + 两个开关的状态（HUD 的主体）----
+                string peerHud = PeerString("HudLine");
+                string peerTextKey = (peerHud != null && peerHud.Length > 0) ? peerHud : "F4 文本层:--";
+                lines.Add("按键   F3 字体层:" + (fontOn ? "开" : "关")
+                        + "   " + peerTextKey
+                        + "   F5 未命中清单   F9 重载词表   F11 dump   F12 关HUD");
+
+                // ---- 第 2 行起：只在真出问题时出现 ----
+                if (loadError.Length > 0) lines.Add("!! 字体层: " + loadError);
+                if (mergedAtlasError.Length > 0) lines.Add("!! 图集: " + mergedAtlasError);
+                if (peerHud == null)
+                    lines.Add(peerTextPluginSeen
+                        ? "!! 文本层状态读取异常（类型在，HudLine 返回空）"
+                        : "!! 文本层未装载（CW3HanhuaText.dll）");
+                string peerErr = PeerString("ErrorLine");
+                if (peerErr != null && peerErr.Length > 0) lines.Add("!! 文本层: " + peerErr);
+
+                // ---- 自适应宽度：量出最长一行，不写死像素 ----
+                GUIStyle st = GUI.skin.label;
+                float maxW = 0f;
+                for (int i = 0; i < lines.Count; i++)
                 {
-                    string s = null;
-                    try { s = (string)peer.Invoke(null, null); } catch (Exception) { }
-                    lines.Add((s != null && s.Length > 0) ? s : "文本层: 状态不可用");
+                    float x = 0f;
+                    try { x = st.CalcSize(new GUIContent(lines[i])).x; } catch (Exception) { }
+                    if (x > maxW) maxW = x;
                 }
+                float w = maxW + 28f;
+                if (w < 480f) w = 480f;
+                if (w > Screen.width - 12f) w = Screen.width - 12f;
 
-                int w = 1180, h = 20 * lines.Count + 14;
+                int h = 20 * lines.Count + 14;
                 GUI.Box(new Rect(4, 4, w, h), "");
                 for (int i = 0; i < lines.Count; i++)
                     GUI.Label(new Rect(14, 12 + 20 * i, w - 20, 20), lines[i]);

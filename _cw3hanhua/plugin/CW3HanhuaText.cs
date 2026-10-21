@@ -1,5 +1,5 @@
 // ============================================================================
-//  CW3 汉化 · 文本层 v0.10.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点
+//  CW3 汉化 · 文本层 v0.10.1 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点
 //
 //  与字体层（CW3Hanhua.cs）**独立编译、独立运行**：
 //    字体层负责"字形从哪来"，本层负责"英文串怎么变中文"。两层可分别开关，
@@ -71,10 +71,10 @@ using UnityEngine;
 
 namespace CW3Hanhua
 {
-    [BepInPlugin("cw3hanhua.text", "CW3 Hanhua Text", "0.10.0")]
+    [BepInPlugin("cw3hanhua.text", "CW3 Hanhua Text", "0.10.1")]
     public class TextPlugin : BaseUnityPlugin
     {
-        const string Ver = "0.10.0";
+        const string Ver = "0.10.1";
 
         static TextPlugin inst;
         static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
@@ -798,27 +798,53 @@ namespace CW3Hanhua
         }
 
         // ================================================================ HUD
-        // ★ 2026-10-19：HUD 合并。字体层（CW3Hanhua.dll）的 OnGUI 会**反射**调用
-        //   本方法取一行状态，和它自己的三行一起画在左上角。
+        // ★ 2026-10-21：HUD 只报**开关状态**，内部数字全部移到 F11 的 dump
+        //   （TextPlugin.DumpLine）—— 用户明确要求"这些信息不用暴露给用户"。
+        //   字体层（CW3Hanhua.dll）的 OnGUI 会**反射**调用 HudLine()，把它拼进第一行。
         //   本方法要满足三个约束，别改签名：
         //     1) public static string HudLine() —— 反射按 (Static|Public) 找
         //     2) 不抛异常 —— 对方用 try/catch 包着 Invoke，但空串比异常好排查
-        //     3) 自己去查跨 DLL 的静态字段（textOn/dictCount…）—— 同进程同程序集，
-        //        这些 static 是共享的，取到的就是实时值
+        //     3) 自己查跨 DLL 的静态字段（textOn…）—— 同进程同程序集，取到实时值
+        //   ★ 返回值只允许是 "F4 文本层:开/关" 这一种形态：字体层直接把它拼到
+        //     按键行里，多一个字都会把那一行撑长。
         public static string HudLine()
+        {
+            try { return "F4 文本层:" + (textOn ? "开" : "关"); }
+            catch (Exception) { return "F4 文本层:?"; }
+        }
+
+        /// <summary>F11 dump 用的一整行：所有数字都在这里（HUD 上不显示）。</summary>
+        public static string DumpLine()
         {
             try
             {
-                return "文本层 v" + Ver + "  F4=" + (textOn ? "开" : "关")
-                    + "  词表=" + dictCount
-                    + "  prefix=" + prefixCalls + "/" + prefixHits + "  拼接=" + hitConcat
-                    + "  mesh=" + meshCalls + "/" + meshHits + "  未命中=" + missSeen.Count;
+                return "文本层 v" + Ver
+                    + "  开关=" + (textOn ? "开" : "关")
+                    + "  词表=" + dictCount + " 条"
+                    + "  prefix=" + prefixCalls + "/" + prefixHits
+                    + "  拼接=" + hitConcat
+                    + "  mesh=" + meshCalls + "/" + meshHits
+                    + "  未命中=" + missSeen.Count
+                    + "  已记录 label=" + swaps.Count
+                    + "  TextMesh=" + meshSwaps.Count;
             }
             catch (Exception) { return "文本层: 状态读取异常"; }
         }
 
+        /// <summary>出错原因（HUD 只在非空时多画一行）。</summary>
+        public static string ErrorLine()
+        {
+            try
+            {
+                if (dictCount == 0) return (loadError.Length > 0 ? loadError : "词表为空");
+                if (loadError.Length > 0) return loadError;
+                return "";
+            }
+            catch (Exception) { return ""; }
+        }
+
         /// <summary>字体层是否在画合并 HUD（它每次 OnGUI 都会反射调 HudLine）。
-        /// 在就不要再画一遍，否则右下角也会多出一条。</summary>
+        /// 在就不要再画一遍，否则左上角会多出一条。</summary>
         static int lastPeerProbeFrame = -1000;
         static bool peerAlive;
 
@@ -845,15 +871,39 @@ namespace CW3Hanhua
 
         void OnGUI()
         {
+            Color old = GUI.color;
             try
             {
                 if (PeerHudAlive()) return;      // 合并模式下由字体层统一画（NOTES 4.3）
-                Color old = GUI.color;
-                GUI.color = Color.white;
-                GUI.Box(new Rect(8, Screen.height - 30, 720, 22), HudLine());
-                GUI.color = old;      // ★ NOTES 5.6：不改回来会污染后续绘制
+                GUI.color = Color.white;                // 兜底模式：字体层没装载，所以 F3/F11/F12 不可用 —— 明确标出来，
+                // 免得用户按了没反应还以为插件坏了。
+                string l1 = "按键   " + HudLine()
+                          + "   F5 未命中清单   F9 重载词表"
+                          + "   （F3 字体层 / F11 dump / F12 HUD 需 CW3Hanhua.dll）";
+                List<string> lines = new List<string>();
+                lines.Add(l1);
+                string e = ErrorLine();
+                if (e.Length > 0) lines.Add("!! 文本层: " + e);
+
+                GUIStyle st = GUI.skin.label;
+                float maxW = 0f;
+                for (int i = 0; i < lines.Count; i++)
+                {
+                    float x = 0f;
+                    try { x = st.CalcSize(new GUIContent(lines[i])).x; } catch (Exception) { }
+                    if (x > maxW) maxW = x;
+                }
+                float w = maxW + 28f;
+                if (w < 480f) w = 480f;
+                if (w > Screen.width - 12f) w = Screen.width - 12f;
+                int h = 20 * lines.Count + 10;
+                float y = Screen.height - h - 8f;      // 兜底条画在左下角
+                GUI.Box(new Rect(8, y, w, h), "");
+                for (int i = 0; i < lines.Count; i++)
+                    GUI.Label(new Rect(18, y + 8 + 20 * i, w - 20, 20), lines[i]);
             }
             catch (Exception) { }
+            finally { GUI.color = old; }   // ★ NOTES 5.6：不改回来会污染后续绘制（异常路径也要还原）
         }
     }
 }
