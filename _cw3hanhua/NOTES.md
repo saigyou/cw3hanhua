@@ -40,7 +40,7 @@
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
 | 字体层插件 | `BepInEx/plugins/CW3Hanhua.dll` **v0.8.3**（`plugin/CW3Hanhua.cs`）<br>合并图集 + 合并 HUD（v0.8.3 = 重做 HUD，见 4.1「HUD」）。字体/图集链路**已实测通过**；新 HUD **待实测** |
-| 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」）。修前产物备份在 `_diag/atlas_zh_before_alphafix/`（png+bin），回退只需拷回去。**待用户重启游戏目视确认** |
+| 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
 | 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` **v0.10.1**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`（**1144 条**）。`ProcessText` prefix+postfix 覆盖全部 UILabel；**另打 5 个 TextMesh 写入点**（3 个 `ShowText` prefix + 2 个 name setter postfix）。UILabel 部分**已实测通过**，TextMesh 补丁**待实测**。v0.10.1 = HUD 缩成一行（4.3） |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
 | 按键 | 字体层 **F3** 开关 / **F11** dump / **F12** HUD；文本层 **F4** 开关 / **F5** 打印未命中 / **F9** 重载词表 |
@@ -628,6 +628,10 @@ canvas.paste(tile, (dx, dy))            # ✓ 现在：tile 自带透明背景�
 (0,0) 达到相关系数 0.999~1.000**，亚像素最优偏移也是 0 → 屏幕像素就是图集 texel，
 1:1 无重采样，运行时无辜。然后对截图亮度做三模型回归（n=1508 像素，RMS 残差）：
 白字×alpha = 36.9 / **灰度RGB×alpha² = 1.5** ✅ / 白字×alpha² = 17.9。
+修后图集与"直接 13px 渲染"逐像素 RMS = 0.00，即修后已无任何多余损失。
+
+**收尾**：修复已提交 `cd60b9a`，**用户 2026-10-21 重启游戏目视确认"效果好多了"**。
+修前图集可从 `git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png` 取回（`.bin` 无变化）。
 
 **同源检查**：原版 GUI Atlas 区的半透明像素 RGB 多为 (0,0,0) 或 (255,255,255)
 → 原版也用"RGB 不预乘"约定，所以 alpha 必须保持线性、RGB 必须保持纯白，两条都要满足。
@@ -767,7 +771,7 @@ Aldrich 空格 = 0.300 em。18 条主菜单译文平均只占英文宽的 **68%*
 **目标**：把中文写进 prefab 的 `m_Text`，对象一出现就是中文，零闪烁。
 `TextMesh.set_text` 是 extern icall（RVA=0），Harmony 打不上，所以这批只能改资产。
 
-**盘点结果**（`_cw3hanhua/_diag/scan_textmesh.py`，只读，全部 19 个资产文件）
+**盘点结果**（`_cw3hanhua/tools/scan_textmesh.py`，只读，全部 19 个资产文件）
 
 | 项 | 数量 |
 |---|---|
@@ -821,7 +825,7 @@ $env:PYTHONPATH = (Resolve-Path "_cw3hanhua\.venv\Lib\site-packages").Path
 
 根因：DSH 沙箱让「**从工作区目录内启动的可执行文件**」以 **Low 完整性级别**运行，
 而游戏资产文件是 Medium —— Windows 的 no-write-up 规则禁止低完整性进程覆盖高完整性文件。
-（新建文件、写 `_cw3hanhua` 下自己的文件都不受影响，所以 `--backup`、`_diag` 写 JSON 都"正常"，
+（新建文件、写 `_cw3hanhua` 下自己的文件都不受影响，所以 `--backup`、`tools/` 下扫描脚本写 JSON 都"正常"，
 只有覆盖游戏资产这一步失败，极易误判成"文件被占用"。）
 
 解法：**用系统 python 解释器 + venv 的 site-packages**（由沙箱外的 `C:\Python314` 启动，
@@ -845,8 +849,8 @@ $env:PYTHONPATH = (Resolve-Path "_cw3hanhua\.venv\Lib\site-packages").Path
 修后实测：`--restore` 六个文件全部写回，sha256 与 `manifest.json` **逐字节一致**；
 再跑一次打印「已是原始状态，无需恢复」（幂等）；随后完整跑一遍恢复正常，19/19 校验通过。
 
-**回归自检**（`_cw3hanhua/_diag/diff_bake.py`，只读）：拿烘焙前扫的
-`_diag/uilabel_inventory.json` 当基线，重扫现役资产逐条对比 → 实测
+**回归自检**（`_cw3hanhua/tools/diff_bake.py`，只读）：拿烘焙前扫的
+`tools/uilabel_inventory.json` 当基线，重扫现役资产逐条对比 → 实测
 **1029 条 UILabel 文本变了 0 / 丢了 0 / 增了 0**，完全未被触碰；六个文件的对象数也没变
 （`level1` 5196、`resources.assets` 2185 等）。
 
@@ -1094,7 +1098,8 @@ $d = "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3\CW3_Data\Man
 ★ **`fields` 才能查"谁读写某字段"**；`find "Type::member"` 这种写法命中 0。
 
 **★ `tools\ilspy.cmd <dll> -t <类型>` 把方法反编译成 C#** —— 本项目最有效的排查手段。
-NGUI 行为怪异时**先反编译再推理**，产物在 `_cw3hanhua/_diag/`。
+NGUI 行为怪异时**先反编译再推理**。反编译产物是临时的，随手丢进系统临时目录或
+`_cw3hanhua\_diag\`（该目录不进版本库，已清空，可随时重建）都行，**不要入库**。
 
 **⚠ 手写 IL 解析器曾被删除**：三类解码 bug（tiny header、`throw` 长度、`conv.ovf.*` 缺失）
 污染过历史数字（`set_enabled` 371 vs 真 249、`UILabel.set_text` 292 vs 真 322、
@@ -1174,7 +1179,8 @@ Get-Content "$g\BepInEx\config\BepInEx.cfg" -Encoding UTF8 |
 CW3 的 NGUI 代码编译在 `Assembly-CSharp.dll`（无命名空间）。最接近的官方提交是 `625abae8`
 （2013-09-03），但**只对 `UILabel` 成立**：CW3 的 `UIFont` 是更晚的修订——有
 `RecalculateDynamicOffset`、**没有** `Request(string)`、动态分支不受 `DYNAMIC_FONT` 宏控制。
-**所以读 `UIFont` 一律以反编译为准**（`_diag/UIFont.cs`）。
+**所以读 `UIFont` 一律以反编译为准**（现场生成：`tools\ilspy.cmd
+"...\CW3_Data\Managed\Assembly-CSharp.dll" -t UIFont`）。
 
 要拿上游 `UILabel` 源码：`_ngui_repo/` 里有完整历史，
 `git -C _ngui_repo show 625abae8:Assets/NGUI/Scripts/UI/UILabel.cs`。
@@ -1204,7 +1210,11 @@ _cw3hanhua/
 │   ├─ merge_work.py           work/ 译稿 → batches/
 │   ├─ check_batch.py          单批译稿校验
 │   ├─ pack_skips.py           「人工判定不译」固化 → _dict/skipped_manual.json
-│   └─ dict_stats.py           覆盖率报告 → _dict/STATUS.md
+│   ├─ dict_stats.py           覆盖率报告 → _dict/STATUS.md
+│   ├─ scan_uilabel.py / scan_textmesh.py  只读资产盘点（2026-10-21 从 _diag/ 迁入）
+│   ├─ diff_bake.py            ★ 烘焙回归：现役资产 vs 基线，确认没波及 UILabel
+│   └─ uilabel_inventory.json / textmesh_inventory.json
+│                              ★ 烘焙前的历史基线快照，**不可再生**（重跑 scan 会覆盖）
 ├─ plugin/             ★ 两个在用源文件：CW3Hanhua.cs（字体层 v0.8.3）
 │                      CW3HanhuaText.cs（文本层 v0.10.1）
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）
@@ -1212,17 +1222,17 @@ _cw3hanhua/
 ├─ _dict/              ★ 词表：strings.json（唯一数据）/ glossary.md（术语表）
 │                      / zh_cn.dict（编译产物）/ STATUS.md（自动生成）/ batches/（23 份批次）
 │                      / skipped_manual.json（565 条「人工判定不译」，勿删）
-├─ _diag/              ilspy 反编译源码 + 只读扫描脚本（scan_textmesh.py / scan_uilabel.py）
-│                      ★ 改插件前必查；不进版本库（gitignore），可随时重生成
-│                      ★ atlas_zh_before_alphafix/：2026-10-21 修 alpha 平方**之前**的
-│                        atlas_zh.png+bin（回退用，别删）
+├─ _diag/              【已删除】原为 ilspy 反编译源码 + 诊断 PNG 的临时目录（见下）
 ├─ _ngui_repo/         NGUI 仓库 clone，77 MB（gitignore；查上游源码用）
 └─ .venv/              Python 环境（UnityPy / dnfile / dncil / fontTools / Pillow，gitignore）
 ```
 
-`_diag/` **不进版本库**：里面是 `tools\ilspy.cmd` 一次就能重生成的反编译产物
-（例如 `& tools\ilspy.cmd CW3_Data\Managed\Assembly-CSharp.dll -t UIFont`）。
-它叫 `diag` 是因为最初是个「诊断产物」目录，名字沿用下来。
+★ **`_diag/` 已于 2026-10-21 清空删除**（26 个文件 / 11.1 MB）。里面只有两类东西：
+① `tools\ilspy.cmd` 一次就能重生成的反编译源码（`UIFont.cs` 等）—— 要用就现场生成，
+例如 `& tools\ilspy.cmd CW3_Data\Managed\Assembly-CSharp.dll -t UIFont`；
+② 历次诊断的对照 PNG —— 属于中间产物，结论与数字都已写进本文 4.4。
+其中真正不可再生的 3 个只读脚本 + 2 份基线 JSON 已迁到 `tools\`（见上）。
+该目录仍在 `.gitignore`，将来临时放反编译产物没问题，但**不要再往里堆需要长期保留的东西**。
 
 **版本控制**：仓库根 = 游戏安装根目录（`.git` 与 `CW3.exe` 同级）。
 `.gitignore` 用「顶层白名单 + 子目录黑名单」，只放行 `_cw3hanhua\`、`BepInEx\config\`、

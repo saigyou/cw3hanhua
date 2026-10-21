@@ -1,0 +1,8341 @@
+{
+ "generated": "2026-10-20 13:26:57",
+ "note": "只读盘点，未修改任何游戏文件",
+ "per_file": {
+  "level0": {
+   "objs": 0,
+   "with_text": 0,
+   "sec": 0.1
+  },
+  "level1": {
+   "objs": 354,
+   "with_text": 284,
+   "sec": 27.7
+  },
+  "level2": {
+   "objs": 70,
+   "with_text": 67,
+   "sec": 0.0
+  },
+  "level3": {
+   "objs": 765,
+   "with_text": 662,
+   "sec": 0.1
+  },
+  "level4": {
+   "objs": 1,
+   "with_text": 1,
+   "sec": 0.0
+  },
+  "level5": {
+   "objs": 2,
+   "with_text": 2,
+   "sec": 0.0
+  },
+  "level6": {
+   "objs": 2,
+   "with_text": 2,
+   "sec": 0.0
+  },
+  "level7": {
+   "objs": 2,
+   "with_text": 2,
+   "sec": 0.0
+  },
+  "mainData": {
+   "objs": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "resources.assets": {
+   "objs": 8,
+   "with_text": 7,
+   "sec": 138.3
+  },
+  "sharedassets0.assets": {
+   "objs": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets1.assets": {
+   "objs": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets2.assets": {
+   "objs": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets3.assets": {
+   "objs": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets4.assets": {
+   "objs": 2,
+   "with_text": 2,
+   "sec": 0.0
+  },
+  "sharedassets5.assets": {
+   "objs": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets6.assets": {
+   "objs": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets7.assets": {
+   "objs": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets8.assets": {
+   "objs": 0,
+   "with_text": 0,
+   "sec": 0.0
+  }
+ },
+ "totals": {
+  "objects": 1029,
+  "distinct": 503,
+  "in_dict": 369,
+  "missing": 134
+ },
+ "items": [
+  {
+   "file": "level1",
+   "path_id": 3373,
+   "gameobject": "Label",
+   "text": "Random Coords",
+   "in_dict": true,
+   "zh": "随机坐标"
+  },
+  {
+   "file": "level1",
+   "path_id": 3399,
+   "gameobject": "Label",
+   "text": "Load World",
+   "in_dict": true,
+   "zh": "载入世界"
+  },
+  {
+   "file": "level1",
+   "path_id": 3404,
+   "gameobject": "PixelSizeLabel",
+   "text": "()",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3410,
+   "gameobject": "Label",
+   "text": "Return to Main",
+   "in_dict": true,
+   "zh": "返回主菜单"
+  },
+  {
+   "file": "level1",
+   "path_id": 3412,
+   "gameobject": "MapDimesionsLabel",
+   "text": "Map Dimensions",
+   "in_dict": true,
+   "zh": "地图尺寸"
+  },
+  {
+   "file": "level1",
+   "path_id": 3413,
+   "gameobject": "XLabel",
+   "text": "x",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3421,
+   "gameobject": "Label",
+   "text": "Create Map",
+   "in_dict": true,
+   "zh": "创建地图"
+  },
+  {
+   "file": "level1",
+   "path_id": 3428,
+   "gameobject": "Label",
+   "text": "Massive",
+   "in_dict": true,
+   "zh": "巨型"
+  },
+  {
+   "file": "level1",
+   "path_id": 3439,
+   "gameobject": "Dialog Title",
+   "text": "Map Selection",
+   "in_dict": true,
+   "zh": "地图选择"
+  },
+  {
+   "file": "level1",
+   "path_id": 3446,
+   "gameobject": "Label",
+   "text": "Oh My",
+   "in_dict": true,
+   "zh": "天哪"
+  },
+  {
+   "file": "level1",
+   "path_id": 3449,
+   "gameobject": "Label",
+   "text": "Huge",
+   "in_dict": true,
+   "zh": "巨大"
+  },
+  {
+   "file": "level1",
+   "path_id": 3458,
+   "gameobject": "Label",
+   "text": "Large",
+   "in_dict": true,
+   "zh": "大"
+  },
+  {
+   "file": "level1",
+   "path_id": 3461,
+   "gameobject": "Label",
+   "text": "Medium",
+   "in_dict": true,
+   "zh": "中"
+  },
+  {
+   "file": "level1",
+   "path_id": 3470,
+   "gameobject": "Label",
+   "text": "Small",
+   "in_dict": true,
+   "zh": "小"
+  },
+  {
+   "file": "level1",
+   "path_id": 3474,
+   "gameobject": "Label",
+   "text": "Show Creeper:",
+   "in_dict": true,
+   "zh": "显示 Creeper:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3481,
+   "gameobject": "Label",
+   "text": "Alpha7",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3501,
+   "gameobject": "Label",
+   "text": "F",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3505,
+   "gameobject": "Label",
+   "text": "Build Relay:",
+   "in_dict": true,
+   "zh": "建造中继器:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3507,
+   "gameobject": "XLabel",
+   "text": "x",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3508,
+   "gameobject": "Label",
+   "text": "F7",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3509,
+   "gameobject": "Label",
+   "text": "SHIFT-E",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3538,
+   "gameobject": "Label",
+   "text": "Do not show splash screen at game start.",
+   "in_dict": true,
+   "zh": "游戏启动时不显示启动画面。"
+  },
+  {
+   "file": "level1",
+   "path_id": 3545,
+   "gameobject": "Label",
+   "text": "Escape",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3548,
+   "gameobject": "Label",
+   "text": "Context Sensitive Build Keys:",
+   "in_dict": true,
+   "zh": "情境建造快捷键:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3550,
+   "gameobject": "Label",
+   "text": "Alpha5",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3555,
+   "gameobject": "Label",
+   "text": "N",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3556,
+   "gameobject": "Label",
+   "text": "Select Group 9:",
+   "in_dict": true,
+   "zh": "选择编队 9:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3559,
+   "gameobject": "Label",
+   "text": "Select Group 2:",
+   "in_dict": true,
+   "zh": "选择编队 2:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3561,
+   "gameobject": "GameVersion",
+   "text": "VER",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3564,
+   "gameobject": "Label",
+   "text": "Show Soylent:",
+   "in_dict": true,
+   "zh": "显示营养液:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3565,
+   "gameobject": "Label",
+   "text": "Move Map Right:",
+   "in_dict": true,
+   "zh": "右移地图:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3568,
+   "gameobject": "XLabel",
+   "text": "x",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3569,
+   "gameobject": "Label",
+   "text": "Full Screen",
+   "in_dict": true,
+   "zh": "全屏"
+  },
+  {
+   "file": "level1",
+   "path_id": 3582,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3584,
+   "gameobject": "Label",
+   "text": "Load Map",
+   "in_dict": true,
+   "zh": "载入地图"
+  },
+  {
+   "file": "level1",
+   "path_id": 3589,
+   "gameobject": "Label",
+   "text": "Backslash",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3597,
+   "gameobject": "Label",
+   "text": "Destroy:",
+   "in_dict": true,
+   "zh": "摧毁:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3598,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3605,
+   "gameobject": "Label",
+   "text": "X",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3608,
+   "gameobject": "Label",
+   "text": "F11",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3621,
+   "gameobject": "TitleLabel",
+   "text": "Latest News",
+   "in_dict": true,
+   "zh": "最新消息"
+  },
+  {
+   "file": "level1",
+   "path_id": 3623,
+   "gameobject": "Label",
+   "text": "SHIFT-X",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3625,
+   "gameobject": "Label",
+   "text": "[Music Credits]",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3634,
+   "gameobject": "Label",
+   "text": "Build Ore Mine:",
+   "in_dict": true,
+   "zh": "建造矿场:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3637,
+   "gameobject": "Label",
+   "text": "F12",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3642,
+   "gameobject": "Label",
+   "text": "Alpha4",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3645,
+   "gameobject": "Label",
+   "text": "PLAY",
+   "in_dict": true,
+   "zh": "开始游戏"
+  },
+  {
+   "file": "level1",
+   "path_id": 3652,
+   "gameobject": "TitleLabel",
+   "text": "DEV",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3658,
+   "gameobject": "Label",
+   "text": "Build Mortar:",
+   "in_dict": true,
+   "zh": "建造迫击炮:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3659,
+   "gameobject": "Label",
+   "text": "Do not auto-unpause after opening conversation.",
+   "in_dict": true,
+   "zh": "打开对话后不自动继续。"
+  },
+  {
+   "file": "level1",
+   "path_id": 3668,
+   "gameobject": "Label",
+   "text": "Select Group 6:",
+   "in_dict": true,
+   "zh": "选择编队 6:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3670,
+   "gameobject": "Label",
+   "text": "Increase Speed:",
+   "in_dict": true,
+   "zh": "加速:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3688,
+   "gameobject": "Label",
+   "text": "V",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3689,
+   "gameobject": "Label",
+   "text": "UpArrow",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3690,
+   "gameobject": "Label",
+   "text": "Do not show close/leave confirmation dialogs.",
+   "in_dict": true,
+   "zh": "不显示关闭/离开确认对话框。"
+  },
+  {
+   "file": "level1",
+   "path_id": 3692,
+   "gameobject": "Height",
+   "text": "Height",
+   "in_dict": true,
+   "zh": "高度"
+  },
+  {
+   "file": "level1",
+   "path_id": 3697,
+   "gameobject": "Label",
+   "text": "Forge Button:",
+   "in_dict": true,
+   "zh": "锻造厂按钮:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3698,
+   "gameobject": "Label",
+   "text": "Build Reactor:",
+   "in_dict": true,
+   "zh": "建造反应堆:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3701,
+   "gameobject": "Label",
+   "text": "Alpha1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3735,
+   "gameobject": "Label",
+   "text": "Minus",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3739,
+   "gameobject": "Label",
+   "text": "Build Bomber:",
+   "in_dict": true,
+   "zh": "建造轰炸机:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3740,
+   "gameobject": "Label",
+   "text": "Middle Click:",
+   "in_dict": true,
+   "zh": "中键:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3746,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3749,
+   "gameobject": "Label",
+   "text": "Zoom Map Out:",
+   "in_dict": true,
+   "zh": "缩小地图:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3751,
+   "gameobject": "Label",
+   "text": "G",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3776,
+   "gameobject": "Label",
+   "text": "Visit Website",
+   "in_dict": true,
+   "zh": "访问网站"
+  },
+  {
+   "file": "level1",
+   "path_id": 3785,
+   "gameobject": "Label",
+   "text": "SHIFT-D",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3798,
+   "gameobject": "SecondaryLabel",
+   "text": "Alternate",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3806,
+   "gameobject": "Label",
+   "text": "Apply",
+   "in_dict": true,
+   "zh": "应用"
+  },
+  {
+   "file": "level1",
+   "path_id": 3809,
+   "gameobject": "Label",
+   "text": "PLAY",
+   "in_dict": true,
+   "zh": "开始游戏"
+  },
+  {
+   "file": "level1",
+   "path_id": 3815,
+   "gameobject": "Label",
+   "text": "M",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3823,
+   "gameobject": "Label",
+   "text": "Right Click:",
+   "in_dict": true,
+   "zh": "右键:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3824,
+   "gameobject": "Dialog SubTitle",
+   "text": "Arc Eternal",
+   "in_dict": true,
+   "zh": "永恒之弧"
+  },
+  {
+   "file": "level1",
+   "path_id": 3832,
+   "gameobject": "Label",
+   "text": "Weapons Tab:",
+   "in_dict": true,
+   "zh": "武器页:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3848,
+   "gameobject": "Label",
+   "text": "Orbital Tab:",
+   "in_dict": true,
+   "zh": "轨道页:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3856,
+   "gameobject": "Label",
+   "text": "Build Thor:",
+   "in_dict": true,
+   "zh": "建造索尔:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3858,
+   "gameobject": "Label",
+   "text": "Apply",
+   "in_dict": true,
+   "zh": "应用"
+  },
+  {
+   "file": "level1",
+   "path_id": 3859,
+   "gameobject": "Label",
+   "text": "Mute:",
+   "in_dict": true,
+   "zh": "静音:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3860,
+   "gameobject": "Label",
+   "text": "Apply",
+   "in_dict": true,
+   "zh": "应用"
+  },
+  {
+   "file": "level1",
+   "path_id": 3892,
+   "gameobject": "Label",
+   "text": "Bump Scroll Rate",
+   "in_dict": true,
+   "zh": "边缘滚动速度"
+  },
+  {
+   "file": "level1",
+   "path_id": 3913,
+   "gameobject": "Label",
+   "text": "Create Map",
+   "in_dict": true,
+   "zh": "创建地图"
+  },
+  {
+   "file": "level1",
+   "path_id": 3915,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3929,
+   "gameobject": "Label",
+   "text": "Restore Defaults",
+   "in_dict": true,
+   "zh": "恢复默认"
+  },
+  {
+   "file": "level1",
+   "path_id": 3930,
+   "gameobject": "Label",
+   "text": "Show Explosions:",
+   "in_dict": true,
+   "zh": "显示爆炸:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3931,
+   "gameobject": "Label",
+   "text": "Z",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3942,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3947,
+   "gameobject": "Label",
+   "text": "Exit Game:",
+   "in_dict": true,
+   "zh": "退出游戏:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3955,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3963,
+   "gameobject": "Label",
+   "text": "SHIFT-C",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3966,
+   "gameobject": "Label",
+   "text": "Full Map Screenshot:",
+   "in_dict": true,
+   "zh": "全图截图:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3968,
+   "gameobject": "Label",
+   "text": "Create Group 8:",
+   "in_dict": true,
+   "zh": "创建编队 8:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3974,
+   "gameobject": "Name",
+   "text": "Name",
+   "in_dict": true,
+   "zh": "名称"
+  },
+  {
+   "file": "level1",
+   "path_id": 3975,
+   "gameobject": "Label",
+   "text": "Create Group 4:",
+   "in_dict": true,
+   "zh": "创建编队 4:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3980,
+   "gameobject": "Label",
+   "text": "Alpha7",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 3982,
+   "gameobject": "Label",
+   "text": "Set T-Brush To Terrain:",
+   "in_dict": true,
+   "zh": "地形笔刷改用地形:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3984,
+   "gameobject": "Label",
+   "text": "Erase Binding",
+   "in_dict": true,
+   "zh": "清除绑定"
+  },
+  {
+   "file": "level1",
+   "path_id": 3987,
+   "gameobject": "Label",
+   "text": "Do not show big pause button when game is paused.",
+   "in_dict": true,
+   "zh": "游戏暂停时不显示大暂停按钮。"
+  },
+  {
+   "file": "level1",
+   "path_id": 3990,
+   "gameobject": "Label",
+   "text": "Keys",
+   "in_dict": true,
+   "zh": "按键"
+  },
+  {
+   "file": "level1",
+   "path_id": 3991,
+   "gameobject": "TitleLabel",
+   "text": "Worlds",
+   "in_dict": true,
+   "zh": "世界"
+  },
+  {
+   "file": "level1",
+   "path_id": 3996,
+   "gameobject": "Label",
+   "text": "Move Map Down:",
+   "in_dict": true,
+   "zh": "下移地图:"
+  },
+  {
+   "file": "level1",
+   "path_id": 3997,
+   "gameobject": "Label",
+   "text": "Settings",
+   "in_dict": true,
+   "zh": "设置"
+  },
+  {
+   "file": "level1",
+   "path_id": 4000,
+   "gameobject": "Label",
+   "text": "F6",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4001,
+   "gameobject": "Label",
+   "text": "Visit Website",
+   "in_dict": true,
+   "zh": "访问网站"
+  },
+  {
+   "file": "level1",
+   "path_id": 4013,
+   "gameobject": "Label",
+   "text": "Create Group 3:",
+   "in_dict": true,
+   "zh": "创建编队 3:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4021,
+   "gameobject": "Label",
+   "text": "CTRL-V",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4023,
+   "gameobject": "Label",
+   "text": "Create Group 6:",
+   "in_dict": true,
+   "zh": "创建编队 6:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4024,
+   "gameobject": "Label",
+   "text": "SHIFT-I",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4042,
+   "gameobject": "Label",
+   "text": "SHIFT-M",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4043,
+   "gameobject": "Label",
+   "text": "Create Group 5:",
+   "in_dict": true,
+   "zh": "创建编队 5:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4044,
+   "gameobject": "Label",
+   "text": "Browse",
+   "in_dict": true,
+   "zh": "浏览"
+  },
+  {
+   "file": "level1",
+   "path_id": 4054,
+   "gameobject": "Label",
+   "text": "CN Damage Alarm",
+   "in_dict": true,
+   "zh": "CN 受损警报"
+  },
+  {
+   "file": "level1",
+   "path_id": 4060,
+   "gameobject": "KeyCatcherNewLabel",
+   "text": "Key Binding:",
+   "in_dict": true,
+   "zh": "按键绑定:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4066,
+   "gameobject": "Label",
+   "text": "F5",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4074,
+   "gameobject": "Label",
+   "text": "Tab",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4082,
+   "gameobject": "Label",
+   "text": "Select Group 5:",
+   "in_dict": true,
+   "zh": "选择编队 5:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4092,
+   "gameobject": "TitleLabel",
+   "text": "Get the FULL Version!",
+   "in_dict": true,
+   "zh": "获取完整版！"
+  },
+  {
+   "file": "level1",
+   "path_id": 4097,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4100,
+   "gameobject": "Dialog SubTitle",
+   "text": "Original Music\r\nComposed and Produced by:\r\nFinn M-K\r\nhttp://www.composerprofiles.com/profile-finn-m-k\r\nhttps://soundcloud.com/finnmk",
+   "in_dict": true,
+   "zh": "原创音乐\r\n作曲与制作：\r\nFinn M-K\r\nhttp://www.composerprofiles.com/profile-finn-m-k\r\nhttps://soundcloud.com/finnmk"
+  },
+  {
+   "file": "level1",
+   "path_id": 4102,
+   "gameobject": "KeyboardScrollLabel",
+   "text": "16",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4103,
+   "gameobject": "Label",
+   "text": "None",
+   "in_dict": true,
+   "zh": "无"
+  },
+  {
+   "file": "level1",
+   "path_id": 4104,
+   "gameobject": "Label",
+   "text": "A",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4106,
+   "gameobject": "Label",
+   "text": "Do not show game event notification tags.",
+   "in_dict": true,
+   "zh": "不显示游戏事件通知标记。"
+  },
+  {
+   "file": "level1",
+   "path_id": 4116,
+   "gameobject": "Label",
+   "text": "Create Group 7:",
+   "in_dict": true,
+   "zh": "创建编队 7:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4117,
+   "gameobject": "Label",
+   "text": "Terraform Button:",
+   "in_dict": true,
+   "zh": "地形改造按钮:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4129,
+   "gameobject": "SoundEffectsVolumeLabel",
+   "text": "Effects Volume",
+   "in_dict": true,
+   "zh": "音效音量"
+  },
+  {
+   "file": "level1",
+   "path_id": 4138,
+   "gameobject": "Label",
+   "text": "LeftArrow",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4141,
+   "gameobject": "Label",
+   "text": "Create Map",
+   "in_dict": true,
+   "zh": "创建地图"
+  },
+  {
+   "file": "level1",
+   "path_id": 4160,
+   "gameobject": "Label",
+   "text": "Create Group 2:",
+   "in_dict": true,
+   "zh": "创建编队 2:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4161,
+   "gameobject": "Label",
+   "text": "F8",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4165,
+   "gameobject": "Label",
+   "text": "Video",
+   "in_dict": true,
+   "zh": "视频"
+  },
+  {
+   "file": "level1",
+   "path_id": 4171,
+   "gameobject": "Label",
+   "text": "Build Strafer:",
+   "in_dict": true,
+   "zh": "建造俯冲机:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4172,
+   "gameobject": "Label",
+   "text": "Decrease Speed:",
+   "in_dict": true,
+   "zh": "减速:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4180,
+   "gameobject": "Label",
+   "text": "CTRL",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4188,
+   "gameobject": "Label",
+   "text": "84",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4191,
+   "gameobject": "Label",
+   "text": "Multi-Select:",
+   "in_dict": true,
+   "zh": "多选:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4214,
+   "gameobject": "Label",
+   "text": "F2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4219,
+   "gameobject": "MusicVolumeLabel",
+   "text": "Music Volume",
+   "in_dict": true,
+   "zh": "音乐音量"
+  },
+  {
+   "file": "level1",
+   "path_id": 4220,
+   "gameobject": "Label",
+   "text": "Enable VSync",
+   "in_dict": true,
+   "zh": "开启垂直同步"
+  },
+  {
+   "file": "level1",
+   "path_id": 4224,
+   "gameobject": "Copyright",
+   "text": "Copyright 2016 Knuckle Cracker, LLC",
+   "in_dict": true,
+   "zh": "版权所有 2016 Knuckle Cracker, LLC"
+  },
+  {
+   "file": "level1",
+   "path_id": 4228,
+   "gameobject": "Label",
+   "text": "Do not check for software update at game start.",
+   "in_dict": true,
+   "zh": "游戏启动时不检查软件更新。"
+  },
+  {
+   "file": "level1",
+   "path_id": 4230,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4237,
+   "gameobject": "Dialog Title",
+   "text": "CREEPER WORLD",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4251,
+   "gameobject": "Label",
+   "text": "Titans Tab:",
+   "in_dict": true,
+   "zh": "泰坦页:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4252,
+   "gameobject": "Label",
+   "text": "x",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4253,
+   "gameobject": "Label",
+   "text": "Build Nullifier:",
+   "in_dict": true,
+   "zh": "建造灭除器:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4254,
+   "gameobject": "Dialog BarTitle",
+   "text": "Main Menu",
+   "in_dict": true,
+   "zh": "主菜单"
+  },
+  {
+   "file": "level1",
+   "path_id": 4257,
+   "gameobject": "Label",
+   "text": "Opaque Creeper:",
+   "in_dict": true,
+   "zh": "不透明 Creeper:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4274,
+   "gameobject": "Label",
+   "text": "Disable popup boxes on main menu.",
+   "in_dict": true,
+   "zh": "禁用主菜单的弹出框。"
+  },
+  {
+   "file": "level1",
+   "path_id": 4276,
+   "gameobject": "Label",
+   "text": "Alpha1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4278,
+   "gameobject": "Label",
+   "text": "S",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4281,
+   "gameobject": "Label",
+   "text": "Moves Map",
+   "in_dict": true,
+   "zh": "移动地图"
+  },
+  {
+   "file": "level1",
+   "path_id": 4289,
+   "gameobject": "Label",
+   "text": "Select Group 1:",
+   "in_dict": true,
+   "zh": "选择编队 1:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4290,
+   "gameobject": "Label",
+   "text": "Build Terp:",
+   "in_dict": true,
+   "zh": "建造挖掘机:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4291,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4293,
+   "gameobject": "Label",
+   "text": "Cancels",
+   "in_dict": true,
+   "zh": "取消"
+  },
+  {
+   "file": "level1",
+   "path_id": 4311,
+   "gameobject": "Label",
+   "text": "Build Beam:",
+   "in_dict": true,
+   "zh": "建造光束:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4316,
+   "gameobject": "Label",
+   "text": "  Visit KnuckleCracker.com \nfor the amazing full version!",
+   "in_dict": true,
+   "zh": "  访问 KnuckleCracker.com \n获取精彩的完整版！"
+  },
+  {
+   "file": "level1",
+   "path_id": 4320,
+   "gameobject": "Label",
+   "text": "Quick Save Game:",
+   "in_dict": true,
+   "zh": "快速保存:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4324,
+   "gameobject": "Label",
+   "text": "E",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4339,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4349,
+   "gameobject": "Label",
+   "text": "Default Color",
+   "in_dict": true,
+   "zh": "默认颜色"
+  },
+  {
+   "file": "level1",
+   "path_id": 4351,
+   "gameobject": "Label",
+   "text": "Build Siphon:",
+   "in_dict": true,
+   "zh": "建造虹吸器:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4354,
+   "gameobject": "Label",
+   "text": "A new version is available!",
+   "in_dict": true,
+   "zh": "有新版本可用！"
+  },
+  {
+   "file": "level1",
+   "path_id": 4355,
+   "gameobject": "Label",
+   "text": "Disarm:",
+   "in_dict": true,
+   "zh": "解除武装:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4357,
+   "gameobject": "Label",
+   "text": "Mouse Wheel Zooms:",
+   "in_dict": true,
+   "zh": "滚轮缩放:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4363,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4365,
+   "gameobject": "Label",
+   "text": "Window",
+   "in_dict": true,
+   "zh": "窗口"
+  },
+  {
+   "file": "level1",
+   "path_id": 4366,
+   "gameobject": "Label",
+   "text": "Alpha6",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4374,
+   "gameobject": "Label",
+   "text": "Alpha2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4380,
+   "gameobject": "Label",
+   "text": "OK/Apply:",
+   "in_dict": true,
+   "zh": "确定/应用:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4387,
+   "gameobject": "Label",
+   "text": "Show Map Info:",
+   "in_dict": true,
+   "zh": "显示地图信息:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4388,
+   "gameobject": "Label",
+   "text": "Show Mist:",
+   "in_dict": true,
+   "zh": "显示迷雾:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4393,
+   "gameobject": "Label",
+   "text": "Build Bertha:",
+   "in_dict": true,
+   "zh": "建造贝莎炮:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4397,
+   "gameobject": "Label",
+   "text": "C",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4400,
+   "gameobject": "Width",
+   "text": "Width",
+   "in_dict": true,
+   "zh": "宽度"
+  },
+  {
+   "file": "level1",
+   "path_id": 4402,
+   "gameobject": "Label",
+   "text": "Adv.",
+   "in_dict": true,
+   "zh": "高级"
+  },
+  {
+   "file": "level1",
+   "path_id": 4408,
+   "gameobject": "Label",
+   "text": "Alpha5",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4414,
+   "gameobject": "Label",
+   "text": "Build Collector:",
+   "in_dict": true,
+   "zh": "建造收集器:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4426,
+   "gameobject": "Label",
+   "text": "CANCEL",
+   "in_dict": true,
+   "zh": "取消"
+  },
+  {
+   "file": "level1",
+   "path_id": 4430,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4431,
+   "gameobject": "Label",
+   "text": "Cancels",
+   "in_dict": true,
+   "zh": "取消"
+  },
+  {
+   "file": "level1",
+   "path_id": 4437,
+   "gameobject": "Label",
+   "text": "Alpha6",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4449,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4450,
+   "gameobject": "AC Label",
+   "text": "AC Color",
+   "in_dict": true,
+   "zh": "AC 颜色"
+  },
+  {
+   "file": "level1",
+   "path_id": 4459,
+   "gameobject": "Label",
+   "text": "Stop Resupply:",
+   "in_dict": true,
+   "zh": "停止补给:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4482,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4497,
+   "gameobject": "Label",
+   "text": "Quit Game",
+   "in_dict": true,
+   "zh": "退出游戏"
+  },
+  {
+   "file": "level1",
+   "path_id": 4498,
+   "gameobject": "Label",
+   "text": "Settings",
+   "in_dict": true,
+   "zh": "设置"
+  },
+  {
+   "file": "level1",
+   "path_id": 4504,
+   "gameobject": "Label",
+   "text": "SHIFT-End",
+   "in_dict": true,
+   "zh": "SHIFT-End"
+  },
+  {
+   "file": "level1",
+   "path_id": 4508,
+   "gameobject": "Label",
+   "text": "Apply",
+   "in_dict": true,
+   "zh": "应用"
+  },
+  {
+   "file": "level1",
+   "path_id": 4510,
+   "gameobject": "Label",
+   "text": "RightArrow",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4511,
+   "gameobject": "Label",
+   "text": "Load Game",
+   "in_dict": true,
+   "zh": "载入游戏"
+  },
+  {
+   "file": "level1",
+   "path_id": 4521,
+   "gameobject": "Label",
+   "text": "Exit Game",
+   "in_dict": true,
+   "zh": "退出游戏"
+  },
+  {
+   "file": "level1",
+   "path_id": 4529,
+   "gameobject": "Label",
+   "text": "None",
+   "in_dict": true,
+   "zh": "无"
+  },
+  {
+   "file": "level1",
+   "path_id": 4535,
+   "gameobject": "Label",
+   "text": "Create Group 9:",
+   "in_dict": true,
+   "zh": "创建编队 9:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4565,
+   "gameobject": "Label",
+   "text": "Build Forge:",
+   "in_dict": true,
+   "zh": "建造锻造厂:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4566,
+   "gameobject": "Label",
+   "text": "SHIFT-Equals",
+   "in_dict": true,
+   "zh": "SHIFT-Equals"
+  },
+  {
+   "file": "level1",
+   "path_id": 4570,
+   "gameobject": "Label",
+   "text": "SHIFT-A",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4571,
+   "gameobject": "Label",
+   "text": "R",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4573,
+   "gameobject": "Label",
+   "text": "CN Info Panels:",
+   "in_dict": true,
+   "zh": "CN 信息面板:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4583,
+   "gameobject": "Label",
+   "text": "Sound",
+   "in_dict": true,
+   "zh": "音效"
+  },
+  {
+   "file": "level1",
+   "path_id": 4596,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4597,
+   "gameobject": "Label",
+   "text": "Alpha2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4599,
+   "gameobject": "Label",
+   "text": "Create Group 1:",
+   "in_dict": true,
+   "zh": "创建编队 1:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4604,
+   "gameobject": "Label",
+   "text": "Default Color",
+   "in_dict": true,
+   "zh": "默认颜色"
+  },
+  {
+   "file": "level1",
+   "path_id": 4605,
+   "gameobject": "PrimaryLabel",
+   "text": "Primary",
+   "in_dict": true,
+   "zh": "主要"
+  },
+  {
+   "file": "level1",
+   "path_id": 4606,
+   "gameobject": "Label",
+   "text": "Alpha2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4609,
+   "gameobject": "Label",
+   "text": "Equals",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4610,
+   "gameobject": "Label",
+   "text": "F4",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4624,
+   "gameobject": "Label",
+   "text": "Do not auto-save when leaving a mission.",
+   "in_dict": true,
+   "zh": "离开任务时不自动保存。"
+  },
+  {
+   "file": "level1",
+   "path_id": 4646,
+   "gameobject": "Label",
+   "text": "Build Sniper:",
+   "in_dict": true,
+   "zh": "建造狙击手:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4647,
+   "gameobject": "Label",
+   "text": "Select Group 8:",
+   "in_dict": true,
+   "zh": "选择编队 8:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4654,
+   "gameobject": "Label",
+   "text": "800x600",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4655,
+   "gameobject": "Label",
+   "text": "O",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4678,
+   "gameobject": "Label",
+   "text": "Build Pulse Cannon:",
+   "in_dict": true,
+   "zh": "建造脉冲炮:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4680,
+   "gameobject": "Label",
+   "text": "T",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4681,
+   "gameobject": "Label",
+   "text": "Show Air Units:",
+   "in_dict": true,
+   "zh": "显示空中单位:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4688,
+   "gameobject": "Label",
+   "text": "SHIFT",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4702,
+   "gameobject": "Label",
+   "text": "Quit Game",
+   "in_dict": true,
+   "zh": "退出游戏"
+  },
+  {
+   "file": "level1",
+   "path_id": 4718,
+   "gameobject": "Label",
+   "text": "F9",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4725,
+   "gameobject": "Label",
+   "text": "SHIFT-O",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4732,
+   "gameobject": "Label",
+   "text": "Keyboard Scroll Rate",
+   "in_dict": true,
+   "zh": "键盘滚动速度"
+  },
+  {
+   "file": "level1",
+   "path_id": 4737,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4740,
+   "gameobject": "Label",
+   "text": "Quick Load Game:",
+   "in_dict": true,
+   "zh": "快速载入:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4743,
+   "gameobject": "Label",
+   "text": "Alpha1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4749,
+   "gameobject": "Label",
+   "text": "Pause:",
+   "in_dict": true,
+   "zh": "暂停:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4754,
+   "gameobject": "Label",
+   "text": "D",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4760,
+   "gameobject": "Label",
+   "text": "SHIFT-G",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4769,
+   "gameobject": "Label",
+   "text": "Build Guppy:",
+   "in_dict": true,
+   "zh": "建造补给船:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4771,
+   "gameobject": "Label",
+   "text": "Moves Map",
+   "in_dict": true,
+   "zh": "移动地图"
+  },
+  {
+   "file": "level1",
+   "path_id": 4776,
+   "gameobject": "Label",
+   "text": "Build Shield:",
+   "in_dict": true,
+   "zh": "建造护盾:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4810,
+   "gameobject": "TitleLabel",
+   "text": "Settings",
+   "in_dict": true,
+   "zh": "设置"
+  },
+  {
+   "file": "level1",
+   "path_id": 4818,
+   "gameobject": "Label",
+   "text": "P",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4830,
+   "gameobject": "Label",
+   "text": "Step During Pause:",
+   "in_dict": true,
+   "zh": "暂停时逐帧:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4835,
+   "gameobject": "Label",
+   "text": "Move Map Up:",
+   "in_dict": true,
+   "zh": "上移地图:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4841,
+   "gameobject": "BumpScrollLabel",
+   "text": "16",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4847,
+   "gameobject": "Label",
+   "text": "128",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4856,
+   "gameobject": "InstructionsLabel",
+   "text": "PRESS A KEY",
+   "in_dict": true,
+   "zh": "按下按键"
+  },
+  {
+   "file": "level1",
+   "path_id": 4857,
+   "gameobject": "Label",
+   "text": "Space",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4865,
+   "gameobject": "Label",
+   "text": "Custom Data Path",
+   "in_dict": true,
+   "zh": "自定义数据路径"
+  },
+  {
+   "file": "level1",
+   "path_id": 4875,
+   "gameobject": "Label",
+   "text": "Y",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4876,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4885,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4896,
+   "gameobject": "Label",
+   "text": "Select Group 3:",
+   "in_dict": true,
+   "zh": "选择编队 3:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4900,
+   "gameobject": "Label",
+   "text": "Misc.",
+   "in_dict": true,
+   "zh": "杂项"
+  },
+  {
+   "file": "level1",
+   "path_id": 4901,
+   "gameobject": "Label",
+   "text": "Cancel:",
+   "in_dict": true,
+   "zh": "取消:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4905,
+   "gameobject": "Label",
+   "text": "SHIFT-Minus",
+   "in_dict": true,
+   "zh": "SHIFT-Minus"
+  },
+  {
+   "file": "level1",
+   "path_id": 4928,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4934,
+   "gameobject": "Label",
+   "text": "Spore Alarm",
+   "in_dict": true,
+   "zh": "孢子警报"
+  },
+  {
+   "file": "level1",
+   "path_id": 4936,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4945,
+   "gameobject": "Label",
+   "text": "Alpha4",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4946,
+   "gameobject": "Label",
+   "text": "Zoom Map In:",
+   "in_dict": true,
+   "zh": "放大地图:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4958,
+   "gameobject": "Label",
+   "text": "Load Map from File",
+   "in_dict": true,
+   "zh": "从文件载入地图"
+  },
+  {
+   "file": "level1",
+   "path_id": 4963,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4966,
+   "gameobject": "Label",
+   "text": "DownArrow",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4975,
+   "gameobject": "Creeper Label",
+   "text": "Creeper Color",
+   "in_dict": true,
+   "zh": "Creeper 颜色"
+  },
+  {
+   "file": "level1",
+   "path_id": 4977,
+   "gameobject": "Label",
+   "text": "Return",
+   "in_dict": true,
+   "zh": "返回"
+  },
+  {
+   "file": "level1",
+   "path_id": 4986,
+   "gameobject": "Label",
+   "text": "Structure Tab:",
+   "in_dict": true,
+   "zh": "建筑页:"
+  },
+  {
+   "file": "level1",
+   "path_id": 4994,
+   "gameobject": "Label",
+   "text": "W",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 4995,
+   "gameobject": "Label",
+   "text": "World Editor",
+   "in_dict": true,
+   "zh": "世界编辑器"
+  },
+  {
+   "file": "level1",
+   "path_id": 4998,
+   "gameobject": "Label",
+   "text": "Backslash",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 5001,
+   "gameobject": "Label",
+   "text": "Build Sprayer:",
+   "in_dict": true,
+   "zh": "建造喷吐者:"
+  },
+  {
+   "file": "level1",
+   "path_id": 5003,
+   "gameobject": "Label",
+   "text": "Screenshot:",
+   "in_dict": true,
+   "zh": "截图:"
+  },
+  {
+   "file": "level1",
+   "path_id": 5004,
+   "gameobject": "Label",
+   "text": "Show D-Growth:",
+   "in_dict": true,
+   "zh": "显示魔苋生长:"
+  },
+  {
+   "file": "level1",
+   "path_id": 5007,
+   "gameobject": "Label",
+   "text": "F1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 5014,
+   "gameobject": "Label",
+   "text": "Move Map Left:",
+   "in_dict": true,
+   "zh": "左移地图:"
+  },
+  {
+   "file": "level1",
+   "path_id": 5018,
+   "gameobject": "Label",
+   "text": "F3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 5042,
+   "gameobject": "Label",
+   "text": "Q",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 5049,
+   "gameobject": "Label",
+   "text": "Formation Move:",
+   "in_dict": true,
+   "zh": "编队移动:"
+  },
+  {
+   "file": "level1",
+   "path_id": 5056,
+   "gameobject": "Label",
+   "text": "Deactivate:",
+   "in_dict": true,
+   "zh": "停用:"
+  },
+  {
+   "file": "level1",
+   "path_id": 5059,
+   "gameobject": "Label",
+   "text": "Load Map from File",
+   "in_dict": true,
+   "zh": "从文件载入地图"
+  },
+  {
+   "file": "level1",
+   "path_id": 5062,
+   "gameobject": "TitleLabel",
+   "text": "Update Check",
+   "in_dict": true,
+   "zh": "检查更新"
+  },
+  {
+   "file": "level1",
+   "path_id": 5067,
+   "gameobject": "Label",
+   "text": "Select Similar Units:",
+   "in_dict": true,
+   "zh": "选择同类单位:"
+  },
+  {
+   "file": "level1",
+   "path_id": 5107,
+   "gameobject": "Label",
+   "text": "CTRL-C",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 5114,
+   "gameobject": "Label",
+   "text": "Alpha8",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 5115,
+   "gameobject": "Label",
+   "text": "Select Group 4:",
+   "in_dict": true,
+   "zh": "选择编队 4:"
+  },
+  {
+   "file": "level1",
+   "path_id": 5117,
+   "gameobject": "Label",
+   "text": "Save Keys to File",
+   "in_dict": true,
+   "zh": "保存按键到文件"
+  },
+  {
+   "file": "level1",
+   "path_id": 5126,
+   "gameobject": "Label",
+   "text": "SHIFT-T",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 5128,
+   "gameobject": "Label",
+   "text": "[ffffe0]Precursor worlds.[ffffff]\nBefore space as we know it was formed,\nthese worlds were the pillars of reality.\n[ff5050]To Access:\n[ff0000]Collect 50 Artifacts of Odin in Prospector.",
+   "in_dict": true,
+   "zh": "[ffffe0]先民世界。[ffffff]\n在我们所知的空间成形之前，\n这些世界是现实的支柱。\n[ff5050]进入条件：\n[ff0000]在探矿者星区收集 50 件奥丁圣物。"
+  },
+  {
+   "file": "level1",
+   "path_id": 5135,
+   "gameobject": "Label",
+   "text": "Select Group 7:",
+   "in_dict": true,
+   "zh": "选择编队 7:"
+  },
+  {
+   "file": "level1",
+   "path_id": 5139,
+   "gameobject": "Label",
+   "text": "Current",
+   "in_dict": true,
+   "zh": "当前"
+  },
+  {
+   "file": "level1",
+   "path_id": 5140,
+   "gameobject": "Label",
+   "text": "B",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 5158,
+   "gameobject": "Label",
+   "text": "SHIFT-F",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level1",
+   "path_id": 5171,
+   "gameobject": "Label",
+   "text": "Alpha8",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 548,
+   "gameobject": "Label",
+   "text": "Next",
+   "in_dict": true,
+   "zh": "下一个"
+  },
+  {
+   "file": "level2",
+   "path_id": 556,
+   "gameobject": "Label",
+   "text": "Close Map",
+   "in_dict": true,
+   "zh": "关闭地图"
+  },
+  {
+   "file": "level2",
+   "path_id": 564,
+   "gameobject": "Slot2Label",
+   "text": "13:52 Jan 1, 2013",
+   "in_dict": true,
+   "zh": "13:52 2013年1月1日"
+  },
+  {
+   "file": "level2",
+   "path_id": 569,
+   "gameobject": "Label",
+   "text": "Start!",
+   "in_dict": true,
+   "zh": "开始！"
+  },
+  {
+   "file": "level2",
+   "path_id": 570,
+   "gameobject": "Label",
+   "text": "Orbiting Planets",
+   "in_dict": true,
+   "zh": "环绕行星"
+  },
+  {
+   "file": "level2",
+   "path_id": 578,
+   "gameobject": "Label",
+   "text": "System Communique",
+   "in_dict": true,
+   "zh": "系统通讯"
+  },
+  {
+   "file": "level2",
+   "path_id": 581,
+   "gameobject": "Label",
+   "text": "Sector Map",
+   "in_dict": true,
+   "zh": "星区地图"
+  },
+  {
+   "file": "level2",
+   "path_id": 587,
+   "gameobject": "Label",
+   "text": "OK",
+   "in_dict": true,
+   "zh": "确定"
+  },
+  {
+   "file": "level2",
+   "path_id": 592,
+   "gameobject": "Label",
+   "text": "Online Scores",
+   "in_dict": true,
+   "zh": "在线分数"
+  },
+  {
+   "file": "level2",
+   "path_id": 607,
+   "gameobject": "Label",
+   "text": "Archived Transmissions",
+   "in_dict": true,
+   "zh": "存档通讯"
+  },
+  {
+   "file": "level2",
+   "path_id": 617,
+   "gameobject": "TagLabel",
+   "text": "2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 620,
+   "gameobject": "Label",
+   "text": "Replay Intro",
+   "in_dict": true,
+   "zh": "重播开场"
+  },
+  {
+   "file": "level2",
+   "path_id": 621,
+   "gameobject": "TagLabel",
+   "text": "Auto",
+   "in_dict": true,
+   "zh": "自动"
+  },
+  {
+   "file": "level2",
+   "path_id": 622,
+   "gameobject": "Sector0InstructionsLabel",
+   "text": "SELECT A WORMHOLE TO JUMP TO THAT SECTOR",
+   "in_dict": true,
+   "zh": "选择虫洞以跃迁至该星区"
+  },
+  {
+   "file": "level2",
+   "path_id": 632,
+   "gameobject": "InhibitorTotal",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 640,
+   "gameobject": "MapSize",
+   "text": "100x100",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 645,
+   "gameobject": "MySectorInstructionsLabel",
+   "text": "Press and hold 'M' over a planet to drag it.",
+   "in_dict": true,
+   "zh": "在星球上按住 'M' 可拖动它。"
+  },
+  {
+   "file": "level2",
+   "path_id": 646,
+   "gameobject": "Label",
+   "text": "Create Planet",
+   "in_dict": true,
+   "zh": "创建星球"
+  },
+  {
+   "file": "level2",
+   "path_id": 648,
+   "gameobject": "OutLabel",
+   "text": "-",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 649,
+   "gameobject": "Label",
+   "text": "X",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 659,
+   "gameobject": "Label",
+   "text": "Conversation Editor",
+   "in_dict": true,
+   "zh": "对话编辑器"
+  },
+  {
+   "file": "level2",
+   "path_id": 677,
+   "gameobject": "Label",
+   "text": "This is a message",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 680,
+   "gameobject": "Slot0Label",
+   "text": "13:52 Jan 1, 2013",
+   "in_dict": true,
+   "zh": "13:52 2013年1月1日"
+  },
+  {
+   "file": "level2",
+   "path_id": 683,
+   "gameobject": "InLabel",
+   "text": "+",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 686,
+   "gameobject": "Label",
+   "text": "Exit Game",
+   "in_dict": true,
+   "zh": "退出游戏"
+  },
+  {
+   "file": "level2",
+   "path_id": 691,
+   "gameobject": "InLabel",
+   "text": "+",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 695,
+   "gameobject": "ArtifactType0Total",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 696,
+   "gameobject": "Label",
+   "text": "Load Snapshot",
+   "in_dict": true,
+   "zh": "载入快照"
+  },
+  {
+   "file": "level2",
+   "path_id": 697,
+   "gameobject": "Label",
+   "text": "Scroll to Current System",
+   "in_dict": true,
+   "zh": "滚动至当前星系"
+  },
+  {
+   "file": "level2",
+   "path_id": 698,
+   "gameobject": "Label",
+   "text": "Edit Settings",
+   "in_dict": true,
+   "zh": "编辑设置"
+  },
+  {
+   "file": "level2",
+   "path_id": 699,
+   "gameobject": "ArtifactType2Total",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 700,
+   "gameobject": "Label",
+   "text": "Reset Missions",
+   "in_dict": true,
+   "zh": "重置任务"
+  },
+  {
+   "file": "level2",
+   "path_id": 701,
+   "gameobject": "Label",
+   "text": "Edit Map",
+   "in_dict": true,
+   "zh": "编辑地图"
+  },
+  {
+   "file": "level2",
+   "path_id": 702,
+   "gameobject": "Label",
+   "text": "Import From File",
+   "in_dict": true,
+   "zh": "从文件导入"
+  },
+  {
+   "file": "level2",
+   "path_id": 703,
+   "gameobject": "TitleLabel",
+   "text": "'ARTIFACTS OF ODIN' SCORE",
+   "in_dict": true,
+   "zh": "「奥丁圣物」得分"
+  },
+  {
+   "file": "level2",
+   "path_id": 705,
+   "gameobject": "Label",
+   "text": "Restart World",
+   "in_dict": true,
+   "zh": "重开此世界"
+  },
+  {
+   "file": "level2",
+   "path_id": 706,
+   "gameobject": "Slot1Label",
+   "text": "13:52 Jan 1, 2013",
+   "in_dict": true,
+   "zh": "13:52 2013年1月1日"
+  },
+  {
+   "file": "level2",
+   "path_id": 713,
+   "gameobject": "Label",
+   "text": "Prev",
+   "in_dict": true,
+   "zh": "上一个"
+  },
+  {
+   "file": "level2",
+   "path_id": 719,
+   "gameobject": "SlotAutoLabel",
+   "text": "13:52 Jan 1, 2013",
+   "in_dict": true,
+   "zh": "13:52 2013年1月1日"
+  },
+  {
+   "file": "level2",
+   "path_id": 727,
+   "gameobject": "MissionTimeLabel",
+   "text": "Time:1:00:00.0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 728,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "level2",
+   "path_id": 730,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "level2",
+   "path_id": 731,
+   "gameobject": "NormalLabel",
+   "text": "-",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 739,
+   "gameobject": "TagLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 740,
+   "gameobject": "Label",
+   "text": "Cancel",
+   "in_dict": true,
+   "zh": "取消"
+  },
+  {
+   "file": "level2",
+   "path_id": 745,
+   "gameobject": "SlotsLabel",
+   "text": "Slots",
+   "in_dict": true,
+   "zh": "存档位"
+  },
+  {
+   "file": "level2",
+   "path_id": 752,
+   "gameobject": "MissionScoreLabel",
+   "text": "Score: 9999",
+   "in_dict": true,
+   "zh": "得分：9999"
+  },
+  {
+   "file": "level2",
+   "path_id": 757,
+   "gameobject": "Label",
+   "text": "View Demo Screen",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 761,
+   "gameobject": "TagLabel",
+   "text": "1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 764,
+   "gameobject": "Slot3Label",
+   "text": "13:52 Jan 1, 2013",
+   "in_dict": true,
+   "zh": "13:52 2013年1月1日"
+  },
+  {
+   "file": "level2",
+   "path_id": 765,
+   "gameobject": "TitleLabel",
+   "text": "INHIBITORS DESTROYED",
+   "in_dict": true,
+   "zh": "已摧毁抑制器"
+  },
+  {
+   "file": "level2",
+   "path_id": 766,
+   "gameobject": "TagLabel",
+   "text": "3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 770,
+   "gameobject": "MainLabel",
+   "text": "Choose a Slot to Load or Restart",
+   "in_dict": true,
+   "zh": "选择存档位以载入或重新开始"
+  },
+  {
+   "file": "level2",
+   "path_id": 771,
+   "gameobject": "Label",
+   "text": "Never show message again.",
+   "in_dict": true,
+   "zh": "不再显示此消息。"
+  },
+  {
+   "file": "level2",
+   "path_id": 783,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "level2",
+   "path_id": 790,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "level2",
+   "path_id": 791,
+   "gameobject": "Label",
+   "text": "Return to Origin",
+   "in_dict": true,
+   "zh": "返回原点"
+  },
+  {
+   "file": "level2",
+   "path_id": 796,
+   "gameobject": "OutLabel",
+   "text": "-",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 798,
+   "gameobject": "NormalLabel",
+   "text": "-",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 799,
+   "gameobject": "CharacterName",
+   "text": "Skarsgard Abraxis",
+   "in_dict": true,
+   "zh": "斯卡斯加德·阿布拉克斯"
+  },
+  {
+   "file": "level2",
+   "path_id": 807,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "level2",
+   "path_id": 808,
+   "gameobject": "ArtifactType1Total",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level2",
+   "path_id": 809,
+   "gameobject": "Label",
+   "text": "Launch Mission",
+   "in_dict": true,
+   "zh": "发射任务"
+  },
+  {
+   "file": "level2",
+   "path_id": 811,
+   "gameobject": "Label",
+   "text": "Exit",
+   "in_dict": true,
+   "zh": "退出"
+  },
+  {
+   "file": "level2",
+   "path_id": 813,
+   "gameobject": "SectorInstructionsLabel",
+   "text": "Left Click a destination to initiate warp.",
+   "in_dict": true,
+   "zh": "左键点击目的地以启动跃迁。"
+  },
+  {
+   "file": "level2",
+   "path_id": 821,
+   "gameobject": "MessageText",
+   "text": "This is a message from Skarsgard Abraxis.  I have slumbered for many eons.  Now awake, I seek to understand my purpose and why Platius sent me here.",
+   "in_dict": true,
+   "zh": "这是一则来自斯卡斯加德·阿布拉克斯的消息。我已沉睡了许多纪元。如今苏醒，我想弄清自己的使命，以及普拉提乌斯为何把我送到这里。"
+  },
+  {
+   "file": "level2",
+   "path_id": 822,
+   "gameobject": "Label",
+   "text": "Skip All",
+   "in_dict": true,
+   "zh": "全部跳过"
+  },
+  {
+   "file": "level3",
+   "path_id": 5439,
+   "gameobject": "CreeperHeightDisplay",
+   "text": "88",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5441,
+   "gameobject": "Label",
+   "text": "[20ff00]LEFT MOUSE TO ADD[ffffff].  [ff0000]RIGHT MOUSE TO REMOVE",
+   "in_dict": true,
+   "zh": "[20ff00]左键添加[ffffff]。  [ff0000]右键移除"
+  },
+  {
+   "file": "level3",
+   "path_id": 5442,
+   "gameobject": "GameTimeDisplay",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5444,
+   "gameobject": "Label",
+   "text": "Leave World",
+   "in_dict": true,
+   "zh": "离开世界"
+  },
+  {
+   "file": "level3",
+   "path_id": 5449,
+   "gameobject": "Label",
+   "text": "Orbital",
+   "in_dict": true,
+   "zh": "轨道"
+  },
+  {
+   "file": "level3",
+   "path_id": 5454,
+   "gameobject": "Label",
+   "text": "Structure",
+   "in_dict": true,
+   "zh": "建筑"
+  },
+  {
+   "file": "level3",
+   "path_id": 5461,
+   "gameobject": "Label",
+   "text": "Weapons",
+   "in_dict": true,
+   "zh": "武器"
+  },
+  {
+   "file": "level3",
+   "path_id": 5471,
+   "gameobject": "Label",
+   "text": "Terra\nForm",
+   "in_dict": true,
+   "zh": "地形\n改造"
+  },
+  {
+   "file": "level3",
+   "path_id": 5482,
+   "gameobject": "Label",
+   "text": "Cancel",
+   "in_dict": true,
+   "zh": "取消"
+  },
+  {
+   "file": "level3",
+   "path_id": 5496,
+   "gameobject": "UnitDisarmButtonLabel",
+   "text": "DISARM",
+   "in_dict": true,
+   "zh": "解除"
+  },
+  {
+   "file": "level3",
+   "path_id": 5499,
+   "gameobject": "UnitDeactivateButtonLabel",
+   "text": "DEACTIVATE",
+   "in_dict": true,
+   "zh": "停用"
+  },
+  {
+   "file": "level3",
+   "path_id": 5504,
+   "gameobject": "Label",
+   "text": "RETURN TO ORBIT",
+   "in_dict": true,
+   "zh": "返回轨道"
+  },
+  {
+   "file": "level3",
+   "path_id": 5519,
+   "gameobject": "BrushSizeLabel",
+   "text": "Brush Size",
+   "in_dict": true,
+   "zh": "笔刷大小"
+  },
+  {
+   "file": "level3",
+   "path_id": 5520,
+   "gameobject": "BrushSize1",
+   "text": "1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5521,
+   "gameobject": "BrushSize2",
+   "text": "3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5522,
+   "gameobject": "BrushSize3",
+   "text": "5",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5523,
+   "gameobject": "TerrainHeight0",
+   "text": "1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5524,
+   "gameobject": "TerrainHeightLabel",
+   "text": "Terrain Height",
+   "in_dict": true,
+   "zh": "地形高度"
+  },
+  {
+   "file": "level3",
+   "path_id": 5531,
+   "gameobject": "TerrainHeight1",
+   "text": "2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5532,
+   "gameobject": "TerrainHeight2",
+   "text": "3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5533,
+   "gameobject": "TerrainHeight3",
+   "text": "4",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5534,
+   "gameobject": "TerrainHeight4",
+   "text": "5",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5535,
+   "gameobject": "TerrainHeight5",
+   "text": "6",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5536,
+   "gameobject": "TerrainHeight6",
+   "text": "7",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5537,
+   "gameobject": "TerrainHeight7",
+   "text": "8",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5538,
+   "gameobject": "TerrainHeight8",
+   "text": "9",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5539,
+   "gameobject": "TerrainHeight9",
+   "text": "10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5549,
+   "gameobject": "Label",
+   "text": "Page 2",
+   "in_dict": true,
+   "zh": "第 2 页"
+  },
+  {
+   "file": "level3",
+   "path_id": 5553,
+   "gameobject": "Label",
+   "text": "Page 1",
+   "in_dict": true,
+   "zh": "第 1 页"
+  },
+  {
+   "file": "level3",
+   "path_id": 5562,
+   "gameobject": "Label",
+   "text": "Square",
+   "in_dict": true,
+   "zh": "方形"
+  },
+  {
+   "file": "level3",
+   "path_id": 5571,
+   "gameobject": "Label",
+   "text": "Round",
+   "in_dict": true,
+   "zh": "圆形"
+  },
+  {
+   "file": "level3",
+   "path_id": 5574,
+   "gameobject": "ScreenRes",
+   "text": "1024x768",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5580,
+   "gameobject": "Label",
+   "text": "Game",
+   "in_dict": true,
+   "zh": "游戏"
+  },
+  {
+   "file": "level3",
+   "path_id": 5583,
+   "gameobject": "Label",
+   "text": "Sound",
+   "in_dict": true,
+   "zh": "音效"
+  },
+  {
+   "file": "level3",
+   "path_id": 5588,
+   "gameobject": "Label",
+   "text": "Video",
+   "in_dict": true,
+   "zh": "视频"
+  },
+  {
+   "file": "level3",
+   "path_id": 5593,
+   "gameobject": "Label",
+   "text": "X",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5601,
+   "gameobject": "Label",
+   "text": "1.0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5606,
+   "gameobject": "Label",
+   "text": "1.0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5609,
+   "gameobject": "Label",
+   "text": "1.0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5614,
+   "gameobject": "Label",
+   "text": "1.0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5617,
+   "gameobject": "Label",
+   "text": "1.0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5622,
+   "gameobject": "Label",
+   "text": "1.0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5625,
+   "gameobject": "Label",
+   "text": "1.0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5630,
+   "gameobject": "Label",
+   "text": "1.0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5633,
+   "gameobject": "Label",
+   "text": "1.0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5647,
+   "gameobject": "Label",
+   "text": "1.0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5652,
+   "gameobject": "Label",
+   "text": "Map Textures",
+   "in_dict": true,
+   "zh": "地图纹理"
+  },
+  {
+   "file": "level3",
+   "path_id": 5663,
+   "gameobject": "Label",
+   "text": "Edit Map",
+   "in_dict": true,
+   "zh": "编辑地图"
+  },
+  {
+   "file": "level3",
+   "path_id": 5673,
+   "gameobject": "Label",
+   "text": "Terrain Type",
+   "in_dict": true,
+   "zh": "地形类型"
+  },
+  {
+   "file": "level3",
+   "path_id": 5674,
+   "gameobject": "TerrainHeight9",
+   "text": "10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5675,
+   "gameobject": "TerrainHeight8",
+   "text": "9",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5676,
+   "gameobject": "TerrainHeight7",
+   "text": "8",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5677,
+   "gameobject": "TerrainHeight6",
+   "text": "7",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5678,
+   "gameobject": "TerrainHeight5",
+   "text": "6",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5679,
+   "gameobject": "TerrainHeight4",
+   "text": "5",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5680,
+   "gameobject": "TerrainHeight3",
+   "text": "4",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5681,
+   "gameobject": "TerrainHeight2",
+   "text": "3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5682,
+   "gameobject": "TerrainHeight1",
+   "text": "2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5688,
+   "gameobject": "TerrainHeightLabel",
+   "text": "Terrain Height",
+   "in_dict": true,
+   "zh": "地形高度"
+  },
+  {
+   "file": "level3",
+   "path_id": 5689,
+   "gameobject": "TerrainHeight0",
+   "text": "1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5690,
+   "gameobject": "BrushSize6",
+   "text": "6",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5691,
+   "gameobject": "BrushSize3",
+   "text": "3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5692,
+   "gameobject": "BrushSize1",
+   "text": "1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5693,
+   "gameobject": "BrushSize10",
+   "text": "10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5694,
+   "gameobject": "BrushSizeLabel",
+   "text": "Brush Size",
+   "in_dict": true,
+   "zh": "笔刷大小"
+  },
+  {
+   "file": "level3",
+   "path_id": 5702,
+   "gameobject": "Label",
+   "text": "MENU",
+   "in_dict": true,
+   "zh": "菜单"
+  },
+  {
+   "file": "level3",
+   "path_id": 5708,
+   "gameobject": "FPS",
+   "text": "30.1 30.1 4X",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5712,
+   "gameobject": "Label",
+   "text": "MENU",
+   "in_dict": true,
+   "zh": "菜单"
+  },
+  {
+   "file": "level3",
+   "path_id": 5726,
+   "gameobject": "Label",
+   "text": "Calibrating Planetary Scanners...",
+   "in_dict": true,
+   "zh": "正在校准行星扫描仪…"
+  },
+  {
+   "file": "level3",
+   "path_id": 5733,
+   "gameobject": "Label1",
+   "text": "Fire Convert",
+   "in_dict": true,
+   "zh": "发射转换"
+  },
+  {
+   "file": "level3",
+   "path_id": 5734,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5754,
+   "gameobject": "Label",
+   "text": "Build Bertha:",
+   "in_dict": true,
+   "zh": "建造贝莎炮:"
+  },
+  {
+   "file": "level3",
+   "path_id": 5765,
+   "gameobject": "Label",
+   "text": "F1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5775,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5787,
+   "gameobject": "Label",
+   "text": "Ore Mine",
+   "in_dict": true,
+   "zh": "矿场"
+  },
+  {
+   "file": "level3",
+   "path_id": 5788,
+   "gameobject": "UseLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5793,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 5801,
+   "gameobject": "NameLabel",
+   "text": "CN 3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5806,
+   "gameobject": "LevelLabel",
+   "text": "10/10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5813,
+   "gameobject": "Label",
+   "text": "Guppy",
+   "in_dict": true,
+   "zh": "补给船"
+  },
+  {
+   "file": "level3",
+   "path_id": 5818,
+   "gameobject": "TimeLabel",
+   "text": "0:00",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5827,
+   "gameobject": "Label",
+   "text": "Create Group 1:",
+   "in_dict": true,
+   "zh": "创建编队 1:"
+  },
+  {
+   "file": "level3",
+   "path_id": 5832,
+   "gameobject": "Label",
+   "text": "Bomber",
+   "in_dict": true,
+   "zh": "轰炸机"
+  },
+  {
+   "file": "level3",
+   "path_id": 5836,
+   "gameobject": "NameLabel",
+   "text": "CN 3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5837,
+   "gameobject": "BrushSize4",
+   "text": "7",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5841,
+   "gameobject": "Label",
+   "text": "UpArrow",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5848,
+   "gameobject": "Label",
+   "text": "Targeting Control",
+   "in_dict": true,
+   "zh": "瞄准控制"
+  },
+  {
+   "file": "level3",
+   "path_id": 5855,
+   "gameobject": "ACTotalLabel",
+   "text": "Total",
+   "in_dict": true,
+   "zh": "总计"
+  },
+  {
+   "file": "level3",
+   "path_id": 5861,
+   "gameobject": "LevelLabel",
+   "text": " LEVEL: 0",
+   "in_dict": true,
+   "zh": " 等级: 0"
+  },
+  {
+   "file": "level3",
+   "path_id": 5865,
+   "gameobject": "Label",
+   "text": "SHIFT-G",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5868,
+   "gameobject": "ACTotalLabel",
+   "text": "Total",
+   "in_dict": true,
+   "zh": "总计"
+  },
+  {
+   "file": "level3",
+   "path_id": 5878,
+   "gameobject": "Label",
+   "text": "Prev",
+   "in_dict": true,
+   "zh": "上一个"
+  },
+  {
+   "file": "level3",
+   "path_id": 5879,
+   "gameobject": "LevelLabel",
+   "text": " LEVEL: 0",
+   "in_dict": true,
+   "zh": " 等级: 0"
+  },
+  {
+   "file": "level3",
+   "path_id": 5891,
+   "gameobject": "Label",
+   "text": "Build Beam:",
+   "in_dict": true,
+   "zh": "建造光束:"
+  },
+  {
+   "file": "level3",
+   "path_id": 5892,
+   "gameobject": "Label",
+   "text": "Current",
+   "in_dict": true,
+   "zh": "当前"
+  },
+  {
+   "file": "level3",
+   "path_id": 5903,
+   "gameobject": "Label",
+   "text": "Totem Efficiency",
+   "in_dict": true,
+   "zh": "图腾效率"
+  },
+  {
+   "file": "level3",
+   "path_id": 5905,
+   "gameobject": "Label",
+   "text": "Alpha5",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5906,
+   "gameobject": "PriceLabel",
+   "text": "50",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5910,
+   "gameobject": "Slot1Label",
+   "text": "13:52 Jan 1, 2013",
+   "in_dict": true,
+   "zh": "13:52 2013年1月1日"
+  },
+  {
+   "file": "level3",
+   "path_id": 5921,
+   "gameobject": "Label",
+   "text": "Build Nullifier:",
+   "in_dict": true,
+   "zh": "建造灭除器:"
+  },
+  {
+   "file": "level3",
+   "path_id": 5924,
+   "gameobject": "PriceLabel",
+   "text": "25",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5929,
+   "gameobject": "StoredLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5940,
+   "gameobject": "VerticalForceLabel",
+   "text": "U/D",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5942,
+   "gameobject": "PrimaryLabel",
+   "text": "Primary",
+   "in_dict": true,
+   "zh": "主要"
+  },
+  {
+   "file": "level3",
+   "path_id": 5943,
+   "gameobject": "Label",
+   "text": "Show Mist:",
+   "in_dict": true,
+   "zh": "显示迷雾:"
+  },
+  {
+   "file": "level3",
+   "path_id": 5952,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "level3",
+   "path_id": 5954,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "level3",
+   "path_id": 5958,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5964,
+   "gameobject": "Label",
+   "text": "Restart World",
+   "in_dict": true,
+   "zh": "重开此世界"
+  },
+  {
+   "file": "level3",
+   "path_id": 5971,
+   "gameobject": "InstructionsLabel",
+   "text": "PRESS A KEY",
+   "in_dict": true,
+   "zh": "按下按键"
+  },
+  {
+   "file": "level3",
+   "path_id": 5972,
+   "gameobject": "Label",
+   "text": "Alpha1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5973,
+   "gameobject": "Label",
+   "text": "Procedural 1",
+   "in_dict": true,
+   "zh": "程序生成 1"
+  },
+  {
+   "file": "level3",
+   "path_id": 5974,
+   "gameobject": "Label",
+   "text": "Apply",
+   "in_dict": true,
+   "zh": "应用"
+  },
+  {
+   "file": "level3",
+   "path_id": 5981,
+   "gameobject": "PriceLabel",
+   "text": "60",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5987,
+   "gameobject": "Label2",
+   "text": "i",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5988,
+   "gameobject": "Label",
+   "text": "Move Map Up:",
+   "in_dict": true,
+   "zh": "上移地图:"
+  },
+  {
+   "file": "level3",
+   "path_id": 5989,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 5991,
+   "gameobject": "ACProduction",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 5995,
+   "gameobject": "Label",
+   "text": "CTRL",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6011,
+   "gameobject": "Label",
+   "text": "SHIFT-Minus",
+   "in_dict": true,
+   "zh": "SHIFT-Minus"
+  },
+  {
+   "file": "level3",
+   "path_id": 6012,
+   "gameobject": "Label",
+   "text": "Mute:",
+   "in_dict": true,
+   "zh": "静音:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6022,
+   "gameobject": "Label",
+   "text": "Minus",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6026,
+   "gameobject": "Label",
+   "text": "Build Mortar:",
+   "in_dict": true,
+   "zh": "建造迫击炮:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6027,
+   "gameobject": "PriceLabel",
+   "text": "COST: 20",
+   "in_dict": true,
+   "zh": "费用: 20"
+  },
+  {
+   "file": "level3",
+   "path_id": 6030,
+   "gameobject": "Label",
+   "text": "Alpha8",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6050,
+   "gameobject": "Label",
+   "text": "REFRESHING. PLEASE WAIT.... ",
+   "in_dict": true,
+   "zh": "正在刷新，请稍候…… "
+  },
+  {
+   "file": "level3",
+   "path_id": 6060,
+   "gameobject": "Label",
+   "text": "Show D-Growth:",
+   "in_dict": true,
+   "zh": "显示魔苋生长:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6062,
+   "gameobject": "Label",
+   "text": "Screenshot:",
+   "in_dict": true,
+   "zh": "截图:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6063,
+   "gameobject": "Label",
+   "text": "Creeper",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6080,
+   "gameobject": "Label",
+   "text": "Orbital Tab:",
+   "in_dict": true,
+   "zh": "轨道页:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6082,
+   "gameobject": "ACUse",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6083,
+   "gameobject": "WeaponLabel",
+   "text": "Singularity",
+   "in_dict": true,
+   "zh": "奇点"
+  },
+  {
+   "file": "level3",
+   "path_id": 6084,
+   "gameobject": "Label",
+   "text": "PACKET SPEED.  ",
+   "in_dict": true,
+   "zh": "能量包速度.  "
+  },
+  {
+   "file": "level3",
+   "path_id": 6094,
+   "gameobject": "PriceLabel",
+   "text": "COST: 20",
+   "in_dict": true,
+   "zh": "费用: 20"
+  },
+  {
+   "file": "level3",
+   "path_id": 6099,
+   "gameobject": "Label",
+   "text": "CN Info Panels",
+   "in_dict": true,
+   "zh": "CN 信息面板"
+  },
+  {
+   "file": "level3",
+   "path_id": 6100,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6101,
+   "gameobject": "HorizontalForceLabel",
+   "text": "R/L",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6102,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6108,
+   "gameobject": "Label",
+   "text": "Delete Creeper",
+   "in_dict": true,
+   "zh": "删除 Creeper"
+  },
+  {
+   "file": "level3",
+   "path_id": 6109,
+   "gameobject": "Label",
+   "text": "Show D-Growth",
+   "in_dict": true,
+   "zh": "显示魔苋生长"
+  },
+  {
+   "file": "level3",
+   "path_id": 6113,
+   "gameobject": "Label",
+   "text": "+Digi",
+   "in_dict": true,
+   "zh": "+魔苋"
+  },
+  {
+   "file": "level3",
+   "path_id": 6118,
+   "gameobject": "Label",
+   "text": "Misc.",
+   "in_dict": true,
+   "zh": "杂项"
+  },
+  {
+   "file": "level3",
+   "path_id": 6127,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "level3",
+   "path_id": 6131,
+   "gameobject": "Label",
+   "text": "E",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6133,
+   "gameobject": "Label",
+   "text": "Set T-Brush To Terrain:",
+   "in_dict": true,
+   "zh": "地形笔刷改用地形:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6138,
+   "gameobject": "PriceLabel",
+   "text": "100",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6139,
+   "gameobject": "Label",
+   "text": "Cannons",
+   "in_dict": true,
+   "zh": "炮"
+  },
+  {
+   "file": "level3",
+   "path_id": 6161,
+   "gameobject": "Label",
+   "text": "UPGRADE",
+   "in_dict": true,
+   "zh": "升级"
+  },
+  {
+   "file": "level3",
+   "path_id": 6163,
+   "gameobject": "Label",
+   "text": "A",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6164,
+   "gameobject": "Label",
+   "text": "Zoom Map In:",
+   "in_dict": true,
+   "zh": "放大地图:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6178,
+   "gameobject": "Label",
+   "text": "Skip All",
+   "in_dict": true,
+   "zh": "全部跳过"
+  },
+  {
+   "file": "level3",
+   "path_id": 6181,
+   "gameobject": "Label",
+   "text": "Alpha2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6190,
+   "gameobject": "ACUseLabel",
+   "text": "Use",
+   "in_dict": true,
+   "zh": "使用"
+  },
+  {
+   "file": "level3",
+   "path_id": 6195,
+   "gameobject": "LevelLabel",
+   "text": " LEVEL: 0",
+   "in_dict": true,
+   "zh": " 等级: 0"
+  },
+  {
+   "file": "level3",
+   "path_id": 6202,
+   "gameobject": "Label",
+   "text": "Enable VSync",
+   "in_dict": true,
+   "zh": "开启垂直同步"
+  },
+  {
+   "file": "level3",
+   "path_id": 6204,
+   "gameobject": "PriceLabel",
+   "text": "50",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6220,
+   "gameobject": "Label",
+   "text": "Create \nFinalized Map",
+   "in_dict": true,
+   "zh": "创建 \n成品地图"
+  },
+  {
+   "file": "level3",
+   "path_id": 6222,
+   "gameobject": "StoredLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6223,
+   "gameobject": "Label",
+   "text": "Show Explosions",
+   "in_dict": true,
+   "zh": "显示爆炸"
+  },
+  {
+   "file": "level3",
+   "path_id": 6239,
+   "gameobject": "Label",
+   "text": "Ore",
+   "in_dict": true,
+   "zh": "矿"
+  },
+  {
+   "file": "level3",
+   "path_id": 6243,
+   "gameobject": "Label",
+   "text": "Alpha4",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6251,
+   "gameobject": "SlotsLabel",
+   "text": "Save Slots",
+   "in_dict": true,
+   "zh": "存档位"
+  },
+  {
+   "file": "level3",
+   "path_id": 6252,
+   "gameobject": "Label",
+   "text": "RESOURCE TO TRANSPORT",
+   "in_dict": true,
+   "zh": "待运输资源"
+  },
+  {
+   "file": "level3",
+   "path_id": 6253,
+   "gameobject": "SecondaryLabel",
+   "text": "Alternate",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6254,
+   "gameobject": "Label",
+   "text": "Show Air Units",
+   "in_dict": true,
+   "zh": "显示空中单位"
+  },
+  {
+   "file": "level3",
+   "path_id": 6255,
+   "gameobject": "Label",
+   "text": "Disable popup boxes on main menu.",
+   "in_dict": true,
+   "zh": "禁用主菜单的弹出框。"
+  },
+  {
+   "file": "level3",
+   "path_id": 6256,
+   "gameobject": "Label",
+   "text": "Cancel:",
+   "in_dict": true,
+   "zh": "取消:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6257,
+   "gameobject": "Label",
+   "text": "Build",
+   "in_dict": true,
+   "zh": "建造"
+  },
+  {
+   "file": "level3",
+   "path_id": 6259,
+   "gameobject": "MessageText",
+   "text": "This is a message from Skarsgard Abraxis.  I have slumbered for many eons.  Now awake, I seek to understand my purpose and why Platius sent me here.",
+   "in_dict": true,
+   "zh": "这是一则来自斯卡斯加德·阿布拉克斯的消息。我已沉睡了许多纪元。如今苏醒，我想弄清自己的使命，以及普拉提乌斯为何把我送到这里。"
+  },
+  {
+   "file": "level3",
+   "path_id": 6271,
+   "gameobject": "WeaponLabel2",
+   "text": "Weapon",
+   "in_dict": true,
+   "zh": "武器"
+  },
+  {
+   "file": "level3",
+   "path_id": 6272,
+   "gameobject": "EnergyLabel",
+   "text": "Energy:",
+   "in_dict": true,
+   "zh": "能量:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6277,
+   "gameobject": "Label",
+   "text": "Show Soylent:",
+   "in_dict": true,
+   "zh": "显示营养液:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6278,
+   "gameobject": "Label",
+   "text": "Spore Alarm",
+   "in_dict": true,
+   "zh": "孢子警报"
+  },
+  {
+   "file": "level3",
+   "path_id": 6279,
+   "gameobject": "Label",
+   "text": "Bump Scroll Rate",
+   "in_dict": true,
+   "zh": "边缘滚动速度"
+  },
+  {
+   "file": "level3",
+   "path_id": 6280,
+   "gameobject": "EnergyUseLabel",
+   "text": "Use",
+   "in_dict": true,
+   "zh": "使用"
+  },
+  {
+   "file": "level3",
+   "path_id": 6281,
+   "gameobject": "ZoomDash",
+   "text": "-",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6284,
+   "gameobject": "Name2Label",
+   "text": "Energy",
+   "in_dict": true,
+   "zh": "能量"
+  },
+  {
+   "file": "level3",
+   "path_id": 6292,
+   "gameobject": "Label",
+   "text": "Do not auto-unpause after opening conversation.",
+   "in_dict": true,
+   "zh": "打开对话后不自动继续。"
+  },
+  {
+   "file": "level3",
+   "path_id": 6293,
+   "gameobject": "Label",
+   "text": "100%",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6294,
+   "gameobject": "Slot0Label",
+   "text": "13:52 Jan 1, 2013",
+   "in_dict": true,
+   "zh": "13:52 2013年1月1日"
+  },
+  {
+   "file": "level3",
+   "path_id": 6301,
+   "gameobject": "Label",
+   "text": "Build Bomber:",
+   "in_dict": true,
+   "zh": "建造轰炸机:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6302,
+   "gameobject": "Label",
+   "text": "Digitalis Only",
+   "in_dict": true,
+   "zh": "仅魔苋"
+  },
+  {
+   "file": "level3",
+   "path_id": 6307,
+   "gameobject": "TimeLabel",
+   "text": "0:00",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6308,
+   "gameobject": "Label",
+   "text": "Structure Tab:",
+   "in_dict": true,
+   "zh": "建筑页:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6309,
+   "gameobject": "Label",
+   "text": "Show Air Units:",
+   "in_dict": true,
+   "zh": "显示空中单位:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6313,
+   "gameobject": "Label",
+   "text": "Select Similar Units:",
+   "in_dict": true,
+   "zh": "选择同类单位:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6315,
+   "gameobject": "EnergyTotal",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6316,
+   "gameobject": "KeyboardScrollLabel",
+   "text": "16",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6325,
+   "gameobject": "Label",
+   "text": "Show Creeper/AC",
+   "in_dict": true,
+   "zh": "显示 Creeper 与 AC"
+  },
+  {
+   "file": "level3",
+   "path_id": 6330,
+   "gameobject": "Label",
+   "text": "Build Guppy:",
+   "in_dict": true,
+   "zh": "建造补给船:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6331,
+   "gameobject": "ACProduction",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6336,
+   "gameobject": "Label",
+   "text": "Erase Binding",
+   "in_dict": true,
+   "zh": "清除绑定"
+  },
+  {
+   "file": "level3",
+   "path_id": 6340,
+   "gameobject": "UseLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6342,
+   "gameobject": "Label",
+   "text": "Save",
+   "in_dict": true,
+   "zh": "保存"
+  },
+  {
+   "file": "level3",
+   "path_id": 6343,
+   "gameobject": "Label",
+   "text": "Left",
+   "in_dict": true,
+   "zh": "左"
+  },
+  {
+   "file": "level3",
+   "path_id": 6360,
+   "gameobject": "Label",
+   "text": "Tab",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6365,
+   "gameobject": "LossLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6370,
+   "gameobject": "Label",
+   "text": "Terraform Nearest First",
+   "in_dict": true,
+   "zh": "优先改造最近地形"
+  },
+  {
+   "file": "level3",
+   "path_id": 6386,
+   "gameobject": "PriceLabel",
+   "text": "20",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6387,
+   "gameobject": "PriceLabel",
+   "text": "20",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6399,
+   "gameobject": "Label",
+   "text": "Build Thor:",
+   "in_dict": true,
+   "zh": "建造索尔:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6404,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 6408,
+   "gameobject": "Label",
+   "text": "DownArrow",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6420,
+   "gameobject": "Label",
+   "text": "SHIFT-E",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6436,
+   "gameobject": "ProductionLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6437,
+   "gameobject": "Label",
+   "text": "Z",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6439,
+   "gameobject": "LevelLabel",
+   "text": "10/10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6440,
+   "gameobject": "ZoomPlus",
+   "text": "+",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6445,
+   "gameobject": "Label",
+   "text": "F5",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6447,
+   "gameobject": "Label",
+   "text": "Alpha2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6450,
+   "gameobject": "Label",
+   "text": "Move Map Right:",
+   "in_dict": true,
+   "zh": "右移地图:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6453,
+   "gameobject": "Name2Label",
+   "text": "AC",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6468,
+   "gameobject": "Label",
+   "text": "Keyboard Scroll Rate",
+   "in_dict": true,
+   "zh": "键盘滚动速度"
+  },
+  {
+   "file": "level3",
+   "path_id": 6469,
+   "gameobject": "Label",
+   "text": "Mortar",
+   "in_dict": true,
+   "zh": "迫击炮"
+  },
+  {
+   "file": "level3",
+   "path_id": 6476,
+   "gameobject": "Label",
+   "text": "Opaque Creeper",
+   "in_dict": true,
+   "zh": "不透明 Creeper"
+  },
+  {
+   "file": "level3",
+   "path_id": 6477,
+   "gameobject": "Label",
+   "text": "CN3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6478,
+   "gameobject": "LossLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6479,
+   "gameobject": "Label",
+   "text": "Moves Map",
+   "in_dict": true,
+   "zh": "移动地图"
+  },
+  {
+   "file": "level3",
+   "path_id": 6483,
+   "gameobject": "Label",
+   "text": "System Communique",
+   "in_dict": true,
+   "zh": "系统通讯"
+  },
+  {
+   "file": "level3",
+   "path_id": 6488,
+   "gameobject": "ACProductionLabel",
+   "text": "Production",
+   "in_dict": true,
+   "zh": "生产"
+  },
+  {
+   "file": "level3",
+   "path_id": 6490,
+   "gameobject": "TechLabel",
+   "text": "Tech Upgrades",
+   "in_dict": true,
+   "zh": "科技升级"
+  },
+  {
+   "file": "level3",
+   "path_id": 6493,
+   "gameobject": "ACProduction",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6502,
+   "gameobject": "Label",
+   "text": "F3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6506,
+   "gameobject": "InfoLevelValueLabel",
+   "text": "10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6507,
+   "gameobject": "Label",
+   "text": "SHIFT-D",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6513,
+   "gameobject": "Label",
+   "text": "Cancel",
+   "in_dict": true,
+   "zh": "取消"
+  },
+  {
+   "file": "level3",
+   "path_id": 6536,
+   "gameobject": "TotemEnergyLabel",
+   "text": "[00ff00]100",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6539,
+   "gameobject": "Label",
+   "text": "F11",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6542,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6547,
+   "gameobject": "CloneInstructionsLabel",
+   "text": "Press '[ffff00]C[-]' to clone the last edited unit.",
+   "in_dict": true,
+   "zh": "按 '[ffff00]C[-]' 克隆上次编辑的单位。"
+  },
+  {
+   "file": "level3",
+   "path_id": 6551,
+   "gameobject": "PriceLabel",
+   "text": "20",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6552,
+   "gameobject": "Label",
+   "text": "Move Speed",
+   "in_dict": true,
+   "zh": "移动速度"
+  },
+  {
+   "file": "level3",
+   "path_id": 6553,
+   "gameobject": "Label",
+   "text": "Alpha6",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6556,
+   "gameobject": "PriceLabel",
+   "text": "5",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6557,
+   "gameobject": "Label",
+   "text": "LeftArrow",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6560,
+   "gameobject": "Label",
+   "text": "Alpha7",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6562,
+   "gameobject": "ACUseLabel",
+   "text": "Use",
+   "in_dict": true,
+   "zh": "使用"
+  },
+  {
+   "file": "level3",
+   "path_id": 6563,
+   "gameobject": "ACUse",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6565,
+   "gameobject": "Label",
+   "text": "Auto Launch (If Target Set)",
+   "in_dict": true,
+   "zh": "自动发射（已设目标时）"
+  },
+  {
+   "file": "level3",
+   "path_id": 6566,
+   "gameobject": "SoundEffectsVolumeLabel",
+   "text": "Effects Volume",
+   "in_dict": true,
+   "zh": "音效音量"
+  },
+  {
+   "file": "level3",
+   "path_id": 6581,
+   "gameobject": "Label",
+   "text": "Opaque Creeper:",
+   "in_dict": true,
+   "zh": "不透明 Creeper:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6588,
+   "gameobject": "Label",
+   "text": "Packet Receive",
+   "in_dict": true,
+   "zh": "能量包接收"
+  },
+  {
+   "file": "level3",
+   "path_id": 6590,
+   "gameobject": "Label",
+   "text": "Disarm:",
+   "in_dict": true,
+   "zh": "解除武装:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6597,
+   "gameobject": "Label",
+   "text": "Create Group 3:",
+   "in_dict": true,
+   "zh": "创建编队 3:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6603,
+   "gameobject": "Label",
+   "text": "+Wall",
+   "in_dict": true,
+   "zh": "+墙"
+  },
+  {
+   "file": "level3",
+   "path_id": 6610,
+   "gameobject": "Label",
+   "text": "Never show message again.",
+   "in_dict": true,
+   "zh": "不再显示此消息。"
+  },
+  {
+   "file": "level3",
+   "path_id": 6616,
+   "gameobject": "Label",
+   "text": "Digitalis",
+   "in_dict": true,
+   "zh": "魔苋"
+  },
+  {
+   "file": "level3",
+   "path_id": 6621,
+   "gameobject": "Label",
+   "text": "SHIFT-A",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6623,
+   "gameobject": "NumenLabel",
+   "text": "Numen Control Panel",
+   "in_dict": true,
+   "zh": "符文方尖碑控制面板"
+  },
+  {
+   "file": "level3",
+   "path_id": 6626,
+   "gameobject": "ACProductionLabel",
+   "text": "Production",
+   "in_dict": true,
+   "zh": "生产"
+  },
+  {
+   "file": "level3",
+   "path_id": 6627,
+   "gameobject": "Label",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6628,
+   "gameobject": "Label3",
+   "text": "r",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6638,
+   "gameobject": "Label",
+   "text": "Sound On",
+   "in_dict": true,
+   "zh": "声音开启"
+  },
+  {
+   "file": "level3",
+   "path_id": 6639,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 6655,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6656,
+   "gameobject": "Label",
+   "text": "Fire Rate",
+   "in_dict": true,
+   "zh": "射速"
+  },
+  {
+   "file": "level3",
+   "path_id": 6663,
+   "gameobject": "LevelLabel",
+   "text": " LEVEL: 0",
+   "in_dict": true,
+   "zh": " 等级: 0"
+  },
+  {
+   "file": "level3",
+   "path_id": 6667,
+   "gameobject": "LossLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6696,
+   "gameobject": "ACTotal",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6697,
+   "gameobject": "Label",
+   "text": "Ore Efficiency",
+   "in_dict": true,
+   "zh": "矿物效率"
+  },
+  {
+   "file": "level3",
+   "path_id": 6698,
+   "gameobject": "Label",
+   "text": "Quick Load Game:",
+   "in_dict": true,
+   "zh": "快速载入:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6701,
+   "gameobject": "Label",
+   "text": "Flowing",
+   "in_dict": true,
+   "zh": "流动中"
+  },
+  {
+   "file": "level3",
+   "path_id": 6702,
+   "gameobject": "LevelLabel",
+   "text": "10/10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6706,
+   "gameobject": "Label",
+   "text": "Set Theme",
+   "in_dict": true,
+   "zh": "设置主题"
+  },
+  {
+   "file": "level3",
+   "path_id": 6710,
+   "gameobject": "Label",
+   "text": "Target Priority",
+   "in_dict": true,
+   "zh": "目标优先级"
+  },
+  {
+   "file": "level3",
+   "path_id": 6711,
+   "gameobject": "Label",
+   "text": "Middle Click:",
+   "in_dict": true,
+   "zh": "中键:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6717,
+   "gameobject": "Label",
+   "text": "Move Speed",
+   "in_dict": true,
+   "zh": "移动速度"
+  },
+  {
+   "file": "level3",
+   "path_id": 6718,
+   "gameobject": "PauseIndicatorButtonLabel2",
+   "text": "Click",
+   "in_dict": true,
+   "zh": "点击"
+  },
+  {
+   "file": "level3",
+   "path_id": 6727,
+   "gameobject": "Label",
+   "text": "Show Soylent",
+   "in_dict": true,
+   "zh": "显示营养液"
+  },
+  {
+   "file": "level3",
+   "path_id": 6728,
+   "gameobject": "Label",
+   "text": "Full Map Screenshot:",
+   "in_dict": true,
+   "zh": "全图截图:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6732,
+   "gameobject": "Label",
+   "text": "Build Relay:",
+   "in_dict": true,
+   "zh": "建造中继器:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6742,
+   "gameobject": "Label",
+   "text": "O",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6747,
+   "gameobject": "Label",
+   "text": "RETURN TO BASE",
+   "in_dict": true,
+   "zh": "返回基地"
+  },
+  {
+   "file": "level3",
+   "path_id": 6752,
+   "gameobject": "Label",
+   "text": "Save",
+   "in_dict": true,
+   "zh": "保存"
+  },
+  {
+   "file": "level3",
+   "path_id": 6754,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "level3",
+   "path_id": 6758,
+   "gameobject": "Label",
+   "text": "SHIFT-X",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6763,
+   "gameobject": "LevelLabel",
+   "text": " LEVEL: 0",
+   "in_dict": true,
+   "zh": " 等级: 0"
+  },
+  {
+   "file": "level3",
+   "path_id": 6764,
+   "gameobject": "EnergyTotalLabel",
+   "text": "Total",
+   "in_dict": true,
+   "zh": "总计"
+  },
+  {
+   "file": "level3",
+   "path_id": 6769,
+   "gameobject": "Label",
+   "text": "SHIFT-O",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6770,
+   "gameobject": "EnergyProductionLabel",
+   "text": "Production",
+   "in_dict": true,
+   "zh": "生产"
+  },
+  {
+   "file": "level3",
+   "path_id": 6793,
+   "gameobject": "EnergyProductionLabel",
+   "text": "Production",
+   "in_dict": true,
+   "zh": "生产"
+  },
+  {
+   "file": "level3",
+   "path_id": 6797,
+   "gameobject": "Label",
+   "text": "Right",
+   "in_dict": true,
+   "zh": "右"
+  },
+  {
+   "file": "level3",
+   "path_id": 6798,
+   "gameobject": "Label",
+   "text": "S",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6800,
+   "gameobject": "Label",
+   "text": "Right Click:",
+   "in_dict": true,
+   "zh": "右键:"
+  },
+  {
+   "file": "level3",
+   "path_id": 6801,
+   "gameobject": "Label1",
+   "text": "Fire Freeze",
+   "in_dict": true,
+   "zh": "发射冻结"
+  },
+  {
+   "file": "level3",
+   "path_id": 6827,
+   "gameobject": "WeaponMassCount",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6835,
+   "gameobject": "Label",
+   "text": "FIRE MAIN \nCANNONS",
+   "in_dict": true,
+   "zh": "主炮 \n开火"
+  },
+  {
+   "file": "level3",
+   "path_id": 6841,
+   "gameobject": "RowNumberLabel",
+   "text": "1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6843,
+   "gameobject": "Label",
+   "text": "Archived Transmissions",
+   "in_dict": true,
+   "zh": "存档通讯"
+  },
+  {
+   "file": "level3",
+   "path_id": 6849,
+   "gameobject": "Label",
+   "text": "FIRE !",
+   "in_dict": true,
+   "zh": "开火！"
+  },
+  {
+   "file": "level3",
+   "path_id": 6854,
+   "gameobject": "StoredLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6855,
+   "gameobject": "Label",
+   "text": "Command",
+   "in_dict": true,
+   "zh": "指挥"
+  },
+  {
+   "file": "level3",
+   "path_id": 6856,
+   "gameobject": "Label",
+   "text": "F7",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6857,
+   "gameobject": "Label",
+   "text": "Always On",
+   "in_dict": true,
+   "zh": "常开"
+  },
+  {
+   "file": "level3",
+   "path_id": 6863,
+   "gameobject": "Label",
+   "text": "Nullifier",
+   "in_dict": true,
+   "zh": "灭除器"
+  },
+  {
+   "file": "level3",
+   "path_id": 6864,
+   "gameobject": "PickLabel",
+   "text": "[ffffa0]\"SHIFT-T\" to select terrain height under mouse.",
+   "in_dict": true,
+   "zh": "[ffffa0]\"SHIFT-T\" 选取鼠标下的地形高度。"
+  },
+  {
+   "file": "level3",
+   "path_id": 6865,
+   "gameobject": "StoredLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6866,
+   "gameobject": "LevelLabel",
+   "text": "10/10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6867,
+   "gameobject": "Label",
+   "text": "Do not check for software update at game start.",
+   "in_dict": true,
+   "zh": "游戏启动时不检查软件更新。"
+  },
+  {
+   "file": "level3",
+   "path_id": 6872,
+   "gameobject": "Label",
+   "text": "SHIFT-F",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6874,
+   "gameobject": "Label",
+   "text": "2X",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6875,
+   "gameobject": "Label",
+   "text": "Alpha1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6876,
+   "gameobject": "InfoPriceValueLabel",
+   "text": "100",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6882,
+   "gameobject": "Label",
+   "text": "Editing Overlay",
+   "in_dict": true,
+   "zh": "编辑叠加层"
+  },
+  {
+   "file": "level3",
+   "path_id": 6887,
+   "gameobject": "WeaponFreezeCount",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6892,
+   "gameobject": "Label",
+   "text": "CTRL-C",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6893,
+   "gameobject": "Label",
+   "text": "Q",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6902,
+   "gameobject": "Label",
+   "text": "Do not show big pause button when game is paused.",
+   "in_dict": true,
+   "zh": "游戏暂停时不显示大暂停按钮。"
+  },
+  {
+   "file": "level3",
+   "path_id": 6910,
+   "gameobject": "EnergyTotalLabel",
+   "text": "Total",
+   "in_dict": true,
+   "zh": "总计"
+  },
+  {
+   "file": "level3",
+   "path_id": 6911,
+   "gameobject": "Label",
+   "text": "Clear Current Target",
+   "in_dict": true,
+   "zh": "清除当前目标"
+  },
+  {
+   "file": "level3",
+   "path_id": 6925,
+   "gameobject": "Label",
+   "text": "Packets",
+   "in_dict": true,
+   "zh": "能量包"
+  },
+  {
+   "file": "level3",
+   "path_id": 6927,
+   "gameobject": "LevelLabel",
+   "text": "10/10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6947,
+   "gameobject": "Label",
+   "text": "Char Images",
+   "in_dict": true,
+   "zh": "字符图集"
+  },
+  {
+   "file": "level3",
+   "path_id": 6950,
+   "gameobject": "Label",
+   "text": "Escape",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6956,
+   "gameobject": "Label",
+   "text": "F9",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 6988,
+   "gameobject": "Label",
+   "text": "Ore",
+   "in_dict": true,
+   "zh": "矿"
+  },
+  {
+   "file": "level3",
+   "path_id": 6990,
+   "gameobject": "MapSize",
+   "text": "Map: 300x300",
+   "in_dict": true,
+   "zh": "地图：300x300"
+  },
+  {
+   "file": "level3",
+   "path_id": 6996,
+   "gameobject": "Label",
+   "text": "Charge without Forge",
+   "in_dict": true,
+   "zh": "无锻造厂充能"
+  },
+  {
+   "file": "level3",
+   "path_id": 7004,
+   "gameobject": "Label",
+   "text": "SHIFT-I",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7026,
+   "gameobject": "PriceLabel",
+   "text": "25",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7032,
+   "gameobject": "Label",
+   "text": "Build Collector:",
+   "in_dict": true,
+   "zh": "建造收集器:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7040,
+   "gameobject": "TagLabel",
+   "text": "Auto",
+   "in_dict": true,
+   "zh": "自动"
+  },
+  {
+   "file": "level3",
+   "path_id": 7042,
+   "gameobject": "KeyCatcherNewLabel",
+   "text": "Key Binding:",
+   "in_dict": true,
+   "zh": "按键绑定:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7043,
+   "gameobject": "Label",
+   "text": "Pause:",
+   "in_dict": true,
+   "zh": "暂停:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7044,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7054,
+   "gameobject": "Label",
+   "text": "Cannon",
+   "in_dict": true,
+   "zh": "炮"
+  },
+  {
+   "file": "level3",
+   "path_id": 7065,
+   "gameobject": "Label",
+   "text": "CN Info Panels:",
+   "in_dict": true,
+   "zh": "CN 信息面板:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7073,
+   "gameobject": "Label",
+   "text": "F6",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7076,
+   "gameobject": "Label",
+   "text": "Build Siphon:",
+   "in_dict": true,
+   "zh": "建造虹吸器:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7091,
+   "gameobject": "Label",
+   "text": "Show Explosions:",
+   "in_dict": true,
+   "zh": "显示爆炸:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7096,
+   "gameobject": "Label",
+   "text": "Show Map Info:",
+   "in_dict": true,
+   "zh": "显示地图信息:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7100,
+   "gameobject": "Label",
+   "text": "Build Forge:",
+   "in_dict": true,
+   "zh": "建造锻造厂:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7117,
+   "gameobject": "Label",
+   "text": "Select Group 4:",
+   "in_dict": true,
+   "zh": "选择编队 4:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7125,
+   "gameobject": "Label",
+   "text": "OK/Apply:",
+   "in_dict": true,
+   "zh": "确定/应用:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7127,
+   "gameobject": "Label",
+   "text": "Build Strafer:",
+   "in_dict": true,
+   "zh": "建造俯冲机:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7134,
+   "gameobject": "Label",
+   "text": "Formation Move:",
+   "in_dict": true,
+   "zh": "编队移动:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7142,
+   "gameobject": "Label",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7143,
+   "gameobject": "Label",
+   "text": "Restore Defaults",
+   "in_dict": true,
+   "zh": "恢复默认"
+  },
+  {
+   "file": "level3",
+   "path_id": 7144,
+   "gameobject": "Label",
+   "text": "Reactor",
+   "in_dict": true,
+   "zh": "反应堆"
+  },
+  {
+   "file": "level3",
+   "path_id": 7149,
+   "gameobject": "Label",
+   "text": "Backslash",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7165,
+   "gameobject": "PriceLabel",
+   "text": "500",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7172,
+   "gameobject": "Name2Label",
+   "text": "Energy",
+   "in_dict": true,
+   "zh": "能量"
+  },
+  {
+   "file": "level3",
+   "path_id": 7177,
+   "gameobject": "Label",
+   "text": "X",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7186,
+   "gameobject": "Label",
+   "text": "Siphon",
+   "in_dict": true,
+   "zh": "虹吸器"
+  },
+  {
+   "file": "level3",
+   "path_id": 7195,
+   "gameobject": "Label",
+   "text": "Cancels",
+   "in_dict": true,
+   "zh": "取消"
+  },
+  {
+   "file": "level3",
+   "path_id": 7196,
+   "gameobject": "LossLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7201,
+   "gameobject": "Label",
+   "text": "Do not auto-save when leaving a mission.",
+   "in_dict": true,
+   "zh": "离开任务时不自动保存。"
+  },
+  {
+   "file": "level3",
+   "path_id": 7212,
+   "gameobject": "Creeper Label",
+   "text": "Creeper Color",
+   "in_dict": true,
+   "zh": "Creeper 颜色"
+  },
+  {
+   "file": "level3",
+   "path_id": 7217,
+   "gameobject": "EnergyUseLabel",
+   "text": "Use",
+   "in_dict": true,
+   "zh": "使用"
+  },
+  {
+   "file": "level3",
+   "path_id": 7218,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 7219,
+   "gameobject": "Label",
+   "text": "Strafer",
+   "in_dict": true,
+   "zh": "俯冲机"
+  },
+  {
+   "file": "level3",
+   "path_id": 7232,
+   "gameobject": "Label",
+   "text": "-Wall",
+   "in_dict": true,
+   "zh": "-墙"
+  },
+  {
+   "file": "level3",
+   "path_id": 7240,
+   "gameobject": "EnergyProduction",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7241,
+   "gameobject": "AetherLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7245,
+   "gameobject": "Label",
+   "text": "Forge",
+   "in_dict": true,
+   "zh": "锻造厂"
+  },
+  {
+   "file": "level3",
+   "path_id": 7249,
+   "gameobject": "Label",
+   "text": "Default Color",
+   "in_dict": true,
+   "zh": "默认颜色"
+  },
+  {
+   "file": "level3",
+   "path_id": 7259,
+   "gameobject": "Label",
+   "text": "F4",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7260,
+   "gameobject": "UnitDestroyButtonLabel",
+   "text": "DESTROY",
+   "in_dict": true,
+   "zh": "摧毁"
+  },
+  {
+   "file": "level3",
+   "path_id": 7261,
+   "gameobject": "Label",
+   "text": "None",
+   "in_dict": true,
+   "zh": "无"
+  },
+  {
+   "file": "level3",
+   "path_id": 7267,
+   "gameobject": "Label",
+   "text": "Mouse Wheel Zooms:",
+   "in_dict": true,
+   "zh": "滚轮缩放:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7268,
+   "gameobject": "Label3",
+   "text": "t",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7273,
+   "gameobject": "Label",
+   "text": "RETURN TO BASE",
+   "in_dict": true,
+   "zh": "返回基地"
+  },
+  {
+   "file": "level3",
+   "path_id": 7284,
+   "gameobject": "Label",
+   "text": "Creeper Only",
+   "in_dict": true,
+   "zh": "仅 Creeper"
+  },
+  {
+   "file": "level3",
+   "path_id": 7294,
+   "gameobject": "Label",
+   "text": "Select Group 3:",
+   "in_dict": true,
+   "zh": "选择编队 3:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7307,
+   "gameobject": "EditingOverlayLabel",
+   "text": "Alpha",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7308,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7316,
+   "gameobject": "Label1",
+   "text": "n",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7317,
+   "gameobject": "Label",
+   "text": "Terraform Button:",
+   "in_dict": true,
+   "zh": "地形改造按钮:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7318,
+   "gameobject": "Label1",
+   "text": "Fire Mass",
+   "in_dict": true,
+   "zh": "发射质量"
+  },
+  {
+   "file": "level3",
+   "path_id": 7319,
+   "gameobject": "EnergyProduction",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7323,
+   "gameobject": "WeaponLabel",
+   "text": "Weapon",
+   "in_dict": true,
+   "zh": "武器"
+  },
+  {
+   "file": "level3",
+   "path_id": 7324,
+   "gameobject": "ACLabel",
+   "text": "AC:",
+   "in_dict": true,
+   "zh": "AC:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7328,
+   "gameobject": "Label",
+   "text": "DESTROY RESOURCE PACK",
+   "in_dict": true,
+   "zh": "销毁资源包"
+  },
+  {
+   "file": "level3",
+   "path_id": 7336,
+   "gameobject": "Label",
+   "text": "R",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7348,
+   "gameobject": "EnergyLabel",
+   "text": "Energy:",
+   "in_dict": true,
+   "zh": "能量:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7353,
+   "gameobject": "Label",
+   "text": "Beam",
+   "in_dict": true,
+   "zh": "光束"
+  },
+  {
+   "file": "level3",
+   "path_id": 7355,
+   "gameobject": "DischargePercentLabel",
+   "text": "50%",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7356,
+   "gameobject": "Label",
+   "text": "Weapons Tab:",
+   "in_dict": true,
+   "zh": "武器页:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7361,
+   "gameobject": "Label",
+   "text": "Step During Pause:",
+   "in_dict": true,
+   "zh": "暂停时逐帧:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7365,
+   "gameobject": "PriceLabel",
+   "text": "40",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7371,
+   "gameobject": "UseLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7395,
+   "gameobject": "Label",
+   "text": "Collector",
+   "in_dict": true,
+   "zh": "收集器"
+  },
+  {
+   "file": "level3",
+   "path_id": 7398,
+   "gameobject": "TagLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7405,
+   "gameobject": "LossLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7406,
+   "gameobject": "Label",
+   "text": "Do not show close/leave confirmation dialogs.",
+   "in_dict": true,
+   "zh": "不显示关闭/离开确认对话框。"
+  },
+  {
+   "file": "level3",
+   "path_id": 7411,
+   "gameobject": "Label",
+   "text": "Build Shield:",
+   "in_dict": true,
+   "zh": "建造护盾:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7412,
+   "gameobject": "PriceLabel",
+   "text": "250",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7413,
+   "gameobject": "EnergyTotalLabel",
+   "text": "Total",
+   "in_dict": true,
+   "zh": "总计"
+  },
+  {
+   "file": "level3",
+   "path_id": 7419,
+   "gameobject": "ZoomLabel",
+   "text": "Zoom",
+   "in_dict": true,
+   "zh": "缩放"
+  },
+  {
+   "file": "level3",
+   "path_id": 7422,
+   "gameobject": "Label",
+   "text": "Create Group 9:",
+   "in_dict": true,
+   "zh": "创建编队 9:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7424,
+   "gameobject": "ACLabel",
+   "text": "AC:",
+   "in_dict": true,
+   "zh": "AC:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7425,
+   "gameobject": "Label",
+   "text": "Y",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7435,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7439,
+   "gameobject": "EnergyUse",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7440,
+   "gameobject": "Label",
+   "text": "3X",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7445,
+   "gameobject": "Label",
+   "text": "Build Terp:",
+   "in_dict": true,
+   "zh": "建造挖掘机:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7447,
+   "gameobject": "WeaponConvertCount",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7451,
+   "gameobject": "Label",
+   "text": "SHIFT-Equals",
+   "in_dict": true,
+   "zh": "SHIFT-Equals"
+  },
+  {
+   "file": "level3",
+   "path_id": 7457,
+   "gameobject": "PriceLabel",
+   "text": "20",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7458,
+   "gameobject": "Label",
+   "text": "Unit Limits",
+   "in_dict": true,
+   "zh": "单位上限"
+  },
+  {
+   "file": "level3",
+   "path_id": 7465,
+   "gameobject": "PriceLabel",
+   "text": "5",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7476,
+   "gameobject": "LevelLabel",
+   "text": "10/10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7481,
+   "gameobject": "Label",
+   "text": "Quick Save Game:",
+   "in_dict": true,
+   "zh": "快速保存:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7482,
+   "gameobject": "ProductionLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7483,
+   "gameobject": "PriceLabel",
+   "text": "20",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7484,
+   "gameobject": "Label",
+   "text": "F",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7490,
+   "gameobject": "Label",
+   "text": "W",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7495,
+   "gameobject": "RowNumberLabel",
+   "text": "2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7500,
+   "gameobject": "Label",
+   "text": "Dispatch Excess AC as Ore",
+   "in_dict": true,
+   "zh": "将多余 AC 作为矿输出"
+  },
+  {
+   "file": "level3",
+   "path_id": 7504,
+   "gameobject": "ACTotal",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7505,
+   "gameobject": "UseLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7509,
+   "gameobject": "EnergyUseLabel",
+   "text": "Use",
+   "in_dict": true,
+   "zh": "使用"
+  },
+  {
+   "file": "level3",
+   "path_id": 7514,
+   "gameobject": "Label",
+   "text": "Cancels",
+   "in_dict": true,
+   "zh": "取消"
+  },
+  {
+   "file": "level3",
+   "path_id": 7519,
+   "gameobject": "Label",
+   "text": "B",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7520,
+   "gameobject": "Label",
+   "text": "Fire Range",
+   "in_dict": true,
+   "zh": "射程"
+  },
+  {
+   "file": "level3",
+   "path_id": 7525,
+   "gameobject": "LevelLabel",
+   "text": " LEVEL: 0",
+   "in_dict": true,
+   "zh": " 等级: 0"
+  },
+  {
+   "file": "level3",
+   "path_id": 7534,
+   "gameobject": "Label",
+   "text": "CN2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7544,
+   "gameobject": "Label",
+   "text": "ENERGY STORAGE",
+   "in_dict": true,
+   "zh": "能量储量"
+  },
+  {
+   "file": "level3",
+   "path_id": 7558,
+   "gameobject": "Label",
+   "text": "Show Creeper:",
+   "in_dict": true,
+   "zh": "显示 Creeper:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7563,
+   "gameobject": "EnergyTotal",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7564,
+   "gameobject": "Label",
+   "text": "P",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7580,
+   "gameobject": "UnitToBuildLabel",
+   "text": "Emitter",
+   "in_dict": true,
+   "zh": "发射器"
+  },
+  {
+   "file": "level3",
+   "path_id": 7591,
+   "gameobject": "EnergyProduction",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7592,
+   "gameobject": "Label",
+   "text": "Build Reactor:",
+   "in_dict": true,
+   "zh": "建造反应堆:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7595,
+   "gameobject": "Label",
+   "text": "Return",
+   "in_dict": true,
+   "zh": "返回"
+  },
+  {
+   "file": "level3",
+   "path_id": 7599,
+   "gameobject": "Label",
+   "text": "OK",
+   "in_dict": true,
+   "zh": "确定"
+  },
+  {
+   "file": "level3",
+   "path_id": 7600,
+   "gameobject": "Label",
+   "text": "1X",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7621,
+   "gameobject": "Label",
+   "text": "Decrease Speed:",
+   "in_dict": true,
+   "zh": "减速:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7622,
+   "gameobject": "Label",
+   "text": "Scripts",
+   "in_dict": true,
+   "zh": "脚本"
+  },
+  {
+   "file": "level3",
+   "path_id": 7635,
+   "gameobject": "Label",
+   "text": "Move Map Left:",
+   "in_dict": true,
+   "zh": "左移地图:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7637,
+   "gameobject": "Label",
+   "text": "Forge Button:",
+   "in_dict": true,
+   "zh": "锻造厂按钮:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7638,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7639,
+   "gameobject": "Label",
+   "text": "Do not show game event notification tags.",
+   "in_dict": true,
+   "zh": "不显示游戏事件通知标记。"
+  },
+  {
+   "file": "level3",
+   "path_id": 7642,
+   "gameobject": "Label1",
+   "text": "e",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7645,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 7650,
+   "gameobject": "Label",
+   "text": "Select Group 2:",
+   "in_dict": true,
+   "zh": "选择编队 2:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7673,
+   "gameobject": "NameLabel",
+   "text": "CN 2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7677,
+   "gameobject": "BumpScrollLabel",
+   "text": "16",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7683,
+   "gameobject": "Label",
+   "text": "Custom Images",
+   "in_dict": true,
+   "zh": "自定义图像"
+  },
+  {
+   "file": "level3",
+   "path_id": 7684,
+   "gameobject": "SlotAutoLabel",
+   "text": "13:52 Jan 1, 2013",
+   "in_dict": true,
+   "zh": "13:52 2013年1月1日"
+  },
+  {
+   "file": "level3",
+   "path_id": 7685,
+   "gameobject": "EnergyUse",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7686,
+   "gameobject": "Label",
+   "text": "Emitter",
+   "in_dict": true,
+   "zh": "发射器"
+  },
+  {
+   "file": "level3",
+   "path_id": 7688,
+   "gameobject": "Label",
+   "text": "Zoom Map Out:",
+   "in_dict": true,
+   "zh": "缩小地图:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7690,
+   "gameobject": "Label",
+   "text": "Delete Digitalis",
+   "in_dict": true,
+   "zh": "删除魔苋"
+  },
+  {
+   "file": "level3",
+   "path_id": 7694,
+   "gameobject": "PriceLabel",
+   "text": "20",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7696,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 7702,
+   "gameobject": "Label",
+   "text": "Select Group 1:",
+   "in_dict": true,
+   "zh": "选择编队 1:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7703,
+   "gameobject": "Name2Label",
+   "text": "AC",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7708,
+   "gameobject": "Label",
+   "text": "None",
+   "in_dict": true,
+   "zh": "无"
+  },
+  {
+   "file": "level3",
+   "path_id": 7721,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7733,
+   "gameobject": "InfoLevelLabel",
+   "text": "Current Level:",
+   "in_dict": true,
+   "zh": "当前关卡："
+  },
+  {
+   "file": "level3",
+   "path_id": 7734,
+   "gameobject": "Label",
+   "text": "Fire Rate",
+   "in_dict": true,
+   "zh": "射速"
+  },
+  {
+   "file": "level3",
+   "path_id": 7740,
+   "gameobject": "Label",
+   "text": "ENERGY STORAGE",
+   "in_dict": true,
+   "zh": "能量储量"
+  },
+  {
+   "file": "level3",
+   "path_id": 7741,
+   "gameobject": "Label",
+   "text": "V",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7750,
+   "gameobject": "Label",
+   "text": "Create Group 4:",
+   "in_dict": true,
+   "zh": "创建编队 4:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7751,
+   "gameobject": "Label",
+   "text": "Full Screen",
+   "in_dict": true,
+   "zh": "全屏"
+  },
+  {
+   "file": "level3",
+   "path_id": 7752,
+   "gameobject": "Label",
+   "text": "F2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7754,
+   "gameobject": "LevelLabel",
+   "text": " LEVEL: 0",
+   "in_dict": true,
+   "zh": " 等级: 0"
+  },
+  {
+   "file": "level3",
+   "path_id": 7759,
+   "gameobject": "AvailableEnergyLabel",
+   "text": "Available Aether:",
+   "in_dict": true,
+   "zh": "可用以太："
+  },
+  {
+   "file": "level3",
+   "path_id": 7765,
+   "gameobject": "Label",
+   "text": "D",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7773,
+   "gameobject": "Label",
+   "text": "T",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7783,
+   "gameobject": "Label",
+   "text": "Titans",
+   "in_dict": true,
+   "zh": "泰坦"
+  },
+  {
+   "file": "level3",
+   "path_id": 7792,
+   "gameobject": "PriceLabel",
+   "text": "20",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7800,
+   "gameobject": "TimeLabel",
+   "text": "0:00",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7802,
+   "gameobject": "Label",
+   "text": "Select Group 5:",
+   "in_dict": true,
+   "zh": "选择编队 5:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7804,
+   "gameobject": "GameTimeLabel",
+   "text": "Mission Time",
+   "in_dict": true,
+   "zh": "任务时间"
+  },
+  {
+   "file": "level3",
+   "path_id": 7805,
+   "gameobject": "Name2Label",
+   "text": "Energy",
+   "in_dict": true,
+   "zh": "能量"
+  },
+  {
+   "file": "level3",
+   "path_id": 7808,
+   "gameobject": "PriceLabel",
+   "text": "75",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7812,
+   "gameobject": "TagLabel",
+   "text": "3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7814,
+   "gameobject": "Label",
+   "text": "Build Pulse Cannon:",
+   "in_dict": true,
+   "zh": "建造脉冲炮:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7818,
+   "gameobject": "EnergyUse",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7826,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7836,
+   "gameobject": "Label",
+   "text": "Save Keys to File",
+   "in_dict": true,
+   "zh": "保存按键到文件"
+  },
+  {
+   "file": "level3",
+   "path_id": 7842,
+   "gameobject": "EnergyTotal",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7844,
+   "gameobject": "Label",
+   "text": "Alpha7",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7845,
+   "gameobject": "LevelLabel",
+   "text": "10/10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7850,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "level3",
+   "path_id": 7851,
+   "gameobject": "BuildInstructionsLabel",
+   "text": "Press '[ffff00]B[-]' to build unit.",
+   "in_dict": true,
+   "zh": "按 '[ffff00]B[-]' 建造单位。"
+  },
+  {
+   "file": "level3",
+   "path_id": 7852,
+   "gameobject": "ACTotal",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7855,
+   "gameobject": "ProductionLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7867,
+   "gameobject": "Label",
+   "text": "Ammo",
+   "in_dict": true,
+   "zh": "弹药"
+  },
+  {
+   "file": "level3",
+   "path_id": 7868,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 7873,
+   "gameobject": "Label",
+   "text": "DISCHARGE 100",
+   "in_dict": true,
+   "zh": "释放 100"
+  },
+  {
+   "file": "level3",
+   "path_id": 7875,
+   "gameobject": "Label",
+   "text": "Save",
+   "in_dict": true,
+   "zh": "保存"
+  },
+  {
+   "file": "level3",
+   "path_id": 7876,
+   "gameobject": "UseLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7878,
+   "gameobject": "Label",
+   "text": "Forge",
+   "in_dict": true,
+   "zh": "锻造厂"
+  },
+  {
+   "file": "level3",
+   "path_id": 7890,
+   "gameobject": "Label",
+   "text": "Sniper",
+   "in_dict": true,
+   "zh": "狙击手"
+  },
+  {
+   "file": "level3",
+   "path_id": 7891,
+   "gameobject": "MusicVolumeLabel",
+   "text": "Music Volume",
+   "in_dict": true,
+   "zh": "音乐音量"
+  },
+  {
+   "file": "level3",
+   "path_id": 7892,
+   "gameobject": "InfoTechLabel",
+   "text": "Energy Efficiency",
+   "in_dict": true,
+   "zh": "能量效率"
+  },
+  {
+   "file": "level3",
+   "path_id": 7904,
+   "gameobject": "Label",
+   "text": "Fire Range",
+   "in_dict": true,
+   "zh": "射程"
+  },
+  {
+   "file": "level3",
+   "path_id": 7908,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7909,
+   "gameobject": "Label",
+   "text": "SHIFT-C",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7910,
+   "gameobject": "Label",
+   "text": "-Digi",
+   "in_dict": true,
+   "zh": "-魔苋"
+  },
+  {
+   "file": "level3",
+   "path_id": 7922,
+   "gameobject": "PriceLabel",
+   "text": "20",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7923,
+   "gameobject": "Label",
+   "text": "Resize Map",
+   "in_dict": true,
+   "zh": "调整地图尺寸"
+  },
+  {
+   "file": "level3",
+   "path_id": 7925,
+   "gameobject": "Label",
+   "text": "Create Group 8:",
+   "in_dict": true,
+   "zh": "创建编队 8:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7926,
+   "gameobject": "Label",
+   "text": "Select Group 8:",
+   "in_dict": true,
+   "zh": "选择编队 8:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7948,
+   "gameobject": "HoverInfoLabel",
+   "text": "Shortcut: SHIFT-A",
+   "in_dict": true,
+   "zh": "快捷键：SHIFT-A"
+  },
+  {
+   "file": "level3",
+   "path_id": 7951,
+   "gameobject": "UseLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7962,
+   "gameobject": "Label",
+   "text": "F8",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7965,
+   "gameobject": "Label",
+   "text": "Bertha",
+   "in_dict": true,
+   "zh": "贝莎炮"
+  },
+  {
+   "file": "level3",
+   "path_id": 7968,
+   "gameobject": "TechPodLabel",
+   "text": "Available Tech Pods",
+   "in_dict": true,
+   "zh": "可用科技舱"
+  },
+  {
+   "file": "level3",
+   "path_id": 7969,
+   "gameobject": "Label",
+   "text": "Opening Text",
+   "in_dict": true,
+   "zh": "开场文字"
+  },
+  {
+   "file": "level3",
+   "path_id": 7970,
+   "gameobject": "TagLabel",
+   "text": "1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7974,
+   "gameobject": "Label",
+   "text": "Increase Speed:",
+   "in_dict": true,
+   "zh": "加速:"
+  },
+  {
+   "file": "level3",
+   "path_id": 7976,
+   "gameobject": "Label",
+   "text": "Window",
+   "in_dict": true,
+   "zh": "窗口"
+  },
+  {
+   "file": "level3",
+   "path_id": 7978,
+   "gameobject": "Label",
+   "text": "Alpha5",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7989,
+   "gameobject": "PriceLabel",
+   "text": "25",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7990,
+   "gameobject": "PriceLabel",
+   "text": "50",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7996,
+   "gameobject": "Label",
+   "text": "Equals",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 7997,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8004,
+   "gameobject": "Label",
+   "text": "Cancel",
+   "in_dict": true,
+   "zh": "取消"
+  },
+  {
+   "file": "level3",
+   "path_id": 8013,
+   "gameobject": "TechLabel",
+   "text": "Tech",
+   "in_dict": true,
+   "zh": "科技"
+  },
+  {
+   "file": "level3",
+   "path_id": 8021,
+   "gameobject": "ProductionLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8028,
+   "gameobject": "AvailableEnergySubLabel",
+   "text": "Connect to Totems to generate Aether",
+   "in_dict": true,
+   "zh": "连接图腾以产生以太"
+  },
+  {
+   "file": "level3",
+   "path_id": 8035,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8043,
+   "gameobject": "Label",
+   "text": "Reset Time",
+   "in_dict": true,
+   "zh": "重置时间"
+  },
+  {
+   "file": "level3",
+   "path_id": 8050,
+   "gameobject": "Label",
+   "text": "Build Ore Mine:",
+   "in_dict": true,
+   "zh": "建造矿场:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8056,
+   "gameobject": "Label",
+   "text": "CN1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8057,
+   "gameobject": "Label",
+   "text": "Select Group 7:",
+   "in_dict": true,
+   "zh": "选择编队 7:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8062,
+   "gameobject": "Label",
+   "text": "Deactivate:",
+   "in_dict": true,
+   "zh": "停用:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8074,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8077,
+   "gameobject": "Label",
+   "text": "CN Damage Alarm",
+   "in_dict": true,
+   "zh": "CN 受损警报"
+  },
+  {
+   "file": "level3",
+   "path_id": 8080,
+   "gameobject": "LevelLabel",
+   "text": "10/10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8081,
+   "gameobject": "Label",
+   "text": "Transparent",
+   "in_dict": true,
+   "zh": "透明"
+  },
+  {
+   "file": "level3",
+   "path_id": 8082,
+   "gameobject": "CoordsLabel",
+   "text": "-,-",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8084,
+   "gameobject": "BrushSize5",
+   "text": "9",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8092,
+   "gameobject": "Label",
+   "text": "Delete AC",
+   "in_dict": true,
+   "zh": "删除 AC"
+  },
+  {
+   "file": "level3",
+   "path_id": 8097,
+   "gameobject": "Label",
+   "text": "Build Sprayer:",
+   "in_dict": true,
+   "zh": "建造喷吐者:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8104,
+   "gameobject": "Label",
+   "text": "Terr",
+   "in_dict": true,
+   "zh": "地形"
+  },
+  {
+   "file": "level3",
+   "path_id": 8108,
+   "gameobject": "Label",
+   "text": "AC",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8121,
+   "gameobject": "Label",
+   "text": "RightArrow",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8122,
+   "gameobject": "Label",
+   "text": "Create Group 2:",
+   "in_dict": true,
+   "zh": "创建编队 2:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8131,
+   "gameobject": "Label",
+   "text": "Stop Resupply:",
+   "in_dict": true,
+   "zh": "停止补给:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8134,
+   "gameobject": "NameLabel",
+   "text": "CN 1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8147,
+   "gameobject": "TotemEnergyLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8151,
+   "gameobject": "Label",
+   "text": "Exit Game:",
+   "in_dict": true,
+   "zh": "退出游戏:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8153,
+   "gameobject": "Label",
+   "text": "PACKET SPEED.  ",
+   "in_dict": true,
+   "zh": "能量包速度.  "
+  },
+  {
+   "file": "level3",
+   "path_id": 8154,
+   "gameobject": "ProductionLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8168,
+   "gameobject": "Label",
+   "text": "4X",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8177,
+   "gameobject": "Label",
+   "text": "SHIFT-T",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8180,
+   "gameobject": "Slot3Label",
+   "text": "13:52 Jan 1, 2013",
+   "in_dict": true,
+   "zh": "13:52 2013年1月1日"
+  },
+  {
+   "file": "level3",
+   "path_id": 8183,
+   "gameobject": "Label",
+   "text": "Relay",
+   "in_dict": true,
+   "zh": "中继器"
+  },
+  {
+   "file": "level3",
+   "path_id": 8184,
+   "gameobject": "Label",
+   "text": "Create Group 7:",
+   "in_dict": true,
+   "zh": "创建编队 7:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8186,
+   "gameobject": "Label",
+   "text": "AC",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8187,
+   "gameobject": "Label",
+   "text": "CTRL-V",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8188,
+   "gameobject": "Label",
+   "text": "Thor",
+   "in_dict": true,
+   "zh": "索尔"
+  },
+  {
+   "file": "level3",
+   "path_id": 8208,
+   "gameobject": "Label",
+   "text": "Creeper and Digitalis",
+   "in_dict": true,
+   "zh": "Creeper 与魔苋"
+  },
+  {
+   "file": "level3",
+   "path_id": 8225,
+   "gameobject": "PriceLabel",
+   "text": "50",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8228,
+   "gameobject": "LevelLabel",
+   "text": " LEVEL: 0",
+   "in_dict": true,
+   "zh": " 等级: 0"
+  },
+  {
+   "file": "level3",
+   "path_id": 8229,
+   "gameobject": "NameLabel",
+   "text": "CN 2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8233,
+   "gameobject": "Name2Label",
+   "text": "AC",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8235,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8238,
+   "gameobject": "Label",
+   "text": "Runners",
+   "in_dict": true,
+   "zh": "空降兵"
+  },
+  {
+   "file": "level3",
+   "path_id": 8246,
+   "gameobject": "Label",
+   "text": "Move Map Down:",
+   "in_dict": true,
+   "zh": "下移地图:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8255,
+   "gameobject": "Label",
+   "text": "Keys",
+   "in_dict": true,
+   "zh": "按键"
+  },
+  {
+   "file": "level3",
+   "path_id": 8256,
+   "gameobject": "LevelLabel",
+   "text": " LEVEL: 0",
+   "in_dict": true,
+   "zh": " 等级: 0"
+  },
+  {
+   "file": "level3",
+   "path_id": 8257,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8258,
+   "gameobject": "EnergyProductionLabel",
+   "text": "Production",
+   "in_dict": true,
+   "zh": "生产"
+  },
+  {
+   "file": "level3",
+   "path_id": 8265,
+   "gameobject": "Label0",
+   "text": "U",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8277,
+   "gameobject": "PriceLabel",
+   "text": "75",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8278,
+   "gameobject": "Label",
+   "text": "Save",
+   "in_dict": true,
+   "zh": "保存"
+  },
+  {
+   "file": "level3",
+   "path_id": 8282,
+   "gameobject": "Label",
+   "text": "Select Group 6:",
+   "in_dict": true,
+   "zh": "选择编队 6:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8292,
+   "gameobject": "LevelLabel",
+   "text": "10/10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8299,
+   "gameobject": "PriceLabel",
+   "text": "10",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8304,
+   "gameobject": "StoredLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8319,
+   "gameobject": "Label",
+   "text": "Default Color",
+   "in_dict": true,
+   "zh": "默认颜色"
+  },
+  {
+   "file": "level3",
+   "path_id": 8321,
+   "gameobject": "EnergyLabel",
+   "text": "Energy:",
+   "in_dict": true,
+   "zh": "能量:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8327,
+   "gameobject": "WindLabel",
+   "text": "Wind",
+   "in_dict": true,
+   "zh": "风"
+  },
+  {
+   "file": "level3",
+   "path_id": 8332,
+   "gameobject": "Label",
+   "text": "Packet Dispatch",
+   "in_dict": true,
+   "zh": "能量包派送"
+  },
+  {
+   "file": "level3",
+   "path_id": 8337,
+   "gameobject": "Label",
+   "text": "Enable AC Collection Field",
+   "in_dict": true,
+   "zh": "启用 AC 收集场"
+  },
+  {
+   "file": "level3",
+   "path_id": 8338,
+   "gameobject": "Label",
+   "text": "Sounds",
+   "in_dict": true,
+   "zh": "音效"
+  },
+  {
+   "file": "level3",
+   "path_id": 8341,
+   "gameobject": "Label",
+   "text": "DISCHARGE 300",
+   "in_dict": true,
+   "zh": "释放 300"
+  },
+  {
+   "file": "level3",
+   "path_id": 8343,
+   "gameobject": "Label",
+   "text": "Never show message again.",
+   "in_dict": true,
+   "zh": "不再显示此消息。"
+  },
+  {
+   "file": "level3",
+   "path_id": 8348,
+   "gameobject": "PriceLabel",
+   "text": "20",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8364,
+   "gameobject": "Label",
+   "text": "DISCHARGE ALL",
+   "in_dict": true,
+   "zh": "全部释放"
+  },
+  {
+   "file": "level3",
+   "path_id": 8367,
+   "gameobject": "Label",
+   "text": "Create Group 5:",
+   "in_dict": true,
+   "zh": "创建编队 5:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8369,
+   "gameobject": "NameLabel",
+   "text": "CN 1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8373,
+   "gameobject": "Label2",
+   "text": "r",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8377,
+   "gameobject": "UnitStopResupplyButtonLabel",
+   "text": "STOP RESUPPLY",
+   "in_dict": true,
+   "zh": "停止补给"
+  },
+  {
+   "file": "level3",
+   "path_id": 8378,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 8379,
+   "gameobject": "Label",
+   "text": "Create Group 6:",
+   "in_dict": true,
+   "zh": "创建编队 6:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8383,
+   "gameobject": "Label0",
+   "text": "T",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8393,
+   "gameobject": "Label",
+   "text": "Space",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8398,
+   "gameobject": "Label",
+   "text": "Save",
+   "in_dict": true,
+   "zh": "保存"
+  },
+  {
+   "file": "level3",
+   "path_id": 8422,
+   "gameobject": "ACUseLabel",
+   "text": "Use",
+   "in_dict": true,
+   "zh": "使用"
+  },
+  {
+   "file": "level3",
+   "path_id": 8423,
+   "gameobject": "Label",
+   "text": "SHIFT",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8429,
+   "gameobject": "InfoPriceLabel",
+   "text": "Up Cost:",
+   "in_dict": true,
+   "zh": "升级费用："
+  },
+  {
+   "file": "level3",
+   "path_id": 8438,
+   "gameobject": "Label",
+   "text": "Apply",
+   "in_dict": true,
+   "zh": "应用"
+  },
+  {
+   "file": "level3",
+   "path_id": 8450,
+   "gameobject": "TagLabel",
+   "text": "2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8463,
+   "gameobject": "Label",
+   "text": "N",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8466,
+   "gameobject": "StoredLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8467,
+   "gameobject": "EditInstructionsLabel",
+   "text": "Click and Drag unit to move.  Double Click unit to edit properties.",
+   "in_dict": true,
+   "zh": "点击并拖动单位以移动。双击单位以编辑属性。"
+  },
+  {
+   "file": "level3",
+   "path_id": 8468,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 8492,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 8493,
+   "gameobject": "BrushSize2",
+   "text": "2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8496,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "level3",
+   "path_id": 8499,
+   "gameobject": "Slot2Label",
+   "text": "13:52 Jan 1, 2013",
+   "in_dict": true,
+   "zh": "13:52 2013年1月1日"
+  },
+  {
+   "file": "level3",
+   "path_id": 8502,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 8507,
+   "gameobject": "Label",
+   "text": "Titans Tab:",
+   "in_dict": true,
+   "zh": "泰坦页:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8521,
+   "gameobject": "Label",
+   "text": "SHIFT-End",
+   "in_dict": true,
+   "zh": "SHIFT-End"
+  },
+  {
+   "file": "level3",
+   "path_id": 8534,
+   "gameobject": "PriceLabel",
+   "text": "COST: 5",
+   "in_dict": true,
+   "zh": "费用: 5"
+  },
+  {
+   "file": "level3",
+   "path_id": 8535,
+   "gameobject": "Label",
+   "text": "Void",
+   "in_dict": true,
+   "zh": "虚空"
+  },
+  {
+   "file": "level3",
+   "path_id": 8543,
+   "gameobject": "LossLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8545,
+   "gameobject": "Label",
+   "text": "AC STORAGE",
+   "in_dict": true,
+   "zh": "AC 储量"
+  },
+  {
+   "file": "level3",
+   "path_id": 8550,
+   "gameobject": "Label",
+   "text": "SHIFT-M",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8552,
+   "gameobject": "Label",
+   "text": "C",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8553,
+   "gameobject": "Label",
+   "text": "Alpha8",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8554,
+   "gameobject": "PriceLabel",
+   "text": "75",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8559,
+   "gameobject": "Label",
+   "text": "Terp",
+   "in_dict": true,
+   "zh": "挖掘机"
+  },
+  {
+   "file": "level3",
+   "path_id": 8576,
+   "gameobject": "RowNumberLabel",
+   "text": "3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8578,
+   "gameobject": "Label",
+   "text": "Next",
+   "in_dict": true,
+   "zh": "下一个"
+  },
+  {
+   "file": "level3",
+   "path_id": 8579,
+   "gameobject": "Label",
+   "text": "Alpha2",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8580,
+   "gameobject": "Label",
+   "text": "Alpha1",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8587,
+   "gameobject": "Label",
+   "text": "Sprayer",
+   "in_dict": true,
+   "zh": "喷吐者"
+  },
+  {
+   "file": "level3",
+   "path_id": 8592,
+   "gameobject": "DeleteInstructionsLabel",
+   "text": "Press '[ffff00]X[-]' to delete unit.",
+   "in_dict": true,
+   "zh": "按 '[ffff00]X[-]' 删除单位。"
+  },
+  {
+   "file": "level3",
+   "path_id": 8594,
+   "gameobject": "Label",
+   "text": "Select Group 9:",
+   "in_dict": true,
+   "zh": "选择编队 9:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8596,
+   "gameobject": "PriceLabel",
+   "text": "20",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8615,
+   "gameobject": "Label",
+   "text": "Command",
+   "in_dict": true,
+   "zh": "指挥"
+  },
+  {
+   "file": "level3",
+   "path_id": 8616,
+   "gameobject": "Label",
+   "text": "Visibility",
+   "in_dict": true,
+   "zh": "可见性"
+  },
+  {
+   "file": "level3",
+   "path_id": 8617,
+   "gameobject": "AvailableEnergyLabel",
+   "text": "Aether:",
+   "in_dict": true,
+   "zh": "以太："
+  },
+  {
+   "file": "level3",
+   "path_id": 8619,
+   "gameobject": "Label",
+   "text": "CANCEL",
+   "in_dict": true,
+   "zh": "取消"
+  },
+  {
+   "file": "level3",
+   "path_id": 8620,
+   "gameobject": "Label",
+   "text": "System Communique",
+   "in_dict": true,
+   "zh": "系统通讯"
+  },
+  {
+   "file": "level3",
+   "path_id": 8625,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8629,
+   "gameobject": "Label",
+   "text": "Beams",
+   "in_dict": true,
+   "zh": "光束"
+  },
+  {
+   "file": "level3",
+   "path_id": 8636,
+   "gameobject": "ProductionLabel",
+   "text": "0",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8637,
+   "gameobject": "Label",
+   "text": "Shield",
+   "in_dict": true,
+   "zh": "护盾"
+  },
+  {
+   "file": "level3",
+   "path_id": 8642,
+   "gameobject": "Label",
+   "text": "Context Sensitive Build Keys:",
+   "in_dict": true,
+   "zh": "情境建造快捷键:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8644,
+   "gameobject": "Label",
+   "text": "Alpha6",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8645,
+   "gameobject": "Label",
+   "text": "Launch!",
+   "in_dict": true,
+   "zh": "发射！"
+  },
+  {
+   "file": "level3",
+   "path_id": 8657,
+   "gameobject": "Label",
+   "text": "800x600",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8658,
+   "gameobject": "ACLabel",
+   "text": "AC:",
+   "in_dict": true,
+   "zh": "AC:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8661,
+   "gameobject": "Label",
+   "text": "Alpha3",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8662,
+   "gameobject": "Label",
+   "text": "Spore Launch in 30 seconds!",
+   "in_dict": true,
+   "zh": "30 秒后发射孢子！"
+  },
+  {
+   "file": "level3",
+   "path_id": 8664,
+   "gameobject": "Label",
+   "text": "Show Mist",
+   "in_dict": true,
+   "zh": "显示迷雾"
+  },
+  {
+   "file": "level3",
+   "path_id": 8668,
+   "gameobject": "Label",
+   "text": "Bertha Auto Target ",
+   "in_dict": true,
+   "zh": "贝莎炮自动瞄准 "
+  },
+  {
+   "file": "level3",
+   "path_id": 8678,
+   "gameobject": "Label",
+   "text": "M",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8685,
+   "gameobject": "Label",
+   "text": "Show Map Border",
+   "in_dict": true,
+   "zh": "显示地图边界"
+  },
+  {
+   "file": "level3",
+   "path_id": 8690,
+   "gameobject": "CharacterName",
+   "text": "Skarsgard Abraxis",
+   "in_dict": true,
+   "zh": "斯卡斯加德·阿布拉克斯"
+  },
+  {
+   "file": "level3",
+   "path_id": 8691,
+   "gameobject": "Label",
+   "text": "Destroy:",
+   "in_dict": true,
+   "zh": "摧毁:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8693,
+   "gameobject": "ACTotalLabel",
+   "text": "Total",
+   "in_dict": true,
+   "zh": "总计"
+  },
+  {
+   "file": "level3",
+   "path_id": 8701,
+   "gameobject": "ACUse",
+   "text": "8888",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8718,
+   "gameobject": "Label",
+   "text": "Moves Map",
+   "in_dict": true,
+   "zh": "移动地图"
+  },
+  {
+   "file": "level3",
+   "path_id": 8726,
+   "gameobject": "Label",
+   "text": "G",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8727,
+   "gameobject": "Label",
+   "text": "Sniper Gun",
+   "in_dict": true,
+   "zh": "狙击枪"
+  },
+  {
+   "file": "level3",
+   "path_id": 8730,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "level3",
+   "path_id": 8733,
+   "gameobject": "Label",
+   "text": "Forge Limits",
+   "in_dict": true,
+   "zh": "锻造厂上限"
+  },
+  {
+   "file": "level3",
+   "path_id": 8734,
+   "gameobject": "Label",
+   "text": "Energy Efficiency",
+   "in_dict": true,
+   "zh": "能量效率"
+  },
+  {
+   "file": "level3",
+   "path_id": 8737,
+   "gameobject": "ZoomPlus",
+   "text": "-",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8738,
+   "gameobject": "AC Label",
+   "text": "AC Color",
+   "in_dict": true,
+   "zh": "AC 颜色"
+  },
+  {
+   "file": "level3",
+   "path_id": 8740,
+   "gameobject": "Label",
+   "text": "AC STORAGE",
+   "in_dict": true,
+   "zh": "AC 储量"
+  },
+  {
+   "file": "level3",
+   "path_id": 8769,
+   "gameobject": "Label",
+   "text": "Alpha4",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8775,
+   "gameobject": "Label",
+   "text": "Paused",
+   "in_dict": true,
+   "zh": "已暂停"
+  },
+  {
+   "file": "level3",
+   "path_id": 8780,
+   "gameobject": "Label",
+   "text": "OK",
+   "in_dict": true,
+   "zh": "确定"
+  },
+  {
+   "file": "level3",
+   "path_id": 8782,
+   "gameobject": "ACProductionLabel",
+   "text": "Production",
+   "in_dict": true,
+   "zh": "生产"
+  },
+  {
+   "file": "level3",
+   "path_id": 8783,
+   "gameobject": "Label",
+   "text": "Build Sniper:",
+   "in_dict": true,
+   "zh": "建造狙击手:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8785,
+   "gameobject": "Label",
+   "text": "Apply",
+   "in_dict": true,
+   "zh": "应用"
+  },
+  {
+   "file": "level3",
+   "path_id": 8790,
+   "gameobject": "Label",
+   "text": "Command",
+   "in_dict": true,
+   "zh": "指挥"
+  },
+  {
+   "file": "level3",
+   "path_id": 8791,
+   "gameobject": "Label",
+   "text": "Backslash",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level3",
+   "path_id": 8795,
+   "gameobject": "Label",
+   "text": "Multi-Select:",
+   "in_dict": true,
+   "zh": "多选:"
+  },
+  {
+   "file": "level3",
+   "path_id": 8798,
+   "gameobject": "Label",
+   "text": "Do not show splash screen at game start.",
+   "in_dict": true,
+   "zh": "游戏启动时不显示启动画面。"
+  },
+  {
+   "file": "level3",
+   "path_id": 8800,
+   "gameobject": "Label",
+   "text": "F12",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "level4",
+   "path_id": 32,
+   "gameobject": "Label",
+   "text": "Continue",
+   "in_dict": true,
+   "zh": "继续"
+  },
+  {
+   "file": "level5",
+   "path_id": 58,
+   "gameobject": "Label",
+   "text": "Awaken",
+   "in_dict": true,
+   "zh": "苏醒"
+  },
+  {
+   "file": "level5",
+   "path_id": 73,
+   "gameobject": "Label",
+   "text": "Skip Intro",
+   "in_dict": true,
+   "zh": "跳过开场"
+  },
+  {
+   "file": "level6",
+   "path_id": 54,
+   "gameobject": "Label",
+   "text": "Onward",
+   "in_dict": true,
+   "zh": "前进"
+  },
+  {
+   "file": "level6",
+   "path_id": 68,
+   "gameobject": "Label",
+   "text": "Skip Epilogue",
+   "in_dict": true,
+   "zh": "跳过尾声"
+  },
+  {
+   "file": "level7",
+   "path_id": 51,
+   "gameobject": "Label",
+   "text": "Return",
+   "in_dict": true,
+   "zh": "返回"
+  },
+  {
+   "file": "level7",
+   "path_id": 65,
+   "gameobject": "Label",
+   "text": "Continue the journey!\nVisit KnuckleCracker.com",
+   "in_dict": true,
+   "zh": "继续旅程！\n访问 KnuckleCracker.com"
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1904,
+   "gameobject": "Label",
+   "text": "Skip All",
+   "in_dict": true,
+   "zh": "全部跳过"
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1906,
+   "gameobject": "Label",
+   "text": "Load",
+   "in_dict": true,
+   "zh": "载入"
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 2082,
+   "gameobject": "Label",
+   "text": "Prev",
+   "in_dict": true,
+   "zh": "上一个"
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 2083,
+   "gameobject": "Label",
+   "text": "This is a great big long label",
+   "in_dict": false,
+   "zh": null
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 2153,
+   "gameobject": "Label",
+   "text": "Next",
+   "in_dict": true,
+   "zh": "下一个"
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 2166,
+   "gameobject": "CharacterName",
+   "text": "Skarsgard Abraxis",
+   "in_dict": true,
+   "zh": "斯卡斯加德·阿布拉克斯"
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 2177,
+   "gameobject": "MessageText",
+   "text": "This is a message from Skarsgard Abraxis.  I have slumbered for many eons.  Now awake, I seek to understand my purpose and why Platius sent me here.",
+   "in_dict": true,
+   "zh": "这是一则来自斯卡斯加德·阿布拉克斯的消息。我已沉睡了许多纪元。如今苏醒，我想弄清自己的使命，以及普拉提乌斯为何把我送到这里。"
+  },
+  {
+   "file": "sharedassets4.assets",
+   "path_id": 49,
+   "gameobject": "LabelUnit",
+   "text": "Collector",
+   "in_dict": true,
+   "zh": "收集器"
+  },
+  {
+   "file": "sharedassets4.assets",
+   "path_id": 59,
+   "gameobject": "Label",
+   "text": "Lost !",
+   "in_dict": true,
+   "zh": "失败！"
+  }
+ ]
+}

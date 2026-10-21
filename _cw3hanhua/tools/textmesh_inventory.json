@@ -1,0 +1,470 @@
+{
+ "generated": "2026-10-20 20:25:02",
+ "note": "只读盘点，未修改任何游戏文件",
+ "per_file": {
+  "level0": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.1
+  },
+  "level1": {
+   "total": 14,
+   "with_text": 14,
+   "sec": 0.0
+  },
+  "level2": {
+   "total": 1,
+   "with_text": 1,
+   "sec": 0.0
+  },
+  "level3": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.1
+  },
+  "level4": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "level5": {
+   "total": 1,
+   "with_text": 1,
+   "sec": 0.0
+  },
+  "level6": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "level7": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "mainData": {
+   "total": 1,
+   "with_text": 1,
+   "sec": 0.0
+  },
+  "resources.assets": {
+   "total": 12,
+   "with_text": 12,
+   "sec": 0.0
+  },
+  "sharedassets0.assets": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets1.assets": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets2.assets": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets3.assets": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets4.assets": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets5.assets": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets6.assets": {
+   "total": 1,
+   "with_text": 1,
+   "sec": 0.0
+  },
+  "sharedassets7.assets": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.0
+  },
+  "sharedassets8.assets": {
+   "total": 0,
+   "with_text": 0,
+   "sec": 0.0
+  }
+ },
+ "totals": {
+  "objects": 30,
+  "with_text": 27,
+  "distinct": 21,
+  "in_dict": 0,
+  "missing": 21
+ },
+ "items": [
+  {
+   "file": "level1",
+   "path_id": 3339,
+   "gameobject": "SpriteLabel",
+   "go_path": "Planet0/SpriteLabel",
+   "go_active": true,
+   "text": "载入文件",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3340,
+   "gameobject": "EntryTitle",
+   "go_path": "EntryPoints/AlphaEntrySprite/EntryTitle",
+   "go_active": true,
+   "text": "阿尔法星区",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3341,
+   "gameobject": "SpriteLabel",
+   "go_path": "Planet3/SpriteLabel",
+   "go_active": true,
+   "text": "制作组",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3342,
+   "gameobject": "SpriteLabel",
+   "go_path": "Star/SpriteLabel",
+   "go_active": true,
+   "text": "DMD",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3343,
+   "gameobject": "SpriteLabel",
+   "go_path": "Planet2/SpriteLabel",
+   "go_active": true,
+   "text": "设置",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3344,
+   "gameobject": "EntryTitle",
+   "go_path": "EntryPoints/ProspectorZoneEntrySprite/EntryTitle",
+   "go_active": true,
+   "text": "探矿者星区",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3345,
+   "gameobject": "EntryTitle",
+   "go_path": "EntryPoints/ArcEternalEntrySprite/EntryTitle",
+   "go_active": true,
+   "text": "永恒之弧",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3346,
+   "gameobject": "EntryTitle",
+   "go_path": "EntryPoints/StartHereIndicator/EntryTitle",
+   "go_active": false,
+   "text": "从这里开始！",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3347,
+   "gameobject": "EntryTitle",
+   "go_path": "EntryPoints/MySectorEntrySprite/EntryTitle",
+   "go_active": true,
+   "text": "项目",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3348,
+   "gameobject": "EntryTitle2",
+   "go_path": "EntryPoints/ColonialSpaceEntrySprite/EntryTitle2",
+   "go_active": false,
+   "text": "即将推出！",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3349,
+   "gameobject": "EntryTitle",
+   "go_path": "EntryPoints/TormentedSpaceEntrySprite/EntryTitle",
+   "go_active": true,
+   "text": "折磨空间",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3350,
+   "gameobject": "EntryTitle",
+   "go_path": "EntryPoints/ColonialSpaceEntrySprite/EntryTitle",
+   "go_active": true,
+   "text": "殖民空间",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3351,
+   "gameobject": "SpriteLabel",
+   "go_path": "BlackHole/SpriteLabel",
+   "go_active": false,
+   "text": "退出游戏",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level1",
+   "path_id": 3352,
+   "gameobject": "SpriteLabel",
+   "go_path": "Planet1/SpriteLabel",
+   "go_active": true,
+   "text": "网页",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level2",
+   "path_id": 542,
+   "gameobject": "EntryTitle",
+   "go_path": "Galaxy/Sector/Stars/StartHereIndicator/EntryTitle",
+   "go_active": false,
+   "text": "点击这里！",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "level5",
+   "path_id": 50,
+   "gameobject": "PreludeText",
+   "go_path": "PreludeText",
+   "go_active": false,
+   "text": "道德宇宙的弧线很长",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 0.5,
+   "font_pid": 755
+  },
+  {
+   "file": "mainData",
+   "path_id": 44,
+   "gameobject": "Presents",
+   "go_path": "Presents",
+   "go_active": false,
+   "text": "游戏中的新鲜创意",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1637,
+   "gameobject": "PlanetScore",
+   "go_path": "Planet/PlanetScore",
+   "go_active": true,
+   "text": "点击交战",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1638,
+   "gameobject": "StarInfo",
+   "go_path": "Star/StarInfo",
+   "go_active": true,
+   "text": "",
+   "has_text": false,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 10102
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1639,
+   "gameobject": "SunTitle",
+   "go_path": "Sun/SunTitle",
+   "go_active": true,
+   "text": "显示星区地图",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 755
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1640,
+   "gameobject": "StarTitle",
+   "go_path": "Wormhole/StarTitle",
+   "go_active": true,
+   "text": "Andro",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 10102
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1641,
+   "gameobject": "CRPLTextMesh",
+   "go_path": "CRPLTextMesh",
+   "go_active": true,
+   "text": "",
+   "has_text": false,
+   "in_dict": false,
+   "font_size": 2.0,
+   "font_pid": 755
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1642,
+   "gameobject": "BorderText4",
+   "go_path": "TextLabel/BorderText4",
+   "go_active": true,
+   "text": "4",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 2.0,
+   "font_pid": 10102
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1643,
+   "gameobject": "PlanetTitle",
+   "go_path": "Planet/PlanetTitle",
+   "go_active": true,
+   "text": "",
+   "has_text": false,
+   "in_dict": false,
+   "font_size": 0.5,
+   "font_pid": 755
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1644,
+   "gameobject": "StarTitle",
+   "go_path": "Star/StarTitle",
+   "go_active": true,
+   "text": "Andro",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 1.0,
+   "font_pid": 10102
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1645,
+   "gameobject": "TextLabel",
+   "go_path": "TextLabel",
+   "go_active": true,
+   "text": "4",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 2.0,
+   "font_pid": 10102
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1646,
+   "gameobject": "BorderText2",
+   "go_path": "TextLabel/BorderText2",
+   "go_active": true,
+   "text": "4",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 2.0,
+   "font_pid": 10102
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1647,
+   "gameobject": "BorderText3",
+   "go_path": "TextLabel/BorderText3",
+   "go_active": true,
+   "text": "4",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 2.0,
+   "font_pid": 10102
+  },
+  {
+   "file": "resources.assets",
+   "path_id": 1648,
+   "gameobject": "BorderText",
+   "go_path": "TextLabel/BorderText",
+   "go_active": true,
+   "text": "4",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 2.0,
+   "font_pid": 10102
+  },
+  {
+   "file": "sharedassets6.assets",
+   "path_id": 10,
+   "gameobject": "PreludeText",
+   "go_path": "PreludeText",
+   "go_active": true,
+   "text": "道德宇宙的弧线很长",
+   "has_text": true,
+   "in_dict": false,
+   "font_size": 0.5,
+   "font_pid": 755
+  }
+ ]
+}

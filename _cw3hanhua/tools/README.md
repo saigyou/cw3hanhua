@@ -25,6 +25,15 @@
 | `merge_work.py` | `work\full_NN.{src,zh}.json` → `batches\full_NN.json` | NOTES 4.5 |
 | `check_batch.py` | 单批译稿校验，不过 0 不许入库 | NOTES 4.5 |
 | `pack_skips.py` | 把译稿里标 `@` 的「人工判定不译」固化到 `_dict\skipped_manual.json` | NOTES 4.5 |
+| `scan_uilabel.py` | 只读盘点全部资产里的 UILabel（`mText`）→ `uilabel_inventory.json` | NOTES 3 |
+| `scan_textmesh.py` | 只读盘点全部资产里的 TextMesh（class 102）→ `textmesh_inventory.json` | NOTES 3 |
+| `diff_bake.py` | ★ 烘焙后回归：重扫现役资产 vs `uilabel_inventory.json` 基线，确认没波及任何 UILabel | NOTES 4.3 |
+| `uilabel_inventory.json` | **烘焙前**的 UILabel 基线快照（1029 条有文本），`diff_bake.py` 的对比依据 | — |
+| `textmesh_inventory.json` | **烘焙前**的 TextMesh 快照（英文原文），改资产前的参照 | — |
+
+★ 三个 `scan_*.py` / `diff_bake.py` 是 2026-10-21 从 `_diag\` 挪进来的：它们本身是只读
+诊断脚本，但 `*_inventory.json` 是**烘焙前的历史快照、不可再生**（游戏资产如今已烘成中文，
+重跑只会得到现役状态并覆盖基线）。要重跑任一 scan，先把对应 JSON 备份走。
 
 Python 脚本一律用 `..\.venv\Scripts\python.exe` 跑（装了 UnityPy / dnfile / dncil /
 fontTools / Pillow）。
