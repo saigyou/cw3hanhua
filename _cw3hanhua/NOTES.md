@@ -40,7 +40,7 @@
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
 | 字体层插件 | `BepInEx/plugins/CW3Hanhua.dll` **v0.8.3**（`plugin/CW3Hanhua.cs`）<br>合并图集 + 合并 HUD（v0.8.3 = 重做 HUD，见 4.1「HUD」）。字体/图集链路**已实测通过**；新 HUD **待实测** |
-| 合并图集 | `_font/atlas_zh.png` 4096×8192 + `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4） |
+| 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」）。修前产物备份在 `_diag/atlas_zh_before_alphafix/`（png+bin），回退只需拷回去。**待用户重启游戏目视确认** |
 | 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` **v0.10.1**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`（**1144 条**）。`ProcessText` prefix+postfix 覆盖全部 UILabel；**另打 5 个 TextMesh 写入点**（3 个 `ShowText` prefix + 2 个 name setter postfix）。UILabel 部分**已实测通过**，TextMesh 补丁**待实测**。v0.10.1 = HUD 缩成一行（4.3） |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
 | 按键 | 字体层 **F3** 开关 / **F11** dump / **F12** HUD；文本层 **F4** 开关 / **F5** 打印未命中 / **F9** 重载词表 |
@@ -560,8 +560,9 @@ GUI Atlas 原图 512x1024（RGBA32 + 11 级 mip）
   → 原图 1:1 贴【PIL 顶部 (0,0)】→ 101 个 sprite 的 outer/inner 一个都不用改
   → 中文字形从 y=1025 往下排：16(1025..1764) / 20(1766..2845) / 28(2847..4734)
   → 余下 4736..8191 是空档（3456 行，留给将来补字）
-产物：_font/atlas_zh.png（9.9MB 文件 / 128MB 显存）
+产物：_font/atlas_zh.png（6.0MB 文件 / 128MB 显存；2026-10-21 修 alpha 平方后从 9.9MB 降到 6.0MB）
       _font/atlas_zh.bin（707KB，插件直读；格式 CWA1 + W/H/nSizes + 每字号字形表 + FNV）
+      ↑ .bin 只含几何度量，修 alpha 后**逐字节不变**（SHA256 相同），旧 .bin 可继续用
 ```
 
 #### ⚠ 坐标约定：精灵和字形都是【顶左原点】
@@ -601,6 +602,40 @@ gimg.putalpha(g)          # RGB 全 255，alpha 承载覆盖率
 ```
 
 理由：draw call 的顶点色（`label.color` / 富文本标记）会乘上纹理 RGB，所以 RGB 必须全白。
+
+#### ✗ 已修的 bug：贴字形时不能拿 tile 自己当 mask（alpha 被平方）
+
+**症状**（用户 2026-10-21 报「中文似乎有点奇怪的模糊」）：笔画发虚、毛边、细笔画断断续续，
+像被冲淡过。**不是**运行时缩放/重采样造成的。
+
+```python
+canvas.paste(tile, (dx, dy), tile)      # ✗ 旧代码：自遮罩
+canvas.paste(tile, (dx, dy))            # ✓ 现在：tile 自带透明背景，整块覆盖
+```
+
+`tile` 的 RGB 纯白、alpha 是灰度。拿自己当 mask 往全透明画布上合成，等价于
+"src 和 dst 都取 tile"，结果：
+
+- alpha：`a → a²`（抗锯齿中间调被平方）
+- RGB：`255 → 255·a`（白字被染成灰度）
+- draw call 的透明混合仍按 `rgb·alpha` 叠 → 屏幕上实际覆盖率 = `255·a·a²` = **`a³`**
+  → 50% 的边缘像素只剩 **12.5%**
+
+实测整字集墨量 464526 → **385399（83%）**，损失全部集中在负责"干净过渡"的浅灰像素上。
+修后墨量回到 93960060/531336 ≈ 平均 alpha 176.8（原 157.4），RGB 全 255。
+
+**怎么确认的（别再猜一遍）**：把用户截图第一行逐字与图集对齐搜索，10 个字**全部在整数偏移
+(0,0) 达到相关系数 0.999~1.000**，亚像素最优偏移也是 0 → 屏幕像素就是图集 texel，
+1:1 无重采样，运行时无辜。然后对截图亮度做三模型回归（n=1508 像素，RMS 残差）：
+白字×alpha = 36.9 / **灰度RGB×alpha² = 1.5** ✅ / 白字×alpha² = 17.9。
+
+**同源检查**：原版 GUI Atlas 区的半透明像素 RGB 多为 (0,0,0) 或 (255,255,255)
+→ 原版也用"RGB 不预乘"约定，所以 alpha 必须保持线性、RGB 必须保持纯白，两条都要满足。
+
+**顺带确认（这一层不是 bug）**：`--scale 0.80` 让实际栅格化字号是 **13/16/22 px**
+（charSize 仍记 16/20/28）。已验证 `font_16.png` 与"直接用 PIL 13px 渲染、无任何重采样"
+**10/10 逐像素一致** → 烘焙本身没有额外损失，13px 的雅黑 Bold 就是那个观感下限。
+要更大只能改 `--scale`，但 adv 会跟着变大，得逐处核对译文长度会不会撑破按钮。
 
 #### ⚠ 换纹理后必须手动重算精灵 UV
 
@@ -1179,6 +1214,8 @@ _cw3hanhua/
 │                      / skipped_manual.json（565 条「人工判定不译」，勿删）
 ├─ _diag/              ilspy 反编译源码 + 只读扫描脚本（scan_textmesh.py / scan_uilabel.py）
 │                      ★ 改插件前必查；不进版本库（gitignore），可随时重生成
+│                      ★ atlas_zh_before_alphafix/：2026-10-21 修 alpha 平方**之前**的
+│                        atlas_zh.png+bin（回退用，别删）
 ├─ _ngui_repo/         NGUI 仓库 clone，77 MB（gitignore；查上游源码用）
 └─ .venv/              Python 环境（UnityPy / dnfile / dncil / fontTools / Pillow，gitignore）
 ```

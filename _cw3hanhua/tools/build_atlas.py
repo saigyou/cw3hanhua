@@ -172,6 +172,17 @@ def main():
         #      贴进图集后中文字形区是一整片不透明黑块（2026-10-18 第四轮实测踩到）。
         #   正确做法：灰度值当 alpha，RGB 全设 255。
         #   这样 draw call 的顶点色（label.color / 富文本标记）才能正确给字上色。
+        #
+        # ★★★ 2026-10-21：贴图时**不能用 tile 自己当 mask**（`paste(tile, pos, tile)`）。
+        #   tile 的 RGB 是纯白、alpha 是灰度，拿它当遮罩往全透明画布上合成，等于
+        #   "src 与 dst 都取 tile"，结果是：
+        #       alpha: a → a²        （抗锯齿中间调被平方）
+        #       RGB  : 255 → 255·a   （白字被染成灰度）
+        #   而 draw call 的透明混合仍按 rgb·alpha 叠 → 实际覆盖率变成 a³，
+        #   0.5 的边缘像素只剩 0.125，笔画毛边/发虚。实测整字集墨量 464526 → 385399
+        #   （只剩 83%），且损失集中在那圈负责"干净过渡"的浅灰像素上。
+        #   用户 2026-10-21 报的"中文奇怪的模糊"就是这个（截图像素回归残差 1.5/255）。
+        #   tile 自带透明背景，直接整块覆盖即可。
         _g = Image.open(glyph_png).convert("L")
         gimg = Image.new("RGBA", _g.size, (255, 255, 255, 0))
         gimg.putalpha(_g)
@@ -200,7 +211,8 @@ def main():
             sy = (i // per_row_src) * cell
             box = (sx, sy, sx + cell, sy + cell)
             tile = gimg.crop(box)
-            canvas.paste(tile, (dx, dy), tile)
+            # ★ 自带透明背景，直接覆盖。不要写成 paste(tile, pos, tile)（见上文的平方 bug）。
+            canvas.paste(tile, (dx, dy))
             # ★ glyph.y = PIL 行号，**不换算**。
             #   UIFont.Print 里 zero3.y = yMax - (uvH/texHeight) * glyph.y，
             #   glyph.y 大 → 往下 → 正是 PIL 行号的方向（从顶部量）。
