@@ -1,0 +1,146 @@
+{
+ "batch": "12_extra",
+ "note": "story_sector / credits_sector 的恒星与虫洞名、任务地图里 ShieldKey 物件名、credits 地图提示。不在 <Messages> 里，由 audit_xml_text.py 找出。",
+ "items": [
+  {
+   "en": "Inceptus",
+   "zh": "因塞普图斯",
+   "kind": "Name"
+  },
+  {
+   "en": "Abitus",
+   "zh": "阿比图斯",
+   "kind": "Name"
+  },
+  {
+   "en": "Navox",
+   "zh": "纳沃克斯",
+   "kind": "Name"
+  },
+  {
+   "en": "Egos",
+   "zh": "伊戈斯",
+   "kind": "Name"
+  },
+  {
+   "en": "Frykt",
+   "zh": "弗里克特",
+   "kind": "Name"
+  },
+  {
+   "en": "Andere",
+   "zh": "安德雷",
+   "kind": "Name"
+  },
+  {
+   "en": "Cricket",
+   "zh": "克里克特",
+   "kind": "Name"
+  },
+  {
+   "en": "Apex",
+   "zh": "阿佩克斯",
+   "kind": "Name"
+  },
+  {
+   "en": "Cliff",
+   "zh": "克利夫",
+   "kind": "Name"
+  },
+  {
+   "en": "Adventure",
+   "zh": "冒险",
+   "kind": "Name"
+  },
+  {
+   "en": "Carcere Shield Key",
+   "zh": "卡塞雷护盾钥匙",
+   "kind": "Name"
+  },
+  {
+   "en": "Chanson Shield Key",
+   "zh": "尚松护盾钥匙",
+   "kind": "Name"
+  },
+  {
+   "en": "Choix Shield Key",
+   "zh": "舒瓦护盾钥匙",
+   "kind": "Name"
+  },
+  {
+   "en": "Crosslaw Shield Key",
+   "zh": "克罗斯劳护盾钥匙",
+   "kind": "Name"
+  },
+  {
+   "en": "Defi Shield Key",
+   "zh": "德菲护盾钥匙",
+   "kind": "Name"
+  },
+  {
+   "en": "Farbor Shield Key",
+   "zh": "法博护盾钥匙",
+   "kind": "Name"
+  },
+  {
+   "en": "Far York Shield Key",
+   "zh": "远约克护盾钥匙",
+   "kind": "Name"
+  },
+  {
+   "en": "Flick Shield Key",
+   "zh": "弗里克护盾钥匙",
+   "kind": "Name"
+  },
+  {
+   "en": "Ruine Shield Key",
+   "zh": "鲁因护盾钥匙",
+   "kind": "Name"
+  },
+  {
+   "en": "Starsync Shield Key",
+   "zh": "星同步护盾钥匙",
+   "kind": "Name"
+  },
+  {
+   "en": "Tiplex Shield Key",
+   "zh": "蒂普莱克斯护盾钥匙",
+   "kind": "Name"
+  },
+  {
+   "en": "Vapen Shield Key",
+   "zh": "瓦彭护盾钥匙",
+   "kind": "Name"
+  },
+  {
+   "en": "Right Click To Enable",
+   "zh": "右键启用",
+   "kind": "UI"
+  },
+  {
+   "en": "Lia",
+   "zh": "莉娅",
+   "kind": "Name"
+  },
+  {
+   "en": "Aliana",
+   "zh": "阿利安娜",
+   "kind": "Name"
+  },
+  {
+   "en": "Loki Hive",
+   "zh": "洛基巢穴",
+   "kind": "Name"
+  },
+  {
+   "en": "Loki Imperator",
+   "zh": "洛基统领",
+   "kind": "Name"
+  },
+  {
+   "en": "Abrax... Imper...???",
+   "zh": "阿布拉克斯… 帝皇…？？？",
+   "kind": "Name"
+  }
+ ]
+}

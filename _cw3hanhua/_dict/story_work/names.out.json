@@ -1,0 +1,1097 @@
+{
+ "batch": "names",
+ "items": [
+  {
+   "en": "4.2 An old Friend",
+   "zh": "4.2 老朋友"
+  },
+  {
+   "en": "A river runs through it",
+   "zh": "河流穿过此地"
+  },
+  {
+   "en": "Aether",
+   "zh": "以太"
+  },
+  {
+   "en": "Aigues-Mortes",
+   "zh": "艾格莫尔特"
+  },
+  {
+   "en": "Airbase One",
+   "zh": "一号空军基地"
+  },
+  {
+   "en": "Altiar",
+   "zh": "阿尔蒂亚"
+  },
+  {
+   "en": "Arca",
+   "zh": "阿尔卡"
+  },
+  {
+   "en": "Bardel",
+   "zh": "巴德尔"
+  },
+  {
+   "en": "Beau Jest",
+   "zh": "华丽玩笑"
+  },
+  {
+   "en": "Boss",
+   "zh": "首领"
+  },
+  {
+   "en": "Brain",
+   "zh": "大脑"
+  },
+  {
+   "en": "CW1 Tucana",
+   "zh": "CW1 图卡纳"
+  },
+  {
+   "en": "CW1 Tucana 2X",
+   "zh": "CW1 图卡纳 2X"
+  },
+  {
+   "en": "Carcere",
+   "zh": "卡塞雷"
+  },
+  {
+   "en": "Chanson",
+   "zh": "尚松"
+  },
+  {
+   "en": "Childs play",
+   "zh": "儿戏"
+  },
+  {
+   "en": "Chimera",
+   "zh": "奇美拉"
+  },
+  {
+   "en": "Choix",
+   "zh": "舒瓦"
+  },
+  {
+   "en": "Chunk",
+   "zh": "碎块"
+  },
+  {
+   "en": "Conquest",
+   "zh": "征服"
+  },
+  {
+   "en": "Conquest 2",
+   "zh": "征服 2"
+  },
+  {
+   "en": "Countdown",
+   "zh": "倒计时"
+  },
+  {
+   "en": "Creeper Hollow",
+   "zh": "Creeper 谷"
+  },
+  {
+   "en": "Creeper Wall 2",
+   "zh": "Creeper 墙 2"
+  },
+  {
+   "en": "Creeper Wall 3",
+   "zh": "Creeper 墙 3"
+  },
+  {
+   "en": "CreeperInTheWind",
+   "zh": "Creeper 随风"
+  },
+  {
+   "en": "CreeperWall",
+   "zh": "Creeper 墙"
+  },
+  {
+   "en": "Crosslaw",
+   "zh": "克罗斯劳"
+  },
+  {
+   "en": "CuriosityStation",
+   "zh": "好奇号站"
+  },
+  {
+   "en": "Defi",
+   "zh": "德菲"
+  },
+  {
+   "en": "Demo World",
+   "zh": "演示世界"
+  },
+  {
+   "en": "Descender",
+   "zh": "下降者"
+  },
+  {
+   "en": "DigitalisAlphaMission",
+   "zh": "数码阿尔法任务"
+  },
+  {
+   "en": "DrWall",
+   "zh": "沃尔博士"
+  },
+  {
+   "en": "DungeonNovice",
+   "zh": "地牢新手"
+  },
+  {
+   "en": "Earth",
+   "zh": "地球"
+  },
+  {
+   "en": "Electricity Quiz",
+   "zh": "电力测验"
+  },
+  {
+   "en": "Faithful",
+   "zh": "忠诚者"
+  },
+  {
+   "en": "Far York",
+   "zh": "远约克"
+  },
+  {
+   "en": "Farbor",
+   "zh": "法博"
+  },
+  {
+   "en": "FiringRangeB",
+   "zh": "靶场 B"
+  },
+  {
+   "en": "Flick",
+   "zh": "弗里克"
+  },
+  {
+   "en": "Flood Walls",
+   "zh": "防洪墙"
+  },
+  {
+   "en": "Fortress Siege",
+   "zh": "要塞围攻"
+  },
+  {
+   "en": "Fortress of Ultimate Darkness",
+   "zh": "终极黑暗要塞"
+  },
+  {
+   "en": "Gorge of the Void",
+   "zh": "虚空峡谷"
+  },
+  {
+   "en": "HardToSee1",
+   "zh": "难觅 1"
+  },
+  {
+   "en": "HardToSee2",
+   "zh": "难觅 2"
+  },
+  {
+   "en": "Helter Skelter",
+   "zh": "天旋地转"
+  },
+  {
+   "en": "Hopping",
+   "zh": "跳跃"
+  },
+  {
+   "en": "I feel crazy",
+   "zh": "我要疯了"
+  },
+  {
+   "en": "Islands",
+   "zh": "群岛"
+  },
+  {
+   "en": "Jojo",
+   "zh": "乔乔"
+  },
+  {
+   "en": "Krig",
+   "zh": "克里格"
+  },
+  {
+   "en": "Landscape Abuse 101",
+   "zh": "地形滥用 101"
+  },
+  {
+   "en": "Leapfrog",
+   "zh": "跳蛙"
+  },
+  {
+   "en": "Lemal",
+   "zh": "莱马尔"
+  },
+  {
+   "en": "Link",
+   "zh": "连接"
+  },
+  {
+   "en": "Little Gliese",
+   "zh": "小格利泽"
+  },
+  {
+   "en": "Megaland",
+   "zh": "巨陆"
+  },
+  {
+   "en": "Megaland 2",
+   "zh": "巨陆 2"
+  },
+  {
+   "en": "Meso",
+   "zh": "梅索"
+  },
+  {
+   "en": "Metroid",
+   "zh": "密特罗德"
+  },
+  {
+   "en": "Mini Arena",
+   "zh": "迷你竞技场"
+  },
+  {
+   "en": "Mistet",
+   "zh": "米斯特"
+  },
+  {
+   "en": "NACDAR",
+   "zh": "纳克达"
+  },
+  {
+   "en": "NoWasteLand",
+   "zh": "无废土"
+  },
+  {
+   "en": "Nomland",
+   "zh": "诺姆兰"
+  },
+  {
+   "en": "Oblivion",
+   "zh": "湮灭"
+  },
+  {
+   "en": "Ormos",
+   "zh": "奥尔莫斯"
+  },
+  {
+   "en": "Otrav",
+   "zh": "奥特拉夫"
+  },
+  {
+   "en": "Overextended",
+   "zh": "战线过长"
+  },
+  {
+   "en": "Pamukkale",
+   "zh": "棉花堡"
+  },
+  {
+   "en": "Paradime",
+   "zh": "帕拉戴姆"
+  },
+  {
+   "en": "Planet Hopping",
+   "zh": "星际跳跃"
+  },
+  {
+   "en": "Pop-Up",
+   "zh": "弹出"
+  },
+  {
+   "en": "Pothole",
+   "zh": "坑洞"
+  },
+  {
+   "en": "Riftworld",
+   "zh": "裂隙世界"
+  },
+  {
+   "en": "Roundup",
+   "zh": "围捕"
+  },
+  {
+   "en": "Ruine",
+   "zh": "鲁因"
+  },
+  {
+   "en": "Runner Wash",
+   "zh": "空降兵河床"
+  },
+  {
+   "en": "RunnerUp",
+   "zh": "亚军"
+  },
+  {
+   "en": "Sacrifice",
+   "zh": "牺牲"
+  },
+  {
+   "en": "Seedet",
+   "zh": "西德特"
+  },
+  {
+   "en": "Shallow Moat",
+   "zh": "浅壕"
+  },
+  {
+   "en": "Solar System Shakeup",
+   "zh": "星系震荡"
+  },
+  {
+   "en": "SolarWind",
+   "zh": "太阳风"
+  },
+  {
+   "en": "Stairway 13",
+   "zh": "阶梯 13"
+  },
+  {
+   "en": "Starfields Eternal",
+   "zh": "永恒星野"
+  },
+  {
+   "en": "Starsync",
+   "zh": "星同步"
+  },
+  {
+   "en": "Super Tower",
+   "zh": "超级塔"
+  },
+  {
+   "en": "Super Tower 2",
+   "zh": "超级塔 2"
+  },
+  {
+   "en": "SuperFlat",
+   "zh": "超平坦"
+  },
+  {
+   "en": "Telos",
+   "zh": "泰洛斯"
+  },
+  {
+   "en": "Tempus",
+   "zh": "坦普斯"
+  },
+  {
+   "en": "Terp Lover",
+   "zh": "挖掘机爱好者"
+  },
+  {
+   "en": "Terror",
+   "zh": "恐惧"
+  },
+  {
+   "en": "The Bardel Convention",
+   "zh": "巴德尔会议"
+  },
+  {
+   "en": "The Bardel Redemption",
+   "zh": "巴德尔救赎"
+  },
+  {
+   "en": "The Gatekeeper",
+   "zh": "守门人"
+  },
+  {
+   "en": "The Name",
+   "zh": "名字"
+  },
+  {
+   "en": "The Ocean",
+   "zh": "海洋"
+  },
+  {
+   "en": "The Push",
+   "zh": "推进"
+  },
+  {
+   "en": "The Start",
+   "zh": "开端"
+  },
+  {
+   "en": "The Totem",
+   "zh": "图腾"
+  },
+  {
+   "en": "The Totem 2",
+   "zh": "图腾 2"
+  },
+  {
+   "en": "The pit",
+   "zh": "深坑"
+  },
+  {
+   "en": "The small one",
+   "zh": "小家伙"
+  },
+  {
+   "en": "TheFiringRange",
+   "zh": "靶场"
+  },
+  {
+   "en": "TheSource",
+   "zh": "源头"
+  },
+  {
+   "en": "ThunderBluff",
+   "zh": "雷崖"
+  },
+  {
+   "en": "Tide",
+   "zh": "潮汐"
+  },
+  {
+   "en": "Tiplex",
+   "zh": "蒂普莱克斯"
+  },
+  {
+   "en": "Titan",
+   "zh": "泰坦"
+  },
+  {
+   "en": "Total War",
+   "zh": "全面战争"
+  },
+  {
+   "en": "Trae Noria",
+   "zh": "特雷诺里亚"
+  },
+  {
+   "en": "Troublesome Trains 01 - Tutorial",
+   "zh": "麻烦列车 01 - 教程"
+  },
+  {
+   "en": "Troublesome Trains 02 - Freeplay",
+   "zh": "麻烦列车 02 - 自由模式"
+  },
+  {
+   "en": "Twisted Island",
+   "zh": "扭曲之岛"
+  },
+  {
+   "en": "Unknown Scenario - Part 2",
+   "zh": "未知场景 - 第 2 部分"
+  },
+  {
+   "en": "Up and Over",
+   "zh": "翻越"
+  },
+  {
+   "en": "Vapen",
+   "zh": "瓦彭"
+  },
+  {
+   "en": "Wallsaver",
+   "zh": "护墙者"
+  },
+  {
+   "en": "War Zone",
+   "zh": "战区"
+  },
+  {
+   "en": "Warzone Classic",
+   "zh": "经典战区"
+  },
+  {
+   "en": "Waternaris",
+   "zh": "沃特纳里斯"
+  },
+  {
+   "en": "Which way do I go",
+   "zh": "我该往哪走"
+  },
+  {
+   "en": "Wind",
+   "zh": "风"
+  },
+  {
+   "en": "Xeniveral",
+   "zh": "泽尼维拉尔"
+  },
+  {
+   "en": "alpha_4.2 An old Friend",
+   "zh": "4.2 老朋友"
+  },
+  {
+   "en": "alpha_A river runs through it",
+   "zh": "河流穿过此地"
+  },
+  {
+   "en": "alpha_Aether",
+   "zh": "以太"
+  },
+  {
+   "en": "alpha_Aigues-Mortes",
+   "zh": "艾格莫尔特"
+  },
+  {
+   "en": "alpha_Airbase One",
+   "zh": "一号空军基地"
+  },
+  {
+   "en": "alpha_Altiar",
+   "zh": "阿尔蒂亚"
+  },
+  {
+   "en": "alpha_Bardel",
+   "zh": "巴德尔"
+  },
+  {
+   "en": "alpha_Beau Jest",
+   "zh": "华丽玩笑"
+  },
+  {
+   "en": "alpha_Boss",
+   "zh": "首领"
+  },
+  {
+   "en": "alpha_Brain",
+   "zh": "大脑"
+  },
+  {
+   "en": "alpha_CW1 Tucana",
+   "zh": "CW1 图卡纳"
+  },
+  {
+   "en": "alpha_CW1 Tucana 2X",
+   "zh": "CW1 图卡纳 2X"
+  },
+  {
+   "en": "alpha_Childs play",
+   "zh": "儿戏"
+  },
+  {
+   "en": "alpha_Chimera",
+   "zh": "奇美拉"
+  },
+  {
+   "en": "alpha_Chunk",
+   "zh": "碎块"
+  },
+  {
+   "en": "alpha_Conquest",
+   "zh": "征服"
+  },
+  {
+   "en": "alpha_Conquest 2",
+   "zh": "征服 2"
+  },
+  {
+   "en": "alpha_Countdown",
+   "zh": "倒计时"
+  },
+  {
+   "en": "alpha_Creeper Hollow",
+   "zh": "Creeper 谷"
+  },
+  {
+   "en": "alpha_Creeper Wall 2",
+   "zh": "Creeper 墙 2"
+  },
+  {
+   "en": "alpha_Creeper Wall 3",
+   "zh": "Creeper 墙 3"
+  },
+  {
+   "en": "alpha_CreeperInTheWind",
+   "zh": "Creeper 随风"
+  },
+  {
+   "en": "alpha_CreeperWall",
+   "zh": "Creeper 墙"
+  },
+  {
+   "en": "alpha_CuriosityStation",
+   "zh": "好奇号站"
+  },
+  {
+   "en": "alpha_Demo World",
+   "zh": "演示世界"
+  },
+  {
+   "en": "alpha_Descender",
+   "zh": "下降者"
+  },
+  {
+   "en": "alpha_DigitalisAlphaMission",
+   "zh": "数码阿尔法任务"
+  },
+  {
+   "en": "alpha_DrWall",
+   "zh": "沃尔博士"
+  },
+  {
+   "en": "alpha_DungeonNovice",
+   "zh": "地牢新手"
+  },
+  {
+   "en": "alpha_Earth",
+   "zh": "地球"
+  },
+  {
+   "en": "alpha_Electricity Quiz",
+   "zh": "电力测验"
+  },
+  {
+   "en": "alpha_Faithful",
+   "zh": "忠诚者"
+  },
+  {
+   "en": "alpha_FiringRangeB",
+   "zh": "靶场 B"
+  },
+  {
+   "en": "alpha_Flood Walls",
+   "zh": "防洪墙"
+  },
+  {
+   "en": "alpha_Fortress Siege",
+   "zh": "要塞围攻"
+  },
+  {
+   "en": "alpha_Gorge of the Void",
+   "zh": "虚空峡谷"
+  },
+  {
+   "en": "alpha_HardToSee1",
+   "zh": "难觅 1"
+  },
+  {
+   "en": "alpha_HardToSee2",
+   "zh": "难觅 2"
+  },
+  {
+   "en": "alpha_Helter Skelter",
+   "zh": "天旋地转"
+  },
+  {
+   "en": "alpha_Hopping",
+   "zh": "跳跃"
+  },
+  {
+   "en": "alpha_I feel crazy",
+   "zh": "我要疯了"
+  },
+  {
+   "en": "alpha_Islands",
+   "zh": "群岛"
+  },
+  {
+   "en": "alpha_Landscape Abuse 101",
+   "zh": "地形滥用 101"
+  },
+  {
+   "en": "alpha_Leapfrog",
+   "zh": "跳蛙"
+  },
+  {
+   "en": "alpha_Link",
+   "zh": "连接"
+  },
+  {
+   "en": "alpha_Little Gliese",
+   "zh": "小格利泽"
+  },
+  {
+   "en": "alpha_Megaland",
+   "zh": "巨陆"
+  },
+  {
+   "en": "alpha_Megaland 2",
+   "zh": "巨陆 2"
+  },
+  {
+   "en": "alpha_Metroid",
+   "zh": "密特罗德"
+  },
+  {
+   "en": "alpha_Mini Arena",
+   "zh": "迷你竞技场"
+  },
+  {
+   "en": "alpha_NACDAR",
+   "zh": "纳克达"
+  },
+  {
+   "en": "alpha_NoWasteLand",
+   "zh": "无废土"
+  },
+  {
+   "en": "alpha_Nomland",
+   "zh": "诺姆兰"
+  },
+  {
+   "en": "alpha_Oblivion",
+   "zh": "湮灭"
+  },
+  {
+   "en": "alpha_Overextended",
+   "zh": "战线过长"
+  },
+  {
+   "en": "alpha_Pamukkale",
+   "zh": "棉花堡"
+  },
+  {
+   "en": "alpha_Paradime",
+   "zh": "帕拉戴姆"
+  },
+  {
+   "en": "alpha_Planet Hopping",
+   "zh": "星际跳跃"
+  },
+  {
+   "en": "alpha_Pop-Up",
+   "zh": "弹出"
+  },
+  {
+   "en": "alpha_Pothole",
+   "zh": "坑洞"
+  },
+  {
+   "en": "alpha_Riftworld",
+   "zh": "裂隙世界"
+  },
+  {
+   "en": "alpha_Roundup",
+   "zh": "围捕"
+  },
+  {
+   "en": "alpha_Runner Wash",
+   "zh": "空降兵河床"
+  },
+  {
+   "en": "alpha_RunnerUp",
+   "zh": "亚军"
+  },
+  {
+   "en": "alpha_Sacrifice",
+   "zh": "牺牲"
+  },
+  {
+   "en": "alpha_Shallow Moat",
+   "zh": "浅壕"
+  },
+  {
+   "en": "alpha_Solar System Shakeup",
+   "zh": "星系震荡"
+  },
+  {
+   "en": "alpha_SolarWind",
+   "zh": "太阳风"
+  },
+  {
+   "en": "alpha_Stairway 13",
+   "zh": "阶梯 13"
+  },
+  {
+   "en": "alpha_Starfields Eternal",
+   "zh": "永恒星野"
+  },
+  {
+   "en": "alpha_Super Tower",
+   "zh": "超级塔"
+  },
+  {
+   "en": "alpha_Super Tower 2",
+   "zh": "超级塔 2"
+  },
+  {
+   "en": "alpha_SuperFlat",
+   "zh": "超平坦"
+  },
+  {
+   "en": "alpha_Terp Lover",
+   "zh": "挖掘机爱好者"
+  },
+  {
+   "en": "alpha_Terror",
+   "zh": "恐惧"
+  },
+  {
+   "en": "alpha_The Bardel Convention",
+   "zh": "巴德尔会议"
+  },
+  {
+   "en": "alpha_The Bardel Redemption",
+   "zh": "巴德尔救赎"
+  },
+  {
+   "en": "alpha_The Gatekeeper",
+   "zh": "守门人"
+  },
+  {
+   "en": "alpha_The Name",
+   "zh": "名字"
+  },
+  {
+   "en": "alpha_The Ocean",
+   "zh": "海洋"
+  },
+  {
+   "en": "alpha_The Push",
+   "zh": "推进"
+  },
+  {
+   "en": "alpha_The Start",
+   "zh": "开端"
+  },
+  {
+   "en": "alpha_The Totem",
+   "zh": "图腾"
+  },
+  {
+   "en": "alpha_The Totem 2",
+   "zh": "图腾 2"
+  },
+  {
+   "en": "alpha_The pit",
+   "zh": "深坑"
+  },
+  {
+   "en": "alpha_The small one",
+   "zh": "小家伙"
+  },
+  {
+   "en": "alpha_TheFiringRange",
+   "zh": "靶场"
+  },
+  {
+   "en": "alpha_TheSource",
+   "zh": "源头"
+  },
+  {
+   "en": "alpha_ThunderBluff",
+   "zh": "雷崖"
+  },
+  {
+   "en": "alpha_Tide",
+   "zh": "潮汐"
+  },
+  {
+   "en": "alpha_Titan",
+   "zh": "泰坦"
+  },
+  {
+   "en": "alpha_Total War",
+   "zh": "全面战争"
+  },
+  {
+   "en": "alpha_Trae Noria",
+   "zh": "特雷诺里亚"
+  },
+  {
+   "en": "alpha_Troublesome Trains 01 - Tutorial",
+   "zh": "麻烦列车 01 - 教程"
+  },
+  {
+   "en": "alpha_Troublesome Trains 02 - Freeplay",
+   "zh": "麻烦列车 02 - 自由模式"
+  },
+  {
+   "en": "alpha_Twisted Island",
+   "zh": "扭曲之岛"
+  },
+  {
+   "en": "alpha_Unknown Scenario - Part 2",
+   "zh": "未知场景 - 第 2 部分"
+  },
+  {
+   "en": "alpha_Up and Over",
+   "zh": "翻越"
+  },
+  {
+   "en": "alpha_Wallsaver",
+   "zh": "护墙者"
+  },
+  {
+   "en": "alpha_War Zone",
+   "zh": "战区"
+  },
+  {
+   "en": "alpha_Warzone Classic",
+   "zh": "经典战区"
+  },
+  {
+   "en": "alpha_Waternaris",
+   "zh": "沃特纳里斯"
+  },
+  {
+   "en": "alpha_Which way do I go",
+   "zh": "我该往哪走"
+  },
+  {
+   "en": "alpha_Wind",
+   "zh": "风"
+  },
+  {
+   "en": "alpha_Xeniveral",
+   "zh": "泽尼维拉尔"
+  },
+  {
+   "en": "alpha_asteroid map",
+   "zh": "小行星地图"
+  },
+  {
+   "en": "alpha_floodgate v4",
+   "zh": "泄洪闸 v4"
+  },
+  {
+   "en": "alpha_islandhopper",
+   "zh": "跳岛者"
+  },
+  {
+   "en": "alpha_space",
+   "zh": "太空"
+  },
+  {
+   "en": "alpha_spacecadet",
+   "zh": "太空学员"
+  },
+  {
+   "en": "alpha_spider Web",
+   "zh": "蛛网"
+  },
+  {
+   "en": "alpha_strings attached",
+   "zh": "附加条件"
+  },
+  {
+   "en": "alpha_teks001 runner farm",
+   "zh": "teks001 空降兵农场"
+  },
+  {
+   "en": "alpha_teks002 get the gear",
+   "zh": "teks002 取得装备"
+  },
+  {
+   "en": "alpha_teks003 creepy castle",
+   "zh": "teks003 惊悚城堡"
+  },
+  {
+   "en": "alpha_teks004 shield shove",
+   "zh": "teks004 护盾推挤"
+  },
+  {
+   "en": "alpha_teks005 pyramid power",
+   "zh": "teks005 金字塔之力"
+  },
+  {
+   "en": "alpha_teks006 AC is key",
+   "zh": "teks006 AC 是关键"
+  },
+  {
+   "en": "alpha_teks007 spore spam",
+   "zh": "teks007 孢子海量"
+  },
+  {
+   "en": "alpha_teks008 point to point",
+   "zh": "teks008 点对点"
+  },
+  {
+   "en": "alpha_teks009 clear your castle",
+   "zh": "teks009 清空你的城堡"
+  },
+  {
+   "en": "alpha_teks010 thor's thunder",
+   "zh": "teks010 索尔之雷"
+  },
+  {
+   "en": "alpha_thE ARk THat burned",
+   "zh": "燃烧的方舟"
+  },
+  {
+   "en": "alpha_the downpour",
+   "zh": "暴雨倾盆"
+  },
+  {
+   "en": "asteroid map",
+   "zh": "小行星地图"
+  },
+  {
+   "en": "credits",
+   "zh": "制作名单"
+  },
+  {
+   "en": "floodgate v4",
+   "zh": "泄洪闸 v4"
+  },
+  {
+   "en": "islandhopper",
+   "zh": "跳岛者"
+  },
+  {
+   "en": "space",
+   "zh": "太空"
+  },
+  {
+   "en": "spacecadet",
+   "zh": "太空学员"
+  },
+  {
+   "en": "spider Web",
+   "zh": "蛛网"
+  },
+  {
+   "en": "strings attached",
+   "zh": "附加条件"
+  },
+  {
+   "en": "teks001 runner farm",
+   "zh": "teks001 空降兵农场"
+  },
+  {
+   "en": "teks002 get the gear",
+   "zh": "teks002 取得装备"
+  },
+  {
+   "en": "teks003 creepy castle",
+   "zh": "teks003 惊悚城堡"
+  },
+  {
+   "en": "teks004 shield shove",
+   "zh": "teks004 护盾推挤"
+  },
+  {
+   "en": "teks005 pyramid power",
+   "zh": "teks005 金字塔之力"
+  },
+  {
+   "en": "teks006 AC is key",
+   "zh": "teks006 AC 是关键"
+  },
+  {
+   "en": "teks007 spore spam",
+   "zh": "teks007 孢子海量"
+  },
+  {
+   "en": "teks008 point to point",
+   "zh": "teks008 点对点"
+  },
+  {
+   "en": "teks009 clear your castle",
+   "zh": "teks009 清空你的城堡"
+  },
+  {
+   "en": "teks010 thor's thunder",
+   "zh": "teks010 索尔之雷"
+  },
+  {
+   "en": "thE ARk THat burned",
+   "zh": "燃烧的方舟"
+  },
+  {
+   "en": "the downpour",
+   "zh": "暴雨倾盆"
+  }
+ ]
+}

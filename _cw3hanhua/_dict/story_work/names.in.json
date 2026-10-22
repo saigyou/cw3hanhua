@@ -1,0 +1,1098 @@
+{
+ "batch": "names",
+ "count": 273,
+ "items": [
+  {
+   "en": "4.2 An old Friend",
+   "kind": "title"
+  },
+  {
+   "en": "A river runs through it",
+   "kind": "title"
+  },
+  {
+   "en": "Aether",
+   "kind": "title"
+  },
+  {
+   "en": "Aigues-Mortes",
+   "kind": "title"
+  },
+  {
+   "en": "Airbase One",
+   "kind": "title"
+  },
+  {
+   "en": "Altiar",
+   "kind": "title"
+  },
+  {
+   "en": "Arca",
+   "kind": "world"
+  },
+  {
+   "en": "Bardel",
+   "kind": "title"
+  },
+  {
+   "en": "Beau Jest",
+   "kind": "title"
+  },
+  {
+   "en": "Boss",
+   "kind": "title"
+  },
+  {
+   "en": "Brain",
+   "kind": "title"
+  },
+  {
+   "en": "CW1 Tucana",
+   "kind": "title"
+  },
+  {
+   "en": "CW1 Tucana 2X",
+   "kind": "title"
+  },
+  {
+   "en": "Carcere",
+   "kind": "world"
+  },
+  {
+   "en": "Chanson",
+   "kind": "world"
+  },
+  {
+   "en": "Childs play",
+   "kind": "title"
+  },
+  {
+   "en": "Chimera",
+   "kind": "title"
+  },
+  {
+   "en": "Choix",
+   "kind": "world"
+  },
+  {
+   "en": "Chunk",
+   "kind": "title"
+  },
+  {
+   "en": "Conquest",
+   "kind": "title"
+  },
+  {
+   "en": "Conquest 2",
+   "kind": "title"
+  },
+  {
+   "en": "Countdown",
+   "kind": "title"
+  },
+  {
+   "en": "Creeper Hollow",
+   "kind": "title"
+  },
+  {
+   "en": "Creeper Wall 2",
+   "kind": "title"
+  },
+  {
+   "en": "Creeper Wall 3",
+   "kind": "title"
+  },
+  {
+   "en": "CreeperInTheWind",
+   "kind": "title"
+  },
+  {
+   "en": "CreeperWall",
+   "kind": "title"
+  },
+  {
+   "en": "Crosslaw",
+   "kind": "world"
+  },
+  {
+   "en": "CuriosityStation",
+   "kind": "title"
+  },
+  {
+   "en": "Defi",
+   "kind": "world"
+  },
+  {
+   "en": "Demo World",
+   "kind": "title"
+  },
+  {
+   "en": "Descender",
+   "kind": "title"
+  },
+  {
+   "en": "DigitalisAlphaMission",
+   "kind": "title"
+  },
+  {
+   "en": "DrWall",
+   "kind": "title"
+  },
+  {
+   "en": "DungeonNovice",
+   "kind": "title"
+  },
+  {
+   "en": "Earth",
+   "kind": "title"
+  },
+  {
+   "en": "Electricity Quiz",
+   "kind": "title"
+  },
+  {
+   "en": "Faithful",
+   "kind": "title"
+  },
+  {
+   "en": "Far York",
+   "kind": "world"
+  },
+  {
+   "en": "Farbor",
+   "kind": "world"
+  },
+  {
+   "en": "FiringRangeB",
+   "kind": "title"
+  },
+  {
+   "en": "Flick",
+   "kind": "world"
+  },
+  {
+   "en": "Flood Walls",
+   "kind": "title"
+  },
+  {
+   "en": "Fortress Siege",
+   "kind": "title"
+  },
+  {
+   "en": "Fortress of Ultimate Darkness",
+   "kind": "title"
+  },
+  {
+   "en": "Gorge of the Void",
+   "kind": "title"
+  },
+  {
+   "en": "HardToSee1",
+   "kind": "title"
+  },
+  {
+   "en": "HardToSee2",
+   "kind": "title"
+  },
+  {
+   "en": "Helter Skelter",
+   "kind": "title"
+  },
+  {
+   "en": "Hopping",
+   "kind": "title"
+  },
+  {
+   "en": "I feel crazy",
+   "kind": "title"
+  },
+  {
+   "en": "Islands",
+   "kind": "title"
+  },
+  {
+   "en": "Jojo",
+   "kind": "world"
+  },
+  {
+   "en": "Krig",
+   "kind": "world"
+  },
+  {
+   "en": "Landscape Abuse 101",
+   "kind": "title"
+  },
+  {
+   "en": "Leapfrog",
+   "kind": "title"
+  },
+  {
+   "en": "Lemal",
+   "kind": "world"
+  },
+  {
+   "en": "Link",
+   "kind": "title"
+  },
+  {
+   "en": "Little Gliese",
+   "kind": "title"
+  },
+  {
+   "en": "Megaland",
+   "kind": "title"
+  },
+  {
+   "en": "Megaland 2",
+   "kind": "title"
+  },
+  {
+   "en": "Meso",
+   "kind": "world"
+  },
+  {
+   "en": "Metroid",
+   "kind": "title"
+  },
+  {
+   "en": "Mini Arena",
+   "kind": "title"
+  },
+  {
+   "en": "Mistet",
+   "kind": "world"
+  },
+  {
+   "en": "NACDAR",
+   "kind": "title"
+  },
+  {
+   "en": "NoWasteLand",
+   "kind": "title"
+  },
+  {
+   "en": "Nomland",
+   "kind": "title"
+  },
+  {
+   "en": "Oblivion",
+   "kind": "title"
+  },
+  {
+   "en": "Ormos",
+   "kind": "world"
+  },
+  {
+   "en": "Otrav",
+   "kind": "world"
+  },
+  {
+   "en": "Overextended",
+   "kind": "title"
+  },
+  {
+   "en": "Pamukkale",
+   "kind": "title"
+  },
+  {
+   "en": "Paradime",
+   "kind": "title"
+  },
+  {
+   "en": "Planet Hopping",
+   "kind": "title"
+  },
+  {
+   "en": "Pop-Up",
+   "kind": "title"
+  },
+  {
+   "en": "Pothole",
+   "kind": "title"
+  },
+  {
+   "en": "Riftworld",
+   "kind": "title"
+  },
+  {
+   "en": "Roundup",
+   "kind": "title"
+  },
+  {
+   "en": "Ruine",
+   "kind": "world"
+  },
+  {
+   "en": "Runner Wash",
+   "kind": "title"
+  },
+  {
+   "en": "RunnerUp",
+   "kind": "title"
+  },
+  {
+   "en": "Sacrifice",
+   "kind": "title"
+  },
+  {
+   "en": "Seedet",
+   "kind": "world"
+  },
+  {
+   "en": "Shallow Moat",
+   "kind": "title"
+  },
+  {
+   "en": "Solar System Shakeup",
+   "kind": "title"
+  },
+  {
+   "en": "SolarWind",
+   "kind": "title"
+  },
+  {
+   "en": "Stairway 13",
+   "kind": "title"
+  },
+  {
+   "en": "Starfields Eternal",
+   "kind": "title"
+  },
+  {
+   "en": "Starsync",
+   "kind": "world"
+  },
+  {
+   "en": "Super Tower",
+   "kind": "title"
+  },
+  {
+   "en": "Super Tower 2",
+   "kind": "title"
+  },
+  {
+   "en": "SuperFlat",
+   "kind": "title"
+  },
+  {
+   "en": "Telos",
+   "kind": "world"
+  },
+  {
+   "en": "Tempus",
+   "kind": "world"
+  },
+  {
+   "en": "Terp Lover",
+   "kind": "title"
+  },
+  {
+   "en": "Terror",
+   "kind": "title"
+  },
+  {
+   "en": "The Bardel Convention",
+   "kind": "title"
+  },
+  {
+   "en": "The Bardel Redemption",
+   "kind": "title"
+  },
+  {
+   "en": "The Gatekeeper",
+   "kind": "title"
+  },
+  {
+   "en": "The Name",
+   "kind": "title"
+  },
+  {
+   "en": "The Ocean",
+   "kind": "title"
+  },
+  {
+   "en": "The Push",
+   "kind": "title"
+  },
+  {
+   "en": "The Start",
+   "kind": "title"
+  },
+  {
+   "en": "The Totem",
+   "kind": "title"
+  },
+  {
+   "en": "The Totem 2",
+   "kind": "title"
+  },
+  {
+   "en": "The pit",
+   "kind": "title"
+  },
+  {
+   "en": "The small one",
+   "kind": "title"
+  },
+  {
+   "en": "TheFiringRange",
+   "kind": "title"
+  },
+  {
+   "en": "TheSource",
+   "kind": "title"
+  },
+  {
+   "en": "ThunderBluff",
+   "kind": "title"
+  },
+  {
+   "en": "Tide",
+   "kind": "title"
+  },
+  {
+   "en": "Tiplex",
+   "kind": "world"
+  },
+  {
+   "en": "Titan",
+   "kind": "title"
+  },
+  {
+   "en": "Total War",
+   "kind": "title"
+  },
+  {
+   "en": "Trae Noria",
+   "kind": "title"
+  },
+  {
+   "en": "Troublesome Trains 01 - Tutorial",
+   "kind": "title"
+  },
+  {
+   "en": "Troublesome Trains 02 - Freeplay",
+   "kind": "title"
+  },
+  {
+   "en": "Twisted Island",
+   "kind": "title"
+  },
+  {
+   "en": "Unknown Scenario - Part 2",
+   "kind": "title"
+  },
+  {
+   "en": "Up and Over",
+   "kind": "title"
+  },
+  {
+   "en": "Vapen",
+   "kind": "world"
+  },
+  {
+   "en": "Wallsaver",
+   "kind": "title"
+  },
+  {
+   "en": "War Zone",
+   "kind": "title"
+  },
+  {
+   "en": "Warzone Classic",
+   "kind": "title"
+  },
+  {
+   "en": "Waternaris",
+   "kind": "title"
+  },
+  {
+   "en": "Which way do I go",
+   "kind": "title"
+  },
+  {
+   "en": "Wind",
+   "kind": "title"
+  },
+  {
+   "en": "Xeniveral",
+   "kind": "title"
+  },
+  {
+   "en": "alpha_4.2 An old Friend",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_A river runs through it",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Aether",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Aigues-Mortes",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Airbase One",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Altiar",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Bardel",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Beau Jest",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Boss",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Brain",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_CW1 Tucana",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_CW1 Tucana 2X",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Childs play",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Chimera",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Chunk",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Conquest",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Conquest 2",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Countdown",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Creeper Hollow",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Creeper Wall 2",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Creeper Wall 3",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_CreeperInTheWind",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_CreeperWall",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_CuriosityStation",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Demo World",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Descender",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_DigitalisAlphaMission",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_DrWall",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_DungeonNovice",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Earth",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Electricity Quiz",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Faithful",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_FiringRangeB",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Flood Walls",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Fortress Siege",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Gorge of the Void",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_HardToSee1",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_HardToSee2",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Helter Skelter",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Hopping",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_I feel crazy",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Islands",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Landscape Abuse 101",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Leapfrog",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Link",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Little Gliese",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Megaland",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Megaland 2",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Metroid",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Mini Arena",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_NACDAR",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_NoWasteLand",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Nomland",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Oblivion",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Overextended",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Pamukkale",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Paradime",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Planet Hopping",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Pop-Up",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Pothole",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Riftworld",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Roundup",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Runner Wash",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_RunnerUp",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Sacrifice",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Shallow Moat",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Solar System Shakeup",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_SolarWind",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Stairway 13",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Starfields Eternal",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Super Tower",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Super Tower 2",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_SuperFlat",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Terp Lover",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Terror",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_The Bardel Convention",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_The Bardel Redemption",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_The Gatekeeper",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_The Name",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_The Ocean",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_The Push",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_The Start",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_The Totem",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_The Totem 2",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_The pit",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_The small one",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_TheFiringRange",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_TheSource",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_ThunderBluff",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Tide",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Titan",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Total War",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Trae Noria",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Troublesome Trains 01 - Tutorial",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Troublesome Trains 02 - Freeplay",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Twisted Island",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Unknown Scenario - Part 2",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Up and Over",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Wallsaver",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_War Zone",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Warzone Classic",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Waternaris",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Which way do I go",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Wind",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_Xeniveral",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_asteroid map",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_floodgate v4",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_islandhopper",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_space",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_spacecadet",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_spider Web",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_strings attached",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_teks001 runner farm",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_teks002 get the gear",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_teks003 creepy castle",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_teks004 shield shove",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_teks005 pyramid power",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_teks006 AC is key",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_teks007 spore spam",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_teks008 point to point",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_teks009 clear your castle",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_teks010 thor's thunder",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_thE ARk THat burned",
+   "kind": "world"
+  },
+  {
+   "en": "alpha_the downpour",
+   "kind": "world"
+  },
+  {
+   "en": "asteroid map",
+   "kind": "title"
+  },
+  {
+   "en": "credits",
+   "kind": "world"
+  },
+  {
+   "en": "floodgate v4",
+   "kind": "title"
+  },
+  {
+   "en": "islandhopper",
+   "kind": "title"
+  },
+  {
+   "en": "space",
+   "kind": "title"
+  },
+  {
+   "en": "spacecadet",
+   "kind": "title"
+  },
+  {
+   "en": "spider Web",
+   "kind": "title"
+  },
+  {
+   "en": "strings attached",
+   "kind": "title"
+  },
+  {
+   "en": "teks001 runner farm",
+   "kind": "title"
+  },
+  {
+   "en": "teks002 get the gear",
+   "kind": "title"
+  },
+  {
+   "en": "teks003 creepy castle",
+   "kind": "title"
+  },
+  {
+   "en": "teks004 shield shove",
+   "kind": "title"
+  },
+  {
+   "en": "teks005 pyramid power",
+   "kind": "title"
+  },
+  {
+   "en": "teks006 AC is key",
+   "kind": "title"
+  },
+  {
+   "en": "teks007 spore spam",
+   "kind": "title"
+  },
+  {
+   "en": "teks008 point to point",
+   "kind": "title"
+  },
+  {
+   "en": "teks009 clear your castle",
+   "kind": "title"
+  },
+  {
+   "en": "teks010 thor's thunder",
+   "kind": "title"
+  },
+  {
+   "en": "thE ARk THat burned",
+   "kind": "title"
+  },
+  {
+   "en": "the downpour",
+   "kind": "title"
+  }
+ ]
+}

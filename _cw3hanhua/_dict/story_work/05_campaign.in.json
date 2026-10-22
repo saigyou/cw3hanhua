@@ -1,0 +1,373 @@
+{
+ "batch": "05_campaign",
+ "files": [
+  "Far York",
+  "Farbor",
+  "Flick",
+  "Jojo",
+  "Krig"
+ ],
+ "count": 60,
+ "items": [
+  {
+   "id": 439,
+   "file": "Far York",
+   "char": "0",
+   "en": "'Far York'... I know this place."
+  },
+  {
+   "id": 440,
+   "file": "Far York",
+   "char": "1",
+   "en": "You no doubt remember one epoch of this world.  Far York was a mighty world and served as the center of commerce for 13 different civilizations."
+  },
+  {
+   "id": 441,
+   "file": "Far York",
+   "char": "0",
+   "en": "It's nothing but cratered ruins now."
+  },
+  {
+   "id": 442,
+   "file": "Far York",
+   "char": "1",
+   "en": "Toward the end of its final occupation, the surviving humans scorched the planet with orbital mass drivers. It was an effort to... I suppose it doesn't matter now."
+  },
+  {
+   "id": 443,
+   "file": "Far York",
+   "char": "1",
+   "en": "Scanners show a Mortar Tech Artifact on this world.  That should prove very useful against the emitters in the craters."
+  },
+  {
+   "id": 444,
+   "file": "Far York",
+   "char": "0",
+   "en": "Why isn't this ship already equipped with this weapon technology?"
+  },
+  {
+   "id": 445,
+   "file": "Far York",
+   "char": "1",
+   "en": "It once was, but many things happened over the course of billions of years.  This ship isn't the original, I have had to reconstruct and rebuild it many times.  Each reconstruction was performed carefully and slowly, so as to not be discovered."
+  },
+  {
+   "id": 446,
+   "file": "Far York",
+   "char": "0",
+   "en": "I'll ask more about that later.  For now, lets take out these emitters and pick up that shield key."
+  },
+  {
+   "id": 253,
+   "file": "Farbor",
+   "char": "1",
+   "en": "[Scanning...]"
+  },
+  {
+   "id": 447,
+   "file": "Farbor",
+   "char": "0",
+   "en": "At last, we have lowered the shield and gained access to this world.  Lia, perform a quick scan.  What are the Loki up to?"
+  },
+  {
+   "id": 448,
+   "file": "Farbor",
+   "char": "1",
+   "en": "I detect no Loki, or other life forms.  Everything here is an automated machine system.  It's a massive effort, though."
+  },
+  {
+   "id": 449,
+   "file": "Farbor",
+   "char": "0",
+   "en": "What is going on, what is being built?"
+  },
+  {
+   "id": 450,
+   "file": "Farbor",
+   "char": "1",
+   "en": "Give me a moment...  This isn't good at all.  I think I understand part of what is going on."
+  },
+  {
+   "id": 451,
+   "file": "Farbor",
+   "char": "1",
+   "en": "There are automated ore harvesters here that are constructing a 'Prism' ship.  That ship's sole purpose is to focus Aether from a Totem.  Several civilizations experimented with this kind of tech but on a much smaller scale..."
+  },
+  {
+   "id": 452,
+   "file": "Farbor",
+   "char": "1",
+   "en": "Whoever designed this ship has managed to create a massive Prism ship.  There is also a heavily altered Totem in the north east.  It's covered by some protective armor as well."
+  },
+  {
+   "id": 453,
+   "file": "Farbor",
+   "char": "0",
+   "en": "What good does focusing Aether do?"
+  },
+  {
+   "id": 454,
+   "file": "Farbor",
+   "char": "1",
+   "en": "Nothing on a small scale.  On a large scale... Ah, I see now.  The signals in this system are focused on this world for a reason.  This is elegant beyond anything I have ever experienced."
+  },
+  {
+   "id": 455,
+   "file": "Farbor",
+   "char": "1",
+   "en": "The signals present in this system are near the information capacity for this region of space, it wouldn't be possible to put more information in a volume of space bounded by a smaller surface area..."
+  },
+  {
+   "id": 456,
+   "file": "Farbor",
+   "char": "1",
+   "en": "The only way to get more information density is to increase the apparent surface area of space and Aether is extra-dimensional...."
+  },
+  {
+   "id": 457,
+   "file": "Farbor",
+   "char": "0",
+   "en": "So that Prism ship can receive the signals being directed at this system, then pack the information into a smaller region of space than is otherwise possible?"
+  },
+  {
+   "id": 458,
+   "file": "Farbor",
+   "char": "1",
+   "en": "Exactly, Skars."
+  },
+  {
+   "id": 459,
+   "file": "Farbor",
+   "char": "0",
+   "en": "And then what?"
+  },
+  {
+   "id": 460,
+   "file": "Farbor",
+   "char": "1",
+   "en": "And then it is my suspicion that it will transmit all of that information via an Aether beam through the remnants of Rift space.  That's the only purpose I can foresee.  I do believe the results of this transmission will have one other effect..."
+  },
+  {
+   "id": 461,
+   "file": "Farbor",
+   "char": "1",
+   "en": "If that Prism Ship is allowed to launch and create an Aether Beam over the enhanced Totem in the north east... if that happens... the resulting Aether back-blast will destroy this entire star system."
+  },
+  {
+   "id": 462,
+   "file": "Farbor",
+   "char": "0",
+   "en": "Well, we better not let that happen Lia.  Perhaps if we destroy this ship it will also cripple whatever the Loki are trying to accomplish."
+  },
+  {
+   "id": 463,
+   "file": "Farbor",
+   "char": "1",
+   "en": "I wish I could concur, Skars.  But based on what we saw on Otrav, the amount of information in the signals, and the size of this facility.... I..."
+  },
+  {
+   "id": 464,
+   "file": "Farbor",
+   "char": "0",
+   "en": "Spit it out Lia."
+  },
+  {
+   "id": 465,
+   "file": "Farbor",
+   "char": "1",
+   "en": "I believe this world is but one of perhaps millions like it.  Skars, the visible universe must be covered with millions of worlds just like this one all building Prism Ships to focus information and transmit it."
+  },
+  {
+   "id": 466,
+   "file": "Farbor",
+   "char": "0",
+   "en": "(Sigh)... This is all so much bigger than us, Lia.  How can we ever hope to stop this....?"
+  },
+  {
+   "id": 467,
+   "file": "Farbor",
+   "char": "1",
+   "en": "We can start by surviving here and now.  If we don't destroy that Prism Ship, we will most certainly be destroyed."
+  },
+  {
+   "id": 468,
+   "file": "Farbor",
+   "char": "0",
+   "en": "Alright Lia, tomorrow holds little promise, but today won't be our final day.  I promise you that."
+  },
+  {
+   "id": 137,
+   "file": "Flick",
+   "char": "0",
+   "en": "What in Odin's name...."
+  },
+  {
+   "id": 138,
+   "file": "Flick",
+   "char": "1",
+   "en": "This used to be 'Flick', a world that supported a population of over 10 billion.  It was torn apart by a collision... a big one.  Something that the planetary shield couldn't stop."
+  },
+  {
+   "id": 139,
+   "file": "Flick",
+   "char": "1",
+   "en": "Like all the worlds in this system, this world wasn't even born when you were last awake.  This entire system developed, lived, and died while you slept."
+  },
+  {
+   "id": 140,
+   "file": "Flick",
+   "char": "0",
+   "en": "There appears to only be one emitter left on one of the larger asteroids, along with an intact Shield Key and a new Tech Artifact."
+  },
+  {
+   "id": 141,
+   "file": "Flick",
+   "char": "1",
+   "en": "Look more carefully, Skars.  This emitter has deployed Subspace-Slip Emitters.  These aren't true emitters, but are channels in subspace that the Master Emitter uses to dispense Creeper."
+  },
+  {
+   "id": 142,
+   "file": "Flick",
+   "char": "1",
+   "en": "This allows the emitter to deposit Creeper in different locations all at once.  The civilization that first encountered this adaptation were crushed in less than one standard earth year."
+  },
+  {
+   "id": 143,
+   "file": "Flick",
+   "char": "0",
+   "en": "Can these Slip-Emitters be destroyed with Nullifiers?"
+  },
+  {
+   "id": 144,
+   "file": "Flick",
+   "char": "1",
+   "en": "In a word, \"No\".  There is nothing to destroy.  They are just rips in subspace that the Master Emitter uses to transport Creeper.  The only way to seal them is to destroy the Master Emitter."
+  },
+  {
+   "id": 145,
+   "file": "Flick",
+   "char": "1",
+   "en": "The best you can do is to establish a foothold on surrounding asteroids, then deploy weapons and AntiCreeper to hold the Slip-Emitters at bay."
+  },
+  {
+   "id": 146,
+   "file": "Flick",
+   "char": "1",
+   "en": "The Bomber Tech Artifact should prove useful.  These air/space craft can deliver AC remotely."
+  },
+  {
+   "id": 147,
+   "file": "Flick",
+   "char": "0",
+   "en": "Yes... I'll saturate these asteroids with AC.  Then, we'll get out of here.  There is nothing left here but death and destruction."
+  },
+  {
+   "id": 209,
+   "file": "Jojo",
+   "char": "0",
+   "en": "Barren... this world has seen better days."
+  },
+  {
+   "id": 210,
+   "file": "Jojo",
+   "char": "1",
+   "en": "Yes, a very long time ago Jojo was a world with great mountains and vast oceans.  Humans across the vastness of time would visit this world for the beauty it offered."
+  },
+  {
+   "id": 211,
+   "file": "Jojo",
+   "char": "0",
+   "en": "And now it's a gray rock in space, with wait... What are those strange Towers?"
+  },
+  {
+   "id": 212,
+   "file": "Jojo",
+   "char": "1",
+   "en": "In the south there are three Spore Towers, along with three emitters.  Fortunately, there is a Beam Tech Artifact on the central island."
+  },
+  {
+   "id": 213,
+   "file": "Jojo",
+   "char": "0",
+   "en": "Aerial Spores....  Coincidence?  On the first world we encounter with Spores there is also a technology to defend against the Spores?"
+  },
+  {
+   "id": 214,
+   "file": "Jojo",
+   "char": "0",
+   "en": "This is all so similar to the original exodus of Odin City.  I always believed Platius had placed the artifacts we found on our journey..."
+  },
+  {
+   "id": 215,
+   "file": "Jojo",
+   "char": "1",
+   "en": "I have no record of Platius since I was constructed.  If he was present over the eons, he was very well hidden."
+  },
+  {
+   "id": 216,
+   "file": "Jojo",
+   "char": "0",
+   "en": "I see.  I'll collect that Beam Tech Artifact and construct several Beam units to defend our base.  That should protect the units while I take out the emitters and towers."
+  },
+  {
+   "id": 267,
+   "file": "Krig",
+   "char": "1",
+   "en": "Oh no..."
+  },
+  {
+   "id": 268,
+   "file": "Krig",
+   "char": "0",
+   "en": "I'm not even going to ask... just let me have it."
+  },
+  {
+   "id": 269,
+   "file": "Krig",
+   "char": "1",
+   "en": "There is a corrupted Ticon space weapon here.  It was another experimental system that I thought the Ticon never actually deployed but obviously did."
+  },
+  {
+   "id": 270,
+   "file": "Krig",
+   "char": "0",
+   "en": "We've faced their tech before, this can't be any worse."
+  },
+  {
+   "id": 271,
+   "file": "Krig",
+   "char": "1",
+   "en": "You may be right.  The station appears to be malfunctioning and operating in a much diminished capacity.  Its targeting sensors are destroyed as well.  So whatever it fires, it will be firing randomly into space."
+  },
+  {
+   "id": 272,
+   "file": "Krig",
+   "char": "0",
+   "en": "Is that Ticon space station also acting as a Warp Inhibitor?"
+  },
+  {
+   "id": 273,
+   "file": "Krig",
+   "char": "1",
+   "en": "Yes... oddly so.  That is very strange since Warp Inhibitors were developed after the Ticon empire. Someone must have added the inhibitor to the station after it was built and corrupted."
+  },
+  {
+   "id": 274,
+   "file": "Krig",
+   "char": "0",
+   "en": "Perhaps someone wanted to protect access to the wormhole beyond this system?  No matter... we're taking it out.  Any assault advice?"
+  },
+  {
+   "id": 275,
+   "file": "Krig",
+   "char": "1",
+   "en": "None... it isn't clear how you will assault that heavily defended world fragment or reach the station."
+  },
+  {
+   "id": 276,
+   "file": "Krig",
+   "char": "0",
+   "en": "Great... I love a challenge."
+  }
+ ]
+}

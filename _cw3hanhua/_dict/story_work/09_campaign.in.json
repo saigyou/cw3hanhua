@@ -1,0 +1,357 @@
+{
+ "batch": "09_campaign",
+ "files": [
+  "Vapen",
+  "alpha_4.2 An old Friend",
+  "alpha_Altiar",
+  "alpha_Beau Jest",
+  "alpha_Brain",
+  "alpha_CW1 Tucana",
+  "alpha_Childs play",
+  "alpha_Creeper Wall 2",
+  "alpha_CreeperWall",
+  "alpha_Demo World",
+  "alpha_Flood Walls",
+  "alpha_Hopping",
+  "alpha_Little Gliese"
+ ],
+ "count": 56,
+ "items": [
+  {
+   "id": 506,
+   "file": "Vapen",
+   "char": "0",
+   "en": "This has to be a Ticon world...."
+  },
+  {
+   "id": 507,
+   "file": "Vapen",
+   "char": "1",
+   "en": "It once was, but the technology here is different and not exactly Ticon in origin.  It's more recent and seems to be in perfect working order."
+  },
+  {
+   "id": 508,
+   "file": "Vapen",
+   "char": "0",
+   "en": "Perhaps a later civilization updated it and kept it working."
+  },
+  {
+   "id": 509,
+   "file": "Vapen",
+   "char": "1",
+   "en": "That could have been true.  But Skars, this equipment seems to have been built very recently.  Perhaps in the last 100 years.  The last human civilization has been gone far longer than that."
+  },
+  {
+   "id": 510,
+   "file": "Vapen",
+   "char": "0",
+   "en": "Well what does it do?"
+  },
+  {
+   "id": 511,
+   "file": "Vapen",
+   "char": "1",
+   "en": "There appear to be three Power centers, those blocky structures.  Each is connected via a power conduit to three parts of a central station.  My guess is all three parts have to be active for it to function."
+  },
+  {
+   "id": 512,
+   "file": "Vapen",
+   "char": "0",
+   "en": "And how do we bring the Power Centers online?"
+  },
+  {
+   "id": 513,
+   "file": "Vapen",
+   "char": "1",
+   "en": "Scans show they are in pristine condition and not being damaged by the Creeper.  If they work via the same technology as Fractal Collectors, it may be as simple as clearing out all of the Creeper from around each Power Center."
+  },
+  {
+   "id": 514,
+   "file": "Vapen",
+   "char": "0",
+   "en": "And that should activate the central station... the thing we don't know anything about."
+  },
+  {
+   "id": 515,
+   "file": "Vapen",
+   "char": "1",
+   "en": "Yes.  I can say that even though this equipment is new and in perfect condition, it does not appear to be much more than some sort of testing facility.  The power produced by those Power Centers just isn't enough to do too much damage, regardless of what it actually does."
+  },
+  {
+   "id": 516,
+   "file": "Vapen",
+   "char": "0",
+   "en": "That's encouraging... I think.  Well, let's flip the switch on this thing and see what happens."
+  },
+  {
+   "id": 517,
+   "file": "Vapen",
+   "char": "1",
+   "en": "I don't know if this is good or bad."
+  },
+  {
+   "id": 518,
+   "file": "Vapen",
+   "char": "0",
+   "en": "More ancient historical volumes... more references to the \"Arc\"?"
+  },
+  {
+   "id": 519,
+   "file": "Vapen",
+   "char": "1",
+   "en": "Not exactly."
+  },
+  {
+   "id": 520,
+   "file": "Vapen",
+   "char": "0",
+   "en": "Then what?"
+  },
+  {
+   "id": 521,
+   "file": "Vapen",
+   "char": "1",
+   "en": "I've never seen this form of data encoding before, it is very complex.... nearly perfect and recorded at an atomic scale with incredible fault tolerance.  But, I can still resolve most of the content and translate it."
+  },
+  {
+   "id": 522,
+   "file": "Vapen",
+   "char": "1",
+   "en": "It seems to be a technical specification for the field device on this world.  I was right, this tech was a test for a part of a device being constructed elsewhere."
+  },
+  {
+   "id": 523,
+   "file": "Vapen",
+   "char": "0",
+   "en": "And who built this equipment and recorded the message?"
+  },
+  {
+   "id": 524,
+   "file": "Vapen",
+   "char": "1",
+   "en": "Skars, the designator that appears within the contents appears to translate to; \"16th Transient Regiment, 4th Ephemeral Division, Loki Hive\"."
+  },
+  {
+   "id": 525,
+   "file": "Vapen",
+   "char": "0",
+   "en": "My Gods... the Loki are here.  \n\nNow, I know my purpose."
+  },
+  {
+   "id": 469,
+   "file": "alpha_4.2 An old Friend",
+   "char": "0",
+   "en": "Oh this is bad.... There are a ton of emitters here.. and there is no safe location to start operating from..."
+  },
+  {
+   "id": 470,
+   "file": "alpha_4.2 An old Friend",
+   "char": "6",
+   "en": "Commander, that Emitter on the Black Rock seems to emit Anti-Creeper"
+  },
+  {
+   "id": 471,
+   "file": "alpha_4.2 An old Friend",
+   "char": "0",
+   "en": "What?! How it comes it does that..."
+  },
+  {
+   "id": 472,
+   "file": "alpha_4.2 An old Friend",
+   "char": "2",
+   "en": "Hey there young girl... I guess you wouldn't remember me at the moment. Commander, take care of her, she'll be important as soon as her memories come back. She got the same foe as you..."
+  },
+  {
+   "id": 473,
+   "file": "alpha_4.2 An old Friend",
+   "char": "7",
+   "en": "I... I know that guy... ... ... urgh... I'm sorry..."
+  },
+  {
+   "id": 474,
+   "file": "alpha_4.2 An old Friend",
+   "char": "0",
+   "en": "... He doesn't look too friendly... on the other hand, he's just about saving us... so I will take back my questions... for the moment...\nThe same foe? The Creeper, but which human does not fight them, heh?"
+  },
+  {
+   "id": 475,
+   "file": "alpha_4.2 An old Friend",
+   "char": "2",
+   "en": "Just like you she is after their most powerful Nexus. At that moment, I want to hope you're doing better as she has done back then..."
+  },
+  {
+   "id": 476,
+   "file": "alpha_4.2 An old Friend",
+   "char": "0",
+   "en": "She already fought that Nexus? How it comes?\nAnd if she ... failed, how did she survive that?"
+  },
+  {
+   "id": 477,
+   "file": "alpha_4.2 An old Friend",
+   "char": "2",
+   "en": "Patience, Commander. You'll know it all when you need to, or when she remembers. For now, you're better off charging a Nexus, right? For your own sake, trust me once. These Coordinates lead to the only gate to it's Realm."
+  },
+  {
+   "id": 478,
+   "file": "alpha_4.2 An old Friend",
+   "char": "2",
+   "en": "I wonder if.... You may call me Zantaros.\nLet's see, any reaction...?"
+  },
+  {
+   "id": 479,
+   "file": "alpha_4.2 An old Friend",
+   "char": "7",
+   "en": "Zantaros...? Sounds familiar.... I ... I think we can trust him... at least for the moment..."
+  },
+  {
+   "id": 480,
+   "file": "alpha_4.2 An old Friend",
+   "char": "0",
+   "en": "I want to hope you're right. We did never yet find a way to charge that Nexus, so I'm willing to do anything. If this is a trap, be sure we will hunt you down."
+  },
+  {
+   "id": 481,
+   "file": "alpha_4.2 An old Friend",
+   "char": "2",
+   "en": "Well, the young girl remembers at least something. I am quite sure, the next time we meet she will know me again... I will leave this Emitter here, maybe it helps you..."
+  },
+  {
+   "id": 437,
+   "file": "alpha_Altiar",
+   "char": "1",
+   "en": "Welcome to Training Sim 58928593484628462!"
+  },
+  {
+   "id": 438,
+   "file": "alpha_Altiar",
+   "char": "1",
+   "en": "We hope you will enjoy your stay, and wish you luck on your training!"
+  },
+  {
+   "id": 204,
+   "file": "alpha_Beau Jest",
+   "char": "1",
+   "en": "The phrase \"beau geste\" is from the French, meaning \"a gracious (or fine) gesture\"."
+  },
+  {
+   "id": 205,
+   "file": "alpha_Beau Jest",
+   "char": "1",
+   "en": "In French, the phrase includes the suggestion of a fine gesture with unwelcome or futile consequences."
+  },
+  {
+   "id": 206,
+   "file": "alpha_Beau Jest",
+   "char": "1",
+   "en": "In English, \"geste\" is a homophone with \"jest,\" meaning \"a joke\" or \"to joke.\" As a pun, a \"beau geste\" may therefore indicate a beautiful (or poignant) joke."
+  },
+  {
+   "id": 207,
+   "file": "alpha_Beau Jest",
+   "char": "6",
+   "en": "It's also a movie with a desert fortress under attack..."
+  },
+  {
+   "id": 127,
+   "file": "alpha_Brain",
+   "char": "7",
+   "en": "Activate all spatial totems to destroy the enemy!\nClick each totem or use the number keys to toggle each peg. Moving some pegs unlocks others.  Press \"space\" to reset the puzzle and zero the game time."
+  },
+  {
+   "id": 532,
+   "file": "alpha_CW1 Tucana",
+   "char": "1",
+   "en": "This place once was knows as tucana. Power up all totems and you'll win."
+  },
+  {
+   "id": 533,
+   "file": "alpha_CW1 Tucana",
+   "char": "0",
+   "en": "CW1 style!"
+  },
+  {
+   "id": 420,
+   "file": "alpha_Childs play",
+   "char": "1",
+   "en": "This is our testing facility. Here you can test out weapons and discover the power of powerzones. Spores can get pretty intense here so make sure you build a few more beams."
+  },
+  {
+   "id": 246,
+   "file": "alpha_Creeper Wall 2",
+   "char": "1",
+   "en": "Protect these dunes against the creeper Skars. In 2 minutes a gaint wave of creeper will appear, so get your bertha's ready!"
+  },
+  {
+   "id": 421,
+   "file": "alpha_CreeperWall",
+   "char": "1",
+   "en": "Scanners show a strange kind of enemy and I don't know what it will do."
+  },
+  {
+   "id": 422,
+   "file": "alpha_CreeperWall",
+   "char": "0",
+   "en": "So I just have to sit and watch? Not a really good option."
+  },
+  {
+   "id": 423,
+   "file": "alpha_CreeperWall",
+   "char": "1",
+   "en": "Well, it will send a large wall of creeper to you. I recommend building stuff that can withstand some creeper or kill the creeper before it reaches you. Remember that units in flight can't get damaged."
+  },
+  {
+   "id": 180,
+   "file": "alpha_Demo World",
+   "char": "0",
+   "en": "Hey guys! This was the map created for a Demo of How to create a map! I hope you enjoy it!"
+  },
+  {
+   "id": 179,
+   "file": "alpha_Flood Walls",
+   "char": "0",
+   "en": "You should really turn off ammo packets at the start, at least until you've built a few reactors."
+  },
+  {
+   "id": 327,
+   "file": "alpha_Hopping",
+   "char": "2",
+   "en": "Welcome back to the next simulation map. This map is Simulation Number 57958425. Please Enjoy!"
+  },
+  {
+   "id": 328,
+   "file": "alpha_Hopping",
+   "char": "0",
+   "en": "CAIN, I need a status report of this world."
+  },
+  {
+   "id": 329,
+   "file": "alpha_Hopping",
+   "char": "1",
+   "en": "This world is fittly titled, \"Hopping\" it has several different islands, all of which have some sort of enemy presense."
+  },
+  {
+   "id": 330,
+   "file": "alpha_Hopping",
+   "char": "1",
+   "en": "According to my scanners, the best place to land would be on the bottom left area because the emitter appears to be damaged and won't start untill 60 seconds after we land."
+  },
+  {
+   "id": 331,
+   "file": "alpha_Hopping",
+   "char": "0",
+   "en": "Thank you CAIN, I will proceed with caution."
+  },
+  {
+   "id": 332,
+   "file": "alpha_Hopping",
+   "char": "2",
+   "en": "Simulation Comensing."
+  },
+  {
+   "id": 234,
+   "file": "alpha_Little Gliese",
+   "char": "1",
+   "en": "Is there a way to win this fight, or are you doomed to failure?"
+  }
+ ]
+}

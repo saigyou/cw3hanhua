@@ -1,0 +1,372 @@
+{
+ "batch": "06_campaign",
+ "files": [
+  "Lemal",
+  "Meso",
+  "Mistet",
+  "Ormos"
+ ],
+ "count": 60,
+ "items": [
+  {
+   "id": 363,
+   "file": "Lemal",
+   "char": "0",
+   "en": "A Ticon outpost?"
+  },
+  {
+   "id": 364,
+   "file": "Lemal",
+   "char": "1",
+   "en": "You are quickly coming to recognize worlds... good.  This world was used by the Ticon Empire, but it appears to be more than a simple outpost."
+  },
+  {
+   "id": 365,
+   "file": "Lemal",
+   "char": "0",
+   "en": "There is a large structure to the south east and what look like old Totems to the north west? Totems?"
+  },
+  {
+   "id": 366,
+   "file": "Lemal",
+   "char": "1",
+   "en": "Yes, Totems from your age.  Your people used Totems to open rifts into Rift-Space.  But, Rift-Space was long ago destroyed, and the Ticons had a hand in that."
+  },
+  {
+   "id": 367,
+   "file": "Lemal",
+   "char": "1",
+   "en": "Totems were built by the Ticon people to produce Aether.  Aether is formed from the remnants of Rift-Space, so Totems are able to extract it."
+  },
+  {
+   "id": 368,
+   "file": "Lemal",
+   "char": "0",
+   "en": "That large structure, do you recognize it?  How does it relate to the Totems?"
+  },
+  {
+   "id": 369,
+   "file": "Lemal",
+   "char": "1",
+   "en": "It appears to be a Ticon Forge.  I've scanned the schematics so will need some time to fully process them.  But, take control of that structure and we should be able to upgrade various capabilities."
+  },
+  {
+   "id": 370,
+   "file": "Lemal",
+   "char": "1",
+   "en": "The Forge will require Aether, so secure and supply energy to those Totems once you secure the Forge."
+  },
+  {
+   "id": 371,
+   "file": "Lemal",
+   "char": "0",
+   "en": "Upgrade?  Weapons, production, packet speed, things like that I hope...?"
+  },
+  {
+   "id": 372,
+   "file": "Lemal",
+   "char": "1",
+   "en": "Precisely things like that.  I'll need time to bring all of the systems on-line, Skars.  So you will have limited upgrades on this world, but what I am able to bring on-line should prove useful."
+  },
+  {
+   "id": 373,
+   "file": "Lemal",
+   "char": "0",
+   "en": "I don't see much of great difficulty here, just a couple emitters around the Forge and the Totems.  I should be able to rush in without issue."
+  },
+  {
+   "id": 374,
+   "file": "Lemal",
+   "char": "1",
+   "en": "There is a Ticon structure in that base area to the north east.  Be very cautious, some of the things they experimented with were very dangerous.  If that structure is still active, it may defend itself."
+  },
+  {
+   "id": 375,
+   "file": "Lemal",
+   "char": "1",
+   "en": "It has also been compromised by the Creeper, so whatever it originally did it's a safe bet it does something that benefits the Creeper now."
+  },
+  {
+   "id": 376,
+   "file": "Lemal",
+   "char": "0",
+   "en": "Alright Lia, I'll proceed with caution and secure this world."
+  },
+  {
+   "id": 169,
+   "file": "Meso",
+   "char": "0",
+   "en": "Those look like primitive ruins?"
+  },
+  {
+   "id": 170,
+   "file": "Meso",
+   "char": "1",
+   "en": "Yes, they were meant to look that way.  This was a camouflage world.  Some civilizations attempted to hide from the Creeper by removing all obvious traces of higher technology."
+  },
+  {
+   "id": 171,
+   "file": "Meso",
+   "char": "0",
+   "en": "It obviously didn't work.... the Creeper must have either not cared, or seen through the charade."
+  },
+  {
+   "id": 172,
+   "file": "Meso",
+   "char": "1",
+   "en": "Some cultures on some worlds went so far as to actually maintain a more primitive existence.  They lost all advanced knowledge and even contact with the rest of humanity.  This appears to be one of those worlds."
+  },
+  {
+   "id": 173,
+   "file": "Meso",
+   "char": "0",
+   "en": "Those step pyramids, there are strange readings coming from them."
+  },
+  {
+   "id": 174,
+   "file": "Meso",
+   "char": "1",
+   "en": "The last indigenous culture must have taken technological artifacts and built these pyramids around them.  Perhaps they worshipped them or revered them in some way.  Impossible to know for sure..."
+  },
+  {
+   "id": 175,
+   "file": "Meso",
+   "char": "1",
+   "en": "But what I can say for sure is that the artifacts in those pyramids still appear functional, and they are rather advanced.  Skars, connect the peak of each pyramid to your power grid..."
+  },
+  {
+   "id": 176,
+   "file": "Meso",
+   "char": "0",
+   "en": "What will happen?"
+  },
+  {
+   "id": 177,
+   "file": "Meso",
+   "char": "1",
+   "en": "Each pyramid contains a defensive device that you should be able to power.  I'm not sure exactly what each will do, but it looks like someone long ago placed these artifacts here.  Perhaps it was hoped they would defend the population."
+  },
+  {
+   "id": 178,
+   "file": "Meso",
+   "char": "0",
+   "en": "Interesting... and perhaps they did protect the population for some time.  Perhaps some inhabitants even managed to escape, for a while anyway.  In any case, I'll power the pyramids and take out that Inhibitor."
+  },
+  {
+   "id": 419,
+   "file": "Mistet",
+   "char": "0",
+   "en": "Lia?"
+  },
+  {
+   "id": 535,
+   "file": "Mistet",
+   "char": "1",
+   "en": "I didn't notice that object on the scanners till we got closer...  so I've emergency steered the ship to a counter orbit away from the proto-Magnetar."
+  },
+  {
+   "id": 536,
+   "file": "Mistet",
+   "char": "0",
+   "en": "That red orb in orbit around this world?  It seems to have a massive gravitational and magnetic field."
+  },
+  {
+   "id": 537,
+   "file": "Mistet",
+   "char": "1",
+   "en": "It's a piece of a left over magnetar... an artificial magnetar at that.  It was used in an attempt to construct a Dyson sphere around this system.  Which in turn was another failed attempt to hide from the Creeper."
+  },
+  {
+   "id": 538,
+   "file": "Mistet",
+   "char": "1",
+   "en": "It's effect on the Creeper should be of concern.  Creeper is attracted by its intense gravitational field, so it should flow toward the Magnetar.  But the Magnetar is orbiting the world..."
+  },
+  {
+   "id": 539,
+   "file": "Mistet",
+   "char": "0",
+   "en": "So there will be a massive Creeper tide from helheim... that's what you are saying."
+  },
+  {
+   "id": 540,
+   "file": "Mistet",
+   "char": "1",
+   "en": "Yes, in short that is correct.  The good news is that you can use the fully available tech upgrades to help deal with the uncertain situation on the ground."
+  },
+  {
+   "id": 541,
+   "file": "Mistet",
+   "char": "1",
+   "en": "Also... proximity to the Magnetar has allowed me to enable a special ability on the Forge.  Rather than just being used for special upgrades, the forge can now attempt to activate the Totems and open a portal to Rift Space."
+  },
+  {
+   "id": 542,
+   "file": "Mistet",
+   "char": "0",
+   "en": "But you said Rift Space was destroyed."
+  },
+  {
+   "id": 543,
+   "file": "Mistet",
+   "char": "1",
+   "en": "Indeed it was.  But the attempt to open Rift Space will create a temporary opening to a realm of immense gravity.  This 'Singularity Weapon' is accessible from the Forge menu.  Be cautious, though, it uses immense amounts of Aether."
+  },
+  {
+   "id": 544,
+   "file": "Mistet",
+   "char": "0",
+   "en": "Alright, let's do this...."
+  },
+  {
+   "id": 545,
+   "file": "Mistet",
+   "char": "1",
+   "en": "You mentioned 'Varro' in passing earlier."
+  },
+  {
+   "id": 546,
+   "file": "Mistet",
+   "char": "0",
+   "en": "Yes?"
+  },
+  {
+   "id": 547,
+   "file": "Mistet",
+   "char": "1",
+   "en": "This Message Artifact appears to have been written by 'Varro Hale' who lived in your time.  The message says he was friends with 'Dax Joven' and went on to head the Command Academy on Colony Prime among other minor historical facts."
+  },
+  {
+   "id": 548,
+   "file": "Mistet",
+   "char": "0",
+   "en": "Yes!  Colony Prime... it seems like I just left there Lia...  Without Dax and Varro, we would never have rebuilt humanity... nothing that came after would have been possible."
+  },
+  {
+   "id": 549,
+   "file": "Mistet",
+   "char": "1",
+   "en": "That is certainly correct, Skars.  If you and the others had failed there would not have been the thousands of civilizations and trillions of lives that followed.  They all owe you and the others a debt of gratitude."
+  },
+  {
+   "id": 550,
+   "file": "Mistet",
+   "char": "0",
+   "en": "Debt? It was all for nothing Lia.  NOTHING!  Everything is gone."
+  },
+  {
+   "id": 551,
+   "file": "Mistet",
+   "char": "0",
+   "en": "(Sigh...)"
+  },
+  {
+   "id": 552,
+   "file": "Mistet",
+   "char": "0",
+   "en": "Anything else in the message recoverable other than Varro's curriculum vitae?"
+  },
+  {
+   "id": 553,
+   "file": "Mistet",
+   "char": "1",
+   "en": "Just one fragment; It reads, \"... and without the tutelage, guidance, and guile of Admiral Skarsgard Abraxis, we never would have eventually discovered Aliana's true gifts\"."
+  },
+  {
+   "id": 554,
+   "file": "Mistet",
+   "char": "0",
+   "en": "Aliana's true gifts?  What does that mean?  Aliana, my daughter???"
+  },
+  {
+   "id": 555,
+   "file": "Mistet",
+   "char": "0",
+   "en": "Lia???"
+  },
+  {
+   "id": 333,
+   "file": "Ormos",
+   "char": "1",
+   "en": "Oh My... this world is Ormos. It was occupied by the very last human civilization.  That civilization went to extreme and extraordinary measures to survive the Creeper."
+  },
+  {
+   "id": 334,
+   "file": "Ormos",
+   "char": "0",
+   "en": "I don't understand why so many civilizations would rise and fall.  How was the Creeper always able to return?"
+  },
+  {
+   "id": 335,
+   "file": "Ormos",
+   "char": "1",
+   "en": "Patience.  Extreme patience.  When a civilization has existed for hundreds of thousands, even millions of years with no hint of the Creeper, it forgets."
+  },
+  {
+   "id": 336,
+   "file": "Ormos",
+   "char": "0",
+   "en": "So the Loki would just wait?  After eons had passed, they would send the Creeper again?"
+  },
+  {
+   "id": 337,
+   "file": "Ormos",
+   "char": "1",
+   "en": "That was one component to their strategy...\nSkars, this world was altered during the final conflict.  It was a military outpost specifically designed to withstand the Creeper."
+  },
+  {
+   "id": 338,
+   "file": "Ormos",
+   "char": "0",
+   "en": "Scanners show no emitters on this world.  It must have worked somehow!"
+  },
+  {
+   "id": 339,
+   "file": "Ormos",
+   "char": "1",
+   "en": "So they thought.  There are no emitters but there is still Creeper.  It is trapped inside a subspace rift and will explode onto the terrain once activity is detected."
+  },
+  {
+   "id": 340,
+   "file": "Ormos",
+   "char": "1",
+   "en": "The final humans here managed to alter some physical constants in this region of space.  As such, the Creeper flows more slowly than normal."
+  },
+  {
+   "id": 341,
+   "file": "Ormos",
+   "char": "0",
+   "en": "With no emitters, our only goal is to collect the Tech Artifacts and the Shield Key.  I'll get to that..."
+  },
+  {
+   "id": 342,
+   "file": "Ormos",
+   "char": "1",
+   "en": "Yes, but Skars... don't underestimate this Creeper.  The Tech Artifacts here are for a Siphon and a Terp.  The siphon will let you extract resources from Resource Packs."
+  },
+  {
+   "id": 343,
+   "file": "Ormos",
+   "char": "1",
+   "en": "Even after all these eons, there are still some Energy Packs on this world.  Build siphons on them as soon as possible to access their energy."
+  },
+  {
+   "id": 344,
+   "file": "Ormos",
+   "char": "1",
+   "en": "The Terp will allow you to terraform the land.  I recommend you repair the damage to the walls of the old ruins.  That will keep the Creeper at bay while you build up offensive strength."
+  },
+  {
+   "id": 345,
+   "file": "Ormos",
+   "char": "1",
+   "en": "Once you build a Terp, the Terraform Section of your Command Interface will appear.  Just click that button and paint the terrain in a few places to raise or lower it.  Any nearby Terps will then go to work."
+  },
+  {
+   "id": 346,
+   "file": "Ormos",
+   "char": "0",
+   "en": "Alright, Lia.  Let's get this done."
+  }
+ ]
+}

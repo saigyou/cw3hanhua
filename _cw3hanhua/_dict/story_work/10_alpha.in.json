@@ -1,0 +1,370 @@
+{
+ "batch": "10_alpha",
+ "files": [
+  "alpha_Megaland",
+  "alpha_Megaland 2",
+  "alpha_Planet Hopping",
+  "alpha_Roundup",
+  "alpha_Runner Wash",
+  "alpha_Super Tower",
+  "alpha_Super Tower 2",
+  "alpha_Terror",
+  "alpha_The Bardel Redemption",
+  "alpha_The Name",
+  "alpha_The Ocean",
+  "alpha_The Push",
+  "alpha_The Start",
+  "alpha_The Totem 2"
+ ],
+ "count": 58,
+ "items": [
+  {
+   "id": 350,
+   "file": "alpha_Megaland",
+   "char": "1",
+   "en": "Pzworpf. ...qf. .. [^flpf...=("
+  },
+  {
+   "id": 351,
+   "file": "alpha_Megaland",
+   "char": "1",
+   "en": "[executing maintance]"
+  },
+  {
+   "id": 352,
+   "file": "alpha_Megaland",
+   "char": "0",
+   "en": "Very nice, now I'm alone and I have no idea what to do."
+  },
+  {
+   "id": 353,
+   "file": "alpha_Megaland",
+   "char": "7",
+   "en": "Don't worry my friend. Follow my instructions and you'll be fine."
+  },
+  {
+   "id": 354,
+   "file": "alpha_Megaland",
+   "char": "7",
+   "en": "Land a command node on the central island and build up a base. Attack the four infested islands one by one and take out the structures built there."
+  },
+  {
+   "id": 355,
+   "file": "alpha_Megaland",
+   "char": "7",
+   "en": "Keep defending you base be prepared for enemies of all kinds attacking your base. When you take out one of the four structures, the tower circling around your base will take over it's function."
+  },
+  {
+   "id": 356,
+   "file": "alpha_Megaland",
+   "char": "7",
+   "en": "Addictionally, when you nullify one of the four structures, all units on those four islands will die immediatly. Once you've nullified them all, you can take advantages of the totems and power zones."
+  },
+  {
+   "id": 357,
+   "file": "alpha_Megaland",
+   "char": "7",
+   "en": "2 emitters should appear the the big rocks on the left and the right. Destroy those and you'll pass this test."
+  },
+  {
+   "id": 358,
+   "file": "alpha_Megaland",
+   "char": "1",
+   "en": "Ough, updated systems to handle all the new signals coming from this world. Finally figured them out."
+  },
+  {
+   "id": 359,
+   "file": "alpha_Megaland",
+   "char": "1",
+   "en": "This world is unstable. Build all units in your main base in the center and be prepared to lose all units on other islands. Also remember that before you nullify a tower, make sure your main base is pretty well defended."
+  },
+  {
+   "id": 360,
+   "file": "alpha_Megaland",
+   "char": "0",
+   "en": "Isn't it easier to just sit down and do nothing?"
+  },
+  {
+   "id": 361,
+   "file": "alpha_Megaland",
+   "char": "1",
+   "en": "No, creeper will pile up and it will take much longer to nulllify the structures. So land down a command node and start building!"
+  },
+  {
+   "id": 124,
+   "file": "alpha_Megaland 2",
+   "char": "0",
+   "en": "Where did my nullifiers go?"
+  },
+  {
+   "id": 125,
+   "file": "alpha_Megaland 2",
+   "char": "1",
+   "en": "They won't work here, so I temporary removed them from your control panel. Scanners say that the creeper also reacts different here. Experiment to find a way to push back the creeper."
+  },
+  {
+   "id": 126,
+   "file": "alpha_Megaland 2",
+   "char": "1",
+   "en": "Once all totems are powered you can start nullifying and I'll enable the nullifiers again."
+  },
+  {
+   "id": 362,
+   "file": "alpha_Planet Hopping",
+   "char": "2",
+   "en": "These space islands remind me of frosting cookies as a child"
+  },
+  {
+   "id": 384,
+   "file": "alpha_Roundup",
+   "char": "0",
+   "en": "So whats on the scanners?"
+  },
+  {
+   "id": 385,
+   "file": "alpha_Roundup",
+   "char": "7",
+   "en": "Scanners are showing something I have not seen before...  I'm checking on it now commander."
+  },
+  {
+   "id": 386,
+   "file": "alpha_Roundup",
+   "char": "1",
+   "en": "Scan complete: This area has underground tunnels that emitters will use to dig their way to the surface like in CW2."
+  },
+  {
+   "id": 387,
+   "file": "alpha_Roundup",
+   "char": "0",
+   "en": "Is CW2 a designation for some other planet? Nevermind, what do you suggest we do?"
+  },
+  {
+   "id": 388,
+   "file": "alpha_Roundup",
+   "char": "1",
+   "en": "It appears you can use TERPs to slow down their digging procedure, or to cover a hole left behind a nullified emitter.  Also the emitters will use the tunnels to release creeper in other locations."
+  },
+  {
+   "id": 133,
+   "file": "alpha_Runner Wash",
+   "char": "0",
+   "en": "Hmmmm..."
+  },
+  {
+   "id": 128,
+   "file": "alpha_Super Tower",
+   "char": "1",
+   "en": "I have only one thing I can say about this: This is going to be very difficult."
+  },
+  {
+   "id": 129,
+   "file": "alpha_Super Tower",
+   "char": "1",
+   "en": "The first spore will come in one minute. Digitalis will slowly enter your base. You might want to enable show digi growth area to see the progress."
+  },
+  {
+   "id": 130,
+   "file": "alpha_Super Tower",
+   "char": "1",
+   "en": "Any unit near the core will slowly die and lose all ammo, in return, their max health will increase."
+  },
+  {
+   "id": 131,
+   "file": "alpha_Super Tower",
+   "char": "1",
+   "en": "If you manage to kill the tower, 4 copies of the tower will spawn in the corners. So be prepared for a lot of spores. I'll remind you by that time."
+  },
+  {
+   "id": 132,
+   "file": "alpha_Super Tower",
+   "char": "1",
+   "en": "For now, build out as fast as possible and get a beam online."
+  },
+  {
+   "id": 226,
+   "file": "alpha_Super Tower 2",
+   "char": "0",
+   "en": "What is this? A new enemy?"
+  },
+  {
+   "id": 227,
+   "file": "alpha_Super Tower 2",
+   "char": "1",
+   "en": "No. My records say that in this place humanity tried to kill a single emitter. They used their own cores to create anti-creeper and AC spores, slowly growing stronger and stronger."
+  },
+  {
+   "id": 228,
+   "file": "alpha_Super Tower 2",
+   "char": "1",
+   "en": "Many years later the creeper returned and it took over their systems."
+  },
+  {
+   "id": 229,
+   "file": "alpha_Super Tower 2",
+   "char": "0",
+   "en": "So I now have to fight something that the humanity made to kill the creeper? Then you might know what it does."
+  },
+  {
+   "id": 230,
+   "file": "alpha_Super Tower 2",
+   "char": "1",
+   "en": "[searching...]"
+  },
+  {
+   "id": 231,
+   "file": "alpha_Super Tower 2",
+   "char": "1",
+   "en": "Our nullifiers are not strong enough to destroy it. The core creates a lot of child cores using the energy stored. Those cores will gather some energy on their runs and will return all energy back to the main core after completing their run."
+  },
+  {
+   "id": 232,
+   "file": "alpha_Super Tower 2",
+   "char": "1",
+   "en": "Nullify cores to 'drain' some energy of the main core. Once it's energy falls below a point it will sacrifice its immunity against our nullifiers for a small burst of destruction and some extra energy."
+  },
+  {
+   "id": 233,
+   "file": "alpha_Super Tower 2",
+   "char": "1",
+   "en": "Be prepared for a lot of spores and build a few mortars to keep the creeper density's low."
+  },
+  {
+   "id": 114,
+   "file": "alpha_Terror",
+   "char": "7",
+   "en": "Greetings commander, in this TEST we will be bringing back an aspect of your past....  No nullifires will be allowed in this map.  You will need to connect all totems to win.  Have fun!"
+  },
+  {
+   "id": 68,
+   "file": "alpha_The Bardel Redemption",
+   "char": "0",
+   "en": "Something's wrong - we're coming down right in the pa..."
+  },
+  {
+   "id": 430,
+   "file": "alpha_The Name",
+   "char": "2",
+   "en": "Welcome Back to the Custom Map Series, Simulation. This map is number 258685432. Please Enjoy, it is titled, \"The Name\"."
+  },
+  {
+   "id": 431,
+   "file": "alpha_The Name",
+   "char": "0",
+   "en": "This world looks to have an interesting shape in it... \"Lich\" I wonder what that means."
+  },
+  {
+   "id": 432,
+   "file": "alpha_The Name",
+   "char": "1",
+   "en": "Records indicate that this world was based off of a privatly owned planet build to defend against the creeper, unforutonly it failed and proved very hard to take back."
+  },
+  {
+   "id": 433,
+   "file": "alpha_The Name",
+   "char": "1",
+   "en": "The world is covered with lots of enemy units. Be prepared to fight quickly, and smartly!"
+  },
+  {
+   "id": 434,
+   "file": "alpha_The Name",
+   "char": "0",
+   "en": "I will CAIN. Thank You!"
+  },
+  {
+   "id": 435,
+   "file": "alpha_The Name",
+   "char": "2",
+   "en": "Starting Simulation: \"The Name\""
+  },
+  {
+   "id": 95,
+   "file": "alpha_The Ocean",
+   "char": "1",
+   "en": "This used to be an ancient human port.\nIt is no longer in use.\nYou can see many holes and problems  with the foundation that have formed."
+  },
+  {
+   "id": 96,
+   "file": "alpha_The Ocean",
+   "char": "0",
+   "en": "If it is no longer in use what are those ships doing there?"
+  },
+  {
+   "id": 97,
+   "file": "alpha_The Ocean",
+   "char": "1",
+   "en": "..."
+  },
+  {
+   "id": 534,
+   "file": "alpha_The Push",
+   "char": "6",
+   "en": "Are you going to let the Creeper push you around?"
+  },
+  {
+   "id": 217,
+   "file": "alpha_The Start",
+   "char": "2",
+   "en": "Welcome to the Creeper Simulation Machine Version 6.1, My name is CS Advanced.  Welcome to your training as a Challenger of the Creeper."
+  },
+  {
+   "id": 218,
+   "file": "alpha_The Start",
+   "char": "1",
+   "en": "Hello Trainee! I am CAIN, Comand Node Artifical Intelligence. I trust that you can get yourself through the mission, so I wil be mostly silent and just take notes on your performance."
+  },
+  {
+   "id": 219,
+   "file": "alpha_The Start",
+   "char": "1",
+   "en": "Mission Report: Many emitters are in this world but you get some high ground to start. Runners and an air tower block your path. Collect the tech artifacts for more assistance on your battle."
+  },
+  {
+   "id": 220,
+   "file": "alpha_The Start",
+   "char": "0",
+   "en": "Prepare the simulation, I am engaing the creeper in battle!"
+  },
+  {
+   "id": 221,
+   "file": "alpha_The Start",
+   "char": "2",
+   "en": "Simulation Number 84497884 starting please stand by to engage."
+  },
+  {
+   "id": 222,
+   "file": "alpha_The Start",
+   "char": "0",
+   "en": "I have almost completed the simulation. May I recieve my next instructions?"
+  },
+  {
+   "id": 223,
+   "file": "alpha_The Start",
+   "char": "1",
+   "en": "You did very well on this mission. The next one won't be so easy however, prepare yourself for a challenging battle."
+  },
+  {
+   "id": 224,
+   "file": "alpha_The Start",
+   "char": "0",
+   "en": "I will CAIN. Thank you."
+  },
+  {
+   "id": 225,
+   "file": "alpha_The Start",
+   "char": "2",
+   "en": "Simulation Number 84497884 is almost complete preparing to stop simulation machine."
+  },
+  {
+   "id": 135,
+   "file": "alpha_The Totem 2",
+   "char": "0",
+   "en": "There must be something wrong here. That emitter is showing extreme activity."
+  },
+  {
+   "id": 136,
+   "file": "alpha_The Totem 2",
+   "char": "1",
+   "en": "It recieves energy from unactivated totems. Try to connect (and arm!) all totems before attacking that emitter."
+  }
+ ]
+}

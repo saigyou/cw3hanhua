@@ -1,0 +1,335 @@
+{
+ "batch": "04_campaign",
+ "files": [
+  "Choix",
+  "Crosslaw",
+  "Defi"
+ ],
+ "count": 54,
+ "items": [
+  {
+   "id": 235,
+   "file": "Choix",
+   "char": "1",
+   "en": "This doesn't look good.  There is some Ticon tech here, but the structure isn't something they built.  This is very unusual."
+  },
+  {
+   "id": 236,
+   "file": "Choix",
+   "char": "0",
+   "en": "Lia, there seems to be a pattern in the worlds we are visiting.  We know that the Creeper all but destroys everything in its path.  Something to do with entropy, or so my daughter Aliana once told me.  But each world we visit has something of value."
+  },
+  {
+   "id": 237,
+   "file": "Choix",
+   "char": "1",
+   "en": "[Scanning World...]"
+  },
+  {
+   "id": 238,
+   "file": "Choix",
+   "char": "0",
+   "en": "Lia?  Something of concern?"
+  },
+  {
+   "id": 239,
+   "file": "Choix",
+   "char": "1",
+   "en": "Yes.... we have a serious problem on this world.  The emitter here is using subspace-slips.  But, the exit points aren't stable.  I have not encountered this before."
+  },
+  {
+   "id": 240,
+   "file": "Choix",
+   "char": "0",
+   "en": "Not encountered it before?  Billions of years of observation and something you have not seen?  This can only mean one thing.  Something is aware of our presence and adapting."
+  },
+  {
+   "id": 241,
+   "file": "Choix",
+   "char": "1",
+   "en": "This is possible, we have been very visible for some time now.  If this is the case, then we will be hunted ever more aggressively on each world.  This will complicate our exploration..."
+  },
+  {
+   "id": 242,
+   "file": "Choix",
+   "char": "0",
+   "en": "Focus on the task at hand... there is a Tech Artifact here.  It looks like some Ticon tech."
+  },
+  {
+   "id": 243,
+   "file": "Choix",
+   "char": "1",
+   "en": "Yes, seems to be shield tech.  This may be the only way to survive this world, Skars.  Shields will repulse Creeper, but require significant amounts of energy."
+  },
+  {
+   "id": 244,
+   "file": "Choix",
+   "char": "1",
+   "en": "I have also managed to enable some more upgrades in the Ticon Forge we acquired at Lemal.  I recommend constructing a Forge, and upgrading infrastructure as the situation demands."
+  },
+  {
+   "id": 245,
+   "file": "Choix",
+   "char": "0",
+   "en": "I'll land a Command Node in the center of the base and focus on defense and energy... lots of it.  Let's hope those shields are useful against these random slip emitters."
+  },
+  {
+   "id": 277,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "This world is barely being held together.  It's near the end for this world.... geological forces have torn it apart, and disturbances in this system have done the rest."
+  },
+  {
+   "id": 278,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "Yet there are artifacts here..."
+  },
+  {
+   "id": 279,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "This world has been uninhabited for over a billion years, so the artifacts must have been dropped here more recently."
+  },
+  {
+   "id": 280,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "There is also another matter of concern here, Skars.  I show an Air Exclusion (AE) structure on that hill to the south west."
+  },
+  {
+   "id": 281,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "Ticon or Seloi technology?"
+  },
+  {
+   "id": 282,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "Neither.  This technology is actually ancient and comes from the 3rd C.E.... the civilization that came after yours.  It was supposed to be a technology to block spores, but..."
+  },
+  {
+   "id": 283,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "Let me guess, it didn't block spores for long and the Creeper altered it for its own purposes."
+  },
+  {
+   "id": 284,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "Yes, now it simply blocks your air units.  You can't use Strafers or Bombers over the area covered by the AE field."
+  },
+  {
+   "id": 285,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "Great... it will take pure ground operations to take that hill then.  Are Berthas and mortars affected?"
+  },
+  {
+   "id": 286,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "No, they slip in under the field... just barely.  So you are only prevented from using Air units under the area covered by the AE field."
+  },
+  {
+   "id": 287,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "Let's grab the artifacts and get out of here before the whole world disintegrates..."
+  },
+  {
+   "id": 288,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "I believe you are familiar with an Alien race known as the Styglek?"
+  },
+  {
+   "id": 289,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "Yes, they were a once powerful and noble species that fell to the Creeper and were forced to serve the Loki.  A few of them rebelled and those rebels assisted our survival against the second Nexus menace."
+  },
+  {
+   "id": 290,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "I believe \"Thrade\" was the leader of these rebels?"
+  },
+  {
+   "id": 291,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "Yes...?"
+  },
+  {
+   "id": 292,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "It would seem that the rebellion did not progress as originally intended.  This Message Artifact references the Styglek, Thrade, and the failed Styglek rebellion to stop the Loki."
+  },
+  {
+   "id": 293,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "When was this message recorded?"
+  },
+  {
+   "id": 294,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "It is difficult to date, and very badly damaged, but it seems to have been recorded sometime after the Seloi were long gone.  Sometime around the 300th C.E. perhaps."
+  },
+  {
+   "id": 295,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "The message is a historical volume recording the stories of a single Styglek that returned to the then Milky Way galaxy.  Most of the message is missing, but apparently one Styglek fled the destruction of their kind and returned with a message."
+  },
+  {
+   "id": 296,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "So the Styglek failed and were exterminated by the Loki.  Just like all things, they too eventually were destroyed."
+  },
+  {
+   "id": 297,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "It seems more complex than that, Skars.  It would appear the Styglek eventually just ended their rebellion on their own accord."
+  },
+  {
+   "id": 298,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "Why, what makes you say that?"
+  },
+  {
+   "id": 299,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "The message the Styglek survivor carried to humanity was, \"The Arc is everything... everything that ever was or will be. Once you truly comprehend this, you will free your minds from the burden of resistance.  Remember us as the ones who woke up.\""
+  },
+  {
+   "id": 300,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "Another reference to the \"Arc\"...."
+  },
+  {
+   "id": 301,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "One that appears to have been lost over time.  This message was recorded using a one-time pad as a key... and that key was included with this message. But, the key was written onto the message millions of years after the message was originally recorded."
+  },
+  {
+   "id": 302,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "So someone or something kept the decryption key a secret and only included it eons later.  And of course the whole thing was on an artifact the Creeper bypassed."
+  },
+  {
+   "id": 303,
+   "file": "Crosslaw",
+   "char": "0",
+   "en": "Lia.... we are on the verge of a great realization, I can feel it in my.... That's odd."
+  },
+  {
+   "id": 304,
+   "file": "Crosslaw",
+   "char": "1",
+   "en": "Never mind that now Skars, lets get out of here and move on to Vapen and take out the Warp Inhibitor."
+  },
+  {
+   "id": 19,
+   "file": "Defi",
+   "char": "0",
+   "en": "Organics?  This world looks forested?"
+  },
+  {
+   "id": 20,
+   "file": "Defi",
+   "char": "1",
+   "en": "Chlorophyll is present, but those aren't simple plants on this world.  Everything here is a synthetic life form."
+  },
+  {
+   "id": 21,
+   "file": "Defi",
+   "char": "0",
+   "en": "More Ticon technology?"
+  },
+  {
+   "id": 22,
+   "file": "Defi",
+   "char": "1",
+   "en": "Yes, after the Ticon developed the Digitalis there were unforeseen consequences.  The Digitalis incorporated patterns and techniques it picked up from organic life forms it found."
+  },
+  {
+   "id": 23,
+   "file": "Defi",
+   "char": "0",
+   "en": "So, what look like plants and green fields are actually mutated versions of the Digitalis?"
+  },
+  {
+   "id": 24,
+   "file": "Defi",
+   "char": "1",
+   "en": "In a manner of speaking, yes.  If that were the end of the story, all would be well... but...."
+  },
+  {
+   "id": 25,
+   "file": "Defi",
+   "char": "0",
+   "en": "Let me guess, the Digitalis continued to evolve."
+  },
+  {
+   "id": 26,
+   "file": "Defi",
+   "char": "1",
+   "en": "Yes, eventually mobile and discrete entities arose long after the Ticon were gone.  Subsequent generations would spend thousands of years eradicating these 'Runners'.  But they would always return after each civilization was culled."
+  },
+  {
+   "id": 27,
+   "file": "Defi",
+   "char": "0",
+   "en": "Scanners show a square structure in that extinct volcano.  The Digitalis growth area seems to center around that structure."
+  },
+  {
+   "id": 28,
+   "file": "Defi",
+   "char": "1",
+   "en": "That's a Runner nest.  Once the Digitalis connects to the nest, Runners will emerge that walk around on the Digitalis like primitive animals."
+  },
+  {
+   "id": 29,
+   "file": "Defi",
+   "char": "0",
+   "en": "So the Digitalis not only copied plants but animals as well....  I see, how can we deal with them?"
+  },
+  {
+   "id": 30,
+   "file": "Defi",
+   "char": "1",
+   "en": "Fortunately, the Runners are not overly aggressive and won't destroy your structures.  But, they have an energy stun weapon they use for self defense.  Any unit that gets in range of a Runner might be stunned."
+  },
+  {
+   "id": 31,
+   "file": "Defi",
+   "char": "0",
+   "en": "There is a Tech Artifact here..."
+  },
+  {
+   "id": 32,
+   "file": "Defi",
+   "char": "1",
+   "en": "Not surprising to find this here.  The Sniper Tech is specifically designed to take out Runners at significant range.  Pick up this tech and use it to create a perimeter around your base and your units.  That should keep the Runners at bay."
+  },
+  {
+   "id": 33,
+   "file": "Defi",
+   "char": "1",
+   "en": "The emitters on this world are very weak, but don't underestimate the Digitalis.  Use anything you have at your disposal to fight your way through.  Also, more tech level upgrades are available in the Forge."
+  }
+ ]
+}

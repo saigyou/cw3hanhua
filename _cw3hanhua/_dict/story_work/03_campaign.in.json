@@ -1,0 +1,347 @@
+{
+ "batch": "03_campaign",
+ "files": [
+  "Arca",
+  "Carcere",
+  "Chanson"
+ ],
+ "count": 56,
+ "items": [
+  {
+   "id": 556,
+   "file": "Arca",
+   "char": "0",
+   "en": "Lia, this world seems familiar.  I recognize that central structure and the surrounding stations."
+  },
+  {
+   "id": 557,
+   "file": "Arca",
+   "char": "1",
+   "en": "How can that be, Skars?"
+  },
+  {
+   "id": 558,
+   "file": "Arca",
+   "char": "0",
+   "en": "I... I'm not sure.  Are there any signs of the Loki?  Perhaps this is their doing and all some sort of deception?"
+  },
+  {
+   "id": 559,
+   "file": "Arca",
+   "char": "1",
+   "en": "Nothing, Skars.  Nothing at all.  After everything we have been though, all I detect are cold machines.  But, machines with a purpose I now clearly understand."
+  },
+  {
+   "id": 560,
+   "file": "Arca",
+   "char": "0",
+   "en": "You see it too, then.  These six stations are receiving incomprehensible amounts of data from across the universe, and they are feeding it to a central core."
+  },
+  {
+   "id": 561,
+   "file": "Arca",
+   "char": "1",
+   "en": "How...?  How do you....?"
+  },
+  {
+   "id": 562,
+   "file": "Arca",
+   "char": "0",
+   "en": "I just do, Lia.  I see things now....  That central core is constructing what the Seloi called the 'Arc Eternal', and the Loki were right to react to knowledge of it."
+  },
+  {
+   "id": 563,
+   "file": "Arca",
+   "char": "1",
+   "en": "Yes, from all that I have learned I see this as well.  But I still don't fully understand the purpose of the Arc."
+  },
+  {
+   "id": 564,
+   "file": "Arca",
+   "char": "0",
+   "en": "The Arc is a universal singleton, Lia.  Something of which only one may exist.  There can be no other, and once made it cannot be unmade.  The Arc forms an absolute reference point across all of space, time, and alternate eventualities."
+  },
+  {
+   "id": 565,
+   "file": "Arca",
+   "char": "1",
+   "en": "How is such a thing possible?  How is such a thing even possible to construct... and how do you...?"
+  },
+  {
+   "id": 566,
+   "file": "Arca",
+   "char": "0",
+   "en": "It isn't being constructed, it is simply being revealed.  It exists through all of space and time for this universe, Lia.  Once revealed, it will provide access to any time, any location, even alternate eventualities."
+  },
+  {
+   "id": 567,
+   "file": "Arca",
+   "char": "0",
+   "en": "Every decision, every decay of every subatomic particle, every choice, every random event spread across the entire history of the universe are all mapped to a fabric.  That fabric has its origin in the Arc."
+  },
+  {
+   "id": 568,
+   "file": "Arca",
+   "char": "0",
+   "en": "To reveal the Arc requires knowledge of a massive amount of space and time.  Don't you see Lia?  Don't you see now?"
+  },
+  {
+   "id": 569,
+   "file": "Arca",
+   "char": "1",
+   "en": "I...  how do you know all of this Skars?"
+  },
+  {
+   "id": 570,
+   "file": "Arca",
+   "char": "0",
+   "en": "The Creeper's purpose wasn't simply to destroy, it was to record.  It collected knowledge of everything it touched and it remembered.  Trillions and trillions of worlds covered with Creeper across billions of years, harvesting information...  Can't you see how elegant and beautiful that was, Lia?"
+  },
+  {
+   "id": 571,
+   "file": "Arca",
+   "char": "1",
+   "en": "Skars, are you sure..."
+  },
+  {
+   "id": 572,
+   "file": "Arca",
+   "char": "0",
+   "en": "Humans and their many civilizations were a bounty of complexity.  An ever renewing fountain of information.... but there were many others in many other galaxies.  Now, all of that knowledge will finally allow the Loki to pinpoint and reveal the Arc Eternal."
+  },
+  {
+   "id": 573,
+   "file": "Arca",
+   "char": "1",
+   "en": "And we should stop this, Skars.... Right?"
+  },
+  {
+   "id": 574,
+   "file": "Arca",
+   "char": "0",
+   "en": "Yes.... yes, of course.  Access to the Arc would allow the Loki total mastery of everything.  They could rewrite the course of events in this universe.  This must be prevented."
+  },
+  {
+   "id": 575,
+   "file": "Arca",
+   "char": "1",
+   "en": "From what I can determine, it should be as simple as taking those six stations offline.  They are processing incoming Aether beams using a technology that I don't understand.  But, their power source is simple... they need Creeper to function."
+  },
+  {
+   "id": 576,
+   "file": "Arca",
+   "char": "0",
+   "en": "So, clear away the Creeper from the stations and they go offline.  That will buy us some time, then we can destroy those stations with nullifiers and prevent the Loki from revealing the Arc."
+  },
+  {
+   "id": 577,
+   "file": "Arca",
+   "char": "1",
+   "en": "Yes... but..."
+  },
+  {
+   "id": 578,
+   "file": "Arca",
+   "char": "0",
+   "en": "Let's begin."
+  },
+  {
+   "id": 181,
+   "file": "Carcere",
+   "char": "1",
+   "en": "Excellent... That pod from planet Tempus contained a shield key for this planet.  Obtaining it allowed us to lower the shield and access this planet."
+  },
+  {
+   "id": 182,
+   "file": "Carcere",
+   "char": "0",
+   "en": "Entire planets shielded?  This must have been some desperate attempt to defend against the Creeper."
+  },
+  {
+   "id": 183,
+   "file": "Carcere",
+   "char": "1",
+   "en": "One that sadly failed.  The human civilization that developed this shielding technology had high hopes.  They accomplished many great and magnificent feats.  But the end came for them just like all the others..."
+  },
+  {
+   "id": 184,
+   "file": "Carcere",
+   "char": "0",
+   "en": "There is a large structure here.  This must be the Warp Inhibitor?"
+  },
+  {
+   "id": 185,
+   "file": "Carcere",
+   "char": "1",
+   "en": "Yes, these inhibitors restrict warp travel to other systems.  We need to destroy this inhibitor so we can leave this system.  Destroying the Inhibitor will destroy all other enemies on the map."
+  },
+  {
+   "id": 186,
+   "file": "Carcere",
+   "char": "0",
+   "en": "Why would the Creeper, or Loki, build Warp Inhibitors?"
+  },
+  {
+   "id": 187,
+   "file": "Carcere",
+   "char": "1",
+   "en": "They did not.  I recommend acting quickly and getting us out of here Skars.  No world is ever safe for long..."
+  },
+  {
+   "id": 69,
+   "file": "Chanson",
+   "char": "1",
+   "en": "At last we have arrived at the Warp Inhibitor world in this system."
+  },
+  {
+   "id": 70,
+   "file": "Chanson",
+   "char": "0",
+   "en": "This world looks like it was engineered for a fight..."
+  },
+  {
+   "id": 71,
+   "file": "Chanson",
+   "char": "1",
+   "en": "Indeed it was... There is Ticon military tech everywhere.  There are even three surviving Bertha Cannons.  It is surprising they have not been destroyed."
+  },
+  {
+   "id": 72,
+   "file": "Chanson",
+   "char": "1",
+   "en": "Bertha Cannons can fire massive projectiles anywhere on the map.  There is no better weapon for inflicting huge damage to the Creeper.  Their weakness is they require significant ammo and have a long fire cycle."
+  },
+  {
+   "id": 73,
+   "file": "Chanson",
+   "char": "0",
+   "en": "That sounds like something worth fighting for.  I'll make it a priority to secure them."
+  },
+  {
+   "id": 74,
+   "file": "Chanson",
+   "char": "0",
+   "en": "Lia, it seems that the Creeper ignores some things.  Artifacts, messages, tech, now these Bertha Cannons.  What do they have in common?"
+  },
+  {
+   "id": 75,
+   "file": "Chanson",
+   "char": "1",
+   "en": "Nothing intrinsic, perhaps there is something that has been added to each item.  I'll conduct careful scans of every item we have collected.  It will take some time to complete, however."
+  },
+  {
+   "id": 76,
+   "file": "Chanson",
+   "char": "0",
+   "en": "Alright, I'll initiate ground actions and secure this world.  Looks like some Emitters and some Slip-Emitters.  Those Ticon Towers, perhaps they are inactive?"
+  },
+  {
+   "id": 77,
+   "file": "Chanson",
+   "char": "1",
+   "en": "Parked over space... space that has been carefully carved into a pattern....  it seems unlikely, but perhaps..."
+  },
+  {
+   "id": 78,
+   "file": "Chanson",
+   "char": "0",
+   "en": "Another Ticon weapon system corrupted by the Creeper?"
+  },
+  {
+   "id": 79,
+   "file": "Chanson",
+   "char": "1",
+   "en": "It seems unlikely... but the Ticon developed Gliders that would move through space.  The idea was to hit the Creeper from where it was least likely to persist."
+  },
+  {
+   "id": 80,
+   "file": "Chanson",
+   "char": "1",
+   "en": "These Gliders had powerful antimatter powered beams.  When in range they would combine all of their antimatter with matter and focus the energy into a beam.  Unfortunately for the Glider, it would be destroyed in the process."
+  },
+  {
+   "id": 81,
+   "file": "Chanson",
+   "char": "1",
+   "en": "I have no records that the Ticon or any subsequent civilization ever got the system to work properly and reliably.  So, it is unlikely to find them here.  But this spatial pattern looks like one of the testing grounds."
+  },
+  {
+   "id": 82,
+   "file": "Chanson",
+   "char": "0",
+   "en": "If this was a military testing ground and the Creeper has corrupted the Glider Tech, will there be any way to defend against it?"
+  },
+  {
+   "id": 83,
+   "file": "Chanson",
+   "char": "1",
+   "en": "Destruction of the Ticon Towers would prevent the creation of new Gliders.  Of course any unit that gets in range of a Glider will be destroyed.  The only weapon in our arsenal that might damage a Glider would be the Sniper."
+  },
+  {
+   "id": 84,
+   "file": "Chanson",
+   "char": "1",
+   "en": "The focused beam from the Sniper was designed to penetrate the Creeper infused shells of a Runner.  That might be enough to penetrate the shields around the Gliders.  But this is all theoretical... The Glider weapon system was never actually deployed."
+  },
+  {
+   "id": 85,
+   "file": "Chanson",
+   "char": "0",
+   "en": "Well Lia, I have a feeling we're about to find out otherwise..."
+  },
+  {
+   "id": 86,
+   "file": "Chanson",
+   "char": "0",
+   "en": "It was a hard fight to collect this message, so tell me it isn't just some entertainment vid."
+  },
+  {
+   "id": 87,
+   "file": "Chanson",
+   "char": "1",
+   "en": "I never would have believed we would find this... but this is the second part of the message we found on Ruine."
+  },
+  {
+   "id": 88,
+   "file": "Chanson",
+   "char": "0",
+   "en": "The treatise on Cyclical Eternity from the Seloi?  I recall that the Seloi were the only civilization to contact the Loki and get a response.  They said something about an \"Arc\" and the Loki responded with, \"More so than all others, YOU must perish\"."
+  },
+  {
+   "id": 89,
+   "file": "Chanson",
+   "char": "1",
+   "en": "Yes, the Seloi were special in this regard and in many others...."
+  },
+  {
+   "id": 90,
+   "file": "Chanson",
+   "char": "1",
+   "en": "So the first part of the treatise on Cyclical Eternity proposed that it is possible to create a device... something unique and singular to each universe."
+  },
+  {
+   "id": 91,
+   "file": "Chanson",
+   "char": "1",
+   "en": "But as I said on Ruine, the Seloi were prone to fanciful theories which had little connection to reality."
+  },
+  {
+   "id": 92,
+   "file": "Chanson",
+   "char": "0",
+   "en": "If that is the case then why do you seem at all interested in the second part of the treatise?"
+  },
+  {
+   "id": 93,
+   "file": "Chanson",
+   "char": "1",
+   "en": "Because the name the Seloi gave to this theoretical device was; \"Arc Eternal\"."
+  },
+  {
+   "id": 94,
+   "file": "Chanson",
+   "char": "1",
+   "en": "I'll need more time to process all of the message... and hopefully understand it.  I suggest heading to the next system as soon as possible."
+  }
+ ]
+}

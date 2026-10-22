@@ -1,0 +1,137 @@
+[
+ {
+  "batch": "01_story_sys",
+  "files": [
+   "story_0_system",
+   "story_1_system",
+   "story_2_system",
+   "story_3_system"
+  ],
+  "count": 45
+ },
+ {
+  "batch": "02_story_sys",
+  "files": [
+   "story_4_system",
+   "story_5_system",
+   "story_7_system",
+   "story_8_system"
+  ],
+  "count": 59
+ },
+ {
+  "batch": "03_campaign",
+  "files": [
+   "Arca",
+   "Carcere",
+   "Chanson"
+  ],
+  "count": 56
+ },
+ {
+  "batch": "04_campaign",
+  "files": [
+   "Choix",
+   "Crosslaw",
+   "Defi"
+  ],
+  "count": 54
+ },
+ {
+  "batch": "05_campaign",
+  "files": [
+   "Far York",
+   "Farbor",
+   "Flick",
+   "Jojo",
+   "Krig"
+  ],
+  "count": 60
+ },
+ {
+  "batch": "06_campaign",
+  "files": [
+   "Lemal",
+   "Meso",
+   "Mistet",
+   "Ormos"
+  ],
+  "count": 60
+ },
+ {
+  "batch": "07_campaign",
+  "files": [
+   "Otrav",
+   "Ruine",
+   "Seedet"
+  ],
+  "count": 52
+ },
+ {
+  "batch": "08_campaign",
+  "files": [
+   "Starsync",
+   "Telos",
+   "Tempus",
+   "Tiplex"
+  ],
+  "count": 45
+ },
+ {
+  "batch": "09_campaign",
+  "files": [
+   "Vapen",
+   "alpha_4.2 An old Friend",
+   "alpha_Altiar",
+   "alpha_Beau Jest",
+   "alpha_Brain",
+   "alpha_CW1 Tucana",
+   "alpha_Childs play",
+   "alpha_Creeper Wall 2",
+   "alpha_CreeperWall",
+   "alpha_Demo World",
+   "alpha_Flood Walls",
+   "alpha_Hopping",
+   "alpha_Little Gliese"
+  ],
+  "count": 56
+ },
+ {
+  "batch": "10_alpha",
+  "files": [
+   "alpha_Megaland",
+   "alpha_Megaland 2",
+   "alpha_Planet Hopping",
+   "alpha_Roundup",
+   "alpha_Runner Wash",
+   "alpha_Super Tower",
+   "alpha_Super Tower 2",
+   "alpha_Terror",
+   "alpha_The Bardel Redemption",
+   "alpha_The Name",
+   "alpha_The Ocean",
+   "alpha_The Push",
+   "alpha_The Start",
+   "alpha_The Totem 2"
+  ],
+  "count": 58
+ },
+ {
+  "batch": "11_alpha",
+  "files": [
+   "alpha_The pit",
+   "alpha_Trae Noria",
+   "alpha_Twisted Island",
+   "alpha_Unknown Scenario - Part 2",
+   "alpha_Wallsaver",
+   "alpha_War Zone",
+   "alpha_Warzone Classic",
+   "alpha_Xeniveral",
+   "alpha_teks005 pyramid power",
+   "alpha_teks008 point to point",
+   "alpha_virgilw_system",
+   "credits"
+  ],
+  "count": 34
+ }
+]

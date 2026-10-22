@@ -1,0 +1,366 @@
+{
+ "batch": "02_story_sys",
+ "files": [
+  "story_4_system",
+  "story_5_system",
+  "story_7_system",
+  "story_8_system"
+ ],
+ "count": 59,
+ "items": [
+  {
+   "id": 50,
+   "file": "story_4_system",
+   "char": "1",
+   "en": "I've completed the scans of the various artifacts and technologies we have collected so far."
+  },
+  {
+   "id": 51,
+   "file": "story_4_system",
+   "char": "0",
+   "en": "Did you find anything in common?  Perhaps something has been added to each item."
+  },
+  {
+   "id": 52,
+   "file": "story_4_system",
+   "char": "1",
+   "en": "Nothing...  They are as diverse as any two random objects and contain nothing in common."
+  },
+  {
+   "id": 53,
+   "file": "story_4_system",
+   "char": "0",
+   "en": "Then we have learned nothing...."
+  },
+  {
+   "id": 54,
+   "file": "story_4_system",
+   "char": "1",
+   "en": "Not so fast. We know that the Creeper did not destroy these artifacts but it did destroy other artifacts of the same kind. This can only mean one thing."
+  },
+  {
+   "id": 55,
+   "file": "story_4_system",
+   "char": "0",
+   "en": "Ahh... The only thing these artifacts actually have in common is they were not destroyed by the Creeper.  That means..."
+  },
+  {
+   "id": 56,
+   "file": "story_4_system",
+   "char": "1",
+   "en": "Yes, that means that the Creeper somehow recognized these specific artifacts and did not destroy them.  It didn't destroy them at any point in their existence, which spanned many millions of years in some cases."
+  },
+  {
+   "id": 57,
+   "file": "story_4_system",
+   "char": "0",
+   "en": "So the Creeper has a memory... a memory that spans vast amounts of space and time.  It also must rarely act in a selective way.   This never occurred to me before.  I've only ever imagined the Creeper as a random destructive force."
+  },
+  {
+   "id": 58,
+   "file": "story_4_system",
+   "char": "0",
+   "en": "I'm not yet sure what good this knowledge will do us, Lia.  But it seems significant that the Creeper is more than just a blunt and crude weapon used by the Loki."
+  },
+  {
+   "id": 59,
+   "file": "story_4_system",
+   "char": "0",
+   "en": "Have you completed your review of the Treatise on Cyclical Eternity yet?"
+  },
+  {
+   "id": 60,
+   "file": "story_4_system",
+   "char": "1",
+   "en": "Not completely, but it looks like utter nonsense.  No other civilization posited such a concept as a \"universal singleton\", something of which only one could exist.  The name 'Arc Eternal', which the Seloi gave to this object, must have had nothing to do with their message to the Loki."
+  },
+  {
+   "id": 61,
+   "file": "story_4_system",
+   "char": "0",
+   "en": "I see...  So what do we have in this system?"
+  },
+  {
+   "id": 62,
+   "file": "story_4_system",
+   "char": "1",
+   "en": "This system was last called \"Frykt\".  It now contains only three worlds, as the others have vanished.  Of the former worlds, one was deorbited into the sun, and three others were deconstructed into material for a failed Dyson sphere."
+  },
+  {
+   "id": 63,
+   "file": "story_4_system",
+   "char": "0",
+   "en": "Only one world is not shielded, so we will head there first."
+  },
+  {
+   "id": 64,
+   "file": "story_4_system",
+   "char": "1",
+   "en": "It would seem so...  Skars, if we manage to take out the Inhibitor on Vapen there will be a choice as to the next system in range.  I have no idea which path we should take..."
+  },
+  {
+   "id": 65,
+   "file": "story_4_system",
+   "char": "0",
+   "en": "We will cross that bridge when we get there Lia.  My daughter Aliana always accused me of leaping before looking, so I'll have no trouble choosing a destination."
+  },
+  {
+   "id": 66,
+   "file": "story_4_system",
+   "char": "1",
+   "en": "[Gel maintenance in process]"
+  },
+  {
+   "id": 67,
+   "file": "story_4_system",
+   "char": "0",
+   "en": "Again?"
+  },
+  {
+   "id": 148,
+   "file": "story_5_system",
+   "char": "1",
+   "en": "We've arrived in the Andere system, as it was last called.  Sensors are off the charts, and need recalibrating..."
+  },
+  {
+   "id": 149,
+   "file": "story_5_system",
+   "char": "0",
+   "en": "What's the source of the interference?"
+  },
+  {
+   "id": 150,
+   "file": "story_5_system",
+   "char": "1",
+   "en": "It isn't interference, it's information.  There are billions of data streams across billions of channels all carrying vast amounts of data... it's too... it's too much..."
+  },
+  {
+   "id": 151,
+   "file": "story_5_system",
+   "char": "0",
+   "en": "Shut down the sensors Lia!  Do it now!"
+  },
+  {
+   "id": 152,
+   "file": "story_5_system",
+   "char": "0",
+   "en": "Lia!"
+  },
+  {
+   "id": 153,
+   "file": "story_5_system",
+   "char": "1",
+   "en": "... ... The data streams...  I have the sensors shut down now.  The amount of information being transmitted was incalculable, Skars.  It was blinding to my Gel circuits.  I've never encountered anything as complex and ordered and on such a scale."
+  },
+  {
+   "id": 154,
+   "file": "story_5_system",
+   "char": "0",
+   "en": "Could you determine anything about the signals?  Their source, their content, their purpose?"
+  },
+  {
+   "id": 155,
+   "file": "story_5_system",
+   "char": "1",
+   "en": "The signals appear to be coming from everywhere, but focused on this system.  It is like someone encoded quadrillions of yottabytes of data into the background radiation of the universe.  It is near the quantum limit for information density."
+  },
+  {
+   "id": 156,
+   "file": "story_5_system",
+   "char": "0",
+   "en": "What is in the message?  Did you ascertain anything?"
+  },
+  {
+   "id": 157,
+   "file": "story_5_system",
+   "char": "1",
+   "en": "It seems to be everything, Skars?  Just 'everything'."
+  },
+  {
+   "id": 158,
+   "file": "story_5_system",
+   "char": "0",
+   "en": "I don't understand, everything of what?"
+  },
+  {
+   "id": 159,
+   "file": "story_5_system",
+   "char": "1",
+   "en": "Everything that has ever been.  It's exact state information... it's... think of it like a very precise plan for how to make everything that has ever existed."
+  },
+  {
+   "id": 160,
+   "file": "story_5_system",
+   "char": "1",
+   "en": "Every leaf on every tree that has ever existed on every world, every grain of sand, every star, every molecule of every atmosphere that has bent the light of its star into a sunset..."
+  },
+  {
+   "id": 161,
+   "file": "story_5_system",
+   "char": "0",
+   "en": "Do this, enable visual spectrum sensors only for this System.  Let's look at the system with just our eyes..."
+  },
+  {
+   "id": 162,
+   "file": "story_5_system",
+   "char": "1",
+   "en": "OK, looks like two worlds, one shielded and one not.  My records indicate these worlds were last called Otrav and Farbor.  There was nothing particularly remarkable about either world over the last few billion years."
+  },
+  {
+   "id": 163,
+   "file": "story_5_system",
+   "char": "0",
+   "en": "You said the sensor streams seemed focused on this system... any particular region in this system?"
+  },
+  {
+   "id": 164,
+   "file": "story_5_system",
+   "char": "1",
+   "en": "Yes, good question.  In the time I sampled the streams they appear to be.... That's interesting."
+  },
+  {
+   "id": 165,
+   "file": "story_5_system",
+   "char": "1",
+   "en": "The focus appears to be changing slightly so that the signals are at their peak over Farbor.  The signal focus is somehow tracking the orbit of that world."
+  },
+  {
+   "id": 166,
+   "file": "story_5_system",
+   "char": "0",
+   "en": "Then that's where we are headed Lia...  The Loki must be behind these signals and this world must be significant somehow."
+  },
+  {
+   "id": 167,
+   "file": "story_5_system",
+   "char": "1",
+   "en": "I'll attempt to install some filters on the sensors so I can better sample the streams. That should allow us to perhaps learn some more about the intent of the signals."
+  },
+  {
+   "id": 168,
+   "file": "story_5_system",
+   "char": "0",
+   "en": "I'll head to Otrav and pick up any shield keys there..."
+  },
+  {
+   "id": 115,
+   "file": "story_7_system",
+   "char": "1",
+   "en": "It seems quiet here... a kind of backwater system, removed from the comings and goings of most empires.  That makes it dangerous..."
+  },
+  {
+   "id": 116,
+   "file": "story_7_system",
+   "char": "0",
+   "en": "Why so?"
+  },
+  {
+   "id": 117,
+   "file": "story_7_system",
+   "char": "1",
+   "en": "Because I don't know much about it.  Little off-the-map places like this can often harbor great surprises."
+  },
+  {
+   "id": 118,
+   "file": "story_7_system",
+   "char": "0",
+   "en": "There is only one world?"
+  },
+  {
+   "id": 119,
+   "file": "story_7_system",
+   "char": "1",
+   "en": "Yes, and it is a world that was left undisturbed for most of its existence.  It appears to contain an Inhibitor, though.  Someone must have recently placed it there."
+  },
+  {
+   "id": 120,
+   "file": "story_7_system",
+   "char": "0",
+   "en": "What lies beyond this system once we take out the Inhibitor?"
+  },
+  {
+   "id": 121,
+   "file": "story_7_system",
+   "char": "1",
+   "en": "Scanning... It looks like a stable wormhole, Skars!  Fascinating.  For all the unassumingness of this system, it is actually a gateway to another region of space.  One about which I know nothing.  That wormhole could lead to anywhere in the universe..."
+  },
+  {
+   "id": 122,
+   "file": "story_7_system",
+   "char": "1",
+   "en": "This world also contains a Shield Key.  Odd since this system contains no shielded worlds."
+  },
+  {
+   "id": 123,
+   "file": "story_7_system",
+   "char": "0",
+   "en": "I'll engage and collect the key and take out the Inhibitor.  As interesting as another region of space sounds, I have a feeling it isn't part of our current journey.  But perhaps we can come back and explore it later..."
+  },
+  {
+   "id": 482,
+   "file": "story_8_system",
+   "char": "0",
+   "en": "This system looks nearly empty.  It almost looks like a place forgotten by time..."
+  },
+  {
+   "id": 483,
+   "file": "story_8_system",
+   "char": "1",
+   "en": "This system once hosted many planets and was a center of commerce, entertainment, and industry.  But over time it all faded.  With each passing civilization, fewer and fewer worlds were recolonized."
+  },
+  {
+   "id": 484,
+   "file": "story_8_system",
+   "char": "1",
+   "en": "Eventually, most of the worlds were destroyed, or deorbited.  Now, only one world remains."
+  },
+  {
+   "id": 485,
+   "file": "story_8_system",
+   "char": "0",
+   "en": "I see this world is Inhibiting further warp travel, though the readings are strange.  What lies beyond this system?"
+  },
+  {
+   "id": 486,
+   "file": "story_8_system",
+   "char": "1",
+   "en": "It's a wormhole to the Prospector Zone!  I lost track of this wormhole many eons ago.  I see it parked itself outside this little system."
+  },
+  {
+   "id": 487,
+   "file": "story_8_system",
+   "char": "0",
+   "en": "The 'Prospector Zone'?"
+  },
+  {
+   "id": 488,
+   "file": "story_8_system",
+   "char": "1",
+   "en": "This zone was a region of space known to later civilizations as a place of great riches and unknowns.  The wormhole leading to it was discovered in the early Common Eras and different civilizations would use the worlds in various ways."
+  },
+  {
+   "id": 489,
+   "file": "story_8_system",
+   "char": "1",
+   "en": "Some civilizations would place their most valuable weapons there, and others would go there to retrieve those same weapons...."
+  },
+  {
+   "id": 490,
+   "file": "story_8_system",
+   "char": "0",
+   "en": "I'll engage operations at Krig and take out whatever is inhibiting further warp travel."
+  },
+  {
+   "id": 491,
+   "file": "story_8_system",
+   "char": "1",
+   "en": "There is also a shield key on Krig, so collect that."
+  },
+  {
+   "id": 492,
+   "file": "story_8_system",
+   "char": "0",
+   "en": "I'll do that.  Perhaps we can return later and explore the region of space on the other end of that wormhole.  For now, I sense our mission lies elsewhere."
+  }
+ ]
+}

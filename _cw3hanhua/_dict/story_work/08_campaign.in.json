@@ -1,0 +1,282 @@
+{
+ "batch": "08_campaign",
+ "files": [
+  "Starsync",
+  "Telos",
+  "Tempus",
+  "Tiplex"
+ ],
+ "count": 45,
+ "items": [
+  {
+   "id": 493,
+   "file": "Starsync",
+   "char": "1",
+   "en": "At last, we have access to the Inhibitor in this system.  Unfortunately, this world is a disaster."
+  },
+  {
+   "id": 494,
+   "file": "Starsync",
+   "char": "0",
+   "en": "What happened here!?!"
+  },
+  {
+   "id": 495,
+   "file": "Starsync",
+   "char": "1",
+   "en": "It appears terrible weapons were used that ripped the world apart.  As you are seeing, humanity went to every extreme in its fight with the Creeper."
+  },
+  {
+   "id": 496,
+   "file": "Starsync",
+   "char": "0",
+   "en": "The nightmare these people must have experienced... unimaginable."
+  },
+  {
+   "id": 497,
+   "file": "Starsync",
+   "char": "1",
+   "en": "I'm not sure what approach would be best here Skars.... wait, I detect two Tech Artifacts.  Excellent...."
+  },
+  {
+   "id": 498,
+   "file": "Starsync",
+   "char": "0",
+   "en": "I see them on the scanners.  Ore Miner and Sprayer?"
+  },
+  {
+   "id": 499,
+   "file": "Starsync",
+   "char": "1",
+   "en": "Yes, build ore mines on those ore deposits you see.  They will send ore to the Command Node.  From there, it will be processed into Anti-Creeper."
+  },
+  {
+   "id": 500,
+   "file": "Starsync",
+   "char": "0",
+   "en": "Ahhh yes, Anti-Creeper.  It was my daughter Alia.... (sigh)\nIt was my daughter Aliana, who unlocked the secrets of Anti-Creeper long ago."
+  },
+  {
+   "id": 501,
+   "file": "Starsync",
+   "char": "0",
+   "en": "I assume the Sprayer will deliver Anti-Creeper to the battlefield?"
+  },
+  {
+   "id": 502,
+   "file": "Starsync",
+   "char": "1",
+   "en": "[Temporarily Offline.  Gel Maintenance in process.]"
+  },
+  {
+   "id": 503,
+   "file": "Starsync",
+   "char": "0",
+   "en": "Maintenance?  Now?  Looks like some things have not changed in 5 billion years...  I'll get right to work on taking out this Inhibitor while you perform 'maintenance' on your gel circuits."
+  },
+  {
+   "id": 424,
+   "file": "Telos",
+   "char": "1",
+   "en": "Telos... this is a world that has been silent for over 100 thousand earth standard years."
+  },
+  {
+   "id": 425,
+   "file": "Telos",
+   "char": "0",
+   "en": "Lia, do you have any additional information about why I was brought to this time?  It seems as if the Creeper has destroyed everything we ever worked to save..."
+  },
+  {
+   "id": 426,
+   "file": "Telos",
+   "char": "1",
+   "en": "I only have the star map we are following.  If more information is available, it is locked away and inaccessible in my gel circuits."
+  },
+  {
+   "id": 427,
+   "file": "Telos",
+   "char": "0",
+   "en": "(Perhaps this is my punishment.  Perhaps I died many years ago...  could this be the mythological cursed realm of Helheim my ancestors believed in? Impossible...)"
+  },
+  {
+   "id": 428,
+   "file": "Telos",
+   "char": "1",
+   "en": "Skars, there is a Reactor Tech Artifact on this world.  Pick that up as soon as possible.  We can use it to generate energy in confined regions."
+  },
+  {
+   "id": 429,
+   "file": "Telos",
+   "char": "0",
+   "en": "I see there is also a shield key here.  I'll destroy the three emitters and collect that key..."
+  },
+  {
+   "id": 44,
+   "file": "Tempus",
+   "char": "1",
+   "en": "Excellent... this world should suffice for demonstrating the core capabilities of the ship."
+  },
+  {
+   "id": 45,
+   "file": "Tempus",
+   "char": "0",
+   "en": "There's a Creeper Emitter here!"
+  },
+  {
+   "id": 46,
+   "file": "Tempus",
+   "char": "1",
+   "en": "Yes, I'm afraid so.  Much has happened while you slept.  Dozens of human civilizations rose and fell, each trying ever more desperate measures as the Creeper would always return."
+  },
+  {
+   "id": 47,
+   "file": "Tempus",
+   "char": "1",
+   "en": "The last whispers of the final civilization haven't been heard in many thousands of years.  As far as my sensors can ascertain, only ruins remain."
+  },
+  {
+   "id": 48,
+   "file": "Tempus",
+   "char": "0",
+   "en": "(Why was I forced to sleep through this all... only to awaken to utter desolation?)"
+  },
+  {
+   "id": 49,
+   "file": "Tempus",
+   "char": "1",
+   "en": "Strange... This world seems to contain some manner of pod.  Technological remnants are rare, so I would investigate.  Follow the ships automated assistance system, and acquire that pod..."
+  },
+  {
+   "id": 305,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "I was afraid of this.  I had hoped it had all been deactivated..."
+  },
+  {
+   "id": 306,
+   "file": "Tiplex",
+   "char": "0",
+   "en": "What now?"
+  },
+  {
+   "id": 307,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "This is Tiplex, a machine world.  It was engineered by the Ticon Empire as a defensive outpost."
+  },
+  {
+   "id": 308,
+   "file": "Tiplex",
+   "char": "0",
+   "en": "The 'Ticon Empire'?  One of the many human civilizations that arose?"
+  },
+  {
+   "id": 309,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "Yes, they were but one civilization, but they developed in a very militaristic way.  They developed massive weapon systems. Entire planets were turned into weapons."
+  },
+  {
+   "id": 310,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "Their conflict with the Creeper lasted centuries, longer than any other civilization.  But the costs were unthinkable.  And in the end, they failed like all the others."
+  },
+  {
+   "id": 311,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "The Ticons developed a weapon system they believed would destroy the Creeper once and for all.  It was an artificial, self-replicating structure that derived its sustenance from Emitters.  It was believed this would 'immunize' worlds from Emitters."
+  },
+  {
+   "id": 312,
+   "file": "Tiplex",
+   "char": "0",
+   "en": "And did it work?"
+  },
+  {
+   "id": 313,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "For a while, and to a measure.  It worked until the emitters were somehow changed.  The emitters adapted to the parasite and turned this weapon, which the Ticon called \"Digitalis\", into an asset.  Emitters no longer appeared to lose any viability when surrounded by Digitalis."
+  },
+  {
+   "id": 314,
+   "file": "Tiplex",
+   "char": "0",
+   "en": "How did the Ticon people cope?"
+  },
+  {
+   "id": 315,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "They didn't.  The Digitalis had allowed them to survive the Creeper for decades, but in one moment it became their undoing.  Once the emitters adapted, the Digitalis no longer destroyed them.  Instead it would grow and protect the emitters."
+  },
+  {
+   "id": 316,
+   "file": "Tiplex",
+   "char": "0",
+   "en": "And it appears as if this Digitalis still exists..."
+  },
+  {
+   "id": 317,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "With regret, it seems so.  Skars, the Digitalis is a brutish and simple enemy.  It spreads along predefined pathways.  But, those paths don't respect terrain elevation.  Digitalis is tough, very tough, and your weapons will have difficulty damaging it."
+  },
+  {
+   "id": 318,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "What is worse is that The Digitalis replicates rapidly and will fill in destroyed areas with great efficiency.  Your best strategy is to try to cut it off from its source.  Digitalis requires a connection to an emitter to thrive.  If you sever that connection, it will cease to grow and eventually wither."
+  },
+  {
+   "id": 319,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "Digitalis also conducts Creeper rapidly and with no loss. So beware of this as it can move Creeper over higher terrain."
+  },
+  {
+   "id": 320,
+   "file": "Tiplex",
+   "char": "0",
+   "en": "If it conducts Creeper, then I suppose Anti-Creeper is also conducted by it?"
+  },
+  {
+   "id": 321,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "Indeed.  Anti-Creeper is conducted as well.  Anti-Creeper also slows the regeneration of Digitalis, so use that to your advantage when possible."
+  },
+  {
+   "id": 322,
+   "file": "Tiplex",
+   "char": "0",
+   "en": "I see there is a Tech Artifact on this world.  It appears it will allow the control of a second Command Node..."
+  },
+  {
+   "id": 323,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "This will be indispensable on this mission, Skars.  Collect that tech artifact, then land a second Command Node.  This will allow a two front approach and you may be able to take out the emitters that are sourcing the Digitalis."
+  },
+  {
+   "id": 324,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "This is most unusual, Skars.  Message Artifacts almost never survive contact with the Creeper.  This one seems strangely immune. It's almost as if the Creeper intentionally does not destroy certain objects."
+  },
+  {
+   "id": 325,
+   "file": "Tiplex",
+   "char": "0",
+   "en": "What message does it contain?"
+  },
+  {
+   "id": 326,
+   "file": "Tiplex",
+   "char": "1",
+   "en": "I will require some time to process the contents, it isn't exactly encrypted but it isn't in any recognized format either.  I should have it processed by the time we reach the next star system..."
+  }
+ ]
+}

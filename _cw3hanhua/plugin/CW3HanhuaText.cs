@@ -74,13 +74,18 @@ namespace CW3Hanhua
     [BepInPlugin("cw3hanhua.text", "CW3 Hanhua Text", "0.10.1")]
     public class TextPlugin : BaseUnityPlugin
     {
-        const string Ver = "0.10.1";
+        const string Ver = "0.10.2";
 
         static TextPlugin inst;
         static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
 
         // ---------------------------------------------------------------- 词表
         static Dictionary<string, string> dict = new Dictionary<string, string>();
+        // v0.10.2：归一化索引（尾部空白/CRLF/连续空格一律抹平），只作**兜底**用。
+        // 起因：剧情台词 579 条在游戏里全部查不到 —— XML 原文与运行时串差在不可见字符上
+        // （尾部换行、双空格等），精确匹配天然落空。见 LookupNormalized。
+        static Dictionary<string, string> dictNorm = new Dictionary<string, string>();
+        static int hitNorm;         // 靠归一化兜底命中的条数
         static string dictPath;
         static string loadError = "";
         static int dictCount;
@@ -367,6 +372,7 @@ namespace CW3Hanhua
             dict.Clear();
             dictCount = 0;
             loadError = "";
+            dictNorm.Clear();
             if (dictPath == null || !File.Exists(dictPath))
             {
                 loadError = "找不到词表（先跑 tools\\build_dict.py）";
@@ -404,6 +410,10 @@ namespace CW3Hanhua
                         string k = Utf8.GetString(kb);
                         string z = Utf8.GetString(zb);
                         dict[k] = z;
+                        // v0.10.2：同时建一张「归一化 → 译文」表，兜住运行时串与 XML 原文的
+                        // 不可见差异（尾部换行/空格、双空格折叠、CRLF）。见 LookupNormalized。
+                        string nk = Normalize(k);
+                        if (nk.Length > 0 && !dictNorm.ContainsKey(nk)) dictNorm[nk] = z;
                     }
                     uint expect = br.ReadUInt32();
                     uint got = Fnv1a(body.GetBuffer(), (int)body.Length);
@@ -440,7 +450,57 @@ namespace CW3Hanhua
             if (s == null || s.Length == 0 || dict.Count == 0) return null;
             string zh;
             if (dict.TryGetValue(s, out zh) && zh != null && zh.Length > 0) return zh;
-            return LookupConcat(s, 0);
+            zh = LookupConcat(s, 0);
+            if (zh != null) return zh;
+            return LookupNormalized(s);
+        }
+
+        /// <summary>★ v0.10.2 兜底：把「不可见差异」抹平后再查一次。
+        /// 起因：剧情台词（resources.assets 里 TextAsset 的 XML）线上全部查不到 ——
+        /// 运行时 `MessageDialogManager.set_currentMessage` 拿到的串与 XML 原文差在
+        /// 尾部换行 / 双空格 / CRLF 这类看不见的东西上，精确匹配必然落空。
+        ///
+        /// 抹平规则（两端一致，所以不会误配到别的条目）：
+        ///   "\r\n" → "\n"、连续普通空格折叠成一个、去掉尾部空白（含换行）。
+        /// 只在精确匹配和 \n 拼接都失败之后才走，所以对既有的 1000+ 条译文零影响。</summary>
+        static string LookupNormalized(string s)
+        {
+            if (dictNorm.Count == 0) return null;
+            string nk = Normalize(s);
+            if (nk.Length == 0) return null;
+            string zh;
+            if (dictNorm.TryGetValue(nk, out zh) && zh != null && zh.Length > 0)
+            {
+                hitNorm++;
+                return zh;
+            }
+            return null;
+        }
+
+        /// <summary>归一化：CRLF→LF、连续空格折叠、去尾部空白。
+        /// 注意**不动**行首空白（那是排版缩进）也不动中间换行结构。</summary>
+        static string Normalize(string s)
+        {
+            if (s == null) return "";
+            StringBuilder sb = new StringBuilder(s.Length);
+            for (int i = 0; i < s.Length; i++)
+            {
+                char c = s[i];
+                if (c == '\r') { if (i + 1 < s.Length && s[i + 1] == '\n') continue; sb.Append('\n'); continue; }
+                if (c == ' ')
+                {
+                    int j = i;
+                    while (j + 1 < s.Length && s[j + 1] == ' ') j++;
+                    sb.Append(' ');
+                    i = j;
+                    continue;
+                }
+                sb.Append(c);
+            }
+            int end = sb.Length;
+            while (end > 0 && (sb[end - 1] == ' ' || sb[end - 1] == '\n' || sb[end - 1] == '\t')) end--;
+            sb.Length = end;
+            return sb.ToString();
         }
 
         /// <summary>把整串在 '\n' 处切成两段，两段**各自精确命中**词表才拼接返回。
@@ -608,7 +668,73 @@ namespace CW3Hanhua
             {
                 // 只在"看起来像英文 UI 字符串"时记，避免刷屏
                 if (HasLetter(s)) Say("  [未命中] " + Trunc(s, 60));
+                if (s.Length >= 20) DumpMissDetail(s);
             }
+        }
+
+        /// <summary>★ v0.10.2 临时诊断（剧情台词查不到译文时用）：把未命中的长串**全文**写进
+        /// `_cw3hanhua\_dict\miss_dump.txt`，并当场试探几种「可能被游戏/XML 改过」的变体
+        /// （去尾部空白、补尾换行、双空格折叠、CRLF→LF），命中就记下来 —— 这样一眼能看出
+        /// 词表 key 与运行时字符串到底差在哪。诊断完可以整段删掉。</summary>
+        static void DumpMissDetail(string s)
+        {
+            try
+            {
+                if (dictPath == null) return;
+                string file = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(dictPath), "miss_dump.txt");
+                StringBuilder sb = new StringBuilder();
+                sb.Append("=== ").Append(DateTime.Now.ToString("HH:mm:ss")).Append(" len=").Append(s.Length);
+                sb.Append(" ===\n[raw] ").Append(Esc(s)).Append('\n');
+
+                // 变体试探：命中哪一条，就说明运行时串与词表差在哪
+                string[] names = { "TrimEnd", "Trim", "s+\\n", "collapse2sp", "CRLF->LF", "TrimEnd+\\n" };
+                string[] vars =
+                {
+                    s.TrimEnd(), s.Trim(), s + "\n",
+                    CollapseSpaces(s), s.Replace("\r\n", "\n"), s.TrimEnd() + "\n"
+                };
+                for (int i = 0; i < vars.Length; i++)
+                {
+                    string zh;
+                    if (dict.TryGetValue(vars[i], out zh))
+                        sb.Append("[HIT:").Append(names[i]).Append("] ").Append(Esc(vars[i])).Append('\n');
+                }
+
+                // 前缀相同的最接近 key：报第一个不同字符的位置
+                string pre = s.Length >= 20 ? s.Substring(0, 20) : s;
+                foreach (KeyValuePair<string, string> kv in dict)
+                {
+                    string k = kv.Key;
+                    if (k.Length < 20 || !k.StartsWith(pre, StringComparison.Ordinal)) continue;
+                    int d = 0, lim = Math.Min(k.Length, s.Length);
+                    while (d < lim && k[d] == s[d]) d++;
+                    sb.Append("[near] len=").Append(k.Length).Append(" firstdiff=").Append(d);
+                    if (d < lim)
+                        sb.Append(" got=U+").Append(((int)s[d]).ToString("X4"))
+                          .Append(" want=U+").Append(((int)k[d]).ToString("X4"));
+                    sb.Append("\n[key] ").Append(Esc(k)).Append('\n');
+                    break;
+                }
+                sb.Append('\n');
+                File.AppendAllText(file, sb.ToString(), Utf8);
+            }
+            catch (Exception) { }
+        }
+
+        static string Esc(string s)
+        {
+            return s.Replace("\r", "\\r").Replace("\n", "\\n").Replace("\t", "\\t");
+        }
+
+        static string CollapseSpaces(string s)
+        {
+            StringBuilder sb = new StringBuilder(s.Length);
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == ' ' && i + 1 < s.Length && s[i + 1] == ' ') continue;
+                sb.Append(s[i]);
+            }
+            return sb.ToString();
         }
 
         static bool HasLetter(string s)
@@ -823,6 +949,7 @@ namespace CW3Hanhua
                     + "  词表=" + dictCount + " 条"
                     + "  prefix=" + prefixCalls + "/" + prefixHits
                     + "  拼接=" + hitConcat
+                    + "  归一化=" + hitNorm
                     + "  mesh=" + meshCalls + "/" + meshHits
                     + "  未命中=" + missSeen.Count
                     + "  已记录 label=" + swaps.Count

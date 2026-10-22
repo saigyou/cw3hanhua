@@ -1,0 +1,282 @@
+{
+ "batch": "01_story_sys",
+ "files": [
+  "story_0_system",
+  "story_1_system",
+  "story_2_system",
+  "story_3_system"
+ ],
+ "count": 45,
+ "items": [
+  {
+   "id": 188,
+   "file": "story_0_system",
+   "char": "1",
+   "en": "Skars... wake up.\nSKARS!....\n\nCOMMANDER SKARSGARD ABRAXIS!"
+  },
+  {
+   "id": 189,
+   "file": "story_0_system",
+   "char": "0",
+   "en": "Uh.. where... wha?  Wait a minute, who are you?"
+  },
+  {
+   "id": 190,
+   "file": "story_0_system",
+   "char": "1",
+   "en": "I'll keep the ship lights very low.  You have slept for a very long time.  My name is Lia."
+  },
+  {
+   "id": 191,
+   "file": "story_0_system",
+   "char": "0",
+   "en": "I don't know any 'Lia'.  The last thing I remember is Platius laughing and saying, 'Fortuna favet fatuis'.  Where am I, where is Platius, and who are you?"
+  },
+  {
+   "id": 192,
+   "file": "story_0_system",
+   "char": "1",
+   "en": "Slowly...  Platius created me shortly after he placed you in suspended animation.  I was your guardian for the eons that passed.  I have watched over and protected you for many cycles..."
+  },
+  {
+   "id": 193,
+   "file": "story_0_system",
+   "char": "1",
+   "en": "I am part of this ship we are on.  We have been in orbit around a stable singularity for many eons.... hiding from all that transpired."
+  },
+  {
+   "id": 194,
+   "file": "story_0_system",
+   "char": "0",
+   "en": "Just how many eons?"
+  },
+  {
+   "id": 195,
+   "file": "story_0_system",
+   "char": "1",
+   "en": "It is difficult to measure because of the expansion of space, the rift space cataclysm, variations in various cosmological constants...."
+  },
+  {
+   "id": 196,
+   "file": "story_0_system",
+   "char": "0",
+   "en": "Quit stalling, just a round figure...."
+  },
+  {
+   "id": 197,
+   "file": "story_0_system",
+   "char": "1",
+   "en": "Over 5 billion earth standard years."
+  },
+  {
+   "id": 198,
+   "file": "story_0_system",
+   "char": "0",
+   "en": "My Gods....\n...\nWHY?  ANSWER ME, WHY???"
+  },
+  {
+   "id": 199,
+   "file": "story_0_system",
+   "char": "1",
+   "en": "I'm sorry Skars....  All I know is that 'now' is when I was to awaken you.  I, and this ship, are now at your disposal.  My only instructions from this point forward are to follow your commands."
+  },
+  {
+   "id": 200,
+   "file": "story_0_system",
+   "char": "0",
+   "en": "None of this makes any sense, or even seems possible.  But, I long ago abandoned the concept of 'impossible', so let's take a look.  Ship's sensors indicate we are no longer orbiting a singularity..."
+  },
+  {
+   "id": 201,
+   "file": "story_0_system",
+   "char": "1",
+   "en": "Correct, I warped the ship to a nearby star system to begin the reactivation process.  Unfortunately, there appears to be a warp inhibitor in this system so we are stuck here till you do something about it."
+  },
+  {
+   "id": 202,
+   "file": "story_0_system",
+   "char": "0",
+   "en": "Warp? Inhibitor?"
+  },
+  {
+   "id": 203,
+   "file": "story_0_system",
+   "char": "1",
+   "en": "Move the ship to 'Tempus'... the world without a shield. Then launch ground activities.  I'll explain more once there..."
+  },
+  {
+   "id": 377,
+   "file": "story_1_system",
+   "char": "0",
+   "en": "This 'warp' travel is strange to me..."
+  },
+  {
+   "id": 378,
+   "file": "story_1_system",
+   "char": "1",
+   "en": "Yes, you only ever knew travel through Rift Space.  Rift Space was sealed many millennia ago in an attempt to stop the Creeper menace from returning."
+  },
+  {
+   "id": 379,
+   "file": "story_1_system",
+   "char": "1",
+   "en": "Unfortunately, it did not work.  The Creeper arrived in vessels that could bend the fabric of space-time.  Eventually, the few survivors of successive civilizations developed their own warp technology."
+  },
+  {
+   "id": 380,
+   "file": "story_1_system",
+   "char": "1",
+   "en": "But no matter how strong and advanced each civilization grew, the Creeper would always eventually return."
+  },
+  {
+   "id": 381,
+   "file": "story_1_system",
+   "char": "0",
+   "en": "But this ship was constructed before those events.  Platius must have known about warp travel and that this ship would need it."
+  },
+  {
+   "id": 382,
+   "file": "story_1_system",
+   "char": "1",
+   "en": "Yes, but... things weren't that simple.  For now concentrate on gaining access to Starsync.  That's where the Warp Inhibitor is in this system."
+  },
+  {
+   "id": 383,
+   "file": "story_1_system",
+   "char": "0",
+   "en": "I see it at 'Starsync' but it is shielded....  The threat these people faced must have been truly terrifying.  Looks like Telos is our only option.  I'll fly the ship there and initiate ground actions."
+  },
+  {
+   "id": 260,
+   "file": "story_2_system",
+   "char": "1",
+   "en": "This is the Navox system.  The worlds here have varied histories."
+  },
+  {
+   "id": 261,
+   "file": "story_2_system",
+   "char": "0",
+   "en": "It seems that Flick and Tiplex are both shielded but the other three worlds are not."
+  },
+  {
+   "id": 262,
+   "file": "story_2_system",
+   "char": "1",
+   "en": "Correct.  You have a choice as to how to proceed.  Scanners show various artifacts scattered across the worlds.  So the order you visit the worlds will determine what technologies we acquire first."
+  },
+  {
+   "id": 263,
+   "file": "story_2_system",
+   "char": "0",
+   "en": "Tiplex is where the Inhibitor is, but it appears to require multiple shield keys.  That world must have been more important than others..."
+  },
+  {
+   "id": 264,
+   "file": "story_2_system",
+   "char": "1",
+   "en": "Choose one of the three worlds and engage ground operations.  I'll explain what I know of each world in turn..."
+  },
+  {
+   "id": 2,
+   "file": "story_3_system",
+   "char": "0",
+   "en": "Any luck cracking the format on that Message Artifact from Tiplex?"
+  },
+  {
+   "id": 3,
+   "file": "story_3_system",
+   "char": "1",
+   "en": "Yes, it appears to be a text from one of the civilizations that followed the Seloi."
+  },
+  {
+   "id": 4,
+   "file": "story_3_system",
+   "char": "1",
+   "en": "As you recall, the Seloi were the only civilization to ever contact the Loki and get a response."
+  },
+  {
+   "id": 5,
+   "file": "story_3_system",
+   "char": "1",
+   "en": "The message is a transcript between two researchers who devoted their careers to studying the Seloi."
+  },
+  {
+   "id": 6,
+   "file": "story_3_system",
+   "char": "1",
+   "en": "The researchers believed the Seloi made a discovery regarding the intent of the Loki.  Unfortunately, the message contains no further details or descriptions."
+  },
+  {
+   "id": 7,
+   "file": "story_3_system",
+   "char": "0",
+   "en": "I see, perhaps it was just some random data storage device that survived the Creeper.  It seems as random as our purpose is now...."
+  },
+  {
+   "id": 8,
+   "file": "story_3_system",
+   "char": "0",
+   "en": "Lia, did Platius give you no instructions... no hint of my purpose?  Did he save me just so I could witness the destruction of all things?  Was this some form of cruel and unthinkable punishment?"
+  },
+  {
+   "id": 9,
+   "file": "story_3_system",
+   "char": "0",
+   "en": "Everyone I ever loved has been gone for billions of years.  Even their memories have been erased and crushed by the Creeper...."
+  },
+  {
+   "id": 10,
+   "file": "story_3_system",
+   "char": "1",
+   "en": "Not entirely, Skars.  You are here and you still remember them."
+  },
+  {
+   "id": 11,
+   "file": "story_3_system",
+   "char": "0",
+   "en": "True.... \nHa...  the trouble Dax and Varro got into.  With Aliana always trying to talk some sense into Dax.  Those were good times, Lia.  I wish you could have met them all."
+  },
+  {
+   "id": 12,
+   "file": "story_3_system",
+   "char": "1",
+   "en": "[Scanning System...]"
+  },
+  {
+   "id": 13,
+   "file": "story_3_system",
+   "char": "0",
+   "en": "I suppose that is prudent.  Let me know what your scans show...."
+  },
+  {
+   "id": 14,
+   "file": "story_3_system",
+   "char": "1",
+   "en": "[...]"
+  },
+  {
+   "id": 15,
+   "file": "story_3_system",
+   "char": "1",
+   "en": "Skars, this system contains five worlds, four of which are shielded.  The shield keys for these worlds appear to all be in this system, so that is some bit of good news."
+  },
+  {
+   "id": 16,
+   "file": "story_3_system",
+   "char": "0",
+   "en": "What's the bad news..."
+  },
+  {
+   "id": 17,
+   "file": "story_3_system",
+   "char": "1",
+   "en": "Some of these worlds are likely to be very hazardous.  Energy signatures indicate the potential for more than just simple emitters..."
+  },
+  {
+   "id": 18,
+   "file": "story_3_system",
+   "char": "0",
+   "en": "Well, with great challenge comes the potential for great reward.  Perhaps these worlds will also hold clues as to our purpose."
+  }
+ ]
+}

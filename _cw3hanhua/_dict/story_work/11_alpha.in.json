@@ -1,0 +1,224 @@
+{
+ "batch": "11_alpha",
+ "files": [
+  "alpha_The pit",
+  "alpha_Trae Noria",
+  "alpha_Twisted Island",
+  "alpha_Unknown Scenario - Part 2",
+  "alpha_Wallsaver",
+  "alpha_War Zone",
+  "alpha_Warzone Classic",
+  "alpha_Xeniveral",
+  "alpha_teks005 pyramid power",
+  "alpha_teks008 point to point",
+  "alpha_virgilw_system",
+  "credits"
+ ],
+ "count": 34,
+ "items": [
+  {
+   "id": 413,
+   "file": "alpha_The pit",
+   "char": "1",
+   "en": "This pit is full of moving drone-bases. Some structures might even create drone-bases."
+  },
+  {
+   "id": 414,
+   "file": "alpha_The pit",
+   "char": "1",
+   "en": "The drones will destroy any structure in range immediatly. They will move freely over the map but prefer high ground, but not higher than 8. Try to get them trapped so you can nullify the drone-bases."
+  },
+  {
+   "id": 415,
+   "file": "alpha_The pit",
+   "char": "1",
+   "en": "Next dialog will show a hint, click skip all if you don't want a spoiler."
+  },
+  {
+   "id": 416,
+   "file": "alpha_The pit",
+   "char": "1",
+   "en": "(PZ) Terps are key"
+  },
+  {
+   "id": 417,
+   "file": "alpha_Trae Noria",
+   "char": "6",
+   "en": "zzz-bi--zz-ch-z..."
+  },
+  {
+   "id": 418,
+   "file": "alpha_Trae Noria",
+   "char": "0",
+   "en": "What was that?  Lia?"
+  },
+  {
+   "id": 0,
+   "file": "alpha_Twisted Island",
+   "char": "1",
+   "en": "Simulation 3700B commencing!"
+  },
+  {
+   "id": 1,
+   "file": "alpha_Twisted Island",
+   "char": "1",
+   "en": "For this simulation, many strategies will be needed, among them the following: Bertha bombardment, guppy transportation, terraforming, and extensive air combat."
+  },
+  {
+   "id": 526,
+   "file": "alpha_Unknown Scenario - Part 2",
+   "char": "5",
+   "en": "You aren't serious about that plan, are you?"
+  },
+  {
+   "id": 527,
+   "file": "alpha_Unknown Scenario - Part 2",
+   "char": "1",
+   "en": "Don't get offensive, if you know any better plan that is doable in our time shedule, i'm fine hearing it."
+  },
+  {
+   "id": 528,
+   "file": "alpha_Unknown Scenario - Part 2",
+   "char": "5",
+   "en": "Allright. Let's get preparing..."
+  },
+  {
+   "id": 529,
+   "file": "alpha_Unknown Scenario - Part 2",
+   "char": "1",
+   "en": "(Several Hours later)\nOur ultimate weapons aren't in shape to fight the enemy directly... he is too strong for taht either. \nWe need to get our ranged weapon going."
+  },
+  {
+   "id": 530,
+   "file": "alpha_Unknown Scenario - Part 2",
+   "char": "1",
+   "en": "7 Minutes until 00.00.\nLet Operation Yashima begin."
+  },
+  {
+   "id": 531,
+   "file": "alpha_Unknown Scenario - Part 2",
+   "char": "0",
+   "en": "(Note: The Enemy Spore Towers will, after they finished building, throw insane amounts of spores at you (10 Spores every 2.5 Seconds)\nIt's very recommended to build overbuild Beams)"
+  },
+  {
+   "id": 505,
+   "file": "alpha_Wallsaver",
+   "char": "1",
+   "en": "This is a testing simulator of a little game where you have to move the green walls in such a way that they will survive as long as possible. Arrow keys to move. The game will end in 10 minutes. Good luck!"
+  },
+  {
+   "id": 504,
+   "file": "alpha_War Zone",
+   "char": "6",
+   "en": "What's up Creeper World Commanders? This is my very first map I made. This map was created in one of the first builds, it has been remastered for your pleasure. Enjoy, and thanks for playing!"
+  },
+  {
+   "id": 134,
+   "file": "alpha_Warzone Classic",
+   "char": "6",
+   "en": "I present to you: Warzone! This is the first map I made in one of the earliest builds of the game (way back in alpha!). Here it is, in its most raw form, aside from some added totems, this is the orginal map, just pure Creeper World Chaos! Also check out \"War Zone\" which is the updated version of this map for maximum madness!"
+  },
+  {
+   "id": 436,
+   "file": "alpha_Xeniveral",
+   "char": "0",
+   "en": "The first mission from the old alpha versions that seemed impossible. Good luck!"
+  },
+  {
+   "id": 208,
+   "file": "alpha_teks005 pyramid power",
+   "char": "1",
+   "en": "Thanks to Virgil for the scripts and images (that i shamelessly \"borrowed\" from the meso map).\nThe idols have quite high energy demand, make sure you can run them before you hook them up!"
+  },
+  {
+   "id": 265,
+   "file": "alpha_teks008 point to point",
+   "char": "2",
+   "en": "go north or go east, it's up to you, but connecting point to point will give you what you need to win. (scripts from meso, thanks again Virgil, i love these powered idols!)"
+  },
+  {
+   "id": 266,
+   "file": "alpha_teks008 point to point",
+   "char": "1",
+   "en": "tek tip! packet speed is probably a good idea!"
+  },
+  {
+   "id": 347,
+   "file": "alpha_virgilw_system",
+   "char": "7",
+   "en": "Welcome to the Alpha Sector!  Here you will find a collection of varied and assorted worlds. These maps were made throughout the development of the game by beta testers."
+  },
+  {
+   "id": 348,
+   "file": "alpha_virgilw_system",
+   "char": "7",
+   "en": "Some maps remain in their original form, others have been updated over time, yet others were updated at the end of game development by the beta testers."
+  },
+  {
+   "id": 349,
+   "file": "alpha_virgilw_system",
+   "char": "7",
+   "en": "You will find simple worlds, large worlds, super hard hards, testing worlds, puzzle words, maybe even impossible worlds.  Good luck on your journey!"
+  },
+  {
+   "id": 34,
+   "file": "credits",
+   "char": "7",
+   "en": "Knuckle Cracker would like to thank all of the fans and supporters that made this game possible."
+  },
+  {
+   "id": 35,
+   "file": "credits",
+   "char": "7",
+   "en": "Without your patience and support, none of this would have been possible.  And frankly, I wouldn't have wanted to do it without you anyway."
+  },
+  {
+   "id": 36,
+   "file": "credits",
+   "char": "7",
+   "en": "Thanks as always to Magnus aka MadMag (AcesHigh) for his awesome graphical talents and visual ideas.  Thanks as well to Grauniad for his patience and help with the Knuckle Cracker forums and for his ideas and support."
+  },
+  {
+   "id": 37,
+   "file": "credits",
+   "char": "7",
+   "en": "If you want to learn more about the composer of the awesome background music tracks, check out Finn M-K at composerprofiles.com/profile-finn-m-k and soundcloud.com/finnmk"
+  },
+  {
+   "id": 38,
+   "file": "credits",
+   "char": "7",
+   "en": "A special thanks in advance to all of the players of the game who create custom maps, make videos, tweet, facebook, google+, and all that stuff.  Your efforts make the community greater and stronger and are most appreciated."
+  },
+  {
+   "id": 39,
+   "file": "credits",
+   "char": "7",
+   "en": "Oh yeah... this mission!  Roam around my little dungeon and see what oddities you can find.  Use WASD or arrow keys to move, left mouse to fire (just hold it down).  Or you can click the right mouse button to turn on auto fire if your finger gets tired."
+  },
+  {
+   "id": 40,
+   "file": "credits",
+   "char": "7",
+   "en": "Take out emitters by getting near (a red range will appear around the Emitter), then pressing SPACE to drop a Personal Nullification Device.  It takes 5 seconds to arm, but you probably knew that already."
+  },
+  {
+   "id": 41,
+   "file": "credits",
+   "char": "5",
+   "en": "And what about me?  Don't I get to say anything?"
+  },
+  {
+   "id": 42,
+   "file": "credits",
+   "char": "7",
+   "en": "Uh, yes...  Yes of course.  I was just saving the best for last!"
+  },
+  {
+   "id": 43,
+   "file": "credits",
+   "char": "5",
+   "en": "Uh hmmmm...\n...\n...\nI forgot what I was going to say."
+  }
+ ]
+}

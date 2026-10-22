@@ -1,0 +1,323 @@
+{
+ "batch": "07_campaign",
+ "files": [
+  "Otrav",
+  "Ruine",
+  "Seedet"
+ ],
+ "count": 52,
+ "items": [
+  {
+   "id": 247,
+   "file": "Otrav",
+   "char": "0",
+   "en": "This world is covered with tech and none of it looks very friendly."
+  },
+  {
+   "id": 248,
+   "file": "Otrav",
+   "char": "1",
+   "en": "It is tech, that is for sure.  It doesn't appear to be directed toward any offensive or defensive purpose, though."
+  },
+  {
+   "id": 249,
+   "file": "Otrav",
+   "char": "0",
+   "en": "That is odd, since most civilizations were interested in defending themselves and the Creeper was interested in destroying them."
+  },
+  {
+   "id": 250,
+   "file": "Otrav",
+   "char": "1",
+   "en": "This world has been designed to concentrate Creeper on each hill top in sequence.  That old Ticon facility in the east is projecting dual attraction fields that rove over the terrain."
+  },
+  {
+   "id": 251,
+   "file": "Otrav",
+   "char": "0",
+   "en": "What purpose is there in concentrating Creeper like that?  It makes it harder to destroy, but this world doesn't appear configured for defense."
+  },
+  {
+   "id": 252,
+   "file": "Otrav",
+   "char": "0",
+   "en": "Could it have anything to do with the intense signals you have detected focused on this system?  Focus your scanners on a hill top..."
+  },
+  {
+   "id": 254,
+   "file": "Otrav",
+   "char": "1",
+   "en": "This is interesting, and subtle.  It seems that the structure on each hill is designed as a transmitter.  When the Creeper pools over each transmitter, I assume that is when each will transmit."
+  },
+  {
+   "id": 255,
+   "file": "Otrav",
+   "char": "0",
+   "en": "And this is where the signal in this system is coming from?"
+  },
+  {
+   "id": 256,
+   "file": "Otrav",
+   "char": "1",
+   "en": "Absolutely not.  Well, some tiny fraction of it perhaps.  The signals in this system must be coming from billions of other worlds just like this one... all transmitting at the same time."
+  },
+  {
+   "id": 257,
+   "file": "Otrav",
+   "char": "0",
+   "en": "It's the Loki... it must be.  Everything over the last 10 billion years, their campaign to destroy everything in the universe with the Creeper... it has all been building to this."
+  },
+  {
+   "id": 258,
+   "file": "Otrav",
+   "char": "1",
+   "en": "Skars, if all of the Creeper from across the universe is the source of the signals it means the Creeper doesn't just destroy things.  It also remembers things in exacting detail. It would only be bound by the uncertainty principle, unless..."
+  },
+  {
+   "id": 259,
+   "file": "Otrav",
+   "char": "0",
+   "en": "We are going to destroy those transmitters, that field projector, and collect the shield key from this world.  We must reach the next world in this system and discover what the Loki are doing."
+  },
+  {
+   "id": 389,
+   "file": "Ruine",
+   "char": "1",
+   "en": "Another shattered world.  The last I heard from this world, it was a thriving new colony.  There is likely little here of interest."
+  },
+  {
+   "id": 390,
+   "file": "Ruine",
+   "char": "0",
+   "en": "Don't be so hasty... your Gel circuits must need recalibrating.  I see a Message Artifact and a Tech Artifact on the scanners."
+  },
+  {
+   "id": 391,
+   "file": "Ruine",
+   "char": "1",
+   "en": "Yes.... yes... you are correct.  Not sure why I overlooked those.  Perhaps I need to perform Gel maintenance again."
+  },
+  {
+   "id": 392,
+   "file": "Ruine",
+   "char": "0",
+   "en": "There also appears to be an odd anomaly in space.  Subspace-slip emitters appear to be floating between the asteroids and space seems warped there!"
+  },
+  {
+   "id": 393,
+   "file": "Ruine",
+   "char": "1",
+   "en": "I have few records of the Creeper ever acting in this fashion.  It is possible to warp space this way, but so far from a gravity well... it would require immense energy.  The mass energy of entire stars would be required...."
+  },
+  {
+   "id": 394,
+   "file": "Ruine",
+   "char": "1",
+   "en": "I can only recommend that you stay clear of that area.  With that much Creeper collapsing into a small region of space, I'm not sure what the results might be."
+  },
+  {
+   "id": 395,
+   "file": "Ruine",
+   "char": "0",
+   "en": "The Tech Artifact doesn't show any signatures of Ticon or any other civilization we have encountered.... it appears to be a rather mundane tech."
+  },
+  {
+   "id": 396,
+   "file": "Ruine",
+   "char": "1",
+   "en": "The Guppy tech... I have been hoping we would encounter this.  Simple as the tech may be, it should prove very useful across these asteroids.  Guppies confine and contain packets for remote delivery."
+  },
+  {
+   "id": 397,
+   "file": "Ruine",
+   "char": "0",
+   "en": "Ahhh... very clever.  So we can use them to build structures remotely where our network can't reach.  That will allow us to build nullifiers on those small asteroids that have Spore Towers on them."
+  },
+  {
+   "id": 398,
+   "file": "Ruine",
+   "char": "1",
+   "en": "Speaking of Spore Towers, my circuits are now operating properly and I have reviewed the scans. The wreckage of this world is littered with Spore Towers.  You will need to bring Beam defenses on-line rapidly. Collect the Guppy Tech Artifact, and eliminate the spore threat as soon as possible."
+  },
+  {
+   "id": 399,
+   "file": "Ruine",
+   "char": "1",
+   "en": "I have also managed to enable a few more tech upgrades in the Forge.  Use those to your advantage."
+  },
+  {
+   "id": 400,
+   "file": "Ruine",
+   "char": "0",
+   "en": "I'm glad your circuits are working well again... I hope that whatever spatial anomalies are present in this system aren't affecting you..."
+  },
+  {
+   "id": 401,
+   "file": "Ruine",
+   "char": "1",
+   "en": "This is fascinating...  This artifact contains an instruction manual for the Guppy, volumes of literature, art, and video from old Earth, and a treatise from the 144th C.E. on the prospects of cyclical eternity."
+  },
+  {
+   "id": 402,
+   "file": "Ruine",
+   "char": "0",
+   "en": "An odd collection of materials?  Scan through it all looking for anything unusual."
+  },
+  {
+   "id": 403,
+   "file": "Ruine",
+   "char": "1",
+   "en": "[Scanning Message Artifact...]"
+  },
+  {
+   "id": 404,
+   "file": "Ruine",
+   "char": "1",
+   "en": "Oh..."
+  },
+  {
+   "id": 405,
+   "file": "Ruine",
+   "char": "0",
+   "en": "What did you find?"
+  },
+  {
+   "id": 406,
+   "file": "Ruine",
+   "char": "1",
+   "en": "The treatise on cyclical eternity was written during the time of the Seloi, the sole civilization that ever contacted the Loki.  The treatise proposes something that is most certainly impossible."
+  },
+  {
+   "id": 407,
+   "file": "Ruine",
+   "char": "1",
+   "en": "The Seloi were prone to works of great imagination and often developed entire disciplines devoted to the study of theories they knew to be false.  So this is likely one of their many fanciful creations."
+  },
+  {
+   "id": 408,
+   "file": "Ruine",
+   "char": "0",
+   "en": "Be that as it may, indulge me with some details."
+  },
+  {
+   "id": 409,
+   "file": "Ruine",
+   "char": "1",
+   "en": "The treatise proposes that our universe is but one of many... nothing new there, this idea dates back to the 1st C.E.  It goes on to argue that it is possible to create a device... something unique and singular to each universe."
+  },
+  {
+   "id": 410,
+   "file": "Ruine",
+   "char": "1",
+   "en": "Unfortunately, the document stops after that and no more details are available.  It looks simply like the message was cut off."
+  },
+  {
+   "id": 411,
+   "file": "Ruine",
+   "char": "0",
+   "en": "Any hints of where the rest of the message may be?"
+  },
+  {
+   "id": 412,
+   "file": "Ruine",
+   "char": "1",
+   "en": "Nothing.  In all likelihood, this was a partial copy and the rest of the treatise is lost forever."
+  },
+  {
+   "id": 98,
+   "file": "Seedet",
+   "char": "0",
+   "en": "That's a strange formation around the emitter on this world."
+  },
+  {
+   "id": 99,
+   "file": "Seedet",
+   "char": "1",
+   "en": "Yes, emitters arrived in ever more insidious ways.  Dropping from orbit, appearing directly out of Rift Space, subspace slips..."
+  },
+  {
+   "id": 100,
+   "file": "Seedet",
+   "char": "0",
+   "en": "But why... Lia, in all the eons that have passed have you learned nothing about the Loki's true purpose?  Why do they cover all worlds in Creeper?"
+  },
+  {
+   "id": 101,
+   "file": "Seedet",
+   "char": "1",
+   "en": "Humans made three attempts to contact the Loki, only one was successful.  There was one age, one civilization that was different from all others that came before or after.   They called themselves simply the \"Seloi\"."
+  },
+  {
+   "id": 102,
+   "file": "Seedet",
+   "char": "1",
+   "en": "The Seloi's greatness wasn't in their military might, their governance of a hundred thousand worlds, or the lasting peace they achieved.  Their greatness was in the 'serenity' of existence they achieved."
+  },
+  {
+   "id": 103,
+   "file": "Seedet",
+   "char": "1",
+   "en": "They referred to this with a word not in your vocabulary, but what they achieved was an understanding and appreciation of the very fabric of existence.  In many ways they discovered the 'meaning' of existence."
+  },
+  {
+   "id": 104,
+   "file": "Seedet",
+   "char": "0",
+   "en": "And the Seloi were the ones to contact the Loki?"
+  },
+  {
+   "id": 105,
+   "file": "Seedet",
+   "char": "1",
+   "en": "Yes.  When the end came for them as it did all others, they sent a message to the Loki pleading not for their lives but for something else.  Something they referred to simply as the \"Arc\"."
+  },
+  {
+   "id": 106,
+   "file": "Seedet",
+   "char": "0",
+   "en": "What was the \"Arc\" and what was the Loki's response?"
+  },
+  {
+   "id": 107,
+   "file": "Seedet",
+   "char": "1",
+   "en": "What the Arc referenced is unknown.  Perhaps it was a late discovery of some technology by these humans, or perhaps it was a very closely guarded secret.  I have no other references to it."
+  },
+  {
+   "id": 108,
+   "file": "Seedet",
+   "char": "0",
+   "en": "And the Loki's response?"
+  },
+  {
+   "id": 109,
+   "file": "Seedet",
+   "char": "1",
+   "en": "A single statement; \"More so than all others, YOU must perish\"."
+  },
+  {
+   "id": 110,
+   "file": "Seedet",
+   "char": "0",
+   "en": "(Sigh)...."
+  },
+  {
+   "id": 111,
+   "file": "Seedet",
+   "char": "1",
+   "en": "Skars, this world contains two extinct volcanoes.  Emitters have taken up residence in each one .  I suggest you pick up the Strafer Tech Artifact on this world."
+  },
+  {
+   "id": 112,
+   "file": "Seedet",
+   "char": "0",
+   "en": "I got it... The Strafers are aircraft and I can use them to suppress the volcanoes while I deal with the central emitter."
+  },
+  {
+   "id": 113,
+   "file": "Seedet",
+   "char": "1",
+   "en": "Exactly.  You will likely need to target two Strafers on each volcano.  Don't waste any time... those volcanoes won't wait."
+  }
+ ]
+}

@@ -1,4 +1,4 @@
-# CW3 汉化项目 · 技术文档
+﻿# CW3 汉化项目 · 技术文档
 
 > **这是唯一文档。** 只保留**结论、证据、可复现操作**。
 > 过程性叙述、已废弃的方法不单独存档 —— 历史结论压成一句留在对应章节，或者直接删。
@@ -15,7 +15,7 @@
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅（**v0.9.0 已实测通过**）/ TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 🟡 **v0.10.1 待实测** |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅（**v0.9.0 已实测通过**）/ TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 🟡 **v0.10.2 待实测** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -41,10 +41,10 @@
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
 | 字体层插件 | `BepInEx/plugins/CW3Hanhua.dll` **v0.8.3**（`plugin/CW3Hanhua.cs`）<br>合并图集 + 合并 HUD（v0.8.3 = 重做 HUD，见 4.1「HUD」）。字体/图集链路**已实测通过**；新 HUD **待实测** |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
-| 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` **v0.10.1**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`（**1144 条**）。`ProcessText` prefix+postfix 覆盖全部 UILabel；**另打 5 个 TextMesh 写入点**（3 个 `ShowText` prefix + 2 个 name setter postfix）。UILabel 部分**已实测通过**，TextMesh 补丁**待实测**。v0.10.1 = HUD 缩成一行（4.3） |
+| 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` **v0.10.2**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`（**2021 条**）。`ProcessText` prefix+postfix 覆盖全部 UILabel；**另打 5 个 TextMesh 写入点**（3 个 `ShowText` prefix + 2 个 name setter postfix）。UILabel 部分**已实测通过**，TextMesh 补丁**待实测**。v0.10.2 = HUD 缩成一行（4.3）<br>**2026-10-22**：词表新增剧情 852 条（4.8），需按 **F9** 重载 |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
 | 按键 | 字体层 **F3** 开关 / **F11** dump / **F12** HUD；文本层 **F4** 开关 / **F5** 打印未命中 / **F9** 重载词表 |
-| 待办 | 15 条资源条模板串的碎片替换（4.7）；`Andro` / `DMD` / `'4'` 是否翻待定（4.7） |
+| 待办 | 15 条资源条模板串的碎片替换（4.7）；`Andro` / `DMD` / `'4'` 是否翻待定（4.7）；**剧情 852 条已实测通过（4.8 / 4.8a）** |
 
 **启用 / 停用 BepInEx**
 
@@ -158,6 +158,10 @@ MainMenu.OnMouseEnterEntryManager / MainMenu.Update:
 
 > **`LookupConcat` 只切 `\n`**，所以「同一行内拼接数字」的情形它管不了 —— 见 4.7 的
 > 资源条模板串。
+>
+> **v0.10.2 起 `Lookup` 还有第三级**：精确 → `LookupConcat` → **归一化匹配**
+> （`\r\n`→`\n`、连续空格折叠、去尾部空白）。加这一级是因为剧情台词的 XML 原文是 CRLF，
+> 与运行时串差一个 `\r` 就永远查不到 —— 完整经过见 **4.8a**。
 
 ### 3.4 ★ 字体层：把中文字形并进 GUI Atlas
 
@@ -287,6 +291,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | B6 | 改资产：TextMesh 中文烘进 prefab（19 条） | ✅ **实测通过**（`script_type_index` bug 修好后，见 4.6） |
 | B7 | ③ 类运行时覆盖对象的代码补丁（v0.10.0） | 🟡 **已实现，待实测**（4.6a） |
 | C1–C3 | 翻译：主菜单 / HUD / 建造菜单 / 剧情 | ✅ 全量批 full_01–22 入库 1144 条 |
+| C3b | 剧情对话（TextAsset XML，579 台词 + 273 名字） | ✅ 全部译完入库 + **游戏内实测通过**（4.8 / 4.8a） |
 | C4 | 剩余按设计不译的分流 | ✅ |
 | D | 打包 / 分发 | ⬜ |
 
@@ -299,7 +304,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 
 ### 4.1 字体烘焙与插件按键
 
-**按键（`plugin/CW3Hanhua.cs` v0.8.3 + `plugin/CW3HanhuaText.cs` v0.10.1，共 6 个）**
+**按键（`plugin/CW3Hanhua.cs` v0.8.3 + `plugin/CW3HanhuaText.cs` v0.10.2，共 6 个）**
 
 | 键 | 层 | 作用 |
 |---|---|---|
@@ -408,9 +413,9 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 |---|---|
 | IL 字符串引用 | 11001（Assembly-CSharp）+ 238（firstpass） |
 | 资产文本 | 467 条（UILabel 455 + TextMesh 12；另有 19 条已被 bake 成中文，按 CJK 跳过） |
-| 去重后候选 | **2404**（ui 1292 + other 1083 + none 29） |
+| 去重后候选 | **2404**（ui 1292 + other 1083 + none 29）<br>**+ 剧情 579 台词 / 273 名字 / 23 星系图物件**（4.8 单独流程补入） |
 | 来源 | both 292 / asset 175 / dll 1937 |
-| 已译 | **1144**（ui 880 + other 260 + 4 条过场叙事） |
+| 已译 | **1144**（ui 880 + other 260 + 4 条过场叙事）<br>**+ 852 条剧情**（579 Dialog + 294 Name，见 4.8）→ `strings.json` 共 **3254** 条、`zh_cn.dict` **2021** 条 |
 
 > **数字口径**：`ui` 不是"一定会显示"，是"几乎一定"；`other` 里约 900 条是单词，
 > 需要人工判定。**不要拿 ui 条数当工作量上限。**
@@ -475,7 +480,7 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 - 译稿用**序号字典** `{"zh": {"3": "译文"}}`，缺省项视为 `@`（跳过不译）；
   **不要用数组形式**（漏一项就整体错位，踩过一次：89 vs 88，后 60 条全串行）。
 
-### 4.3 文本层插件（`CW3HanhuaText.cs` v0.10.1）
+### 4.3 文本层插件（`CW3HanhuaText.cs` v0.10.2）
 
 **为什么单独一个 DLL**：字体层已验证通过、不想动；两层独立开关，出问题时能立刻判断是谁的锅。
 BepInEx 5 按文件名顺序装载，`CW3Hanhua.dll` → `CW3HanhuaText.dll` 是**字母序碰巧正确**的，
@@ -525,8 +530,8 @@ TextMesh 那五个写入点登记在独立的 `meshSwaps`（`MeshSwap = {mesh, e
 - `missSeen` + **F5**：`ProcessText` 查不到译文时记一条，F5 打印清单。
   列出来的说明"走了 UILabel 但没译文"（补词表 + F9 重载即可）；
   界面上仍英文、清单里又没有的，才是真正**必须改资产**的对象（TextMesh 那批）。
-- **F11 dump 里那一行**（v0.10.1 起从 HUD 挪过来，反射调 `TextPlugin.DumpLine()`）：
-  `文本层 v0.10.1  开关=…  词表=…  prefix=调用/命中  拼接=…  mesh=调用/命中  未命中=…`。
+- **F11 dump 里那一行**（v0.10.2 起从 HUD 挪过来，反射调 `TextPlugin.DumpLine()`）：
+  `文本层 v0.10.2  开关=…  词表=…  prefix=调用/命中  拼接=…  mesh=调用/命中  未命中=…`。
   `prefix` 计数不动 = 补丁没装上；`mesh` 计数不动 = TextMesh 那五个补丁没装上或那段文本没被写过。
   ★ HUD 上只剩 `F4 文本层:开/关` 一个状态（4.1「HUD」）——数字要看 dump 文件。
 
@@ -711,6 +716,10 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 **结论**：`strings.json` **2404 条里 1144 条已译**（ui 880 / other 260 / 过场叙事 4），
 **其余 1260 条按设计不译**。插件读的 `zh_cn.dict` = **1144 条**（49 481 字节，FNV 校验通过）；
 `check_charset.py` 报 `用到字符 943 个（汉字 857）✓ 汉字全部在字集内` —— **不用重烘图集**。
+
+> **2026-10-22 补充**：4.8 的剧情流程另入库 **852 条**（579 Dialog + 294 Name，既有条目补空译 4 条），
+> `strings.json` 现 **3254 条**、`zh_cn.dict` 现 **2021 条**（194 962 字节，`--include-other` 编译），
+> `check_charset.py` 现报 `1534 字符（汉字 1437）✓ 全部在字集内`，同样不用重烘图集。
 
 > 2026-10-20 晚补的 4 条是过场叙事台词：`presents`→`出品`、`-- EARTH --`→`—— 地球 ——`、
 > `--Transcript Follows--`→`—— 以下为会议记录 ——`、`--Transcript Ends--`→`—— 会议记录结束 ——`。
@@ -925,7 +934,7 @@ mainData 49 / resources.assets 2185 / sharedassets6 11，不同的都是 0）。
 **没有 generator 时读不到会表现为「扫出 0 个」，很容易误判成"资产里没有"。**
 另：`resources.assets` 解 typetree 极慢（**138 秒**），全量扫描要给足超时。
 
-### 4.6a TextMesh 的代码补丁（`CW3HanhuaText.cs` v0.10.1，步骤 6）
+### 4.6a TextMesh 的代码补丁（`CW3HanhuaText.cs` v0.10.2，步骤 6）
 
 改资产能覆盖**静态**的 19 条，但有一批 TextMesh 的文本是**运行时才写**的，
 资产里只是占位值（`'Andro'`、`'4'`、空模板），烘中文也留不住 → 只能打代码补丁。
@@ -965,7 +974,7 @@ mainData 49 / resources.assets 2185 / sharedassets6 11，不同的都是 0）。
 - 登记进独立的 `Dictionary<int, MeshSwap> meshSwaps`（`MeshSwap = {mesh, en}`），
   与 UILabel 的 `swaps` 分开；F4 还原时 `mesh.text = en` 即可。
 - F11 dump 那行带 `mesh=调用/命中`，计数不动就说明补丁没装上或那段文本没被写过。
-  （v0.10.1 起 HUD 上不再显示计数，见 4.1「HUD」。）
+  （v0.10.2 起 HUD 上不再显示计数，见 4.1「HUD」。）
 
 ### 4.7 待办与已知缺口
 
@@ -1007,6 +1016,90 @@ CommandCenter.GetUnitTitleDisplay(UnitManager)   token=0x06000A33  RVA=0x46EA4  
   `Wormhole/StarTitle` 与 `Star/StarTitle`）与 `DMD`（`level1` pid=3342，`Star/SpriteLabel`）
   词表里都没有译文；`'4'` 是 `TextLabel` prefab 的五层占位值（`ilx callers` 命中 0 处，无处施力）。
 - 打包/分发方案未定（BepInEx + 两个 DLL + `_font/` + `_dict/` 的目录形态）。
+
+---
+
+### 4.8 ★ 剧情对话文本（2026-10-22，579 条台词 + 294 条名字）
+
+**问题**：游戏里对话框（Lia 那段）全是英文，F5 未命中清单里能看到整段台词。
+
+**根因**：剧情台词不在 DLL 的 `ldstr` 里，而在 **`CW3_Data\resources.assets` 的 TextAsset**
+里，LZMA 压缩的 XML。`collect_ui_strings.py` 只扫 IL 与资产 `mText`，自然收不到。
+
+**数据链路（已实测）**：
+
+```
+TextAsset.m_Script          ← UnityPy 读出来是 str，必须 .encode('utf-8','surrogateescape') 才拿到原始字节
+  → lzma.decompress(format=lzma.FORMAT_ALONE)     ← 不是 RC4！SaveGameManager 的 RC4 只在存档加密时用
+  → XML  <System>/<Game> 里的 <Messages><Message><c>角色</c><m>整条台词</m></Message>
+```
+
+**为什么加词表就能翻**（不需要改插件）：`MessageDialogManager.set_currentMessage`
+（token=0x06000C2F）是 `messageText.text = msg.message` —— **一次只把一条**写进 UILabel，
+所以 `ProcessText` 的精确匹配就能命中，`\n` 与空行原样保留。
+角色名是另一条路径：`messageText` 旁边那个 `characterName` UILabel，值来自
+`MessageDialogManager.Awake`（token=0x06000C31）里硬编码的 8 元数组：
+`Skarsgard Abraxis` / `Lia` / `Loki Hive` / `Abrax... Imper...???` / `Loki Imperator` /
+`Aliana` / 空 / 空（后两个位置留给自定义角色 `CustomCharacters`）。
+
+**工具（都在 `tools/`，一次跑完）：**
+
+| 脚本 | 作用 |
+|---|---|
+| `extract_story_text.py` | 解压全部 TextAsset → 抽 `<m>` 台词与 `<n>/<g>` 名字 → `_dict/story_candidates.json` |
+| `story_batches.py` | 按文件切批（≤60 条、不拆单文件）→ `_dict/story_work/NN_*.in.json` |
+| `story_normalize.py` | 跨批次译名统一（泰康/蒂康→泰肯、科技圣物→技术圣物、公元 X 年→循环历 X 年…），`--write` 写回 |
+| `story_merge.py` | 校验（覆盖/id/`\n` 个数/残留英文/句数）+ `--write` 并入 `strings.json`（并**补写**原本 zh 为空的条目）+ `--sync` 用 out 文件覆盖 kind=Dialog 的译文 |
+| `audit_xml_text.py` | 反向审计：XML 里还有哪些「像人话」的文本不在词表（找漏网之鱼，如星系名） |
+
+**规模**：584 条 `<m>`（去重 579，69494 字符，最长 327）；名字 273 条（星球/星区/任务名）；
+另有 `story_sector`/`credits_sector` 的 9 颗恒星名 + 1 个 credits 星名、12 个 `X Shield Key`、
+`Right Click To Enable`、5 个角色名 —— 共 23 条走 `story_work/12_extra.out.json`（格式 `{en,zh,kind}`）。
+
+**不译的三类**（刻意跳过，别重开）：
+- `license`（EULA 10203B）、`uploadLicense`（投稿协议 4482B）—— 法律文本
+- `planetnames`（94967B，约一万个一行一个的随机星球名）—— 随机名无意义
+- XML 里的 `.crpl` 脚本文件名、`MAIN;Default`、`name;STRING:...`、`sun`/`False` 等内部标记
+
+**命名口径**（以 2026-10-22 的 `glossary.md` 为准，跨批已统一）：
+Ticon 泰肯、Prospector Zone 探矿者星区、Digitalis 魔苋、Tech Artifact 技术圣物、
+Digitalis 魔苋、Loki Hive 洛基巢穴（对白与名字表统一）、Loki Imperator 洛基统领、
+C.E. → **循环历 X 年**（原文 `144th C.E.`/`3rd C.E.`，不写「公元」也不写「第 X 纪元」）。
+
+**结果**：`strings.json` 2404 → **3254 条**；`zh_cn.dict` 1144 → **2021 条**（含 579 台词 +
+294 名字类，194962 字节）。`check_charset.py` 报 **汉字全部在字集内（1534 字符 / 1437 汉字）**。
+
+**验证状态**：✅ **2026-10-22 深夜游戏内实测通过**（对话框、角色名、星系名全变中文）。
+但第一次实测是**大面积失败**的，根因与修法见下面的 4.8a —— 这条坑值得单独记住。
+
+---
+
+### 4.8a ★ 剧情台词「词表有、游戏里查不到」的根因：CRLF
+
+**现象**：词表 579 条台词离线逐条校验全对（`dict[key]` 都能取到），进游戏却大部分不翻译；
+角色名、UI 反而正常。F5 未命中清单里出现的正是这些台词（前缀看着和原文一模一样）。
+
+**根因**：**XML 资源里的换行是 CRLF**（实测 189 个 TextAsset 解压后 244 533 个 `\r\n`）。
+
+- `xml.etree.ElementTree` 按 XML 规范在解析时把 `\r\n` **归一成 `\n`** → 我们用到的 key 全是 LF。
+- 游戏自己的解析路径保留了 `\r` → 运行时 `msg.message` 里是 `\r\n`。
+- 于是 `"A\r\nB"` ≠ `"A\nB"`，`Dictionary.TryGetValue` 必然落空 —— 只有**单行台词**
+  （不含换行）能命中，所以看起来「有的翻了有的没翻」。另有若干条原本尾部带空格，
+  即使单行也会差一个空格。
+
+**修法（插件 v0.10.2，`Lookup` 第三级兜底）**：精确 → `\n` 拼接 → **归一化匹配**。
+归一化（建表与查表两端一致）：`\r\n`→`\n`、连续空格折叠成一个、去掉尾部空白（含换行）。
+`dictNorm` 在 `LoadDict` 里与 `dict` 同时建，HUD/F11 的「归一化=N」就是它命中的条数。
+只在前面两级都失败后才走，对既有 1000+ 条译文零影响。
+
+**顺带留下的诊断件（`NoteMiss` 里，v0.10.2 起）**：长度 ≥20 的未命中串会写进
+`_cw3hanhua\_dict\miss_dump.txt` —— 全文（`\n` 转义）+ 变体试探（TrimEnd / Trim / +`\n` /
+双空格折叠 / CRLF→LF / TrimEnd+`\n`，命中的那行标 `[HIT:xxx]`）+ 前缀相同的最接近 key
+与**第一个不同字符的码位**。以后再遇到「应该翻却没翻」，先看这个文件，不用猜。
+
+> 教训：**别用会做规范化的 XML 解析器去产出「要拿去精确匹配运行时字节」的 key。**
+> 正确做法是解析前把 `\r\n` 手工留住（`xml.replace(b"\r\n", b"&#13;\n")` 之类），
+> 或者像现在这样在查表侧做归一化。两者选一，别两边都不做。
 
 ---
 
@@ -1216,7 +1309,7 @@ _cw3hanhua/
 │   └─ uilabel_inventory.json / textmesh_inventory.json
 │                              ★ 烘焙前的历史基线快照，**不可再生**（重跑 scan 会覆盖）
 ├─ plugin/             ★ 两个在用源文件：CW3Hanhua.cs（字体层 v0.8.3）
-│                      CW3HanhuaText.cs（文本层 v0.10.1）
+│                      CW3HanhuaText.cs（文本层 v0.10.2）
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）
 │                      ★ 工具链：font_{16,20,28}.{json,png}（重烘图集的必需输入）
 ├─ _dict/              ★ 词表：strings.json（唯一数据）/ glossary.md（术语表）

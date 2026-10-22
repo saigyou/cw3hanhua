@@ -62,3 +62,11 @@ __pycache__/
 /_cw3hanhua/_dict/work/
 # 一次性统计脚本的产物（已删除，此处防止再误入库）
 /_cw3hanhua/_tmp_dump*
+
+# ---------- 下划线开头的临时脚本与备份 ----------
+# tools/_dbg.py、tools/_tmp_quotes.py 这类一次性探查脚本，调试完就该删；
+# 万一忘了删，别让它们入库。
+/_cw3hanhua/tools/_*.py
+# strings.json 改动前的快照（每个约 1 MB，可由 git 历史找回）
+/_cw3hanhua/_dict/*.bak*
+/_cw3hanhua/_dict/*.bak
