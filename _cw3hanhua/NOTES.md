@@ -1,4 +1,4 @@
-﻿# CW3 汉化项目 · 技术文档
+# CW3 汉化项目 · 技术文档
 
 > **这是唯一文档。** 只保留**结论、证据、可复现操作**。
 > 过程性叙述、已废弃的方法不单独存档 —— 历史结论压成一句留在对应章节，或者直接删。
@@ -1064,7 +1064,8 @@ TextAsset.m_Script          ← UnityPy 读出来是 str，必须 .encode('utf-8
 **命名口径**（以 2026-10-22 的 `glossary.md` 为准，跨批已统一）：
 Ticon 泰肯、Prospector Zone 探矿者星区、Digitalis 魔苋、Tech Artifact 技术圣物、
 Digitalis 魔苋、Loki Hive 洛基巢穴（对白与名字表统一）、Loki Imperator 洛基统领、
-C.E. → **循环历 X 年**（原文 `144th C.E.`/`3rd C.E.`，不写「公元」也不写「第 X 纪元」）。
+C.E. → **第 N 循环历**（原文 `144th C.E.`/`3rd C.E.`/`1st C.E.`，全词表统一；不写「公元」，也不写「第 X 纪元」。
+2026-10-22 二次修订：旧稿混用「循环历 X 年」「第三纪元」「公元 X 年」三种，见 4.9 节）。
 
 **结果**：`strings.json` 2404 → **3254 条**；`zh_cn.dict` 1144 → **2021 条**（含 579 台词 +
 294 名字类，194962 字节）。`check_charset.py` 报 **汉字全部在字集内（1534 字符 / 1437 汉字）**。
@@ -1100,6 +1101,79 @@ C.E. → **循环历 X 年**（原文 `144th C.E.`/`3rd C.E.`，不写「公元�
 > 教训：**别用会做规范化的 XML 解析器去产出「要拿去精确匹配运行时字节」的 key。**
 > 正确做法是解析前把 `\r\n` 手工留住（`xml.replace(b"\r\n", b"&#13;\n")` 之类），
 > 或者像现在这样在查表侧做归一化。两者选一，别两边都不做。
+
+---
+
+### 4.9 开场动画（PreludeManager）译文修正（2026-10-22）
+
+**触发**：用户看开场动画截图，觉得「有些奇怪的措辞」。逐句比对 IL 原文后确认 5 处问题。
+
+**链路**：`PreludeManager.FixedUpdate` 里 31 处 `ldstr` 紧接
+`PreludeManager.ShowText(String,Single,Single,Single,Int32,Single,Single)`，
+由文本层 `PrefixAnyShowText` 查词表（4.6a）。**三句跨行的旁白是真的拆成三条 ldstr**，
+每条单独查表，所以照原文逐句译即可。
+
+`ilx dump PreludeManager FixedUpdate --dll <Assembly-CSharp.dll>` 的原文顺序：
+`Knuckle Cracker` → `presents` → `Creeper World III` → `Arc Eternal` →
+`The arc of the moral universe is long,` / `but bends toward justice.` /
+`Dr. Martin Luther King, Jr.` / `20th Century, 1st C.E.` → `-- EARTH --` →
+`By the year 13271 in the first Common Era,` / `humans had spread into a great galactic empire.` …
+
+**改掉的 5 条**（批次 `full_10.json` / `full_11.json`，`apply_translations.py --override`）：
+
+| 原文 | 原译（问题） | 现译 |
+|---|---|---|
+| `20th Century, 1st C.E.` | 公元 1 世纪，20 世纪（**年代倒置**，且写成"1 世纪"丢掉"第 1 个循环历"） | **20 世纪，第 1 循环历** |
+| `Their impossible journey ended in the destruction of the` +<br>`enemy Nexus and the founding of a new, sole human colony.` | 「以摧毁…」+「…的建立」—— `ended in` 后面并列**两个宾语**（毁灭 / 建立），旧译硬塞成"以…，以及…" | 「那场不可能的征途，终结于摧毁」+「敌人的枢纽，并建立了人类唯一的新殖民地。」 |
+| `Yet, a small group of less than 50 thousand humans survived.` | 一小群不足 5 万的人类（修饰顺序颠倒，像"人类不足 5 万"） | **然而，不到 5 万人的一小群人类幸存了下来。** |
+| `Thousands of worlds…` | **成千上万**个世界（只对应 tens of thousands） | **数千个世界毁于一个未知的敌人。** |
+| `All they had achieved ended when the Creeper arrived.` | Creeper **降临**时（降临是神性用词） | 当 Creeper **袭来**时，他们的一切成就都终结了。 |
+
+**`C.E.` 译名（关键，2026-10-22 第二版修订）**：`C.E.` 在 CW 世界观里**不是公元**
+（Common Era 的字面像，但游戏自己把它用成**可重复的纪元编号**——`1st Common Era`、
+`3rd C.E.`、`144th C.E.`、`early Common Eras` 复数同现）。统一口径为
+**「第 N 循环历」**，全词表 7 处一致（`strings.json` 7194 / 9047 / 10720 / 52037 / 52194 / 53585 / 53689）：
+
+| 原文 | 现译 |
+|---|---|
+| `20th Century, 1st C.E.` | 20 世纪，第 1 循环历 |
+| `By the year 13271 in the first Common Era,` | 到第 1 循环历 13271 年， |
+| `Date:  1014, 0201, 144th C.E.` | 日期： 1014, 0201, 第 144 循环历 |
+| `the 3rd C.E.` | 第 3 循环历（原「第三纪元」，已统一） |
+| `around the 300th C.E.` | 第 300 循环历前后 |
+| `a treatise from the 144th C.E.` | 第 144 循环历 |
+| `dates back to the 1st C.E.` | 第 1 循环历 |
+
+**为什么不是"公元"**：C.E. 在 CW 里指**一轮人类文明的纪元**。CW3 主线（`144, 0201, 144th C.E.`，
+"20th Century, 1st C.E." 那段旁白里的 13271 年是**第 1 轮**）在泰肯（Ticon）之后——
+`04_campaign` #282 明说 Ticon 技术"来自第 3 循环历"即"你们之后的那个文明"；塞洛伊（Seloi）
+是**唯一与洛基接触过**的文明，其《循环永恒论》写于第 144 循环历，**晚于**动画里地球陷落、
+塞洛伊时代（#294 的"第 300 循环历"更在其后）。所以**动画不是塞洛伊时代**；
+"循环历"本身解释 Creeper 反复"剔除文明"（#190：每当一个文明被剔除，它们总会再度出现）。
+**年代倒置的实质错误**（原译"公元 1 世纪，20 世纪"）就是丢掉了"N 循环历"这一层。
+
+**度量警告**：CW3 文本是梗概，不是硬数字——"三十年后敌人回来"那句到 13271 年攻击之间，
+旁白只说"再次挡下黑暗"/"和平持续数千年"，接着就是"剔除"与 "through it all, one man slept"；
+TV Tropes 记的是 Skarsgard 休眠 **50 亿年**、CW3 距 CW2 五十亿年。所以第 1→第 144 循环历
+之间的间隔**没写明**，别把"三十年后"当成下一轮的起点。
+
+**外部佐证（英文社区）**：CW3 主线是**第 144 循环历**、塞洛伊/泰肯帝国（Ticon）顺位在前，
+CW4 的洛基相关剧情落在 **144–145 CE**——Steam 讨论区口径是
+"we're in the 144th CE right now"（[CW IXE 讨论](https://steamcommunity.com/app/2257010)）；
+Knuckle Cracker 官方 wiki 的 lore 页把 13271 年当作 CW3 开局
+（[lore:start](https://knucklecracker.com/wiki//doku.php?id=lore:start)，`web_fetch` 抓不到，需浏览器看）。
+
+**保留的既有问题（不擅改）**：旁白里的 `Creeper` 是地名式的"它"（`when the Creeper arrived` →
+"当 Creeper 袭来时"），而术语表规定核心敌人名**保留英文**；`Creeper 一次又一次地卷土重来` 读起来
+像"卷土重来的是 Creeper 本身"。若要读顺，得在术语表里给旁白加一条
+（例如"蔓魔"之类的意译），**需要用户拍板**，不要单方面改。
+
+**验证与入库路径（C.E. 改词表时走的是第二条）**：
+- 批次的普通条目 → `apply_translations.py <batch> --override` → `build_dict.py --include-other` → `check_charset.py`
+- **剧情对白（kind=Dialog）改的是 `story_work/NN_*.out.json`，必须 `story_merge.py --write --sync`**
+  （`--write` 本身就带 sync；`--sync` 只覆盖 `kind == "Dialog"` 的条目，其它条目走 `conflict` 不动）
+- 最终 `2021 条 / 194962 字节`，`check_charset.py` 报 `1534 字符（汉字 1437）✓ 全部在字集内`，
+  **不用重烘图集**。游戏内按 **F9** 重载词表后重看开场动画即可验证。
 
 ---
 

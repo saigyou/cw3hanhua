@@ -1,6 +1,6 @@
 {
  "version": 2,
- "generated": "2026-10-22 23:07:25",
+ "generated": "2026-10-22 23:47:31",
  "baked_charset": 7544,
  "strings": [
   {
@@ -5868,7 +5868,7 @@
   },
   {
    "en": "Yet, a small group of less than 50 thousand humans survived.",
-   "zh": "然而，一小群不足 5 万的人类幸存了下来。",
+   "zh": "然而，不到 5 万人的一小群人类幸存了下来。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5948,7 +5948,7 @@
   },
   {
    "en": "enemy Nexus and the founding of a new, sole human colony.",
-   "zh": "敌人的枢纽，以及一个全新且唯一的人类殖民地的建立。",
+   "zh": "敌人的枢纽，并建立了人类唯一的新殖民地。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6048,7 +6048,7 @@
   },
   {
    "en": "Thousands of worlds were destroyed by an unknown enemy.",
-   "zh": "成千上万个世界被未知的敌人毁灭。",
+   "zh": "数千个世界毁于一个未知的敌人。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6168,7 +6168,7 @@
   },
   {
    "en": "All they had achieved ended when the Creeper arrived.",
-   "zh": "当 Creeper 降临时，他们的一切成就都终结了。",
+   "zh": "当 Creeper 袭来时，他们的一切成就都终结了。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7191,7 +7191,7 @@
   },
   {
    "en": "By the year 13271 in the first Common Era,",
-   "zh": "到公元 13271 年，",
+   "zh": "到第 1 循环历 13271 年，",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9044,7 +9044,7 @@
   },
   {
    "en": "Date:  1014, 0201, 144th C.E.",
-   "zh": "日期： 1014, 0201, 公元 144 年",
+   "zh": "日期： 1014, 0201, 第 144 循环历",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10717,7 +10717,7 @@
   },
   {
    "en": "20th Century, 1st C.E.",
-   "zh": "公元 1 世纪，20 世纪",
+   "zh": "20 世纪，第 1 循环历",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -52034,7 +52034,7 @@
   },
   {
    "en": "Neither.  This technology is actually ancient and comes from the 3rd C.E.... the civilization that came after yours.  It was supposed to be a technology to block spores, but...",
-   "zh": "都不是。这项技术其实很古老，来自第三纪元……你们之后的那个文明。它本是用作阻挡孢子的技术，可……",
+   "zh": "都不是。这项技术其实很古老，来自第 3 循环历……你们之后的那个文明。它本是用作阻挡孢子的技术，可……",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52191,7 +52191,7 @@
   },
   {
    "en": "It is difficult to date, and very badly damaged, but it seems to have been recorded sometime after the Seloi were long gone.  Sometime around the 300th C.E. perhaps.",
-   "zh": "很难确定年代，而且损毁严重，但它似乎录于塞洛伊早已消亡之后。也许在循环历 300 年前后。",
+   "zh": "很难确定年代，而且损毁严重，但它似乎录于塞洛伊早已消亡之后。也许在第 300 循环历前后。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53582,7 +53582,7 @@
   },
   {
    "en": "This is fascinating...  This artifact contains an instruction manual for the Guppy, volumes of literature, art, and video from old Earth, and a treatise from the 144th C.E. on the prospects of cyclical eternity.",
-   "zh": "这真有趣……这件圣物里存着补给船的操作手册、来自旧地球的成卷文学、艺术与影像资料，还有一篇写于循环历 144 年、探讨循环永恒之可能性的论文。",
+   "zh": "这真有趣……这件圣物里存着补给船的操作手册、来自旧地球的成卷文学、艺术与影像资料，还有一篇写于第 144 循环历、探讨循环永恒之可能性的论文。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53686,7 +53686,7 @@
   },
   {
    "en": "The treatise proposes that our universe is but one of many... nothing new there, this idea dates back to the 1st C.E.  It goes on to argue that it is possible to create a device... something unique and singular to each universe.",
-   "zh": "论文提出，我们的宇宙只是众多宇宙之一……这倒不新鲜，这种想法可以追溯到循环历 1 年。它接着论证，可以制造出一种装置……一种每个宇宙都独有而唯一的东西。",
+   "zh": "论文提出，我们的宇宙只是众多宇宙之一……这倒不新鲜，这种想法可以追溯到第 1 循环历。它接着论证，可以制造出一种装置……一种每个宇宙都独有而唯一的东西。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
