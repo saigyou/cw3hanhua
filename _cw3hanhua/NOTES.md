@@ -10,12 +10,12 @@
 
 | 问题 | 答案 |
 |---|---|
-| 怎么改 | **不改游戏文件**：BepInEx 5 + 两个插件 DLL + 外置词表 + 外置图集 |
+| 怎么改 | **不改游戏文件**：BepInEx 5 + 一个插件 DLL（含字体层与文本层）+ 外置词表 + 外置图集 |
 | 字体怎么办 | **离线烘 BMFont 图集 → 运行时把中文字形并进 GUI Atlas**，走游戏原生的**位图分支**（3.4 / 4.4） |
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅（**v0.9.0 已实测通过**）/ TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 🟡 **v0.10.2 待实测** |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅（**v0.9.0 已实测通过**）/ TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 🟡 **v0.10.2 待实测** / **v1.0.0 单 DLL 合并 + F3/F4 合并 + 无条件自动开启 🟡 待实测** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -39,11 +39,10 @@
 | 游戏本体 | **原版**，资产零改动（4.4a） |
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
-| 字体层插件 | `BepInEx/plugins/CW3Hanhua.dll` **v0.8.3**（`plugin/CW3Hanhua.cs`）<br>合并图集 + 合并 HUD（v0.8.3 = 重做 HUD，见 4.1「HUD」）。字体/图集链路**已实测通过**；新 HUD **待实测** |
+| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.0.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>★ 2026-10-23：**两个 DLL 合成一个**，`CW3HanhuaText.dll` 已删（4.1）。唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层退化成同程序集普通类 `TextPlugin`，两层之间**零反射**（直接方法调用）。<br>① 字体层：合并图集 + 合并 HUD + 启动**无条件自动开启**（无配置项，4.1）；字体/图集链路已实测通过，本轮改动**待实测**。<br>② 文本层：读 `_dict/zh_cn.dict`（**2021 条**）。`ProcessText` prefix+postfix 覆盖全部 UILabel；**另打 5 个 TextMesh 写入点**（3 个 `ShowText` prefix + 2 个 name setter postfix）。UILabel 部分已实测通过，TextMesh 补丁**待实测**。<br>**2026-10-22**：词表新增剧情 852 条（4.8），需按 **F9** 重载 |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
-| 文本层插件 | `BepInEx/plugins/CW3HanhuaText.dll` **v0.10.2**（`plugin/CW3HanhuaText.cs`）<br>读 `_dict/zh_cn.dict`（**2021 条**）。`ProcessText` prefix+postfix 覆盖全部 UILabel；**另打 5 个 TextMesh 写入点**（3 个 `ShowText` prefix + 2 个 name setter postfix）。UILabel 部分**已实测通过**，TextMesh 补丁**待实测**。v0.10.2 = HUD 缩成一行（4.3）<br>**2026-10-22**：词表新增剧情 852 条（4.8），需按 **F9** 重载 |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
-| 按键 | 字体层 **F3** 开关 / **F11** dump / **F12** HUD；文本层 **F4** 开关 / **F5** 打印未命中 / **F9** 重载词表 |
+| 按键 | **F3 汉化总开关**（两层一起开/关）/ **F5** 打印未命中 / **F9** 重载词表 / **F11** dump / **F12** HUD（共 5 个；**F4 已于 2026-10-23 退役并入 F3**）<br>启动**无条件自动开启**（**无配置项**，4.1「自动开启」） |
 | 待办 | 15 条资源条模板串的碎片替换（4.7）；`Andro` / `DMD` / `'4'` 是否翻待定（4.7）；**剧情 852 条已实测通过（4.8 / 4.8a）** |
 
 **启用 / 停用 BepInEx**
@@ -287,7 +286,9 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | A3b | 中文验证 | ✅ |
 | B1 | 静态全量收集 + 词表骨架 | ✅ |
 | B2 | `ProcessText` prefix+postfix+finalizer | ✅ **v0.9.0 实测通过** |
-| B4 | HUD 合并成左上角一块 | ✅ v0.8.2 实测通过；**v0.8.3 重做（键位全列 + 数字挪走）待实测** |
+| B4 | HUD 合并成左上角一块 | ✅ v0.8.2 实测通过；v0.8.3 重做；**v1.0.0 改成"F3 汉化总开关:开/关 + 文本层:开/关"待实测**（单一 HUD 宿主，文本层不再自带兜底条） |
+| B4b | **F3/F4 合并成一个总开关 + 启动自动开启** | 🟡 **2026-10-23 已实现并编译通过，待实测**（4.1） |
+| B4c | **两个 DLL 合并成一个 `CW3Hanhua.dll` v1.0.0，去掉两层间反射** | 🟡 **2026-10-23 已实现并编译通过，待实测**（4.1 / 4.3） |
 | B6 | 改资产：TextMesh 中文烘进 prefab（19 条） | ✅ **实测通过**（`script_type_index` bug 修好后，见 4.6） |
 | B7 | ③ 类运行时覆盖对象的代码补丁（v0.10.0） | 🟡 **已实现，待实测**（4.6a） |
 | C1–C3 | 翻译：主菜单 / HUD / 建造菜单 / 剧情 | ✅ 全量批 full_01–22 入库 1144 条 |
@@ -304,16 +305,83 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 
 ### 4.1 字体烘焙与插件按键
 
-**按键（`plugin/CW3Hanhua.cs` v0.8.3 + `plugin/CW3HanhuaText.cs` v0.10.2，共 6 个）**
+**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → **同一个** `CW3Hanhua.dll` v1.0.0，共 5 个）**
+
+★ **2026-10-23：F3 与 F4 合并成一个总开关**，F4 退役。理由：两个键意味着用户每次要按两下，
+且容易只开一半（中文字形换了、文本还是英文，看着像"翻译坏了"）。合并后 F3 是唯一开关，
+一个动作 = 字体层套合并图集 + 文本层接词表，同开同关。
+
+★ **2026-10-23（同日第二步）：两个 DLL 合并成一个 `CW3Hanhua.dll` v1.0.0。**
+两层已经稳定、不会再各自大改，而"两个 DLL + 靠反射互调"的代价一直是实打实的：
+类型名/方法名全靠字符串约定、拿不到编译期检查、`FindPeerMethod` 每 60 帧扫程序集、
+还要处理"对方还没装载"的时序。合并后：
+
+- `HanhuaPlugin`（字体层）是唯一的 `[BepInPlugin]` / `BaseUnityPlugin`；
+- `TextPlugin`（文本层）退化成同程序集里的普通类，**不是** MonoBehaviour、**不是**插件；
+- 两层之间**零反射**：`TextPlugin.Init()` / `.Tick()` / `.SetOn(bool)` / `.HudLine()` /
+  `.ErrorLine()` / `.DumpLine()` 全是直接调用；
+- 生命周期由 `HanhuaPlugin` 统一驱动：`Awake` → `TextPlugin.Init()`；
+  `Update` → 先 `TextPlugin.Tick()` 再处理自己的按键；场景切换由 `Update` 检测后
+  通知 `TextPlugin.OnSceneChanged()`（**只检测一处**，否则两层各打一份 `=== 场景切换 ===`）；
+- 两个 `.cs` **仍然一层一个文件**（各自的注释/教训都留在原处），只是打进同一个包；
+- `BepInEx/plugins/CW3HanhuaText.dll` 由 `tools/build_plugin.cmd` **自动删除** ——
+  旧文件是独立插件（GUID `cw3hanhua.text`），留着会在同一批游戏方法上重复装 Harmony 补丁。
 
 | 键 | 层 | 作用 |
 |---|---|---|
-| **F3** | 字体 | 字体层开关（换合并图集 / 还原）—— 主功能 |
-| **F4** | 文本 | 文本层开关（接词表替换 / 还原） |
+| **F3** | 两层 | **汉化总开关**：字体层换合并图集 / 还原 **+** 文本层接词表 / 还原 |
 | **F5** | 文本 | 打印未命中清单（`missSeen`，缺哪些译文） |
 | **F9** | 文本 | 重载 `zh_cn.dict`（改完词表不用重启） |
 | **F11** | 字体 | dump 到 `BepInEx/CW3HanhuaFont.txt`（所有内部数字都在这里） |
 | **F12** | 字体 | HUD 开关 |
+
+**F3 是怎么管到文本层的**：`HanhuaPlugin.SetHanhua(bool,bool)` 里直接在
+`if (hanhuaOn) ApplyFont(); else RestoreFont();` 之后调 `TextPlugin.SetOn(hanhuaOn)`。
+v1.0.0 起**不再有** `PeerSetText` / `FindPeerMethod` / `peerMethods` /`PeerString` 这些东西。
+
+★ **`TextPlugin.SetOn(bool)` 仍然返回 `bool`**：调用方靠它判断"到底切上没有"。
+v1.0.0 起两层同生共死（同一个程序集、同一个插件），`inst` 为空这种半路状态不存在了，
+但保留返回值仍然有用 —— 词表为空时 `Enable()` 会在日志里报 `!!`，返回值让字体层能把
+"文本层=未就绪"写进同一次 dump。
+
+#### 自动开启（v1.0.0：**无条件**，无配置项）
+
+★ **2026-10-23 用户明确要求：去掉配置文件**（"我不需要配置开关，一定是自动打开的。
+我没说就不要额外加新架构呀"）。所以 v0.9.0 里那个
+`Config.Bind("General","AutoEnableOnStartup", …)` + `cw3hanhua.core.cfg` **已整段删除**，
+`using BepInEx.Configuration;` 也不再需要。启动一定自动开，没有逃生口。
+
+**为什么不在 `Awake()` 里直接开**：`Awake` 跑得太早，
+`Resources.FindObjectsOfTypeAll(typeof(UIFont))` 那时**还是空的**（UIFont 随场景/预制体
+之后才 Create）。直接开会扫到 0 个对象、静悄悄什么都不做，而且开关状态显示"已开"——
+比不做还糟。
+
+**实际做法**（`HanhuaPlugin.Update()` → `TryAutoEnable()`）：每帧轮询，直到
+`AutoReady()` 为真才拨开关。就绪门槛三条，缺一不可：
+1. `_font/atlas_zh.png` 存在（6.0MB）
+2. `_font/atlas_zh.bin` 存在（字形表）
+3. `Resources.FindObjectsOfTypeAll(typeof(UIFont))` 至少 1 个
+
+失败按 **60 帧退避**重试（不刷日志、不放弃——有的机器加载慢）；只有
+`fontBackups.Count > 0`（真的换上了）才置 `autoDone` 结案。日志里会写清是第几帧就绪、
+第几次尝试、换了几个 UIFont、文本层是否已接上。`autoDone` **只是"自动开启这件事结案了"**，不是用户开关。
+
+★ **重试的记账必须区分"谁拨的开关"**（v1.0.0 里修掉的一个真 bug）：`TryAutoEnable` 靠
+`autoTrying` 这个标志区分「自动拨的」和「用户手动按 F3 拨的」。没有它就出现死循环逻辑：
+自动开启没换上 UIFont 时 `hanhuaOn` 已经被置为 `true`，下一帧 `if (hanhuaOn) { autoDone = true; }`
+立刻结案，`Say("!! 没换到任何 UIFont，60 帧后再试")` 那句永远走不到，加载慢的机器就一辈子是英文。
+所以现在是 `if (hanhuaOn && !autoTrying) { autoDone = true; return; }`。
+另外 **`ToggleHanhua()` 第一行就置 `autoDone = true`** —— 用户亲手按了 F3 之后，自动开启彻底让位，
+否则它的重试会把用户刚关掉的开关重新拨回来。`autoTries` 到 **30 次**就写一行 `!!` 认输并结案
+（避免无限刷日志），手动 F3 仍然可以再试。
+
+**场景切换会补套**：`Update()` 的场景切换分支里 `if (hanhuaOn) ApplyFont();` ——
+新场景带进来的新 UIFont 也会被换掉（原先只有手动按 F3 才换，自动开启后必须补这一步，
+否则进第二关又变回英文方块）。
+
+**文本层迟到的补偿**：`if (hanhuaOn && !textSynced && (frame % 60) == 0) textSynced =
+TextPlugin.SetOn(true);` —— 同一个程序集，直接调用，接上就不再试。
+（v1.0.0 之前这里要跨 DLL 反射、还要数 30 次上限防刷屏，现在都不需要了。）
 
 **装载流程**（详见 4.4）：读 `atlas_zh.png` 建 4096×8192 纹理 →
 换 `atlas.spriteMaterial.mainTexture` → 重算全部 `UISprite.UpdateUVs(true)` + `MarkAsChanged()`
@@ -330,31 +398,39 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 正常情况 HUD 就 1 行：
 
 ```
-按键   F3 字体层:开   F4 文本层:开   F5 未命中清单   F9 重载词表   F11 dump   F12 关HUD
+按键   F3 汉化总开关:开   文本层:开   F5 未命中清单   F9 重载词表   F11 dump   F12 关HUD
 ```
 
 - **宽度不写死**：`GUIStyle.CalcSize` 量最长一行 + 28px（下限 480，上限 `Screen.width-12`）。
   原先是 `int w = 1180`（v0.8.2 `CW3Hanhua.cs:1010`），1920 屏上右侧留一大片空框。
-- **反射契约从 1 个扩成 3 个**（`CW3HanhuaText.TextPlugin`，都是 `public static string` 无参）：
+- ★ **2026-10-23（v1.0.0）：HUD 的"反射契约"没了，改成普通方法调用。**
+  原先字体层靠 `FindPeerMethod` 扫程序集反射调文本层的三个 static string 方法；
+  两个 DLL 合一个之后直接 `TextPlugin.HudLine()` / `.ErrorLine()` / `.DumpLine()`。
+  三个方法仍然保留 `public static string` 无参的形态（签名不用改了，但也不再是"契约"，
+  只是同一个程序集里的普通工具方法）：
 
   | 方法 | 用途 | 谁调 |
   |---|---|---|
-  | `HudLine()` | 只返回 `"F4 文本层:开/关"` | 字体层拼进按键行 |
-  | `ErrorLine()` | 出错原因，空串=正常 | 字体层，非空才画 |
+  | `HudLine()` | 只返回 `"文本层:开/关"` | 字体层 `OnGUI` 拼进按键行 |
+  | `ErrorLine()` | 出错原因，空串=正常 | 字体层 `OnGUI`，非空才画 |
   | `DumpLine()` | 一整行全部数字 | 字体层 `DumpReport()` 写进 dump |
 
-  ★ `HudLine()` 返回值**必须短**：字体层直接把它拼进第一行，多一个字就把那行撑长。
-- **为什么用反射而不是直接引用**：两个 DLL 必须保持**无编译期依赖**（独立编译、独立开关，
-  出问题能立刻判断是谁的锅）。BepInEx 按文件名序装载，`CW3Hanhua.dll` 先于
-  `CW3HanhuaText.dll` → 字体层第一次 `OnGUI` 时对方可能还没就绪，所以
-  **不缓存否定结果**：`FindPeerMethod` 每 60 帧重扫程序集，找齐后进字典缓存。
-- **反向兜底**：只剩文本层时，`TextPlugin.OnGUI` 自己画左下角那一条（每 60 帧探一次
-  `CW3Hanhua.HanhuaPlugin` 类型是否存在，在就完全不画）。→ **永远只有一块 HUD**。
-  兜底条会额外标 `（F3 字体层 / F11 dump / F12 HUD 需 CW3Hanhua.dll）` —— 那三个键
-  确实不可用，免得按了没反应以为插件坏了。
-- HUD 归字体层的 `showHud` / F12 管；**三个反射方法的签名都不能改**。
+  ★ `HudLine()` 返回值**仍然必须短**：字体层直接把它拼进第一行，多一个字就把那行撑长。
+  ★ 2026-10-23：前缀从 `"F4 文本层:"` 改成 `"文本层:"` —— F4 退役后不该再出现在 HUD 上，
+  否则用户会去找一个已经不存在的键。
+- **为什么当初要反射、现在不要了**：反射的唯一理由是"两个 DLL 必须保持无编译期依赖、
+  BepInEx 装载顺序还不保证对方已就绪"。v1.0.0 把两个 `.cs` 编进同一个 DLL 后，
+  这个前提整体消失：同一个 `Awake` 里 `TextPlugin.Init()` 一定先跑过，类型一定在，
+  编译器还能帮我们查签名。**不要再为了"解耦"把它们拆回两个 DLL。**
+- **兜底 HUD（已删）**：v0.11.0 及以前，文本层单独成 DLL 时要自己画左下角那一条
+  （每 60 帧探 `CW3Hanhua.HanhuaPlugin` 是否存在，在就不画）。v1.0.0 里
+  `TextPlugin` 不是 MonoBehaviour、没有 `OnGUI`，**永远只有字体层那一块 HUD**，
+  `PeerHudAlive` 这类探测代码一并删掉。
+- HUD 归字体层的 `showHud` / F12 管。
 
-**加/删按键时两处都要改**：`Update()` 的 `Input.GetKeyDown` + `OnGUI()` 第一行那个字符串。
+**加/删按键时两处都要改**：`HanhuaPlugin.Update()` 的 `Input.GetKeyDown` +
+`HanhuaPlugin.OnGUI()` 第一行那个字符串。**文本层的 F5/F9 例外** —— 它们在
+`TextPlugin.Tick()` 里，因为 `TextPlugin` 现在没有自己的 `Update()`。
 
 **字形烘焙**（产出 `font_<size>.{png,json}`，是 `build_atlas.py` 的输入）
 
@@ -480,11 +556,34 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 - 译稿用**序号字典** `{"zh": {"3": "译文"}}`，缺省项视为 `@`（跳过不译）；
   **不要用数组形式**（漏一项就整体错位，踩过一次：89 vs 88，后 60 条全串行）。
 
-### 4.3 文本层插件（`CW3HanhuaText.cs` v0.10.2）
+### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.0.0）
 
-**为什么单独一个 DLL**：字体层已验证通过、不想动；两层独立开关，出问题时能立刻判断是谁的锅。
-BepInEx 5 按文件名顺序装载，`CW3Hanhua.dll` → `CW3HanhuaText.dll` 是**字母序碰巧正确**的，
-**改文件名可能改变装载顺序**。prefix 装在 `Awake` 里（早于场景创建），能拦到首批文本。
+**为什么当初单独一个 DLL、现在又合回去**（2026-10-23 变更）：拆开是为了字体层已验证通过、
+不想动，且出问题时能立刻判断是谁的锅。★ 但两层现在都稳定了，而拆开的代价一直在收利息：
+跨 DLL 只能靠反射（类型名/方法名是字符串约定、没编译期检查、每 60 帧扫程序集、
+还要处理"对方还没装载"）。v1.0.0 起**两个 `.cs` 编进同一个 `CW3Hanhua.dll`**：
+`HanhuaPlugin` 是唯一插件，`TextPlugin` 退化成同程序集普通类（不是 MonoBehaviour），
+两层直接方法调用。**文件仍然一层一个**（各自的注释和踩坑记录留在原处）。
+
+**生命周期由字体层统一驱动**（`TextPlugin` 没有自己的 `Awake`/`Update`/`OnGUI`）：
+
+| 时机 | 谁调 | 做什么 |
+|---|---|---|
+| `HanhuaPlugin.Awake()` | 字体层 | `TextPlugin.Init()` —— 读词表、装 Harmony 补丁、打 TextMesh 补丁 |
+| `HanhuaPlugin.Update()` 每帧 | 字体层 | `TextPlugin.Tick()` —— F5 未命中清单、F9 重载词表 |
+| 场景切换（`Update` 检测到） | 字体层 | `TextPlugin.OnSceneChanged()` —— 清已销毁 label / TextMesh 缓存、清 `missSeen` |
+| F3 / 自动开启 | 字体层 | `TextPlugin.SetOn(bool)` —— 接词表 / 还原 |
+| `OnGUI` / `DumpReport` | 字体层 | `TextPlugin.HudLine()` / `.ErrorLine()` / `.DumpLine()` |
+
+**为什么 `Init()` 要早**：prefix 必须装在场景创建之前才能拦到首批文本；
+放在 `HanhuaPlugin.Awake()` 里调是来得及的（BepInEx 的 `Awake` 早于任何游戏场景对象）。
+
+**日志也合并成一份**：`TextPlugin.Say` 直接转发到 `HanhuaPlugin.Say` ——
+原先文本层只写 BepInEx 控制台、字体层还额外写 `CW3HanhuaFont.txt`，排查时要对两个地方；
+现在两层每一行都同时进控制台和 F11 的 dump 文件，**一个文件看全两层**。
+
+**装载顺序不再是问题**：同一个 DLL = 同一个 `Awake`，`Init()` 在 `SetOn()` 之前一定跑过。
+原先靠"`CW3Hanhua.dll` 字母序先于 `CW3HanhuaText.dll` + 60 帧重试"兜的那套东西已全部删除。
 
 **替换路径（UILabel 一条 + TextMesh 五个写入点）**
 
@@ -499,13 +598,13 @@ BepInEx 5 按文件名顺序装载，`CW3Hanhua.dll` → `CW3HanhuaText.dll` 是
 若要 `get_text()` 也返回中文，就得改 `mText` 并自己兜住 3.3 那 6 处判定，
 **当前故意不做**。
 
-**F4 的还原**：`mText` 一直是英文（中文只在 `ProcessText` 内部临时存在），所以不需要
+**关总开关时的还原**：`mText` 一直是英文（中文只在 `ProcessText` 内部临时存在），所以不需要
 写回英文，只要逼它重算一次 `mProcessedText`。**踩过的坑**：写 `s.label.text = s.en` 是
 **无效的** —— `set_text` 里 `if (mText != arg)` 不成立就什么都不做，`mProcessedText` 还是中文。
 正确做法是 `ForceRefresh(label)` → 优先 `UILabel.MarkAsChanged()`（public，
 IL = `set_hasChanged(true)` + `UIWidget.MarkAsChanged()`），失败才反射调私有的 `set_hasChanged(true)`。
 
-★ **F4 的边界**：只能还原**本层经手**的文本。改资产烘进 prefab 的中文不归本层管、
+★ **本层的边界**：只能还原**本层经手**的文本。改资产烘进 prefab 的中文不归本层管、
 关不掉 —— 要还原得跑 `tools/bake_textmesh_assets.py --restore`（4.6）。
 TextMesh 那五个写入点登记在独立的 `meshSwaps`（`MeshSwap = {mesh, en}`）里，
 `RestoreAll` 直接 `mesh.text = en` 就够（TextMesh 没有 processed 中间层，不必 `ForceRefresh`）。
@@ -523,17 +622,17 @@ TextMesh 那五个写入点登记在独立的 `meshSwaps`（`MeshSwap = {mesh, e
 已是中文、查不到词表。若无守卫，刚写好的记录会立刻被自己删掉。`HasLetter` 对中文恒为 false。
 
 ★ **不能用 `List` + 切场景 `Clear()`**（v0.8.0 的缺陷）：常驻 UI / `DontDestroyOnLoad`
-对象跨场景存活，记录被清掉后 `RestoreAll()` 对它是空操作 → 关 F4 留下中英混杂。
+对象跨场景存活，记录被清掉后 `RestoreAll()` 对它是空操作 → 关总开关时留下中英混杂。
 
 **排查工具**
 
 - `missSeen` + **F5**：`ProcessText` 查不到译文时记一条，F5 打印清单。
   列出来的说明"走了 UILabel 但没译文"（补词表 + F9 重载即可）；
   界面上仍英文、清单里又没有的，才是真正**必须改资产**的对象（TextMesh 那批）。
-- **F11 dump 里那一行**（v0.10.2 起从 HUD 挪过来，反射调 `TextPlugin.DumpLine()`）：
-  `文本层 v0.10.2  开关=…  词表=…  prefix=调用/命中  拼接=…  mesh=调用/命中  未命中=…`。
+- **F11 dump 里那一行**（v0.10.2 起从 HUD 挪过来；v1.0.0 起直接调 `TextPlugin.DumpLine()`）：
+  `文本层 v1.0.0  开关=…  词表=…  prefix=调用/命中  拼接=…  mesh=调用/命中  未命中=…`。
   `prefix` 计数不动 = 补丁没装上；`mesh` 计数不动 = TextMesh 那五个补丁没装上或那段文本没被写过。
-  ★ HUD 上只剩 `F4 文本层:开/关` 一个状态（4.1「HUD」）——数字要看 dump 文件。
+  ★ HUD 上只剩 `文本层:开/关` 一个状态（4.1「HUD」）——数字要看 dump 文件。
 
 **★ 装补丁必须自检**：`Harmony.Patch` 失败时**只往日志写一行 Error、不抛异常**
 （外层 try/catch 什么也接不到，表现为"什么都没发生"）。所以装完立刻回读
@@ -934,7 +1033,7 @@ mainData 49 / resources.assets 2185 / sharedassets6 11，不同的都是 0）。
 **没有 generator 时读不到会表现为「扫出 0 个」，很容易误判成"资产里没有"。**
 另：`resources.assets` 解 typetree 极慢（**138 秒**），全量扫描要给足超时。
 
-### 4.6a TextMesh 的代码补丁（`CW3HanhuaText.cs` v0.10.2，步骤 6）
+### 4.6a TextMesh 的代码补丁（`CW3HanhuaText.cs` v0.10.2 起，步骤 6）
 
 改资产能覆盖**静态**的 19 条，但有一批 TextMesh 的文本是**运行时才写**的，
 资产里只是占位值（`'Andro'`、`'4'`、空模板），烘中文也留不住 → 只能打代码补丁。
@@ -972,7 +1071,7 @@ mainData 49 / resources.assets 2185 / sharedassets6 11，不同的都是 0）。
 - postfix 签名用 `(object __instance)`，运行时按字段名取 `TextMesh`；
   装之前校验 `FieldInfo.FieldType == typeof(TextMesh)`，类型不对就报错不装。
 - 登记进独立的 `Dictionary<int, MeshSwap> meshSwaps`（`MeshSwap = {mesh, en}`），
-  与 UILabel 的 `swaps` 分开；F4 还原时 `mesh.text = en` 即可。
+  与 UILabel 的 `swaps` 分开；关总开关时 `mesh.text = en` 即可。
 - F11 dump 那行带 `mesh=调用/命中`，计数不动就说明补丁没装上或那段文本没被写过。
   （v0.10.2 起 HUD 上不再显示计数，见 4.1「HUD」。）
 
@@ -1015,7 +1114,7 @@ CommandCenter.GetUnitTitleDisplay(UnitManager)   token=0x06000A33  RVA=0x46EA4  
 - **`Andro` / `DMD` / `'4'` 三个是否翻译未定**：`Andro`（`resources.assets` pid=1640/1644，
   `Wormhole/StarTitle` 与 `Star/StarTitle`）与 `DMD`（`level1` pid=3342，`Star/SpriteLabel`）
   词表里都没有译文；`'4'` 是 `TextLabel` prefab 的五层占位值（`ilx callers` 命中 0 处，无处施力）。
-- 打包/分发方案未定（BepInEx + 两个 DLL + `_font/` + `_dict/` 的目录形态）。
+- 打包/分发方案未定（BepInEx + 单个 `CW3Hanhua.dll` + `_font/` + `_dict/` 的目录形态）。
 
 ---
 
@@ -1187,11 +1286,15 @@ Knuckle Cracker 官方 wiki 的 lore 页把 13271 年当作 CW3 开局
 
 ### 5.2 编译插件
 
-**用 `_cw3hanhua\tools\build_plugin.cmd`（一次编出两个 DLL）**，不要手敲命令：
+**用 `_cw3hanhua\tools\build_plugin.cmd`（一次编出**一个** DLL）**，不要手敲命令：
 
 ```powershell
 & "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3\_cw3hanhua\tools\build_plugin.cmd"
 ```
+
+★ **2026-10-23 起两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（v1.0.0，4.1）。
+脚本在编译前会**自动 `del` 掉旧的 `CW3HanhuaText.dll`** —— 那个文件是独立插件
+（GUID `cw3hanhua.text`），留着会在同一批游戏方法上**重复装一遍 Harmony 补丁**。
 
 它内部等价的单条命令：
 
@@ -1299,6 +1402,8 @@ NGUI 行为怪异时**先反编译再推理**。反编译产物是临时的，�
 | `AtlasProbe` / `AtlasWriteProbe` / `UIFeasibilityProbe` | 三个图集探针，结论已在 4.4 / 4.4a，源码已删 |
 | 手写 IL 解析器 `il.py` / `ilscan.py` / `ilscan_field.py` | 有解码 bug，只信 `ilx`（5.4） |
 | `scan_all_text.py` / `collect_fingerprint.ps1` / `_archive/` / `_bepinex_backup/` | 一次性或过时工具，现行口径见 4.2 / 5.4 |
+| `CW3HanhuaText.dll`（独立插件）+ 它那一整套 peer 反射（`FindPeerMethod` / `peerMethods` / `PeerSetText` / `PeerString` / `PeerHudAlive` / 文本层自己的 `OnGUI` 兜底条） | 2026-10-23 v1.0.0：两个 `.cs` 合进一个 DLL，两层改成直接方法调用。**不要再拆回去**，理由见 4.1 / 4.3 |
+| `Config.Bind("General","AutoEnableOnStartup",…)` + `BepInEx/config/cw3hanhua.core.cfg` | 2026-10-23 用户明确"一定是自动打开的、不要额外架构"：自动开启改为**无条件**，配置项整段删除 |
 
 ---
 
@@ -1362,7 +1467,7 @@ CW3 的 NGUI 代码编译在 `Assembly-CSharp.dll`（无命名空间）。最接
 _cw3hanhua/
 ├─ NOTES.md            ← 本文（唯一文档）
 ├─ tools/              ★ 全部可复现工具（见 tools/README.md）
-│   ├─ build_plugin.cmd       一次编出两个插件 DLL（唯一编译入口，5.2）
+│   ├─ build_plugin.cmd       一次编出一个插件 DLL（唯一编译入口，5.2）
 │   ├─ ilx.exe / ilx\ilx.cs    基于 Mono.Cecil 的 IL 检查器（5.4）
 │   ├─ ilspy.cmd / ilspycmd/   反编译成 C#（5.4）
 │   ├─ bake_font.py            烘字形（4.1）
@@ -1382,8 +1487,9 @@ _cw3hanhua/
 │   ├─ diff_bake.py            ★ 烘焙回归：现役资产 vs 基线，确认没波及 UILabel
 │   └─ uilabel_inventory.json / textmesh_inventory.json
 │                              ★ 烘焙前的历史基线快照，**不可再生**（重跑 scan 会覆盖）
-├─ plugin/             ★ 两个在用源文件：CW3Hanhua.cs（字体层 v0.8.3）
-│                      CW3HanhuaText.cs（文本层 v0.10.2）
+├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.0.0**（4.1）
+│                      CW3Hanhua.cs（字体层 = 唯一 BepInPlugin / MonoBehaviour）
+│                      CW3HanhuaText.cs（文本层 = 同程序集普通类 TextPlugin）
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）
 │                      ★ 工具链：font_{16,20,28}.{json,png}（重烘图集的必需输入）
 ├─ _dict/              ★ 词表：strings.json（唯一数据）/ glossary.md（术语表）

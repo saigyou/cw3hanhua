@@ -1,5 +1,14 @@
 // ============================================================================
-//  CW3 汉化插件 v0.8.3 —— 合并图集字体层（见 NOTES 4.4）+ 合并 HUD（NOTES 4.3）
+//  CW3 汉化插件 v1.0.0 —— 合并图集字体层（NOTES 4.4）+ 文本层（词表）+ 合并 HUD
+//
+//  ★ 2026-10-23：两个 DLL 合成一个。本文件与 CW3HanhuaText.cs 一起编进
+//    **CW3Hanhua.dll**，两层之间不再有任何反射调用 —— 字体层直接
+//    `TextPlugin.SetOn(..)` / `TextPlugin.HudLine()` / `TextPlugin.DumpLine()`。
+//    BepInEx\plugins\CW3HanhuaText.dll 已由 build_plugin.cmd 自动删除。旧的
+//    CW3HanhuaText.dll 是个**独立的插件**（GUID cw3hanhua.text），留着会在同一批
+//    游戏方法上再装一遍 Harmony 补丁、再抢一遍 F5/F9、再画一条 HUD。
+//    两个 .cs 各自保留一个类（HanhuaPlugin / TextPlugin），一层一文件，
+//    出问题照样能分层看日志 —— 但它们在同一个程序集里，编译期就认识对方。
 //
 //  方案：不拆 draw call。
 //    把中文字形并进游戏原有的 GUI Atlas（512x1024 → 4096x8192），
@@ -17,16 +26,19 @@
 //    _cw3hanhua/_font/atlas_zh.png   4096x8192 合并图集
 //    _cw3hanhua/_font/atlas_zh.bin   字形表（插件直读，手写二进制比 JSON 可靠）
 //
-//  按键（共 6 个，全部列在 HUD 上；HUD 只报开关状态，不报内部数字）：
-//    字体层  F3   字体层开关（换合并图集 / 还原原图集）
-//            F11  dump → BepInEx/CW3HanhuaFont.txt（详细数字都在这里，不在 HUD 上）
-//            F12  HUD 开关（两个插件的状态合并成同一块，画在左上角）
-//    文本层  F4   文本层开关（接词表替换 / 还原）
-//            F5   打印未命中清单（缺哪些译文）
-//            F9   重载词表（改完 zh_cn.dict 不用重启）
+//  按键（共 5 个，全部列在 HUD 上；HUD 只报开关状态，不报内部数字）：
+//    ★ 2026-10-23：F3 与 F4 **合并成一个总开关**，F4 已退役（详见下方「开关」一节）。
+//    F3    汉化总开关（字体层套合并图集 + 文本层接词表，一起开/关）
+//    F5    打印未命中清单（缺哪些译文，文本层）
+//    F9    重载词表（改完 zh_cn.dict 不用重启，文本层）
+//    F11   dump → BepInEx/CW3HanhuaFont.txt（详细数字都在这里，不在 HUD 上）
+//    F12   HUD 开关（两层的状态合并成同一块，画在左上角）
+//
+//  启动自动开启（v1.0.0）：**无条件自动** —— 没有任何配置项、没有开关。
+//    Update 里等"图集文件在 + UIFont 已 Create"再自动把总开关拨到开，
+//    没就绪就每 60 帧重试，直到真的换上为止（加载慢的机器也等得到）。
 //
 //  编译：tools\build_plugin.cmd（封装了 csc 3.5 /platform:x86 /codepage:65001 与全部引用）
-// ============================================================================
 // ============================================================================
 
 using System;
@@ -39,10 +51,10 @@ using UnityEngine;
 
 namespace CW3Hanhua
 {
-    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua Core", "0.8.3")]
+    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua", "1.0.0")]
     public class HanhuaPlugin : BaseUnityPlugin
     {
-        const string Ver = "0.8.3";
+        const string Ver = "1.0.0";
 
         static HanhuaPlugin inst;
         static string reportPath;
@@ -50,8 +62,21 @@ namespace CW3Hanhua
         static readonly UTF8Encoding Utf8NoBom = new UTF8Encoding(false);
 
         // ---------------------------------------------------------------- 开关
-        static bool fontOn = false;
+        // ★ 2026-10-23：F3 与 F4 **合并成一个总开关**（hanhuaOn）。
+        //   本类（字体层）是主：它装着 F12 的 HUD 与 OnGUI，
+        //   所以按键与自动开启都放在这里；文本层在同一个程序集里
+        //   （TextPlugin，见 CW3HanhuaText.cs），直接调用，不走反射。
+        static bool hanhuaOn = false;
         static bool showHud = true;
+
+        // 自动开启（v1.0.0）：**无条件**，没有配置项。
+        //   autoDone 只表示"自动开启这件事结案了"，不是用户开关：
+        //   换上了字体（或用户先按了 F3）就置真，不再插手。
+        static bool autoDone;
+        static bool autoTrying;         // 自动开启已经拨过、但还没确认换上（用于重试）
+        static int autoNextFrame;       // 失败退避：每 60 帧才重试一次
+        static int autoTries;           // 已尝试次数（到 30 次就停手，别无限刷日志）
+        static bool textSynced;         // 文本层已接受总开关状态
 
         // ---------------------------------------------------------------- 位图字体数据
         class FontData
@@ -110,7 +135,9 @@ namespace CW3Hanhua
 
 
         // ================================================================ 工具
-        static void Say(string s)
+        /// <summary>写日志 + 追加到 F11 的报告文件。文本层（TextPlugin.Say）也走这里，
+        /// 合并成一个 DLL 后两份日志自然汇到同一处。</summary>
+        internal static void Say(string s)
         {
             try { if (inst != null) inst.Logger.LogInfo(s); } catch (Exception) { }
             try { if (reportPath != null) System.IO.File.AppendAllText(reportPath, s + "\r\n", Utf8NoBom); }
@@ -197,16 +224,24 @@ namespace CW3Hanhua
             fSpriteSet = typeof(UIFont).GetField("mSpriteSet", Priv);
 
             Say("==============================================================");
-            Say(" CW3 汉化插件 v" + Ver + "  合并图集字体层");
+            Say(" CW3 汉化插件 v" + Ver + "  合并图集字体层 + 文本层");
             Say("==============================================================");
             Say("报告: " + reportPath);
             Say("字体目录: " + fontDir);
             Say("反射: mAtlas=" + Ok(fAtlas) + " mMat=" + Ok(fMat) + " mUVRect=" + Ok(fUV)
                 + " mDynamicFont=" + Ok(fDyn) + " mFont(BMFont)=" + Ok(fBMFont));
             Say("");
-            Say("按键(字体层): F3 字体层开关 | F11 dump | F12 HUD");
-            Say("按键(文本层): F4 文本层开关 | F5 未命中清单 | F9 重载词表");
+            Say("按键: F3 汉化总开关（管两层） | F5 未命中清单 | F9 重载词表");
+            Say("      F11 dump | F12 HUD");
             Say("");
+            Say("启动自动开启: 是（无配置项，等图集与 UIFont 就绪后自动套）");
+
+            // ★ v1.0.0：文本层（同一个 DLL 里的 TextPlugin）在这里初始化一次。
+            //   它老早是自己 Awake 的 —— 合并成一个插件后，由本类统一按序驱动：
+            //   先装好字体层的东西，再装文本层的 Harmony 补丁。
+            //   文本层的每帧工作走 TextPlugin.Tick()（见 Update）。
+            try { TextPlugin.Init(); }
+            catch (Exception e) { Say("!! 文本层初始化失败（字体层仍可用）: " + e); }
         }
 
         void Update()
@@ -222,6 +257,10 @@ namespace CW3Hanhua
                     Say("=== 场景切换 #" + frame + ": '" + sceneName + "' -> '" + sc + "' ===");
                     sceneName = sc;
                     PruneDead();
+                    // 文本层也跟着清理（原先它自己 Update 里也做一份，合并后统一由这里通知）
+                    TextPlugin.OnSceneChanged();
+                    // 新场景可能带进新的 UIFont，总开关开着就顺手把它们也换掉
+                    if (hanhuaOn) ApplyFont();
                 }
 
                 // 每 30 帧兜底：新激活的 label 可能还持有旧材质，重新绑一次。
@@ -233,15 +272,84 @@ namespace CW3Hanhua
                     RefreshAllLabelMaterials();
                 }
 
-                // 按键：字体层这 3 个（文本层的 F4/F5/F9 在 CW3HanhuaText.cs 里）。
-                //   HUD 第一行会把 6 个键全列出来 —— 加/删按键时**两处都要改**。
-                //   历史：F2 TextMesh / F6 关裁剪 / F7 F8 中文测试 / F10 全部还原，
-                //   都随对应方案废弃而删除，不要在 HUD 里"保留"它们。
-                if (Input.GetKeyDown(KeyCode.F3)) ToggleFont();
+                // 总开关开着、但文本层还没接上（启动早期它可能还没 Install 完）——
+                // 每 60 帧补一次，接上就不再试。同一个程序集，直接调，不再反射。
+                if (hanhuaOn && !textSynced && (frame % 60) == 0)
+                {
+                    textSynced = TextPlugin.SetOn(true);
+                    if (!textSynced) Say("  (等文本层就绪：词表还没载入？)");
+                }
+
+                // 文本层的每帧工作（F5 / F9 按键、场景切换清理）
+                TextPlugin.Tick();
+
+                // 启动自动开启（无配置项，无条件）
+                TryAutoEnable();
+
+                // 按键：F3 总开关 / F11 dump / F12 HUD。F5 与 F9 在 TextPlugin.Tick 里。
+                //   HUD 第一行会把 5 个键全列出来 —— 加/删按键时**两处都要改**。
+                //   历史：F2 TextMesh / F6 关裁剪 / F7 F8 中文测试 / F10 全部还原 / F4 文本层，
+                //   都随对应方案废弃或合并而删除，不要在 HUD 里"保留"它们。
+                if (Input.GetKeyDown(KeyCode.F3)) ToggleHanhua();
                 if (Input.GetKeyDown(KeyCode.F11)) DumpReport();
                 if (Input.GetKeyDown(KeyCode.F12)) { showHud = !showHud; }
             }
             catch (Exception e) { Say("!! Update 异常: " + e.Message); }
+        }
+
+        // ================================================================ 自动开启
+        // 为什么不能"Awake 里直接开"：Awake 跑得太早，Resources.FindObjectsOfTypeAll
+        // 还拿不到 GUI Atlas 与各 UIFont（它们随场景/预制体在之后才 Create），
+        // 那时 ApplyFont 会扫到 0 个对象、静悄悄什么也不做，而且看起来"已经开了"。
+        // 所以改成在 Update 里**等就绪**：找到 UIFont 且图集文件在，才真正拨开关。
+        // 失败按 60 帧退避重试，不刷日志、不放弃 —— 有的机器加载慢。
+        /// <summary>自动开启的就绪门槛：至少有一个 UIFont 能换，且合并图集文件在。</summary>
+        static bool AutoReady()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(fontDir)) return false;
+                if (!System.IO.File.Exists(System.IO.Path.Combine(fontDir, "atlas_zh.png"))) return false;
+                if (!System.IO.File.Exists(System.IO.Path.Combine(fontDir, "atlas_zh.bin"))) return false;
+                UnityEngine.Object[] fonts = Resources.FindObjectsOfTypeAll(typeof(UIFont));
+                return fonts != null && fonts.Length > 0;
+            }
+            catch (Exception) { return false; }
+        }
+
+        void TryAutoEnable()
+        {
+            if (autoDone) return;
+            // 开关已经开着、但不是自动拨的 —— 那是用户自己按的，交给他，不要抢。
+            // （autoTrying 就是为了区分这两种"开着"：没它就分不清，见下面 else 分支。）
+            if (hanhuaOn && !autoTrying) { autoDone = true; return; }
+            if (frame < autoNextFrame) return;
+            autoNextFrame = frame + 60;
+            if (!AutoReady()) return;
+
+            if (autoTries >= 30)
+            {
+                autoDone = true;
+                Say("!! 自动开启试了 30 次仍未成功（最近一次没换到 UIFont）—— 放弃。");
+                Say("   请按 F11 看 dump 里的图集报错；手动按 F3 仍可再试。");
+                return;
+            }
+            autoTries++;
+
+            Say("");
+            Say("★ 自动开启：UIFont 与图集已就绪（第 " + frame + " 帧，第 " + autoTries + " 次尝试），拨开总开关");
+            autoTrying = true;
+            SetHanhua(true, false);
+
+            if (fontBackups.Count > 0)
+            {
+                autoDone = true;                 // 真的换上了才算结案
+                Say("  已换 " + fontBackups.Count + " 个 UIFont；文本层=" + (textSynced ? "已接上" : "等待装载"));
+            }
+            else
+            {
+                Say("  !! 没换到任何 UIFont，60 帧后再试（见上方 ApplyFont 报错）");
+            }
         }
 
         // ================================================================ 位图字体装载
@@ -504,14 +612,32 @@ namespace CW3Hanhua
         }
 
         // ================================================================ UIFont
-        void ToggleFont()
+        // ★ 2026-10-23：F3 现在是**汉化总开关**，一个键同时管两层：
+        //   ① 字体层（本文件）：UIFont 换成合并图集里的位图字体 → ApplyFont / RestoreFont
+        //   ② 文本层（本文件里的 TextPlugin）：让它接上/断开词表 → TextPlugin.SetOn(bool)
+        //   v1.0.0：两层已合并进同一个 DLL，直接调用，不再有任何反射。
+        //     （旧方案是两个独立 DLL 靠反射互调，只因为"分层排查"这一个理由，
+        //       代价是类型/方法名全靠字符串约定、拿不到编译期检查，得不偿失。）
+        //   F4 已退役，文本层不再有自己的按键。
+        void ToggleHanhua()
         {
-            fontOn = !fontOn;
+            // 用户一旦亲手按 F3，自动开启立刻让位 —— 否则自动开启的重试会把手动关掉的状态再拨回来。
+            autoDone = true;
+            SetHanhua(!hanhuaOn, true);
+        }
+
+        /// <summary>把总开关拨到 on/off，两层一起。
+        /// dump=false 用于启动自动开启：那一次不需要再往报告里抄一遍整份 dump。</summary>
+        void SetHanhua(bool on, bool dump)
+        {
+            hanhuaOn = on;
             Say("");
-            Say("======== F3: UIFont 位图字体 = " + (fontOn ? "开" : "关") + " ========");
-            if (fontOn) ApplyFont(); else RestoreFont();
-            lastEvent = "F3 UIFont=" + fontOn;
-            DumpReport();
+            Say("======== F3: 汉化总开关 = " + (hanhuaOn ? "开" : "关") + " ========");
+            if (hanhuaOn) ApplyFont(); else RestoreFont();
+            textSynced = TextPlugin.SetOn(hanhuaOn);
+            if (!textSynced) Say("  (文本层未就绪：词表还没载入？字体层不受影响)");
+            lastEvent = "F3 汉化=" + hanhuaOn;
+            if (dump) DumpReport();
         }
 
         void ApplyFont()
@@ -786,7 +912,7 @@ namespace CW3Hanhua
         {
             Say("");
             Say("======== F11: dump（第 " + frame + " 帧）========");
-            Say("  插件=v" + Ver + "  开关: 字体=" + fontOn + "  HUD=" + showHud);
+            Say("  插件=v" + Ver + "  开关: 汉化=" + hanhuaOn + "  HUD=" + showHud);
             Say("  场景='" + sceneName + "'  帧=" + frame);
             Say("  已装载字号: " + DictKeys(fontDataCache));
             Say("  合并图集=" + (mergedAtlasApplied ? "已启用 (4096x8192)" : "未启用 (原版 512x1024)")
@@ -796,15 +922,15 @@ namespace CW3Hanhua
             Say("  最近事件: " + lastEvent);
 
             // ★ HUD 上只留按键与开关状态（用户要求：内部数字不要暴露）。
-            //   所有数字集中到 F11 这一份 dump 里 —— 包括文本层的（反射取 DumpLine）。
+            //   所有数字集中到 F11 这一份 dump 里 —— 包括文本层的（直接取 DumpLine）。
+            //   v1.0.0：同一程序集，直接调用。文本层若还没 Awake（词表未载入），
+            //   DumpLine 自己会返回说明串，不会抛。
             try
             {
-                MethodInfo md = FindPeerMethod("DumpLine");
-                string s = null;
-                if (md != null) { try { s = (string)md.Invoke(null, null); } catch (Exception) { } }
-                Say("  " + ((s != null && s.Length > 0) ? s : "文本层: 未装载（CW3HanhuaText.dll）或状态不可用"));
+                string s = TextPlugin.DumpLine();
+                Say("  " + ((s != null && s.Length > 0) ? s : "文本层: 状态不可用"));
             }
-            catch (Exception) { }
+            catch (Exception) { Say("  文本层: 未就绪（TextPlugin 还没 Awake）"); }
 
             try
             {
@@ -918,58 +1044,9 @@ namespace CW3Hanhua
         //   内部数字（字号表、备份数、帧号、码表统计、补丁自检…）一律不上 HUD，
         //   全部挪到 F11 的 dump 文件里 —— 看 HUD 的人不需要它们。
         //
-        //   宿主 = 字体层（字母序先装载、F12 也在它这儿）；文本层那一段通过
-        //   TextPlugin.HudLine() **反射**取回 —— 两个 DLL 之间没有编译期引用，
-        //   保持"独立编译、独立开关"（NOTES 4.3 开头那条约束）。
-        //   反向兜底：字体层没装载时，文本层自己画一条（CW3HanhuaText.cs 的 OnGUI）。
-        static readonly Dictionary<string, MethodInfo> peerMethods = new Dictionary<string, MethodInfo>();
-        static readonly string[] peerMethodNames = { "HudLine", "ErrorLine", "DumpLine" };
-        static int peerScanFrame = -1000;
-        static bool peerTextPluginSeen;
-
-        /// <summary>找 TextPlugin 的某个 `public static string` 无参方法。
-        /// BepInEx 是逐个装载插件的，第一次 OnGUI 时对方可能还没就绪，
-        /// 所以**不做永久否定缓存**：没找齐就每 60 帧再扫一次程序集。
-        /// 一次扫描会把三个已知方法**全部**缓存（否则每帧只解一个，F11 早按会误报）。</summary>
-        static MethodInfo FindPeerMethod(string name)
-        {
-            MethodInfo hit;
-            if (peerMethods.TryGetValue(name, out hit) && hit != null) return hit;
-            if (peerScanFrame >= 0 && (frame - peerScanFrame) < 60) return null;
-            peerScanFrame = frame;
-            try
-            {
-                Assembly[] asms = AppDomain.CurrentDomain.GetAssemblies();
-                for (int i = 0; i < asms.Length; i++)
-                {
-                    Type t = asms[i].GetType("CW3Hanhua.TextPlugin", false);
-                    if (t == null) continue;
-                    peerTextPluginSeen = true;
-                    for (int k = 0; k < peerMethodNames.Length; k++)
-                    {
-                        MethodInfo m = t.GetMethod(peerMethodNames[k], BindingFlags.Static | BindingFlags.Public);
-                        if (m != null) peerMethods[peerMethodNames[k]] = m;
-                    }
-                    break;
-                }
-            }
-            catch (Exception) { }
-            return peerMethods.TryGetValue(name, out hit) ? hit : null;
-        }
-
-        /// <summary>反射调对方的一个无参 string 方法，失败返回 null。</summary>
-        static string PeerString(string name)
-        {
-            try
-            {
-                MethodInfo m = FindPeerMethod(name);
-                if (m == null) return null;
-                object r = m.Invoke(null, null);
-                return r as string;
-            }
-            catch (Exception) { return null; }
-        }
-
+        //   宿主 = 本类（HanhuaPlugin）。v1.0.0 起文本层与本类**在同一个程序集**，
+        //   文本层那一段直接调 TextPlugin.HudLine() / ErrorLine() 取，不再反射。
+        //   （旧的双 DLL 方案里那些 peerMethods / FindPeerMethod / PeerString 已全部删除。）
         void OnGUI()
         {
             if (!showHud) return;
@@ -980,21 +1057,19 @@ namespace CW3Hanhua
                 List<string> lines = new List<string>();
 
                 // ---- 第 1 行：全部按键 + 两个开关的状态（HUD 的主体）----
-                string peerHud = PeerString("HudLine");
-                string peerTextKey = (peerHud != null && peerHud.Length > 0) ? peerHud : "F4 文本层:--";
-                lines.Add("按键   F3 字体层:" + (fontOn ? "开" : "关")
-                        + "   " + peerTextKey
+                string textKey = null;
+                string textErr = null;
+                try { textKey = TextPlugin.HudLine(); } catch (Exception) { }
+                try { textErr = TextPlugin.ErrorLine(); } catch (Exception) { }
+                if (textKey == null || textKey.Length == 0) textKey = "文本层:--";
+                lines.Add("按键   F3 汉化总开关:" + (hanhuaOn ? "开" : "关")
+                        + "   " + textKey
                         + "   F5 未命中清单   F9 重载词表   F11 dump   F12 关HUD");
 
                 // ---- 第 2 行起：只在真出问题时出现 ----
                 if (loadError.Length > 0) lines.Add("!! 字体层: " + loadError);
                 if (mergedAtlasError.Length > 0) lines.Add("!! 图集: " + mergedAtlasError);
-                if (peerHud == null)
-                    lines.Add(peerTextPluginSeen
-                        ? "!! 文本层状态读取异常（类型在，HudLine 返回空）"
-                        : "!! 文本层未装载（CW3HanhuaText.dll）");
-                string peerErr = PeerString("ErrorLine");
-                if (peerErr != null && peerErr.Length > 0) lines.Add("!! 文本层: " + peerErr);
+                if (textErr != null && textErr.Length > 0) lines.Add("!! 文本层: " + textErr);
 
                 // ---- 自适应宽度：量出最长一行，不写死像素 ----
                 GUIStyle st = GUI.skin.label;

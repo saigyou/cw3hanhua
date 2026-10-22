@@ -1,9 +1,15 @@
 // ============================================================================
-//  CW3 汉化 · 文本层 v0.10.1 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点
+//  CW3 汉化 · 文本层 v1.0.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点
 //
-//  与字体层（CW3Hanhua.cs）**独立编译、独立运行**：
-//    字体层负责"字形从哪来"，本层负责"英文串怎么变中文"。两层可分别开关，
-//    任何一层出问题都能立刻判断是谁的锅。
+//  字体层负责"字形从哪来"，本层负责"英文串怎么变中文"。
+//
+//  ★ v1.0.0（2026-10-23）：两个 DLL 合并成一个 —— 本文件与 CW3Hanhua.cs 一起
+//    编进 **CW3Hanhua.dll**，本类不再是 BepInPlugin / MonoBehaviour，而是被
+//    HanhuaPlugin 直接驱动的普通类（Init / Tick / SetOn）。两层之间零反射。
+//    仍然一文件一层、各自一个类，只是打在一个包里。
+//
+//    ★ 开关已合并 —— 本层没有自己的按键，跟着 F3 汉化总开关一起开/关
+//      （HanhuaPlugin.SetHanhua 直接调本类的 SetOn(bool)）。
 //
 //  词表：_cw3hanhua/_dict/zh_cn.dict（tools/build_dict.py 生成）
 //    格式见 build_dict.py 头注释：CWH1 + count + [klen,key,zlen,zh]* + uint32 FNV
@@ -48,16 +54,21 @@
 //    精确匹配必然落空。见 LookupConcat 注释与 NOTES 3.3「拼接串」。
 //
 //  按键：
-//    F4  文本层 开/关（开=接词表并替换；关=尽力还原本层改过的文本）
+//    （无）本层（文本层）没有自己的开关按键了。
+//    ★ 2026-10-23：F4 已退役 —— 文本层并入**汉化总开关 F3**，与字体层同开同关。
+//      F3 在 CW3Hanhua.cs 的 HanhuaPlugin 里，那边直接调本类的 SetOn(bool)。
+//    F5  打印未命中清单（缺哪些译文）
 //    F9  重新载入词表（改完 zh_cn.dict 不用重启游戏）
+//    这三个键都由 HanhuaPlugin.Update 驱动（F5/F9 走本文件的 Tick()）。
 //
-//  ★ F4 的边界：只能还原**本层经手**的文本（prefix 记下来的）。改资产烘进 prefab 的
+//  ★ 本层的边界：只能还原**本层经手**的文本（prefix 记下来的）。改资产烘进 prefab 的
 //    中文不归本层管，关不掉 —— 要还原得跑 tools/bake_textmesh_assets.py --restore。
 //
-//  编译（见 NOTES 5.2）：
+//  编译（见 NOTES 5.2）：与 CW3Hanhua.cs 一起编进同一个 CW3Hanhua.dll
 //    csc /target:library /platform:x86 /codepage:65001
 //        /reference:BepInEx.dll /reference:0Harmony.dll
 //        /reference:UnityEngine.dll /reference:Assembly-CSharp.dll
+//        /out:...\CW3Hanhua.dll  CW3Hanhua.cs CW3HanhuaText.cs
 // ============================================================================
 
 using System;
@@ -71,12 +82,13 @@ using UnityEngine;
 
 namespace CW3Hanhua
 {
-    [BepInPlugin("cw3hanhua.text", "CW3 Hanhua Text", "0.10.1")]
-    public class TextPlugin : BaseUnityPlugin
+    /// <summary>文本层：词表 + UILabel.ProcessText 补丁 + TextMesh 写入点补丁。
+    /// ★ v1.0.0 起不是插件、不是 MonoBehaviour —— 由 HanhuaPlugin.Init/Tick/SetOn 驱动，
+    ///   与字体层同在一个程序集，不再有任何反射互调。</summary>
+    public class TextPlugin
     {
-        const string Ver = "0.10.2";
+        public const string Ver = "1.0.0";
 
-        static TextPlugin inst;
         static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
 
         // ---------------------------------------------------------------- 词表
@@ -92,8 +104,8 @@ namespace CW3Hanhua
 
         // ---------------------------------------------------------------- 状态
         static bool textOn = false;
-        static int frame;
-        static string sceneName = "";
+        // frame 已删：v1.0.0 起场景切换由 HanhuaPlugin.Update 统一检测，
+        // 本层不再需要自己的帧计数（原先只用于「场景切换 #N」那行日志）。
 
         // 统计
         static int prefixCalls;
@@ -102,7 +114,7 @@ namespace CW3Hanhua
 
         // 已替换记录：用于关闭时还原。
         // ★ 按 InstanceID 索引，**不能**用 List + 切场景时 Clear() ——
-        //   踩过：Clear() 之后 F4 关闭时 RestoreAll 变成空操作，留下中英混杂。
+        //   踩过：Clear() 之后关总开关时 RestoreAll 变成空操作，留下中英混杂。
         //   切场景只该丢弃**已销毁**的对象，仍然活着的必须留住以便还原。
         class Swap { public UILabel label; public string en; public string zh; }
         static readonly Dictionary<int, Swap> swaps = new Dictionary<int, Swap>();
@@ -127,15 +139,17 @@ namespace CW3Hanhua
         static readonly HashSet<string> missSeen = new HashSet<string>();
 
         // ---------------------------------------------------------------- 日志
+        // ★ v1.0.0：直接转发到 HanhuaPlugin.Say —— 同一程序集，日志与 F11 报告合并成一份。
         static void Say(string s)
         {
-            try { if (inst != null) inst.Logger.LogInfo(s); } catch (Exception) { }
+            HanhuaPlugin.Say(s);
         }
 
         // ================================================================ 生命周期
-        void Awake()
+        // ★ v1.0.0：不再是 MonoBehaviour，由 HanhuaPlugin.Awake 调用一次。
+        //   顺序由字体层保证（它先装完自己的东西再 Init 本层）。
+        public static void Init()
         {
-            inst = this;
             try
             {
                 // ★ 游戏程序集里有全局 Path 类，会抢掉 System.IO.Path（NOTES 5.3 #4）
@@ -212,7 +226,7 @@ namespace CW3Hanhua
 
             PatchTextMeshWriters();
 
-            Say("按键: F4 文本层开关 | F5 打印未命中清单 | F9 重载词表");
+            Say("按键: （本层无开关，跟着 F3 汉化总开关走）| F5 打印未命中清单 | F9 重载词表");
         }
 
         // ================================================================ TextMesh 写入点（正文路径）
@@ -237,7 +251,7 @@ namespace CW3Hanhua
         ///     `SystemManager.LaunchMission` 拿它拼存档文件名
         ///     （`'Alpha Sector : ' + get_starName() + ' : ' + … + '.cw3'`），
         ///     改成中文会让存档路径变成中文。所以这两个走 postfix，只改 TextMesh。</summary>
-        void PatchTextMeshWriters()
+        static void PatchTextMeshWriters()
         {
             // ---- ① 三段过场叙事：prefix 改文案入参 ----
             // 调用方：PreludeManager.FixedUpdate ×31、EpilogueManager.FixedUpdate ×21、
@@ -353,7 +367,7 @@ namespace CW3Hanhua
         }
 
         /// <summary>把一个 TextMesh 的当前文本换成中文（就地查表）。
-        /// 记录到 meshSwaps 仅为了 F4 能还原 —— TextMesh 没有 `mText/mProcessedText` 之分，
+        /// 记录到 meshSwaps 仅为了关总开关时能还原 —— TextMesh 没有 `mText/mProcessedText` 之分，
         /// 改了就是改了，没有「临时」这回事。</summary>
         static void TranslateMesh(TextMesh tm)
         {
@@ -367,7 +381,7 @@ namespace CW3Hanhua
         }
 
         // ================================================================ 词表读取
-        void LoadDict()
+        static void LoadDict()
         {
             dict.Clear();
             dictCount = 0;
@@ -635,24 +649,46 @@ namespace CW3Hanhua
         }
 
         // ================================================================ 开关
-        void Enable()
+        // ★ 2026-10-23：F4 已退役，文本层不再有自己的按键 —— 它跟着字体层的
+        //   **汉化总开关（F3）**一起动。v1.0.0 起两层在同一个程序集，HanhuaPlugin
+        //   直接调下面这个 SetOn(bool)（旧版是反射调用，已删除）。
+        //   ★ 返回值是 bool（不是 void）：字体层靠它判断"到底切上没有"。
+        public static bool SetOn(bool on)
         {
+            try
+            {
+                if (on) Enable(); else Disable();
+                return textOn == on;
+            }
+            catch (Exception e) { Say("!! SetOn 异常: " + e.Message); return false; }
+        }
+
+        /// <summary>当前是否开着（字体层可用它核对状态）。</summary>
+        public static bool IsOn()
+        {
+            return textOn;
+        }
+
+        static void Enable()
+        {
+            if (textOn) return;
             textOn = true;
             Say("");
-            Say("======== F4: 文本层 = 开 ========");
+            Say("======== 文本层 = 开（随 F3 汉化总开关）========");
             if (dictCount == 0) Say("!! 词表为空 —— " + loadError);
             // ★ v0.9.0：打开时把屏上已有的 label 催一遍。ProcessText 补丁只在 label
             //   「变脏」时才被调用，已经画出来的静态文本不会自己重算，所以要主动
-            //   MarkAsChanged。这是**手动按键时的一次性全扫**，不是每帧轮询 ——
-            //   开销可接受，且只在 F4 按下的那一帧发生。
+            //   MarkAsChanged。这是**开总开关时的一次性全扫**，不是每帧轮询 ——
+            //   开销可接受，且只在拨开关的那一帧发生。
             RefreshAllLabels();
         }
 
-        void Disable()
+        static void Disable()
         {
+            if (!textOn) return;
             textOn = false;
             Say("");
-            Say("======== F4: 文本层 = 关 ========");
+            Say("======== 文本层 = 关（随 F3 汉化总开关）========");
             RestoreAll();
         }
 
@@ -778,7 +814,7 @@ namespace CW3Hanhua
             if (deadM != null) for (int i = 0; i < deadM.Count; i++) meshSwaps.Remove(deadM[i]);
         }
 
-        void RestoreAll()
+        static void RestoreAll()
         {
             int n = 0, dead = 0;
             List<int> remove = new List<int>();
@@ -841,12 +877,12 @@ namespace CW3Hanhua
         static MethodInfo fldHasChanged;
 
         /// <summary>把屏上所有 UILabel 催一遍 ProcessText。
-        /// 只在**手动按键**（F4 开 / F9 重载词表）时调用，不是每帧轮询 ——
+        /// 只在**拨总开关**（F3 开 / SetOn(true)）或 F9 重载词表时调用，不是每帧轮询 ——
         /// 日常显示完全靠 ProcessText 补丁被动生效，不需要这里出力。
         ///
         /// 为什么要催：补丁挂在 ProcessText 上，而 ProcessText 只在 label 变脏时被调
         /// （`get_processedText` 先查 `hasChanged`）。已经画出来的静态文本不变脏，
-        /// 就永远不会再走一遍 —— 按 F4 打开后它会一直保持英文，直到那个界面重进。
+        /// 就永远不会再走一遍 —— 按 F3 打开后它会一直保持英文，直到那个界面重进。
         /// `MarkAsChanged()` 把 mShouldBeProcessed 置真，下一次 Fill 就会重算。</summary>
         static void RefreshAllLabels()
         {
@@ -874,33 +910,39 @@ namespace CW3Hanhua
             return t.Length <= n ? t : t.Substring(0, n) + "…";
         }
 
-        // ================================================================ Update
-        void Update()
+        // ================================================================ Tick（原 Update）
+        // ★ v1.0.0：不再是 MonoBehaviour，改由 HanhuaPlugin.Update 每帧调用。
+        //   F3 不在本层（总开关在字体层），F5 / F9 在这里。
+        //   场景切换的检测与打日志由 HanhuaPlugin.Update 统一做（一处一帧一次），
+        //   本层只在那边发现切换后收到 OnSceneChanged()。原先两层各有一份检测，
+        //   合并后会把同一行日志打两遍（v1.0.0 已修）。
+        public static void Tick()
         {
-            frame++;
             try
             {
-                string sc = "";
-                try { sc = Application.loadedLevelName; } catch (Exception) { }
-                if (sc != sceneName)
-                {
-                    Say("");
-                    Say("=== 场景切换 #" + frame + ": '" + sceneName + "' -> '" + sc + "' ===");
-                    sceneName = sc;
-                    PruneSwaps();           // ★ 只清已销毁的，不能 swaps.Clear()
-                    missSeen.Clear();
-                }
-
-                if (Input.GetKeyDown(KeyCode.F4)) { if (textOn) Disable(); else Enable(); }
+                // F4 已退役：文本层现在跟着字体层的汉化总开关（F3）走。
                 if (Input.GetKeyDown(KeyCode.F5)) DumpMisses();
                 if (Input.GetKeyDown(KeyCode.F9))
                 {
                     Say(""); Say("======== F9: 重载词表 ========"); LoadDict();
-                    // 词表变了，屏上已有的 label 不会自己重算 —— 催一遍（同 F4 的理由）
+                    // 词表变了，屏上已有的 label 不会自己重算 —— 催一遍（同总开关的理由）
                     if (textOn) RefreshAllLabels();
                 }
             }
-            catch (Exception e) { Say("!! Update 异常: " + e.Message); }
+            catch (Exception e) { Say("!! Tick 异常: " + e.Message); }
+        }
+
+        /// <summary>场景切换：由 HanhuaPlugin.Update 检测到后调用（一个事件只调一次）。
+        /// 原先这段住在文本层自己的 Update 里，合并成一个插件后必须挪出来，
+        /// 否则两层各打一份「=== 场景切换 ===」日志。</summary>
+        public static void OnSceneChanged()
+        {
+            try
+            {
+                PruneSwaps();           // ★ 只清已销毁的，不能 swaps.Clear()
+                missSeen.Clear();
+            }
+            catch (Exception e) { Say("!! OnSceneChanged 异常: " + e.Message); }
         }
 
         /// <summary>F5：把本轮「经过 UILabel 但词表里查不到」的英文串全打出来。
@@ -908,7 +950,7 @@ namespace CW3Hanhua
         /// 所以这里列出的就是**还缺译文的完整清单**：补进词表后按 F9 重载即时生效。
         /// 反过来说，界面上还是英文、这里又没列出的，才是根本不经 UILabel 的对象
         /// （TextMesh：text 是 extern icall 钩不上，只能改资产，见 NOTES 4.6）。</summary>
-        void DumpMisses()
+        static void DumpMisses()
         {
             Say("");
             Say("======== F5: 未命中清单（prefix 走过但无译文）========");
@@ -926,17 +968,17 @@ namespace CW3Hanhua
         // ================================================================ HUD
         // ★ 2026-10-21：HUD 只报**开关状态**，内部数字全部移到 F11 的 dump
         //   （TextPlugin.DumpLine）—— 用户明确要求"这些信息不用暴露给用户"。
-        //   字体层（CW3Hanhua.dll）的 OnGUI 会**反射**调用 HudLine()，把它拼进第一行。
-        //   本方法要满足三个约束，别改签名：
-        //     1) public static string HudLine() —— 反射按 (Static|Public) 找
-        //     2) 不抛异常 —— 对方用 try/catch 包着 Invoke，但空串比异常好排查
-        //     3) 自己查跨 DLL 的静态字段（textOn…）—— 同进程同程序集，取到实时值
-        //   ★ 返回值只允许是 "F4 文本层:开/关" 这一种形态：字体层直接把它拼到
+        //   宿主是 HanhuaPlugin 的 OnGUI，它直接调 HudLine() 拼进第一行。
+        //   ★ 返回值只允许是 "文本层:开/关" 这一种形态：字体层直接把它拼到
         //     按键行里，多一个字都会把那一行撑长。
+        //   ★ 2026-10-23：原先是 "F4 文本层:开/关"，F4 退役后前缀里的 F4 去掉，
+        //     免得用户去找一个已经不存在（且已被 F3 取代）的键。
+        //   ★ v1.0.0：本层不再有自己的 OnGUI 兜底条 —— 两层同一个插件，
+        //     不再有"对方没装载"这种情况。
         public static string HudLine()
         {
-            try { return "F4 文本层:" + (textOn ? "开" : "关"); }
-            catch (Exception) { return "F4 文本层:?"; }
+            try { return "文本层:" + (textOn ? "开" : "关"); }
+            catch (Exception) { return "文本层:?"; }
         }
 
         /// <summary>F11 dump 用的一整行：所有数字都在这里（HUD 上不显示）。</summary>
@@ -968,69 +1010,6 @@ namespace CW3Hanhua
                 return "";
             }
             catch (Exception) { return ""; }
-        }
-
-        /// <summary>字体层是否在画合并 HUD（它每次 OnGUI 都会反射调 HudLine）。
-        /// 在就不要再画一遍，否则左上角会多出一条。</summary>
-        static int lastPeerProbeFrame = -1000;
-        static bool peerAlive;
-
-        static bool PeerHudAlive()
-        {
-            // 每 60 帧探一次：字体层没装载时本插件必须自己把状态画出来
-            if (frame - lastPeerProbeFrame >= 60)
-            {
-                lastPeerProbeFrame = frame;
-                peerAlive = false;
-                try
-                {
-                    Assembly[] asms = AppDomain.CurrentDomain.GetAssemblies();
-                    for (int i = 0; i < asms.Length; i++)
-                    {
-                        Type t = asms[i].GetType("CW3Hanhua.HanhuaPlugin", false);
-                        if (t != null) { peerAlive = true; break; }
-                    }
-                }
-                catch (Exception) { }
-            }
-            return peerAlive;
-        }
-
-        void OnGUI()
-        {
-            Color old = GUI.color;
-            try
-            {
-                if (PeerHudAlive()) return;      // 合并模式下由字体层统一画（NOTES 4.3）
-                GUI.color = Color.white;                // 兜底模式：字体层没装载，所以 F3/F11/F12 不可用 —— 明确标出来，
-                // 免得用户按了没反应还以为插件坏了。
-                string l1 = "按键   " + HudLine()
-                          + "   F5 未命中清单   F9 重载词表"
-                          + "   （F3 字体层 / F11 dump / F12 HUD 需 CW3Hanhua.dll）";
-                List<string> lines = new List<string>();
-                lines.Add(l1);
-                string e = ErrorLine();
-                if (e.Length > 0) lines.Add("!! 文本层: " + e);
-
-                GUIStyle st = GUI.skin.label;
-                float maxW = 0f;
-                for (int i = 0; i < lines.Count; i++)
-                {
-                    float x = 0f;
-                    try { x = st.CalcSize(new GUIContent(lines[i])).x; } catch (Exception) { }
-                    if (x > maxW) maxW = x;
-                }
-                float w = maxW + 28f;
-                if (w < 480f) w = 480f;
-                if (w > Screen.width - 12f) w = Screen.width - 12f;
-                int h = 20 * lines.Count + 10;
-                float y = Screen.height - h - 8f;      // 兜底条画在左下角
-                GUI.Box(new Rect(8, y, w, h), "");
-                for (int i = 0; i < lines.Count; i++)
-                    GUI.Label(new Rect(18, y + 8 + 20 * i, w - 20, 20), lines[i]);
-            }
-            catch (Exception) { }
-            finally { GUI.color = old; }   // ★ NOTES 5.6：不改回来会污染后续绘制（异常路径也要还原）
         }
     }
 }
