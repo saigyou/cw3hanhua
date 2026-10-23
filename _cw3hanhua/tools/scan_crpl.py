@@ -16,13 +16,21 @@
 输出：每个资产的 ShowMessage 调用数 + 字面量清单（`repr()` 形式，换行看得见）。
 `--json` 另存结构化结果，便于喂给批次脚本。
 
-★ 两个踩过的坑（改这个脚本前先读）：
+★ 三个踩过的坑（改这个脚本前先读）：
   1. UnityPy 读 TextAsset 的 `m_Script` 返回的是 **str 不是 bytes**，
      必须 `encode("utf-8","surrogateescape")` 才拿得回原始字节，
      否则前 3 字节的判断永远不成立、LZMA 解压必然失败（曾因此 0 命中）。
   2. 抓字面量**必须整篇 `finditer`**，不能按 `split("\\n")` 逐行做 ——
      `alpha_Troublesome Trains 01` 的脚本整篇只有 1 行（内含 264 个真 CRLF），
      逐行处理会几乎全漏。
+  3. ★★ **一个 `<scripts>` 块里可以有多个脚本**，形态是
+     `名字1.crpl;BASE64_1,名字2.crpl;BASE64_2,...` —— 旧版按 `;` 切再逐个
+     base64 解码，遇到多脚本关卡的**第一段之后全部解不出来**（`BASE64_1,名字2.crpl`
+     里混进了逗号和下一个文件名，`b64decode` 要么抛异常被静默 `continue`
+     跳过、要么在补齐填位后**静默解出乱码**）。结果就是 Far York / Arca /
+     Farbor / credits / alpha_Electricity Quiz 等**整关的 CRPL 文案一条都收不到**，
+     而且不报错 —— 2026-10-24 排查 `Mortars damage creeper that is deep.`
+     才发现的。所以必须按 `,` 切条目、每条首段才是文件名。
 """
 import argparse
 import base64
@@ -36,6 +44,39 @@ import sys
 # 字面量：允许 \" \\ 之类的转义；re.S 让 "…" 里可以跨行
 LIT = re.compile(r'"((?:[^"\\]|\\.)*)"', re.S)
 SCRIPTS = re.compile(r"<scripts>(.*?)</scripts>", re.S)
+
+# 单个脚本条目：`名字.crpl;BASE64`。多个条目之间用 ',' 分隔。
+# ★ 绝不能先 split(";") —— base64 里没有分号，但**逗号是文件名字符集之外的分隔符**，
+#   而 base64 字母表也不含逗号，所以按 ',' 切是安全的；切完后每条再按第一个 ';' 分。
+ENTRY = re.compile(r"([^,;]*?\.crpl)\s*;\s*([A-Za-z0-9+/=\s]+)", re.S)
+
+
+def parse_scripts(block):
+    """把 `<scripts>` 的内容解析成 [(文件名, 源码)]。
+
+    形态：`名字1.crpl;BASE64_1,名字2.crpl;BASE64_2,...`
+    —— 必须先按 ',' 切条目，不能先按 ';' 切（会把下一个文件名并进 base64）。
+    """
+    out = []
+    for name, b64 in ENTRY.findall(block):
+        s = re.sub(r"\s", "", b64)
+        if len(s) < 40:
+            continue
+        s += "=" * (-len(s) % 4)
+        try:
+            raw = base64.b64decode(s, validate=False)
+        except Exception:
+            continue
+        if len(raw) % 2:
+            continue
+        try:
+            src = raw.decode("utf-16-le")
+        except Exception:
+            src = raw.decode("utf-8", "ignore")
+        if "\x00" in src:
+            continue
+        out.append((name.strip(), src))
+    return out
 
 
 def to_bytes(s):
@@ -141,26 +182,16 @@ def scan(assets_dir, only_asset):
 
             scripts = []
             for m in SCRIPTS.finditer(txt):
-                # 形态：名字.crpl;BASE64   （按 ';' 切，第一段是文件名）
-                for part in m.group(1).split(";"):
-                    part = part.strip()
-                    if len(part) < 40:
-                        continue
-                    try:
-                        src = base64.b64decode(part).decode("utf-16-le")
-                    except Exception:
-                        continue
-                    if "ShowMessage" not in src:
-                        continue
-                    scripts.append({"name": "", "src": src})
+                for sname, src in parse_scripts(m.group(1)):
+                    scripts.append({"name": sname, "src": src})
 
             if not scripts:
                 continue
             results.append({
                 "file": fn,
                 "asset": name,
-                "len": len(scripts[0]["src"]),
-                "calls": len(re.findall(r"ShowMessage\w*\(", scripts[0]["src"])),
+                "len": sum(len(s["src"]) for s in scripts),
+                "calls": sum(len(re.findall(r"ShowMessage\w*\(", s["src"])) for s in scripts),
                 "scripts": scripts,
             })
     return results
@@ -182,18 +213,28 @@ def main():
     payload = []
     total = 0
     for r in results:
-        lits = literals_of(r["scripts"][0]["src"])
+        # ★ 必须遍历**全部**脚本，不能只看 scripts[0] —— 旧版只看第一个，
+        #   害得 Far York（2 个脚本，目标字面量在第 2 个里）一直 lits=0。
+        lits, seen = [], set()
+        for sc in r["scripts"]:
+            for s in literals_of(sc["src"]):
+                if s not in seen:
+                    seen.add(s)
+                    lits.append(s)
         total += len(lits)
         print("=" * 78)
-        print("ASSET: %-44s calls=%-3d lits=%d" % (r["asset"], r["calls"], len(lits)))
+        print("ASSET: %-44s calls=%-3d scripts=%-2d lits=%d"
+              % (r["asset"], r["calls"], len(r["scripts"]), len(lits)))
         for s in lits:
             print("   " + repr(s))
         if args.raw:
-            print("-" * 78)
-            print(r["scripts"][0]["src"])
+            for sc in r["scripts"]:
+                print("-" * 78)
+                print("# " + sc["name"])
+                print(sc["src"])
         payload.append({
-            "file": r["file"], "asset": r["asset"],
-            "len": r["len"], "calls": r["calls"], "strings": lits,
+            "file": r["file"], "asset": r["asset"], "len": r["len"], "calls": r["calls"],
+            "scripts": len(r["scripts"]), "strings": lits,
         })
 
     print("\n资产数: %d   字面量: %d" % (len(results), total))

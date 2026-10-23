@@ -1,0 +1,758 @@
+[
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Metroid",
+  "len": 22190,
+  "calls": 0,
+  "scripts": 13,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Gorge of the Void",
+  "len": 1265,
+  "calls": 0,
+  "scripts": 5,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Defi",
+  "len": 1024,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "credits",
+  "len": 48017,
+  "calls": 1,
+  "scripts": 25,
+  "strings": [
+   "You may have noticed that this mission is substantially different from most of the other missions in the game....",
+   "How?  CRPL... Creeper Reverse Polish Language.  That's the scripting language available in CW3.",
+   "Everything from the Gold Man, to his bullets, to the chests... even the walls that Creeper can't overflow.... all implemented using CRPL.",
+   "What's even better is that you can use CRPL to make maps like this or almost anything else you can think up!",
+   "Visit KnuckleCracker.com to learn more about CRPL, and making your own custom maps.",
+   "And here you are, the winner of the most fabulous object in the world!  The answer to all your problems is here!",
+   "Everyone give our winner a big welcome!  (Clap clap clap clap clap clap clap).",
+   "But before you collect your prize, let's just have a look at what made it possible...",
+   "Move: WASD or Arrow keys.\nFire: Left Mouse.\nDestroy Emitters: Get near, press SPACE",
+   "What sort of Supreme Being created such riffraff?",
+   "No one created me!",
+   "I made myself. I cannot be unmade.",
+   "I would have started with lasers, eight o'clock, Day One!",
+   "Shut up, I'm speaking rhetorically.",
+   "The world will be different, because I have understanding.",
+   "Digital watches.",
+   "I shall have understanding of video cassette recorders.",
+   "I shall have understanding of computers.",
+   "Forty-three species of parrots!",
+   "Of course you can't, you silly little man!",
+   "How much wood would a woodchuck chuck if a woodchuck could chuck wood?",
+   "Auto Fire: ON",
+   "Auto Fire: Off"
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Tempus",
+  "len": 5240,
+  "calls": 8,
+  "scripts": 1,
+  "strings": [
+   "Select a Command Node from the menu below and land it\nin the gray area in the upper left corner of the map.\n\n***NOTE*** If necessary, you may move the map with:\nRIGHT MOUSE, ARROW KEYS, or WASD keys.\n You may zoom the map with: MOUSE WHEEL or Q and Z keys.",
+   "Excellent.\nNow build collectors and connect them to the Command Node.\nSpread them out for maximum energy collection.\nThe more green you see, the more energy you produce.\nBUILD 10 COLLECTORS.",
+   "Weapons are required for destroying the Creeper.\nBe careful to not overbuild and exceed your energy production.\nBuild 3 Pulse Cannons now.",
+   "Impressive.\nNow, spread your network and defeat the blue Creeper Emitter.\nYou will need to build a Nullifier near the emitter to destroy it.\nAlso, don't forget to connect your network to the pod behind the emitter.",
+   "Move your Pulse Cannons in close to the Creeper and surround it.\n Make sure they remain connected to your network\nso they can be resupplied with ammo.\nWhen possible build a nullifier near the emitter to destroy it!",
+   "Now, build your network close to the Pod to collect it.",
+   "Defeat the Emitter with a Nullifier to complete the mission.",
+   "Build a Nullifier near the blue emitter.\nMove the map with RIGHT MOUSE, ARROW KEYS, or WASD keys.\n Zoom with MOUSE WHEEL or Q and Z keys."
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_The Bardel Redemption",
+  "len": 93,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_NoWasteLand",
+  "len": 1747,
+  "calls": 3,
+  "scripts": 5,
+  "strings": [
+   "This button creates 2000 creeper, but only once",
+   "The left emitter emits creeper proportional to your energy generated",
+   "The right emitter emits creeper proportional to your ore mined"
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Chanson",
+  "len": 8407,
+  "calls": 0,
+  "scripts": 5,
+  "strings": [
+   "Closest Unit "
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_The Ocean",
+  "len": 125,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Seedet",
+  "len": 1420,
+  "calls": 1,
+  "scripts": 1,
+  "strings": [
+   "Strafers are remote strike aircraft.\nBuild 4 strafers and target two at each volcano.\nSingle click to create a circle strafe attack pattern.\nClick and drag to define a strafe line of attack."
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Terror",
+  "len": 630,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Megaland 2",
+  "len": 2747,
+  "calls": 0,
+  "scripts": 4,
+  "strings": [
+   "Now nullify all enemy structures."
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Brain",
+  "len": 6385,
+  "calls": 1,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Super Tower",
+  "len": 5964,
+  "calls": 0,
+  "scripts": 1,
+  "strings": [
+   "Remember to build a lot of beams and reactors!"
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_The Totem",
+  "len": 944,
+  "calls": 0,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_The Totem 2",
+  "len": 827,
+  "calls": 0,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Flick",
+  "len": 4237,
+  "calls": 1,
+  "scripts": 3,
+  "strings": [
+   "Bombers are aircraft that deliver AntiCreeper.\nBuild Bombers to saturate remote islands.\nMake sure to collect plenty of Ore!"
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Meso",
+  "len": 4670,
+  "calls": 0,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Aether",
+  "len": 6120,
+  "calls": 0,
+  "scripts": 3,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Carcere",
+  "len": 2580,
+  "calls": 4,
+  "scripts": 1,
+  "strings": [
+   "Select a Command Node from the menu below\n and land it in the indicated gray area.",
+   "Build a collector near the green Tech Artifact to obtain it.\nThis will unlock the Relay tech. Relays can be used for making\nlong range connections but do not produce energy like collectors.",
+   "Expand your network and build weapons to engage the Creeper.\nYour target is the large Warp Inhibitor in the lower right.\nBuild a nullifier near it to take it out.",
+   "Build a Nullifier near the Warp Inhibitor to destroy it!\nDestroying the Inhibitor will destroy other enemies on the map!"
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_teks005 pyramid power",
+  "len": 4670,
+  "calls": 0,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Jojo",
+  "len": 1477,
+  "calls": 1,
+  "scripts": 1,
+  "strings": [
+   "Collect the Beam Tech Artifact.\nPlace Beams around your base to defend against Spore attacks."
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Conquest",
+  "len": 369,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Super Tower 2",
+  "len": 4155,
+  "calls": 0,
+  "scripts": 5,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Choix",
+  "len": 2819,
+  "calls": 0,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Creeper Wall 2",
+  "len": 2528,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Otrav",
+  "len": 2711,
+  "calls": 0,
+  "scripts": 3,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Electricity Quiz",
+  "len": 24279,
+  "calls": 0,
+  "scripts": 2,
+  "strings": [
+   "Final component question:\n\tTurn on exactly one lamp",
+   "Which switches need to be closed to turn the light on?\n\tA: only A     B: only B     C: none     D: both",
+   "All lamps are same\n\tHow much energy will each lamp get in one hour?\n\tA: 45 J     B: 10800 J     C: 162000 J     D: 0.18 kWh",
+   "You can now skip questions\n\tSkipping adds 4 seconds to your penalty time and gives you a penalty\n\tWhich component do you have to place at the question mark\n\tto dim the lamp?",
+   "In the next question you'll have to choose a component that fits in the contraption\n\tThere are four possible answers, they are listed below the letters\n\tIf there are multiple answers possible, you'll have to select them all\n\telse the answer is wrong",
+   "Will you be able to see the light from the lamp when the switch closes?\n\tA: Yes B: No",
+   "What will happen when switch A closes?\n\tA: Short Circuit   B: The lamp will turn on",
+   "So if A is the right answer, you destroy the collector on pad B\n\tand then you destroy the collector on continue\n\tIf you destroyed the collector on pad A destroy the reset collector\n\tFor this 'question' your penalty won't increase so you can try it out",
+   "Hit continue to check the answer\n\tIf the answer is wrong, you'll get a 4-second penalty\n\tand you will have to try again\n\tThe penalty increases with one seconds each time",
+   "Destroy all collectors except the one on the right answer\n\tDestroy the collector on the 'reset' pad to recover all collectors\n\tWhy? There are questions with multuple good answers and\n\tyou can strike out the answers that are wrong",
+   "Destroy the collector to continue",
+   "Time left:\n"
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Wind",
+  "len": 4055,
+  "calls": 0,
+  "scripts": 5,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_teks008 point to point",
+  "len": 4670,
+  "calls": 0,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Krig",
+  "len": 1298,
+  "calls": 0,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Crosslaw",
+  "len": 219,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Creeper Wall 3",
+  "len": 2680,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Tiplex",
+  "len": 1712,
+  "calls": 4,
+  "scripts": 1,
+  "strings": [
+   "Land on the right side of the map and collect the Tech Artifact.",
+   "You can now deploy a second Command Node onto the battlefield.\nClick the Orbital tab and select the second Command Node.\nLand it on the other side of the map.",
+   "Take out the two emitters sourcing the Digitalis.\nThe ultimate goal is to destroy the Inhibitor in the center of the map.",
+   "You can hide the white Digitalis growth area by pressing\nthe Visibility Button, then unchecking 'Show D-Growth'."
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Ormos",
+  "len": 3911,
+  "calls": 4,
+  "scripts": 1,
+  "strings": [
+   "Build Siphons on the Resource Packs.\nThe Green Crystals will give you energy in this map.\nOn other maps, other resources may be available.",
+   "Build Terps to terraform land.\nBuild around 5 terps now.\nSpread them around near the edge of the old ruins.",
+   "Click the Terraform Button then paint where to change the terrain.\nNearby Terps will automatically act on nearby terrain.\nSelect a brush size of 1, and a terrain height of 9.\nFill in the gaps in the ruin walls and watch the Terps terraform the land."
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Megaland",
+  "len": 6989,
+  "calls": 0,
+  "scripts": 6,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Chimera",
+  "len": 6236,
+  "calls": 0,
+  "scripts": 4,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Troublesome Trains 02 - Freeplay",
+  "len": 9376,
+  "calls": 10,
+  "scripts": 2,
+  "strings": [
+   "; Sent: ",
+   "\nNext Train: ",
+   "\nPreparing Trains",
+   "Each train is marked by the number of its destination.\nYour goal is to route each train to its proper\ngoal while avoiding various kinds of accidents.",
+   "The trains travel on a system of terrain level 8 rails.\nThe switches work by raising or lowering portions of track.",
+   "Watch while I move the switches to direct the train to station #5.\n",
+   "\nIf the train arrives in the right place, your score goes up by 1.",
+   "Unfortunately, your trains won't always arrive at the correct places.\nThere are several ways in which this may happen, which I will explain.\nFirst, your trains may derail if the switches are improperly managed.",
+   "If one of your trains has no more track to run on, it will derail.\n",
+   "\nIf the train derails, your score goes down by 5 points.",
+   "As you can see, a derailment does more than cost you 5 points. It\nalso disrupts the area, and destroys more tracks. These damaged tracks\nmay cause chain reactions of derailments, so you should fix them like this.",
+   "Another way that you can lose points is by sending trains\nto the wrong stations. If a train arrives at the wrong station,\nyou will lose 2 points.",
+   "The trains that come from the station are semi-random. After one\ntrain is sent, the system will wait a short time before preparing\nthe next one to be sent to a random destination on the map.",
+   "During the game, your current score, as well as the time until the next\ntrain are displayed in the upper-right hand corner. You have 3 minutes to\nset up your terps before the first train. You win when your score is 100",
+   "\nTime To Start: ",
+   "\nTime To Start: 0",
+   "YOU LOSE! So maybe running a railroad just isn't your\nthing, but least there's other things you can do, like\nunder-creeper basket weaving, perhaps. Play again soon!"
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Lemal",
+  "len": 2710,
+  "calls": 0,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Creeper Hollow",
+  "len": 790,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Roundup",
+  "len": 3772,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Ruine",
+  "len": 3583,
+  "calls": 1,
+  "scripts": 3,
+  "strings": [
+   "Shield Keys and other Artifacts must be connected\nto a Command Node to be collected.\nGuppies can not collect them."
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_The pit",
+  "len": 4325,
+  "calls": 0,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_CreeperWall",
+  "len": 2689,
+  "calls": 0,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Total War",
+  "len": 1816,
+  "calls": 0,
+  "scripts": 3,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Telos",
+  "len": 1625,
+  "calls": 4,
+  "scripts": 1,
+  "strings": [
+   "Collect the Reactor Tech Artifact at the bottom of the map.",
+   "Reactors produce energy like collectors, but can be tightly packed.\nYou will need to build around 10 Reactors for this mission.\nBuild only a couple at a time till your energy production increases.",
+   "Power Zones are left when you destroy enemies.\nMove units onto the glowing circular Power Zones to get extra abilities.",
+   "Now defeat all emitters to secure this world."
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_CW1 Tucana 2X",
+  "len": 2027,
+  "calls": 0,
+  "scripts": 4,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Far York",
+  "len": 2847,
+  "calls": 2,
+  "scripts": 4,
+  "strings": [
+   "Mortars damage creeper that is deep.\nMove several mortars around each crater\nand they will suppress the creeper.",
+   "The terrain meter in the command bar at the bottom right of the screen\nshows the terrain height and creeper levels under the mouse."
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Farbor",
+  "len": 24997,
+  "calls": 0,
+  "scripts": 6,
+  "strings": [
+   "Lia, we failed!  The Prism Ship has been completed and is launching. Nothing can stop it now...",
+   "Hold on a sec, Skars...  There may yet be a sliver of hope.",
+   "[Scanning Enhanced Totem]",
+   "The Enhanced Totem in the north east, I think I can now set our nullifiers to destroy it.",
+   "The Enhanced Totem is opening its outer guard doors and I am able to scan its modulation frequency.  It operates just like a normal Totem in this regard.  If...",
+   "...If you set the Nullifiers to the same rift space modulation frequency, they will direct the blast energy into the heart of the Enhanced Totem and destroy it.",
+   "Exactly.  Only problem is we have to do it before the Prism Ship docks above the Enhanced Totem and completes its firing sequence.  Once that happens, everything in this system will be destroyed.",
+   "Alright, Lia.  It isn't often we get a second chance, so I'll throw everything we have at that Enhanced Totem!",
+   "The Prism Ship has started its firing sequence....  You have 20 minutes to nullify it, or everything in this system will be destroyed.  That includes us, Skars.",
+   "I've been almost dead plenty of times, Lia.  Relax and watch....",
+   "Incredible Skars!",
+   "That was a close call, Lia.  Too close... but we made it!",
+   "I have some other good news.  I have analyzed the wreckage of the ship and I can determine where it was designed to transmit information to.",
+   "You said it would send information into the remnants of Rift Space...",
+   "Yes, and the compressed information beam would then exit into normal space.  The exit point is only one star system away from here.",
+   "Ha.... ha ha ha ha...  Platius, only your cunningness exceeds your age.  What are the odds, Lia?  What are the odds we would be here at just the right place?",
+   "It seems highly improbable.  Either we were brought here or the Loki came here.  In either case, our destiny awaits.",
+   "Prepare to warp, Lia.  Prepare to warp...",
+   "at facility"
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_The Bardel Convention",
+  "len": 93,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Boss",
+  "len": 7006,
+  "calls": 1,
+  "scripts": 6,
+  "strings": [
+   "HP(Creeper): ",
+   " ChanceOfAttack: "
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Starsync",
+  "len": 2925,
+  "calls": 4,
+  "scripts": 1,
+  "strings": [
+   "NOTE*** If necessary, you may move the map with:\nRIGHT MOUSE, ARROW KEYS, or WASD keys.\n You may zoom the map with: MOUSE WHEEL or Q and Z keys.",
+   "Build Ore Mines on the Ore Deposits to collect ore.\nOre can be used to make Anti-Creeper.\nAnti-Creeper destroys Creeper on contact.",
+   "Build Sprayers to make Anti-Creeper.\nDeploy sprayers near Creeper and they will fire blobs into the Creeper.\nThis can be useful for securing a beachhead.",
+   "Remember, you only need to destroy the Inhibitor to secure this world!"
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Wallsaver",
+  "len": 1805,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Vapen",
+  "len": 4747,
+  "calls": 0,
+  "scripts": 4,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_CW1 Tucana",
+  "len": 1114,
+  "calls": 0,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Bardel",
+  "len": 93,
+  "calls": 0,
+  "scripts": 1,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Mistet",
+  "len": 1100,
+  "calls": 0,
+  "scripts": 2,
+  "strings": []
+ },
+ {
+  "file": "resources.assets",
+  "asset": "alpha_Troublesome Trains 01 - Tutorial",
+  "len": 10786,
+  "calls": 9,
+  "scripts": 2,
+  "strings": [
+   "; Sent: ",
+   "\nNext Train: ",
+   "\nPreparing Trains",
+   "Each train is marked by the number of its destination.\r\nYour goal is to route each train to its proper\r\ngoal while avoiding various kinds of accidents.",
+   "The trains travel on a system of terrain level 8 rails.\r\nThe switches work by raising or lowering portions of track.\r\nPress the escape key now to skip the tutorial.",
+   "Watch while I move the switches to direct the train to station #5.\n",
+   "\nIf the train arrives in the right place, your score goes up by 1.",
+   "Unfortunately, your trains won't always arrive at the correct places.\r\nThere are several ways in which this may happen, which I will explain.\r\nFirst, your trains may derail if the switches are improperly managed.",
+   "If one of your trains has no more track to run on, it will derail.\n",
+   "\nIf the train derails, your score goes down by 5 points.",
+   "As you can see, a derailment does more than cost you 5 points. It\r\nalso disrupts the area, and destroys more tracks. These damaged tracks\r\nmay cause chain reactions of derailments, so you should fix them like this.",
+   "Another way that you can lose points is by sending trains\r\nto the wrong stations. If a train arrives at the wrong station,\r\nyou will lose 2 points.",
+   "The trains that come from the station have random targets. After one\r\ntrain is sent, the system will wait a short time before preparing\r\nthe next one to be sent to a random destination on the map.",
+   "During the game, your current score, as well as the time until the next\r\ntrain are displayed in the upper-right hand corner. You have 3 minutes to\r\nset up your terps before the first train. You win when your score is 100",
+   "\nTime To Start: ",
+   "\nTime To Start: 0"
+  ]
+ },
+ {
+  "file": "resources.assets",
+  "asset": "Arca",
+  "len": 87817,
+  "calls": 2,
+  "scripts": 15,
+  "strings": [
+   "The ship is ancient, it must have been preserved for a billion or more years... where, I don't know.  But it is totally useless now, it's crashed and is just fragments.",
+   "Look at those fragments.  In their midst, the plans for the mightiest vessel ever constructed, the Thor!  We must obtain those schematics, they will hold the secret to destroying the Nexus.",
+   "Amazing... This ship uses recognizable technology for the most part, though on a massive scale.  But the main cannons... the construction is similar to the Dark Beam of ancient times.",
+   "Yes... of course.  This makes sense.",
+   "The main cannons appear as though they fire self guided bursts of energy... an energy that will damage the Nexus.  These cannons look as if they are specifically designed for this purpose!",
+   "Of course they were.  The Loki weren't the only ones who knew what would happen.",
+   "But, the Loki have prepared for this possibility, Aliana.  They have surrounded their Nexus with a shield.  This shield is impervious to any of the weapons we have, including the Thor.",
+   "Then we are still at an impass...",
+   "Platius was always one step ahead... I don't believe he...",
+   "...Father, I think you are right.  The impact of the crashed ship sent tectonic waves through the crust of this world.  I show buried structures here, that may be of use.",
+   "Yes, the structures are the remains of ancient and primitive weapons, missile silos from a primitive culture.  If we terraform down to level 1, we can access these remains.  I can program the nano-construction packets to rebuild them.",
+   "Ah, you are as brilliant now as ever my daughter.  Platius knew this as well...  The missiles will fly into the shield around the Nexus and damage it.  The Loki didn't design the shield for such primitive projectile weapons!",
+   "I'll indicate the location of the silos, Father.  We must secure those locations and terraform them to level 1.  Once excavated, hook up our network and arm the silos.",
+   "The Thor may not be able to penetrate the Nexus shield, Aliana... but I sure bet it will help secure the area around those missile silos!",
+   "Now Imperator!  Destroy the anomaly's core!",
+   "No Father!  This is our last chance!  Remember the good...",
+   "I remember Aliana...  and I choose ultimate POWER!  Now bear witness to your own undoing!",
+   "Imperator.... Father...., no!",
+   "Goodbye, Aliana.  I look forward to remaking other versions of you at my leisure!",
+   "Father, I remember your life and mine... all the good that we did, all of the life that we brought into being.  That can't be erased...",
+   "Already I have begun the cleansing!  Goodbye at last Aliana.  My new universe awaits!",
+   "Nooooooo!!!!!  Impera.... tor...",
+   "This ends now, Loki Hive.",
+   "Many... eventua... lities... Many... Impera.... toooooor. [Loki Transmission Terminated]",
+   "This.... can.... not.... beeee....!!!!",
+   "I'm sorry Imperator... I'm so sorry...  If only you had chosen to remember Skarsgard Abraxis.  I wish there were another way.",
+   "Ali...ana...!  Save... me....!",
+   "Imperator, you mush perish along with the Loki.  But you had the right idea in one respect.  The Arc is now under my protection and with it I will choose to remake some things as I see fit.",
+   "Goodbye Imperator.  I shall be with my Father again soon.",
+   "Your efforts are in vain.  Continue with this annoyance, and we shall show you our true wrath!",
+   "Prepare yourself for unforeseen eventualities Loki Hive.",
+   "The shield around the Nexus is down Father!",
+   "Now, we will use the main cannons of the mighty Thor and destroy the Nexus!",
+   "We shall see 'Skarsgard Abraxis' and the 'Anomaly'.  Now witness our true wrath.",
+   "This cannot be, Imperator!  Our shield is down and we are vulnerable!",
+   "Believe it, Hive.",
+   "Aliana!  Stop your assault.  You must join with me so that we may rule over all reality together!",
+   "I... I'm speechless Father.",
+   "And so it is done my daughter.  Ten billion years it has taken, and now I stand as a finite being at last.",
+   "I'm not so sure about that Father.  The Arc once made, cannot be unmade.  It is here and stands at your disposal.",
+   "This is a great power for a finite man.  Perhaps as the Imperator I could...",
+   "...Father, I'm only just beginning to understand this great plan of yours.  But I believe everything that has happened did so as you had planned.",
+   "Perhaps my daughter.  Perhaps I shall choose to believe that.  But even with all that I now know and remember, I'm not sure what to do next.",
+   "The Arc allows you to visit any time, any place, in any alternate reality.  You can go anywhere at any time.",
+   "But where would one go with such choices... who or what would one be?",
+   "I have an idea Father.  Perhaps you can travel to 10 billion years ago, when the Loki first emerged into greatness.",
+   "Interesting proposition Aliana.  And what will I call myself?",
+   "How about something familiar... something to honor one you always respected.  How about....",
+   "...Yes Aliana, you have always been very wise.  I think I shall choose that name during my travels, at least for a while. It is all very clear to me. When I travel to times past, I will simply be called...",
+   "No!!!!!!  Imperator?!?!  This was not foretold!",
+   "At last, the Loki speak.  Now that you shall never have access to the Arc, what will you do?",
+   "By destroying the stations, Imperator, you have denied yourself true and full knowledge.  Ultimate power could have been ours!  But no matter.  We will simply begin again.",
+   "And I will stop you again...",
+   "We will wait another 10 billion years, then another, then another if necessary.  And when we finally reveal the Arc Eternal we will save you, our Imperator.  We will save you... [Loki Transmission Terminated]",
+   "What did that mean?",
+   "I'm not sure, but perhaps there are other eventualities that the Loki sense.  Something about this all seems uncertain... as if there were other possible outcomes... parallel realities.",
+   "Imperator?  Why did they call you that?",
+   "That's odd, I didn't even notice.  Oh, 'Lia'... you can drop the charade now.  It is very good to see you again Aliana... very good indeed my Daughter.",
+   "How!  How did you know?",
+   "When we came to this world, I began to see things more clearly.  As we fought to prevent the Arc from being built, everything became clear to me.  Just as I knew that Lia was but a mask for your true self, I also know that I am no longer a physical being.",
+   "I wanted to tell you, but... revealing such a thing when you were projecting a physical form... I thought it would be too traumatic.",
+   "It makes sense... each of us aren't very different from the Loki, or Platius. We never have been.  We each exist outside a single physical form.  This battle... this success... for some reason it awoke a great wealth of knowledge within me.",
+   "This great knowledge I look forward to sharing with you...",
+   "And now the Loki have been defeated and a universe stands before us.",
+   "Yes, my Daughter.  But the Loki will begin again.... so we have much work before us.",
+   "But this time you won't be alone.",
+   "And for that, my child, I am eternally grateful.",
+   "Arhhhh!  Imperator, the anomaly has done the unforeseen!",
+   "That's right... I did what I must to stop you.  I destroyed my orbital ship, and converted it into defenses that will deny you the Arc forever!",
+   "Ha ha ha... child, your efforts amuse me.  You stand in my shadow like a pebble beneath a mountain.  But I shall still show you mercy.  When these events are complete, I will remake you to serve me as I have promised.",
+   "We shall see, Imperator.  [Aliana transmission terminated]",
+   "Imperator, the anomaly has scanned our construction at the moment of your merging.  From that it has devised primitive weapons that will damage the shield around our mighty Nexus!",
+   "The anomaly has also deployed itself directly over the Arc...  It has created a shield around the Arc, that our weapons will not penetrate!",
+   "My children, have I not orchestrated all that has transpired?  Have I not guided you to this moment?  After all that has transpired, you DOUBT me now!?",
+   "No... Imperator...",
+   "Silence!!!  I hold your entire Hive in the palm of my hand and can crush it at will!  Doubt me again, and I will erase your existence from all of history and replace you with another!",
+   "Yes, Imperator.  We are at your command.",
+   "Now, do you not see the weakness in her defenses?",
+   "Yes, Imperator... We see it now.  With your power our Nexus can move more rapidly than we thought possible.",
+   "Yes.  I will guide our Nexus and avoid the primitive weapons.  I will enhance the weapons of the Nexus so that we may destroy the generators powering Aliana's shield.",
+   "Once her shield is down, I will flood the area with Creeper until she is destroyed!  Then I will control the Arc and all of reality will be at my command!",
+   "Move Nexus with WASD or Arrow keys.\nFire by holding down Left Mouse Button.",
+   "No!  We failed!!!",
+   "Yes.... it....",
+   "BEHOLD!  All that has transpired has done so exactly as foretold!  The Arc Eternal is revealed at last!  Bear witness to our mighty Nexus!",
+   "Brace for incoming, Lia!",
+   "Greetings Imperator.",
+   "The Loki... at last we meet.",
+   "At last, Imperator?  You are still projecting a finite existence.  Open your mind, Imperator.... open your mind.",
+   "Don't listen to them, Skars.  They....",
+   "SILENCE!  We have silenced your primitive automaton so that we may converse more clearly.",
+   "She is right Loki, you are trying to deceive me!",
+   "Look upon yourself, Imperator.  Truly look upon yourself!  Do you see a finite existence?  Do you see a body made of simple materials?",
+   "I... no... this can't be!",
+   "Yes.  Did you really believe that some automaton had preserved a primitive human form for billions of years?  You know this to be an absurdity.  Now you know your true form.",
+   "But I remember being a child, growing up, living, fighting the Creeper... defeating a Nexus.  Platius saved me....",
+   "Yes, the explosion that the one you call Platius saved you from.  How do you think he was able to do that so 'easily'.  You never needed saving, Imperator!",
+   "Is it not the one you call Platius that was the deceiver?  What did he tell you of himself and of us?",
+   "He told me his people fought you and nearly won.  He told me you were once a great race and that you peered into a dark and alternate realm and found something there that changed you and set you on this path of destruction.",
+   "And what do you think we found in that 'darkness'?",
+   "He never said... I'm not sure he ever knew.",
+   "Ha ha ha ha...  we found YOU, Imperator.  YOU were who we found.  You told us of the Arc and of its potential.  You showed us our purpose and laid out the path for all that would follow.",
+   "...  My body  ...  just a projection of my own choosing ...  I remember now!  I REMEMBER.",
+   "Father.  It's me, your daughter.  I have been with you all along.  Lia was my projection as I guided you toward the realization of who you really were.",
+   "The anomaly, 'Aliana Abraxis'.  Yes, our hive considered that you might appear.  Hiding as an automaton was clever, we grant you this.  We should have detected your presence sooner.  Imperator, you should never have created...",
+   "Lia... Aliana?  I should have known.  Your name, how you never talked about Aliana, what you knew about me...",
+   "We see what we want to see, Father.  It took me many years to discover my true form.  You still have a choice, you can still choose to be Skarsgard Abraxis.  Remember his life and what he stood for.",
+   "Nonsense!  Imperator, all that has transpired has done so according to your plan!  We have revealed the Arc Eternal for you!  Now, join with us as you have foretold!",
+   "Father, remember the life of Skarsgard Abraxis.  Remember him...",
+   "Will you choose to remain as Skarsgard Abraxis, or will you join the Loki.  The choice is yours alone.",
+   "Choose Skars",
+   "Choose Loki",
+   "Father!  Something just dropped out of Warp in this system.  It's badly damaged and heading for this planet!",
+   "I see it... it's a ship.  Platius... you old fool!  Aliana, Platius must have set this mighty ship on course for this planet!",
+   "I will attempt to predict the crash site on the map... clear out anything in the way!",
+   "Loki Hive, I remember all now.  Skarsgard Abraxis is a modicum of my full being, but one that has shown me a great understanding.",
+   "I choose this form.  I will not join with you, nor will I allow you to control the Arc.",
+   "So be it, 'Skarsgard Abraxis'.  You have nothing that can harm our great Nexus.  Stay, leave... it matters not to us.",
+   "So long as we are here, you cannot control the Arc and use it for your purposes.",
+   "We have waited billions of years, we can wait billions more.  Can you, 'Skarsgard Abraxis'?  Can you? [Loki Hive Transmission Terminated]",
+   "Thank you father.... thank you for choosing the right path. ",
+   "Aliana, is there nothing we can do?",
+   "I don't see anything possible, father.  That Nexus has a shield that no weapons can penetrate.  Even if we could, the Nexus itself seems indestructible.",
+   "We will fight on anyway, daughter.  If we must fight for a million years, we will do so.  But we must never leave.",
+   "Father No!!!!!  No!!!!!",
+   "As foretold, my children, I return to you at our greatest moment.  You have done well and pleased me.",
+   "Welcome, our Imperator.  We stand at your command.",
+   "I now join with you in the Nexus and will cleanse this world.",
+   "Father....  no....",
+   "You too may join us Aliana.  You are of our kind, join with us and we will rule over all time as we see fit.",
+   "No, father.  I remember the life of Skarsgard Abraxis and won't choose to forget.",
+   "'Skarsgard Abraxis' is a part of my existence, much as a grain of sand is a part of a world.  It is something insignificant compared to the whole!  Join, Aliana.",
+   "Fath... Imperator, you leave me no choice.  I must destroy your Nexus.  You cannot be allowed to control the Arc.",
+   "So be it, Aliana.  After your destruction I shall remake you in a more compliant form.  Some form of you will join with us, of this you can rest assured."
+  ]
+ }
+]

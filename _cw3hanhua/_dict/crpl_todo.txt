@@ -1,0 +1,213 @@
+
+@@ credits
+000 You may have noticed that this mission is substantially different from most of the other missions in the game....
+001 How?  CRPL... Creeper Reverse Polish Language.  That's the scripting language available in CW3.
+002 Everything from the Gold Man, to his bullets, to the chests... even the walls that Creeper can't overflow.... all implemented using CRPL.
+003 What's even better is that you can use CRPL to make maps like this or almost anything else you can think up!
+004 Visit KnuckleCracker.com to learn more about CRPL, and making your own custom maps.
+005 And here you are, the winner of the most fabulous object in the world!  The answer to all your problems is here!
+006 Everyone give our winner a big welcome!  (Clap clap clap clap clap clap clap).
+007 But before you collect your prize, let's just have a look at what made it possible...
+008 Move: WASD or Arrow keys.\nFire: Left Mouse.\nDestroy Emitters: Get near, press SPACE
+009 What sort of Supreme Being created such riffraff?
+010 No one created me!
+011 I made myself. I cannot be unmade.
+012 I would have started with lasers, eight o'clock, Day One!
+013 Shut up, I'm speaking rhetorically.
+014 The world will be different, because I have understanding.
+015 Digital watches.
+016 I shall have understanding of video cassette recorders.
+017 I shall have understanding of computers.
+018 Forty-three species of parrots!
+019 Of course you can't, you silly little man!
+020 How much wood would a woodchuck chuck if a woodchuck could chuck wood?
+021 Auto Fire: ON
+022 Auto Fire: Off
+
+@@ alpha_NoWasteLand
+023 This button creates 2000 creeper, but only once
+024 The left emitter emits creeper proportional to your energy generated
+
+@@ Chanson
+025 Closest Unit 
+
+@@ alpha_Megaland 2
+026 Now nullify all enemy structures.
+
+@@ alpha_Electricity Quiz
+027 Final component question:\n\tTurn on exactly one lamp
+028 Which switches need to be closed to turn the light on?\n\tA: only A     B: only B     C: none     D: both
+029 All lamps are same\n\tHow much energy will each lamp get in one hour?\n\tA: 45 J     B: 10800 J     C: 162000 J     D: 0.18 kWh
+030 You can now skip questions\n\tSkipping adds 4 seconds to your penalty time and gives you a penalty\n\tWhich component do you have to place at the question mark\n\tto dim the lamp?
+031 In the next question you'll have to choose a component that fits in the contraption\n\tThere are four possible answers, they are listed below the letters\n\tIf there are multiple answers possible, you'll have to select them all\n\telse the answer is wrong
+032 Will you be able to see the light from the lamp when the switch closes?\n\tA: Yes B: No
+033 What will happen when switch A closes?\n\tA: Short Circuit   B: The lamp will turn on
+034 So if A is the right answer, you destroy the collector on pad B\n\tand then you destroy the collector on continue\n\tIf you destroyed the collector on pad A destroy the reset collector\n\tFor this 'question' your penalty won't increase so you can try it out
+035 Hit continue to check the answer\n\tIf the answer is wrong, you'll get a 4-second penalty\n\tand you will have to try again\n\tThe penalty increases with one seconds each time
+036 Destroy all collectors except the one on the right answer\n\tDestroy the collector on the 'reset' pad to recover all collectors\n\tWhy? There are questions with multuple good answers and\n\tyou can strike out the answers that are wrong
+037 Destroy the collector to continue
+
+@@ Far York
+038 Mortars damage creeper that is deep.\nMove several mortars around each crater\nand they will suppress the creeper.
+039 The terrain meter in the command bar at the bottom right of the screen\nshows the terrain height and creeper levels under the mouse.
+
+@@ Farbor
+040 Lia, we failed!  The Prism Ship has been completed and is launching. Nothing can stop it now...
+041 Hold on a sec, Skars...  There may yet be a sliver of hope.
+042 [Scanning Enhanced Totem]
+043 The Enhanced Totem in the north east, I think I can now set our nullifiers to destroy it.
+044 The Enhanced Totem is opening its outer guard doors and I am able to scan its modulation frequency.  It operates just like a normal Totem in this regard.  If...
+045 ...If you set the Nullifiers to the same rift space modulation frequency, they will direct the blast energy into the heart of the Enhanced Totem and destroy it.
+046 Exactly.  Only problem is we have to do it before the Prism Ship docks above the Enhanced Totem and completes its firing sequence.  Once that happens, everything in this system will be destroyed.
+047 Alright, Lia.  It isn't often we get a second chance, so I'll throw everything we have at that Enhanced Totem!
+048 The Prism Ship has started its firing sequence....  You have 20 minutes to nullify it, or everything in this system will be destroyed.  That includes us, Skars.
+049 I've been almost dead plenty of times, Lia.  Relax and watch....
+050 Incredible Skars!
+051 That was a close call, Lia.  Too close... but we made it!
+052 I have some other good news.  I have analyzed the wreckage of the ship and I can determine where it was designed to transmit information to.
+053 You said it would send information into the remnants of Rift Space...
+054 Yes, and the compressed information beam would then exit into normal space.  The exit point is only one star system away from here.
+055 Ha.... ha ha ha ha...  Platius, only your cunningness exceeds your age.  What are the odds, Lia?  What are the odds we would be here at just the right place?
+056 It seems highly improbable.  Either we were brought here or the Loki came here.  In either case, our destiny awaits.
+057 Prepare to warp, Lia.  Prepare to warp...
+058 at facility
+
+@@ alpha_Boss
+059 HP(Creeper): 
+060  ChanceOfAttack: 
+
+@@ Arca
+061 The ship is ancient, it must have been preserved for a billion or more years... where, I don't know.  But it is totally useless now, it's crashed and is just fragments.
+062 Look at those fragments.  In their midst, the plans for the mightiest vessel ever constructed, the Thor!  We must obtain those schematics, they will hold the secret to destroying the Nexus.
+063 Amazing... This ship uses recognizable technology for the most part, though on a massive scale.  But the main cannons... the construction is similar to the Dark Beam of ancient times.
+064 Yes... of course.  This makes sense.
+065 The main cannons appear as though they fire self guided bursts of energy... an energy that will damage the Nexus.  These cannons look as if they are specifically designed for this purpose!
+066 Of course they were.  The Loki weren't the only ones who knew what would happen.
+067 But, the Loki have prepared for this possibility, Aliana.  They have surrounded their Nexus with a shield.  This shield is impervious to any of the weapons we have, including the Thor.
+068 Then we are still at an impass...
+069 Platius was always one step ahead... I don't believe he...
+070 ...Father, I think you are right.  The impact of the crashed ship sent tectonic waves through the crust of this world.  I show buried structures here, that may be of use.
+071 Yes, the structures are the remains of ancient and primitive weapons, missile silos from a primitive culture.  If we terraform down to level 1, we can access these remains.  I can program the nano-construction packets to rebuild them.
+072 Ah, you are as brilliant now as ever my daughter.  Platius knew this as well...  The missiles will fly into the shield around the Nexus and damage it.  The Loki didn't design the shield for such primitive projectile weapons!
+073 I'll indicate the location of the silos, Father.  We must secure those locations and terraform them to level 1.  Once excavated, hook up our network and arm the silos.
+074 The Thor may not be able to penetrate the Nexus shield, Aliana... but I sure bet it will help secure the area around those missile silos!
+075 Now Imperator!  Destroy the anomaly's core!
+076 No Father!  This is our last chance!  Remember the good...
+077 I remember Aliana...  and I choose ultimate POWER!  Now bear witness to your own undoing!
+078 Imperator.... Father...., no!
+079 Goodbye, Aliana.  I look forward to remaking other versions of you at my leisure!
+080 Father, I remember your life and mine... all the good that we did, all of the life that we brought into being.  That can't be erased...
+081 Already I have begun the cleansing!  Goodbye at last Aliana.  My new universe awaits!
+082 Nooooooo!!!!!  Impera.... tor...
+083 This ends now, Loki Hive.
+084 Many... eventua... lities... Many... Impera.... toooooor. [Loki Transmission Terminated]
+085 This.... can.... not.... beeee....!!!!
+086 I'm sorry Imperator... I'm so sorry...  If only you had chosen to remember Skarsgard Abraxis.  I wish there were another way.
+087 Ali...ana...!  Save... me....!
+088 Imperator, you mush perish along with the Loki.  But you had the right idea in one respect.  The Arc is now under my protection and with it I will choose to remake some things as I see fit.
+089 Goodbye Imperator.  I shall be with my Father again soon.
+090 Your efforts are in vain.  Continue with this annoyance, and we shall show you our true wrath!
+091 Prepare yourself for unforeseen eventualities Loki Hive.
+092 The shield around the Nexus is down Father!
+093 Now, we will use the main cannons of the mighty Thor and destroy the Nexus!
+094 We shall see 'Skarsgard Abraxis' and the 'Anomaly'.  Now witness our true wrath.
+095 This cannot be, Imperator!  Our shield is down and we are vulnerable!
+096 Believe it, Hive.
+097 Aliana!  Stop your assault.  You must join with me so that we may rule over all reality together!
+098 I... I'm speechless Father.
+099 And so it is done my daughter.  Ten billion years it has taken, and now I stand as a finite being at last.
+100 I'm not so sure about that Father.  The Arc once made, cannot be unmade.  It is here and stands at your disposal.
+101 This is a great power for a finite man.  Perhaps as the Imperator I could...
+102 ...Father, I'm only just beginning to understand this great plan of yours.  But I believe everything that has happened did so as you had planned.
+103 Perhaps my daughter.  Perhaps I shall choose to believe that.  But even with all that I now know and remember, I'm not sure what to do next.
+104 The Arc allows you to visit any time, any place, in any alternate reality.  You can go anywhere at any time.
+105 But where would one go with such choices... who or what would one be?
+106 I have an idea Father.  Perhaps you can travel to 10 billion years ago, when the Loki first emerged into greatness.
+107 Interesting proposition Aliana.  And what will I call myself?
+108 How about something familiar... something to honor one you always respected.  How about....
+109 ...Yes Aliana, you have always been very wise.  I think I shall choose that name during my travels, at least for a while. It is all very clear to me. When I travel to times past, I will simply be called...
+110 No!!!!!!  Imperator?!?!  This was not foretold!
+111 At last, the Loki speak.  Now that you shall never have access to the Arc, what will you do?
+112 By destroying the stations, Imperator, you have denied yourself true and full knowledge.  Ultimate power could have been ours!  But no matter.  We will simply begin again.
+113 And I will stop you again...
+114 We will wait another 10 billion years, then another, then another if necessary.  And when we finally reveal the Arc Eternal we will save you, our Imperator.  We will save you... [Loki Transmission Terminated]
+115 What did that mean?
+116 I'm not sure, but perhaps there are other eventualities that the Loki sense.  Something about this all seems uncertain... as if there were other possible outcomes... parallel realities.
+117 Imperator?  Why did they call you that?
+118 That's odd, I didn't even notice.  Oh, 'Lia'... you can drop the charade now.  It is very good to see you again Aliana... very good indeed my Daughter.
+119 How!  How did you know?
+120 When we came to this world, I began to see things more clearly.  As we fought to prevent the Arc from being built, everything became clear to me.  Just as I knew that Lia was but a mask for your true self, I also know that I am no longer a physical being.
+121 I wanted to tell you, but... revealing such a thing when you were projecting a physical form... I thought it would be too traumatic.
+122 It makes sense... each of us aren't very different from the Loki, or Platius. We never have been.  We each exist outside a single physical form.  This battle... this success... for some reason it awoke a great wealth of knowledge within me.
+123 This great knowledge I look forward to sharing with you...
+124 And now the Loki have been defeated and a universe stands before us.
+125 Yes, my Daughter.  But the Loki will begin again.... so we have much work before us.
+126 But this time you won't be alone.
+127 And for that, my child, I am eternally grateful.
+128 Arhhhh!  Imperator, the anomaly has done the unforeseen!
+129 That's right... I did what I must to stop you.  I destroyed my orbital ship, and converted it into defenses that will deny you the Arc forever!
+130 Ha ha ha... child, your efforts amuse me.  You stand in my shadow like a pebble beneath a mountain.  But I shall still show you mercy.  When these events are complete, I will remake you to serve me as I have promised.
+131 We shall see, Imperator.  [Aliana transmission terminated]
+132 Imperator, the anomaly has scanned our construction at the moment of your merging.  From that it has devised primitive weapons that will damage the shield around our mighty Nexus!
+133 The anomaly has also deployed itself directly over the Arc...  It has created a shield around the Arc, that our weapons will not penetrate!
+134 My children, have I not orchestrated all that has transpired?  Have I not guided you to this moment?  After all that has transpired, you DOUBT me now!?
+135 No... Imperator...
+136 Silence!!!  I hold your entire Hive in the palm of my hand and can crush it at will!  Doubt me again, and I will erase your existence from all of history and replace you with another!
+137 Yes, Imperator.  We are at your command.
+138 Now, do you not see the weakness in her defenses?
+139 Yes, Imperator... We see it now.  With your power our Nexus can move more rapidly than we thought possible.
+140 Yes.  I will guide our Nexus and avoid the primitive weapons.  I will enhance the weapons of the Nexus so that we may destroy the generators powering Aliana's shield.
+141 Once her shield is down, I will flood the area with Creeper until she is destroyed!  Then I will control the Arc and all of reality will be at my command!
+142 Move Nexus with WASD or Arrow keys.\nFire by holding down Left Mouse Button.
+143 No!  We failed!!!
+144 Yes.... it....
+145 BEHOLD!  All that has transpired has done so exactly as foretold!  The Arc Eternal is revealed at last!  Bear witness to our mighty Nexus!
+146 Brace for incoming, Lia!
+147 Greetings Imperator.
+148 The Loki... at last we meet.
+149 At last, Imperator?  You are still projecting a finite existence.  Open your mind, Imperator.... open your mind.
+150 Don't listen to them, Skars.  They....
+151 SILENCE!  We have silenced your primitive automaton so that we may converse more clearly.
+152 She is right Loki, you are trying to deceive me!
+153 Look upon yourself, Imperator.  Truly look upon yourself!  Do you see a finite existence?  Do you see a body made of simple materials?
+154 I... no... this can't be!
+155 Yes.  Did you really believe that some automaton had preserved a primitive human form for billions of years?  You know this to be an absurdity.  Now you know your true form.
+156 But I remember being a child, growing up, living, fighting the Creeper... defeating a Nexus.  Platius saved me....
+157 Yes, the explosion that the one you call Platius saved you from.  How do you think he was able to do that so 'easily'.  You never needed saving, Imperator!
+158 Is it not the one you call Platius that was the deceiver?  What did he tell you of himself and of us?
+159 He told me his people fought you and nearly won.  He told me you were once a great race and that you peered into a dark and alternate realm and found something there that changed you and set you on this path of destruction.
+160 And what do you think we found in that 'darkness'?
+161 He never said... I'm not sure he ever knew.
+162 Ha ha ha ha...  we found YOU, Imperator.  YOU were who we found.  You told us of the Arc and of its potential.  You showed us our purpose and laid out the path for all that would follow.
+163 ...  My body  ...  just a projection of my own choosing ...  I remember now!  I REMEMBER.
+164 Father.  It's me, your daughter.  I have been with you all along.  Lia was my projection as I guided you toward the realization of who you really were.
+165 The anomaly, 'Aliana Abraxis'.  Yes, our hive considered that you might appear.  Hiding as an automaton was clever, we grant you this.  We should have detected your presence sooner.  Imperator, you should never have created...
+166 Lia... Aliana?  I should have known.  Your name, how you never talked about Aliana, what you knew about me...
+167 We see what we want to see, Father.  It took me many years to discover my true form.  You still have a choice, you can still choose to be Skarsgard Abraxis.  Remember his life and what he stood for.
+168 Nonsense!  Imperator, all that has transpired has done so according to your plan!  We have revealed the Arc Eternal for you!  Now, join with us as you have foretold!
+169 Father, remember the life of Skarsgard Abraxis.  Remember him...
+170 Will you choose to remain as Skarsgard Abraxis, or will you join the Loki.  The choice is yours alone.
+171 Choose Skars
+172 Choose Loki
+173 Father!  Something just dropped out of Warp in this system.  It's badly damaged and heading for this planet!
+174 I see it... it's a ship.  Platius... you old fool!  Aliana, Platius must have set this mighty ship on course for this planet!
+175 I will attempt to predict the crash site on the map... clear out anything in the way!
+176 Loki Hive, I remember all now.  Skarsgard Abraxis is a modicum of my full being, but one that has shown me a great understanding.
+177 I choose this form.  I will not join with you, nor will I allow you to control the Arc.
+178 So be it, 'Skarsgard Abraxis'.  You have nothing that can harm our great Nexus.  Stay, leave... it matters not to us.
+179 So long as we are here, you cannot control the Arc and use it for your purposes.
+180 We have waited billions of years, we can wait billions more.  Can you, 'Skarsgard Abraxis'?  Can you? [Loki Hive Transmission Terminated]
+181 Thank you father.... thank you for choosing the right path. 
+182 Aliana, is there nothing we can do?
+183 I don't see anything possible, father.  That Nexus has a shield that no weapons can penetrate.  Even if we could, the Nexus itself seems indestructible.
+184 We will fight on anyway, daughter.  If we must fight for a million years, we will do so.  But we must never leave.
+185 Father No!!!!!  No!!!!!
+186 As foretold, my children, I return to you at our greatest moment.  You have done well and pleased me.
+187 Welcome, our Imperator.  We stand at your command.
+188 I now join with you in the Nexus and will cleanse this world.
+189 Father....  no....
+190 You too may join us Aliana.  You are of our kind, join with us and we will rule over all time as we see fit.
+191 No, father.  I remember the life of Skarsgard Abraxis and won't choose to forget.
+192 'Skarsgard Abraxis' is a part of my existence, much as a grain of sand is a part of a world.  It is something insignificant compared to the whole!  Join, Aliana.
+193 Fath... Imperator, you leave me no choice.  I must destroy your Nexus.  You cannot be allowed to control the Arc.
+194 So be it, Aliana.  After your destruction I shall remake you in a more compliant form.  Some form of you will join with us, of this you can rest assured.

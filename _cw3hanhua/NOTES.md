@@ -15,7 +15,7 @@
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅（纯词表，2127 条）** |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅** / **主线关 CRPL 文案 193 条 ✅（`scan_crpl.py` 修多脚本解析，纯词表，2318 条；冗余 LF 键清理见 4.7⑧）⏳ 待游戏内实测** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -39,7 +39,7 @@
 | 游戏本体 | **原版**，资产零改动（4.4a） |
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
-| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.4.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2127 条**）；**四条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）。**四层全部已实测通过**。 |
+| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.4.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2318 条**）；**四条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）。**四层全部已实测通过**。 |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
 | 按键 | **F3 汉化总开关**（两层一起开/关）/ **F5** 打印未命中 / **F9** 重载词表 / **F11** dump / **F12** HUD（共 5 个；**F4 已于 2026-10-23 退役并入 F3**）<br>启动**无条件自动开启**（**无配置项**，4.1「自动开启」） |
@@ -66,7 +66,7 @@ Rename-Item "$g\winhttp.dll" winhttp.dll.off   # 停用
 |---|---|---|
 | **Unity TextMesh** | 30 个对象 / 27 个有文字（level1 里 14 个 = 主菜单大按钮） | `UnityEngine.Font`（Aldrich 动态字体，无汉字） |
 | **NGUI UILabel** | 1206 对象 / **1029 条有文字**（level1 里 354 个，同一时刻仅约 4 个 active） | `UIFont` → BMFont **预烘焙图集** |
-| **DLL 写死字符串** | 822 条（与资产去重后，`strings.json` 现行 **3317 条**候选串，见 4.2） | 最终都落到上面两种载体上（CRPL 消息另走 IMGUI，见 4.7④） |
+| **DLL 写死字符串** | 822 条（与资产去重后，`strings.json` 现行 **3508 条**候选串，见 4.2） | 最终都落到上面两种载体上（CRPL 消息另走 IMGUI，见 4.7④） |
 
 **不是 uGUI**：全部资产里 `UnityEngine.UI.Text` 为 **0** 个；`Assembly-CSharp.dll` 里
 搜 `UnityEngine.UI` / `Canvas` 全部无命中。文本只有上面两条链路。
@@ -393,8 +393,8 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 |---|---|
 | IL 字符串引用 | 11001（Assembly-CSharp）+ 238（firstpass） |
 | 资产文本 | 467 条（UILabel 455 + TextMesh 12；另有 19 条已被 bake 成中文，按 CJK 跳过） |
-| 候选合计 | `strings.json` **3317** 条 = ui 1352 + other 1936 + none 29；来源 both 292（译 221）/ asset 1025（译 1008）/ dll 2000（译 895） |
-| 已译 | **2127**（ui 969 + other 1158，64.1%）→ `zh_cn.dict` **2127 条**（211 741 字节） |
+| 候选合计 | `strings.json` **3508** 条 = ui 1543 + other 1936 + none 29；来源 both 292（译 221）/ asset 1025（译 1008）/ dll 2000（译 895） |
+| 已译 | **2318**（ui 1160 + other 1158，66.1%）→ `zh_cn.dict` **2318 条**（249 352 字节） |
 
 > `ui` 不是"一定会显示"，是"几乎一定"；`other` 里约 900 条是单词需人工判定。
 > **不要拿 ui 条数当工作量上限。** 给出新数字前先跑 `tools/dict_stats.py`。
@@ -745,8 +745,8 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 
 ### 4.5 全量翻译
 
-**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3317 条 / 已译 2127**；
-插件读的 `zh_cn.dict` = **2127 条**（211 741 字节，`--include-other` 编译、FNV 校验通过）；
+**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3508 条 / 已译 2318**；
+插件读的 `zh_cn.dict` = **2318 条**（249 352 字节，`--include-other` 编译、FNV 校验通过）；
 `check_charset.py` 报 **1547 字符（汉字 1448）✓ 全部在字集内** —— **不用重烘图集**。
 未译的 1209 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
 
@@ -1082,15 +1082,30 @@ TextAsset、`level0..7`/`mainData`/`sharedassets*`（根本没有 TextAsset 类�
 1. `UnityPy.load()` → `o.type.name == "TextAsset"` → **`m_Script` 是 str 不是 bytes**，必须
    `s.encode("utf-8","surrogateescape")` 才拿到原始字节（否则 LZMA 必失败，这是 0 命中的原因）；
 2. 前 3 字节 `\x5d\x00\x00` 才 `lzma.decompress(b, format=lzma.FORMAT_ALONE)`；
-3. `re.findall(r"<scripts>(.*?)</scripts>")` → 按 `;` 切 → `base64.b64decode(part).decode("utf-16-le")`；
+3. `re.findall(r"<scripts>(.*?)</scripts>")` → **按 `,` 切条目**（每条 `名字.crpl;BASE64`）→
+   `base64.b64decode(part).decode("utf-16-le")`。**★ 绝不能按 `;` 切** —— 见下面 4.7⑦；
 4. 抓字面量**必须整篇 `finditer(r'"((?:[^"\\]|\\.)*)"', re.S)`**，不能逐行 ——
    `alpha_Troublesome Trains 01` 整篇只有 1 行（264 个真 CRLF），逐行做几乎全漏；
-5. `\n`/`\t`/`\r` 反转义成真字符再入库。
+5. `\n`/`\t`/`\r` 反转义成真字符再入库；
+6. **必须遍历一个资产里的全部脚本**，不能只看 `scripts[0]` —— 旧版只取第一个，
+   `Far York` 的目标字面量在第 2 个脚本里，于是 `lits=0`。
 
-**规模**：15 个关卡资产含 `ShowMessage`，共 **67 条字面量**（去重 60 条）：
-`Tempus`(8) / `Trains 01`(16) / `02`(17) / `Carcere`(4) / `Tiplex`(4) / `Telos`(4) /
+**规模（2026-10-24 修好解析后的真实数字）**：59 个 TextAsset 含 `<scripts>`，
+共 **253 条去重字面量**（旧版只收到 60 条，漏了 193 条 / 18780 字符）：
+`Arca`(134，全是剧情对白) / `credits`(23，制作名单彩蛋) / `Farbor`(19) /
+`alpha_Electricity Quiz`(11) / `Far York`(2) / `alpha_NoWasteLand`(2) / `alpha_Boss`(2) /
+`alpha_Megaland 2`(1) / `Chanson`(1)，以及原本就有的
+`Trains 02`(17) / `Trains 01`(7) / `Tempus`(8) / `Carcere`(4) / `Tiplex`(4) / `Telos`(4) /
 `Starsync`(4) / `Ormos`(3) / `Seedet`(1) / `Flick`(1) / `Jojo`(1) / `Ruine`(1) /
-`alpha_NoWasteLand`(1) / `alpha_Super Tower`(1) / `alpha_Electricity Quiz`(1)。
+`alpha_Super Tower`(1) / `alpha_Electricity Quiz`(1)。
+
+**译文入库**：`_dict/crpl_zh_src.txt`（人工译文，编号与 `crpl_todo.txt` 同序）
+→ `tools/build_crpl_batch.py` 拼成 `batches/full_29_crpl_full.json`（193 条）
+→ `tools/add_strings.py --kind ShowMessage`。为什么中间要一个工具：
+`crpl_all.json` 里的英文是**已反转义的真串**（含真换行/Tab），人工抄写必然键对不上，
+而 `add_strings.py` 会**悄悄新增一条永远命中不了的死条目**（不报错）。
+`build_crpl_batch.py` 直接按 `crpl_all.json` 的顺序重建英文表，从根上消除手抄偏差。
+刻意**跳过**两条只进 `trace()` 调试窗口、不面向玩家的碎片：`at facility`、`Closest Unit `。
 
 **渲染链（★ 它是 IMGUI，不是 UILabel —— 这是整件事的关键）**：
 
@@ -1192,6 +1207,104 @@ FORGE BERTHA THOR COMMANDNODE`。
 
 > 新闻条每次启动会重新拉取，**服务器随时可能换文案**；这类「外部内容」漏译属正常，
 > 看到 F5 里有整句英文新闻时，先判断是不是服务器新发的。
+
+#### ⑦ 主线关卡的 CRPL 提示整批没译 —— 已修：`scan_crpl.py` 解析多脚本失败
+
+**症状**：`Far York` 关里弹出的提示框
+`Mortars damage creeper that is deep.\nMove several mortars around each crater\nand they will suppress the creeper.`
+全英文；F5 未命中清单里能看到。
+
+**排查顺序（前四条都是死路，别重复）**：全部托管 DLL 的 `#US` 堆、`level0..7` /
+`resources.assets` / `sharedassets*` 里的 TextAsset、所有 MonoBehaviour typetree 字段
+（含 base64 字段解码）、存档与设置 —— 都没有这句。它在
+`resources.assets` 的 TextAsset **`Far York`** 的 `<Scripts>` 块里，是
+`ShowMessageDismissible("…" -1 60)`，**本来会被 4.7④ 的 CRPL postfix 抓住**，
+只是词表里没有 → 于是走了「未命中」而不是「翻译不了」。
+
+**★ 真正的根因不是游戏、是我们自己的工具**：`scan_crpl.py` 旧代码
+
+```python
+for part in m.group(1).split(";"):
+    src = base64.b64decode(part).decode("utf-16-le")
+```
+
+一个 `<scripts>` 块里**可以有多个脚本**，形态是
+`名字1.crpl;BASE64_1,名字2.crpl;BASE64_2,...`。按 `;` 切之后，**第一段之后的每一段
+都混进了逗号和下一个文件名**，`b64decode` 要么抛异常被 `except: continue` 静默跳过，
+要么在补齐填位后**静默解出乱码**（`len(raw) % 2` 那道闸其实挡不住这种）。
+结果：`Far York` 的块按 `;` 切成 5 段，只有最后一段（`BlinkingLight.crpl`，522 字符、
+不含任何 `ShowMessage`）能过，再被 `if "ShowMessage" not in src: continue` 滤掉 →
+**整关 0 条字面量，且一条日志都不报**。
+
+**同类受害关卡**（都是主线，不是自定义图）：`Arca` / `Farbor` /
+`alpha_Electricity Quiz` / `alpha_NoWasteLand` / `credits` / `Far York` 等。
+
+**修法（三处，缺一不可）**：
+
+1. 新增 `ENTRY = re.compile(r"([^,;]*?\.crpl)\s*;\s*([A-Za-z0-9+/=\s]+)", re.S)` 与
+   `parse_scripts(block)`：**按 `,` 切条目**（base64 字母表里没有逗号，安全），
+   每条再按第一个 `;` 分文件名；解出来的串含 `\x00` 判为解错，丢弃；
+2. `scan()` 里不再用 `if "ShowMessage" not in src: continue` 过滤；
+3. `main()` 里**遍历全部脚本**去重收字面量（旧版只看 `scripts[0]`）。
+
+**复扫结果**：59 个资产 / **253 条去重字面量**（旧版 60 条）→ 补译 **193 条 / 18780 字符**。
+`Arca` 一关就 134 条（Imperator / Loki Hive / Aliana 的整段终局对白）。
+
+**★ 教训**：这个 bug 的形态是「**静默少收**」—— 不报错、不警告、结果看起来正常，
+所以它能活过三轮词表扩充。凡是「某关/某界面整块没译」而词表看起来没问题时，
+先怀疑收集工具的**覆盖面**，再怀疑游戏。工具重扫后一定要和上一版**对条数**，
+数字不变才是对的；变了就是上一次漏了。
+
+---
+
+#### ⑧ 词表体检与「死键」清理 —— 别用语料池判断死键（走过一次弯路）
+
+**体检结论（2026-10-24，全表扫过，都是干净的）**：
+
+| 检查 | 方法 | 结果 |
+|---|---|---|
+| 自查找表 | 每条 `en` 送回 `Lookup()` 与自己的 `zh` 比对 | 2318 条全部命中自身；查不到 **0**、串到别条 **0** |
+| 批次一致性 | 所有 `batches/*.json` 的 key 是否都在 `strings.json` | 对不上 **0** |
+| 结构 | 重复 `en` / 空 `en` / `en` 含汉字 | 分别 **0 / 0 / 0** |
+| CRPL 键 | 193 条 ShowMessage 键对原始资产字面量 | 不在 **0**（反向只差 2 条故意不译的 `at facility`、`Closest Unit `） |
+
+**★ 走过的弯路：不要用「语料池覆盖面」判断死键。** 思路是把 DLL `#US` 堆、CRPL 字面量、
+`uilabel_inventory.json` / `textmesh_inventory.json`、`story_raw.json` / `story_candidates.json`、
+以及全部批次 key 合成一个池子，池里没有的就算死键。**结果误报 978 条** ——
+其中数百条 Dialog 剧情、295 条 Name 关卡名、大量 NGUI/`VectorLine` 编辑器警告，
+**这些确实存在于游戏里、用户已经在游戏里见过**。语料天然收不全，这条路只会制造误报，
+**别再用它当删除依据**。
+
+**唯一可靠的死键判据（换行孪生）**：一条 **LF 键**（含 `\n`、不含 `\r`），若
+① 存在对应 **CRLF 孪生**条目 ② 该 LF 键在真实语料里不存在
+③ 删除后归一化查表由 CRLF 孪生接管、译文内容不变 → 才算冗余。
+按此清掉 **2 条**（都来自 `full_25_crpl.json`，`Troublesome Trains 01 - Tutorial` 关里
+本来就是 CRLF）：
+
+```
+The trains travel on a system of terrain level 8 rails.\nThe switches…
+The trains that come from the station have random targets. After one\ntrain…
+```
+
+删除前做了 A/B：移除后重建词表，7 对 LF/CRLF 共 14 次查表**译文完全一致**，
+唯一差别是换行符由 `\n` 变 `\r\n`（`LookupNormalized` 归一化后命中孪生）→ 零风险。
+**另外 5 对是两条都真实存在的**（LF 版在 `02 - Freeplay`、CRLF 版在 `01 - Tutorial`），
+**不能删**；归一化同义组里的**首尾空格对**（`Key Binding:` / `Key Binding: ` 等）
+是拼接对齐用的，**更不能删**。
+
+**清理的临时文件**（一次性探索产物，已删）：`_dict/_pool.json`、`_dict/_pool_dll.json`、
+`_cw3hanhua/_tmp/`、`%TEMP%\cw3_crpl.json`、`%TEMP%\cw3_decomp_ui.txt`（可随时用
+`tools\ilspy.cmd` 重生成）、`%TEMP%\cw3_commit_msg.txt`。
+**不是临时文件、要入库**：`_dict/crpl_all.json`、`_dict/crpl_todo.txt`、`_dict/crpl_zh_src.txt`、
+`tools/build_crpl_batch.py`（`build_crpl_batch.py` 依赖前两个重建英文键）。
+先例：`story_raw.json`、`story_candidates.json`、`uilabel_inventory.json`、
+`textmesh_inventory.json` 都已入库。
+
+**顺带记下的 dnfile 用法**（挖 `#US` 堆时踩的）：`d.net.user_strings.__data__` 是 `bytes`，
+没有 `.offsets`；要自己逐条读长度前缀（`0x80` 区分 1/2/4 字节），
+**载荷长度可能是奇数（末位是终止符），须 `if len(pay) % 2: pay = pay[:-1]`
+再 `decode("utf-16-le")`**，否则整堆解出 0 条。这样能拿到 **4679** 条真实字面量
+（`Mission Results` / `ARM` / `Pulse Cannon` 全部命中）。
 
 ---
 
@@ -1445,6 +1558,7 @@ NGUI 行为怪异时**先反编译再推理**。反编译产物是临时的，�
 | 「关卡教学提示是 IMGUI/OnGUI 画的」 | **初版判错，已平反**：它**确实是 IMGUI** —— `GameSpace.OnGUI`（`token=0x06000EF3`）的 `GUI.Label(Rect,String,GUIStyle)`（4.7④）。初版以为落 `CRPLInfoPanel` 的 UILabel，是因为把 `ShowMessageDialog` 当成了 `ShowMessage` |
 | 「教学提示在 `resources.assets` 的 TextAsset 明文里」 | 192 个 TextAsset 全解压后 0 命中；脚本是 **base64 编码在关卡 XML 的 `<scripts>` 节点里**，解出是 UTF-16LE（4.7④） |
 | 「`MessageDialogManager` 是 CRPL `ShowMessage` 的落点」 | 不是，它是**剧情对话专用**（4.8）。`ShowMessage` 走 `GameSpace.message`；只有带 OK/Cancel 的 `ShowMessageDialog` 才走 `CRPLInfoPanel` 的 UILabel |
+| 「把 `#US` 堆 + CRPL + 各类 inventory + 批次 key 合成语料池，池里没有的 key 就是死键」 | **误报 978 条**，大量是真实存在的剧情台词、关卡名、编辑器警告。语料收不全，此法不可作删除依据。**只认换行孪生判据**（4.7⑧） |
 
 ---
 
@@ -1515,7 +1629,8 @@ _cw3hanhua/
 │   ├─ build_atlas.py          ★ 合并图集 4096×8192 生成器（4.4）
 │   ├─ check_charset.py        字集覆盖检查
 │   ├─ collect_ui_strings.py   静态全量收集（4.2）
-│   ├─ scan_crpl.py            关卡内嵌 CRPL 脚本字面量（4.7④）
+│   ├─ scan_crpl.py            关卡内嵌 CRPL 脚本字面量（4.7④⑦；多脚本按 , 切）
+│   ├─ build_crpl_batch.py     人工译文(txt) → 批次 JSON，按 crpl_all.json 顺序重建英文键
 │   ├─ build_dict.py           编译 zh_cn.dict
 │   ├─ apply_translations.py   批次译文注入 strings.json
 │   ├─ audit_translations.py   ★ 全表一致性审计（标记/换行/占位符/首尾空白）
@@ -1562,7 +1677,7 @@ _cw3hanhua/
    **过时的中间过程、已废弃的方法直接删**（历史结论压成一句就够，或者进 5.7 的退役表）。
 3. **数字必须可复现。** 引用调用点/指令数时写明用 `tools\ilx.exe` 的哪条命令
    或 `tools\collect_ui_strings.py` 的哪次输出；手写解析器的数字一律不要引用（见 5.4）。
-   文本条数的唯一权威是 `_dict/STATUS.md`（现行 **3317** 条候选，已译 **2127** 条；
+   文本条数的唯一权威是 `_dict/STATUS.md`（现行 **3508** 条候选，已译 **2318** 条；
    `zh_cn.dict` 同数，见 4.2）。
 4. **结论必须有证据等级**：区分「IL 静态证据」「运行时实测」「源码推断」。
    不要把推断写成事实 —— 本项目曾多次因"看起来像"而下错结论（最近一次：

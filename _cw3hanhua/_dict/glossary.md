@@ -78,6 +78,20 @@
 | Digitalis | 魔苋 | |
 | Skarsgard Abraxis | 斯卡斯加德·阿布拉克斯 | 剧情人物 |
 | Platius | 普拉提乌斯 | 剧情人物 |
+| Aliana | 阿利安娜 | 剧情人物，Skars 的女儿 |
+| Lia | 莉娅 | Aliana 的化名，**必须与「阿利安娜」区分**，不要统一 |
+| Nexus | 枢纽 | **不要写成「内克苏斯」**（旧批量译文里出现过，已回归「枢纽」） |
+| Loki | 洛基 | |
+| Loki Hive | 洛基巢穴 | 单说 `Hive` 时作「巢穴」 |
+| Imperator | 统领 | `Loki Imperator` → `洛基统领` |
+| Arc / Arc Eternal | 永恒之弧 | 单说 `the Arc` 也作「永恒之弧」 |
+| Anomaly | 异常 | `the anomaly` 指 Aliana 一方 |
+| Prism Ship | 棱镜飞船 | |
+| Enhanced Totem | 强化图腾 | |
+| Rift Space | 裂隙空间 | |
+| Missile Silo | 导弹发射井 | 单说 `silo` 作「发射井」 |
+| Dark Beam | 暗黑光束 | |
+| automaton | 自动机械 | 指 Skars 的机械身体 |
 
 ## 保留不译
 
