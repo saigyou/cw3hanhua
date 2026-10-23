@@ -1,7 +1,14 @@
 // ============================================================================
-//  CW3 汉化 · 文本层 v1.0.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点
+//  CW3 汉化 · 文本层 v1.1.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点
 //
 //  字体层负责"字形从哪来"，本层负责"英文串怎么变中文"。
+//
+//  ★ v1.1.0（2026-10-23）：查表加**第四级**「分段重组」LookupSegment。
+//    精确 → '\n' 拼接 → 归一化 → 分段重组。前三级都没动。
+//    起因：护盾提示 "Planet is shielded. ...:\n" + "[ff7f7f]Tempus" 这类
+//    「碎片常量 + 运行时值」的串，前三级一律落空；而往词表里穷举整串
+//    （41 条 × 颜色组合）不可扩展。分段器把碎片逐段翻掉、色标与变量原样透传。
+//    设计要点与边界规则见 LookupSegment 的注释；幂等性已用全量词表验证。
 //
 //  ★ v1.0.0（2026-10-23）：两个 DLL 合并成一个 —— 本文件与 CW3Hanhua.cs 一起
 //    编进 **CW3Hanhua.dll**，本类不再是 BepInPlugin / MonoBehaviour，而是被
@@ -87,7 +94,7 @@ namespace CW3Hanhua
     ///   与字体层同在一个程序集，不再有任何反射互调。</summary>
     public class TextPlugin
     {
-        public const string Ver = "1.0.0";
+        public const string Ver = "1.1.0";
 
         static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
 
@@ -111,6 +118,14 @@ namespace CW3Hanhua
         static int prefixCalls;
         static int prefixHits;
         static int hitConcat;       // 靠 LookupConcat 拼出来的条数（主菜单悬浮框那类）
+
+        // v1.1.0：分段重组用的「首字符 → key 列表」索引（列表按长度降序，保证最长匹配优先）。
+        // 起因：游戏里大量文本是「常量前缀/碎片 + 运行时值」拼出来的，词表里只有碎片。
+        //   典型：护盾提示 "Planet is shielded. ...:\n" + "[ff7f7f]Tempus"
+        //        资源条   "  [ffffff]Energy:[-][ff0000] " + "55/100"
+        //   精确匹配和 \n 拼接都够不着（碎片不是整串、切点也不在 \n 上）。
+        static Dictionary<char, List<string>> byFirst = new Dictionary<char, List<string>>();
+        static int hitSeg;          // 靠 LookupSegment 拼出来的条数
 
         // 已替换记录：用于关闭时还原。
         // ★ 按 InstanceID 索引，**不能**用 List + 切场景时 Clear() ——
@@ -387,6 +402,8 @@ namespace CW3Hanhua
             dictCount = 0;
             loadError = "";
             dictNorm.Clear();
+            byFirst.Clear();
+            hitSeg = 0;
             if (dictPath == null || !File.Exists(dictPath))
             {
                 loadError = "找不到词表（先跑 tools\\build_dict.py）";
@@ -434,13 +451,47 @@ namespace CW3Hanhua
                     if (expect != got)
                         Say("!! 词表校验失败（期望 " + expect + " 实际 " + got + "），仍然使用但请重新生成");
                     dictCount = dict.Count;
-                    Say("词表已载入: " + dictCount + " 条");                }
+                    BuildSegmentIndex();
+                    Say("词表已载入: " + dictCount + " 条  分段索引: " + byFirst.Count + " 个首字符");
+                }
             }
             catch (Exception e)
             {
                 loadError = "词表读取异常: " + e.Message;
                 Say("!! " + loadError);
             }
+        }
+
+        /// <summary>建「首字符 → key 列表」索引，供 LookupSegment 用。
+        /// 列表按长度降序排好，扫描时第一个 startswith 成功的就是最长匹配。
+        /// ★ 只收「首字符是字母 / 空格 / '['」的 key：分段器只在这三种地方起头查表
+        ///   （'[' 是因为资源条有一批 key 自带 [色标] 前缀），
+        ///   其余 key（数字、符号开头）精确匹配那条路已经覆盖。</summary>
+        static void BuildSegmentIndex()
+        {
+            byFirst.Clear();
+            foreach (string k in dict.Keys)
+            {
+                if (k.Length == 0) continue;
+                char c = k[0];
+                if (!IsLetter(c) && c != ' ' && c != '[') continue;
+                List<string> list;
+                if (!byFirst.TryGetValue(c, out list))
+                {
+                    list = new List<string>();
+                    byFirst[c] = list;
+                }
+                list.Add(k);
+            }
+            foreach (List<string> list in byFirst.Values)
+                list.Sort(CompareByLenDesc);
+        }
+
+        static int CompareByLenDesc(string a, string b)
+        {
+            int r = b.Length.CompareTo(a.Length);
+            if (r != 0) return r;
+            return string.CompareOrdinal(a, b);
         }
 
         static uint Fnv1a(byte[] data, int len)
@@ -466,7 +517,20 @@ namespace CW3Hanhua
             if (dict.TryGetValue(s, out zh) && zh != null && zh.Length > 0) return zh;
             zh = LookupConcat(s, 0);
             if (zh != null) return zh;
-            return LookupNormalized(s);
+            zh = LookupNormalized(s);
+            if (zh != null) return zh;
+            // ★ 已经是中文的串不要再翻：TextMesh 那条路会把自己写进去的中文再喂回来，
+            //   后三级匹配（尤其分段）会把「space」这类保留原文的词再吃掉一次。
+            //   英文原文不可能含汉字，所以这个闸门对我们自己的译文是精确的。
+            if (HasCjk(s)) return null;
+            // v1.1.0：最后一级 —— 分段重组（碎片 + 运行时值）。见 LookupSegment。
+            zh = LookupSegment(s);
+            if (zh != null)
+            {
+                hitSeg++;
+                return zh;
+            }
+            return null;
         }
 
         /// <summary>★ v0.10.2 兜底：把「不可见差异」抹平后再查一次。
@@ -540,6 +604,158 @@ namespace CW3Hanhua
                 return h + t;
             }
             return null;
+        }
+
+        // ================================================================ 分段重组（v1.1.0）
+        /// <summary>把整串拆成「词表碎片 + 原样透传的变量」再逐段翻译拼回去。
+        ///
+        /// ★ 为什么需要它：游戏大量 UI 文本是「碎片常量 + 运行时值」拼出来的，词表里只有碎片：
+        ///     护盾提示  "Planet is shielded. ...:\n" + "[ff7f7f]Tempus"
+        ///     资源条    "  [ffffff]Energy:[-][ff0000] " + "55/100"
+        ///     计数      "Amt: " + n 、"Collected: " + techName
+        ///   精确匹配只能中整串，LookupConcat 只能在 '\n' 处切两段，都够不着。
+        ///
+        /// 扫描规则（逐字符）：
+        ///   1. [rrggbb] / [-] / [tag] 这类标记整段透传 —— 颜色不是语言，不参与匹配；
+        ///   2. 非字母字符原样透传（数字、标点、空格、换行都要保住）；
+        ///   3. 遇到字母（或它前面的空格）就在 byFirst 里试最长前缀 key；
+        ///   4. **左边界**：起头位置前一字符是字母 → 放弃（不允许从词中间命中，否则
+        ///      "Windows" 会被 "Window" 吃成「窗口s」）；
+        ///   5. **右边界**：key 自身以字母结尾时才检查后一字符（"Collected: " 这种
+        ///      自带空格的 key 天然有边界，不该再被卡）；
+        ///   6. **全有或全无**：只要有字母消费不掉就整串放弃，宁留英文也不出中英混杂；
+        ///   7. 至少命中 1 段才返回。
+        ///
+        /// 结果幂等：把词表里已有的译文再喂回来跑一遍，不会被二次改写
+        /// （否则 "载入存档位「Auto」？" 会变成「自动」）。</summary>
+        static string LookupSegment(string s)
+        {
+            if (byFirst.Count == 0 || s == null || s.Length == 0) return null;
+            StringBuilder sb = new StringBuilder(s.Length + 8);
+            int i = 0, matched = 0, L = s.Length;
+            try
+            {
+                while (i < L)
+                {
+                    char c = s[i];
+                    // 先试词表 key：有些 key 自己就带 [色标] 前缀（资源条的 Pad 那条），
+                    // 若先当标记透传就永远匹配不上。
+                    string hit = (IsLetter(c) || c == ' ' || c == '[') ? MatchKey(s, i) : null;
+                    if (hit != null)
+                    {
+                        sb.Append(dict[hit]);
+                        i += hit.Length;
+                        matched++;
+                        continue;
+                    }
+                    int tagLen = TagLength(s, i);
+                    if (tagLen > 0)
+                    {
+                        sb.Append(s, i, tagLen);
+                        i += tagLen;
+                        continue;
+                    }
+                    if (IsLetter(c)) return null;       // 有字母消费不掉 → 全有或全无
+                    sb.Append(c);
+                    i++;
+                }
+            }
+            catch (Exception) { return null; }
+            if (matched == 0) return null;
+            return sb.ToString();
+        }
+
+        /// <summary>在 s[i] 处找一个能用的词表 key（最长的、且边界合法的）；没有返回 null。
+        /// 左边界必须在这里判，不能放到调用处 —— 标记透传那些分支不需要这个约束。</summary>
+        static string MatchKey(string s, int i)
+        {
+            if (i > 0 && IsLetter(s[i - 1])) return null;   // 不许从词中段起头
+            List<string> cand;
+            if (!byFirst.TryGetValue(s[i], out cand)) return null;
+            int L = s.Length;
+            for (int k = 0; k < cand.Count; k++)
+            {
+                string key = cand[k];
+                if (!StartsWith(s, i, key)) continue;
+                int j = i + key.Length;
+                // 右边界：key 以字母结尾时，后面紧接字母**或数字**都算词内
+                // （"Link327" 是玩家名、"Custom1_256" 是纹理内部名，都不该拆）
+                if (IsLetter(key[key.Length - 1]) && j < L && IsWordChar(s[j])) continue;
+                return key;
+            }
+            return null;
+        }
+
+        /// <summary>算不算「词的一部分」：字母或数字。数字也要算 —— 标识符大量是
+        /// 字母前缀 + 编号（Link327、Custom1_256、Mesh0），把数字当边界会把它们拆坏。</summary>
+        static bool IsWordChar(char c)
+        {
+            return IsLetter(c) || (c >= '0' && c <= '9');
+        }
+
+        /// <summary>若 s[i] 起是一个颜色/标记段，返回它的长度（含方括号），否则 0。
+        /// 认三种：[rrggbb]（6 位十六进制）、[-]（恢复默认色）、[tag]（纯字母标签，≤20 字）。</summary>
+        static int TagLength(string s, int i)
+        {
+            if (i >= s.Length || s[i] != '[') return 0;
+            int close = -1;
+            int limit = i + 24;
+            if (limit > s.Length) limit = s.Length;
+            for (int k = i + 1; k < limit; k++)
+            {
+                char c = s[k];
+                if (c == ']') { close = k; break; }
+                if (c == '[' || c == '\n' || c == ' ') return 0;
+            }
+            if (close < 0) return 0;
+            int n = close - i - 1;
+            if (n == 1 && s[i + 1] == '-') return close - i + 1;
+            if (n == 6)
+            {
+                for (int k = i + 1; k < close; k++)
+                    if (!IsHex(s[k])) return 0;
+                return close - i + 1;
+            }
+            if (n >= 1 && n <= 20)
+            {
+                for (int k = i + 1; k < close; k++)
+                    if (!IsLetter(s[k])) return 0;
+                return close - i + 1;
+            }
+            return 0;
+        }
+
+        static bool IsLetter(char c)
+        {
+            return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
+        }
+
+        /// <summary>串里有没有汉字（含全角标点）。用来识别「这串已经是我们的译文了」。
+        /// 判定：CJK 统一表意文字（U+4E00–U+9FFF）+ 中文标点/全角符号常用区
+        /// （U+3000–U+303F 标点、U+FF00–U+FFEF 全角）。</summary>
+        static bool HasCjk(string s)
+        {
+            for (int i = 0; i < s.Length; i++)
+            {
+                char c = s[i];
+                if (c >= '\u4e00' && c <= '\u9fff') return true;
+                if (c >= '\u3000' && c <= '\u303f') return true;
+                if (c >= '\uff00' && c <= '\uffef') return true;
+            }
+            return false;
+        }
+
+        static bool IsHex(char c)
+        {
+            return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F');
+        }
+
+        static bool StartsWith(string s, int at, string key)
+        {
+            if (at + key.Length > s.Length) return false;
+            for (int k = 0; k < key.Length; k++)
+                if (s[at + k] != key[k]) return false;
+            return true;
         }
 
         // ================================================================ Patch
@@ -955,7 +1171,8 @@ namespace CW3Hanhua
             Say("");
             Say("======== F5: 未命中清单（prefix 走过但无译文）========");
             Say("  累计 prefix 调用 " + prefixCalls + "  命中 " + prefixHits
-                + "  拼接命中 " + hitConcat + "  未命中 " + missSeen.Count + " 条");
+                + "  拼接命中 " + hitConcat + "  分段命中 " + hitSeg
+                + "  未命中 " + missSeen.Count + " 条");
             int i = 0;
             foreach (string s in missSeen)
             {
@@ -991,6 +1208,7 @@ namespace CW3Hanhua
                     + "  词表=" + dictCount + " 条"
                     + "  prefix=" + prefixCalls + "/" + prefixHits
                     + "  拼接=" + hitConcat
+                    + "  分段=" + hitSeg
                     + "  归一化=" + hitNorm
                     + "  mesh=" + meshCalls + "/" + meshHits
                     + "  未命中=" + missSeen.Count

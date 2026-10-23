@@ -1,0 +1,32 @@
+{
+ "_readme": [
+  "2026-10-23 配合插件第四级匹配（分段重组 LookupSegment）补的碎片译文。",
+  "名字碎片用于护盾提示多名字分支：英文用 ', ' 分隔，中文用 '、' 收尾，由分段器逐段拼接。",
+  "资源条碎片本身带[色标]，整段作为 key 命中；AC 按 glossary 政策保留英文，故不填。",
+  "改用 apply_translations.py 填入（只填空，不覆盖）。"
+ ],
+ "items": {
+  " Jojo,": " 乔乔、",
+  " Ormos,": " 奥尔莫斯、",
+  " Seedet,": " 西德特、",
+  " Flick": " 弗里克",
+  " Choix,": " 舒瓦、",
+  " Ruine,": " 鲁因、",
+  " Otrav,": " 奥特拉夫、",
+  " Meso,": " 梅索、",
+  " Krig": " 克里格",
+  " Defi": " 德菲",
+  "  [ffffff]Building:[-][00ff00] ": "  [ffffff]建造:[-][00ff00] ",
+  "  [ffffff]Aether:[-][ff0000] ": "  [ffffff]以太:[-][ff0000] ",
+  "  [ffffff]Energy:[-][00ff00] ": "  [ffffff]能量:[-][00ff00] ",
+  "  [ffffff]Energy:[-][ff0000] ": "  [ffffff]能量:[-][ff0000] ",
+  "  [ffffff]Health:[-][00ff00] ": "  [ffffff]生命值:[-][00ff00] ",
+  "[-][ffffff]  Pad:[-][a0ffff] ": "[-][ffffff]  平台:[-][a0ffff] ",
+  "[-][ffffff]  Pad:[-][ff7f7f] ": "[-][ffffff]  平台:[-][ff7f7f] ",
+  "  [ffffff]Armed:[-][ff0000] ": "  [ffffff]武装:[-][ff0000] ",
+  "  [ffffff]Cargo:[-][ff0000] ": "  [ffffff]货物:[-][ff0000] ",
+  "  [ffffff]Ammo:[-][00ffff] ": "  [ffffff]弹药:[-][00ffff] ",
+  "  [ffffff]Ammo:[-][ff0000] ": "  [ffffff]弹药:[-][ff0000] ",
+  "  [ffffff]Ore:[-][ff0000] ": "  [ffffff]矿:[-][ff0000] "
+ }
+}

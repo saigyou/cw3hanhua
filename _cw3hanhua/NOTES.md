@@ -15,7 +15,7 @@
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅（**v0.9.0 已实测通过**）/ TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 🟡 **v0.10.2 待实测** / **v1.0.0 单 DLL 合并 + F3/F4 合并 + 无条件自动开启 🟡 待实测** |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅（**v0.9.0 已实测通过**）/ TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 🟡 **v0.10.2 待实测** / **v1.0.0 单 DLL 合并 + F3/F4 合并 + 无条件自动开启 🟡 待实测** / **v1.1.0 分段重组（4.7③）🟡 待实测，需重启游戏** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -39,11 +39,11 @@
 | 游戏本体 | **原版**，资产零改动（4.4a） |
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
-| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.0.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>★ 2026-10-23：**两个 DLL 合成一个**，`CW3HanhuaText.dll` 已删（4.1）。唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层退化成同程序集普通类 `TextPlugin`，两层之间**零反射**（直接方法调用）。<br>① 字体层：合并图集 + 合并 HUD + 启动**无条件自动开启**（无配置项，4.1）；字体/图集链路已实测通过，本轮改动**待实测**。<br>② 文本层：读 `_dict/zh_cn.dict`（**2021 条**）。`ProcessText` prefix+postfix 覆盖全部 UILabel；**另打 5 个 TextMesh 写入点**（3 个 `ShowText` prefix + 2 个 name setter postfix）。UILabel 部分已实测通过，TextMesh 补丁**待实测**。<br>**2026-10-22**：词表新增剧情 852 条（4.8），需按 **F9** 重载 |
+| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.1.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>★ 2026-10-23：**两个 DLL 合成一个**，`CW3HanhuaText.dll` 已删（4.1）。唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层退化成同程序集普通类 `TextPlugin`，两层之间**零反射**（直接方法调用）。<br>① 字体层：合并图集 + 合并 HUD + 启动**无条件自动开启**（无配置项，4.1）；字体/图集链路已实测通过，本轮改动**待实测**。<br>② 文本层：读 `_dict/zh_cn.dict`（**2043 条**）。`ProcessText` prefix+postfix 覆盖全部 UILabel；**另打 5 个 TextMesh 写入点**（3 个 `ShowText` prefix + 2 个 name setter postfix）。UILabel 部分已实测通过，TextMesh 补丁**待实测**。<br>**2026-10-22**：词表新增剧情 852 条（4.8），需按 **F9** 重载<br>**2026-10-23**：**v1.1.0 查表加第四级「分段重组」**（4.7③），覆盖运行时拼接串；此版本**改了 DLL，必须重启游戏**（F9 只重载词表） |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
 | 按键 | **F3 汉化总开关**（两层一起开/关）/ **F5** 打印未命中 / **F9** 重载词表 / **F11** dump / **F12** HUD（共 5 个；**F4 已于 2026-10-23 退役并入 F3**）<br>启动**无条件自动开启**（**无配置项**，4.1「自动开启」） |
-| 待办 | 15 条资源条模板串的碎片替换（4.7）；`Andro` / `DMD` / `'4'` 是否翻待定（4.7）；**剧情 852 条已实测通过（4.8 / 4.8a）** |
+| 待办 | `Andro` / `DMD` / `'4'` 是否翻待定（4.7②）；**资源条模板串已由 4.7③ 分段重组覆盖**；`' sec'` / `' spores'` 等尾缀常量未翻译（保持英文，4.7①）；**4.7③ v1.1.0 待重启游戏实测** |
 
 **启用 / 停用 BepInEx**
 
@@ -66,7 +66,7 @@ Rename-Item "$g\winhttp.dll" winhttp.dll.off   # 停用
 |---|---|---|
 | **Unity TextMesh** | 30 个对象 / 27 个有文字（level1 里 14 个 = 主菜单大按钮） | `UnityEngine.Font`（Aldrich 动态字体，无汉字） |
 | **NGUI UILabel** | 1206 对象 / **1029 条有文字**（level1 里 354 个，同一时刻仅约 4 个 active） | `UIFont` → BMFont **预烘焙图集** |
-| **DLL 写死字符串** | 822 条（与资产去重后 **2400 条唯一串**） | 最终都落到上面两种载体上 |
+| **DLL 写死字符串** | 822 条（与资产去重后，`strings.json` 现行 **3254 条**候选串，见 4.2） | 最终都落到上面两种载体上 |
 
 **不是 uGUI**：全部资产里 `UnityEngine.UI.Text` 为 **0** 个；`Assembly-CSharp.dll` 里
 搜 `UnityEngine.UI` / `Canvas` 全部无命中。文本只有上面两条链路。
@@ -289,6 +289,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | B4 | HUD 合并成左上角一块 | ✅ v0.8.2 实测通过；v0.8.3 重做；**v1.0.0 改成"F3 汉化总开关:开/关 + 文本层:开/关"待实测**（单一 HUD 宿主，文本层不再自带兜底条） |
 | B4b | **F3/F4 合并成一个总开关 + 启动自动开启** | 🟡 **2026-10-23 已实现并编译通过，待实测**（4.1） |
 | B4c | **两个 DLL 合并成一个 `CW3Hanhua.dll` v1.0.0，去掉两层间反射** | 🟡 **2026-10-23 已实现并编译通过，待实测**（4.1 / 4.3） |
+| B4d | **查表加第四级 `LookupSegment`（分段重组），覆盖运行时拼接串** | 🟡 **2026-10-23 v1.1.0 已实现、离线全绿，待重启游戏实测**（4.7③） |
 | B6 | 改资产：TextMesh 中文烘进 prefab（19 条） | ✅ **实测通过**（`script_type_index` bug 修好后，见 4.6） |
 | B7 | ③ 类运行时覆盖对象的代码补丁（v0.10.0） | 🟡 **已实现，待实测**（4.6a） |
 | C1–C3 | 翻译：主菜单 / HUD / 建造菜单 / 剧情 | ✅ 全量批 full_01–22 入库 1144 条 |
@@ -305,7 +306,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 
 ### 4.1 字体烘焙与插件按键
 
-**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → **同一个** `CW3Hanhua.dll` v1.0.0，共 5 个）**
+**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → **同一个** `CW3Hanhua.dll` v1.1.0，共 5 个）**
 
 ★ **2026-10-23：F3 与 F4 合并成一个总开关**，F4 退役。理由：两个键意味着用户每次要按两下，
 且容易只开一半（中文字形换了、文本还是英文，看着像"翻译坏了"）。合并后 F3 是唯一开关，
@@ -491,7 +492,7 @@ TextPlugin.SetOn(true);` —— 同一个程序集，直接调用，接上就不
 | 资产文本 | 467 条（UILabel 455 + TextMesh 12；另有 19 条已被 bake 成中文，按 CJK 跳过） |
 | 去重后候选 | **2404**（ui 1292 + other 1083 + none 29）<br>**+ 剧情 579 台词 / 273 名字 / 23 星系图物件**（4.8 单独流程补入） |
 | 来源 | both 292 / asset 175 / dll 1937 |
-| 已译 | **1144**（ui 880 + other 260 + 4 条过场叙事）<br>**+ 852 条剧情**（579 Dialog + 294 Name，见 4.8）→ `strings.json` 共 **3254** 条、`zh_cn.dict` **2021** 条 |
+| 已译 | **1144**（ui 880 + other 260 + 4 条过场叙事）<br>**+ 852 条剧情**（579 Dialog + 294 Name，见 4.8）→ `strings.json` 共 **3254** 条<br>**2026-10-23**：4.7③ 改成分段重组（不枚举），删掉 41 条整串后又补了 22 条碎片 → `strings.json` **3254** 条（已译 **2043**）、`zh_cn.dict` **2043** 条（195921 字节） |
 
 > **数字口径**：`ui` 不是"一定会显示"，是"几乎一定"；`other` 里约 900 条是单词，
 > 需要人工判定。**不要拿 ui 条数当工作量上限。**
@@ -517,7 +518,7 @@ _dict/
 ├─ glossary.md      术语表。改译名只能在这里改，译文里不许随手换。
 ├─ zh_cn.dict       由 build_dict.py 生成，插件直接读
 ├─ STATUS.md        由 dict_stats.py 生成，勿手改
-├─ batches/         23 份批次源（full_01…22 + 19/20/21 的单词级补充）
+├─ batches/         23 份批次源（full_01…22 + full_24_fragments + 19/20/21 的单词级补充）
 └─ skipped_manual.json  565 条「人工判定不译」，**别删**（否则以后有人会重翻一遍）
 ```
 
@@ -540,15 +541,23 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 # 1) 写批次：_dict\batches\<名字>.json  {"items": {"英文原文": "译文"}}
 & $p _cw3hanhua\tools\apply_translations.py --dry-run   # 先看匹配情况
 & $p _cw3hanhua\tools\apply_translations.py             # 只填空，不覆盖
+& $p _cw3hanhua\tools\add_strings.py _dict\batches\<新条目批次>.json   # 仅限**新条目**（原表里没有的 en）
+& $p _cw3hanhua\tools\del_strings.py _dict\batches\<要删的批次>.json   # 删条目（误加/方案变更时）
 & $p _cw3hanhua\tools\check_charset.py _dict\strings.json   # 缺字就补烘
 & $p _cw3hanhua\tools\build_dict.py --include-other  # 编出 zh_cn.dict
-# 改完词表游戏内按 F9 重载，不用重启
+& $p _cw3hanhua\tools\verify_lookup.py               # 离线复刻插件查表链，验证命中/幂等
+# 改完词表游戏内按 F9 重载；改了插件源码则要重编译 + 重启游戏
 ```
+
+`verify_lookup.py` 的四种用法（改词表后建议至少跑前两种）：
+`（无参数）` 跑内置 21 个目标场景 + 10 项安全抽查；`--idempotent` 把词表译文再喂回查表链，
+**必须 0 条被改写**；`--regress` 对比 strings.json 全量新旧行为差异；`--missing` 列仍查不到的条目。
 
 **译文纪律**
 
 - 只改 `batches/*.json`，**不要手改 `strings.json`**（`apply_translations.py` 用原文精确匹配，
-  手改容易和批次对不上）。
+  手改容易和批次对不上）。**例外**：运行时拼接出来的整串（4.7③ 那类）在
+  `strings.json` 里原本不存在，用 `tools\add_strings.py` 从批次新增，同样不要手改。
 - 译文里的 `[颜色]` 标记、`\n`、首尾空格**必须保留**。像 `PACKET SPEED.  `（两个尾空格）
   是拼接前缀，尾空格删掉就会和后面的数字粘在一起。
 - 组合键（`SHIFT-E` / `SHIFT-A` / `CTRL-C`）整串保留英文 —— 玩家要按着它去找键。
@@ -556,7 +565,20 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 - 译稿用**序号字典** `{"zh": {"3": "译文"}}`，缺省项视为 `@`（跳过不译）；
   **不要用数组形式**（漏一项就整体错位，踩过一次：89 vs 88，后 60 条全串行）。
 
-### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.0.0）
+### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.1.0）
+
+**查表链（四级，v1.1.0 新增第四级）**：
+
+| 级 | 函数 | 覆盖什么 | 什么时候落空 |
+|---|---|---|---|
+| 1 | `dict[s]` 精确 | 整串在词表里 | 运行时拼出来的串 |
+| 2 | `LookupConcat` | 在 `'\n'` 处切两段、两段都精确命中 | 没有换行的拼接；尾段不在词表 |
+| 3 | `LookupNormalized` | CRLF / 连续空格 / 尾部空白差异 | 真的不是同一串 |
+| 4 | **`LookupSegment`** | **碎片常量 + 运行时值**（色标透传、变量透传） | 有字母消费不掉（全有或全无） |
+
+前三级一字未动，第四级纯兜底。`LookupSegment` 的规则表与踩坑见 **4.7③**。
+`HasCjk` 闸门在第四级之前：**串里已有汉字就直接不翻**，防止 TextMesh 那条路
+把写进去的中文再喂回来二次改写。
 
 **为什么当初单独一个 DLL、现在又合回去**（2026-10-23 变更）：拆开是为了字体层已验证通过、
 不想动，且出问题时能立刻判断是谁的锅。★ 但两层现在都稳定了，而拆开的代价一直在收利息：
@@ -630,8 +652,9 @@ TextMesh 那五个写入点登记在独立的 `meshSwaps`（`MeshSwap = {mesh, e
   列出来的说明"走了 UILabel 但没译文"（补词表 + F9 重载即可）；
   界面上仍英文、清单里又没有的，才是真正**必须改资产**的对象（TextMesh 那批）。
 - **F11 dump 里那一行**（v0.10.2 起从 HUD 挪过来；v1.0.0 起直接调 `TextPlugin.DumpLine()`）：
-  `文本层 v1.0.0  开关=…  词表=…  prefix=调用/命中  拼接=…  mesh=调用/命中  未命中=…`。
-  `prefix` 计数不动 = 补丁没装上；`mesh` 计数不动 = TextMesh 那五个补丁没装上或那段文本没被写过。
+  `文本层 v1.1.0  开关=…  词表=…  prefix=调用/命中  拼接=…  分段=…  mesh=调用/命中  未命中=…`。
+  `prefix` 计数不动 = 补丁没装上；`mesh` 计数不动 = TextMesh 那五个补丁没装上或那段文本没被写过；
+  **`分段` 计数不动 = 一条运行时拼接串都没走到第四级**（说明前三级全接住了，或者补丁没装）。
   ★ HUD 上只剩 `文本层:开/关` 一个状态（4.1「HUD」）——数字要看 dump 文件。
 
 **★ 装补丁必须自检**：`Harmony.Patch` 失败时**只往日志写一行 Error、不抛异常**
@@ -819,6 +842,11 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 > **2026-10-22 补充**：4.8 的剧情流程另入库 **852 条**（579 Dialog + 294 Name，既有条目补空译 4 条），
 > `strings.json` 现 **3254 条**、`zh_cn.dict` 现 **2021 条**（194 962 字节，`--include-other` 编译），
 > `check_charset.py` 现报 `1534 字符（汉字 1437）✓ 全部在字集内`，同样不用重烘图集。
+>
+> **2026-10-23 补充**：4.7③ 的修法从「枚举整串」改成「分段重组」（插件 v1.1.0），
+> 41 条枚举已删、22 条碎片已补 → `strings.json` 现 **3254 条**（已译 **2043**）、
+> `zh_cn.dict` 现 **2043 条**（195 921 字节，`--include-other` 编译），
+> `check_charset.py` 报 `1535 字符（汉字 1438）✓ 全部在字集内`，仍不用重烘图集。
 
 > 2026-10-20 晚补的 4 条是过场叙事台词：`presents`→`出品`、`-- EARTH --`→`—— 地球 ——`、
 > `--Transcript Follows--`→`—— 以下为会议记录 ——`、`--Transcript Ends--`→`—— 会议记录结束 ——`。
@@ -851,7 +879,7 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 | 自定义图资源名 | 118 | `CustomImages` 的 `Custom0`/`Custom0_256`，资产 key |
 | Steam 成就日志 | 61 | `m_flGameDurationSeconds: ` / `STAT testStat1: ` |
 | 文件名 | 36 | `*.dat`/`*.xml`/`maps/`/`thumbnails/` |
-| 资源条模板串 | 17 | 见 4.7（**待做碎片替换**） |
+| 资源条模板串 | 17 | 见 4.7①（**已由 4.7③ 分段重组覆盖**，只剩 `AC:` 故意保留英文） |
 | 调试日志 | 17 | `ops` 里带 `call Log` |
 | 1–2 字符符号 | 13 | `()`/`<<`/`>>`/`-c`/`~` |
 | 哈希 | 11 | 32 位 hex |
@@ -1077,7 +1105,7 @@ mainData 49 / resources.assets 2185 / sharedassets6 11，不同的都是 0）。
 
 ### 4.7 待办与已知缺口
 
-#### ① 资源条模板串（15 条）—— 已定方案：碎片替换，**暂不实施**
+#### ① 资源条模板串（15 条）—— 已由 ③ 的分段重组覆盖（2026-10-23）
 
 建造中/悬停时显示的单位标题是**运行时 `String.Concat` 拼的**：
 
@@ -1092,22 +1120,24 @@ CommandCenter.GetUnitTitleDisplay(UnitManager)   token=0x06000A33  RVA=0x46EA4  
 ```
 
 最终文本形如 `Collector  [ffffff]Building:[-][00ff00] 100/50[-]`。
-**模板既不在头也不在尾** → 精确匹配和前缀匹配都无效（曾误判为"前缀匹配"，
-反汇编后证伪）。`LookupConcat` 只切 `\n`，也兜不住。
+**模板既不在头也不在尾** → 精确匹配和前缀匹配都无效；`LookupConcat` 只切 `\n`，也兜不住。
+**这个问题现在由 ③ 的 `LookupSegment` 解决** —— 模板串就是词表里的碎片，分段器原地换掉，
+两端的 unitName 与数字原样透传。
 
-**已定方案（用户 2026-10-20 拍板）：碎片替换** —— `Lookup` 失败后用一张
-「已知碎片表」在整串里做 `IndexOf` + 原地替换（碎片含色标与空格，精确整碎片命中才换）。
+**曾定过但已放弃的方案**：「碎片替换」（`IndexOf` + 原地替换）。放弃原因同 ③ ——
+`LookupSegment` 是同一个思路的通用版，不需要单独的碎片表；而且它是逐段顺序消费，
+不会出现「碎片 A 吃掉碎片 B 的一半」这类位置问题。
 
-**暂不实施，先做 4.6。** 实施时还要先补这批模板串的译文。词表现状（`strings.json` 里
-以 `  [ffffff]` / `[-]` 开头的模板条目共 **17 条，目前只译了 1 条**）：
+**这批模板条目的译文已补齐**（批次 `_dict/batches/full_24_fragments.json`，12 条）：
 
 | 状态 | 条目 |
 |---|---|
-| 已译 | `  [ffffff]Upgrading to Lvl: ` → `  [ffffff]升级至等级： ` |
-| 有条目未译（16 条） | `Building:` / `Building...` / `Health:` / `Cargo:` / `Ore:` / `Armed:` / `Pad:`（两种颜色）/ `Ammo:`（两种颜色）/ `Energy:`（两种颜色）/ `Aether:` / `Fully Upgraded!` / `AC:` / `[-] [00ff00]` |
-| 单个词已译（碎片替换可直接用） | `Energy` → `能量`、`Ammo` → `弹药`、`Aether:` → `以太：`、`Fully Upgraded!` → `已完全升级！` |
+| 已译 | `  [ffffff]Upgrading to Lvl: `、`Building:`、`Building...`、`Health:`、`Cargo:`、`Ore:`、`Armed:`、`Pad:`（两种颜色）、`Ammo:`（两种颜色）、`Energy:`（两种颜色）、`Aether:`、`Fully Upgraded!` |
+| 故意不译 | `AC:` —— 术语表规定 AC = Anti-Creeper **保留英文** |
 
-`AC:` 按术语表**保留英文**（AC = Anti-Creeper）。
+**仍未覆盖的**：`Interval: 3 sec` / `Spawn Interval: 3 sec` 这类**尾缀**常量
+（`' sec'` 不在词表），以及 `MELEE`/`SPORE` 等被拼进名字的词。要覆盖得先补
+`' sec'`→`' 秒'` 这类尾缀条目；目前 `sec` 保持英文，属可接受残留。
 
 #### ② 其它待确认
 
@@ -1115,6 +1145,84 @@ CommandCenter.GetUnitTitleDisplay(UnitManager)   token=0x06000A33  RVA=0x46EA4  
   `Wormhole/StarTitle` 与 `Star/StarTitle`）与 `DMD`（`level1` pid=3342，`Star/SpriteLabel`）
   词表里都没有译文；`'4'` 是 `TextLabel` prefab 的五层占位值（`ilx callers` 命中 0 处，无处施力）。
 - 打包/分发方案未定（BepInEx + 单个 `CW3Hanhua.dll` + `_font/` + `_dict/` 的目录形态）。
+
+#### ③ 「Planet is shielded...」不翻 —— 已修：查表加第四级「分段重组」（2026-10-23）
+
+**现象**：用户 F5 报未命中 6 条，其中最长的 `len=62`：
+`Planet is shielded. Keys needed from planet(s):\n[ff7f7f]Tempus`。
+
+**为什么词表里有前缀还是不翻**（两重错位，缺一不可）：
+
+1. 该串在 `SystemManager.ShowStorySystemMessageForPlanet` 里**运行时拼接**
+   （`Assembly-CSharp.decompiled.cs:66952` 起）：`string text = "Planet is shielded.
+   Keys needed from planet(s):\n";` 然后各分支 `ShowMessage(text + "[ff7f7f]Tempus")`，
+   IL 里**只有前缀这一个 ldstr**，整串不存在于任何资产。
+2. 词表存的正是那条前缀（47 字符，**带尾随 `\n`**），tail 是 `[ff7f7f]Tempus` ——
+   而词表里 7 条 `[ff7f7f]名字` 的 `zh` 全空（静态收集器把 ldstr 色标与名字碰巧拼一起，
+   不是可用条目）。精确匹配中不了整串，`LookupConcat` 只切 `\n` 且要求两段都命中，也中不了。
+
+**第一版修法（已撤销）**：把 11 个分支能拼出的整串全部枚举进词表（41 条，含
+Tiplex/Chanson/Farbor 三组 2ⁿ 颜色组合）。用户当即质疑：**再发现新的不就没完没了**。
+撤销原因就是可扩展性 —— 现在回头看，那 41 条确实全部是分段器能自动拼出来的。
+
+**最终修法：`Lookup` 加第四级 `LookupSegment`（插件 v1.1.0）**
+
+```
+精确匹配 → LookupConcat('\n' 拼接) → LookupNormalized(归一化) → LookupSegment(分段重组)
+```
+
+前三级一个字没动，分段只是末端兜底。逐字符扫描，规则见
+`plugin/CW3HanhuaText.cs` 的 `LookupSegment` 注释，要点：
+
+| 规则 | 为什么 |
+|---|---|
+| `[rrggbb]` / `[-]` / `[tag]` 整段原样透传 | 颜色不是语言，不该参与匹配；也省掉 2ⁿ 枚举 |
+| 非字母原样透传 | 数字、标点、换行、路径分隔符都要保住 |
+| 遇字母/空格/`[` 在 `byFirst` 里试**最长前缀** key | 一次扫描把所有碎片换掉 |
+| **左边界**：起头前一字符是字母则放弃 | 否则 `Windows` 被 `Window` 吃成「窗口s」 |
+| **右边界**：key 以字母结尾时，后一字符**是字母或数字**都算词内 | `Link327`（玩家名）、`Custom1_256`（纹理内部名）、`Mesh0` 都不该拆 |
+| **全有或全无**：有字母消费不掉就整串放弃 | 宁留英文，也不出「错误： The remote server…」这种半英半中 |
+| 至少命中 1 段才返回 | 纯变量串（`55/100`）不该走这条路 |
+| **`HasCjk` 闸门**：串里已有汉字就直接返回 null | TextMesh 那条路会把自己写进去的中文再喂回来，会二次吃掉「space」「Auto」「The Name」 |
+
+**关键踩坑（都踩过，记下来免得重犯）**：
+- `TagLength` 对 6 位色标最初返回 `7` 而不是 `close - i + 1`（=8），漏掉一个 `]`，
+  下一轮左边界撞上 `f` → 整串放弃。**所有分支统一 `return close - i + 1;`**。
+- 最初先判「是不是标记」再判「是不是 key」，导致自带 `[色标]` 前缀的 key
+  （资源条的 `[-][ffffff]  Pad:[-][ff7f7f] `）永远匹配不上。**必须先 `MatchKey` 后 `TagLength`**，
+  且 `BuildSegmentIndex` 要收 `'['` 开头的 key。
+- 最初把「右边界」写成「无条件要求右侧非字母」，把 `Collected: Collector` 全误杀
+  （`Collected: ` 的尾空格已被消费，与后继词边界冲突）。**只在 key 以字母结尾时才查右邻**。
+- 最初左边界用「字母或数字」判，反而把 `Link327` 拆成「连接327」。**左边界只看字母，
+  右边界才看字母+数字**（左边界前一个字符若是数字说明我们在标识符中间，但那种情况
+  已被右边界规则先拦住了）。
+- 左边界约束实测是**冗余保险**：3304 条语料去掉它，结果差异 0 条。留着是为了防
+  将来加别的透传分支时踩坑。
+
+**同时废弃/保留下来的东西**：
+- `tools/gen_shieldmsg.py` 与批次 `full_23_shieldmsg.json`（41 条枚举）**已删**，
+  所以 `batches/` 又回到 **23 份**（`full_01`…`full_22` + `full_24_fragments` + `both_ui`）。
+- 新增批次 `_dict/batches/full_24_fragments.json`（22 条）：10 条名字碎片
+  （`' Jojo,'`→`' 乔乔、'`，英文逗号换成中文顿号就靠这里）+ 12 条资源条碎片
+  （`'  [ffffff]Health:[-][00ff00] '`→`'  [ffffff]生命值:[-][00ff00] '` 等）。
+  `AC:` 按术语表**保留英文**，所以那条仍是空 zh。
+- 新工具 `tools/del_strings.py`：按批次删除字符串（`del_strings.py <批次...> [--dry-run]`）。
+- `tools/add_strings.py` 仍在（新增条目用，`apply_translations.py` 只能填已存在的 en）。
+
+**结果**：`strings.json` 3295 → **3254 条**（删 41）；`zh_cn.dict` 2021 → **2043 条**
+（195921 字节）。`check_charset.py` 报「汉字全部在字集内」（用到 1535 字符，汉字 1438）。
+
+**验证（离线）**：`tools/verify_lookup.py` 复刻插件四级链——
+- 21 个目标场景全中：6 种护盾串（含混色）、7 条资源条、`Collected: Collector`、
+  `Score: 1234`、`Time:1:00:00.0`、老路径 `To Access` 等；
+- 10 项安全抽查全部正确拒绝（`Windows`、`GameObject`、`RESET ALL STATS…`、`Interval: 3 sec`…）；
+- **幂等**：2043 条译文再喂一遍，被二次改写 **0 条**；
+- **全量回归**：`strings.json` 3254 条里行为变化 **14 条**，其中 7 条是色标星名
+  （`[ff7f7f]Tempus`→`[ff7f7f]坦普斯`，正是要的效果）、3 条资源条、4 条其它
+  （`[Music Credits]`、`Time:1:00:00.0`、`\Resources\`、`Desc: (`）；
+  **「旧已有译文但新结果不同」0 条** —— 现有译文不会被覆盖。
+
+**注意**：这次改了插件 DLL（v1.0.0→v1.1.0），**需要重启游戏**才生效（F9 只重载词表）。
 
 ---
 
@@ -1292,7 +1400,7 @@ Knuckle Cracker 官方 wiki 的 lore 页把 13271 年当作 CW3 开局
 & "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3\_cw3hanhua\tools\build_plugin.cmd"
 ```
 
-★ **2026-10-23 起两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（v1.0.0，4.1）。
+★ **2026-10-23 起两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（v1.1.0，4.1）。
 脚本在编译前会**自动 `del` 掉旧的 `CW3HanhuaText.dll`** —— 那个文件是独立插件
 （GUID `cw3hanhua.text`），留着会在同一批游戏方法上**重复装一遍 Harmony 补丁**。
 
@@ -1404,6 +1512,19 @@ NGUI 行为怪异时**先反编译再推理**。反编译产物是临时的，�
 | `scan_all_text.py` / `collect_fingerprint.ps1` / `_archive/` / `_bepinex_backup/` | 一次性或过时工具，现行口径见 4.2 / 5.4 |
 | `CW3HanhuaText.dll`（独立插件）+ 它那一整套 peer 反射（`FindPeerMethod` / `peerMethods` / `PeerSetText` / `PeerString` / `PeerHudAlive` / 文本层自己的 `OnGUI` 兜底条） | 2026-10-23 v1.0.0：两个 `.cs` 合进一个 DLL，两层改成直接方法调用。**不要再拆回去**，理由见 4.1 / 4.3 |
 | `Config.Bind("General","AutoEnableOnStartup",…)` + `BepInEx/config/cw3hanhua.core.cfg` | 2026-10-23 用户明确"一定是自动打开的、不要额外架构"：自动开启改为**无条件**，配置项整段删除 |
+| 41 条护盾提示语整串枚举（`tools/gen_shieldmsg.py` + `batches/full_23_shieldmsg.json`） | 2026-10-23 当天立了又撤：用户指出"再发现新的就没完没了"。改由 v1.1.0 的 `LookupSegment` 通用解决，41 条全部自动拼出（4.7③） |
+| 「资源条碎片替换表」方案（`IndexOf` 原地替换） | 同上，被 `LookupSegment` 取代 —— 同一个思路的通用版，且逐段顺序消费没有位置冲突问题（4.7①） |
+
+### 5.8 已排除的假设（查过、不成立，别再花时间）
+
+| 假设 | 否证方式与结论 |
+|---|---|
+| 「`LookupConcat` 把 `\n` 归给右段，改成归左就能修好护盾串」 | 双版对比 3295 条语料：「只有旧能中」「只有新能中」都是 **0**；且改动**会破坏** `To Access` 场景（词表 6 条 key 以 `\n` 开头，改归左后 `new→None`）。**`LookupConcat` 保持原样**（4.7③） |
+| 「护盾串不翻是因为前缀少了/多了 `\n`」 | `miss_dump.txt` 的 6 种变体试探（`TrimEnd`/`Trim`/`s+"\n"`/折叠空格/CRLF→LF）**一条都没 HIT**；真因是 tail `[ff7f7f]Tempus` 不在词表（4.7③） |
+| 「`ilx find` 能搜字符串字面量」 | 不能，`find` 只匹配类型/方法/字段名。查串得 `ilspy.cmd` 全量反编译后 grep（5.4） |
+| 「`Build Beam Ammo` 是真实游戏文本，可作为分段器误伤的例证」 | **该串在 `strings.json` 与反编译源码里都不存在** —— 曾据此论证过约束代价，属编造，已撤回。真实存在的是 `'Build Beam:'`→`'建造光束:'`（4.7③ 讨论记录） |
+| 「加『key 尾字符须是空格或标点』守卫能提升前缀匹配精度」 | 该守卫把命中从 121 条砍到 2 条，实质等于手工剔除 `Custom0`~`Custom34` 这类资源名 —— **是 hack，不是规则**。已被"右边界看 key 末字符 + 全有或全无"取代（4.7③） |
+| 「不做词边界，直接对任意位置做子串替换」 | 词中命中灾难：**124 个 key、490 次**（`Windows`→`风dows`、`OnDestroy()`→`On摧毁()`、`RESET ALL STATS`→`RE设置 ALL STATS`）；且译文本身会被二次吃掉（`The Name`→`名字`）（4.7③） |
 
 ---
 
@@ -1487,7 +1608,7 @@ _cw3hanhua/
 │   ├─ diff_bake.py            ★ 烘焙回归：现役资产 vs 基线，确认没波及 UILabel
 │   └─ uilabel_inventory.json / textmesh_inventory.json
 │                              ★ 烘焙前的历史基线快照，**不可再生**（重跑 scan 会覆盖）
-├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.0.0**（4.1）
+├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.1.0**（4.1）
 │                      CW3Hanhua.cs（字体层 = 唯一 BepInPlugin / MonoBehaviour）
 │                      CW3HanhuaText.cs（文本层 = 同程序集普通类 TextPlugin）
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）
@@ -1520,7 +1641,8 @@ _cw3hanhua/
    **过时的中间过程、已废弃的方法直接删**（历史结论压成一句就够，或者进 5.7 的退役表）。
 3. **数字必须可复现。** 引用调用点/指令数时写明用 `tools\ilx.exe` 的哪条命令
    或 `tools\collect_ui_strings.py` 的哪次输出；手写解析器的数字一律不要引用（见 5.4）。
-   文本条数的唯一权威是 `_dict/strings.json`（现行 **2400** 条候选）。
+   文本条数的唯一权威是 `_dict/strings.json`（现行 **3254** 条候选，已译 **2043** 条；
+   `zh_cn.dict` 同数，见 4.2）。
 4. **结论必须有证据等级**：区分「IL 静态证据」「运行时实测」「源码推断」。
    不要把推断写成事实 —— 本项目曾多次因"看起来像"而下错结论（最近一次：
    把资源条模板串的修法说成"前缀匹配"，反汇编后才证伪，见 4.7）。

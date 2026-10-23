@@ -51,10 +51,10 @@ using UnityEngine;
 
 namespace CW3Hanhua
 {
-    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua", "1.0.0")]
+    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua", "1.1.0")]
     public class HanhuaPlugin : BaseUnityPlugin
     {
-        const string Ver = "1.0.0";
+        const string Ver = "1.1.0";
 
         static HanhuaPlugin inst;
         static string reportPath;

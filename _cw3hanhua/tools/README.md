@@ -7,7 +7,7 @@
 
 | 文件 | 用途 | 文档 |
 |---|---|---|
-| `build_plugin.cmd` | ★ **唯一编译入口**，一次编出 `CW3Hanhua.dll` + `CW3HanhuaText.dll` | NOTES 5.2 |
+| `build_plugin.cmd` | ★ **唯一编译入口**，一次编出 `CW3Hanhua.dll`（两层合一的单 DLL） | NOTES 5.2 |
 | `ilx.exe` / `ilx\ilx.cs` | 基于 **Mono.Cecil 0.10.4** 的 IL 检查器（源码 + 编译产物） | 下文 |
 | `Mono.Cecil.dll` | 从 `BepInEx\core\` 复制，MIT。让 tools 目录可整体搬走 | — |
 | `build-ilx.ps1` | 改过 `ilx.cs` 后重新编译 | — |
@@ -18,7 +18,10 @@
 | `check_charset.py` | 查词表有没有超出已烘字集（**查三套字号的交集**） | NOTES 4.1 |
 | `collect_ui_strings.py` | 静态全量收集候选字符串（IL `ldstr` + 资产文本） | NOTES 4.2 |
 | `build_dict.py` | 把 `strings.json` 编译成 `zh_cn.dict` | NOTES 4.2 |
-| `apply_translations.py` | 把 `batches/*.json` 译文注入 `strings.json` | NOTES 4.2 |
+| `apply_translations.py` | 把 `batches/*.json` 译文注入 `strings.json`（**只填已存在的 en**） | NOTES 4.2 |
+| `add_strings.py` | 把批次里的**新条目**追加进 `strings.json`（原表里没有的 en 用这个） | NOTES 4.2 |
+| `del_strings.py` | 按批次**删除** `strings.json` 里的条目（`del_strings.py <批次...> [--dry-run]`） | NOTES 4.2 |
+| `verify_lookup.py` | ★ 离线复刻插件四级查表链，验证命中/幂等/回归（改词表后必跑） | NOTES 4.2 |
 | `dict_stats.py` | 覆盖率报告 → `_dict\STATUS.md` | NOTES 4.2 |
 | `audit_translations.py` | ★ 全表审计：en/zh 的 `[标记]`/换行/占位符/首尾空白，四项全 0 才算过 | NOTES 4.5 |
 | `prep_batches.py` | 未译项分流（规则化不译桶 + 待译）后切批，输出 `_dict\work\full_NN.src.json` | NOTES 4.5 |
