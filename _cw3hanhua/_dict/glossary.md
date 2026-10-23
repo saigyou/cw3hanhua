@@ -88,3 +88,19 @@ URL、`steam_appid`、文件名（`.cw3` / `.xml` / `.png`）、版本号、玩�
 
 - `SHIFT-E` / `SHIFT-End` / `CTRL-C` 这类组合键
 - `PACKET SPEED.  ` 结尾带空格的拼接前缀 —— **尾部空格和句点都要保留**，否则会跟后面的数字粘连
+
+## 全大写枚举名（`TECH_TYPE`，20 项，会真上屏）
+
+`TechArtifactManager.TECH_TYPE.ToString()` 的结果被拼进单位标题
+（`UnitManager.GetUnitGameName()` → `"Tech: " + techType`），所以这 20 个全大写串
+**必须与上表正常名逐条一致**：
+
+`COLLECTOR`=收集器 / `RELAY`=中继器 / `REACTOR`=反应堆 / `SHIELD`=护盾 /
+`OREMINE`=矿场 / `SIPHON`=虹吸器 / `TERP`=挖掘机 / `GUPPY`=补给船 / `CANNON`=脉冲炮 /
+`MORTAR`=迫击炮 / `STRAFER`=俯冲机 / `BOMBER`=轰炸机 / `NULLIFIER`=灭除器 /
+`SPRAYER`=喷吐者 / `BEAM`=光束 / `SNIPER`=狙击手 / `FORGE`=锻造厂 / `BERTHA`=贝莎炮 /
+`THOR`=索尔 / `COMMANDNODE`=指挥节点
+
+★ 但词表里同一档（全大写、`grade=other`）还混着大量**不上屏**的 CRPL 内部名
+（`RESOURCETYPE` / `FIRERATE` / `STAT_*` …）—— 那些保持空 `zh`，
+**不要看到全大写就顺手填**。

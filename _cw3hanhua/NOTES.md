@@ -15,7 +15,7 @@
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）⏳ 待游戏内实测** |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅（纯词表，2127 条）** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -39,7 +39,7 @@
 | 游戏本体 | **原版**，资产零改动（4.4a） |
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
-| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.4.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2105 条**）；**四条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）。**前三层已实测通过**。 |
+| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.4.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2127 条**）；**四条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）。**四层全部已实测通过**。 |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
 | 按键 | **F3 汉化总开关**（两层一起开/关）/ **F5** 打印未命中 / **F9** 重载词表 / **F11** dump / **F12** HUD（共 5 个；**F4 已于 2026-10-23 退役并入 F3**）<br>启动**无条件自动开启**（**无配置项**，4.1「自动开启」） |
@@ -66,7 +66,7 @@ Rename-Item "$g\winhttp.dll" winhttp.dll.off   # 停用
 |---|---|---|
 | **Unity TextMesh** | 30 个对象 / 27 个有文字（level1 里 14 个 = 主菜单大按钮） | `UnityEngine.Font`（Aldrich 动态字体，无汉字） |
 | **NGUI UILabel** | 1206 对象 / **1029 条有文字**（level1 里 354 个，同一时刻仅约 4 个 active） | `UIFont` → BMFont **预烘焙图集** |
-| **DLL 写死字符串** | 822 条（与资产去重后，`strings.json` 现行 **3314 条**候选串，见 4.2） | 最终都落到上面两种载体上（CRPL 消息另走 IMGUI，见 4.7④） |
+| **DLL 写死字符串** | 822 条（与资产去重后，`strings.json` 现行 **3317 条**候选串，见 4.2） | 最终都落到上面两种载体上（CRPL 消息另走 IMGUI，见 4.7④） |
 
 **不是 uGUI**：全部资产里 `UnityEngine.UI.Text` 为 **0** 个；`Assembly-CSharp.dll` 里
 搜 `UnityEngine.UI` / `Canvas` 全部无命中。文本只有上面两条链路。
@@ -393,8 +393,8 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 |---|---|
 | IL 字符串引用 | 11001（Assembly-CSharp）+ 238（firstpass） |
 | 资产文本 | 467 条（UILabel 455 + TextMesh 12；另有 19 条已被 bake 成中文，按 CJK 跳过） |
-| 候选合计 | `strings.json` **3314** 条 = ui 1352 + other 1933 + none 29；来源 both 292（译 221）/ asset 1025（译 1008）/ dll 1997（译 874） |
-| 已译 | **2105**（ui 969 + other 1136，63.5%）→ `zh_cn.dict` **2105 条**（211 261 字节） |
+| 候选合计 | `strings.json` **3317** 条 = ui 1352 + other 1936 + none 29；来源 both 292（译 221）/ asset 1025（译 1008）/ dll 2000（译 895） |
+| 已译 | **2127**（ui 969 + other 1158，64.1%）→ `zh_cn.dict` **2127 条**（211 741 字节） |
 
 > `ui` 不是"一定会显示"，是"几乎一定"；`other` 里约 900 条是单词需人工判定。
 > **不要拿 ui 条数当工作量上限。** 给出新数字前先跑 `tools/dict_stats.py`。
@@ -745,8 +745,8 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 
 ### 4.5 全量翻译
 
-**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3314 条 / 已译 2105**；
-插件读的 `zh_cn.dict` = **2105 条**（211 261 字节，`--include-other` 编译、FNV 校验通过）；
+**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3317 条 / 已译 2127**；
+插件读的 `zh_cn.dict` = **2127 条**（211 741 字节，`--include-other` 编译、FNV 校验通过）；
 `check_charset.py` 报 **1547 字符（汉字 1448）✓ 全部在字集内** —— **不用重烘图集**。
 未译的 1209 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
 
@@ -1139,6 +1139,60 @@ TextAsset、`level0..7`/`mainData`/`sharedassets*`（根本没有 TextAsset 类�
 > `new GUIContent(zh)` 换引用。（v1.2.0 那套 `GUI.Label` prefix + `FitBox` 猜盒子宽度的方案
 > 已被 v1.3.0 整段删除，用户要求「出问题时只能有一个来源」。）
 
+#### ⑤ 「Tech: RELAY」不翻 —— 已修：`TECH_TYPE` 枚举名（20 条全大写）
+
+**现象**：v1.3.2 修好单位标题（`Shield Key  [ffffff]Health:…`）之后，用户仍报
+`Tech: RELAY  [ffffff]Health:[-][00ff00] 100%[-]` 整条不翻，并质疑
+「这个类似的问题我们应该修过了啊」。
+
+**根因（与 §4.7⑤「左边界」那条**不是**同一个问题）**：`RELAY` 不是任何资产字面量，
+而是 **`TechArtifactManager.TECH_TYPE` 枚举的 `ToString()`**：
+
+```
+UnitManager.GetUnitGameName()          ← 拼在标题最前面
+  → if (name == "TechArtifact") return "Tech: " + (this as TechArtifactManager).techType;
+  → CommandCenter.GetUnitTitleDisplay() → text2 + "  [ffffff]Health:[-]…" → unitTitle.text
+```
+
+`TECH_TYPE` 共 20 项，`ToString()` 出**全大写枚举名**：`COLLECTOR RELAY REACTOR SHIELD
+OREMINE SIPHON TERP GUPPY CANNON MORTAR STRAFER BOMBER NULLIFIER SPRAYER BEAM SNIPER
+FORGE BERTHA THOR COMMANDNODE`。
+
+词表里 **19 条本来就存在、但 `zh` 全是空串**（`grade=other`、`cat=dll`，
+静态收集器给它们的 note 是「单个单词：可能是按钮文字，也可能是资源名 —— 需人工确认」），
+`CANNON` 那条**根本缺席**。光标扫到 `RELAY` 时 `byFirst` 里其实有这个 key，
+但 `dict` 编译时只收**非空译文**，所以取出来是空串，等于未命中。
+
+**为什么之前没暴露**：这批条目全是 `grade=other`（低可信度池），一直没人确认；
+而 `Tech:` 开头的单位标题只有拿到科技圣物时才出现，露面机会少。
+
+**安全性（已核实才敢填）**：全库 `.text == "全大写串"` 只有 3 处
+（`ACTIVATE` / `ARM` / `RESUPPLY`），**都不在这 20 个里**；`.text.Equals` / `.ToUpper` /
+`.ToLower` 零处；`CrplCore` 的 `UNITS[unit.ToUpper()]` 与 `GetUnitType()` **只喂 CRPL 脚本、
+不上屏**，TRACE 输出走 `traceQueue` → `GetTraceLog()` → CRPL 塔调试窗口（玩家脚本数据，不能译）。
+
+**入库**：`batches/full_28_tech_upper.json`（19 条填空，`apply_translations.py`）+
+`batches/full_28_add_new.json`（3 条新增：`CANNON` 与主菜单新闻条两条，`add_strings.py`）。
+译文与正常名逐条对齐：`RELAY`=中继器、`CANNON`=脉冲炮、`COMMANDNODE`=指挥节点 …。
+
+**★ 教训**：「全大写单词」这一档（`grade=other`、`cat=dll`，词表里 150+ 条）里混着
+**枚举名**，它们是真上屏的；但同一档里也混着 CRPL 内部名（`RESOURCETYPE`、`FIRERATE`、
+`STAT_*` 等），那些**绝不能填**。判断依据只能是「有没有上屏路径」——
+用反编译看它是否被拼进 `label.text`。顺便：这批 `STAT_*`、`D_DA`、`AC_P` 之类
+永远不上屏，属词表噪声，不必再管。
+
+#### ⑥ 主菜单新闻条不翻 —— 已修：词表补 2 条
+
+`MainMenu.OnGUI()` 拉服务器新闻（`http://knucklecracker.com/creeperworld3/news.php`），
+按 `|` 切段：`u=` 开头的段 → `GUILayout.Button(链接文字)`；其余拼起来 → `GUILayout.Label(text)`。
+当前服务器发的是 `CREEPER WORLD 5 WISHLIST NOW! -> |u=<url> Open_Web_Page`，
+于是屏上出现 `CREEPER WORLD 5 WISHLIST NOW! -> `（Label）与 ` Open_Web_Page`（Button）。
+这两条**正是 v1.4.0 新 IMGUI 层该抓的**，只是词表没有它们 → 补上即可。
+注意 `Open_Web_Page` 拼写带下划线、且按钮文字**带前导空格**，两处都要照原样。
+
+> 新闻条每次启动会重新拉取，**服务器随时可能换文案**；这类「外部内容」漏译属正常，
+> 看到 F5 里有整句英文新闻时，先判断是不是服务器新发的。
+
 ---
 
 ### 4.8 ★ 剧情对话文本（579 条台词 + 294 条名字）
@@ -1508,7 +1562,7 @@ _cw3hanhua/
    **过时的中间过程、已废弃的方法直接删**（历史结论压成一句就够，或者进 5.7 的退役表）。
 3. **数字必须可复现。** 引用调用点/指令数时写明用 `tools\ilx.exe` 的哪条命令
    或 `tools\collect_ui_strings.py` 的哪次输出；手写解析器的数字一律不要引用（见 5.4）。
-   文本条数的唯一权威是 `_dict/STATUS.md`（现行 **3314** 条候选，已译 **2103** 条；
+   文本条数的唯一权威是 `_dict/STATUS.md`（现行 **3317** 条候选，已译 **2127** 条；
    `zh_cn.dict` 同数，见 4.2）。
 4. **结论必须有证据等级**：区分「IL 静态证据」「运行时实测」「源码推断」。
    不要把推断写成事实 —— 本项目曾多次因"看起来像"而下错结论（最近一次：

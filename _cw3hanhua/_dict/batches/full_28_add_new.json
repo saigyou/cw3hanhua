@@ -1,0 +1,8 @@
+{
+ "note": "2026-10-23：词表里完全没有的 3 条 —— CANNON（TECH_TYPE 枚举名，唯一缺席的一项）+ 主菜单新闻条两条（MainMenu.OnGUI 的 GUILayout.Label / GUILayout.Button）。",
+ "items": {
+  "CANNON": "脉冲炮",
+  "CREEPER WORLD 5 WISHLIST NOW! -> ": "CREEPER WORLD 5 加入愿望单！-> ",
+  "Open_Web_Page": "打开网页"
+ }
+}

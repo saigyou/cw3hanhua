@@ -1,0 +1,24 @@
+{
+ "note": "2026-10-23：TechArtifactManager.TECH_TYPE 枚举名（单位标题 'Tech: RELAY' 来自枚举 ToString()，全大写）。这 19 条词表里已有但 zh 为空，用 apply_translations.py 填空。",
+ "items": {
+  "COLLECTOR": "收集器",
+  "RELAY": "中继器",
+  "REACTOR": "反应堆",
+  "SHIELD": "护盾",
+  "OREMINE": "矿场",
+  "SIPHON": "虹吸器",
+  "TERP": "挖掘机",
+  "GUPPY": "补给船",
+  "MORTAR": "迫击炮",
+  "STRAFER": "俯冲机",
+  "BOMBER": "轰炸机",
+  "NULLIFIER": "灭除器",
+  "SPRAYER": "喷吐者",
+  "BEAM": "光束",
+  "SNIPER": "狙击手",
+  "FORGE": "锻造厂",
+  "BERTHA": "贝莎炮",
+  "THOR": "索尔",
+  "COMMANDNODE": "指挥节点"
+ }
+}

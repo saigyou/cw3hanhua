@@ -1,6 +1,6 @@
 {
  "version": 2,
- "generated": "2026-10-23 14:23:23",
+ "generated": "2026-10-23 22:51:06",
  "baked_charset": 7544,
  "strings": [
   {
@@ -32422,7 +32422,7 @@
   },
   {
    "en": "COMMANDNODE",
-   "zh": "",
+   "zh": "指挥节点",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -33512,7 +33512,7 @@
   },
   {
    "en": "COLLECTOR",
-   "zh": "",
+   "zh": "收集器",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -33803,7 +33803,7 @@
   },
   {
    "en": "NULLIFIER",
-   "zh": "",
+   "zh": "灭除器",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37630,7 +37630,7 @@
   },
   {
    "en": "OREMINE",
-   "zh": "",
+   "zh": "矿场",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37736,7 +37736,7 @@
   },
   {
    "en": "REACTOR",
-   "zh": "",
+   "zh": "反应堆",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37825,7 +37825,7 @@
   },
   {
    "en": "SPRAYER",
-   "zh": "",
+   "zh": "喷吐者",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -37848,7 +37848,7 @@
   },
   {
    "en": "STRAFER",
-   "zh": "",
+   "zh": "俯冲机",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38513,7 +38513,7 @@
   },
   {
    "en": "BERTHA",
-   "zh": "",
+   "zh": "贝莎炮",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38536,7 +38536,7 @@
   },
   {
    "en": "BOMBER",
-   "zh": "",
+   "zh": "轰炸机",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39117,7 +39117,7 @@
   },
   {
    "en": "MORTAR",
-   "zh": "",
+   "zh": "迫击炮",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39577,7 +39577,7 @@
   },
   {
    "en": "SHIELD",
-   "zh": "",
+   "zh": "护盾",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39600,7 +39600,7 @@
   },
   {
    "en": "SIPHON",
-   "zh": "",
+   "zh": "虹吸器",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -39623,7 +39623,7 @@
   },
   {
    "en": "SNIPER",
-   "zh": "",
+   "zh": "狙击手",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40765,7 +40765,7 @@
   },
   {
    "en": "FORGE",
-   "zh": "",
+   "zh": "锻造厂",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -40859,7 +40859,7 @@
   },
   {
    "en": "GUPPY",
-   "zh": "",
+   "zh": "补给船",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -41619,7 +41619,7 @@
   },
   {
    "en": "RELAY",
-   "zh": "",
+   "zh": "中继器",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -42416,7 +42416,7 @@
   },
   {
    "en": "BEAM",
-   "zh": "",
+   "zh": "光束",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -44094,7 +44094,7 @@
   },
   {
    "en": "TERP",
-   "zh": "",
+   "zh": "挖掘机",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -44137,7 +44137,7 @@
   },
   {
    "en": "THOR",
-   "zh": "",
+   "zh": "索尔",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -60075,6 +60075,66 @@
    "refs": [],
    "hits": 1,
    "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "CANNON",
+   "zh": "脉冲炮",
+   "cat": "dll",
+   "grade": "other",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "v1.4.1：TECH_TYPE 枚举名 / 主菜单新闻条"
+  },
+  {
+   "en": "CREEPER WORLD 5 WISHLIST NOW! -> ",
+   "zh": "CREEPER WORLD 5 加入愿望单！-> ",
+   "cat": "dll",
+   "grade": "other",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "v1.4.1：TECH_TYPE 枚举名 / 主菜单新闻条"
+  },
+  {
+   "en": "Open_Web_Page",
+   "zh": "打开网页",
+   "cat": "dll",
+   "grade": "other",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "v1.4.1：TECH_TYPE 枚举名 / 主菜单新闻条"
   }
  ]
 }
