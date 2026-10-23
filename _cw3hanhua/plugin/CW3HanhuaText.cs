@@ -1,5 +1,5 @@
 // ============================================================================
-//  CW3 汉化 · 文本层 v1.3.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息
+//  CW3 汉化 · 文本层 v1.3.2 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息
 //
 //  字体层负责"字形从哪来"，本层负责"英文串怎么变中文"。
 //
@@ -125,7 +125,7 @@ namespace CW3Hanhua
     ///   与字体层同在一个程序集，不再有任何反射互调。</summary>
     public class TextPlugin
     {
-        public const string Ver = "1.3.0";
+        public const string Ver = "1.3.2";
 
         static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
 
@@ -876,7 +876,26 @@ namespace CW3Hanhua
                         i += tagLen;
                         continue;
                     }
-                    if (IsLetter(c)) return null;       // 有字母消费不掉 → 全有或全无
+                    if (IsLetter(c))
+                    {
+                        // ★ v1.3.2：单引号里的「键名」原样透传。
+                        //   起因（用户实测 F5 报 `Click or 'P'` 未译）：
+                        //   GeneralHandlers.SetPauseButton 拼的是
+                        //     "Click or '" + InputManager.GetKeyText(mod, key) + "'"
+                        //   词表里 `Click or '` → `点击或 '` 有，但键名 `P` 是**单字母**，
+                        //   绝不能进词表（单字母 key 会把所有串拆烂）。这里在引号内把
+                        //   `P` / `LeftControl-P` / `Space` 这类键名当作变量透传，
+                        //   与「数字、色标原样透传」同一个道理：键名不是语言，不参与翻译。
+                        int keyEnd = QuotedKeyEnd(s, i);
+                        if (keyEnd > i)
+                        {
+                            sb.Append(s, i, keyEnd - i);
+                            i = keyEnd;
+                            matched++;
+                            continue;
+                        }
+                        return null;       // 有字母消费不掉 → 全有或全无
+                    }
                     sb.Append(c);
                     i++;
                 }
@@ -887,10 +906,19 @@ namespace CW3Hanhua
         }
 
         /// <summary>在 s[i] 处找一个能用的词表 key（最长的、且边界合法的）；没有返回 null。
-        /// 左边界必须在这里判，不能放到调用处 —— 标记透传那些分支不需要这个约束。</summary>
+        /// 左边界必须在这里判，不能放到调用处 —— 标记透传那些分支不需要这个约束。
+        ///
+        /// ★ v1.3.2：左边界只在「key 自己也以字母起头」时才判。
+        ///   起因（用户实测 F5 报 `Shield Key  [ffffff]Health:[-][00ff00] 100%[-]` 未译）：
+        ///   单位标题是 `GetUnitTitleDisplay` 拼的 —— `um.GetUnitGameName()` + "  [ffffff]Health:..."
+        ///   而词表里存的碎片是 `"  [ffffff]Health:[-][00ff00] "`（**自带两个前导空格**）。
+        ///   旧规则 `if (i > 0 && IsLetter(s[i-1])) return null` 一看前一字符是 `Key` 的 `y`
+        ///   就直接拒绝，哪怕 key 自己以空格起头、边界天然成立 → 所有单位标题整体放弃。
+        ///   现在只有 key 首个字符是字母时才看左邻（防 "Windows" 被 "Window" 吃成「窗口s」），
+        ///   key 以空格或 `[` 起头则天然有边界，不必也不能再卡。</summary>
         static string MatchKey(string s, int i)
         {
-            if (i > 0 && IsLetter(s[i - 1])) return null;   // 不许从词中段起头
+            if (i > 0 && IsLetter(s[i - 1]) && IsLetter(s[i])) return null;   // 不许从词中段起头
             List<string> cand;
             if (!byFirst.TryGetValue(s[i], out cand)) return null;
             int L = s.Length;
@@ -905,6 +933,30 @@ namespace CW3Hanhua
                 return key;
             }
             return null;
+        }
+
+        /// <summary>若 s[i] 起是**单引号包住的键名**（`'P'`、`'LeftControl-P'`、`'Space'`），
+        /// 返回键名结束后的下标（指向右引号），否则返回 -1。
+        ///
+        /// 只认这四种字符：字母、数字、`_`、`-`、`+` —— 覆盖 KeyCode 枚举名与 `Ctrl-Shift-P`
+        /// 这类组合键写法。长度 1–24，且引号里不能再出现引号。
+        ///
+        /// **左引号前不能是字母**：否则 `don't` / `isn't` 这类缩写会被当键名吞掉。
+        /// 这个判定让本函数只对「`'` 前面是空格/标点/行首」的真引号生效。</summary>
+        static int QuotedKeyEnd(string s, int i)
+        {
+            if (i < 2 || s[i - 1] != '\'') return -1;
+            if (IsLetter(s[i - 2])) return -1;              // don't / isn't 之类
+            int limit = i + 24;
+            if (limit > s.Length) limit = s.Length;
+            for (int k = i; k < limit; k++)
+            {
+                char c = s[k];
+                if (c == '\'') return k > i ? k : -1;       // 找到右引号，且内容非空
+                if (!IsLetter(c) && !(c >= '0' && c <= '9') && c != '_' && c != '-' && c != '+')
+                    return -1;                              // 有空格/其它符号 → 不是键名
+            }
+            return -1;                                      // 太长或没有右引号
         }
 
         /// <summary>算不算「词的一部分」：字母或数字。数字也要算 —— 标识符大量是
@@ -1406,18 +1458,12 @@ namespace CW3Hanhua
         // ================================================================ HUD
         // ★ 2026-10-21：HUD 只报**开关状态**，内部数字全部移到 F11 的 dump
         //   （TextPlugin.DumpLine）—— 用户明确要求"这些信息不用暴露给用户"。
-        //   宿主是 HanhuaPlugin 的 OnGUI，它直接调 HudLine() 拼进第一行。
-        //   ★ 返回值只允许是 "文本层:开/关" 这一种形态：字体层直接把它拼到
-        //     按键行里，多一个字都会把那一行撑长。
-        //   ★ 2026-10-23：原先是 "F4 文本层:开/关"，F4 退役后前缀里的 F4 去掉，
-        //     免得用户去找一个已经不存在（且已被 F3 取代）的键。
+        //   宿主是 HanhuaPlugin 的 OnGUI。
+        //   ★ 2026-10-23：HudLine() 已删除。它返回的 "文本层:开/关" 与总开关
+        //     永远同步（两层由 F3 同生同死），摆在 HUD 上只会让人以为能分开调。
+        //     文本层的真实状态仍然在 F11 dump 的 `开关=` 里（见 DumpLine）。
         //   ★ v1.0.0：本层不再有自己的 OnGUI 兜底条 —— 两层同一个插件，
         //     不再有"对方没装载"这种情况。
-        public static string HudLine()
-        {
-            try { return "文本层:" + (textOn ? "开" : "关"); }
-            catch (Exception) { return "文本层:?"; }
-        }
 
         /// <summary>F11 dump 用的一整行：所有数字都在这里（HUD 上不显示）。</summary>
         public static string DumpLine()

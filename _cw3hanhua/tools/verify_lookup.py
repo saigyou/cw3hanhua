@@ -102,6 +102,23 @@ def has_cjk(s):
     return False
 
 
+def quoted_key_end(s, i):
+    """若 s[i] 起是单引号包住的键名（'P' / 'LeftControl-P'），返回右引号下标，否则 -1。
+    左引号前不能是字母，否则 don't / isn't 这类缩写会被当键名吞掉。"""
+    if i < 2 or s[i - 1] != "'":
+        return -1
+    if is_letter(s[i - 2]):
+        return -1
+    limit = min(i + 24, len(s))
+    for k in range(i, limit):
+        c = s[k]
+        if c == "'":
+            return k if k > i else -1
+        if not is_letter(c) and not ("0" <= c <= "9") and c not in "_-+":
+            return -1
+    return -1
+
+
 def tag_length(s, i):
     if i >= len(s) or s[i] != "[":
         return 0
@@ -182,6 +199,13 @@ class Lookup(object):
                 i += tl
                 continue
             if is_letter(c):
+                # v1.3.2：单引号里的键名（'P' / 'LeftControl-P'）原样透传
+                ke = quoted_key_end(s, i)
+                if ke > i:
+                    out.append(s[i:ke])
+                    i = ke
+                    matched += 1
+                    continue
                 return None
             out.append(c)
             i += 1
@@ -190,7 +214,9 @@ class Lookup(object):
         return "".join(out)
 
     def match_key(self, s, i):
-        if i > 0 and is_letter(s[i - 1]):
+        # v1.3.2：左边界只在 key 自己也以字母起头时才判 —— 词表里大量碎片
+        # 自带前导空格（"  [ffffff]Health:[-] "），天然有边界，不该被前一个字母卡死。
+        if i > 0 and is_letter(s[i - 1]) and is_letter(s[i]):
             return None
         L = len(s)
         for key in self.by_first.get(s[i], ()):
@@ -257,6 +283,15 @@ CASES = [
     ("Time数字", "Time:1:00:00.0"),
     # 换行拼接（老路径，不能被破坏）
     ("To Access", "Arc Eternal\n[ff5050]To Access:\n[ff0000]Complete first 5 Arc Eternal missions."),
+    # ★ v1.3.2 单位标题：英文名 + 自带前导空格的碎片（左边界放宽的起因）
+    ("单位标题-护盾钥匙", "Shield Key  [ffffff]Health:[-][00ff00] 100%[-]"),
+    ("单位标题-收集器", "Collector  [ffffff]Health:[-][00ff00] 87.5%[-]"),
+    ("单位标题-建造中", "Mortar  [ffffff]Building:[-][00ff00] 100/50[-]"),
+    ("单位标题-弹药", "Pulse Cannon  [ffffff]Ammo:[-][00ff00] 5/60[-]"),
+    # ★ v1.3.2 引号内键名透传（点击提示）
+    ("点击提示-P", "Click or 'P'"),
+    ("点击提示-组合键", "Click or 'LeftControl-P'"),
+    ("点击提示-空", "Click or ''"),
 ]
 
 # 必须保持英文 / 必须整句命中（错一个就是回归）
@@ -271,6 +306,13 @@ SAFETY = [
     ("Interval: 3 sec", None),
     ("Building x", None),
     ("MultiMesh", None),
+    # ★ v1.3.2 新路径的守卫：缩写里的撇号不能被当成键名引号
+    ("don't panic", None),
+    ("it's a trap", None),
+    ("Don't 'quote' me", None),
+    ("Audio item with name 'music' not found", None),
+    ("The 'A' key is broken", None),
+    ("Click or 'P' and then 'Q'", None),
 ]
 
 

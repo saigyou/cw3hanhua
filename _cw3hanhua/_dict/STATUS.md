@@ -7,8 +7,8 @@
 | 可信度 | 条数 | 已译 | 完成率 |
 |---|---:|---:|---:|
 | ui | 1352 | 969 | 71.7% |
-| other | 1933 | 1134 | 58.7% |
-| **合计** | **3314** | **2103** | **63.5%** |
+| other | 1933 | 1135 | 58.7% |
+| **合计** | **3314** | **2104** | **63.5%** |
 
 > `ui` = 几乎一定是显示文本；`other` = 拿不准（单个词/代码片段），先翻 `ui`。
 
@@ -18,7 +18,7 @@
 |---|---|---:|---:|
 | both | 资产 + DLL 都有（最该先翻） | 292 | 221 |
 | asset | 只在资产里序列化（不走 setter；UILabel 走 ProcessText 补丁，TextMesh 改资产） | 1025 | 1008 |
-| dll | 只在 DLL 里（走 ProcessText） | 1997 | 874 |
+| dll | 只在 DLL 里（走 ProcessText） | 1997 | 875 |
 
 ## 3. 按命中类名分组（看哪块界面还没动）
 
@@ -29,7 +29,7 @@
 | CrplCore | 132 | 21 | `WARNING: Loop stack vars not present at ` |
 | VectorLine | 86 | 0 | `VectorLine.SetCamera3D: no camera tagged` |
 | (资产) | 1227 | 1154 | `This is a great big long label` |
-| GameSpace | 120 | 61 | `GameSpace.OnApplicationQuit` |
+| GameSpace | 120 | 62 | `GameSpace.OnApplicationQuit` |
 | CrplCompiler | 43 | 0 | `: A string literal in an input var defin` |
 | CW3SteamAchievements | 43 | 0 | `*********** RESET ALL STATS AND ACHIEVEM` |
 | GameEventWidgetManager | 69 | 33 | `UI Root (2D)` |
@@ -42,8 +42,8 @@ gatling g` |
 | SkinTest | 21 | 0 | `Im a textfield
 Im the second line
 Im the` |
-| CommandCenter | 62 | 44 | `  [ffffff]Fully Upgraded![-]` |
 | GalaxySpace | 23 | 6 | `Create AudioController` |
+| CommandCenter | 62 | 45 | `  [ffffff]Fully Upgraded![-]` |
 | ColonialSpaceManager | 87 | 71 | `UI Root (2D)` |
 | <>__AnonType0`15 | 15 | 0 | `, a = ` |
 | EditMapGUI | 158 | 145 | `.crpl

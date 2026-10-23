@@ -15,7 +15,7 @@
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / **v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）** |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -39,7 +39,7 @@
 | 游戏本体 | **原版**，资产零改动（4.4a） |
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
-| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.3.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + 合并 HUD + 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2103 条**）；**三条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息。**全部已实测通过**。 |
+| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.3.2** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2104 条**）；**三条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息。**全部已实测通过**。 |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
 | 按键 | **F3 汉化总开关**（两层一起开/关）/ **F5** 打印未命中 / **F9** 重载词表 / **F11** dump / **F12** HUD（共 5 个；**F4 已于 2026-10-23 退役并入 F3**）<br>启动**无条件自动开启**（**无配置项**，4.1「自动开启」） |
@@ -276,7 +276,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 
 ### 4.1 字体烘焙与插件按键
 
-**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → 同一个 `CW3Hanhua.dll` v1.3.0，共 5 个）**
+**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → 同一个 `CW3Hanhua.dll` v1.3.2，共 5 个）**
 
 | 键 | 层 | 作用 |
 |---|---|---|
@@ -284,7 +284,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | **F5** | 文本 | 打印未命中清单（`missSeen`，缺哪些译文） |
 | **F9** | 文本 | 重载 `zh_cn.dict`（改完词表不用重启） |
 | **F11** | 字体 | dump 到 `BepInEx/CW3HanhuaFont.txt`（所有内部数字都在这里） |
-| **F12** | 字体 | HUD 开关 |
+| **F12** | 字体 | HUD 开关（**HUD 默认关闭**，v1.3.1 起） |
 
 ★ **F3 是唯一总开关（2026-10-23，F4 已退役并入 F3）**：两个键意味着每次按两下、且容易
 只开一半（字形换了文本还是英文，看着像"翻译坏了"）。`HanhuaPlugin.SetHanhua(bool,bool)`
@@ -293,8 +293,8 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 "文本层=未就绪"写进同一次 dump。
 
 ★ **两个 DLL 已合成一个**（v1.0.0）：`HanhuaPlugin` 是唯一 `[BepInPlugin]`/MonoBehaviour，
-`TextPlugin` 退化成同程序集普通类，**两层零反射**（`Init`/`Tick`/`SetOn`/`HudLine`/
-`ErrorLine`/`DumpLine` 全是直接调用）。生命周期统一由 `HanhuaPlugin` 驱动：
+`TextPlugin` 退化成同程序集普通类，**两层零反射**（`Init`/`Tick`/`SetOn`/
+`ErrorLine`/`DumpLine` 全是直接调用；`HudLine` 已在 v1.3.1 删除，见 4.1「HUD」）。生命周期统一由 `HanhuaPlugin` 驱动：
 `Awake`→`TextPlugin.Init()`；`Update`→先 `Tick()` 再处理按键；场景切换只在 `Update`
 检测一处再通知 `OnSceneChanged()`。两个 `.cs` **仍一层一个文件**（各自教训留在原处）。
 `BepInEx/plugins/CW3HanhuaText.dll` 由 `build_plugin.cmd` 自动删 —— 旧文件是独立插件
@@ -328,16 +328,20 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 
 #### HUD
 
-**设计口径**：HUD 只干两件事 —— ① 把所有能按的键摆在眼前；② 报告两个开关的状态。
+**设计口径**：HUD 只干两件事 —— ① 把所有能按的键摆在眼前；② 报告**总开关**的状态。
 **内部数字一律不上 HUD**（用户要求："反正也不知道啥意思"）—— 字号表、帧号、备份数、图集尺寸、
 场景名、词表条数、各计数、补丁自检全部只进 F11 的 dump。**只有真出错时**才自动多画一行 `!!`。
 
-正常就 1 行：`按键   F3 汉化总开关:开   文本层:开   F5 未命中清单   F9 重载词表   F11 dump   F12 关HUD`
+★ **v1.3.1（2026-10-23）两处变化，都是用户要求的**：
+① **HUD 默认关闭**（`showHud = false`）—— 版本收敛了，正常玩不该有常驻面板；F12 仍是双向开关。
+② **不再显示「文本层:开/关」** —— 两层由 F3 同生同死，状态永远一样，摆两个开关只会让人以为
+   能分开调。`TextPlugin.HudLine()` 因此**整段删除**；文本层的真实状态仍在 F11 dump 的 `开关=`。
+
+正常就 1 行：`按键   F3 汉化总开关:开   F5 未命中清单   F9 重载词表   F11 dump   F12 关HUD`
 
 - **宽度不写死**：`GUIStyle.CalcSize` 量最长一行 + 28px（下限 480，上限 `Screen.width-12`）。
-- 三个 `public static string` 工具方法（同程序集直接调用，不是"反射契约"）：
-  `HudLine()` 只返回 `"文本层:开/关"`（**多一个字就把那行撑长**）、`ErrorLine()` 空串=正常、
-  `DumpLine()` 一整行全部数字。
+- 两个 `public static string` 工具方法（同程序集直接调用，不是"反射契约"）：
+  `ErrorLine()` 空串=正常、`DumpLine()` 一整行全部数字。
 - HUD 归字体层 `showHud` / F12 管。**加/删按键时两处都要改**：`HanhuaPlugin.Update()` 的
   `Input.GetKeyDown` + `HanhuaPlugin.OnGUI()` 第一行那个字符串。**F5/F9 例外** ——
   它们在 `TextPlugin.Tick()` 里，因为 `TextPlugin` 没有自己的 `Update()`。
@@ -390,7 +394,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | IL 字符串引用 | 11001（Assembly-CSharp）+ 238（firstpass） |
 | 资产文本 | 467 条（UILabel 455 + TextMesh 12；另有 19 条已被 bake 成中文，按 CJK 跳过） |
 | 候选合计 | `strings.json` **3314** 条 = ui 1352 + other 1933 + none 29；来源 both 292（译 221）/ asset 1025（译 1008）/ dll 1997（译 874） |
-| 已译 | **2103**（ui 969 + other 1134，63.5%）→ `zh_cn.dict` **2103 条**（211 208 字节） |
+| 已译 | **2104**（ui 969 + other 1135，63.5%）→ `zh_cn.dict` **2104 条**（211 242 字节） |
 
 > `ui` 不是"一定会显示"，是"几乎一定"；`other` 里约 900 条是单词需人工判定。
 > **不要拿 ui 条数当工作量上限。** 给出新数字前先跑 `tools/dict_stats.py`。
@@ -460,7 +464,7 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 - 译稿用**序号字典** `{"zh": {"3": "译文"}}`，缺省项视为 `@`（跳过不译）；
   **不要用数组形式**（漏一项就整体错位，踩过一次：89 vs 88，后 60 条全串行）。
 
-### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.3.0）
+### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.3.2）
 
 **查表链（四级，v1.1.0 新增第四级）**：
 
@@ -483,7 +487,7 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 | `HanhuaPlugin.Update()` 每帧 | 字体层 | `TextPlugin.Tick()` —— F5 未命中清单、F9 重载词表 |
 | 场景切换（`Update` 检测到） | 字体层 | `TextPlugin.OnSceneChanged()` —— 清已销毁 label / TextMesh 缓存、清 `missSeen` |
 | F3 / 自动开启 | 字体层 | `TextPlugin.SetOn(bool)` —— 接词表 / 还原 |
-| `OnGUI` / `DumpReport` | 字体层 | `TextPlugin.HudLine()` / `.ErrorLine()` / `.DumpLine()` |
+| `OnGUI` / `DumpReport` | 字体层 | `TextPlugin.ErrorLine()` / `.DumpLine()`（`HudLine()` 已删除，见 4.1） |
 
 **为什么 `Init()` 要早**：prefix 必须装在场景创建之前才能拦到首批文本；
 `HanhuaPlugin.Awake()` 里调是来得及的（BepInEx 的 `Awake` 早于任何游戏场景对象）。
@@ -535,12 +539,12 @@ TextMesh 那五个写入点登记在独立的 `meshSwaps`（`MeshSwap = {mesh, e
   列出来的说明"走了 UILabel 但没译文"（补词表 + F9 重载即可）；
   界面上仍英文、清单里又没有的，才是真正**必须改资产**的对象（TextMesh 那批）。
 - **F11 dump 里那一行**（v1.0.0 起直接调 `TextPlugin.DumpLine()`）：
-  `文本层 v1.3.0  开关=…  词表=…  prefix=调用/命中  拼接=…  分段=…  mesh=调用/命中  crpl=调用/命中
+  `文本层 v1.3.2  开关=…  词表=…  prefix=调用/命中  拼接=…  分段=…  mesh=调用/命中  crpl=调用/命中
   未命中=…  CRPL字体=…`。
   `prefix` 计数不动 = 补丁没装上；`mesh` 计数不动 = TextMesh 那五个补丁没装上或那段文本没被写过；
   **`分段` 计数不动 = 一条运行时拼接串都没走到第四级**（说明前三级全接住了，或者补丁没装）；
   **`crpl` 调用>0 而命中 0 = CRPL 文案词表未命中**（F5 会列出来），调用恒 0 = 补丁没装上。
-  ★ HUD 上只剩 `文本层:开/关` 一个状态（4.1「HUD」）——数字要看 dump 文件。
+  ★ **HUD 上只剩总开关一个状态**（v1.3.1 起不再显示「文本层:开/关」，见 4.1「HUD」）——数字要看 dump 文件。
 
 **★ 装补丁必须自检**：`Harmony.Patch` 失败时**只往日志写一行 Error、不抛异常**
 （外层 try/catch 什么也接不到，表现为"什么都没发生"）。所以装完立刻回读
@@ -677,10 +681,10 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 
 ### 4.5 全量翻译
 
-**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3314 条 / 已译 2103**；
-插件读的 `zh_cn.dict` = **2103 条**（211 208 字节，`--include-other` 编译、FNV 校验通过）；
+**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3314 条 / 已译 2104**；
+插件读的 `zh_cn.dict` = **2104 条**（211 242 字节，`--include-other` 编译、FNV 校验通过）；
 `check_charset.py` 报 **1547 字符（汉字 1448）✓ 全部在字集内** —— **不用重烘图集**。
-未译的 1211 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
+未译的 1210 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
 
 > 沿革（只看结论）：翻译是分四批进来的 —— 4.2 的 1144 条 → 4.8 剧情 +852 → 4.7③ 分段碎片 +22
 > （并删掉 41 条护盾枚举）→ 4.7④ CRPL 教学提示 +60。`kind` 维度与「故意不译」清单见下表。
@@ -946,13 +950,14 @@ Farbor 三组 2ⁿ 颜色组合）。用户当即质疑「再发现新的不就�
 | `[rrggbb]` / `[-]` / `[tag]` 整段原样透传 | 颜色不是语言，不该参与匹配；也省掉 2ⁿ 枚举 |
 | 非字母原样透传 | 数字、标点、换行、路径分隔符都要保住 |
 | 遇字母/空格/`[` 在 `byFirst` 里试**最长前缀** key | 一次扫描把所有碎片换掉 |
-| **左边界**：起头前一字符是字母则放弃 | 否则 `Windows` 被 `Window` 吃成「窗口s」 |
+| **左边界**：起头前一字符是字母**且本 key 也以字母起头**才放弃 | 否则 `Windows` 被 `Window` 吃成「窗口s」。**v1.3.2 起只在 key 首字符是字母时判** —— 见下方坑 5 |
 | **右边界**：key 以字母结尾时，后一字符**是字母或数字**都算词内 | `Link327`（玩家名）、`Custom1_256`（纹理内部名）、`Mesh0` 都不该拆 |
+| **引号内键名透传**：单引号包住且内容像键名（`P`、`LeftControl-P`、`Space`）→ 原样透传 | 键名不是语言。`Click or 'P'` 的 `P` 是单字母，绝不能进词表 |
 | **全有或全无**：有字母消费不掉就整串放弃 | 宁留英文，也不出「错误： The remote server…」这种半英半中 |
 | 至少命中 1 段才返回 | 纯变量串（`55/100`）不该走这条路 |
 | **`HasCjk` 闸门**：串里已有汉字就直接返回 null | TextMesh 那条路会把自己写进去的中文再喂回来，会二次吃掉「space」「Auto」「The Name」 |
 
-**四个边界踩坑**（成因都写在 `LookupSegment` 的注释里）：
+**五个边界踩坑**（成因都写在 `LookupSegment` 的注释里）：
 
 1. 色标 `TagLength` 必须 `return close - i + 1`（**含 `]`**）—— 少算一个字节，下一轮左边界
    就撞上 `f`，整串放弃。
@@ -962,16 +967,36 @@ Farbor 三组 2ⁿ 颜色组合）。用户当即质疑「再发现新的不就�
    全误杀（尾空格已被消费，与后继词边界冲突）。
 4. **左边界只看字母，右边界看字母+数字** —— 左边界带上数字会把 `Link327` 拆成「连接327」。
    左边界实测是冗余保险（3304 条语料去掉它差异 0 条），留着防将来加透传分支时踩坑。
+5. ★ **v1.3.2：左边界只在 key 自己也以字母起头时才判**（旧写法 `if (i > 0 && IsLetter(s[i-1])) return null`）。
+   旧规则对「**英文名 + 自带前导空格的碎片**」全线失效：词表里的碎片是 `"  [ffffff]Health:[-][00ff00] "`
+   （自带两个前导空格，边界本就成立），可单位标题由 `CommandCenter.GetUnitTitleDisplay()` 拼成
+   `GetUnitGameName() + "  [ffffff]Health:…"`，前一字符是 `Key` 的 `y` → 直接被拒 → **所有单位标题**
+   （`Shield Key`、`Collector`、`Mortar`、`Pulse Cannon` …）整串放弃、留英文。
+   改成 `if (i > 0 && IsLetter(s[i-1]) && IsLetter(s[i])) return null` 后只保留真正要防的
+   「字母接字母」。**代价检查**：3304 条语料结果差异 **0 条**、幂等 0 条、安全抽查全过。
+   同一个 `MatchKey` 同时服务 `LookupSegment` 与分段索引，改一处两处生效。
 
 **配套批次**：`batches/full_24_fragments.json`（22 条）= 10 条名字碎片
 （`' Jojo,'`→`' 乔乔、'`，英文逗号换中文顿号靠这里）+ 12 条资源条碎片。
 `AC:` 按术语表**保留英文**，那条 zh 仍为空。工具：`del_strings.py`（按批次删串）、
 `add_strings.py`（新增 en，`apply_translations.py` 只能填已存在的）。
 
-**验证（离线，`tools/verify_lookup.py` 复刻四级链）**：21 个目标场景全中（6 种护盾串含混色、
-7 条资源条、`Collected: Collector`、`Score: 1234`、`Time:1:00:00.0`、`To Access`）；
-10 项安全抽查全部正确拒绝（`Windows`/`GameObject`/`RESET ALL STATS…`/`Interval: 3 sec`…）；
+**验证（离线，`tools/verify_lookup.py` 复刻四级链）**：28 个目标场景全中（6 种护盾串含混色、
+7 条资源条、`Collected: Collector`、`Score: 1234`、`Time:1:00:00.0`、`To Access`、
+v1.3.2 新增的 4 条**单位标题**与 3 条 **`Click or '…'`**）；
+16 项安全抽查全部正确拒绝（`Windows`/`GameObject`/`RESET ALL STATS…`/`Interval: 3 sec`/
+`don't panic`/`it's a trap`/`Don't 'quote' me`…）；
 **幂等**：全部译文再喂一遍被二次改写 **0 条**；全量回归「旧已有译文但新结果不同」**0 条**。
+
+★ **v1.3.2 的两个边界修复（都在这条链上，成因见上方踩坑 5 与规则表「引号内键名透传」）**：
+
+| 串 | 旧结果 | 新结果 | 根因 |
+|---|---|---|---|
+| `Shield Key  [ffffff]Health:[-][00ff00] 100%[-]`（**所有单位标题**） | None | `护盾钥匙  [ffffff]生命值:[-][00ff00] 100%[-]` | `GetUnitTitleDisplay()` 拼 `名字 + "  [ffffff]Health:…"`，碎片自带前导空格，却被旧左边界按 `Key` 的 `y` 拒掉 |
+| `Click or 'P'` | None | `点击或 'P'` | `GeneralHandlers.SetPauseButton()` 拼 `"Click or '" + GetKeyText(…) + "'"`，键名是单字母，`IsLetter` 消费不掉 |
+
+引号透传只认「前一字符是 `'` 且再前一字符不是字母、内容全是键名字符（字母/数字/`_`/`-`/`+`）、
+≤24 字符、以 `'` 收尾」—— 所以 `don't`/`it's`/`'music'` 这类英文撇号一律不碰（负例全过）。
 
 **注意**：改这一级要动插件 DLL → **需重启游戏**（F9 只重载词表）。
 
@@ -1182,7 +1207,7 @@ C.E. → **第 N 循环历**（不写「公元」，也不写「第 X 纪元」�
 & "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3\_cw3hanhua\tools\build_plugin.cmd"
 ```
 
-★ **两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（现 v1.3.0，4.1）。
+★ **两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（现 v1.3.2，4.1）。
 脚本在编译前会**自动 `del` 掉旧的 `CW3HanhuaText.dll`** —— 那个文件是独立插件
 （GUID `cw3hanhua.text`），留着会在同一批游戏方法上**重复装一遍 Harmony 补丁**。
 
@@ -1386,7 +1411,7 @@ _cw3hanhua/
 │   ├─ diff_bake.py            ★ 烘焙回归：现役资产 vs 基线，确认没波及 UILabel
 │   └─ uilabel_inventory.json / textmesh_inventory.json
 │                              ★ 烘焙前的历史基线快照，**不可再生**（重跑 scan 会覆盖）
-├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.3.0**（4.1）
+├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.3.2**（4.1）
 │                      CW3Hanhua.cs（字体层 = 唯一 BepInPlugin / MonoBehaviour）
 │                      CW3HanhuaText.cs（文本层 = 同程序集普通类 TextPlugin）
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）

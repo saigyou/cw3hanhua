@@ -1,0 +1,9 @@
+{
+ "items": {
+  "Cannon": "脉冲炮",
+  "Cannons": "主炮",
+  "ARM": "武装",
+  "DISARM": "解除武装",
+  "Disarm": "解除武装"
+ }
+}

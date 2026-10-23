@@ -25765,7 +25765,7 @@
   },
   {
    "en": "Cannon",
-   "zh": "炮",
+   "zh": "脉冲炮",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -25789,7 +25789,7 @@
   },
   {
    "en": "DISARM",
-   "zh": "解除",
+   "zh": "解除武装",
    "cat": "both",
    "grade": "other",
    "ops": [
@@ -28122,7 +28122,7 @@
   },
   {
    "en": "Cannons",
-   "zh": "炮",
+   "zh": "主炮",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -38822,7 +38822,7 @@
   },
   {
    "en": "Disarm",
-   "zh": "解除",
+   "zh": "解除武装",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -44503,7 +44503,7 @@
   },
   {
    "en": "ARM",
-   "zh": "",
+   "zh": "武装",
    "cat": "dll",
    "grade": "other",
    "ops": [

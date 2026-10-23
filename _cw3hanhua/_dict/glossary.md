@@ -18,6 +18,8 @@
 | Reactor | 反应堆 | |
 | Shield / Shield Generator | 护盾 / 护盾发生器 | |
 | Power Zone | 供能区 | |
+| Cannon | 脉冲炮 | **统一口径**：建造面板按钮上的 `Cannon` 就是 `Pulse Cannon` 那个单位，一律译「脉冲炮」，不要写成「炮」（2026-10-23 用户报：一会儿「炮」一会儿「脉冲炮」） |
+| Cannons（Thor 面板标题） | 主炮 | 索尔面板顶部标题，指它挂的主炮；`FIRE MAIN CANNONS` → `主炮开火` 与之对齐 |
 | Mortar | 迫击炮 | |
 | Bomber | 轰炸机 | |
 | Sprayer | 喷吐者 | |
@@ -57,6 +59,7 @@
 | Map | 地图 | `本关地图` 与 `世界` 是两回事：map = 地图文件 |
 | Launch | 发射 | |
 | Resupply | 补给 | |
+| Arm / Disarm | 武装 / 解除武装 | 单位面板 V 形按钮的两种状态（`GameSpace.UpdateUnitPanel`）。**`label.text` 必须保持英文 `"ARM"`/`"DISARM"`**，`CommandCenter.DisarmSelectedUnits` 拿它做判定（NOTES 3.3），中文只由 ProcessText 临时替换 |
 | Formation Move | 编队移动 | |
 | DMD | 动态地图 / DMD | 保留 DMD 缩写，首次出现给全称 |
 

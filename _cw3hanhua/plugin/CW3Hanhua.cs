@@ -1,9 +1,9 @@
 // ============================================================================
-//  CW3 汉化插件 v1.0.0 —— 合并图集字体层（NOTES 4.4）+ 文本层（词表）+ 合并 HUD
+//  CW3 汉化插件 v1.3.2 —— 合并图集字体层（NOTES 4.4）+ 文本层（词表）+ 合并 HUD
 //
 //  ★ 2026-10-23：两个 DLL 合成一个。本文件与 CW3HanhuaText.cs 一起编进
 //    **CW3Hanhua.dll**，两层之间不再有任何反射调用 —— 字体层直接
-//    `TextPlugin.SetOn(..)` / `TextPlugin.HudLine()` / `TextPlugin.DumpLine()`。
+//    `TextPlugin.SetOn(..)` / `TextPlugin.ErrorLine()` / `TextPlugin.DumpLine()`。
 //    BepInEx\plugins\CW3HanhuaText.dll 已由 build_plugin.cmd 自动删除。旧的
 //    CW3HanhuaText.dll 是个**独立的插件**（GUID cw3hanhua.text），留着会在同一批
 //    游戏方法上再装一遍 Harmony 补丁、再抢一遍 F5/F9、再画一条 HUD。
@@ -32,7 +32,10 @@
 //    F5    打印未命中清单（缺哪些译文，文本层）
 //    F9    重载词表（改完 zh_cn.dict 不用重启，文本层）
 //    F11   dump → BepInEx/CW3HanhuaFont.txt（详细数字都在这里，不在 HUD 上）
-//    F12   HUD 开关（两层的状态合并成同一块，画在左上角）
+//    F12   HUD 开关（**默认关闭**，v1.3.1 起；画在左上角）
+//
+//  ★ 2026-10-23（v1.3.1）：HUD 默认关闭；HUD 上**不再显示「文本层:开/关」** ——
+//    两层由 F3 同生同死、状态永远一样，摆两个开关只会让人以为能分开调。
 //
 //  启动自动开启（v1.0.0）：**无条件自动** —— 没有任何配置项、没有开关。
 //    Update 里等"图集文件在 + UIFont 已 Create"再自动把总开关拨到开，
@@ -51,10 +54,10 @@ using UnityEngine;
 
 namespace CW3Hanhua
 {
-    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua", "1.3.0")]
+    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua", "1.3.2")]
     public class HanhuaPlugin : BaseUnityPlugin
     {
-        const string Ver = "1.3.0";
+        const string Ver = "1.3.2";
 
         static HanhuaPlugin inst;
         static string reportPath;
@@ -67,7 +70,9 @@ namespace CW3Hanhua
         //   所以按键与自动开启都放在这里；文本层在同一个程序集里
         //   （TextPlugin，见 CW3HanhuaText.cs），直接调用，不走反射。
         static bool hanhuaOn = false;
-        static bool showHud = true;
+        // ★ 2026-10-23：HUD **默认关闭**。版本已经收敛，正常玩的时候不该有一块
+        //   常驻面板；需要看就按 F12（F12 仍是双向开关：开→关，关→开）。
+        static bool showHud = false;
 
         // 自动开启（v1.0.0）：**无条件**，没有配置项。
         //   autoDone 只表示"自动开启这件事结案了"，不是用户开关：
@@ -1040,12 +1045,14 @@ namespace CW3Hanhua
         // ================================================================ HUD
         // ★ 2026-10-21 重做：HUD 只承担两件事 ——
         //     ① 把**所有能按的键**摆在眼前（用户要求：能按的键都要提供出来）；
-        //     ② 报告两个开关的当前状态，以及出错时的原因。
+        //     ② 报告总开关的当前状态，以及出错时的原因。
         //   内部数字（字号表、备份数、帧号、码表统计、补丁自检…）一律不上 HUD，
         //   全部挪到 F11 的 dump 文件里 —— 看 HUD 的人不需要它们。
+        //   ★ 2026-10-23（v1.3.1）：HUD **默认关闭**（玩家按 F12 才出来）；
+        //     并且不再显示「文本层」状态 —— 两层被 F3 绑死，永远同步。
         //
         //   宿主 = 本类（HanhuaPlugin）。v1.0.0 起文本层与本类**在同一个程序集**，
-        //   文本层那一段直接调 TextPlugin.HudLine() / ErrorLine() 取，不再反射。
+        //   出错行直接调 TextPlugin.ErrorLine() 取，不再反射。
         //   （旧的双 DLL 方案里那些 peerMethods / FindPeerMethod / PeerString 已全部删除。）
         void OnGUI()
         {
@@ -1056,14 +1063,14 @@ namespace CW3Hanhua
                 GUI.color = Color.white;
                 List<string> lines = new List<string>();
 
-                // ---- 第 1 行：全部按键 + 两个开关的状态（HUD 的主体）----
-                string textKey = null;
+                // ---- 第 1 行：全部按键 + 总开关的状态（HUD 的主体）----
+                //   ★ 2026-10-23：不再显示「文本层:开/关」。文本层与字体层由 F3
+                //     同生同死（见 SetOn 那条链），两个状态永远一样，摆两个开关
+                //     只会让用户以为还能分开调。文本层的真实状态留在 F11 dump 里
+                //     （TextPlugin.DumpLine 的 `开关=`）。
                 string textErr = null;
-                try { textKey = TextPlugin.HudLine(); } catch (Exception) { }
                 try { textErr = TextPlugin.ErrorLine(); } catch (Exception) { }
-                if (textKey == null || textKey.Length == 0) textKey = "文本层:--";
                 lines.Add("按键   F3 汉化总开关:" + (hanhuaOn ? "开" : "关")
-                        + "   " + textKey
                         + "   F5 未命中清单   F9 重载词表   F11 dump   F12 关HUD");
 
                 // ---- 第 2 行起：只在真出问题时出现 ----
