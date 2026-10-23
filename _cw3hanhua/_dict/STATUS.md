@@ -1,14 +1,14 @@
 # CW3 词表状态（自动生成，勿手改）
 
-生成时间：2026-10-23 13:37:41    数据：`_dict/strings.json`
+生成时间：2026-10-23 14:23:23    数据：`_dict/strings.json`
 
 ## 1. 总览
 
 | 可信度 | 条数 | 已译 | 完成率 |
 |---|---:|---:|---:|
-| ui | 1292 | 909 | 70.4% |
+| ui | 1352 | 969 | 71.7% |
 | other | 1933 | 1134 | 58.7% |
-| **合计** | **3254** | **2043** | **62.8%** |
+| **合计** | **3314** | **2103** | **63.5%** |
 
 > `ui` = 几乎一定是显示文本；`other` = 拿不准（单个词/代码片段），先翻 `ui`。
 
@@ -18,7 +18,7 @@
 |---|---|---:|---:|
 | both | 资产 + DLL 都有（最该先翻） | 292 | 221 |
 | asset | 只在资产里序列化（不走 setter；UILabel 走 ProcessText 补丁，TextMesh 改资产） | 1025 | 1008 |
-| dll | 只在 DLL 里（走 ProcessText） | 1937 | 814 |
+| dll | 只在 DLL 里（走 ProcessText） | 1997 | 874 |
 
 ## 3. 按命中类名分组（看哪块界面还没动）
 
@@ -33,7 +33,7 @@
 | CrplCompiler | 43 | 0 | `: A string literal in an input var defin` |
 | CW3SteamAchievements | 43 | 0 | `*********** RESET ALL STATS AND ACHIEVEM` |
 | GameEventWidgetManager | 69 | 33 | `UI Root (2D)` |
-| SystemManager | 71 | 42 | `21458256d4614ba281fa0607f803722d` |
+| SystemManager | 131 | 102 | `21458256d4614ba281fa0607f803722d` |
 | AudioToolkitDemo | 30 | 2 | `Play intro-loop-outro sequence
 gatling g` |
 | SaveGameManager | 35 | 10 | `Tried to load internal system data and f` |

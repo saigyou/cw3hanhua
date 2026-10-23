@@ -17,6 +17,7 @@
 | `build_atlas.py` | ★ 合并图集 4096×8192 生成器 → `_font\atlas_zh.{png,bin}`（`--write-json` 才额外出调试 JSON） | NOTES 4.4 |
 | `check_charset.py` | 查词表有没有超出已烘字集（**查三套字号的交集**） | NOTES 4.1 |
 | `collect_ui_strings.py` | 静态全量收集候选字符串（IL `ldstr` + 资产文本） | NOTES 4.2 |
+| `scan_crpl.py` | ★ 扫**关卡内嵌 CRPL 脚本**的字面量（`ShowMessage("…")` 一类，静态收集器收不到） | NOTES 4.7④ |
 | `build_dict.py` | 把 `strings.json` 编译成 `zh_cn.dict` | NOTES 4.2 |
 | `apply_translations.py` | 把 `batches/*.json` 译文注入 `strings.json`（**只填已存在的 en**） | NOTES 4.2 |
 | `add_strings.py` | 把批次里的**新条目**追加进 `strings.json`（原表里没有的 en 用这个） | NOTES 4.2 |

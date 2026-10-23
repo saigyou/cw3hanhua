@@ -1,6 +1,6 @@
 {
  "version": 2,
- "generated": "2026-10-23 13:37:41",
+ "generated": "2026-10-23 14:23:23",
  "baked_charset": 7544,
  "strings": [
   {
@@ -58875,6 +58875,1206 @@
    "refs": [],
    "hits": 1,
    "note": "星系图/地图物件名（story_sector、ShieldKey）"
+  },
+  {
+   "en": "Select a Command Node from the menu below and land it\nin the gray area in the upper left corner of the map.\n\n***NOTE*** If necessary, you may move the map with:\nRIGHT MOUSE, ARROW KEYS, or WASD keys.\n You may zoom the map with: MOUSE WHEEL or Q and Z keys.",
+   "zh": "从下方菜单选择一个指挥节点，把它降落在\n地图左上角的灰色区域。\n\n***注意*** 如有必要，你可以用以下方式移动地图：\n鼠标右键、方向键 或 WASD 键。\n 你可以用以下方式缩放地图：鼠标滚轮 或 Q 和 Z 键。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Excellent.\nNow build collectors and connect them to the Command Node.\nSpread them out for maximum energy collection.\nThe more green you see, the more energy you produce.\nBUILD 10 COLLECTORS.",
+   "zh": "很好。\n现在建造收集器，并把它们连接到指挥节点。\n把它们分散开来，以获得最大的能量收集。\n你看到的绿色越多，产生的能量就越多。\n建造 10 个收集器。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Weapons are required for destroying the Creeper.\nBe careful to not overbuild and exceed your energy production.\nBuild 3 Pulse Cannons now.",
+   "zh": "摧毁 Creeper 需要武器。\n小心不要建造过多而超出你的能量产出。\n现在建造 3 门脉冲炮。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Impressive.\nNow, spread your network and defeat the blue Creeper Emitter.\nYou will need to build a Nullifier near the emitter to destroy it.\nAlso, don't forget to connect your network to the pod behind the emitter.",
+   "zh": "令人印象深刻。\n现在，扩张你的网络，击败那个蓝色 Creeper 发射器。\n你需要在发射器附近建造一个灭除器来摧毁它。\n另外，别忘了把你的网络连接到发射器后面的科技舱。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Move your Pulse Cannons in close to the Creeper and surround it.\n Make sure they remain connected to your network\nso they can be resupplied with ammo.\nWhen possible build a nullifier near the emitter to destroy it!",
+   "zh": "把你的脉冲炮移近 Creeper，并把它包围起来。\n 确保它们始终与你的网络保持连接\n这样它们才能得到弹药补给。\n有机会时，在发射器附近建造灭除器把它摧毁！",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Now, build your network close to the Pod to collect it.",
+   "zh": "现在，把你的网络建到科技舱旁边，以便收集它。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Defeat the Emitter with a Nullifier to complete the mission.",
+   "zh": "用灭除器击败发射器，完成任务。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Build a Nullifier near the blue emitter.\nMove the map with RIGHT MOUSE, ARROW KEYS, or WASD keys.\n Zoom with MOUSE WHEEL or Q and Z keys.",
+   "zh": "在蓝色发射器附近建造灭除器。\n用鼠标右键、方向键 或 WASD 键移动地图。\n 用鼠标滚轮 或 Q 和 Z 键缩放。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "The right emitter emits creeper proportional to your ore mined",
+   "zh": "右侧发射器喷出的 Creeper 与你开采的矿石量成正比",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Strafers are remote strike aircraft.\nBuild 4 strafers and target two at each volcano.\nSingle click to create a circle strafe attack pattern.\nClick and drag to define a strafe line of attack.",
+   "zh": "俯冲机是远程打击飞行器。\n建造 4 架俯冲机，每座火山派两架。\n单击可创建环形俯冲攻击路线。\n点击并拖动可定义一条直线俯冲攻击线。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Remember to build a lot of beams and reactors!",
+   "zh": "记得多建光束和反应堆！",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Bombers are aircraft that deliver AntiCreeper.\nBuild Bombers to saturate remote islands.\nMake sure to collect plenty of Ore!",
+   "zh": "轰炸机是投送反 Creeper 的飞行器。\n建造轰炸机，用反 Creeper 灌满远处的岛屿。\n一定要开采充足的矿石！",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Select a Command Node from the menu below\n and land it in the indicated gray area.",
+   "zh": "从下方菜单选择一个指挥节点，\n 把它降落在标出的灰色区域。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Build a collector near the green Tech Artifact to obtain it.\nThis will unlock the Relay tech. Relays can be used for making\nlong range connections but do not produce energy like collectors.",
+   "zh": "在绿色科技圣物旁建造一个收集器来取得它。\n这将解锁中继器技术。中继器可用于建立\n长距离连接，但不像收集器那样产生能量。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Expand your network and build weapons to engage the Creeper.\nYour target is the large Warp Inhibitor in the lower right.\nBuild a nullifier near it to take it out.",
+   "zh": "扩张网络并建造武器，向 Creeper 发起攻击。\n你的目标是右下方那座大型跃迁抑制器。\n在它附近建造灭除器把它摧毁。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Build a Nullifier near the Warp Inhibitor to destroy it!\nDestroying the Inhibitor will destroy other enemies on the map!",
+   "zh": "在跃迁抑制器附近建造灭除器来摧毁它！\n摧毁抑制器会连带消灭地图上的其他敌人！",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Collect the Beam Tech Artifact.\nPlace Beams around your base to defend against Spore attacks.",
+   "zh": "收集光束科技圣物。\n在基地周围布置光束，防御孢子攻击。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Time left:\n",
+   "zh": "剩余时间：\n",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Land on the right side of the map and collect the Tech Artifact.",
+   "zh": "降落到地图右侧，收集科技圣物。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "You can now deploy a second Command Node onto the battlefield.\nClick the Orbital tab and select the second Command Node.\nLand it on the other side of the map.",
+   "zh": "现在你可以向战场投放第二个指挥节点。\n点击轨道页，选择第二个指挥节点。\n把它降落到地图的另一侧。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Take out the two emitters sourcing the Digitalis.\nThe ultimate goal is to destroy the Inhibitor in the center of the map.",
+   "zh": "消灭为魔苋供能的两个发射器。\n最终目标是摧毁地图中央的抑制器。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "You can hide the white Digitalis growth area by pressing\nthe Visibility Button, then unchecking 'Show D-Growth'.",
+   "zh": "按下可见性按钮，然后取消勾选「显示魔苋生长」，\n即可隐藏白色的魔苋生长区域。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Build Siphons on the Resource Packs.\nThe Green Crystals will give you energy in this map.\nOn other maps, other resources may be available.",
+   "zh": "在资源包上建造虹吸器。\n在这张地图上，绿色晶体能为你提供能量。\n在其他地图上，可能会有别的资源。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Build Terps to terraform land.\nBuild around 5 terps now.\nSpread them around near the edge of the old ruins.",
+   "zh": "建造挖掘机来改造地形。\n现在建造 5 台左右的挖掘机。\n把它们分散布置在古老废墟的边缘附近。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Click the Terraform Button then paint where to change the terrain.\nNearby Terps will automatically act on nearby terrain.\nSelect a brush size of 1, and a terrain height of 9.\nFill in the gaps in the ruin walls and watch the Terps terraform the land.",
+   "zh": "点击地形改造按钮，然后涂抹想要改造的地形。\n附近的挖掘机将自动对附近的地形施工。\n选择笔刷大小 1、地形高度 9。\n把废墟墙壁上的缺口填满，看挖掘机改造这片土地。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "; Sent: ",
+   "zh": "；已发出： ",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "\nNext Train: ",
+   "zh": "\n下一班列车： ",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "\nPreparing Trains",
+   "zh": "\n正在准备列车",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Each train is marked by the number of its destination.\nYour goal is to route each train to its proper\ngoal while avoiding various kinds of accidents.",
+   "zh": "每列列车都标有它目的地的编号。\n你的目标是把每列列车引导到正确的\n站点，同时避免各种事故。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "The trains travel on a system of terrain level 8 rails.\nThe switches work by raising or lowering portions of track.",
+   "zh": "列车行驶在一套地形等级 8 的轨道系统上。\n道岔的工作原理是抬升或降低某段轨道。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Watch while I move the switches to direct the train to station #5.\n",
+   "zh": "看着我把道岔切换，把这列列车引到 5 号站。\n",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "\nIf the train arrives in the right place, your score goes up by 1.",
+   "zh": "\n如果列车到达正确的地点，你的得分会增加 1 分。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Unfortunately, your trains won't always arrive at the correct places.\nThere are several ways in which this may happen, which I will explain.\nFirst, your trains may derail if the switches are improperly managed.",
+   "zh": "不幸的是，你的列车并不总能到达正确的位置。\n出现这种情况有几种原因，我来逐一说明。\n首先，如果道岔管理不当，你的列车可能会脱轨。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "If one of your trains has no more track to run on, it will derail.\n",
+   "zh": "如果某列列车前方没有轨道可走，它就会脱轨。\n",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "\nIf the train derails, your score goes down by 5 points.",
+   "zh": "\n如果列车脱轨，你的得分会减少 5 分。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "As you can see, a derailment does more than cost you 5 points. It\nalso disrupts the area, and destroys more tracks. These damaged tracks\nmay cause chain reactions of derailments, so you should fix them like this.",
+   "zh": "如你所见，脱轨不只是让你损失 5 分。它\n还会破坏周边区域，并摧毁更多轨道。这些受损的轨道\n可能引发连锁脱轨，所以你应该像这样修复它们。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Another way that you can lose points is by sending trains\nto the wrong stations. If a train arrives at the wrong station,\nyou will lose 2 points.",
+   "zh": "另一种失分的方式是把列车送到\n错误的车站。如果列车到达错误的车站，\n你会损失 2 分。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "The trains that come from the station are semi-random. After one\ntrain is sent, the system will wait a short time before preparing\nthe next one to be sent to a random destination on the map.",
+   "zh": "从车站出发的列车目标是半随机的。一列\n列车发出后，系统会等待一小段时间，再准备\n下一列，把它发往地图上随机的目的地。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "During the game, your current score, as well as the time until the next\ntrain are displayed in the upper-right hand corner. You have 3 minutes to\nset up your terps before the first train. You win when your score is 100",
+   "zh": "游戏过程中，你当前的得分，以及距离下一班\n列车的时间，都会显示在右上角。你有 3 分钟时间\n在第一班列车到来前布置好挖掘机。得分达到 100 时你就获胜。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "\nTime To Start: ",
+   "zh": "\n开始倒计时： ",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "\nTime To Start: 0",
+   "zh": "\n开始倒计时： 0",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "YOU LOSE! So maybe running a railroad just isn't your\nthing, but least there's other things you can do, like\nunder-creeper basket weaving, perhaps. Play again soon!",
+   "zh": "你输了！看来经营铁路也许不是你的\n强项，不过至少你还能做点别的，比如\n在 Creeper 底下编编篮子？很快就再来玩吧！",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Shield Keys and other Artifacts must be connected\nto a Command Node to be collected.\nGuppies can not collect them.",
+   "zh": "护盾钥匙和其他圣物必须连接到\n指挥节点才能被收集。\n补给船无法收集它们。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Collect the Reactor Tech Artifact at the bottom of the map.",
+   "zh": "收集地图底部的反应堆科技圣物。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Reactors produce energy like collectors, but can be tightly packed.\nYou will need to build around 10 Reactors for this mission.\nBuild only a couple at a time till your energy production increases.",
+   "zh": "反应堆像收集器一样产生能量，但可以紧密堆叠。\n本任务中你需要建造 10 座左右反应堆。\n每次只建两三座，直到你的能量产出提升。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Power Zones are left when you destroy enemies.\nMove units onto the glowing circular Power Zones to get extra abilities.",
+   "zh": "消灭敌人后会留下供能区。\n把单位移动到发光的圆形供能区上，即可获得额外能力。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Now defeat all emitters to secure this world.",
+   "zh": "现在击败所有发射器，拿下这颗星球。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "NOTE*** If necessary, you may move the map with:\nRIGHT MOUSE, ARROW KEYS, or WASD keys.\n You may zoom the map with: MOUSE WHEEL or Q and Z keys.",
+   "zh": "注意*** 如有必要，你可以用以下方式移动地图：\n鼠标右键、方向键 或 WASD 键。\n 你可以用以下方式缩放地图：鼠标滚轮 或 Q 和 Z 键。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Build Ore Mines on the Ore Deposits to collect ore.\nOre can be used to make Anti-Creeper.\nAnti-Creeper destroys Creeper on contact.",
+   "zh": "在矿床建造矿场来开采矿石。\n矿石可用于制造反 Creeper。\n反 Creeper 一接触就会摧毁 Creeper。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Build Sprayers to make Anti-Creeper.\nDeploy sprayers near Creeper and they will fire blobs into the Creeper.\nThis can be useful for securing a beachhead.",
+   "zh": "建造喷吐者来制造反 Creeper。\n把喷吐者部署在 Creeper 附近，它们会向 Creeper 发射弹团。\n这对建立登陆立足点很有用。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Remember, you only need to destroy the Inhibitor to secure this world!",
+   "zh": "记住，你只需要摧毁抑制器就能拿下这颗星球！",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Each train is marked by the number of its destination.\r\nYour goal is to route each train to its proper\r\ngoal while avoiding various kinds of accidents.",
+   "zh": "每列列车都标有它目的地的编号。\r\n你的目标是把每列列车引导到正确的\r\n站点，同时避免各种事故。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "The trains travel on a system of terrain level 8 rails.\r\nThe switches work by raising or lowering portions of track.\r\nPress the escape key now to skip the tutorial.",
+   "zh": "列车行驶在一套地形等级 8 的轨道系统上。\r\n道岔的工作原理是抬升或降低某段轨道。\r\n现在按 Esc 键可以跳过教程。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "The trains travel on a system of terrain level 8 rails.\nThe switches work by raising or lowering portions of track.\nPress the escape key now to skip the tutorial.",
+   "zh": "列车行驶在一套地形等级 8 的轨道系统上。\n道岔的工作原理是抬升或降低某段轨道。\n现在按 Esc 键可以跳过教程。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Unfortunately, your trains won't always arrive at the correct places.\r\nThere are several ways in which this may happen, which I will explain.\r\nFirst, your trains may derail if the switches are improperly managed.",
+   "zh": "不幸的是，你的列车并不总能到达正确的位置。\r\n出现这种情况有几种原因，我来逐一说明。\r\n首先，如果道岔管理不当，你的列车可能会脱轨。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "As you can see, a derailment does more than cost you 5 points. It\r\nalso disrupts the area, and destroys more tracks. These damaged tracks\r\nmay cause chain reactions of derailments, so you should fix them like this.",
+   "zh": "如你所见，脱轨不只是让你损失 5 分。它\r\n还会破坏周边区域，并摧毁更多轨道。这些受损的轨道\r\n可能引发连锁脱轨，所以你应该像这样修复它们。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "Another way that you can lose points is by sending trains\r\nto the wrong stations. If a train arrives at the wrong station,\r\nyou will lose 2 points.",
+   "zh": "另一种失分的方式是把列车送到\r\n错误的车站。如果列车到达错误的车站，\r\n你会损失 2 分。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "The trains that come from the station have random targets. After one\r\ntrain is sent, the system will wait a short time before preparing\r\nthe next one to be sent to a random destination on the map.",
+   "zh": "从车站出发的列车目标都是随机的。一列\r\n列车发出后，系统会等待一小段时间，再准备\r\n下一列，把它发往地图上随机的目的地。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "The trains that come from the station have random targets. After one\ntrain is sent, the system will wait a short time before preparing\nthe next one to be sent to a random destination on the map.",
+   "zh": "从车站出发的列车目标都是随机的。一列\n列车发出后，系统会等待一小段时间，再准备\n下一列，把它发往地图上随机的目的地。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
+  },
+  {
+   "en": "During the game, your current score, as well as the time until the next\r\ntrain are displayed in the upper-right hand corner. You have 3 minutes to\r\nset up your terps before the first train. You win when your score is 100",
+   "zh": "游戏过程中，你当前的得分，以及距离下一班\r\n列车的时间，都会显示在右上角。你有 3 分钟时间\r\n在第一班列车到来前布置好挖掘机。得分达到 100 时你就获胜。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "crpl",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL ShowMessage 文案（15 关 67 条）"
   }
  ]
 }

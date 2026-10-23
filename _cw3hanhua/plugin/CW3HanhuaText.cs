@@ -1,7 +1,33 @@
 // ============================================================================
-//  CW3 汉化 · 文本层 v1.1.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点
+//  CW3 汉化 · 文本层 v1.3.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息
 //
 //  字体层负责"字形从哪来"，本层负责"英文串怎么变中文"。
+//
+//  ★ v1.3.0（2026-10-23）：把 CRPL 教学提示的翻译**提前到源头** ——
+//    补丁打在 `CrplCore.ProcessCommands` 的 postfix，直接把 `GameSpace.message`
+//    这个字段换成中文。这是用户点名的方案，确实比 v1.2.0 在 GUI.Label 上换更好：
+//      · 时机更早：CRPL 刚把英文写进字段，我们就换掉；
+//      · 盒子由游戏自己算：`GameSpace.OnGUI` 里 `CalcSize` 量的已经是中文，
+//        Rect / 居中 / 780 钳位全部天然正确 —— 我们**一行 Rect 都不用碰**，
+//        v1.2.0 那个靠「宽 ≈ 英文宽 ±28px」猜盒子的 FitBox 已随之删除；
+//      · 无状态：字段本身就是显示用的，`message` 全游戏只有 `GameSpace.OnGUI` 读
+//        （`ilx fields --type GameSpace message`：OnGUI 4×ldfld，另 1×stfld 是
+//         `GameSpace.GameUpdate` 每帧开头清空、2×stfld 是 `CrplCore.ProcessCommands`
+//         的 SHOWMESSAGE / SHOWMESSAGEDISMISSIBLE），没有任何逻辑判定拿它做比较。
+//    字体问题不变：仍要 `Font.CreateDynamicFontFromOSFont` 造中文字体，
+//    但改成塞进 `GameSpace.instance.skin` 的 `"message"` 样式 —— 游戏自己那句
+//    `skin.GetStyle("message")` 拿到的就是它。
+//
+//  ★ v1.2.0（2026-10-23，**已于 v1.3.0 整段删除**）：曾经给 `GUI.Label` 打过一层
+//    prefix 做 IMGUI 总兜底。它确实能把那句教学提示翻掉（它是全六种重载的唯一收口），
+//    但要靠 `|r.width - 英文宽| <= 28px` 猜「这个盒子是不是自动量的」才能重排，
+//    且会波及 `SGT_CameraFPS` / `SGT_CameraMessage` / `KeyEntryGUI` 等处的定宽盒子。
+//    v1.3.0 改成在源头（`CrplCore.ProcessCommands` postfix）换字段后，
+//    `GameSpace.OnGUI` 自己就算对了盒子 —— 那层兜底**没有存在意义**，
+//    留着只会让「界面还是英文」这种问题多一条要排查的来源。
+//    → 已删。现在 CRPL 教学提示只有**一条**替换路径（③），
+//      相关的 `imguiCalls/imguiHits` 统计与 `FitBox` 也一并移除。
+//    `Font.CreateDynamicFontFromOSFont` 那套字体代码保留 —— ③ 仍要用它搞定字形。
 //
 //  ★ v1.1.0（2026-10-23）：查表加**第四级**「分段重组」LookupSegment。
 //    精确 → '\n' 拼接 → 归一化 → 分段重组。前三级都没动。
@@ -27,6 +53,11 @@
 //         PreludeManager / EpilogueManager / DemoScreenManager 的 ShowText：prefix 改 __0
 //         StarManager.set_starName / PlanetManager.set_planetName：postfix 只改 TextMesh
 //       为什么后者不能改入参：见 PatchTextMeshWriters 里的注释（会毁存档路径）
+//    ③ Harmony postfix on CrplCore.ProcessCommands（v1.3.0）—— CRPL 消息的源头收口
+//         把 GameSpace.message 直接换成中文，盒子由游戏自己按中文算
+//         + Font.CreateDynamicFontFromOSFont 造中文字体塞进 GameSpace.skin 的 "message" 样式
+//       ★ 这是 CRPL 教学提示的**唯一**替换路径。v1.2.0 那层 GUI.Label prefix 已删除
+//         （见顶部 v1.2.0 条目），所以「教学提示还是英文」时只需要查这一条路。
 //
 //  ★ v0.10.0：加 ②。改资产能覆盖 19 条静态 TextMesh，但有一批文本是运行时才写的
 //    （星区名/星球名、三段过场的台词），资产里只是占位值，烘中文也留不住。
@@ -94,7 +125,7 @@ namespace CW3Hanhua
     ///   与字体层同在一个程序集，不再有任何反射互调。</summary>
     public class TextPlugin
     {
-        public const string Ver = "1.1.0";
+        public const string Ver = "1.3.0";
 
         static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
 
@@ -146,6 +177,11 @@ namespace CW3Hanhua
         // 统计（和 UILabel 的分开，HUD 里分别看，判断是哪条路在生效）
         static int meshCalls;
         static int meshHits;
+
+        // CRPL 消息（v1.3.0）：CrplCore.ProcessCommands postfix 那条路 ——
+        // 关卡教学提示（Tempus 等 15 关的 ShowMessage）**唯一**的替换路径。
+        static int crplCalls;
+        static int crplHits;
 
         // 走过 ProcessText 但词表里查不到的串（去重、上限 400）。
         // v0.9.0 起补丁点在 ProcessText，所以这里收到的是**全部 UILabel** 的未命中
@@ -240,6 +276,8 @@ namespace CW3Hanhua
             catch (Exception e) { Say("!! 装 patch 失败: " + e); }
 
             PatchTextMeshWriters();
+
+            PatchCrplMessage();      // v1.3.0：源头（CrplCore.ProcessCommands postfix）
 
             Say("按键: （本层无开关，跟着 F3 汉化总开关走）| F5 打印未命中清单 | F9 重载词表");
         }
@@ -393,6 +431,189 @@ namespace CW3Hanhua
             int id = tm.GetInstanceID();
             if (id != 0 && !meshSwaps.ContainsKey(id)) meshSwaps[id] = new MeshSwap { mesh = tm, en = en };
             tm.text = zh;
+        }
+
+        // ================================================================ CRPL 消息（v1.3.0）
+        /// <summary>★ v1.3.0（2026-10-23）：把 CRPL 教学提示的翻译**提前到源头**。
+        ///
+        /// 与 v1.2.0 的 IMGUI 补丁相比，这条路好在三点：
+        ///   ① **时机更早**：中文在 `GameSpace.message` 被赋值的那一刻就写进去，
+        ///      `GameSpace.OnGUI` 后面那句 `skin.GetStyle("message").CalcSize(new GUIContent(message))`
+        ///      量到的**就是中文尺寸** —— 盒子由游戏自己算准，我们一行 Rect 都不用碰，
+        ///      v1.2.0 那个 `FitBox` 的启发式判定（`|r.width - enSize.x| <= 28f`）已随补丁删除。
+        ///   ② **只覆盖 CRPL 提示**，不像 `GUI.Label` 收口那样波及 `SGT_CameraFPS` /
+        ///      `SGT_CameraMessage` / `KeyEntryGUI` 等处的自动量宽盒子。
+        ///   ③ **无状态**：每帧 `GameSpace.GameUpdate` 开头会把 `message` 置 null，
+        ///      CRPL 重新 `stfld` 时再翻一遍，不需要还原表；关总开关立刻恢复英文。
+        ///   这是教学提示**唯一**的替换路径，排查时只看它。
+        ///
+        /// 为什么打在 `CrplCore.ProcessCommands(Boolean,Boolean,Boolean,Boolean)`（token=0x060009E1）：
+        ///   它是 SHOWMESSAGE / SHOWMESSAGEDISMISSIBLE 两条分支的唯一出口，
+        ///   而调用方只有 `PreGameUpdate` / `GameLoadedGameUpdate` / `GameUpdate` 三个，
+        ///   都在 CRPL 解释器自己的节奏里 —— postfix 时机正好落在「已经 `stfld GameSpace.message`、
+        ///   还没到 `OnGUI` 绘制」之间。
+        ///
+        /// 字段可见性（IL 实证）：`GameSpace` 与 `CrplCore` 都是 tdPublic 顶层类；
+        ///   `GameSpace.instance`(static) / `skin` / `message`(fdNotSerialized) 全部 fdPublic，
+        ///   但这里仍走反射，免得哪天字段变成 internal 就编译不过。
+        ///
+        /// `message` 的读者只有 `GameSpace.OnGUI`（4 处 ldfld），**没有任何逻辑分支读它**
+        /// —— 是个纯显示字段，所以在这里改成中文是安全的，不会影响任何判定。</summary>
+        static void PatchCrplMessage()
+        {
+            try
+            {
+                MethodInfo m = null;
+                MethodInfo[] all = typeof(CrplCore).GetMethods(
+                    BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+                for (int i = 0; i < all.Length; i++)
+                {
+                    MethodInfo x = all[i];
+                    if (x.Name != "ProcessCommands") continue;
+                    ParameterInfo[] ps = x.GetParameters();
+                    if (ps.Length != 4) continue;
+                    bool okAllBool = true;
+                    for (int k = 0; k < 4; k++)
+                        if (ps[k].ParameterType != typeof(bool)) { okAllBool = false; break; }
+                    if (!okAllBool) continue;
+                    m = x; break;
+                }
+                if (m == null) { Say("  （找不到 CrplCore.ProcessCommands，CRPL 补丁跳过）"); return; }
+
+                Harmony h = new Harmony("cw3hanhua.text.crpl");
+                PatchProcessor p = h.CreateProcessor(m);
+                p.AddPostfix(new HarmonyMethod(typeof(TextPlugin).GetMethod("PostfixCrplMessage",
+                    BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)));
+                p.Patch();
+
+                Patches pi = Harmony.GetPatchInfo(m);
+                int n = pi == null ? -1 : pi.Postfixes.Count;
+                Say("★ CRPL patch: CrplCore.ProcessCommands  postfix=" + n
+                    + (n == 1 ? "" : "  !! 没装上"));
+                if (n == 1) Say("  覆盖面: CRPL ShowMessage / ShowMessageDismissible 的全部教学提示（源头换字）");
+            }
+            catch (Exception e) { Say("!! 装 CRPL 补丁失败: " + e.Message); }
+        }
+
+        static FieldInfo fldGsInstance;
+        static FieldInfo fldGsMessage;
+        static FieldInfo fldGsSkin;
+
+        static void PostfixCrplMessage()
+        {
+            if (!textOn) return;
+            try
+            {
+                if (fldGsInstance == null)
+                {
+                    fldGsInstance = typeof(GameSpace).GetField("instance",
+                        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
+                    fldGsMessage = typeof(GameSpace).GetField("message",
+                        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                    fldGsSkin = typeof(GameSpace).GetField("skin",
+                        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                    if (fldGsInstance == null || fldGsMessage == null) return;
+                }
+
+                GameSpace gs = fldGsInstance.GetValue(null) as GameSpace;
+                if (gs == null) return;
+                string en = fldGsMessage.GetValue(gs) as string;
+                if (en == null || en.Length == 0) return;
+                if (HasCjk(en)) return;      // 已经是中文 → 上一帧翻译过的，别再查一遍
+
+                crplCalls++;
+                string zh;
+                try { zh = Lookup(en); } catch (Exception) { return; }
+                if (zh == null || zh == en) { NoteMiss(en); return; }
+
+                fldGsMessage.SetValue(gs, zh);
+                crplHits++;
+
+                // 中文要能显示出来：把系统字体塞进 GameSpace.skin 的 "message" 样式。
+                // GUISkin.GetStyle 返回皮肤内部对象引用，改一次持久生效。
+                if (fldGsSkin != null)
+                {
+                    GUISkin sk = fldGsSkin.GetValue(gs) as GUISkin;
+                    if (sk != null)
+                    {
+                        GUIStyle st = sk.GetStyle("message");
+                        if (st != null) ApplyCjkFont(st);
+                    }
+                }
+            }
+            catch (Exception) { }
+        }
+
+        // ---------------------------------------------------------------- IMGUI 中文字形（CRPL 消息用）
+        // 剩下的唯一用武之地是 `GameSpace.skin` 的 `"message"` 样式 ——
+        // 也就是 CRPL 教学提示那个框（见上一条路径 ③）。
+        // 那个 GUIStyle.font 指向 UnityEngine.Font，而游戏里只有 Aldrich-Regular / arial
+        // 两个字体资产，cmap 里没有汉字 —— 光换文案会显示成空白或方框。
+        // 这里现场造一个动态字体（UnityEngine.dll 里 RVA 非 0、是托管方法，可以正常调）：
+        //   Font.CreateDynamicFontFromOSFont("Microsoft YaHei", 16)  token=0x0600190D
+        // 候选名按「先简体黑体、后退到通用」排序；GetOSInstalledFontNames() 逐个比对。
+        static Font cjkFont;
+        static bool cjkTried;
+        static string cjkFontName = "";
+        static readonly string[] cjkCandidates =
+        {
+            "Microsoft YaHei UI", "Microsoft YaHei", "微软雅黑",
+            "Microsoft JhengHei", "SimHei", "黑体", "SimSun", "宋体",
+            "Noto Sans CJK SC", "Source Han Sans SC", "Arial Unicode MS"
+        };
+
+        static void ApplyCjkFont(GUIStyle style)
+        {
+            if (style == null) return;
+            if (!cjkTried) InitCjkFont();
+            if (cjkFont == null) return;
+            try
+            {
+                if (style.font == cjkFont) return;      // 已经是它了，不重复设
+                style.font = cjkFont;
+            }
+            catch (Exception) { }
+        }
+
+        static void InitCjkFont()
+        {
+            cjkTried = true;
+            string[] installed = null;
+            try { installed = Font.GetOSInstalledFontNames(); } catch (Exception) { }
+            try
+            {
+                for (int c = 0; c < cjkCandidates.Length; c++)
+                {
+                    string want = cjkCandidates[c];
+                    if (installed != null && installed.Length > 0)
+                    {
+                        bool found = false;
+                        for (int i = 0; i < installed.Length; i++)
+                        {
+                            if (string.Equals(installed[i], want, StringComparison.OrdinalIgnoreCase))
+                            { found = true; break; }
+                        }
+                        if (!found) continue;
+                    }
+                    Font f = Font.CreateDynamicFontFromOSFont(want, 16);
+                    if (f != null)
+                    {
+                        cjkFont = f; cjkFontName = want;
+                        Say("★ CRPL 提示中文字体: " + want + "（Font.CreateDynamicFontFromOSFont，动态）");
+                        return;
+                    }
+                }
+                // 全都没匹配上（少见）：硬试一次第一个候选，Unity 自己会退到默认
+                Font ff = Font.CreateDynamicFontFromOSFont("Microsoft YaHei", 16);
+                if (ff != null)
+                {
+                    cjkFont = ff; cjkFontName = "Microsoft YaHei(硬试)";
+                    Say("★ CRPL 提示中文字体: 硬试 Microsoft YaHei 成功（GetOSInstalledFontNames 未匹配）");
+                    return;
+                }
+                Say("!! CRPL 提示找不到可用的系统中文字体 → 会显示成空白/方框");
+            }
+            catch (Exception e) { Say("!! CRPL 提示造中文字体失败: " + e.Message); }
         }
 
         // ================================================================ 词表读取
@@ -1211,6 +1432,8 @@ namespace CW3Hanhua
                     + "  分段=" + hitSeg
                     + "  归一化=" + hitNorm
                     + "  mesh=" + meshCalls + "/" + meshHits
+                    + "  crpl=" + crplCalls + "/" + crplHits
+                    + "  CRPL字体=" + (cjkFontName.Length > 0 ? cjkFontName : "(无)")
                     + "  未命中=" + missSeen.Count
                     + "  已记录 label=" + swaps.Count
                     + "  TextMesh=" + meshSwaps.Count;
