@@ -24723,7 +24723,7 @@
   },
   {
    "en": "Alternate",
-   "zh": "",
+   "zh": "备用",
    "cat": "both",
    "grade": "other",
    "kind": "UILabel",

@@ -1,5 +1,5 @@
 // ============================================================================
-//  CW3 汉化 · 文本层 v1.3.2 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息
+//  CW3 汉化 · 文本层 v1.4.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息 + IMGUI
 //
 //  字体层负责"字形从哪来"，本层负责"英文串怎么变中文"。
 //
@@ -25,9 +25,16 @@
 //    v1.3.0 改成在源头（`CrplCore.ProcessCommands` postfix）换字段后，
 //    `GameSpace.OnGUI` 自己就算对了盒子 —— 那层兜底**没有存在意义**，
 //    留着只会让「界面还是英文」这种问题多一条要排查的来源。
-//    → 已删。现在 CRPL 教学提示只有**一条**替换路径（③），
-//      相关的 `imguiCalls/imguiHits` 统计与 `FitBox` 也一并移除。
-//    `Font.CreateDynamicFontFromOSFont` 那套字体代码保留 —— ③ 仍要用它搞定字形。
+//    → 已删。那套 `FitBox` 猜盒子的做法**不要复活**。
+//
+//  ★ v1.4.0（2026-10-23）：IMGUI 翻译层**重新加了回来，但换了个收口点和做法** ——
+//    这次打在 `GUILayout.Label/Box/Button/RepeatButton/Toggle` 的**文字重载**上
+//    （`ref string __N` / `ref GUIContent __N`），在 `GUILayoutUtility.GetRect`
+//    **之前**把入参换成中文 —— 宽度由游戏自己按中文量，**依然一行 Rect 都不碰**，
+//    没有 FitBox、没有「猜盒子」。覆盖的是完全不经 NGUI 的那些界面：
+//    结算面板 / 在线得分 / 地图编辑器 / 殖民空间站 / 世界机器 / 统计成就等。
+//    `imguiCalls/imguiHits/imguiPatched` 三个统计随之回归（见 F5 与 F11 dump）。
+//    详见 4.3a。**不碰 `GUILayout.TextField`**（返回值是玩家输入数据）。
 //
 //  ★ v1.1.0（2026-10-23）：查表加**第四级**「分段重组」LookupSegment。
 //    精确 → '\n' 拼接 → 归一化 → 分段重组。前三级都没动。
@@ -125,7 +132,7 @@ namespace CW3Hanhua
     ///   与字体层同在一个程序集，不再有任何反射互调。</summary>
     public class TextPlugin
     {
-        public const string Ver = "1.3.2";
+        public const string Ver = "1.4.0";
 
         static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
 
@@ -278,6 +285,8 @@ namespace CW3Hanhua
             PatchTextMeshWriters();
 
             PatchCrplMessage();      // v1.3.0：源头（CrplCore.ProcessCommands postfix）
+
+            PatchIMGUI();            // v1.4.0：第四层，GUILayout 文字重载
 
             Say("按键: （本层无开关，跟着 F3 汉化总开关走）| F5 打印未命中清单 | F9 重载词表");
         }
@@ -542,6 +551,134 @@ namespace CW3Hanhua
                 }
             }
             catch (Exception) { }
+        }
+
+        // ================================================================ IMGUI（v1.4.0）
+        /// <summary>给 `GUILayout.Label / Box / Button / RepeatButton / Toggle` 的**文字重载**打
+        /// prefix，把文案入参换成中文。这是第四条替换路径，补的是「根本不经 UILabel」的那些界面。
+        ///
+        /// **为什么现在才做**：v1.2.0 曾试过在 `GUI.Label` 上打补丁 + 用
+        /// `|r.width - enSize.x| <= 28f` 猜「这个盒子是不是自动量的」，结果误伤
+        /// `SGT_CameraFPS` / `SGT_CameraMessage` / `KeyEntryGUI` 的定宽盒子，
+        /// v1.3.0 整段删掉（用户要求「出问题时只能有一个来源」）。
+        /// 现在换了个更干净的收口点：**在 layout 之前改入参**，不动任何矩形。
+        ///
+        /// **为什么是 GUILayout 而不是 GUI**：两者最终都走
+        /// `GUILayout.DoLabel` → `GUILayoutUtility.GetRect(content, style, options)`
+        /// → `GUI.DoLabel(rect, content, style)`。`DoLabel` 是 private（Harmony 打不上），
+        /// `GUI.Label` 的 6 个重载全是 abstract（reference stub，无 IL 体）。
+        /// 而 `GUILayout.Label` 的 6 个重载都是 public + 有真实 IL 体 —— 可以打。
+        /// 更关键的是：`GetRect` 就在 `GUILayout.Label` 体内、**用我们改过的入参**
+        /// 去量宽，所以中文的宽度天然算对，不需要猜盒子，也不会溢出。
+        /// 全库 `GUILayout.*` 有 689 处、直接 `GUI.Label` 只有 58 处（多在编辑器 demo 里），
+        /// 所以覆盖 GUILayout 就是覆盖了 92% 的面。
+        ///
+        /// **不碰 TextField**：它的返回值是玩家输入的文本，翻了会毁数据
+        /// （玩家名字、存档名、CRPL 代码都是从这里出去的）。
+        ///
+        /// **不设字体**：HUD 本身就是 IMGUI 画的中文、一直正常显示 —— Unity 5 的
+        /// 动态字体（内置 Arial）对缺字有 OS 回退，`Font.CreateDynamicFontFromOSFont`
+        /// 那条路只留给 `GameSpace.skin` 的 message 框（见上）。保持原字体才能
+        /// 让拉丁字母的观感与游戏一致（Aldrich）。</summary>
+        static int imguiCalls;
+        static int imguiHits;
+        static int imguiPatched;
+
+        static void PatchIMGUI()
+        {
+            // 方法名 → 文字参数是否第 0 个（Toggle 是 (bool, text, ...)，文字在 1）
+            string[] names = { "Label", "Box", "Button", "RepeatButton", "Toggle" };
+            int[] textIdx = { 0, 0, 0, 0, 1 };
+            for (int n = 0; n < names.Length; n++)
+            {
+                try { PatchIMGUIMethod(names[n], textIdx[n]); }
+                catch (Exception e) { Say("!! 装 GUILayout." + names[n] + " 补丁失败: " + e.Message); }
+            }
+            Say("★ IMGUI patch: GUILayout 文字重载 " + imguiPatched + " 个"
+                + (imguiPatched > 0 ? "" : "  !! 一个都没装上"));
+            if (imguiPatched > 0)
+                Say("  覆盖面: 结算/得分/地图编辑器/殖民空间站/统计成就等全部 IMGUI 界面");
+        }
+
+        static void PatchIMGUIMethod(string name, int textIdx)
+        {
+            MethodInfo[] all = typeof(GUILayout).GetMethods(
+                BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly);
+            for (int i = 0; i < all.Length; i++)
+            {
+                MethodInfo m = all[i];
+                if (m.Name != name) continue;
+                if (m.IsAbstract || m.GetMethodBody() == null) continue;   // 无 IL 体，跳过
+                ParameterInfo[] ps = m.GetParameters();
+                if (ps.Length <= textIdx) continue;
+                Type tt = ps[textIdx].ParameterType;
+                if (tt != typeof(string) && tt != typeof(GUIContent)) continue;  // Texture 重载跳过
+
+                // 文字参数在第 0 还是第 1 位（Toggle 是 (bool, text, ...)）+ 是 string 还是 GUIContent
+                // → 四种 prefix 就够，带不带 GUIStyle 都用同一个（文字下标不变，样式参数用不上）
+                string prefixName;
+                if (tt == typeof(string))
+                    prefixName = textIdx == 0 ? "PrefixGuiStr0" : "PrefixGuiStr1";
+                else
+                    prefixName = textIdx == 0 ? "PrefixGuiCon0" : "PrefixGuiCon1";
+
+                // ★ Harmony id 必须唯一到「每个重载」：同名同参数数同文字下标的两个重载
+                //   （如 Label(GUIContent,…) 与 Label(string,…) 都是 2 参、文字在 0）
+                //   若共用一个 id，owner 字符串撞在一起，将来摘补丁会摘错。
+                Harmony h = new Harmony("cw3hanhua.text.imgui." + name + "." + ps.Length + "."
+                    + textIdx + "." + (tt == typeof(string) ? "s" : "c"));
+                PatchProcessor p = h.CreateProcessor(m);
+                p.AddPrefix(new HarmonyMethod(typeof(TextPlugin).GetMethod(prefixName,
+                    BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)));
+                p.Patch();
+
+                Patches pi = Harmony.GetPatchInfo(m);
+                int cnt = pi == null ? -1 : pi.Prefixes.Count;
+                if (cnt == 1) imguiPatched++;
+                else Say("  !! GUILayout." + name + "/" + ps.Length + " 参数 没装上（prefix=" + cnt + "）");
+            }
+        }
+
+        /// <summary>把一条文案换成中文；没命中返回 null。IMGUI 的串没有色标解析，
+        /// 但游戏偶尔会把 `[ffffff]` 之类塞进 IMGUI 文本 —— 那属于极少数，交给词表原样匹配。</summary>
+        static string LookupGuiText(string en)
+        {
+            if (!textOn || en == null || en.Length == 0) return null;
+            if (HasCjk(en)) return null;              // 已经是中文
+            string zh;
+            try { zh = Lookup(en); } catch (Exception) { return null; }
+            if (zh == null || zh == en) { NoteMiss(en); return null; }
+            return zh;
+        }
+
+        // GUILayout 的 4 种入参形态（文字在第 0 / 第 1 个 × string / GUIContent）各一个 prefix。
+        // 不用 `object[] __args` 改参数：那依赖「改完会回写」，不同 Harmony 版本行为不一；
+        // `ref string __N` / `ref GUIContent __N` 是确定能生效的写法。
+        static void PrefixGuiStr0(ref string __0) { GuiTake(ref __0); }
+        static void PrefixGuiStr1(ref string __1) { GuiTake(ref __1); }
+        static void PrefixGuiCon0(ref GUIContent __0) { GuiTakeCon(ref __0); }
+        static void PrefixGuiCon1(ref GUIContent __1) { GuiTakeCon(ref __1); }
+
+        static void GuiTake(ref string s)
+        {
+            imguiCalls++;
+            string zh = LookupGuiText(s);
+            if (zh == null) return;
+            imguiHits++;
+            s = zh;
+        }
+
+        static void GuiTakeCon(ref GUIContent c)
+        {
+            imguiCalls++;
+            if (c == null) return;
+            string zh = LookupGuiText(c.text);
+            if (zh == null) return;
+            imguiHits++;
+            // ★ 绝不能写 c.text —— GUILayout 内部用的是 `GUIContent.Temp(String)`，
+            //   那返回**静态共享单例 s_Text**，改它等于改全进程的下一个 GUIContent
+            //   （v1.2.0 踩过：改完之后所有 Label 一起变中文/串味）。必须换引用。
+            c = new GUIContent(zh, c.image, c.tooltip);
         }
 
         // ---------------------------------------------------------------- IMGUI 中文字形（CRPL 消息用）
@@ -1446,6 +1583,8 @@ namespace CW3Hanhua
             Say("  累计 prefix 调用 " + prefixCalls + "  命中 " + prefixHits
                 + "  拼接命中 " + hitConcat + "  分段命中 " + hitSeg
                 + "  未命中 " + missSeen.Count + " 条");
+            Say("  IMGUI 调用 " + imguiCalls + "  命中 " + imguiHits
+                + "  已装重载 " + imguiPatched + " 个（v1.4.0）");
             int i = 0;
             foreach (string s in missSeen)
             {
@@ -1479,6 +1618,7 @@ namespace CW3Hanhua
                     + "  归一化=" + hitNorm
                     + "  mesh=" + meshCalls + "/" + meshHits
                     + "  crpl=" + crplCalls + "/" + crplHits
+                    + "  imgui=" + imguiCalls + "/" + imguiHits + "(" + imguiPatched + ")"
                     + "  CRPL字体=" + (cjkFontName.Length > 0 ? cjkFontName : "(无)")
                     + "  未命中=" + missSeen.Count
                     + "  已记录 label=" + swaps.Count

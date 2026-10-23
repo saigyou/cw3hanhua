@@ -1,5 +1,5 @@
 // ============================================================================
-//  CW3 汉化插件 v1.3.2 —— 合并图集字体层（NOTES 4.4）+ 文本层（词表）+ 合并 HUD
+//  CW3 汉化插件 v1.4.0 —— 合并图集字体层（NOTES 4.4）+ 文本层（词表）+ 合并 HUD
 //
 //  ★ 2026-10-23：两个 DLL 合成一个。本文件与 CW3HanhuaText.cs 一起编进
 //    **CW3Hanhua.dll**，两层之间不再有任何反射调用 —— 字体层直接
@@ -54,10 +54,10 @@ using UnityEngine;
 
 namespace CW3Hanhua
 {
-    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua", "1.3.2")]
+    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua", "1.4.0")]
     public class HanhuaPlugin : BaseUnityPlugin
     {
-        const string Ver = "1.3.2";
+        const string Ver = "1.4.0";
 
         static HanhuaPlugin inst;
         static string reportPath;

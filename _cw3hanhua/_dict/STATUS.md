@@ -7,8 +7,8 @@
 | 可信度 | 条数 | 已译 | 完成率 |
 |---|---:|---:|---:|
 | ui | 1352 | 969 | 71.7% |
-| other | 1933 | 1135 | 58.7% |
-| **合计** | **3314** | **2104** | **63.5%** |
+| other | 1933 | 1136 | 58.8% |
+| **合计** | **3314** | **2105** | **63.5%** |
 
 > `ui` = 几乎一定是显示文本；`other` = 拿不准（单个词/代码片段），先翻 `ui`。
 
@@ -16,7 +16,7 @@
 
 | 来源 | 含义 | 条数 | 已译 |
 |---|---|---:|---:|
-| both | 资产 + DLL 都有（最该先翻） | 292 | 221 |
+| both | 资产 + DLL 都有（最该先翻） | 292 | 222 |
 | asset | 只在资产里序列化（不走 setter；UILabel 走 ProcessText 补丁，TextMesh 改资产） | 1025 | 1008 |
 | dll | 只在 DLL 里（走 ProcessText） | 1997 | 875 |
 
@@ -28,7 +28,7 @@
 | CustomImages | 120 | 2 | `Custom10_256` |
 | CrplCore | 132 | 21 | `WARNING: Loop stack vars not present at ` |
 | VectorLine | 86 | 0 | `VectorLine.SetCamera3D: no camera tagged` |
-| (资产) | 1227 | 1154 | `This is a great big long label` |
+| (资产) | 1227 | 1155 | `This is a great big long label` |
 | GameSpace | 120 | 62 | `GameSpace.OnApplicationQuit` |
 | CrplCompiler | 43 | 0 | `: A string literal in an input var defin` |
 | CW3SteamAchievements | 43 | 0 | `*********** RESET ALL STATS AND ACHIEVEM` |

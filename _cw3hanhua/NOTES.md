@@ -15,7 +15,7 @@
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）⏳ 待游戏内实测** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -39,7 +39,7 @@
 | 游戏本体 | **原版**，资产零改动（4.4a） |
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
-| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.3.2** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2104 条**）；**三条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息。**全部已实测通过**。 |
+| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.4.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2105 条**）；**四条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）。**前三层已实测通过**。 |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
 | 按键 | **F3 汉化总开关**（两层一起开/关）/ **F5** 打印未命中 / **F9** 重载词表 / **F11** dump / **F12** HUD（共 5 个；**F4 已于 2026-10-23 退役并入 F3**）<br>启动**无条件自动开启**（**无配置项**，4.1「自动开启」） |
@@ -276,7 +276,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 
 ### 4.1 字体烘焙与插件按键
 
-**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → 同一个 `CW3Hanhua.dll` v1.3.2，共 5 个）**
+**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → 同一个 `CW3Hanhua.dll` v1.4.0，共 5 个）**
 
 | 键 | 层 | 作用 |
 |---|---|---|
@@ -394,7 +394,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | IL 字符串引用 | 11001（Assembly-CSharp）+ 238（firstpass） |
 | 资产文本 | 467 条（UILabel 455 + TextMesh 12；另有 19 条已被 bake 成中文，按 CJK 跳过） |
 | 候选合计 | `strings.json` **3314** 条 = ui 1352 + other 1933 + none 29；来源 both 292（译 221）/ asset 1025（译 1008）/ dll 1997（译 874） |
-| 已译 | **2104**（ui 969 + other 1135，63.5%）→ `zh_cn.dict` **2104 条**（211 242 字节） |
+| 已译 | **2105**（ui 969 + other 1136，63.5%）→ `zh_cn.dict` **2105 条**（211 261 字节） |
 
 > `ui` 不是"一定会显示"，是"几乎一定"；`other` 里约 900 条是单词需人工判定。
 > **不要拿 ui 条数当工作量上限。** 给出新数字前先跑 `tools/dict_stats.py`。
@@ -464,7 +464,7 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 - 译稿用**序号字典** `{"zh": {"3": "译文"}}`，缺省项视为 `@`（跳过不译）；
   **不要用数组形式**（漏一项就整体错位，踩过一次：89 vs 88，后 60 条全串行）。
 
-### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.3.2）
+### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.4.0）
 
 **查表链（四级，v1.1.0 新增第四级）**：
 
@@ -494,13 +494,14 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 **日志也合并成一份**：`TextPlugin.Say` 转发到 `HanhuaPlugin.Say`，两层每行都同时进控制台和
 F11 的 dump，**一个文件看全两层**。装载顺序问题随之消失（同一个 DLL = 同一个 `Awake`）。
 
-**替换路径（就这三条，别处没有）**
+**替换路径（就这四条，别处没有）**
 
 | 路径 | 覆盖什么 | 实现 |
 |---|---|---|
 | `UILabel.ProcessText` **prefix + postfix/finalizer** | **全部 1029 个 UILabel**：运行时动态文本 + 资产序列化的 `mText` | 见 3.3 |
 | `PreludeManager/EpilogueManager/DemoScreenManager.ShowText` **prefix 改 `__0`** + `StarManager.set_starName` / `PlanetManager.set_planetName` **postfix 只改 TextMesh** | TextMesh 五个写入点：三段过场台词（31+21+10 处调用）、星区名、星球名 | 见 4.6a，**name setter 不能改入参** |
 | `CrplCore.ProcessCommands` **postfix 改 `GameSpace.message`** | **全部 CRPL 教学提示**（`ShowMessage` / `ShowMessageDismissible` 的唯一出口） | 见 4.7④ |
+| **`GUILayout.Label/Box/Button/RepeatButton/Toggle` 的文字重载 prefix 改 `__0`/`__1`** | **全部 IMGUI 界面**：结算/在线得分、地图编辑器（237 处）、殖民空间站（88 处）、世界机器（74 处）、统计成就等 —— 689 处 `GUILayout.*` 调用 | 见 4.3a（v1.4.0） |
 
 **代价（可接受）**：`label.text` 与屏上显示不一致（屏上中文、`.text` 英文）。
 `mSize` 是按中文算的 —— 这正是我们要的，字宽/换行/`mShrinkToFit` 全对。
@@ -539,7 +540,7 @@ TextMesh 那五个写入点登记在独立的 `meshSwaps`（`MeshSwap = {mesh, e
   列出来的说明"走了 UILabel 但没译文"（补词表 + F9 重载即可）；
   界面上仍英文、清单里又没有的，才是真正**必须改资产**的对象（TextMesh 那批）。
 - **F11 dump 里那一行**（v1.0.0 起直接调 `TextPlugin.DumpLine()`）：
-  `文本层 v1.3.2  开关=…  词表=…  prefix=调用/命中  拼接=…  分段=…  mesh=调用/命中  crpl=调用/命中
+  `文本层 v1.4.0  开关=…  词表=…  prefix=调用/命中  拼接=…  分段=…  mesh=调用/命中  crpl=调用/命中  imgui=调用/命中(已装重载数)
   未命中=…  CRPL字体=…`。
   `prefix` 计数不动 = 补丁没装上；`mesh` 计数不动 = TextMesh 那五个补丁没装上或那段文本没被写过；
   **`分段` 计数不动 = 一条运行时拼接串都没走到第四级**（说明前三级全接住了，或者补丁没装）；
@@ -551,6 +552,69 @@ TextMesh 那五个写入点登记在独立的 `meshSwaps`（`MeshSwap = {mesh, e
 `Harmony.GetPatchInfo(m)`，核对 `Prefixes/Postfixes/Finalizers` 各 1、`ILManipulators` 为 0，
 不合格就打印警告。**这是 v0.9.0 首次实测"完全没中文"的直接教训。**
 
+#### 4.3a 第四层：IMGUI（`GUILayout.*`）—— v1.4.0
+
+**为什么需要**：前三条路径全部只覆盖 **NGUI**（UILabel / TextMesh）。游戏里还有一大片界面是用
+**Unity 原生 IMGUI**（`OnGUI` + `GUILayout.*`）画的，那些字根本不经过 NGUI，前三条一条也拦不到。
+最典型的就是**通关结算面板**（`ResultsManager.DoScoreWindow`：`GUILayout.Label("Mission Results")`）。
+
+**为什么收了 `GUILayout` 而不是 `GUI`**：两者最终都收口到 `GUILayout.DoLabel`
+→ `GUILayoutUtility.GetRect(content, style, options)` → `GUI.DoLabel(rect, content, style)`。
+收口点选择（`ilx dump` + dnfile 读 flags 实证）：
+
+| 候选 | 可见性 / IL 体 | 能不能打 |
+|---|---|---|
+| `GUILayout.DoLabel` / `DoBox` / `DoButton` | **private**，有 IL | ✗ Harmony 只打 public/internal |
+| `GUI.Label`(6) / `GUI.Box`(5) / `GUI.Button`(6) | public，**abstract**（reference stub，RVA 指向 extern，无 IL 体） | ✗ |
+| **`GUILayout.Label/Box/Button/RepeatButton/Toggle`（各 6 个重载）** | **public，有真实 IL 体** | ✓ **就是它** |
+
+**为什么必须在 `GUILayout` 这一层改、不能改 `GUI` 那一层**：`GetRect` 就在 `GUILayout.Label`
+体内，用它**已经改过的入参**去量宽 —— 中文宽度天然算对，`GUILayout.Width(120f)` 这类定宽
+选项也照原样生效。若在 `GUI.Label` 里改（v1.2.0 的老做法），矩形早已按英文算完，
+只能去「猜这个盒子是不是自动量的」（`|r.width - enSize.x| <= 28f`），结果误伤
+`SGT_CameraFPS` / `SGT_CameraMessage` / `KeyEntryGUI` 的定宽盒子 → v1.3.0 整段删除。
+**这一版不再猜盒子。**
+
+**装法**：对每个 `(名字, 文字参数下标)` 组合，反射遍历 `typeof(GUILayout).GetMethods(...)`，
+跳过 `IsAbstract` / 无方法体 / 文字参数不是 `string|GUIContent`（`Texture` 重载不管），
+用 `PatchProcessor.AddPrefix` 装 4 个 prefix 之一：
+
+| prefix | 形态 |
+|---|---|
+| `PrefixGuiStr0(ref string __0)` | `Label(string,…)` / `Box` / `Button` / `RepeatButton` |
+| `PrefixGuiStr1(ref string __1)` | `Toggle(bool, string, …)` |
+| `PrefixGuiCon0(ref GUIContent __0)` | `Label(GUIContent,…)` 等 |
+| `PrefixGuiCon1(ref GUIContent __1)` | `Toggle(bool, GUIContent, …)` |
+
+★ **不用 `object[] __args` 改参数**：那依赖「改完会回写」，不同 Harmony 版本行为不一。
+`ref string __N` 是确定生效的写法。
+
+★ **GUIContent 必须换引用，绝不能改 `.text`**：`GUILayout` 内部用的是
+`GUIContent.Temp(String)`，它返回**静态共享单例 `s_Text`**。写 `c.text = zh` 等于改全进程
+下一个 `GUIContent`（v1.2.0 踩过：改完所有 Label 一起串味）。正确写法
+`c = new GUIContent(zh, c.image, c.tooltip);`。
+
+★ **不碰 `GUILayout.TextField`**：它的**返回值是玩家输入的文本**，翻了会毁数据
+（玩家名、存档名、CRPL 代码都从这里出去）。同理不碰 `Toolbar` / `SelectionGrid` 的返回值。
+
+**不设字体**：HUD 本身就是 IMGUI 画的中文、一直正常 —— Unity 5 内置动态字体对缺字有
+OS 回退。保持原字体才能让拉丁字母仍用 Aldrich（结算面板风格一致）。
+`Font.CreateDynamicFontFromOSFont` 那条路只留给 `GameSpace.skin` 的 `"message"` 样式。
+
+**覆盖面实测（反编译统计 `GUILayout.(Label|Button|TextField|Box)` + `GUI.*` 共 689 处）**：
+`EditMapGUI` 237、`ColonialSpaceManager` 88、`WorldMachineManager` 74、`EditSystemGUI` 43、
+`MySectorGUI` 40、`ResultsManager` 30、`ResultsGUI` 21、`ScoreViewerManager` 20、
+`StatsAndAchievements` 13、`TexturePickerManager` 11、`MessageDialogManager` 7、
+`ResizeMapManager` 7、`KeyEntryGUI` 7、`MainMenu` 3、`GUIUtils` 2（窗口标题也走
+`GUILayout.Label`，一并覆盖）。
+
+**装了几个**：5 类 × 每类 4 个文字重载 = **期望 `imguiPatched = 20`**
+（每类的 6 个重载里各有 2 个 `Texture` 重载，跳过）。少于 20 说明有重载没装上，日志里会有
+`!! GUILayout.X/参数数 没装上（prefix=0）`。
+
+**排查**：F5 清单末尾多一行 `IMGUI 调用 N  命中 M  已装重载 K 个（v1.4.0）`。
+`K=0` = 一个都没装上（看日志里的 `!! 装 GUILayout.* 补丁失败`）；
+`N` 不动 = 补丁没生效或那段代码没跑；`N>0 而 M=0` = 词表未命中（F5 会列出具体串）。
 #### 已废弃：sweep 路线（不要再实现）
 
 `Sweep` / `RebuildCache` / `ReplaceLabels` / `ReplaceMeshes` / `LateUpdate` / `IsSwapped` /
@@ -681,10 +745,10 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 
 ### 4.5 全量翻译
 
-**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3314 条 / 已译 2104**；
-插件读的 `zh_cn.dict` = **2104 条**（211 242 字节，`--include-other` 编译、FNV 校验通过）；
+**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3314 条 / 已译 2105**；
+插件读的 `zh_cn.dict` = **2105 条**（211 261 字节，`--include-other` 编译、FNV 校验通过）；
 `check_charset.py` 报 **1547 字符（汉字 1448）✓ 全部在字集内** —— **不用重烘图集**。
-未译的 1210 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
+未译的 1209 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
 
 > 沿革（只看结论）：翻译是分四批进来的 —— 4.2 的 1144 条 → 4.8 剧情 +852 → 4.7③ 分段碎片 +22
 > （并删掉 41 条护盾枚举）→ 4.7④ CRPL 教学提示 +60。`kind` 维度与「故意不译」清单见下表。
@@ -1207,7 +1271,7 @@ C.E. → **第 N 循环历**（不写「公元」，也不写「第 X 纪元」�
 & "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3\_cw3hanhua\tools\build_plugin.cmd"
 ```
 
-★ **两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（现 v1.3.2，4.1）。
+★ **两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（现 v1.4.0，4.1）。
 脚本在编译前会**自动 `del` 掉旧的 `CW3HanhuaText.dll`** —— 那个文件是独立插件
 （GUID `cw3hanhua.text`），留着会在同一批游戏方法上**重复装一遍 Harmony 补丁**。
 
@@ -1411,7 +1475,7 @@ _cw3hanhua/
 │   ├─ diff_bake.py            ★ 烘焙回归：现役资产 vs 基线，确认没波及 UILabel
 │   └─ uilabel_inventory.json / textmesh_inventory.json
 │                              ★ 烘焙前的历史基线快照，**不可再生**（重跑 scan 会覆盖）
-├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.3.2**（4.1）
+├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.4.0**（4.1）
 │                      CW3Hanhua.cs（字体层 = 唯一 BepInPlugin / MonoBehaviour）
 │                      CW3HanhuaText.cs（文本层 = 同程序集普通类 TextPlugin）
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）
