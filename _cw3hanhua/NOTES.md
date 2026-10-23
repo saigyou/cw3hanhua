@@ -432,6 +432,7 @@ uint32 FNV-1a               校验（★ 无符号：用 ReadUInt32，别用 Rea
 ```
 
 **已定的译名**（见 `glossary.md`）：**Creeper / Anti-Creeper / AC 保留英文**（用户决定）。
+2026-10-24 复核并重申：教学文案里 5 处「反 Creeper」已全部统一回 `Anti-Creeper`（见 4.10）。
 
 **工作流**
 
@@ -1410,15 +1411,60 @@ C.E. → **第 N 循环历**（不写「公元」，也不写「第 X 纪元」�
 > 补一条度量警告：CW3 文本是梗概不是硬数字，**第 1→第 144 循环历之间的间隔没写明**，
 > 别把旁白里的"三十年后"当成下一轮的起点。
 
-**保留的既有问题（不擅改）**：旁白里的 `Creeper` 是地名式的"它"（`when the Creeper arrived`
-→ "当 Creeper 袭来时"），而术语表规定核心敌人名**保留英文**。若要读顺，得在术语表里给旁白加
-一条意译，**需要用户拍板**，不要单方面改。
+**旁白里 `Creeper` 的语感问题 —— 已拍板：不改（2026-10-24）**：旁白里的 `Creeper` 是地名式的
+"它"（`when the Creeper arrived` → "当 Creeper 袭来时"），术语表规定核心敌人名**保留英文**，
+于是宏大叙事里嵌一个英文专名，与相邻句的"敌人""黑暗"这些意译词并置，指称略断、口气略弱。
+**用户 2026-10-24 决定：就这样，不改。** 含义准确，只是语感损失；不要再提、不要单方面改。
 
 **入库路径（C.E. 改词表时走的是第二条）**：
 - 批次的普通条目 → `apply_translations.py <batch> --override` → `build_dict.py --include-other` → `check_charset.py`
 - **剧情对白（kind=Dialog）改的是 `story_work/NN_*.out.json`，必须 `story_merge.py --write --sync`**
   （`--write` 本身就带 sync；`--sync` 只覆盖 `kind == "Dialog"` 的条目，其它走 `conflict` 不动）
 - 改完按 **F9** 重载词表即可验证，不用重烘图集。
+
+---
+
+### 4.10 术语表一致性：`Anti-Creeper` 统一（2026-10-24）
+
+**症状**：同一个词在游戏里两种形态 —— 剧情对白写 `Anti-Creeper`，教学文案写「反 Creeper」。
+
+**实测**：全表含 `creeper` 的 141 条里，`en` 含 anti-creeper 的共 **13 条，全部已译**，
+按内容类别整齐分裂成两派：
+
+| 内容类别 | 条数 | 曾用译法 | 入库路径 |
+|---|---|---|---|
+| 剧情对白（`kind=Dialog`） | 8 | `Anti-Creeper`（正确） | `story_work/*.out.json` → `story_merge.py` |
+| DLL 内嵌教学（科技说明 2 + CRPL 提示 3） | 5 | **反 Creeper**（违反术语表） | 普通批次 → `apply_translations.py` |
+
+另排除了两种假说：**「反Creeper」无空格写法 0 条**、**zh 里小写 `creeper` 0 条** ——
+不是大小写/空格漂移，就是同词两译。
+
+**根因不是随机漂移，是两条入库路径的规范强度不同**：剧情线走 `story_merge.py` 受术语表约束，
+普通批次线**不做译名一致性校验**，手写译文写什么就是什么。错误随批次复制：
+`full_13.json`（提交 `52eb099`，2026-10-18 全量翻译）带进 2 条，
+`full_25_crpl.json`（提交 `a6b5770`，2026-10-23 CRPL 批次）**又把这个错复制了 3 条**。
+
+**处置（用户 2026-10-24 拍板）**：统一为 `Anti-Creeper`，改那 5 条：
+
+| 批次 | 改动 |
+|---|---|
+| `full_13.json` | `矿石用于制造反 Creeper（AC）` → `制造 Anti-Creeper（AC）`；`喷吐者发射反 Creeper` → `发射 Anti-Creeper` |
+| `full_25_crpl.json` | 轰炸机 2 处、矿场 2 处、喷吐者 1 处，全部换成 `Anti-Creeper` |
+
+走常规链：两份批次 `apply_translations.py --override` → `build_dict.py --include-other` →
+`check_charset.py` → `audit_translations.py` → `verify_lookup.py --idempotent`。
+结果：`strings.json` / `zh_cn.dict` / 全部 `batches/*.json` 中「反 ?Creeper」**残留 0**，
+anti-creeper 13/13 已译且形态统一；汉字全在字集内（1505 字），幂等 0 条被改写。
+
+> `audit_translations.py` 报的 14 处「标记」是既有情况（`[Scanning...]` 这类方括号已译），
+> 与本次改动无关，不是回归。
+
+**未采纳的两条路**（记录理由，免得以后重提）：
+- **全译成「反 Creeper」**：要动 `glossary.md` + 8 条剧情，且与「`AC` 保留英文」直接冲突
+  （现成的「反 Creeper（AC）」就是混搭证据），改动面 30+ 条，收益可疑。
+- **在 `audit_translations.py` 里加「`反` + 空格 + `Creeper`」检查**：**用户 2026-10-24 明确否决** ——
+  这类词表一致性只能靠逐个特判，总结不出通用规则，硬编码太 hack，不值得。
+  也就是说：**本次靠人工发现并修正，不建设自动防线。**
 
 ---
 

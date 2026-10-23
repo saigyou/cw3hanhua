@@ -4881,7 +4881,7 @@
   },
   {
    "en": "Ore Mines extract ore from ore deposits.\nOre is used to make Anti-Creeper (AC)",
-   "zh": "矿场从矿床中开采矿石。\n矿石用于制造反 Creeper（AC）。",
+   "zh": "矿场从矿床中开采矿石。\n矿石用于制造 Anti-Creeper（AC）。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4901,7 +4901,7 @@
   },
   {
    "en": "Sprayers fire Anti-Creeper.\nSprayers can also collect AC and dispatch as ore.",
-   "zh": "喷吐者发射反 Creeper。\n喷吐者也能收集 AC 并以矿石形式发出。",
+   "zh": "喷吐者发射 Anti-Creeper。\n喷吐者也能收集 AC 并以矿石形式发出。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -59098,7 +59098,7 @@
   },
   {
    "en": "Bombers are aircraft that deliver AntiCreeper.\nBuild Bombers to saturate remote islands.\nMake sure to collect plenty of Ore!",
-   "zh": "轰炸机是投送反 Creeper 的飞行器。\n建造轰炸机，用反 Creeper 灌满远处的岛屿。\n一定要开采充足的矿石！",
+   "zh": "轰炸机是投送 Anti-Creeper 的飞行器。\n建造轰炸机，用 Anti-Creeper 灌满远处的岛屿。\n一定要开采充足的矿石！",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59838,7 +59838,7 @@
   },
   {
    "en": "Build Ore Mines on the Ore Deposits to collect ore.\nOre can be used to make Anti-Creeper.\nAnti-Creeper destroys Creeper on contact.",
-   "zh": "在矿床建造矿场来开采矿石。\n矿石可用于制造反 Creeper。\n反 Creeper 一接触就会摧毁 Creeper。",
+   "zh": "在矿床建造矿场来开采矿石。\n矿石可用于制造 Anti-Creeper。\nAnti-Creeper 一接触就会摧毁 Creeper。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59858,7 +59858,7 @@
   },
   {
    "en": "Build Sprayers to make Anti-Creeper.\nDeploy sprayers near Creeper and they will fire blobs into the Creeper.\nThis can be useful for securing a beachhead.",
-   "zh": "建造喷吐者来制造反 Creeper。\n把喷吐者部署在 Creeper 附近，它们会向 Creeper 发射弹团。\n这对建立登陆立足点很有用。",
+   "zh": "建造喷吐者来制造 Anti-Creeper。\n把喷吐者部署在 Creeper 附近，它们会向 Creeper 发射弹团。\n这对建立登陆立足点很有用。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
