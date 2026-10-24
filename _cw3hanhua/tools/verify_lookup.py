@@ -119,6 +119,16 @@ def quoted_key_end(s, i):
     return -1
 
 
+def is_size_sep(s, i):
+    """s[i] 是不是「尺寸写法」里的分隔符 x（16x9 / 101x101）。
+    与插件 IsSizeSep 一致：必须是 x/X，且前后都是数字。"""
+    if i <= 0 or i >= len(s) - 1:
+        return False
+    if s[i] not in "xX":
+        return False
+    return ("0" <= s[i - 1] <= "9") and ("0" <= s[i + 1] <= "9")
+
+
 def tag_length(s, i):
     if i >= len(s) or s[i] != "[":
         return 0
@@ -205,6 +215,11 @@ class Lookup(object):
                     out.append(s[i:ke])
                     i = ke
                     matched += 1
+                    continue
+                # v1.4.1：「数字x数字」里的 x 当变量透传（16x9 / 101x101）
+                if is_size_sep(s, i):
+                    out.append(c)
+                    i += 1
                     continue
                 return None
             out.append(c)

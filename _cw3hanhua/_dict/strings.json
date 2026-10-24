@@ -1,6 +1,6 @@
 {
  "version": 2,
- "generated": "2026-10-24 00:29:49",
+ "generated": "2026-10-24 11:21:27",
  "baked_charset": 7544,
  "strings": [
   {
@@ -21597,7 +21597,7 @@
   },
   {
    "en": "Next Crazy",
-   "zh": "下一个随机关卡",
+   "zh": "下一关",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21683,7 +21683,7 @@
   },
   {
    "en": "Prev Crazy",
-   "zh": "上一个随机关卡",
+   "zh": "上一关",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -63955,6 +63955,28 @@
    "refs": [],
    "hits": 1,
    "note": "关卡内嵌 CRPL 脚本的 ShowMessage 文案（2026-10-24 修复 scan_crpl 多脚本解析后补全）"
+  },
+  {
+   "en": "LandingPad",
+   "zh": "登陆平台",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "WorldMachineManager"
+   ],
+   "refs": [
+    "WorldMachineManager.DoTerrain",
+    "WorldMachineManager.DoLabel"
+   ],
+   "hits": 1,
+   "note": "DMD 分区标题：DoLabel 拼 \"--- \" + name + \" ---\"；与 Create Landing Pad=创建登陆平台 对齐"
   }
  ]
 }

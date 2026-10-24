@@ -15,7 +15,7 @@
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅** / **主线关 CRPL 文案 193 条 ✅（`scan_crpl.py` 修多脚本解析，纯词表，2318 条；冗余 LF 键清理见 4.7⑧）⏳ 待游戏内实测** |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅** / **主线关 CRPL 文案 193 条 ✅（`scan_crpl.py` 修多脚本解析，纯词表；冗余 LF 键清理见 4.7⑧）** / **v1.4.1 DMD 三项修正（`Map Size: 101x101` 里的 x、`LandingPad`、按钮宽 90px 超框）+ 未命中按模板去重 ✅ 2026-10-24** / **v1.5.0 `GUI.*` 第五层（Return to Origin、产品密钥界面等 6 处直调点）✅ 2026-10-24** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -39,7 +39,7 @@
 | 游戏本体 | **原版**，资产零改动（4.4a） |
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
-| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.4.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2318 条**）；**四条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）。**四层全部已实测通过**。 |
+| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.5.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2319 条**）；**五条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）、`GUI.*` 的 String 重载只做精确命中（v1.5.0，4.12）。**五层全部已实测通过**。 |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
 | 按键 | **F3 汉化总开关**（两层一起开/关）/ **F5** 打印未命中 / **F9** 重载词表 / **F11** dump / **F12** HUD（共 5 个；**F4 已于 2026-10-23 退役并入 F3**）<br>启动**无条件自动开启**（**无配置项**，4.1「自动开启」） |
@@ -276,12 +276,12 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 
 ### 4.1 字体烘焙与插件按键
 
-**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → 同一个 `CW3Hanhua.dll` v1.4.0，共 5 个）**
+**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → 同一个 `CW3Hanhua.dll` v1.5.0，共 5 个）**
 
 | 键 | 层 | 作用 |
 |---|---|---|
 | **F3** | 两层 | **汉化总开关**：字体层换合并图集 / 还原 **+** 文本层接词表 / 还原 |
-| **F5** | 文本 | 打印未命中清单（`missSeen`，缺哪些译文） |
+| **F5** | 文本 | 打印未命中清单（`missSeen`，缺哪些译文；**v1.4.1 起按模板去重**，见 4.11） |
 | **F9** | 文本 | 重载 `zh_cn.dict`（改完词表不用重启） |
 | **F11** | 字体 | dump 到 `BepInEx/CW3HanhuaFont.txt`（所有内部数字都在这里） |
 | **F12** | 字体 | HUD 开关（**HUD 默认关闭**，v1.3.1 起） |
@@ -394,7 +394,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 | IL 字符串引用 | 11001（Assembly-CSharp）+ 238（firstpass） |
 | 资产文本 | 467 条（UILabel 455 + TextMesh 12；另有 19 条已被 bake 成中文，按 CJK 跳过） |
 | 候选合计 | `strings.json` **3508** 条 = ui 1543 + other 1936 + none 29；来源 both 292（译 221）/ asset 1025（译 1008）/ dll 2000（译 895） |
-| 已译 | **2318**（ui 1160 + other 1158，66.1%）→ `zh_cn.dict` **2318 条**（249 352 字节） |
+| 已译 | **2319**（ui 1161 + other 1158，66.1%）→ `zh_cn.dict` **2319 条**（249 367 字节） |
 
 > `ui` 不是"一定会显示"，是"几乎一定"；`other` 里约 900 条是单词需人工判定。
 > **不要拿 ui 条数当工作量上限。** 给出新数字前先跑 `tools/dict_stats.py`。
@@ -465,7 +465,7 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 - 译稿用**序号字典** `{"zh": {"3": "译文"}}`，缺省项视为 `@`（跳过不译）；
   **不要用数组形式**（漏一项就整体错位，踩过一次：89 vs 88，后 60 条全串行）。
 
-### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.4.0）
+### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.5.0）
 
 **查表链（四级，v1.1.0 新增第四级）**：
 
@@ -540,9 +540,13 @@ TextMesh 那五个写入点登记在独立的 `meshSwaps`（`MeshSwap = {mesh, e
 - `missSeen` + **F5**：`ProcessText` 查不到译文时记一条，F5 打印清单。
   列出来的说明"走了 UILabel 但没译文"（补词表 + F9 重载即可）；
   界面上仍英文、清单里又没有的，才是真正**必须改资产**的对象（TextMesh 那批）。
+  ★ **v1.4.1：按模板去重**。`MissKey()` 把连续数字归一成 `#`（`Map Size: 162x121` → `Map Size: #x#`），
+  同一模板只记一次（打印仍给首次出现的原串），上限 400 → **2000**（`MissCap`）。
+  旧版按整串去重，`Collected: 12` 换个数字就是一条新记录，400 条几秒就爆，
+  **真正缺的模板挤不进来** —— 「F5 里没有」不能当成「没经过补丁点」的证据（4.11）。
 - **F11 dump 里那一行**（v1.0.0 起直接调 `TextPlugin.DumpLine()`）：
-  `文本层 v1.4.0  开关=…  词表=…  prefix=调用/命中  拼接=…  分段=…  mesh=调用/命中  crpl=调用/命中  imgui=调用/命中(已装重载数)
-  未命中=…  CRPL字体=…`。
+  `文本层 v1.5.0  开关=…  词表=…  prefix=调用/命中  拼接=…  分段=…  mesh=调用/命中  crpl=调用/命中  imgui=调用/命中(已装重载数)
+  gui=调用/命中(已装重载数)  未命中=…  CRPL字体=…`（`未命中=` 后面的数字从 v1.4.1 起是**模板种数**，不是串数；`gui=` 那一段是 v1.5.0 新加的 GUI.* 精确命中层，见 4.12）。
   `prefix` 计数不动 = 补丁没装上；`mesh` 计数不动 = TextMesh 那五个补丁没装上或那段文本没被写过；
   **`分段` 计数不动 = 一条运行时拼接串都没走到第四级**（说明前三级全接住了，或者补丁没装）；
   **`crpl` 调用>0 而命中 0 = CRPL 文案词表未命中**（F5 会列出来），调用恒 0 = 补丁没装上。
@@ -566,8 +570,15 @@ TextMesh 那五个写入点登记在独立的 `meshSwaps`（`MeshSwap = {mesh, e
 | 候选 | 可见性 / IL 体 | 能不能打 |
 |---|---|---|
 | `GUILayout.DoLabel` / `DoBox` / `DoButton` | **private**，有 IL | ✗ Harmony 只打 public/internal |
-| `GUI.Label`(6) / `GUI.Box`(5) / `GUI.Button`(6) | public，**abstract**（reference stub，RVA 指向 extern，无 IL 体） | ✗ |
+| `GUI.Label`(6) / `GUI.Box`(6) / `GUI.Button`(6) | public，**有真实 IL 体** | ✓ 打得动，但**不是本版收口点**（见下） |
 | **`GUILayout.Label/Box/Button/RepeatButton/Toggle`（各 6 个重载）** | **public，有真实 IL 体** | ✓ **就是它** |
+
+★ **更正（2026-10-24）**：这张表原来写 `GUI.Label`(6)/`Box`(5)/`Button`(6) 是
+「public，**abstract**（reference stub，无 IL 体）→ ✗」，**那是错的**。
+`ilx dump GUI Button --dll UnityEngine.dll` 实测 **6 个重载全有 IL 体**（il=9/9/8/8/8/7），
+`GUI.Box` 同样 6 个都有体（`GUI.DoLabel` 也有体，il=5）。所以「打不上」从来不是技术障碍，
+**真正的理由是下面这条「为什么必须在 `GUILayout` 这一层改」**，以及 v1.2.0 猜盒子误伤的历史。
+`GUI.*` 至今是**整片未覆盖**（`GUI.Button` 全程序集 37 处调用），见 4.7⑨。
 
 **为什么必须在 `GUILayout` 这一层改、不能改 `GUI` 那一层**：`GetRect` 就在 `GUILayout.Label`
 体内，用它**已经改过的入参**去量宽 —— 中文宽度天然算对，`GUILayout.Width(120f)` 这类定宽
@@ -613,7 +624,7 @@ OS 回退。保持原字体才能让拉丁字母仍用 Aldrich（结算面板风
 （每类的 6 个重载里各有 2 个 `Texture` 重载，跳过）。少于 20 说明有重载没装上，日志里会有
 `!! GUILayout.X/参数数 没装上（prefix=0）`。
 
-**排查**：F5 清单末尾多一行 `IMGUI 调用 N  命中 M  已装重载 K 个（v1.4.0）`。
+**排查**：F5 清单末尾多两行 —— `IMGUI 调用 N  命中 M  已装重载 K 个（..）` 与 `GUI  调用 N  命中 M  已装重载 K 个（..）`。
 `K=0` = 一个都没装上（看日志里的 `!! 装 GUILayout.* 补丁失败`）；
 `N` 不动 = 补丁没生效或那段代码没跑；`N>0 而 M=0` = 词表未命中（F5 会列出具体串）。
 #### 已废弃：sweep 路线（不要再实现）
@@ -746,8 +757,8 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 
 ### 4.5 全量翻译
 
-**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3508 条 / 已译 2318**；
-插件读的 `zh_cn.dict` = **2318 条**（249 352 字节，`--include-other` 编译、FNV 校验通过）；
+**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3509 条 / 已译 2319**；
+插件读的 `zh_cn.dict` = **2319 条**（249 367 字节，`--include-other` 编译、FNV 校验通过）；
 `check_charset.py` 报 **1547 字符（汉字 1448）✓ 全部在字集内** —— **不用重烘图集**。
 未译的 1209 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
 
@@ -1264,7 +1275,7 @@ for part in m.group(1).split(";"):
 
 | 检查 | 方法 | 结果 |
 |---|---|---|
-| 自查找表 | 每条 `en` 送回 `Lookup()` 与自己的 `zh` 比对 | 2318 条全部命中自身；查不到 **0**、串到别条 **0** |
+| 自查找表 | 每条 `en` 送回 `Lookup()` 与自己的 `zh` 比对 | 2319 条全部命中自身；查不到 **0**、串到别条 **0** |
 | 批次一致性 | 所有 `batches/*.json` 的 key 是否都在 `strings.json` | 对不上 **0** |
 | 结构 | 重复 `en` / 空 `en` / `en` 含汉字 | 分别 **0 / 0 / 0** |
 | CRPL 键 | 193 条 ShowMessage 键对原始资产字面量 | 不在 **0**（反向只差 2 条故意不译的 `at facility`、`Closest Unit `） |
@@ -1300,6 +1311,19 @@ The trains that come from the station have random targets. After one\ntrain…
 `tools/build_crpl_batch.py`（`build_crpl_batch.py` 依赖前两个重建英文键）。
 先例：`story_raw.json`、`story_candidates.json`、`uilabel_inventory.json`、
 `textmesh_inventory.json` 都已入库。
+
+#### ⑨ `GUI.*` 家族整片没覆盖（记作「A」，**已于 v1.5.0 解决，方案 A2**）
+
+v1.4.0 的 IMGUI 层只遍历 `typeof(GUILayout)`。**带显式 `Rect` 的 `GUI.Label/Box/Button` 一个都没打**，
+所以那批界面文字永远保持英文 —— 词表里有译文也打不到。已知 6 处（详见 4.11 末段）：
+`Return to Origin`（两处同构）、`Enter Key`、`Clear`、`Arc Eternal`、
+`Invalid Key.  Double check the key and try again.`、`Creeper World III`（最后一条词表还缺）。
+
+**→ 2026-10-24 v1.5.0 已按方案 A2 解决**（用户 m01714「我支持A2 + 不译 Creeper World III」、
+m01762「开始做」）。含调用链互不干扰的实证与矩形核对表，见 4.12。
+讨论前必须解决的那个 v1.2.0 教训（在 `GUI.Label` 里按宽度猜盒子会误伤
+`SGT_CameraFPS` / `SGT_CameraMessage` / `KeyEntryGUI` 的定宽盒子）——
+A2 的答案是**压根不猜**：只做精确命中、一行 Rect 都不碰，所以那个教训不需要被「解决」，被绕开了。
 
 **顺带记下的 dnfile 用法**（挖 `#US` 堆时踩的）：`d.net.user_strings.__data__` 是 `bytes`，
 没有 `.offsets`；要自己逐条读长度前缀（`0x80` 区分 1/2/4 字节），
@@ -1466,6 +1490,138 @@ anti-creeper 13/13 已译且形态统一；汉字全在字集内（1505 字）�
   这类词表一致性只能靠逐个特判，总结不出通用规则，硬编码太 hack，不值得。
   也就是说：**本次靠人工发现并修正，不建设自动防线。**
 
+### 4.11 DMD 界面三项修正（2026-10-24，v1.4.1）
+
+用户报三个问题（同一张 DMD 截图，红框标出）：`Return to Origin` / `LandingPad` 没汉化且**日志里没有未命中**、
+`Map Size:` 有未命中但没译出、`上一个/下一个随机关卡` 按钮超框且「关」后有奇怪符号。
+
+**三个问题的根因互不相同，没有一个能靠「补更多词条」解决：**
+
+| 现象 | 根因 | 修法 |
+|---|---|---|
+| `Return to Origin` 英文 | 走的是 **`GUI.Button(Rect, String, GUIStyle)`**（`WorldMachineManager.DoWorldMachineWindow` IL `0091/0097`，`ColonialSpaceManager.DoColonialSpaceWindow` 同构）。v1.4.0 的 `PatchIMGUI()` **只遍历 `typeof(GUILayout)`**，`GUI.*` 一个都没打 → 该串**根本没经过补丁点**，所以日志里当然没有未命中 | **未修**（属改架构，见下「A」） |
+| `LandingPad` 英文 | 分区标题由 `DoLabel` 拼成 `"--- " + name + " ---"`（IL `006F/0075/007A String.Concat`）→ `GUILayout.Label`。词表里**没有 `LandingPad` 这个 key**，`MatchKey` 返回 null、字母消费不掉 → `LookupSegment` 的「全有或全无」整串放弃 | **B：补词条** `LandingPad` → `登陆平台`（与 `Create Landing Pad`=创建登陆平台 对齐） |
+| `Map Size: 101x101` 有未命中却没译出 | 运行时是 `"Map Size: "` + `(Int16)w` + `"x"` + `(Int16)h`（IL `0DB7/0DC5/0DCD/0DD5/0DE1 String.Concat(Object[])`）。`LookupSegment` 能命中 head `Map Size: `、数字也能透传，唯独 **`101x101` 中间那个 `x` 是字母、消费不掉** → 触发 `:1034 return null` 整串放弃 | **C：`数字x数字` 里的 x 当变量透传**（新 `IsSizeSep`） |
+| `下一个随机关卡` 超框 | 按钮宽 IL 写死 `GUILayout.Width(90)`（`09E6`/`0A41`）。`上一个随机关卡` 7 字在 font_20 下 112px、font_16 下 91px，都塞不进 90px | **D：译文缩到 3 字** `下一关`/`上一关`（≈39px） |
+| 「关」后的奇怪符号 | 不是缺字、不是图集 UV 错、不是被裁的 `卡` 字（`卡` U+5361 在 font_16/20/28 里 glyph 齐全，裁出来放大是完整汉字）。11 倍放大后看清是**按钮内框右侧贴着一条 4px 浅色短横**，`controlButtonStyle` 在定宽下的绘制产物 | 跟着 D 一起消失（内容变窄不再触碰右边缘），**不改 IL** |
+
+**★ 为什么日志里看不到未命中**：`NoteMiss` 有 `if (missSeen.Count > 400) return;` 硬截断
+（`CW3HanhuaText.cs:1328`，v1.4.0）。而 `missSeen` 按**整串**去重 —— 游戏里大量文案是
+「碎片 + 运行时值」拼的（`Map Size: 162x121`、`Collected: 12`、`Amt: 7`…），**每换一个数字就是一条新记录**，
+400 条几秒就爆，真正缺的模板反而挤不进来。所以「日志里没有」不能证明「没经过补丁点」。
+
+**E（用户点名要求）**：`missSeen` 改成 `Dictionary<去重键, 首次出现原串>`，去重键用新方法 `MissKey()`
+把**连续数字归一成 `#`**（`Map Size: 162x121` → `Map Size: #x#`），上限 400 → **2000**（`MissCap`）。
+打印仍给**首次出现的原串**，可读性不降。**去掉字母**是刻意的：把字母也归一会让
+`Next` / `Nexus` 这类塌成同一个键，丢失信息。
+
+**C 的污染评估（用户要求「看会不会有什么污染」）**：结论 **零污染**。
+- `verify_lookup.py --idempotent` → 2319 条译文再喂回去被改写 **0 条**。
+- `--regress` 输出「3509 条，新旧不同 14 条」，与**改动前基线同为 14 条**（是既有的 concat 类，与 C 无关）。
+- 用 `git show HEAD:` 取旧版脚本、`importlib` 加载新旧两版逐条 diff `segment()`：全量 3509 条 en 中
+  C 规则导致变化 **0 条**。
+- 定向压力测试，全部仍为 `None`（无误伤）：`Building x`（**x 左边是空格不是数字 → 不触发**，这是本规则的关键边界）、
+  `16x9`、`101x101`、`Windows`、`Box`、`MultiMesh`、`Custom1_256`、`Link327`、`Mesh0`、
+  `Resolution: 1920X1080`、`Texture 512x512 stored`、`Custom1x256`、`Link327x9`、`SetCamera3D`、
+  `GameObject`、`Player1x2`、`v1.4x1`、`Max X: 5`、`X Axis`、`Xenon`、`axb`、`5y5`、`5 x 5`。
+- 正向生效：`Map Size: 101x101` / `162x121` / `16x9` / `4x3` / `1x1` 全部译出。
+- `strings.json` 里含 `\dx\d` 的 en 仅 5 条，新旧结果完全一致。
+
+**还有一片没覆盖：`GUI.*` 家族（记作「A」）→ v1.5.0 已按方案 A2 做掉，见 4.12**。
+`ilx callers --type GUI Button` 扫全程序集，**37 处** `GUI.Button` 调用；`GUI.Label` 同样一批。
+经词表比对，其中**已有译文但打不到**的有 6 处：
+`Return to Origin`（`WorldMachineManager` + `ColonialSpaceManager` 两处同构）、`Enter Key`（`KeyEntryGUI`）、
+`Clear`（`Menu`）、`Arc Eternal`、`Invalid Key.  Double check the key and try again.`、`Creeper World III`（词表缺）。
+★ 更正 `:569` 表格里「`GUI.Label`(6)/`Box`(5)/`Button`(6) **abstract** 无 IL 体」的说法 ——
+`ilx dump GUI Button --dll UnityEngine.dll` 实测 **6 个重载全有 IL 体**（il=9/9/8/8/8/7），`GUI.Box` 同。
+但**不能简单地照 `GUILayout` 那套搬**：v1.2.0 曾因在 `GUI.Label` 里按宽度猜盒子，误伤
+`SGT_CameraFPS` / `SGT_CameraMessage` / `KeyEntryGUI` 的定宽盒子，v1.3.0 整段删除
+（用户当时的要求是「出问题时只能有一个来源」）。加 A 之前要先想清如何不再猜盒子。
+A2 的答案是**根本不猜**（只精确命中、不碰 Rect），所以这条教训不需要被「解决」。
+
+**其它**：`--- ` / ` ---` **不需要词表条目** —— `-` 不是字母，走 `LookupSegment` 的
+`:1036 sb.Append(c)` 逐字符透传。截图里看着像两个短横，是 1454px 截图缩放把三个 7px 的 `-` 糊在一起了。
+
+---
+
+### 4.12 `GUI.*` 补上第五层（2026-10-24，v1.5.0，方案 A2）
+
+**背景**：v1.4.0 的 IMGUI 层只遍历 `typeof(GUILayout)`，而游戏里有一批界面直接调
+`GUI.Xxx(Rect, String, GUIStyle)`。它们**不经过 GUILayout**，所以既翻不掉、也不会在日志里
+留下未命中（4.11 的 `Return to Origin` 就是这么来的）。
+
+**用户选型**（m01714「我支持A2 + 不译 Creeper World III」、m01762「开始做」）：
+- **A1**：全量打 + 完整 `LookupSegment` —— 能顺带译出 `FPS: 60.0` 这类拼接串。
+- **A2（采用）**：全量打 + **只做精确命中**（`LookupGuiExact`，只查 `dict[en]`）。
+- A3：只给白名单 6 条打 —— 要逐处特判，不做。
+
+**A2 = 一个 `dict.TryGetValue`，四级别名一个都不走。**
+`GUI.*` 的 Rect 全是游戏写死的常量，**没有 layout 阶段可以重算宽度**（这正是 v1.2.0 翻车的土壤）。
+分段拼出来的串长度不可控，一个 `Map Size: 1x1` 可能变成比 `101x101` 更长的中文。
+所以这一层的纪律是：**查不到就不动，宁可漏译也不猜。**
+
+**关键实证：两族入口在类型上不重叠，所以不会互相干扰**（这是 m01714 直接问的那个问题）
+```
+GUILayout.Label(string A, …)   0002: call GUIContent.Temp(String)   ← 立刻转成 GUIContent
+                               0011: call GUILayout.DoLabel(GUIContent, GUIStyle, GUILayoutOption[])
+  GUILayout.DoLabel           0003: call GUILayoutUtility.GetRect(…) ← 用中文量宽（我们已改过入参）
+                               000A: call GUI.Label(Rect, GUIContent, GUIStyle)  ← 只到 GUIContent 重载
+```
+`DoButton` / `DoBox` / `DoRepeatButton` 同构，**全部只转发到 `GUI.Xxx(Rect, GUIContent, …)`**。
+⇒ GUILayout 那条链**从不接触** `GUI.Xxx(Rect, String, …)`，两组补丁在重载集合上不相交。
+
+反向也不重复翻：`GUI.Button(Rect, String, GUIStyle)`（`0x06001A17`）体内是
+`0002: call GUIContent.Temp(String)` → `0012: call GUI.DoButton(Rect, GUIContent, IntPtr)`
+—— **直接进 internal，不绕 GUIContent 公开重载**。
+
+⇒ 由此得出一条硬纪律：**绝不能顺手把 GUIContent 重载也打上**。那条链的 `GetRect` 在
+`GUI.Label` **之前**就按英文量完宽度了，中文会被塞进英文尺寸的框里 —— 正是 v1.2.0 的形状。
+
+**打了哪 8 个重载**（`GUI.Label/Box/Button/RepeatButton` × 2 参/3 参，条件：`params[0]==Rect && params[1]==string && (len==2 || params[2]==GUIStyle)`）：
+
+| 方法 | 2 参 token | 3 参 token |
+|---|---|---|
+| `GUI.Label` | `0x06001A01`（String） | `0x06001A04` |
+| `GUI.Box` | `0x06001A0E` | `0x06001A11` |
+| `GUI.Button` | `0x06001A14` | `0x06001A17` |
+| `GUI.RepeatButton` | `0x06001A1A` | `0x06001A1D` |
+
+其余 5 种形态（`(Rect,Texture)` / `(Rect,GUIContent)` / `(Rect,Texture,GUIStyle)` /
+`(Rect,GUIContent,GUIStyle)` / `(Rect,GUIStyle)`）按参数类型**自然跳过**，不需要写排除。
+`GUI.RepeatButton` 游戏里 0 处调用，打上零成本。**不碰 `GUI.TextField / TextArea`**（玩家输入）。
+
+**前缀用 `PrefixGuiExact1`，不是复用 `PrefixGuiStr1`**：后者走完整 `Lookup` 四级链。
+两个 prefix 并存，将来排查时能一眼看出是哪层翻的。统计也另开 `guiCalls/guiHits/guiPatched`，
+**不与 `imgui*` 混算** —— 混了就分不清哪层在干活（F5 与 F11 各多一行）。
+
+**矩形核对表**（A2 只有精确命中、不改 Rect，但仍逐处算过，确认中文装得下）：
+
+| 位置 | 字面量 | Rect | 中文 | 判定 |
+|---|---|---|---|---|
+| `WorldMachineManager.DoWorldMachineWindow` | `Return to Origin` | 120×22 | 返回原点（4 字） | ✓ |
+| `ColonialSpaceManager.DoColonialSpaceWindow` | `Return to Origin` | 同上同构 | 同上 | ✓ |
+| `KeyEntryGUI.ShowKeyEntry` | `Enter Key`（Button） | 100×20 | 输入密钥 | ✓ |
+| 同上 | `Invalid Key.  Double check…` | 280×20 | 密钥无效。请仔细核对后重试。（14 字 ×14px≈196） | ✓ |
+| 同上 | `Product Key`（Box） | 280×100 | 产品密钥 | ✓ |
+| 同上 | `Arc Eternal` | 270 宽，fontSize 26 | 永恒之弧 | ✓ |
+| 同上 | `Enter your product key below.\n…` | 600 宽，fontSize 14 | 两行，第一行 15 字 ≈210 | ✓ |
+| `Menu.OnGUI` | `Clear` | — | 清除 | ✓ |
+
+**不译 `Creeper World III`**（用户 m01714 同批拍板）：它是游戏名本身，且 fontSize 36、Rect 只有 270 宽。
+词表 zh 留空 ⇒ `dict` 里根本没这条 ⇒ `TryGetValue` 返回 false ⇒ 自然跳过。**不需要为它写特判。**
+
+**刻意不覆盖 `ComboBox.List`**：它用 `GUI.Button(Rect, GUIContent, GUIStyle)`，`GUIContent` 由调用方
+`newobj GUIContent..ctor(String)` 造。要覆盖它就得碰 GUIContent 重载 → 会连带碰 GUILayout 那条链
+（见上面的硬纪律）。而它是下拉列表项（玩家名/模式名）+ 第三方控件，收益不值这个风险。
+
+**已知副作用（可接受）**：`SGT_CameraFPS.OnGUI` 每帧走一次 prefix（`FPS: 60.0` 精确查不到就返回），
+会产生一条未命中记录 `FPS: #.#`（`MissKey` 归一后去重），占 1 个名额。**不会翻它**，因为 A2 不拼分段。
+
+**验证**：`ilx find` 确认 `LookupGuiExact`(0x06000035)、`PrefixGuiExact1`(0x06000036)、
+`PatchGUI`(0x06000032)、`PatchGUIMethod`(0x06000033) 全在 DLL 里；`PatchGUIMethod` 的 IL 里
+`ldtoken type:GUI` + `ldtoken type:Rect` + `ldtoken type:String` + `ldtoken type:GUIStyle` 齐全，
+参数判断逻辑与源码一致。编译 `== OK ==`，DLL 65536 字节。
+
 ---
 
 ## 五、环境与陷阱
@@ -1476,6 +1632,87 @@ anti-creeper 13/13 已译且形态统一；汉字全在字集内（1505 字）�
 （`diagnose-windows-sandbox-acl` 判定 `NOT_THIS_CLASS`）。
 **`write`/`edit` 文件工具仍正常**；`csc.exe` 输出 DLL 可能失败。
 
+**★ 2026-10-24 实测到的最精确形态（别再误判成「游戏没关」）**：`build_plugin.cmd` 报
+
+```
+error CS0016: 未能写入输出文件“…\BepInEx\plugins\CW3Hanhua.dll”--“拒绝访问。”
+```
+
+此时三条同时成立（历史记录，结论后来被推翻，见下）：
+
+1. `Get-Process | %{ $_.Modules }` 里**没有任何进程**把该 DLL 当模块加载（游戏确实关了）；
+2. `BepInEx\plugins\` 目录**可新建文件**，但**已存在的 `CW3Hanhua.dll` 不能覆盖、不能重命名**
+   （`[IO.File]::Open($p,'Open','Write','None')` 报 `Access to the path … is denied.`）；
+3. 同一个文件在**非受限**（`sandbox_permissions: danger-full-access`）下写句柄一次就成功。
+
+**★★ 2026-10-24 当天晚些时候查到了真正的根因 —— 上面「判定」那段是错的，已作废。**
+
+真正的原因不是「覆写限制」，而是**跨会话的沙箱 SID 残留**：
+
+每个文件的安全描述符里都有一条 `S-1-4-…` 的 ACE，那是 **DSH 分配给它所属会话的临时身份**。
+旧 `CW3Hanhua.dll` 上记的是另一个会话的 `S-1-4-611063772-179713341-1`，而当前会话是
+`S-1-4-631060305-198087963`。当前身份在那个文件上**既没有写权限、也没有改 DACL 的权限**
+（`icacls /grant` 同样 `Access is denied`，退出码 5），所以连「换个办法绕过」的路都没有。
+
+关键鉴别对比（同一次扫描，直接看出差别）：
+
+| 文件 | 带的是哪个会话的 SID | 写 |
+|---|---|---|
+| `BepInEx\plugins\CW3Hanhua.dll` | `S-1-4-611063772-…`（**旧会话**） | **拒绝** |
+| `BepInEx\core\BepInEx.dll`、`_cw3hanhua\NOTES.md`、`_cw3hanhua\_dict\zh_cn.dict` | `S-1-4-631060305-…`（本会话） | 可以 |
+
+那个陌生 SID 是哪来的？**是用 `sandbox_permissions: danger-full-access` 编译时写进去的。**
+`csc /out` 对已存在文件是「先删再建」，新建的文件就带上了**那一次运行**的沙箱身份。
+所以「以前一直好好的、突然不行」的真相是：**上一次为了绕过 CS0016 而用 danger-full-access 编译，
+反而把文件写成了后续受限会话碰不了的样子** —— 是个自伤循环。
+
+**正确做法（已验证，2026-10-24）：**
+
+1. **不要用 `danger-full-access` 编译插件。** 它会污染产物的 SID。
+2. 撞上了就**让用户手动删掉 `BepInEx\plugins\CW3Hanhua.dll`**，再在受限身份下重跑
+   `build_plugin.cmd`。新建的文件带本会话 SID，之后本会话内可以反复覆盖
+   （实测连续第二次、第三次编译都 `== OK ==`）。
+3. 别为此去问用户「游戏关了没」，也别改 ACL —— 两个方向都不对。
+
+**已加自检**：`build_plugin.cmd` 在调 csc **之前**先探三件事，任一条不通就直接打印
+对应该情形的修法，而不是丢一句 `error CS0016` 让人瞎猜：
+
+1. **只读属性**（`for %%A in (...) do set "ATTR=%%~aA"`，看 `ATTR:R` 是否变化）→ 报
+   `attrib -r` 一句话就能解决，别往 SID 上想。
+2. **能不能覆盖**：把 DLL 拷到 `%TEMP%` 再**拷回原处**，走的就是 csc 需要的同一条写路径。
+   探不通报「跨会话 SID 残留」。
+3. 报 SID 残留时，顺手把**两个文件的 ACL 并排打出来**：冲突的那个 DLL，和
+   **同目录里当场新建**的一个探针文件。同目录很关键 —— `%TEMP%` 里的文件是另一个 helper
+   建的、带的是另一个 SID，拿它比对会"证明"出一个不存在的差异（实测过：
+   `%TEMP%` 探针是 `S-1-4-78774795-…`，`BepInEx\plugins\` 里新建的是 `S-1-4-631060305-…`，
+   后者才和 DLL 一致，能对上就说明"不是 SID 问题"）。
+
+探测用「拷回原处」而不是「探写句柄」是有意的：如果游戏真的开着、DLL 真被加载着，
+也照样能探出来（那时会报 `PROBE=overwrite`），一次覆盖两种情形。
+三条分支都实测过：正常 `== OK ==`、只读报只读、独占锁报 SID（并打出两组 ACL）。
+
+★ **会话 SID 是会变的**：同一天里两次观察到的本会话 SID 分别是
+`S-1-4-631060305-198087963`（文件系统 helper）与 `S-1-4-78774795-116483730-1`（`%TEMP%` 那侧的 helper）
+—— 别把某个具体 SID 当成「本会话的身份证」写死进判断，只比「两边是否一致」。
+
+★ **游戏真开着时又是另一种情形，而且能自己绕过去**（2026-10-24 实测）：DLL 被进程映射进内存后，
+文件句柄拿得到（`[IO.File]::Open(...,'None')` 成功）、`SetLength(0)` 却失败，`copy /y` 报
+
+```
+The requested operation cannot be performed on a file with a user-mapped section open.
+```
+
+注意这条报错和 CS0016 的「拒绝访问」**措辞完全不同**，别混为一谈 —— 前者是映射、后者是权限。
+此时**重命名是允许的**（`Rename-Item` 成功，映射跟着文件名走），所以不必请用户关游戏：
+
+```
+Rename-Item BepInEx\plugins\CW3Hanhua.dll BepInEx\plugins\CW3Hanhua.dll.bak
+& _cw3hanhua\tools\build_plugin.cmd      # 对着空位新建，== OK ==
+Remove-Item BepInEx\plugins\CW3Hanhua.dll.bak   # 旧文件解除映射后可删
+```
+
+实测：改名后连续两次编译都 `== OK ==`，`.bak` 也能立刻删掉。游戏下次启动会加载新 DLL。
+
 ### 5.2 编译插件
 
 **用 `_cw3hanhua\tools\build_plugin.cmd`（一次编出**一个** DLL）**，不要手敲命令：
@@ -1484,7 +1721,7 @@ anti-creeper 13/13 已译且形态统一；汉字全在字集内（1505 字）�
 & "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3\_cw3hanhua\tools\build_plugin.cmd"
 ```
 
-★ **两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（现 v1.4.0，4.1）。
+★ **两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（现 v1.5.0，4.1）。
 脚本在编译前会**自动 `del` 掉旧的 `CW3HanhuaText.dll`** —— 那个文件是独立插件
 （GUID `cw3hanhua.text`），留着会在同一批游戏方法上**重复装一遍 Harmony 补丁**。
 
@@ -1690,7 +1927,7 @@ _cw3hanhua/
 │   ├─ diff_bake.py            ★ 烘焙回归：现役资产 vs 基线，确认没波及 UILabel
 │   └─ uilabel_inventory.json / textmesh_inventory.json
 │                              ★ 烘焙前的历史基线快照，**不可再生**（重跑 scan 会覆盖）
-├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.4.0**（4.1）
+├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.5.0**（4.1）
 │                      CW3Hanhua.cs（字体层 = 唯一 BepInPlugin / MonoBehaviour）
 │                      CW3HanhuaText.cs（文本层 = 同程序集普通类 TextPlugin）
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）
@@ -1723,7 +1960,7 @@ _cw3hanhua/
    **过时的中间过程、已废弃的方法直接删**（历史结论压成一句就够，或者进 5.7 的退役表）。
 3. **数字必须可复现。** 引用调用点/指令数时写明用 `tools\ilx.exe` 的哪条命令
    或 `tools\collect_ui_strings.py` 的哪次输出；手写解析器的数字一律不要引用（见 5.4）。
-   文本条数的唯一权威是 `_dict/STATUS.md`（现行 **3508** 条候选，已译 **2318** 条；
+   文本条数的唯一权威是 `_dict/STATUS.md`（现行 **3509** 条候选，已译 **2319** 条；
    `zh_cn.dict` 同数，见 4.2）。
 4. **结论必须有证据等级**：区分「IL 静态证据」「运行时实测」「源码推断」。
    不要把推断写成事实 —— 本项目曾多次因"看起来像"而下错结论（最近一次：

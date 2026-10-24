@@ -1,5 +1,5 @@
 // ============================================================================
-//  CW3 汉化 · 文本层 v1.4.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息 + IMGUI
+//  CW3 汉化 · 文本层 v1.5.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息 + IMGUI
 //
 //  字体层负责"字形从哪来"，本层负责"英文串怎么变中文"。
 //
@@ -36,6 +36,40 @@
 //    `imguiCalls/imguiHits/imguiPatched` 三个统计随之回归（见 F5 与 F11 dump）。
 //    详见 4.3a。**不碰 `GUILayout.TextField`**（返回值是玩家输入数据）。
 //
+//  ★ v1.5.0（2026-10-24）：补上 `GUI.*` 这一族 —— **方案 A2**（用户 m01714 拍板）。
+//    v1.4.0 只覆盖 `GUILayout`，而游戏里有一批界面直接调 `GUI.Xxx(Rect, String, GUIStyle)`：
+//    `WorldMachineManager.DoWorldMachineWindow` 的 `Return to Origin`、
+//    `KeyEntryGUI.ShowKeyEntry` 整个注册界面、`Menu.OnGUI` 的 `Clear` 等。
+//    它们不经过 GUILayout，所以 v1.4.0 的补丁点碰不到，日志里也不会留未命中。
+//
+//    **A2 = 只做精确命中，不做任何拼接/归一/分段**。理由：`GUI.*` 的字面量全部是
+//    完整的短串，压根不需要分段能力；而分段正是「猜」的来源 —— 在固定 Rect 里
+//    把 `FPS: ` 吃掉再把 `60.0` 透传，会发生什么完全不可控。
+//    所以 `LookupGuiExact` 只查 `dict[en]` 精确相等。代价是 `FPS: 60.0` / `Map Size: 1x1`
+//    这类拼接串在 GUI.* 面上一律不译（前者本来就不该动，后者走 GUILayout 已覆盖）。
+//
+//    **为什么打 String 重载不会干扰 v1.4.0 的 GUILayout 补丁**（这条是动手前专门验证的）：
+//      `GUILayout.Label(string,…)` 体内 `0001: call GUIContent.Temp(String)` 立刻转成
+//      GUIContent，再 `call GUILayout.DoLabel(GUIContent, …)` → `GUI.Label(Rect, GUIContent, GUIStyle)`。
+//      DoButton / DoBox / DoRepeatButton 同样只转发到 GUIContent 重载。
+//      ⇒ **GUILayout 那条链从不接触 `GUI.Xxx(Rect, String, …)`**，两组入口在类型上就不重叠。
+//      反过来 `GUI.Button(Rect, String, GUIStyle)` 是 `call GUIContent.Temp` 后
+//      **直接进 `GUI.DoButton(Rect, GUIContent, IntPtr)`**，不绕 GUIContent 重载 ⇒ 不会翻两次。
+//      也因此**绝不能**顺手把 GUIContent 重载也打上：那条链的 `GetRect` 在 `GUI.Label`
+//      **之前**跑，量宽早就用英文完成了，中文会被塞进英文尺寸的框里 —— 正是 v1.2.0 的形状。
+//
+//    **矩形风险**：`GUI.*` 没有 layout 阶段可以重算宽度，Rect 全是游戏写死的常量
+//    （`KeyEntryGUI` 四个 Label 里一个 `CalcSize` 都没有）。所以这一族**逐处核对过**：
+//    Return to Origin 120×22 / Enter Key 100×20 / Invalid Key… 280×20 / Product Key 280×100
+//    / Arc Eternal 270 宽(fontSize 26) / 产品密钥提示 600 宽 —— 中文都装得下。
+//
+//    **不译 `Creeper World III`**（用户 m01714 同批拍板）：它是游戏名本身，且
+//    fontSize 36、Rect 只有 270 宽。词表 zh 留空 ⇒ dict 里没有这条 ⇒ `TryGetValue`
+//    返回 false ⇒ 自然跳过 —— 不需要特判。
+//
+//    **不碰 `GUI.TextField / TextArea`**：同 GUILayout，返回值是玩家输入。
+//    统计另开 `guiCalls/guiHits/guiPatched`，**不与 imgui 混算**（混了就分不清哪层在干活）。
+//
 //  ★ v1.1.0（2026-10-23）：查表加**第四级**「分段重组」LookupSegment。
 //    精确 → '\n' 拼接 → 归一化 → 分段重组。前三级都没动。
 //    起因：护盾提示 "Planet is shielded. ...:\n" + "[ff7f7f]Tempus" 这类
@@ -65,6 +99,10 @@
 //         + Font.CreateDynamicFontFromOSFont 造中文字体塞进 GameSpace.skin 的 "message" 样式
 //       ★ 这是 CRPL 教学提示的**唯一**替换路径。v1.2.0 那层 GUI.Label prefix 已删除
 //         （见顶部 v1.2.0 条目），所以「教学提示还是英文」时只需要查这一条路。
+//    ④ Harmony prefix on GUILayout.Label/Box/Button/RepeatButton/Toggle 的文字重载（v1.4.0）
+//         在 GUILayoutUtility.GetRect 之前改入参 → 宽度由游戏按中文量，不碰 Rect
+//    ⑤ Harmony prefix on GUI.Label/Box/Button/RepeatButton 的 **String 重载**（v1.5.0）
+//         只做精确命中，补 ④ 碰不到的直调点（Return to Origin / KeyEntryGUI / Menu.Clear 等）
 //
 //  ★ v0.10.0：加 ②。改资产能覆盖 19 条静态 TextMesh，但有一批文本是运行时才写的
 //    （星区名/星球名、三段过场的台词），资产里只是占位值，烘中文也留不住。
@@ -132,7 +170,7 @@ namespace CW3Hanhua
     ///   与字体层同在一个程序集，不再有任何反射互调。</summary>
     public class TextPlugin
     {
-        public const string Ver = "1.4.0";
+        public const string Ver = "1.5.0";
 
         static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
 
@@ -190,11 +228,20 @@ namespace CW3Hanhua
         static int crplCalls;
         static int crplHits;
 
-        // 走过 ProcessText 但词表里查不到的串（去重、上限 400）。
+        // 走过 ProcessText 但词表里查不到的串。**按 key 去重、上限 2000**。
         // v0.9.0 起补丁点在 ProcessText，所以这里收到的是**全部 UILabel** 的未命中
         // （含资产序列化文本），不再是 set_text 那 322 个调用点的子集。
         // 用途：F5 打印清单 → 补词表 → F9 重载即可，不用重启游戏。
-        static readonly HashSet<string> missSeen = new HashSet<string>();
+        //
+        // ★ v1.4.1：改用 Dictionary<去重键, 首次出现的原串>，去重键 = MissKey(s)。
+        //   起因（用户 m00859 要求）：原来按**整串**去重，可游戏大量文案是
+        //   「碎片 + 运行时值」拼的 —— `Map Size: 162x121`、`Collected: 12`、
+        //   `Amt: 7` … 每换一个数字就是一条新记录，400 条上限几秒就爆，
+        //   真正缺的模板反而挤不进来（用户报「日志里没看到未命中」就是这个原因）。
+        //   现在把数字串归一成 `#`（`Map Size: #x#`），同一模板只记一次；
+        //   打印时仍给出**首次出现的原串**，可读性不降。上限同时提到 2000。
+        const int MissCap = 2000;
+        static readonly Dictionary<string, string> missSeen = new Dictionary<string, string>();
 
         // ---------------------------------------------------------------- 日志
         // ★ v1.0.0：直接转发到 HanhuaPlugin.Say —— 同一程序集，日志与 F11 报告合并成一份。
@@ -287,6 +334,8 @@ namespace CW3Hanhua
             PatchCrplMessage();      // v1.3.0：源头（CrplCore.ProcessCommands postfix）
 
             PatchIMGUI();            // v1.4.0：第四层，GUILayout 文字重载
+
+            PatchGUI();              // v1.5.0：第五层，GUI.* 的 String 重载（只做精确命中）
 
             Say("按键: （本层无开关，跟着 F3 汉化总开关走）| F5 打印未命中清单 | F9 重载词表");
         }
@@ -565,13 +614,19 @@ namespace CW3Hanhua
         ///
         /// **为什么是 GUILayout 而不是 GUI**：两者最终都走
         /// `GUILayout.DoLabel` → `GUILayoutUtility.GetRect(content, style, options)`
-        /// → `GUI.DoLabel(rect, content, style)`。`DoLabel` 是 private（Harmony 打不上），
-        /// `GUI.Label` 的 6 个重载全是 abstract（reference stub，无 IL 体）。
+        /// → `GUI.DoLabel(rect, content, style)`。`DoLabel` 是 private（Harmony 打不上）。
         /// 而 `GUILayout.Label` 的 6 个重载都是 public + 有真实 IL 体 —— 可以打。
         /// 更关键的是：`GetRect` 就在 `GUILayout.Label` 体内、**用我们改过的入参**
         /// 去量宽，所以中文的宽度天然算对，不需要猜盒子，也不会溢出。
         /// 全库 `GUILayout.*` 有 689 处、直接 `GUI.Label` 只有 58 处（多在编辑器 demo 里），
         /// 所以覆盖 GUILayout 就是覆盖了 92% 的面。
+        ///
+        /// ★ 更正（2026-10-24，v1.5.0）：这里原来写「`GUI.Label` 的 6 个重载全是 abstract
+        ///   （reference stub，无 IL 体）」—— **这是错的**。`ilx dump GUI Label --dll UnityEngine.dll`
+        ///   实测 6 个重载全部有真实 IL 体（il=5~7，RVA 非 0），`GUI.Box/Button/RepeatButton` 同样。
+        ///   当年打不上的是 `GUI.DoLabel/DoButton`（private），不是 `GUI.Label`。
+        ///   所以 v1.5.0 起 `GUI.*` 的 String 重载由 PatchGUI() 接手（见那里）。
+        ///   本方法继续只管 GUILayout —— 两族的入口不重叠，见文件头 v1.5.0 的验证记录。
         ///
         /// **不碰 TextField**：它的返回值是玩家输入的文本，翻了会毁数据
         /// （玩家名字、存档名、CRPL 代码都是从这里出去的）。
@@ -639,6 +694,75 @@ namespace CW3Hanhua
             }
         }
 
+        // ================================================================ GUI.*（v1.5.0，方案 A2）
+        /// <summary>给 `GUI.Label / Box / Button / RepeatButton` 的 **String 重载**打 prefix。
+        /// 这是第五条替换路径，补 v1.4.0（GUILayout）碰不到的那些直调点。
+        ///
+        /// **只打 String 重载，绝不打 GUIContent 重载** —— 后者是 GUILayout 那条链的终点
+        /// （`GUILayout.DoLabel` → `GUI.Label(Rect, GUIContent, GUIStyle)`），
+        /// 打了会与 v1.4.0 的 prefix 叠加，而且 GetRect 早已用英文量完宽度，中文必然溢出。
+        /// 详见文件头 v1.5.0 条目里的调用链验证。
+        ///
+        /// **只给 `(Rect, String)` 与 `(Rect, String, GUIStyle)` 两种形态打**：
+        /// 文字恒在参数 1（Rect 在 0），所以用 `PrefixGuiExact1`（**不是** `PrefixGuiStr1` ——
+        /// 那一个会走完整 Lookup 的四级链，本层只做精确命中，理由见下）。
+        /// `(Rect, Texture)` / `(Rect, GUIContent)` / `(Rect, Texture, GUIStyle)` /
+        /// `(Rect, GUIContent, GUIStyle)` / `(Rect, GUIStyle)` 五种形态按参数类型自然跳过。
+        ///
+        /// **不碰 TextField / TextArea**：它们的 String 重载返回值/引用是玩家输入，
+        /// 翻了会毁数据（与 GUILayout 那条同一条纪律）。本方法的方法名白名单里没有它们。
+        ///
+        /// **A2 = 只精确命中**：prefix 用 `PrefixGuiExact1` → `LookupGuiExact`，只查 `dict[en]`。
+        /// 不走 v1.4.0 那套 `Lookup` 四级链 —— 这一族的 Rect 是常量、没有 layout 阶段可重算，
+        /// 分段拼出来的长度不可控。所以本层「查不到就不动」，宁可漏译也不猜。</summary>
+        static int guiCalls;
+        static int guiHits;
+        static int guiPatched;
+
+        static void PatchGUI()
+        {
+            string[] names = { "Label", "Box", "Button", "RepeatButton" };
+            for (int n = 0; n < names.Length; n++)
+            {
+                try { PatchGUIMethod(names[n]); }
+                catch (Exception e) { Say("!! 装 GUI." + names[n] + " 补丁失败: " + e.Message); }
+            }
+            Say("★ IMGUI patch: GUI.* 文字重载 " + guiPatched + " 个（方案 A2，只精确命中）"
+                + (guiPatched > 0 ? "" : "  !! 一个都没装上"));
+            if (guiPatched > 0)
+                Say("  覆盖面: Return to Origin / 产品密钥界面 / 菜单 Clear 等直调 GUI.* 的界面");
+        }
+
+        static void PatchGUIMethod(string name)
+        {
+            MethodInfo[] all = typeof(GUI).GetMethods(
+                BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly);
+            for (int i = 0; i < all.Length; i++)
+            {
+                MethodInfo m = all[i];
+                if (m.Name != name) continue;
+                if (m.IsAbstract || m.GetMethodBody() == null) continue;   // 无 IL 体，跳过
+                ParameterInfo[] ps = m.GetParameters();
+                // 只认 (Rect, String) 与 (Rect, String, GUIStyle)：文字恒在 1，Rect 在 0
+                if (ps.Length < 2 || ps.Length > 3) continue;
+                if (ps[0].ParameterType != typeof(Rect)) continue;
+                if (ps[1].ParameterType != typeof(string)) continue;       // ★ 非 String 一律跳过
+                if (ps.Length == 3 && ps[2].ParameterType != typeof(GUIStyle)) continue;
+
+                // id 里带「参数个数」就够区分这两个重载（2 参 / 3 参），文字下标恒为 1
+                Harmony h = new Harmony("cw3hanhua.text.gui." + name + "." + ps.Length + ".s1");
+                PatchProcessor p = h.CreateProcessor(m);
+                p.AddPrefix(new HarmonyMethod(typeof(TextPlugin).GetMethod("PrefixGuiExact1",
+                    BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)));
+                p.Patch();
+
+                Patches pi = Harmony.GetPatchInfo(m);
+                int cnt = pi == null ? -1 : pi.Prefixes.Count;
+                if (cnt == 1) guiPatched++;
+                else Say("  !! GUI." + name + "/" + ps.Length + " 参数 没装上（prefix=" + cnt + "）");
+            }
+        }
+
         /// <summary>把一条文案换成中文；没命中返回 null。IMGUI 的串没有色标解析，
         /// 但游戏偶尔会把 `[ffffff]` 之类塞进 IMGUI 文本 —— 那属于极少数，交给词表原样匹配。</summary>
         static string LookupGuiText(string en)
@@ -649,6 +773,34 @@ namespace CW3Hanhua
             try { zh = Lookup(en); } catch (Exception) { return null; }
             if (zh == null || zh == en) { NoteMiss(en); return null; }
             return zh;
+        }
+
+        /// <summary>★ v1.5.0（方案 A2）：`GUI.*` 专用 —— **只做精确命中**，直接查 dict。
+        /// 不走 Lookup() 的四级链（拼接 / 归一化 / 分段），因为 `GUI.*` 的 Rect 是游戏
+        /// 写死的常量、没有 layout 阶段可以重算宽度，分段拼出来的串长度不可控。
+        /// 代价：`FPS: 60.0`、`Map Size: 1x1` 这类「碎片+变量」串在这一层不译
+        /// （前者是性能显示本来就不该动，后者走 GUILayout 那条已由 v1.4.1 的 x 规则覆盖）。
+        ///
+        /// 词表里 zh 留空的条目（如 `Creeper World III`）dict 里根本不存在，
+        /// 自然查不中 —— 不需要为它写特判。</summary>
+        static string LookupGuiExact(string en)
+        {
+            if (!textOn || en == null || en.Length == 0 || dict.Count == 0) return null;
+            if (HasCjk(en)) return null;              // 已经是中文
+            string zh;
+            if (!dict.TryGetValue(en, out zh)) return null;
+            if (zh == null || zh.Length == 0 || zh == en) return null;
+            return zh;
+        }
+
+        static void PrefixGuiExact1(ref string __1)
+        {
+            guiCalls++;
+            if (__1 == null || __1.Length == 0) return;
+            string zh = LookupGuiExact(__1);
+            if (zh == null) return;
+            guiHits++;
+            __1 = zh;
         }
 
         // GUILayout 的 4 种入参形态（文字在第 0 / 第 1 个 × string / GUIContent）各一个 prefix。
@@ -1031,6 +1183,20 @@ namespace CW3Hanhua
                             matched++;
                             continue;
                         }
+                        // ★ v1.4.1：「数字x数字」里的那个 x 也当变量透传。
+                        //   起因（用户实测 DMD 界面 `Map Size: 101x101` 未译，日志有未命中）：
+                        //   WorldMachineManager.DoWorldMachineWindow 拼的是
+                        //     "Map Size: " + (Int16)w + "x" + (Int16)h
+                        //   词表里 `Map Size: ` 命中、两侧数字本来就逐字符透传，
+                        //   偏偏中间的 `x` 是字母、消费不掉 → 触发下面的「全有或全无」→ 整串丢弃。
+                        //   这是尺寸写法（16x9 / 101x101 / 1920x1080），与键名同类：**不是语言**。
+                        //   只认「数字 + x/X + 数字」这一种极窄形态，别的字母一概不放过。
+                        if (IsSizeSep(s, i))
+                        {
+                            sb.Append(c);
+                            i++;
+                            continue;
+                        }
                         return null;       // 有字母消费不掉 → 全有或全无
                     }
                     sb.Append(c);
@@ -1101,6 +1267,28 @@ namespace CW3Hanhua
         static bool IsWordChar(char c)
         {
             return IsLetter(c) || (c >= '0' && c <= '9');
+        }
+
+        /// <summary>★ v1.4.1：s[i] 是不是「尺寸写法」里的分隔符 `x`（`16x9` / `101x101`）。
+        ///
+        /// 判据极窄，三个条件全要满足：
+        ///   - 当前字符是 `x` 或 `X`；
+        ///   - 前一个字符是数字；
+        ///   - 后一个字符是数字。
+        /// 即只认「数字 + x + 数字」正中间那一个字符。
+        ///
+        /// 为什么敢放宽「字母必须被消费掉」这条铁律：它只把 `x` **原样透传**
+        /// （不产生译文、不增加 matched），且必须两侧夹着数字 —— 任何真正的英文单词
+        /// 都不可能长成这样（`Windows` 的 `x` 左边是 `d`，不满足）。所以最坏后果只是
+        /// 「本该整串放弃的，现在把能译的碎片译出来」，不会拼出中英混杂的坏句子。</summary>
+        static bool IsSizeSep(string s, int i)
+        {
+            if (i <= 0 || i >= s.Length - 1) return false;
+            char c = s[i];
+            if (c != 'x' && c != 'X') return false;
+            if (s[i - 1] < '0' || s[i - 1] > '9') return false;
+            if (s[i + 1] < '0' || s[i + 1] > '9') return false;
+            return true;
         }
 
         /// <summary>若 s[i] 起是一个颜色/标记段，返回它的长度（含方括号），否则 0。
@@ -1325,13 +1513,48 @@ namespace CW3Hanhua
         static void NoteMiss(string s)
         {
             if (s == null || s.Length == 0) return;
-            if (missSeen.Count > 400) return;
-            if (missSeen.Add(s) && missSeen.Count <= 400)
+            string key = MissKey(s);
+            if (missSeen.Count >= MissCap && !missSeen.ContainsKey(key)) return;
+            if (!missSeen.ContainsKey(key))
             {
+                missSeen[key] = s;                       // 留首次出现的原串，打印时用它
                 // 只在"看起来像英文 UI 字符串"时记，避免刷屏
                 if (HasLetter(s)) Say("  [未命中] " + Trunc(s, 60));
                 if (s.Length >= 20) DumpMissDetail(s);
             }
+        }
+
+        /// <summary>★ v1.4.1：算未命中的**去重键** —— 把连续数字归一成 `#`。
+        ///
+        /// 只动数字，不动字母/标点/空格/换行：
+        ///   `Map Size: 162x121` → `Map Size: #x#`
+        ///   `Collected: 12`      → `Collected: #`
+        ///   `Amt: 7/30`          → `Amt: #/#`
+        ///   `Sector 3 Name`      → `Sector # Name`
+        /// 32 位以上长数字（时间戳、种子）归一后长度也稳定，不会撑爆键。
+        /// 为什么不去字母：去字母会把 `Return to Origin` 与 `Return to Origin2`
+        /// 之外的无关串也并到一起（`Next` / `Nexus` 会塌成同一个键），丢失信息。</summary>
+        static string MissKey(string s)
+        {
+            try
+            {
+                StringBuilder sb = new StringBuilder(s.Length);
+                bool inNum = false;
+                for (int i = 0; i < s.Length; i++)
+                {
+                    char c = s[i];
+                    bool dig = (c >= '0' && c <= '9');
+                    if (dig)
+                    {
+                        if (!inNum) { sb.Append('#'); inNum = true; }
+                        continue;
+                    }
+                    inNum = false;
+                    sb.Append(c);
+                }
+                return sb.ToString();
+            }
+            catch (Exception) { return s; }
         }
 
         /// <summary>★ v0.10.2 临时诊断（剧情台词查不到译文时用）：把未命中的长串**全文**写进
@@ -1582,14 +1805,17 @@ namespace CW3Hanhua
             Say("======== F5: 未命中清单（prefix 走过但无译文）========");
             Say("  累计 prefix 调用 " + prefixCalls + "  命中 " + prefixHits
                 + "  拼接命中 " + hitConcat + "  分段命中 " + hitSeg
-                + "  未命中 " + missSeen.Count + " 条");
+                + "  未命中 " + missSeen.Count + " 种（上限 " + MissCap + "）");
             Say("  IMGUI 调用 " + imguiCalls + "  命中 " + imguiHits
-                + "  已装重载 " + imguiPatched + " 个（v1.4.0）");
+                + "  已装重载 " + imguiPatched + " 个（GUILayout，v" + Ver + "）");
+            Say("  GUI  调用 " + guiCalls + "  命中 " + guiHits
+                + "  已装重载 " + guiPatched + " 个（GUI.* 精确命中，v" + Ver + "）");
             int i = 0;
-            foreach (string s in missSeen)
+            foreach (KeyValuePair<string, string> kv in missSeen)
             {
                 i++;
-                Say("  " + i + ". " + Trunc(s, 90));
+                // v1.4.1：数字已归一，同一模板只出一条；这里打**首次出现的原串**
+                Say("  " + i + ". " + Trunc(kv.Value, 90));
             }
             if (missSeen.Count == 0) Say("  （空 —— 本场景所有经过 ProcessText 的串都命中词表了）");
         }
@@ -1619,6 +1845,7 @@ namespace CW3Hanhua
                     + "  mesh=" + meshCalls + "/" + meshHits
                     + "  crpl=" + crplCalls + "/" + crplHits
                     + "  imgui=" + imguiCalls + "/" + imguiHits + "(" + imguiPatched + ")"
+                    + "  gui=" + guiCalls + "/" + guiHits + "(" + guiPatched + ")"
                     + "  CRPL字体=" + (cjkFontName.Length > 0 ? cjkFontName : "(无)")
                     + "  未命中=" + missSeen.Count
                     + "  已记录 label=" + swaps.Count
