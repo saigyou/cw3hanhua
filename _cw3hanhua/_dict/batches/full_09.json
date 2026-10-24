@@ -9,9 +9,9 @@
   "Saved to Slot 1.": "已保存到存档位1。",
   "Saved to Slot 2.": "已保存到存档位2。",
   "Saved to Slot 3.": "已保存到存档位3。",
-  "KEY ALREADY USED BY: ": "该按键已被占用： ",
-  "Key Binding: ": "按键绑定： ",
-  "New Key Binding: ": "新按键绑定： ",
+  "KEY ALREADY USED BY: ": "该按键已被占用：",
+  "Key Binding: ": "按键绑定：",
+  "New Key Binding: ": "新按键绑定：",
   "Invalid Parameter": "参数无效",
   "Enter Key": "输入密钥",
   "Enter your product key below.\nIf you don't have a key, visit knucklecracker.com for purchase info.": "请在下方输入你的产品密钥。\n若没有密钥，请访问knucklecracker.com了解购买信息。",
@@ -28,9 +28,9 @@
   "Checking for Update...": "正在检查更新…",
   "Key Exit": "密钥退出",
   "Main menu": "主菜单",
-  "News: ": "新闻： ",
-  "Quality: ": "画质： ",
-  "Shader Quality: ": "着色器质量： ",
+  "News: ": "新闻：",
+  "Quality: ": "画质：",
+  "Shader Quality: ": "着色器质量：",
   "[ffffd0](D)ial (M)ap (D)evice.[ffffff]\nDial up the map of your nightmares.\nComplete and get online naming rights!": "[ffffd0](D)ial (M)ap (D)evice。[ffffff]\n拨号连接你梦魇中的地图。\n完成即可获得在线命名权！",
   "[ffffd0]A vast and tormented region.[ffffff]\nFree as many systems as possible\nin these 'challenging' worlds.": "[ffffd0]一片辽阔而受尽折磨的区域。[ffffff]\n在这些「富有挑战」的世界中\n尽可能多地解放星系。",
   "[ffffd0]Credits[ffffff]\nExplore the dungeon...": "[ffffd0]制作组[ffffff]\n探索这个地牢……",
@@ -40,6 +40,6 @@
   "[ffffd0]Precursor worlds.[ffffff]\nBefore space as we know it was formed\nthese worlds were the pillars of reality.": "[ffffd0]先驱者世界。[ffffff]\n在我们所知的空间形成之前，\n这些世界是现实的支柱。",
   "[ffffd0]Story Mode.[ffffff]\nPlay and complete missions to unlock\nother sectors.": "[ffffd0]故事模式。[ffffff]\n游玩并完成任务以解锁\n其他星区。",
   "[ffffd0]You are the supreme being.[ffffff]\nMake your own custom worlds and upload\nthem to KnuckleCracker.com.": "[ffffd0]你就是至高存在。[ffffff]\n创造你自己的定制世界，\n并上传到KnuckleCracker.com。",
-  "Directory does not exist: ": "目录不存在： "
+  "Directory does not exist: ": "目录不存在："
  }
 }

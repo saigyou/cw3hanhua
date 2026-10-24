@@ -1,6 +1,6 @@
 {
  "version": 2,
- "generated": "2026-10-24 11:21:27",
+ "generated": "2026-10-24 14:01:47",
  "baked_charset": 7544,
  "strings": [
   {
@@ -2517,7 +2517,7 @@
   },
   {
    "en": "REFRESHING. PLEASE WAIT.... ",
-   "zh": "正在刷新，请稍候…… ",
+   "zh": "正在刷新，请稍候……",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -8582,7 +8582,7 @@
   },
   {
    "en": "World Secure!\n Completion Time: ",
-   "zh": "世界已肃清！\n 通关时间： ",
+   "zh": "世界已肃清！\n 通关时间：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9187,7 +9187,7 @@
   },
   {
    "en": "  [ffffff]Upgrading to Lvl: ",
-   "zh": "  [ffffff]升级至等级： ",
+   "zh": "  [ffffff]升级至等级：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9718,7 +9718,7 @@
   },
   {
    "en": "Directory does not exist: ",
-   "zh": "目录不存在： ",
+   "zh": "目录不存在：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11182,7 +11182,7 @@
   },
   {
    "en": "Communication Error: ",
-   "zh": "通信错误： ",
+   "zh": "通信错误：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11262,7 +11262,7 @@
   },
   {
    "en": "KEY ALREADY USED BY: ",
-   "zh": "该按键已被占用： ",
+   "zh": "该按键已被占用：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11586,7 +11586,7 @@
   },
   {
    "en": "\nAdditional Number: ",
-   "zh": "\n额外数量： ",
+   "zh": "\n额外数量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11747,7 +11747,7 @@
   },
   {
    "en": "DMD Maps Completed: ",
-   "zh": "已完成DMD地图： ",
+   "zh": "已完成DMD地图：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12834,7 +12834,7 @@
   },
   {
    "en": "  Current Height: ",
-   "zh": "  当前高度： ",
+   "zh": "  当前高度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13323,7 +13323,7 @@
   },
   {
    "en": "Prospector Zone : ",
-   "zh": "探矿者星区： ",
+   "zh": "探矿者星区：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13583,7 +13583,7 @@
   },
   {
    "en": "Tormented Space : ",
-   "zh": "折磨空间： ",
+   "zh": "折磨空间：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13643,7 +13643,7 @@
   },
   {
    "en": "Upgrading to Lvl: ",
-   "zh": "正在升级至等级： ",
+   "zh": "正在升级至等级：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -14283,7 +14283,7 @@
   },
   {
    "en": "New Key Binding: ",
-   "zh": "新按键绑定： ",
+   "zh": "新按键绑定：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15326,7 +15326,7 @@
   },
   {
    "en": "Shader Quality: ",
-   "zh": "着色器质量： ",
+   "zh": "着色器质量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15346,7 +15346,7 @@
   },
   {
    "en": "Spawn Interval: ",
-   "zh": "生成间隔： ",
+   "zh": "生成间隔：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15407,7 +15407,7 @@
   },
   {
    "en": "Upgrade to Lvl: ",
-   "zh": "升级至等级： ",
+   "zh": "升级至等级：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15595,7 +15595,7 @@
   },
   {
    "en": "Alpha Sector : ",
-   "zh": "阿尔法星区： ",
+   "zh": "阿尔法星区：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15695,7 +15695,7 @@
   },
   {
    "en": "Current Width: ",
-   "zh": "当前宽度： ",
+   "zh": "当前宽度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16583,7 +16583,7 @@
   },
   {
    "en": "Arc Eternal : ",
-   "zh": "永恒之弧： ",
+   "zh": "永恒之弧：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17983,7 +17983,7 @@
   },
   {
    "en": "Key Binding: ",
-   "zh": "按键绑定： ",
+   "zh": "按键绑定：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19193,7 +19193,7 @@
   },
   {
    "en": "Map Height: ",
-   "zh": "地图高度： ",
+   "zh": "地图高度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19233,7 +19233,7 @@
   },
   {
    "en": "My Sector : ",
-   "zh": "我的星区： ",
+   "zh": "我的星区：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20000,7 +20000,7 @@
   },
   {
    "en": "Collected: ",
-   "zh": "已收集： ",
+   "zh": "已收集：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20204,7 +20204,7 @@
   },
   {
    "en": "Map Width: ",
-   "zh": "地图宽度： ",
+   "zh": "地图宽度：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21431,7 +21431,7 @@
   },
   {
    "en": "Interval: ",
-   "zh": "间隔： ",
+   "zh": "间隔：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21455,7 +21455,7 @@
   },
   {
    "en": "Map Size: ",
-   "zh": "地图尺寸： ",
+   "zh": "地图尺寸：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22237,7 +22237,7 @@
   },
   {
    "en": "Payload: ",
-   "zh": "载荷： ",
+   "zh": "载荷：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22277,7 +22277,7 @@
   },
   {
    "en": "Quality: ",
-   "zh": "画质： ",
+   "zh": "画质：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22420,7 +22420,7 @@
   },
   {
    "en": "Unknown: ",
-   "zh": "未知： ",
+   "zh": "未知：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22509,7 +22509,7 @@
   },
   {
    "en": "Aether: ",
-   "zh": "以太： ",
+   "zh": "以太：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22672,7 +22672,7 @@
   },
   {
    "en": "Energy: ",
-   "zh": "能量： ",
+   "zh": "能量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22760,7 +22760,7 @@
   },
   {
    "en": "Sector: ",
-   "zh": "星区： ",
+   "zh": "星区：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22800,7 +22800,7 @@
   },
   {
    "en": "Spores: ",
-   "zh": "孢子： ",
+   "zh": "孢子：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23003,7 +23003,7 @@
   },
   {
    "en": "Build: ",
-   "zh": "建造： ",
+   "zh": "建造：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23043,7 +23043,7 @@
   },
   {
    "en": "Error: ",
-   "zh": "错误： ",
+   "zh": "错误：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23088,7 +23088,7 @@
   },
   {
    "en": "Level: ",
-   "zh": "等级： ",
+   "zh": "等级：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23173,7 +23173,7 @@
   },
   {
    "en": "Score: ",
-   "zh": "得分： ",
+   "zh": "得分：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23803,7 +23803,7 @@
   },
   {
    "en": "News: ",
-   "zh": "新闻： ",
+   "zh": "新闻：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23903,7 +23903,7 @@
   },
   {
    "en": "Tech: ",
-   "zh": "科技： ",
+   "zh": "科技：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23943,7 +23943,7 @@
   },
   {
    "en": "Time: ",
-   "zh": "时间： ",
+   "zh": "时间：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -24023,7 +24023,7 @@
   },
   {
    "en": "  T: ",
-   "zh": "  地形： ",
+   "zh": "  地形：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -24083,7 +24083,7 @@
   },
   {
    "en": "Amt: ",
-   "zh": "数量： ",
+   "zh": "数量：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -24149,7 +24149,7 @@
   },
   {
    "en": "FPS: ",
-   "zh": "帧率： ",
+   "zh": "帧率：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -24218,7 +24218,7 @@
   },
   {
    "en": "Lvl: ",
-   "zh": "等级： ",
+   "zh": "等级：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -24238,7 +24238,7 @@
   },
   {
    "en": "Map: ",
-   "zh": "地图： ",
+   "zh": "地图：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -24320,7 +24320,7 @@
   },
   {
    "en": "Ore: ",
-   "zh": "矿： ",
+   "zh": "矿：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -24626,7 +24626,7 @@
   },
   {
    "en": "M: ",
-   "zh": "  地图： ",
+   "zh": "  地图：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -59378,7 +59378,7 @@
   },
   {
    "en": "; Sent: ",
-   "zh": "；已发出： ",
+   "zh": "；已发出：",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59398,7 +59398,7 @@
   },
   {
    "en": "\nNext Train: ",
-   "zh": "\n下一班列车： ",
+   "zh": "\n下一班列车：",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59658,7 +59658,7 @@
   },
   {
    "en": "\nTime To Start: ",
-   "zh": "\n开始倒计时： ",
+   "zh": "\n开始倒计时：",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -61238,7 +61238,7 @@
   },
   {
    "en": "HP(Creeper): ",
-   "zh": "HP（Creeper）： ",
+   "zh": "HP（Creeper）：",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -61258,7 +61258,7 @@
   },
   {
    "en": " ChanceOfAttack: ",
-   "zh": " 进攻概率： ",
+   "zh": " 进攻概率：",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -63678,7 +63678,7 @@
   },
   {
    "en": "Thank you father.... thank you for choosing the right path. ",
-   "zh": "谢谢你，父亲……谢谢你选择了正确的路。 ",
+   "zh": "谢谢你，父亲……谢谢你选择了正确的路。",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -63977,6 +63977,266 @@
    ],
    "hits": 1,
    "note": "DMD 分区标题：DoLabel 拼 \"--- \" + name + \" ---\"；与 Create Landing Pad=创建登陆平台 对齐"
+  },
+  {
+   "en": "CommandNode",
+   "zh": "指挥节点",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "ArrivedInOrbit 拼接碎片"
+  },
+  {
+   "en": "Additional Number: ",
+   "zh": "额外数量：",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "ArrivedInOrbit 拼接碎片"
+  },
+  {
+   "en": "[ff5050]To Access:\n[ff0000][ff0000]Unlock via Arc Eternal missions.",
+   "zh": "[ff5050]解锁条件：\n[ff0000][ff0000]通过永恒之弧任务解锁。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "换行开头 key 的无换行副本（分段索引可达）"
+  },
+  {
+   "en": "[ff5050]To Access:\n[ff0000]Complete first 10 Arc Eternal missions.",
+   "zh": "[ff5050]解锁条件：\n[ff0000]完成前10个永恒之弧任务。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "换行开头 key 的无换行副本（分段索引可达）"
+  },
+  {
+   "en": "[ff5050]To Access:\n[ff0000]Complete first 5 Arc Eternal missions.",
+   "zh": "[ff5050]解锁条件：\n[ff0000]完成前5个永恒之弧任务。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "换行开头 key 的无换行副本（分段索引可达）"
+  },
+  {
+   "en": "[ff5050]To Access:\n[ff0000]Complete All Arc Eternal missions.",
+   "zh": "[ff5050]解锁条件：\n[ff0000]完成全部永恒之弧任务。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "换行开头 key 的无换行副本（分段索引可达）"
+  },
+  {
+   "en": "[ff5050]To Access:\n[ff0000]Unlock via Arc Eternal missions.",
+   "zh": "[ff5050]解锁条件：\n[ff0000]通过永恒之弧任务解锁。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "换行开头 key 的无换行副本（分段索引可达）"
+  },
+  {
+   "en": "Next Train: ",
+   "zh": "下一班列车：",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "换行开头 key 的无换行副本（分段索引可达）"
+  },
+  {
+   "en": "Preparing Trains",
+   "zh": "正在准备列车",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "换行开头 key 的无换行副本（分段索引可达）"
+  },
+  {
+   "en": "If the train arrives in the right place, your score goes up by 1.",
+   "zh": "如果列车到达正确的地点，你的得分会增加1分。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "换行开头 key 的无换行副本（分段索引可达）"
+  },
+  {
+   "en": "If the train derails, your score goes down by 5 points.",
+   "zh": "如果列车脱轨，你的得分会减少5分。",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "换行开头 key 的无换行副本（分段索引可达）"
+  },
+  {
+   "en": "Time To Start: ",
+   "zh": "开始倒计时：",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "换行开头 key 的无换行副本（分段索引可达）"
+  },
+  {
+   "en": "Time To Start: 0",
+   "zh": "开始倒计时：0",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "换行开头 key 的无换行副本（分段索引可达）"
   }
  ]
 }

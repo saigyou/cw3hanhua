@@ -48,10 +48,21 @@ def main():
             nl_bad.append((i, en, zh))
         if PH.findall(en) != PH.findall(zh):
             ph_bad.append((i, en, zh))
-        # 首尾空白必须逐字保留：拼接前缀靠它对齐
+        # 前导空白必须逐字保留：靠它缩进对齐（'  地形：'）
+        # 尾随空白：en 尾部若只是空格（拼接前缀，如 'Collected: '），
+        # zh 允许整段删掉——中文全角标点自带间隔，再缀半角空格违反
+        # 用户 2026-10-24 定的「中英混排不加空格」（见 tools/fix_tail_space.py）。
+        # 但 en 尾部若含换行/制表符，仍必须逐字保留。
         le = len(en) - len(en.lstrip())
         te = len(en) - len(en.rstrip())
-        if zh[:le] != en[:le] or (te and zh[-te:] != en[-te:]):
+        tail_en = en[len(en) - te:] if te else ""
+        bad = zh[:le] != en[:le]
+        if not bad and te:
+            if tail_en.strip(" ") == "":      # en 尾部纯空格 → zh 可留可删
+                bad = not (zh[len(zh) - te:] == tail_en or not zh.endswith(" "))
+            else:                              # 含 \n \t → 必须一字不差
+                bad = zh[len(zh) - te:] != tail_en
+        if bad:
             sp_bad.append((i, en, zh))
 
     total = 0

@@ -1,0 +1,7 @@
+{
+ "note": "TechArtifactManager.ArrivedInOrbit 运行时拼接串的缺失碎片：techNames[19]=CommandNode（技术名，无空格写法），以及 'Additional Number: '（原文带前导 \\n 的版本进不了分段索引，需补无 \\n 版本）",
+ "items": {
+  "CommandNode": "指挥节点",
+  "Additional Number: ": "额外数量："
+ }
+}

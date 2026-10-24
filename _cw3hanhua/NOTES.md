@@ -1730,6 +1730,73 @@ GUILayout.Label(string A, …)   0002: call GUIContent.Temp(String)   ← 立刻
 
 ---
 
+### 4.14 ★ 拼接串「Collected: CommandNode」不翻译的根因 + 尾空格收尾（2026-10-24）
+
+**症状**（用户 m00794 截图「系统通讯」弹窗）：正文
+`Collected: CommandNode` / `Control additional Command Nodes.` / `Additional Number: 1`
+三行**全英文**，而这三段在词表里其实是分开的。
+
+**根因一：拼接后的整串查表是「全有或全无」。**
+文本由 `TechArtifactManager.ArrivedInOrbit` 用 `String.Concat` 拼成**一整串**再交给插件：
+`"Collected: " + techNames[i] + "\n\n" + 描述 + "\nAdditional Number: " + n`。
+插件的 `LookupSegment`（`plugin/CW3HanhuaText.cs:1023` 附近）从 `'C'` 起头 MatchKey，
+最长匹配到 `'Collected: '` 之后要接着吃 `'CommandNode'` —— 而 **`'CommandNode'` 这个词表里
+根本没有**（`techNames` 20 项里只有它缺席：其余 19 项都译了；词表里有 `'COMMANDNODE'`
+大写枚举版和 `'Command Nodes'` / `'Command Node'`，就是没有驼峰写法）。
+分段器一旦在 `'C'` 处失败就把整串原样返回 ⇒ 三行全部保持英文，
+连本来就译好的 `'Control additional Command Nodes.'` 也被连坐。
+
+**根因二：以 `\n` 开头的词条永远匹配不到。**
+`'Additional Number: '` 在词表里的键**带前导换行**（`'\nAdditional Number: '`），
+而分段索引 `BuildSegmentIndex()`（`CW3HanhuaText.cs:980-998`）只收
+`IsLetter(c) || c == ' ' || c == '['` 起头的键，`LookupSegment` 也只在这些字符处试 MatchKey
+⇒ **以 `\n` 起头的键是死键**。全库共 12 条这种键（`'\n[ff5050]To Access:…'` ×5、
+`'\nAdditional Number: '`、`'\nNext Train: '`、`'\nPreparing Trains'`、
+`'\nIf the train derails…'`、`'\nIf the train arrives…'`、`'\nTime To Start: '`、
+`'\nTime To Start: 0'`）。
+
+**修法（只动词表，没碰 DLL —— 全程游戏在跑、`BepInEx/plugins/CW3Hanhua.dll` 被锁）**：
+
+| 动作 | 结果 |
+|---|---|
+| 新增 `'CommandNode'` → `'指挥节点'` | 补齐 `techNames` 缺口 |
+| 新增去掉前导 `\n` 的 `'Additional Number: '` / `'Next Train: '` / `'Time To Start: '` 等活键 | 让分段器在 `'A'`/`'N'`/`'T'` 处能起头 |
+| 保留原来的带 `\n` 键 | 不删：万一插件改成能吃 `\n` 起头，它们仍然有效 |
+
+实测（`tools/_probe_fix.py` 模拟分段器）拼出来：
+`'已收集：指挥节点\n\n控制额外的指挥节点。\n额外数量：1'` —— 全中文，无残留英文。
+
+`techNames` 全 20 项：Collector / Relay / Reactor / Shield / Ore Mine / Siphon / Terp /
+Guppy / Pulse Cannon / Mortar / Strafer / Bomber / Nullifier / Sprayer / Beam / Sniper /
+Forge / Bertha / Thor / **CommandNode**。前 19 项原本就都在词表里（`grade=other cat=both`）。
+
+**连带收尾：56 条「全角标点 + 半角空格」结尾。**
+这批全是**拼接前缀**（en 自带尾空格，`'Collected: '`、`'Amt: '`、`'FPS: '`、`'Energy: '`…），
+zh 译成 `'已收集： '`，拼出来就是 `已收集： 指挥节点`，违反 4.13 定的「不加空格」。
+用新工具 `tools/fix_tail_space.py` 清掉末尾那一个空格（**只删尾部**，前导保留：
+`'  地形：'`、`'  [ffffff]升级至等级：'` 不动），共 **56 条**。
+
+`fix_tail_space.py` 规则：`RX_TAIL = re.compile(r"([\u3000-\u303f\uff01-\uff60\u2014\u2026])[ ]+$")`
+—— 只有「全角标点 + 空格」结束才算命中，所以 `'Knuckle Cracker, LLC'` 这类纯拉丁不受影响。
+安全前提已实测：**56 条里没有一条 zh 以 ASCII 字母/数字结尾**，删尾空格不可能与后接内容粘连；
+en 尾部也**没有任何换行/制表符**（只有纯空格）。
+
+**`audit_translations.py` 的「首尾空白」规则随之放宽**（这条很关键，否则每次审计都报 56 处假阳性）：
+- 前导空白仍必须**逐字保留**（缩进对齐）。
+- 尾随空白分两种：en 尾部**纯空格** ⇒ zh 允许整段删掉（删了才符合 4.13）；
+  en 尾部**含 `\n` / `\t`** ⇒ 仍必须一字不差。
+（原实现是 `zh[-te:] != en[-te:]` 一刀切，与 4.13 直接冲突。）
+
+**验证**：audit 现在 `换行 0 / 占位符 0 / 首尾空白 0`，只剩 **14 处「标记」假阳性**
+（`[Scanning...]` 这类方括号本来就要译，是既有情况，4.10 已记）；
+dict 重建 **2332 条 / 249745 字节**；`check_charset.py` 1607 字符全在图集内；
+`verify_lookup.py --idempotent` 0 条被改写；`fix_spaces.py` 与 `fix_tail_space.py` 重跑均 0 条改动。
+
+**教训**：词表键的**首字符类型**决定它能否被匹配（letter / 空格 / `[` 才行，`\n` 不行）。
+以后新增词条前先看 en 原文在这段拼接里处于什么位置 —— 带前导换行的键要**额外**加一条无前导版本。
+
+---
+
 ## 五、环境与陷阱
 
 ### 5.1 沙箱写入权限

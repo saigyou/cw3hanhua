@@ -6,7 +6,7 @@
   "Desc:": "描述：",
   "Downloaded:": "已下载：",
   "Downloading...": "正在下载…",
-  "Error: ": "错误： ",
+  "Error: ": "错误：",
   "Favorites:": "收藏：",
   "IN PROGRESS": "进行中",
   "In Progress:": "进行中：",
@@ -43,13 +43,13 @@
   "Title:": "标题：",
   "Un-Hide": "取消隐藏",
   "View Hidden:": "查看隐藏项：",
-  "  [ffffff]Upgrading to Lvl: ": "  [ffffff]升级至等级： ",
+  "  [ffffff]Upgrading to Lvl: ": "  [ffffff]升级至等级：",
   " for ": " 用时 ",
   "\"  to select terrain height under mouse.": "\" 以选取鼠标下的地形高度。",
   "Building...": "正在建造…",
   "Fully Upgraded!": "已完全升级！",
   "Multiple Units Selected": "已选择多个单位",
-  "Upgrade to Lvl: ": "升级至等级： ",
-  "Upgrading to Lvl: ": "正在升级至等级： "
+  "Upgrade to Lvl: ": "升级至等级：",
+  "Upgrading to Lvl: ": "正在升级至等级："
  }
 }

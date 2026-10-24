@@ -1,0 +1,16 @@
+{
+ "_note": "把以换行开头的 key 再补一份无换行版本：分段器只在字母/空格/[ 处起头查表，\\n 开头的 key 永远匹配不到（见 CW3HanhuaText.cs:987）",
+ "items": {
+  "[ff5050]To Access:\n[ff0000][ff0000]Unlock via Arc Eternal missions.": "[ff5050]解锁条件：\n[ff0000][ff0000]通过永恒之弧任务解锁。",
+  "[ff5050]To Access:\n[ff0000]Complete first 10 Arc Eternal missions.": "[ff5050]解锁条件：\n[ff0000]完成前10个永恒之弧任务。",
+  "[ff5050]To Access:\n[ff0000]Complete first 5 Arc Eternal missions.": "[ff5050]解锁条件：\n[ff0000]完成前5个永恒之弧任务。",
+  "[ff5050]To Access:\n[ff0000]Complete All Arc Eternal missions.": "[ff5050]解锁条件：\n[ff0000]完成全部永恒之弧任务。",
+  "[ff5050]To Access:\n[ff0000]Unlock via Arc Eternal missions.": "[ff5050]解锁条件：\n[ff0000]通过永恒之弧任务解锁。",
+  "Next Train: ": "下一班列车：",
+  "Preparing Trains": "正在准备列车",
+  "If the train arrives in the right place, your score goes up by 1.": "如果列车到达正确的地点，你的得分会增加1分。",
+  "If the train derails, your score goes down by 5 points.": "如果列车脱轨，你的得分会减少5分。",
+  "Time To Start: ": "开始倒计时：",
+  "Time To Start: 0": "开始倒计时：0"
+ }
+}
