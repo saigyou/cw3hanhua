@@ -13,7 +13,7 @@
   "The Chase": "追逐",
   "This mission was made with a more recent version of the game. You should update to the latest game version else the mission may not play properly.": "此任务由更新版本的游戏制作。你应当更新到最新游戏版本，否则该任务可能无法正常运行。",
   "World Secure!\n Completion Time: ": "世界已肃清！\n 通关时间： ",
-  "AC Packets": "AC 能量包",
+  "AC Packets": "AC能量包",
   "Aether Packets": "以太能量包",
   "Aether Spent": "以太消耗",
   "Air Exclusion Towers Destroyed": "摧毁禁空塔",
@@ -22,10 +22,10 @@
   "Berthas Built": "建造贝莎炮",
   "Bombers Built": "建造轰炸机",
   "Build Packets": "建造包",
-  "CRPL Towers Destroyed": "摧毁 CRPL 塔",
+  "CRPL Towers Destroyed": "摧毁CRPL塔",
   "Collectors Built": "建造收集器",
   "Command Nodes Built": "建造指挥节点",
-  "Creeper Destroyed": "消灭 Creeper",
+  "Creeper Destroyed": "消灭Creeper",
   "Digitalis Destroyed": "消灭魔苋",
   "Emitters Destroyed": "摧毁发射器",
   "Forges Built": "建造锻造厂",
@@ -79,9 +79,9 @@
   "EXITING MISSION\nAre you sure want want to exit the mission?\nGame will be auto saved to the 'auto' slot.": "退出任务\n你确定要退出该任务吗？\n游戏将自动保存到「auto」存档位。",
   "Game Saved.": "游戏已保存。",
   "Load slot 'Auto'?": "载入存档位「Auto」？",
-  "Load slot 0?": "载入存档位 0？",
-  "Load slot 1?": "载入存档位 1？",
-  "Load slot 2?": "载入存档位 2？",
-  "Load slot 3?": "载入存档位 3？"
+  "Load slot 0?": "载入存档位0？",
+  "Load slot 1?": "载入存档位1？",
+  "Load slot 2?": "载入存档位2？",
+  "Load slot 3?": "载入存档位3？"
  }
 }

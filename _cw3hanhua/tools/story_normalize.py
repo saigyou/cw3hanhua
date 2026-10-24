@@ -27,6 +27,12 @@ RULES = [
     ("Loki 巢群->巢穴", re.compile(r"洛基巢群"), "洛基巢穴"),
     ("Loki 帝皇->统领", re.compile(r"洛基帝皇"), "洛基统领"),
     ("Digitalis 统一", re.compile(r"Digitalis"), "魔苋"),
+    # 换词后两侧会残留空格（`被 Digitalis 包围` → `被 魔苋 包围`），
+    # 而 NGUI 折行时会把行尾空格改写成 \n → 界面上多出莫名回车。
+    # 只在**另一侧是汉字**时删（`teks006 AC是关键` 这种拉丁-拉丁词间空格要留）。
+    # 中英混排的全量规则见 fix_spaces.py。
+    ("专名左清空格", re.compile(r"(?<=[\u4e00-\u9fff])[ \t](?=魔苋|Creeper|Anti-Creeper|AC)"), ""),
+    ("专名右清空格", re.compile(r"(魔苋|Creeper|Anti-Creeper|AC)[ \t](?=[\u4e00-\u9fff])"), r"\1"),
     ("C.E. 纪元统一(公元)", re.compile(r"公元\s*(\d+)\s*年"), r"循环历 \1 年"),
     ("C.E. 纪元统一(第X纪元)", re.compile(r"第\s*(\d+)\s*纪元"), r"循环历 \1 年"),
     ("C.E. 纪元统一(第X循环纪)", re.compile(r"第\s*(\d+)\s*循环纪[元年]"), r"循环历 \1 年"),
@@ -50,10 +56,10 @@ def main():
             zh = it.get("zh") or ""
             new = zh
             for name, rx, rep in RULES:
-                n = len(rx.findall(new))
-                if n:
-                    total[name] += n
-                    new = rx.sub(rep, new)
+                nxt = rx.sub(rep, new)
+                if nxt != new:
+                    total[name] += len(rx.findall(new))
+                    new = nxt
             if new != zh:
                 changed += 1
                 it["zh"] = new

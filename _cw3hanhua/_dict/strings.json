@@ -546,7 +546,7 @@
   },
   {
    "en": "CN Damage Alarm",
-   "zh": "CN 受损警报",
+   "zh": "CN受损警报",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -560,7 +560,7 @@
   },
   {
    "en": "CN Info Panels:",
-   "zh": "CN 信息面板:",
+   "zh": "CN信息面板:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -574,7 +574,7 @@
   },
   {
    "en": "Create Group 1:",
-   "zh": "创建编队 1:",
+   "zh": "创建编队1:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -588,7 +588,7 @@
   },
   {
    "en": "Create Group 2:",
-   "zh": "创建编队 2:",
+   "zh": "创建编队2:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -602,7 +602,7 @@
   },
   {
    "en": "Create Group 3:",
-   "zh": "创建编队 3:",
+   "zh": "创建编队3:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -616,7 +616,7 @@
   },
   {
    "en": "Create Group 4:",
-   "zh": "创建编队 4:",
+   "zh": "创建编队4:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -630,7 +630,7 @@
   },
   {
    "en": "Create Group 5:",
-   "zh": "创建编队 5:",
+   "zh": "创建编队5:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -644,7 +644,7 @@
   },
   {
    "en": "Create Group 6:",
-   "zh": "创建编队 6:",
+   "zh": "创建编队6:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -658,7 +658,7 @@
   },
   {
    "en": "Create Group 7:",
-   "zh": "创建编队 7:",
+   "zh": "创建编队7:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -672,7 +672,7 @@
   },
   {
    "en": "Create Group 8:",
-   "zh": "创建编队 8:",
+   "zh": "创建编队8:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -686,7 +686,7 @@
   },
   {
    "en": "Create Group 9:",
-   "zh": "创建编队 9:",
+   "zh": "创建编队9:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -756,7 +756,7 @@
   },
   {
    "en": "Opaque Creeper:",
-   "zh": "不透明 Creeper:",
+   "zh": "不透明Creeper:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -783,7 +783,7 @@
   },
   {
    "en": "Select Group 1:",
-   "zh": "选择编队 1:",
+   "zh": "选择编队1:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -797,7 +797,7 @@
   },
   {
    "en": "Select Group 2:",
-   "zh": "选择编队 2:",
+   "zh": "选择编队2:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -811,7 +811,7 @@
   },
   {
    "en": "Select Group 3:",
-   "zh": "选择编队 3:",
+   "zh": "选择编队3:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -825,7 +825,7 @@
   },
   {
    "en": "Select Group 4:",
-   "zh": "选择编队 4:",
+   "zh": "选择编队4:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -839,7 +839,7 @@
   },
   {
    "en": "Select Group 5:",
-   "zh": "选择编队 5:",
+   "zh": "选择编队5:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -853,7 +853,7 @@
   },
   {
    "en": "Select Group 6:",
-   "zh": "选择编队 6:",
+   "zh": "选择编队6:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -867,7 +867,7 @@
   },
   {
    "en": "Select Group 7:",
-   "zh": "选择编队 7:",
+   "zh": "选择编队7:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -881,7 +881,7 @@
   },
   {
    "en": "Select Group 8:",
-   "zh": "选择编队 8:",
+   "zh": "选择编队8:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -895,7 +895,7 @@
   },
   {
    "en": "Select Group 9:",
-   "zh": "选择编队 9:",
+   "zh": "选择编队9:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -1213,7 +1213,7 @@
   },
   {
    "en": "Creeper Color",
-   "zh": "Creeper 颜色",
+   "zh": "Creeper颜色",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -1383,7 +1383,7 @@
   },
   {
    "en": "Show Creeper:",
-   "zh": "显示 Creeper:",
+   "zh": "显示Creeper:",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -1811,7 +1811,7 @@
   },
   {
    "en": "AC STORAGE",
-   "zh": "AC 储量",
+   "zh": "AC储量",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -1956,7 +1956,7 @@
   },
   {
    "en": " LEVEL: 0",
-   "zh": " 等级: 0",
+   "zh": " 等级:0",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -2076,7 +2076,7 @@
   },
   {
    "en": "AC Color",
-   "zh": "AC 颜色",
+   "zh": "AC颜色",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -2090,7 +2090,7 @@
   },
   {
    "en": "COST: 20",
-   "zh": "费用: 20",
+   "zh": "费用:20",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -2188,7 +2188,7 @@
   },
   {
    "en": "COST: 5",
-   "zh": "费用: 5",
+   "zh": "费用:5",
    "cat": "both",
    "grade": "ui",
    "kind": "UILabel",
@@ -2283,7 +2283,7 @@
   },
   {
    "en": "[ffffe0]Precursor worlds.[ffffff]\nBefore space as we know it was formed,\nthese worlds were the pillars of reality.\n[ff5050]To Access:\n[ff0000]Collect 50 Artifacts of Odin in Prospector.",
-   "zh": "[ffffe0]先民世界。[ffffff]\n在我们所知的空间成形之前，\n这些世界是现实的支柱。\n[ff5050]进入条件：\n[ff0000]在探矿者星区收集 50 件奥丁圣物。",
+   "zh": "[ffffe0]先民世界。[ffffff]\n在我们所知的空间成形之前，\n这些世界是现实的支柱。\n[ff5050]进入条件：\n[ff0000]在探矿者星区收集50件奥丁圣物。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2335,7 +2335,7 @@
   },
   {
    "en": "  Visit KnuckleCracker.com \nfor the amazing full version!",
-   "zh": "  访问 KnuckleCracker.com \n获取精彩的完整版！",
+   "zh": "  访问KnuckleCracker.com \n获取精彩的完整版！",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2348,7 +2348,7 @@
   },
   {
    "en": "[ffffa0]\"SHIFT-T\" to select terrain height under mouse.",
-   "zh": "[ffffa0]\"SHIFT-T\" 选取鼠标下的地形高度。",
+   "zh": "[ffffa0]\"SHIFT-T\"选取鼠标下的地形高度。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2361,7 +2361,7 @@
   },
   {
    "en": "Press '[ffff00]C[-]' to clone the last edited unit.",
-   "zh": "按 '[ffff00]C[-]' 克隆上次编辑的单位。",
+   "zh": "按'[ffff00]C[-]'克隆上次编辑的单位。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2374,7 +2374,7 @@
   },
   {
    "en": "Continue the journey!\nVisit KnuckleCracker.com",
-   "zh": "继续旅程！\n访问 KnuckleCracker.com",
+   "zh": "继续旅程！\n访问KnuckleCracker.com",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2387,7 +2387,7 @@
   },
   {
    "en": "Press and hold 'M' over a planet to drag it.",
-   "zh": "在星球上按住 'M' 可拖动它。",
+   "zh": "在星球上按住'M'可拖动它。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2439,7 +2439,7 @@
   },
   {
    "en": "Press '[ffff00]X[-]' to delete unit.",
-   "zh": "按 '[ffff00]X[-]' 删除单位。",
+   "zh": "按'[ffff00]X[-]'删除单位。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2452,7 +2452,7 @@
   },
   {
    "en": "Copyright 2016 Knuckle Cracker, LLC",
-   "zh": "版权所有 2016 Knuckle Cracker, LLC",
+   "zh": "版权所有2016 Knuckle Cracker, LLC",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2465,7 +2465,7 @@
   },
   {
    "en": "Press '[ffff00]B[-]' to build unit.",
-   "zh": "按 '[ffff00]B[-]' 建造单位。",
+   "zh": "按'[ffff00]B[-]'建造单位。",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2556,7 +2556,7 @@
   },
   {
    "en": "Spore Launch in 30 seconds!",
-   "zh": "30 秒后发射孢子！",
+   "zh": "30秒后发射孢子！",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2569,7 +2569,7 @@
   },
   {
    "en": "Enable AC Collection Field",
-   "zh": "启用 AC 收集场",
+   "zh": "启用AC收集场",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2595,7 +2595,7 @@
   },
   {
    "en": "Dispatch Excess AC as Ore",
-   "zh": "将多余 AC 作为矿输出",
+   "zh": "将多余AC作为矿输出",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2647,7 +2647,7 @@
   },
   {
    "en": "Creeper and Digitalis",
-   "zh": "Creeper 与魔苋",
+   "zh": "Creeper与魔苋",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -2998,7 +2998,7 @@
   },
   {
    "en": "Show Creeper/AC",
-   "zh": "显示 Creeper 与 AC",
+   "zh": "显示Creeper与AC",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3076,7 +3076,7 @@
   },
   {
    "en": "CN Info Panels",
-   "zh": "CN 信息面板",
+   "zh": "CN信息面板",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3102,7 +3102,7 @@
   },
   {
    "en": "Delete Creeper",
-   "zh": "删除 Creeper",
+   "zh": "删除Creeper",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3154,7 +3154,7 @@
   },
   {
    "en": "Opaque Creeper",
-   "zh": "不透明 Creeper",
+   "zh": "不透明Creeper",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3375,7 +3375,7 @@
   },
   {
    "en": "Creeper Only",
-   "zh": "仅 Creeper",
+   "zh": "仅Creeper",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3752,7 +3752,7 @@
   },
   {
    "en": "Delete AC",
-   "zh": "删除 AC",
+   "zh": "删除AC",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",
@@ -3960,7 +3960,7 @@
   },
   {
    "en": "To Edit, you must set a default application to open '.crpl' files.\nOn Windows, select an editor (like Notepad.exe, or the freely available Notepad++). Alternately, you can browse to the script on disk, right click, select properties, and click the 'Change' button next to 'Opens With'.\nYou only have to do this once.\nOn OSX, right click the file and select 'Open With'.\n\nHere is the file you are trying to edit: \n\n",
-   "zh": "要编辑脚本，你必须为 '.crpl' 文件设置默认打开程序。\n在 Windows 上，请选择一个编辑器（如 Notepad.exe，或免费的 Notepad++）。你也可以在磁盘上找到该脚本，右键点击、选择属性，然后点击「打开方式」旁边的「更改」按钮。\n你只需设置一次。\n在 OSX 上，右键点击文件并选择「打开方式」。\n\n你正在尝试编辑的文件是： \n\n",
+   "zh": "要编辑脚本，你必须为'.crpl'文件设置默认打开程序。\n在Windows上，请选择一个编辑器（如Notepad.exe，或免费的Notepad++）。你也可以在磁盘上找到该脚本，右键点击、选择属性，然后点击「打开方式」旁边的「更改」按钮。\n你只需设置一次。\n在OSX上，右键点击文件并选择「打开方式」。\n\n你正在尝试编辑的文件是： \n\n",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -3980,7 +3980,7 @@
   },
   {
    "en": "Select a terrain level, then select a texture below from the palette.\nClick the 'APPLY IMAGE TO TERRAIN' button to assign the image to the selected terrain level.\nOnce finished, click the 'Close and Apply Changes' button to apply all changes to the map.\nThe numbers under each terrain level are brightness. 0 is dark, 100 is bright, 50 is normal",
-   "zh": "先选择一个地形等级，再从下方调色板中选择一个纹理。\n点击「将图像应用到地形」按钮，把该图像指定给所选的地形等级。\n完成后，点击「关闭并应用更改」按钮，把所有更改应用到地图。\n每个地形等级下方的数字是亮度。0 为最暗，100 为最亮，50 为正常。",
+   "zh": "先选择一个地形等级，再从下方调色板中选择一个纹理。\n点击「将图像应用到地形」按钮，把该图像指定给所选的地形等级。\n完成后，点击「关闭并应用更改」按钮，把所有更改应用到地图。\n每个地形等级下方的数字是亮度。0为最暗，100为最亮，50为正常。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4020,7 +4020,7 @@
   },
   {
    "en": "Reporting a map notifies Knuckle Cracker that this map contains inappropriate content.  ONLY RERPORT MAPS THAT CONTAIN OFFENSIVE AND/OR INAPPROPRIATE CONTENT.  Do not report a map if your don't like it, or can't finish it.",
-   "zh": "举报地图会通知 Knuckle Cracker 该地图含有不当内容。请仅举报含有冒犯性和/或不当内容的地图。不要因为你不喜欢或打不过某张地图就举报它。",
+   "zh": "举报地图会通知Knuckle Cracker该地图含有不当内容。请仅举报含有冒犯性和/或不当内容的地图。不要因为你不喜欢或打不过某张地图就举报它。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4300,7 +4300,7 @@
   },
   {
    "en": "[ffffd0]You are the supreme being.[ffffff]\nMake your own custom worlds and upload\nthem to KnuckleCracker.com.",
-   "zh": "[ffffd0]你就是至高存在。[ffffff]\n创造你自己的定制世界，\n并上传到 KnuckleCracker.com。",
+   "zh": "[ffffd0]你就是至高存在。[ffffff]\n创造你自己的定制世界，\n并上传到KnuckleCracker.com。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4400,7 +4400,7 @@
   },
   {
    "en": "Enter your product key below.\nIf you don't have a key, visit knucklecracker.com for purchase info.",
-   "zh": "请在下方输入你的产品密钥。\n若没有密钥，请访问 knucklecracker.com 了解购买信息。",
+   "zh": "请在下方输入你的产品密钥。\n若没有密钥，请访问knucklecracker.com了解购买信息。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4781,7 +4781,7 @@
   },
   {
    "en": "Mortars fire shells that damage deep Creeper.\nMortars do not require line of sight.",
-   "zh": "迫击炮发射的炮弹可伤害深处的 Creeper。\n迫击炮不需要视线。",
+   "zh": "迫击炮发射的炮弹可伤害深处的Creeper。\n迫击炮不需要视线。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4801,7 +4801,7 @@
   },
   {
    "en": "Council Director 5: \"Bring in this young man.  We wish to question him directly.\"",
-   "zh": "议会主管 5：「带这个年轻人进来。我们要直接审问他。」",
+   "zh": "议会主管5：「带这个年轻人进来。我们要直接审问他。」",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4821,7 +4821,7 @@
   },
   {
    "en": "Council Director 1: \"And how have you reached these conclusions, Director Mont?\"",
-   "zh": "议会主管 1：「那么，Mont 主管，你是如何得出这些结论的？」",
+   "zh": "议会主管1：「那么，Mont主管，你是如何得出这些结论的？」",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4881,7 +4881,7 @@
   },
   {
    "en": "Ore Mines extract ore from ore deposits.\nOre is used to make Anti-Creeper (AC)",
-   "zh": "矿场从矿床中开采矿石。\n矿石用于制造 Anti-Creeper（AC）。",
+   "zh": "矿场从矿床中开采矿石。\n矿石用于制造Anti-Creeper（AC）。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -4901,7 +4901,7 @@
   },
   {
    "en": "Sprayers fire Anti-Creeper.\nSprayers can also collect AC and dispatch as ore.",
-   "zh": "喷吐者发射 Anti-Creeper。\n喷吐者也能收集 AC 并以矿石形式发出。",
+   "zh": "喷吐者发射Anti-Creeper。\n喷吐者也能收集AC并以矿石形式发出。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5143,7 +5143,7 @@
   },
   {
    "en": "Super Gun that can hit any part of map.\nDoes massive damage to Creeper.",
-   "zh": "可打击地图任意位置的超级火炮。\n对 Creeper 造成巨大伤害。",
+   "zh": "可打击地图任意位置的超级火炮。\n对Creeper造成巨大伤害。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5204,7 +5204,7 @@
   },
   {
    "en": "Shield around Carcere lowered!\nFly there and engage ground operations.",
-   "zh": "Carcere 外围的护盾已降下！\n飞往那里并展开地面作战。",
+   "zh": "Carcere外围的护盾已降下！\n飞往那里并展开地面作战。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5264,7 +5264,7 @@
   },
   {
    "en": "Custom Images. Must be 256x256 png files. Click 'Pick' to load image.",
-   "zh": "自定义图像。必须是 256x256 的 png 文件。点击「选取」载入图像。",
+   "zh": "自定义图像。必须是256x256的png文件。点击「选取」载入图像。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5284,7 +5284,7 @@
   },
   {
    "en": "Primary defense weapon.  Fires at nearest Creeper.\nDoes light damage.",
-   "zh": "主要防御武器。向最近的 Creeper 开火。\n造成轻微伤害。",
+   "zh": "主要防御武器。向最近的Creeper开火。\n造成轻微伤害。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5405,7 +5405,7 @@
   },
   {
    "en": "\n[ff5050]To Access:\n[ff0000]Complete first 10 Arc Eternal missions.",
-   "zh": "\n[ff5050]解锁条件：\n[ff0000]完成前 10 个永恒之弧任务。",
+   "zh": "\n[ff5050]解锁条件：\n[ff0000]完成前10个永恒之弧任务。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5425,7 +5425,7 @@
   },
   {
    "en": "Newton Mont: \" 'Platius', Council.  His name is 'Platius Abraxis' \"",
-   "zh": "牛顿·蒙特：「'普拉提乌斯'，议会。他的名字是 '普拉提乌斯·阿布拉克斯'」",
+   "zh": "牛顿·蒙特：「'普拉提乌斯'，议会。他的名字是'普拉提乌斯·阿布拉克斯'」",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5465,7 +5465,7 @@
   },
   {
    "en": "\n[ff5050]To Access:\n[ff0000]Complete first 5 Arc Eternal missions.",
-   "zh": "\n[ff5050]解锁条件：\n[ff0000]完成前 5 个永恒之弧任务。",
+   "zh": "\n[ff5050]解锁条件：\n[ff0000]完成前5个永恒之弧任务。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5506,7 +5506,7 @@
   },
   {
    "en": "Council Director 4: \"So, the Creeper and the Arc are intertwined?\"",
-   "zh": "议会主管 4：「那么，Creeper 与永恒之弧是相互纠缠的？」",
+   "zh": "议会主管4：「那么，Creeper与永恒之弧是相互纠缠的？」",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5566,7 +5566,7 @@
   },
   {
    "en": "Strafers are remote strike craft.\nTarget them at remote Creeper.",
-   "zh": "俯冲机是远程打击飞行器。\n将它们瞄准远处的 Creeper。",
+   "zh": "俯冲机是远程打击飞行器。\n将它们瞄准远处的Creeper。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5787,7 +5787,7 @@
   },
   {
    "en": "Bombers deliver AC remotely.\nTarget them at remote locations.",
-   "zh": "轰炸机可远程投送 AC。\n将它们瞄准远处目标。",
+   "zh": "轰炸机可远程投送AC。\n将它们瞄准远处目标。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5807,7 +5807,7 @@
   },
   {
    "en": "Council Director 3: \"What is this man's name, Director Mont?\"",
-   "zh": "议会主管 3：「这个人叫什么名字，蒙特主管？」",
+   "zh": "议会主管3：「这个人叫什么名字，蒙特主管？」",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -5868,7 +5868,7 @@
   },
   {
    "en": "Yet, a small group of less than 50 thousand humans survived.",
-   "zh": "然而，不到 5 万人的一小群人类幸存了下来。",
+   "zh": "然而，不到5万人的一小群人类幸存了下来。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6108,7 +6108,7 @@
   },
   {
    "en": "Council Director 2: \"Then it is true. The Arc exists.\"",
-   "zh": "议会主管 2：「那么这是真的。永恒之弧确实存在。」",
+   "zh": "议会主管2：「那么这是真的。永恒之弧确实存在。」",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6168,7 +6168,7 @@
   },
   {
    "en": "All they had achieved ended when the Creeper arrived.",
-   "zh": "当 Creeper 袭来时，他们的一切成就都终结了。",
+   "zh": "当Creeper袭来时，他们的一切成就都终结了。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -6268,7 +6268,7 @@
   },
   {
    "en": "Creeper respulsion field.\nCan also block spore hits.",
-   "zh": "Creeper 排斥场。\n也能阻挡孢子命中。",
+   "zh": "Creeper排斥场。\n也能阻挡孢子命中。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7010,7 +7010,7 @@
   },
   {
    "en": "DMD name NOT submitted. Name already taken!",
-   "zh": "DMD 名称未提交。该名称已被占用！",
+   "zh": "DMD名称未提交。该名称已被占用！",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7191,7 +7191,7 @@
   },
   {
    "en": "By the year 13271 in the first Common Era,",
-   "zh": "到第 1 循环历 13271 年，",
+   "zh": "到第1循环历13271年，",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7296,7 +7296,7 @@
   },
   {
    "en": "Again and again the Creeper would return.",
-   "zh": "Creeper 一次又一次地卷土重来。",
+   "zh": "Creeper一次又一次地卷土重来。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7336,7 +7336,7 @@
   },
   {
    "en": "Each dimension limited to range 20 - 256",
-   "zh": "每个维度限制在 20 - 256 之间",
+   "zh": "每个维度限制在20-256之间",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -7536,7 +7536,7 @@
   },
   {
    "en": "(Only Letters, Numbers, _ -  allowed.)",
-   "zh": "（仅允许字母、数字、_ 和 - ）",
+   "zh": "（仅允许字母、数字、_和-）",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8222,7 +8222,7 @@
   },
   {
    "en": "Max Tech Levels.  -1 = unlimited.",
-   "zh": "科技等级上限。-1 = 不限制。",
+   "zh": "科技等级上限。-1=不限制。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8542,7 +8542,7 @@
   },
   {
    "en": "Transcript:  4281999 Part 1 of 2",
-   "zh": "记录： 4281999 第 1 部分，共 2 部分",
+   "zh": "记录：4281999第1部分，共2部分",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -8702,7 +8702,7 @@
   },
   {
    "en": "Unit Limits.  -1 mean unlimited",
-   "zh": "单位上限。  -1 表示不限制",
+   "zh": "单位上限。  -1表示不限制",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9044,7 +9044,7 @@
   },
   {
    "en": "Date:  1014, 0201, 144th C.E.",
-   "zh": "日期： 1014, 0201, 第 144 循环历",
+   "zh": "日期：1014, 0201,第144循环历",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -9899,7 +9899,7 @@
   },
   {
    "en": "Count (0 means unlimited)",
-   "zh": "数量（0 表示不限制）",
+   "zh": "数量（0表示不限制）",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10341,7 +10341,7 @@
   },
   {
    "en": "AC Packet Request Delay",
-   "zh": "AC 能量包请求延迟",
+   "zh": "AC能量包请求延迟",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10551,7 +10551,7 @@
   },
   {
    "en": "Online DMD Mission Name",
-   "zh": "在线 DMD 任务名称",
+   "zh": "在线DMD任务名称",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10677,7 +10677,7 @@
   },
   {
    "en": "--Transcript Follows--",
-   "zh": "—— 以下为会议记录 ——",
+   "zh": "——以下为会议记录——",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -10717,7 +10717,7 @@
   },
   {
    "en": "20th Century, 1st C.E.",
-   "zh": "20 世纪，第 1 循环历",
+   "zh": "20世纪，第1循环历",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11021,7 +11021,7 @@
   },
   {
    "en": "Runner Creeper Payload",
-   "zh": "空降兵携带 Creeper",
+   "zh": "空降兵携带Creeper",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11162,7 +11162,7 @@
   },
   {
    "en": "CRPL Towers Destroyed",
-   "zh": "摧毁 CRPL 塔",
+   "zh": "摧毁CRPL塔",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11666,7 +11666,7 @@
   },
   {
    "en": "Abrax... Imper...???",
-   "zh": "阿布拉克斯… 帝皇…？？？",
+   "zh": "阿布拉克斯…帝皇…？？？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -11747,7 +11747,7 @@
   },
   {
    "en": "DMD Maps Completed: ",
-   "zh": "已完成 DMD 地图： ",
+   "zh": "已完成DMD地图： ",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12269,7 +12269,7 @@
   },
   {
    "en": "--Transcript Ends--",
-   "zh": "—— 会议记录结束 ——",
+   "zh": "——会议记录结束——",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -12629,7 +12629,7 @@
   },
   {
    "en": "Requests AC Packets",
-   "zh": "请求 AC 能量包",
+   "zh": "请求AC能量包",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13503,7 +13503,7 @@
   },
   {
    "en": "TechPod AC Storage",
-   "zh": "科技舱 AC 储量",
+   "zh": "科技舱AC储量",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13804,7 +13804,7 @@
   },
   {
    "en": "Browsing DMD Maps",
-   "zh": "正在浏览 DMD 地图",
+   "zh": "正在浏览DMD地图",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -13889,7 +13889,7 @@
   },
   {
    "en": "Creeper Destroyed",
-   "zh": "消灭 Creeper",
+   "zh": "消灭Creeper",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15246,7 +15246,7 @@
   },
   {
    "en": "Saved to Slot 0.",
-   "zh": "已保存到存档位 0。",
+   "zh": "已保存到存档位0。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15266,7 +15266,7 @@
   },
   {
    "en": "Saved to Slot 1.",
-   "zh": "已保存到存档位 1。",
+   "zh": "已保存到存档位1。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15286,7 +15286,7 @@
   },
   {
    "en": "Saved to Slot 2.",
-   "zh": "已保存到存档位 2。",
+   "zh": "已保存到存档位2。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15306,7 +15306,7 @@
   },
   {
    "en": "Saved to Slot 3.",
-   "zh": "已保存到存档位 3。",
+   "zh": "已保存到存档位3。",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -15615,7 +15615,7 @@
   },
   {
    "en": "Anti-AoO Range:",
-   "zh": "反 AoO 范围：",
+   "zh": "反AoO范围：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16075,7 +16075,7 @@
   },
   {
    "en": "Online DMD Name",
-   "zh": "在线 DMD 名称",
+   "zh": "在线DMD名称",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16260,7 +16260,7 @@
   },
   {
    "en": "Save to slot 0?",
-   "zh": "保存到存档位 0？",
+   "zh": "保存到存档位0？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16280,7 +16280,7 @@
   },
   {
    "en": "Save to slot 1?",
-   "zh": "保存到存档位 1？",
+   "zh": "保存到存档位1？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16300,7 +16300,7 @@
   },
   {
    "en": "Save to slot 2?",
-   "zh": "保存到存档位 2？",
+   "zh": "保存到存档位2？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16320,7 +16320,7 @@
   },
   {
    "en": "Save to slot 3?",
-   "zh": "保存到存档位 3？",
+   "zh": "保存到存档位3？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16543,7 +16543,7 @@
   },
   {
    "en": "AE Field Range",
-   "zh": "AE 场范围",
+   "zh": "AE场范围",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16878,7 +16878,7 @@
   },
   {
    "en": "Image Offset X",
-   "zh": "图像偏移 X",
+   "zh": "图像偏移X",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16898,7 +16898,7 @@
   },
   {
    "en": "Image Offset Y",
-   "zh": "图像偏移 Y",
+   "zh": "图像偏移Y",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16918,7 +16918,7 @@
   },
   {
    "en": "Image Offset Z",
-   "zh": "图像偏移 Z",
+   "zh": "图像偏移Z",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16958,7 +16958,7 @@
   },
   {
    "en": "Landing Pad X:",
-   "zh": "登陆平台 X：",
+   "zh": "登陆平台X：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -16978,7 +16978,7 @@
   },
   {
    "en": "Landing Pad Y:",
-   "zh": "登陆平台 Y：",
+   "zh": "登陆平台Y：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17923,7 +17923,7 @@
   },
   {
    "en": "Image Scale X",
-   "zh": "图像缩放 X",
+   "zh": "图像缩放X",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17943,7 +17943,7 @@
   },
   {
    "en": "Image Scale Y",
-   "zh": "图像缩放 Y",
+   "zh": "图像缩放Y",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -18951,7 +18951,7 @@
   },
   {
    "en": "Edit DMD Map",
-   "zh": "编辑 DMD 地图",
+   "zh": "编辑DMD地图",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19053,7 +19053,7 @@
   },
   {
    "en": "Inhibitor X:",
-   "zh": "抑制器 X：",
+   "zh": "抑制器X：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19073,7 +19073,7 @@
   },
   {
    "en": "Inhibitor Y:",
-   "zh": "抑制器 Y：",
+   "zh": "抑制器Y：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19113,7 +19113,7 @@
   },
   {
    "en": "Load slot 0?",
-   "zh": "载入存档位 0？",
+   "zh": "载入存档位0？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19133,7 +19133,7 @@
   },
   {
    "en": "Load slot 1?",
-   "zh": "载入存档位 1？",
+   "zh": "载入存档位1？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19153,7 +19153,7 @@
   },
   {
    "en": "Load slot 2?",
-   "zh": "载入存档位 2？",
+   "zh": "载入存档位2？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19173,7 +19173,7 @@
   },
   {
    "en": "Load slot 3?",
-   "zh": "载入存档位 3？",
+   "zh": "载入存档位3？",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -19777,7 +19777,7 @@
   },
   {
    "en": "-- EARTH --",
-   "zh": "—— 地球 ——",
+   "zh": "——地球——",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -20224,7 +20224,7 @@
   },
   {
    "en": "Max AC Ammo",
-   "zh": "AC 弹药上限",
+   "zh": "AC弹药上限",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21125,7 +21125,7 @@
   },
   {
    "en": "AC Packets",
-   "zh": "AC 能量包",
+   "zh": "AC能量包",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21145,7 +21145,7 @@
   },
   {
    "en": "AC Storage",
-   "zh": "AC 储量",
+   "zh": "AC储量",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21794,7 +21794,7 @@
   },
   {
    "en": "Stretch X:",
-   "zh": "拉伸 X：",
+   "zh": "拉伸X：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -21814,7 +21814,7 @@
   },
   {
    "en": "Stretch Y:",
-   "zh": "拉伸 Y：",
+   "zh": "拉伸Y：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -22629,7 +22629,7 @@
   },
   {
    "en": "DEV GUID",
-   "zh": "开发者 GUID",
+   "zh": "开发者GUID",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23823,7 +23823,7 @@
   },
   {
    "en": "Pan X:",
-   "zh": "平移 X：",
+   "zh": "平移X：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -23843,7 +23843,7 @@
   },
   {
    "en": "Pan Y:",
-   "zh": "平移 Y：",
+   "zh": "平移Y：",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -28018,7 +28018,7 @@
   },
   {
    "en": "DISCHARGE 100",
-   "zh": "释放 100",
+   "zh": "释放100",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -28031,7 +28031,7 @@
   },
   {
    "en": "DISCHARGE 300",
-   "zh": "释放 300",
+   "zh": "释放300",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -28057,7 +28057,7 @@
   },
   {
    "en": "Procedural 1",
-   "zh": "程序生成 1",
+   "zh": "程序生成1",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -28265,7 +28265,7 @@
   },
   {
    "en": "Page 1",
-   "zh": "第 1 页",
+   "zh": "第1页",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -28278,7 +28278,7 @@
   },
   {
    "en": "Page 2",
-   "zh": "第 2 页",
+   "zh": "第2页",
    "cat": "asset",
    "grade": "other",
    "kind": "UILabel",
@@ -29887,7 +29887,7 @@
   },
   {
    "en": "Could not find location for star 1",
-   "zh": "找不到恒星 1 的位置",
+   "zh": "找不到恒星1的位置",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38352,7 +38352,7 @@
   },
   {
    "en": "1 week",
-   "zh": "1 周",
+   "zh": "1周",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -38372,7 +38372,7 @@
   },
   {
    "en": "3 days",
-   "zh": "3 天",
+   "zh": "3天",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -48365,7 +48365,7 @@
   },
   {
    "en": "Simulation 3700B commencing!",
-   "zh": "模拟 3700B 开始！",
+   "zh": "模拟3700B开始！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -48456,7 +48456,7 @@
   },
   {
    "en": "I see, perhaps it was just some random data storage device that survived the Creeper.  It seems as random as our purpose is now....",
-   "zh": "我明白了，也许它只是个碰巧从 Creeper 手中幸存下来的普通数据存储装置。就像我们如今的目的，全无头绪……",
+   "zh": "我明白了，也许它只是个碰巧从Creeper手中幸存下来的普通数据存储装置。就像我们如今的目的，全无头绪……",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -48482,7 +48482,7 @@
   },
   {
    "en": "Everyone I ever loved has been gone for billions of years.  Even their memories have been erased and crushed by the Creeper....",
-   "zh": "我爱过的每一个人，都已逝去数十亿年。连关于他们的记忆，也被 Creeper 抹去、碾碎了……",
+   "zh": "我爱过的每一个人，都已逝去数十亿年。连关于他们的记忆，也被Creeper抹去、碾碎了……",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -48807,7 +48807,7 @@
   },
   {
    "en": "Knuckle Cracker would like to thank all of the fans and supporters that made this game possible.",
-   "zh": "Knuckle Cracker 谨向所有让这款游戏得以问世的粉丝与支持者致谢。",
+   "zh": "Knuckle Cracker谨向所有让这款游戏得以问世的粉丝与支持者致谢。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -48833,7 +48833,7 @@
   },
   {
    "en": "Thanks as always to Magnus aka MadMag (AcesHigh) for his awesome graphical talents and visual ideas.  Thanks as well to Grauniad for his patience and help with the Knuckle Cracker forums and for his ideas and support.",
-   "zh": "一如既往地感谢 Magnus（又名 MadMag，AcesHigh），他出色的美术才华与视觉构想令人赞叹。同样感谢 Grauniad，感谢他对 Knuckle Cracker 论坛的耐心付出，以及他的点子和支持。",
+   "zh": "一如既往地感谢Magnus（又名MadMag，AcesHigh），他出色的美术才华与视觉构想令人赞叹。同样感谢Grauniad，感谢他对Knuckle Cracker论坛的耐心付出，以及他的点子和支持。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -48846,7 +48846,7 @@
   },
   {
    "en": "If you want to learn more about the composer of the awesome background music tracks, check out Finn M-K at composerprofiles.com/profile-finn-m-k and soundcloud.com/finnmk",
-   "zh": "想更多了解那些出色背景音乐的作曲者，就去 composerprofiles.com/profile-finn-m-k 和 soundcloud.com/finnmk 看看 Finn M-K。",
+   "zh": "想更多了解那些出色背景音乐的作曲者，就去composerprofiles.com/profile-finn-m-k和soundcloud.com/finnmk看看Finn M-K。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -48859,7 +48859,7 @@
   },
   {
    "en": "A special thanks in advance to all of the players of the game who create custom maps, make videos, tweet, facebook, google+, and all that stuff.  Your efforts make the community greater and stronger and are most appreciated.",
-   "zh": "还要预先特别感谢所有自制地图、制作视频、发推、玩 facebook、google+ 以及诸如此类的一切玩家。你们的付出让社区更大、更强，我十分感激。",
+   "zh": "还要预先特别感谢所有自制地图、制作视频、发推、玩facebook、google+以及诸如此类的一切玩家。你们的付出让社区更大、更强，我十分感激。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -48872,7 +48872,7 @@
   },
   {
    "en": "Oh yeah... this mission!  Roam around my little dungeon and see what oddities you can find.  Use WASD or arrow keys to move, left mouse to fire (just hold it down).  Or you can click the right mouse button to turn on auto fire if your finger gets tired.",
-   "zh": "对了……这个任务！在我这个小地牢里四处逛逛，看看你能撞见什么怪东西。用 WASD 或方向键移动，鼠标左键开火（按住不放就行）。手指按累了，也可以点右键打开自动开火。",
+   "zh": "对了……这个任务！在我这个小地牢里四处逛逛，看看你能撞见什么怪东西。用WASD或方向键移动，鼠标左键开火（按住不放就行）。手指按累了，也可以点右键打开自动开火。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -48885,7 +48885,7 @@
   },
   {
    "en": "Take out emitters by getting near (a red range will appear around the Emitter), then pressing SPACE to drop a Personal Nullification Device.  It takes 5 seconds to arm, but you probably knew that already.",
-   "zh": "靠近发射器（它周围会显示一圈红色范围），然后按 SPACE 投下个人灭除装置，就能端掉它。装置需要 5 秒启动，这你大概早就知道了。",
+   "zh": "靠近发射器（它周围会显示一圈红色范围），然后按SPACE投下个人灭除装置，就能端掉它。装置需要5秒启动，这你大概早就知道了。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -48950,7 +48950,7 @@
   },
   {
    "en": "There's a Creeper Emitter here!",
-   "zh": "这里有一个 Creeper 发射器！",
+   "zh": "这里有一个Creeper发射器！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -48963,7 +48963,7 @@
   },
   {
    "en": "Yes, I'm afraid so.  Much has happened while you slept.  Dozens of human civilizations rose and fell, each trying ever more desperate measures as the Creeper would always return.",
-   "zh": "是的，恐怕如此。你沉睡期间发生了很多事。数十个人类文明兴起又覆灭，每一个都尝试过越发绝望的手段，因为 Creeper 总会回来。",
+   "zh": "是的，恐怕如此。你沉睡期间发生了很多事。数十个人类文明兴起又覆灭，每一个都尝试过越发绝望的手段，因为Creeper总会回来。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49067,7 +49067,7 @@
   },
   {
    "en": "Not so fast. We know that the Creeper did not destroy these artifacts but it did destroy other artifacts of the same kind. This can only mean one thing.",
-   "zh": "别急。我们知道 Creeper 没有摧毁这些圣物，却摧毁了其他同类圣物。这只可能意味着一件事。",
+   "zh": "别急。我们知道Creeper没有摧毁这些圣物，却摧毁了其他同类圣物。这只可能意味着一件事。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49080,7 +49080,7 @@
   },
   {
    "en": "Ahh... The only thing these artifacts actually have in common is they were not destroyed by the Creeper.  That means...",
-   "zh": "啊……这些圣物唯一的共同点，就是它们没有被 Creeper 摧毁。也就是说……",
+   "zh": "啊……这些圣物唯一的共同点，就是它们没有被Creeper摧毁。也就是说……",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49093,7 +49093,7 @@
   },
   {
    "en": "Yes, that means that the Creeper somehow recognized these specific artifacts and did not destroy them.  It didn't destroy them at any point in their existence, which spanned many millions of years in some cases.",
-   "zh": "是的，也就是说 Creeper 以某种方式认出了这些特定的圣物，因而没有摧毁它们。在它们存在的任何时期都没有摧毁过——有些圣物跨越了数百万年。",
+   "zh": "是的，也就是说Creeper以某种方式认出了这些特定的圣物，因而没有摧毁它们。在它们存在的任何时期都没有摧毁过——有些圣物跨越了数百万年。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49106,7 +49106,7 @@
   },
   {
    "en": "So the Creeper has a memory... a memory that spans vast amounts of space and time.  It also must rarely act in a selective way.   This never occurred to me before.  I've only ever imagined the Creeper as a random destructive force.",
-   "zh": "所以 Creeper 拥有记忆……一种横跨广袤空间与时间的记忆。而且它必定极少做出选择性的行动。我以前从没想到过这一点。我一直只把 Creeper 当作一股随机的毁灭力量。",
+   "zh": "所以Creeper拥有记忆……一种横跨广袤空间与时间的记忆。而且它必定极少做出选择性的行动。我以前从没想到过这一点。我一直只把Creeper当作一股随机的毁灭力量。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49119,7 +49119,7 @@
   },
   {
    "en": "I'm not yet sure what good this knowledge will do us, Lia.  But it seems significant that the Creeper is more than just a blunt and crude weapon used by the Loki.",
-   "zh": "我还不确定这个认识对我们有什么用处，莉娅。但 Creeper 不只是洛基使用的一件粗暴钝器，这似乎意义重大。",
+   "zh": "我还不确定这个认识对我们有什么用处，莉娅。但Creeper不只是洛基使用的一件粗暴钝器，这似乎意义重大。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49301,7 +49301,7 @@
   },
   {
    "en": "Bertha Cannons can fire massive projectiles anywhere on the map.  There is no better weapon for inflicting huge damage to the Creeper.  Their weakness is they require significant ammo and have a long fire cycle.",
-   "zh": "贝莎炮能把巨型炮弹打到地图上任何位置。要给 Creeper 造成巨大伤害，没有比它更好的武器。缺点是弹药消耗很大，发射间隔也长。",
+   "zh": "贝莎炮能把巨型炮弹打到地图上任何位置。要给Creeper造成巨大伤害，没有比它更好的武器。缺点是弹药消耗很大，发射间隔也长。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49327,7 +49327,7 @@
   },
   {
    "en": "Lia, it seems that the Creeper ignores some things.  Artifacts, messages, tech, now these Bertha Cannons.  What do they have in common?",
-   "zh": "莉娅，Creeper 似乎会忽略一些东西。圣物、信息、技术，现在又是这些贝莎炮。它们有什么共同点？",
+   "zh": "莉娅，Creeper似乎会忽略一些东西。圣物、信息、技术，现在又是这些贝莎炮。它们有什么共同点？",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49379,7 +49379,7 @@
   },
   {
    "en": "Another Ticon weapon system corrupted by the Creeper?",
-   "zh": "又一套被 Creeper 侵蚀的泰肯武器系统？",
+   "zh": "又一套被Creeper侵蚀的泰肯武器系统？",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49392,7 +49392,7 @@
   },
   {
    "en": "It seems unlikely... but the Ticon developed Gliders that would move through space.  The idea was to hit the Creeper from where it was least likely to persist.",
-   "zh": "不太可能……不过泰肯确实研制过能在太空中移动的滑翔机。思路是从 Creeper 最不可能驻留的地方打击它。",
+   "zh": "不太可能……不过泰肯确实研制过能在太空中移动的滑翔机。思路是从Creeper最不可能驻留的地方打击它。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49431,7 +49431,7 @@
   },
   {
    "en": "If this was a military testing ground and the Creeper has corrupted the Glider Tech, will there be any way to defend against it?",
-   "zh": "如果这里是军事试验场，而 Creeper 又侵蚀了滑翔机技术，还有办法防住它吗？",
+   "zh": "如果这里是军事试验场，而Creeper又侵蚀了滑翔机技术，还有办法防住它吗？",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49457,7 +49457,7 @@
   },
   {
    "en": "The focused beam from the Sniper was designed to penetrate the Creeper infused shells of a Runner.  That might be enough to penetrate the shields around the Gliders.  But this is all theoretical... The Glider weapon system was never actually deployed.",
-   "zh": "狙击手的聚焦光束，本来就是为穿透空降兵那层被 Creeper 浸透的外壳而设计的。那也许足以穿透滑翔机周围的护盾。但这都只是理论……滑翔机武器系统从未真正部署过。",
+   "zh": "狙击手的聚焦光束，本来就是为穿透空降兵那层被Creeper浸透的外壳而设计的。那也许足以穿透滑翔机周围的护盾。但这都只是理论……滑翔机武器系统从未真正部署过。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49666,7 +49666,7 @@
   },
   {
    "en": "But why... Lia, in all the eons that have passed have you learned nothing about the Loki's true purpose?  Why do they cover all worlds in Creeper?",
-   "zh": "可为什么……莉娅，过去了那么漫长的岁月，你对洛基真正的目的就一点都没查明吗？他们为什么要把所有世界都覆满 Creeper？",
+   "zh": "可为什么……莉娅，过去了那么漫长的岁月，你对洛基真正的目的就一点都没查明吗？他们为什么要把所有世界都覆满Creeper？",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -49991,7 +49991,7 @@
   },
   {
    "en": "They won't work here, so I temporary removed them from your control panel. Scanners say that the creeper also reacts different here. Experiment to find a way to push back the creeper.",
-   "zh": "它们在这里不管用，所以我暂时从你的控制面板上撤掉了。扫描显示，Creeper 在这里的反应也不一样。自己试试，找出把 Creeper 推回去的办法。",
+   "zh": "它们在这里不管用，所以我暂时从你的控制面板上撤掉了。扫描显示，Creeper在这里的反应也不一样。自己试试，找出把Creeper推回去的办法。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -50108,7 +50108,7 @@
   },
   {
    "en": "I present to you: Warzone! This is the first map I made in one of the earliest builds of the game (way back in alpha!). Here it is, in its most raw form, aside from some added totems, this is the orginal map, just pure Creeper World Chaos! Also check out \"War Zone\" which is the updated version of this map for maximum madness!",
-   "zh": "我向你们呈上：Warzone！这是我用游戏极早期版本做的第一张地图（远在 alpha 时代！）。就是它，最原始的形态——除了加了几座图腾，这就是原版地图，纯粹的 Creeper World 混沌！另外也去看看「War Zone」，那是这张地图的更新版，疯狂程度拉满！",
+   "zh": "我向你们呈上：Warzone！这是我用游戏极早期版本做的第一张地图（远在alpha时代！）。就是它，最原始的形态——除了加了几座图腾，这就是原版地图，纯粹的Creeper World混沌！另外也去看看「War Zone」，那是这张地图的更新版，疯狂程度拉满！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -50160,7 +50160,7 @@
   },
   {
    "en": "This used to be 'Flick', a world that supported a population of over 10 billion.  It was torn apart by a collision... a big one.  Something that the planetary shield couldn't stop.",
-   "zh": "这里曾是「弗里克」，一个养活了超过 100 亿人口的世界。它被一次碰撞撕碎了……一次巨大的碰撞。那是行星护盾也无法阻挡的东西。",
+   "zh": "这里曾是「弗里克」，一个养活了超过100亿人口的世界。它被一次碰撞撕碎了……一次巨大的碰撞。那是行星护盾也无法阻挡的东西。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -50199,7 +50199,7 @@
   },
   {
    "en": "Look more carefully, Skars.  This emitter has deployed Subspace-Slip Emitters.  These aren't true emitters, but are channels in subspace that the Master Emitter uses to dispense Creeper.",
-   "zh": "看仔细些，斯卡斯。这座发射器部署了亚空间滑移发射器。它们不是真正的发射器，而是主发射器用来输送 Creeper 的亚空间通道。",
+   "zh": "看仔细些，斯卡斯。这座发射器部署了亚空间滑移发射器。它们不是真正的发射器，而是主发射器用来输送Creeper的亚空间通道。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -50212,7 +50212,7 @@
   },
   {
    "en": "This allows the emitter to deposit Creeper in different locations all at once.  The civilization that first encountered this adaptation were crushed in less than one standard earth year.",
-   "zh": "这让发射器能同时在多个不同地点投放 Creeper。最先遭遇这种变异的文明，在不到一个标准地球年的时间里就被碾碎了。",
+   "zh": "这让发射器能同时在多个不同地点投放Creeper。最先遭遇这种变异的文明，在不到一个标准地球年的时间里就被碾碎了。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -50238,7 +50238,7 @@
   },
   {
    "en": "In a word, \"No\".  There is nothing to destroy.  They are just rips in subspace that the Master Emitter uses to transport Creeper.  The only way to seal them is to destroy the Master Emitter.",
-   "zh": "一句话，「不」。没有什么可摧毁的。它们只是主发射器用来运送 Creeper 的亚空间裂口。要封闭它们，唯一的办法就是摧毁主发射器。",
+   "zh": "一句话，「不」。没有什么可摧毁的。它们只是主发射器用来运送Creeper的亚空间裂口。要封闭它们，唯一的办法就是摧毁主发射器。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -50251,7 +50251,7 @@
   },
   {
    "en": "The best you can do is to establish a foothold on surrounding asteroids, then deploy weapons and AntiCreeper to hold the Slip-Emitters at bay.",
-   "zh": "你能做的最好的事，就是在周边的小行星上建立立足点，然后部署武器和 Anti-Creeper，把滑移发射器压制住。",
+   "zh": "你能做的最好的事，就是在周边的小行星上建立立足点，然后部署武器和Anti-Creeper，把滑移发射器压制住。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -50264,7 +50264,7 @@
   },
   {
    "en": "The Bomber Tech Artifact should prove useful.  These air/space craft can deliver AC remotely.",
-   "zh": "轰炸机技术圣物应该会很有用。这种空天飞行器可以远程投放 AC。",
+   "zh": "轰炸机技术圣物应该会很有用。这种空天飞行器可以远程投放AC。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -50277,7 +50277,7 @@
   },
   {
    "en": "Yes... I'll saturate these asteroids with AC.  Then, we'll get out of here.  There is nothing left here but death and destruction.",
-   "zh": "是的……我会用 AC 把这群小行星彻底浸透。然后，我们就离开这里。这里除了死亡与毁灭，什么都不剩了。",
+   "zh": "是的……我会用AC把这群小行星彻底浸透。然后，我们就离开这里。这里除了死亡与毁灭，什么都不剩了。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -50576,7 +50576,7 @@
   },
   {
    "en": "Yes, they were meant to look that way.  This was a camouflage world.  Some civilizations attempted to hide from the Creeper by removing all obvious traces of higher technology.",
-   "zh": "是的，它们本来就是故意做成那样。这是一颗伪装星球。有些文明试图抹去一切高等技术的痕迹，以此躲避 Creeper。",
+   "zh": "是的，它们本来就是故意做成那样。这是一颗伪装星球。有些文明试图抹去一切高等技术的痕迹，以此躲避Creeper。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -50589,7 +50589,7 @@
   },
   {
    "en": "It obviously didn't work.... the Creeper must have either not cared, or seen through the charade.",
-   "zh": "显然没用……Creeper 要么根本不在意，要么看穿了这场伪装。",
+   "zh": "显然没用……Creeper要么根本不在意，要么看穿了这场伪装。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -50732,7 +50732,7 @@
   },
   {
    "en": "Entire planets shielded?  This must have been some desperate attempt to defend against the Creeper.",
-   "zh": "整颗整颗的星球都加了护盾？这一定是当年为了抵御 Creeper 的绝望之举。",
+   "zh": "整颗整颗的星球都加了护盾？这一定是当年为了抵御Creeper的绝望之举。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51070,7 +51070,7 @@
   },
   {
    "en": "Thanks to Virgil for the scripts and images (that i shamelessly \"borrowed\" from the meso map).\nThe idols have quite high energy demand, make sure you can run them before you hook them up!",
-   "zh": "感谢 Virgil 提供脚本与图像（我从梅索那张地图上毫不脸红地「借」来的）。\n这些神像的能耗相当高，接上去之前先确认你供得起！",
+   "zh": "感谢Virgil提供脚本与图像（我从梅索那张地图上毫不脸红地「借」来的）。\n这些神像的能耗相当高，接上去之前先确认你供得起！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51187,7 +51187,7 @@
   },
   {
    "en": "Welcome to the Creeper Simulation Machine Version 6.1, My name is CS Advanced.  Welcome to your training as a Challenger of the Creeper.",
-   "zh": "欢迎使用 Creeper 模拟机 6.1 版，我是 CS Advanced。欢迎参加「Creeper 挑战者」训练。",
+   "zh": "欢迎使用Creeper模拟机6.1版，我是CS Advanced。欢迎参加「Creeper挑战者」训练。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51200,7 +51200,7 @@
   },
   {
    "en": "Hello Trainee! I am CAIN, Comand Node Artifical Intelligence. I trust that you can get yourself through the mission, so I wil be mostly silent and just take notes on your performance.",
-   "zh": "你好，受训者！我是 CAIN，指挥节点人工智能。我相信你能自己完成任务，所以我会大多保持沉默，只记录你的表现。",
+   "zh": "你好，受训者！我是CAIN，指挥节点人工智能。我相信你能自己完成任务，所以我会大多保持沉默，只记录你的表现。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51226,7 +51226,7 @@
   },
   {
    "en": "Prepare the simulation, I am engaing the creeper in battle!",
-   "zh": "准备模拟，我要与 Creeper 开战了！",
+   "zh": "准备模拟，我要与Creeper开战了！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51239,7 +51239,7 @@
   },
   {
    "en": "Simulation Number 84497884 starting please stand by to engage.",
-   "zh": "模拟编号 84497884 即将开始，请待命投入交战。",
+   "zh": "模拟编号84497884即将开始，请待命投入交战。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51291,7 +51291,7 @@
   },
   {
    "en": "Simulation Number 84497884 is almost complete preparing to stop simulation machine.",
-   "zh": "模拟编号 84497884 即将完成，准备停止模拟机。",
+   "zh": "模拟编号84497884即将完成，准备停止模拟机。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51317,7 +51317,7 @@
   },
   {
    "en": "No. My records say that in this place humanity tried to kill a single emitter. They used their own cores to create anti-creeper and AC spores, slowly growing stronger and stronger.",
-   "zh": "不是。我的记录说，人类曾在这里试图消灭一个单独的发射器。他们用自己的核心制造 Anti-Creeper 和 AC 孢子，慢慢变得越来越强。",
+   "zh": "不是。我的记录说，人类曾在这里试图消灭一个单独的发射器。他们用自己的核心制造Anti-Creeper和AC孢子，慢慢变得越来越强。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51330,7 +51330,7 @@
   },
   {
    "en": "Many years later the creeper returned and it took over their systems.",
-   "zh": "许多年后，Creeper 回来了，接管了他们的系统。",
+   "zh": "许多年后，Creeper回来了，接管了他们的系统。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51343,7 +51343,7 @@
   },
   {
    "en": "So I now have to fight something that the humanity made to kill the creeper? Then you might know what it does.",
-   "zh": "所以我现在要打的，是人类为了消灭 Creeper 而造出来的东西？那你大概知道它的作用。",
+   "zh": "所以我现在要打的，是人类为了消灭Creeper而造出来的东西？那你大概知道它的作用。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51395,7 +51395,7 @@
   },
   {
    "en": "Be prepared for a lot of spores and build a few mortars to keep the creeper density's low.",
-   "zh": "做好应对大量孢子的准备，造几门迫击炮，把 Creeper 的密度压下去。",
+   "zh": "做好应对大量孢子的准备，造几门迫击炮，把Creeper的密度压下去。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51434,7 +51434,7 @@
   },
   {
    "en": "Lia, there seems to be a pattern in the worlds we are visiting.  We know that the Creeper all but destroys everything in its path.  Something to do with entropy, or so my daughter Aliana once told me.  But each world we visit has something of value.",
-   "zh": "莉娅，我们造访的这些世界似乎存在某种规律。我们知道 Creeper 几乎会摧毁途经的一切。这跟熵有关，我女儿阿利安娜曾这么跟我说过。可我们造访的每个世界，都留着有价值的东西。",
+   "zh": "莉娅，我们造访的这些世界似乎存在某种规律。我们知道Creeper几乎会摧毁途经的一切。这跟熵有关，我女儿阿利安娜曾这么跟我说过。可我们造访的每个世界，都留着有价值的东西。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51525,7 +51525,7 @@
   },
   {
    "en": "Yes, seems to be shield tech.  This may be the only way to survive this world, Skars.  Shields will repulse Creeper, but require significant amounts of energy.",
-   "zh": "是的，似乎是护盾科技。这也许是撑过这个世界的唯一办法，斯卡斯。护盾能击退 Creeper，但需要大量能量。",
+   "zh": "是的，似乎是护盾科技。这也许是撑过这个世界的唯一办法，斯卡斯。护盾能击退Creeper，但需要大量能量。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51564,7 +51564,7 @@
   },
   {
    "en": "Protect these dunes against the creeper Skars. In 2 minutes a gaint wave of creeper will appear, so get your bertha's ready!",
-   "zh": "斯卡斯，守住这些沙丘，挡住 Creeper。两分钟后会涌来一大波 Creeper，把你的贝莎炮准备好！",
+   "zh": "斯卡斯，守住这些沙丘，挡住Creeper。两分钟后会涌来一大波Creeper，把你的贝莎炮准备好！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51603,7 +51603,7 @@
   },
   {
    "en": "That is odd, since most civilizations were interested in defending themselves and the Creeper was interested in destroying them.",
-   "zh": "那就怪了，大多数文明都热衷于自我防卫，而 Creeper 热衷于毁灭它们。",
+   "zh": "那就怪了，大多数文明都热衷于自我防卫，而Creeper热衷于毁灭它们。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51616,7 +51616,7 @@
   },
   {
    "en": "This world has been designed to concentrate Creeper on each hill top in sequence.  That old Ticon facility in the east is projecting dual attraction fields that rove over the terrain.",
-   "zh": "这颗星球被设计成让 Creeper 依次聚集到每一座山顶上。东边那座废弃的泰肯设施正投射出两重引力场，在地表上来回游走。",
+   "zh": "这颗星球被设计成让Creeper依次聚集到每一座山顶上。东边那座废弃的泰肯设施正投射出两重引力场，在地表上来回游走。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51629,7 +51629,7 @@
   },
   {
    "en": "What purpose is there in concentrating Creeper like that?  It makes it harder to destroy, but this world doesn't appear configured for defense.",
-   "zh": "把 Creeper 这样聚集起来有什么目的？这让它更难被消灭，但这颗星球看起来并没有为防御做过配置。",
+   "zh": "把Creeper这样聚集起来有什么目的？这让它更难被消灭，但这颗星球看起来并没有为防御做过配置。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51670,7 +51670,7 @@
   },
   {
    "en": "This is interesting, and subtle.  It seems that the structure on each hill is designed as a transmitter.  When the Creeper pools over each transmitter, I assume that is when each will transmit.",
-   "zh": "有意思，而且很隐蔽。每座山顶上的结构似乎都设计成了发射器。当 Creeper 汇聚到每个发射器上时，我推测那就是它们各自发射的时刻。",
+   "zh": "有意思，而且很隐蔽。每座山顶上的结构似乎都设计成了发射器。当Creeper汇聚到每个发射器上时，我推测那就是它们各自发射的时刻。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51709,7 +51709,7 @@
   },
   {
    "en": "It's the Loki... it must be.  Everything over the last 10 billion years, their campaign to destroy everything in the universe with the Creeper... it has all been building to this.",
-   "zh": "是洛基……一定是他们。过去一百亿年里的一切，他们用 Creeper 毁灭宇宙万物的战争……全都在为这一刻铺路。",
+   "zh": "是洛基……一定是他们。过去一百亿年里的一切，他们用Creeper毁灭宇宙万物的战争……全都在为这一刻铺路。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51722,7 +51722,7 @@
   },
   {
    "en": "Skars, if all of the Creeper from across the universe is the source of the signals it means the Creeper doesn't just destroy things.  It also remembers things in exacting detail. It would only be bound by the uncertainty principle, unless...",
-   "zh": "斯卡斯，如果全宇宙的 Creeper 就是这些信号的源头，那就意味着 Creeper 不只毁灭万物，它还以极其精确的细节记住万物。它唯一受制的只有不确定性原理，除非……",
+   "zh": "斯卡斯，如果全宇宙的Creeper就是这些信号的源头，那就意味着Creeper不只毁灭万物，它还以极其精确的细节记住万物。它唯一受制的只有不确定性原理，除非……",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51813,7 +51813,7 @@
   },
   {
    "en": "go north or go east, it's up to you, but connecting point to point will give you what you need to win. (scripts from meso, thanks again Virgil, i love these powered idols!)",
-   "zh": "往北还是往东，随你，但把点与点连起来，才会给你取胜所需的东西。（脚本来自梅索，再次感谢 Virgil，我爱死这些带能量的神像了！）",
+   "zh": "往北还是往东，随你，但把点与点连起来，才会给你取胜所需的东西。（脚本来自梅索，再次感谢Virgil，我爱死这些带能量的神像了！）",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -51826,7 +51826,7 @@
   },
   {
    "en": "tek tip! packet speed is probably a good idea!",
-   "zh": "teks 小提示！把能量包速度升上去，大概是个好主意！",
+   "zh": "teks小提示！把能量包速度升上去，大概是个好主意！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52034,7 +52034,7 @@
   },
   {
    "en": "Neither.  This technology is actually ancient and comes from the 3rd C.E.... the civilization that came after yours.  It was supposed to be a technology to block spores, but...",
-   "zh": "都不是。这项技术其实很古老，来自第 3 循环历……你们之后的那个文明。它本是用作阻挡孢子的技术，可……",
+   "zh": "都不是。这项技术其实很古老，来自第3循环历……你们之后的那个文明。它本是用作阻挡孢子的技术，可……",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52047,7 +52047,7 @@
   },
   {
    "en": "Let me guess, it didn't block spores for long and the Creeper altered it for its own purposes.",
-   "zh": "让我猜猜，它没能挡住孢子多久，Creeper 就把它改成自己的用途了。",
+   "zh": "让我猜猜，它没能挡住孢子多久，Creeper就把它改成自己的用途了。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52060,7 +52060,7 @@
   },
   {
    "en": "Yes, now it simply blocks your air units.  You can't use Strafers or Bombers over the area covered by the AE field.",
-   "zh": "是的，现在它只挡你的空中单位。在 AE 场覆盖的区域内，你无法使用俯冲机或轰炸机。",
+   "zh": "是的，现在它只挡你的空中单位。在AE场覆盖的区域内，你无法使用俯冲机或轰炸机。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52086,7 +52086,7 @@
   },
   {
    "en": "No, they slip in under the field... just barely.  So you are only prevented from using Air units under the area covered by the AE field.",
-   "zh": "不受影响，它们从场下方穿过……勉勉强强。所以你只是不能在 AE 场覆盖的区域内使用空中单位。",
+   "zh": "不受影响，它们从场下方穿过……勉勉强强。所以你只是不能在AE场覆盖的区域内使用空中单位。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52125,7 +52125,7 @@
   },
   {
    "en": "Yes, they were a once powerful and noble species that fell to the Creeper and were forced to serve the Loki.  A few of them rebelled and those rebels assisted our survival against the second Nexus menace.",
-   "zh": "熟悉，他们曾是强大而高贵的种族，后来败给 Creeper，被迫为洛基效力。其中有少数人反叛，那些叛军帮助我们在第二次枢纽威胁中活了下来。",
+   "zh": "熟悉，他们曾是强大而高贵的种族，后来败给Creeper，被迫为洛基效力。其中有少数人反叛，那些叛军帮助我们在第二次枢纽威胁中活了下来。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52191,7 +52191,7 @@
   },
   {
    "en": "It is difficult to date, and very badly damaged, but it seems to have been recorded sometime after the Seloi were long gone.  Sometime around the 300th C.E. perhaps.",
-   "zh": "很难确定年代，而且损毁严重，但它似乎录于塞洛伊早已消亡之后。也许在第 300 循环历前后。",
+   "zh": "很难确定年代，而且损毁严重，但它似乎录于塞洛伊早已消亡之后。也许在第300循环历前后。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52295,7 +52295,7 @@
   },
   {
    "en": "So someone or something kept the decryption key a secret and only included it eons later.  And of course the whole thing was on an artifact the Creeper bypassed.",
-   "zh": "所以是某人或某物把解密密钥藏了起来，直到万古之后才附上。而这一切当然都放在一件 Creeper 绕过的圣物上。",
+   "zh": "所以是某人或某物把解密密钥藏了起来，直到万古之后才附上。而这一切当然都放在一件Creeper绕过的圣物上。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52399,7 +52399,7 @@
   },
   {
    "en": "Their conflict with the Creeper lasted centuries, longer than any other civilization.  But the costs were unthinkable.  And in the end, they failed like all the others.",
-   "zh": "他们与 Creeper 的冲突持续了几个世纪，比任何其他文明都长。但代价无法想象。而最终，他们和所有其他文明一样失败了。",
+   "zh": "他们与Creeper的冲突持续了几个世纪，比任何其他文明都长。但代价无法想象。而最终，他们和所有其他文明一样失败了。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52412,7 +52412,7 @@
   },
   {
    "en": "The Ticons developed a weapon system they believed would destroy the Creeper once and for all.  It was an artificial, self-replicating structure that derived its sustenance from Emitters.  It was believed this would 'immunize' worlds from Emitters.",
-   "zh": "泰肯人开发了一套武器系统，相信它能一劳永逸地摧毁 Creeper。那是一种人造的自我复制结构，靠发射器汲取养分。他们相信这能让世界对发射器「免疫」。",
+   "zh": "泰肯人开发了一套武器系统，相信它能一劳永逸地摧毁Creeper。那是一种人造的自我复制结构，靠发射器汲取养分。他们相信这能让世界对发射器「免疫」。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52438,7 +52438,7 @@
   },
   {
    "en": "For a while, and to a measure.  It worked until the emitters were somehow changed.  The emitters adapted to the parasite and turned this weapon, which the Ticon called \"Digitalis\", into an asset.  Emitters no longer appeared to lose any viability when surrounded by Digitalis.",
-   "zh": "有一阵子，某种程度上。直到发射器不知怎么发生了变化。发射器适应了这个寄生物，把这件被泰肯人称为「魔苋」的武器变成了自己的资源。被 魔苋 包围时，发射器似乎不再损失任何活性。",
+   "zh": "有一阵子，某种程度上。直到发射器不知怎么发生了变化。发射器适应了这个寄生物，把这件被泰肯人称为「魔苋」的武器变成了自己的资源。被魔苋包围时，发射器似乎不再损失任何活性。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52464,7 +52464,7 @@
   },
   {
    "en": "They didn't.  The Digitalis had allowed them to survive the Creeper for decades, but in one moment it became their undoing.  Once the emitters adapted, the Digitalis no longer destroyed them.  Instead it would grow and protect the emitters.",
-   "zh": "他们没能应对。魔苋 曾让他们在与 Creeper 的对抗中存活了几十年，但一瞬间它就成了他们的毁灭之源。发射器一旦适应，魔苋 就不再摧毁它们，反而生长起来保护发射器。",
+   "zh": "他们没能应对。魔苋曾让他们在与Creeper的对抗中存活了几十年，但一瞬间它就成了他们的毁灭之源。发射器一旦适应，魔苋就不再摧毁它们，反而生长起来保护发射器。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52477,7 +52477,7 @@
   },
   {
    "en": "And it appears as if this Digitalis still exists...",
-   "zh": "而看起来，这 魔苋 依然存在……",
+   "zh": "而看起来，这魔苋依然存在……",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52490,7 +52490,7 @@
   },
   {
    "en": "With regret, it seems so.  Skars, the Digitalis is a brutish and simple enemy.  It spreads along predefined pathways.  But, those paths don't respect terrain elevation.  Digitalis is tough, very tough, and your weapons will have difficulty damaging it.",
-   "zh": "很遗憾，看来是的。斯卡斯，魔苋 是个粗暴而简单的敌人。它沿着预设路径蔓延。但这些路径不受地形高度限制。魔苋 很坚韧，极其坚韧，你的武器很难伤到它。",
+   "zh": "很遗憾，看来是的。斯卡斯，魔苋是个粗暴而简单的敌人。它沿着预设路径蔓延。但这些路径不受地形高度限制。魔苋很坚韧，极其坚韧，你的武器很难伤到它。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52503,7 +52503,7 @@
   },
   {
    "en": "What is worse is that The Digitalis replicates rapidly and will fill in destroyed areas with great efficiency.  Your best strategy is to try to cut it off from its source.  Digitalis requires a connection to an emitter to thrive.  If you sever that connection, it will cease to grow and eventually wither.",
-   "zh": "更糟的是，魔苋 复制极快，会以极高的效率填补被摧毁的区域。你最好的策略是设法切断它与源头。魔苋 需要与发射器相连才能繁盛。一旦切断那连接，它就会停止生长，最终枯萎。",
+   "zh": "更糟的是，魔苋复制极快，会以极高的效率填补被摧毁的区域。你最好的策略是设法切断它与源头。魔苋需要与发射器相连才能繁盛。一旦切断那连接，它就会停止生长，最终枯萎。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52516,7 +52516,7 @@
   },
   {
    "en": "Digitalis also conducts Creeper rapidly and with no loss. So beware of this as it can move Creeper over higher terrain.",
-   "zh": "魔苋 还能快速无损地传导 Creeper。所以要小心，它能把 Creeper 送过高地。",
+   "zh": "魔苋还能快速无损地传导Creeper。所以要小心，它能把Creeper送过高地。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52529,7 +52529,7 @@
   },
   {
    "en": "If it conducts Creeper, then I suppose Anti-Creeper is also conducted by it?",
-   "zh": "如果它能传导 Creeper，那我猜 Anti-Creeper 也能被它传导？",
+   "zh": "如果它能传导Creeper，那我猜Anti-Creeper也能被它传导？",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52542,7 +52542,7 @@
   },
   {
    "en": "Indeed.  Anti-Creeper is conducted as well.  Anti-Creeper also slows the regeneration of Digitalis, so use that to your advantage when possible.",
-   "zh": "确实。Anti-Creeper 同样能被传导。Anti-Creeper 还会减缓 魔苋 的再生，所以有机会就利用这一点。",
+   "zh": "确实。Anti-Creeper同样能被传导。Anti-Creeper还会减缓魔苋的再生，所以有机会就利用这一点。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52568,7 +52568,7 @@
   },
   {
    "en": "This will be indispensable on this mission, Skars.  Collect that tech artifact, then land a second Command Node.  This will allow a two front approach and you may be able to take out the emitters that are sourcing the Digitalis.",
-   "zh": "这次任务中它不可或缺，斯卡斯。取回那个技术圣物，然后降落第二个指挥节点。这样你就能两线并进，也许可以打掉为 魔苋 供源的发射器。",
+   "zh": "这次任务中它不可或缺，斯卡斯。取回那个技术圣物，然后降落第二个指挥节点。这样你就能两线并进，也许可以打掉为魔苋供源的发射器。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52581,7 +52581,7 @@
   },
   {
    "en": "This is most unusual, Skars.  Message Artifacts almost never survive contact with the Creeper.  This one seems strangely immune. It's almost as if the Creeper intentionally does not destroy certain objects.",
-   "zh": "这非常不寻常，斯卡斯。信息圣物几乎从不能在接触 Creeper 后留存。这一个却奇怪地免疫。几乎像是 Creeper 有意不摧毁某些东西。",
+   "zh": "这非常不寻常，斯卡斯。信息圣物几乎从不能在接触Creeper后留存。这一个却奇怪地免疫。几乎像是Creeper有意不摧毁某些东西。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52620,7 +52620,7 @@
   },
   {
    "en": "Welcome back to the next simulation map. This map is Simulation Number 57958425. Please Enjoy!",
-   "zh": "欢迎回到下一张模拟地图。本图模拟编号 57958425。祝你玩得愉快！",
+   "zh": "欢迎回到下一张模拟地图。本图模拟编号57958425。祝你玩得愉快！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52659,7 +52659,7 @@
   },
   {
    "en": "According to my scanners, the best place to land would be on the bottom left area because the emitter appears to be damaged and won't start untill 60 seconds after we land.",
-   "zh": "根据我的扫描，最佳降落点是左下方区域，因为那里的发射器似乎受损，要等我们降落 60 秒后才会启动。",
+   "zh": "根据我的扫描，最佳降落点是左下方区域，因为那里的发射器似乎受损，要等我们降落60秒后才会启动。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52698,7 +52698,7 @@
   },
   {
    "en": "Oh My... this world is Ormos. It was occupied by the very last human civilization.  That civilization went to extreme and extraordinary measures to survive the Creeper.",
-   "zh": "天啊……这颗星球是奥尔莫斯。它曾被最后的人类文明占据。那个文明为了在 Creeper 之下存活，采取了极端而惊人的手段。",
+   "zh": "天啊……这颗星球是奥尔莫斯。它曾被最后的人类文明占据。那个文明为了在Creeper之下存活，采取了极端而惊人的手段。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52711,7 +52711,7 @@
   },
   {
    "en": "I don't understand why so many civilizations would rise and fall.  How was the Creeper always able to return?",
-   "zh": "我不明白为什么那么多文明兴起又覆灭。Creeper 怎么总能卷土重来？",
+   "zh": "我不明白为什么那么多文明兴起又覆灭。Creeper怎么总能卷土重来？",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52724,7 +52724,7 @@
   },
   {
    "en": "Patience.  Extreme patience.  When a civilization has existed for hundreds of thousands, even millions of years with no hint of the Creeper, it forgets.",
-   "zh": "耐心。极端的耐心。当一个文明存在了几十万年、甚至几百万年，都没见到 Creeper 的踪影，它就会遗忘。",
+   "zh": "耐心。极端的耐心。当一个文明存在了几十万年、甚至几百万年，都没见到Creeper的踪影，它就会遗忘。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52737,7 +52737,7 @@
   },
   {
    "en": "So the Loki would just wait?  After eons had passed, they would send the Creeper again?",
-   "zh": "所以洛基就只是等？等万古过去，再把 Creeper 放出来？",
+   "zh": "所以洛基就只是等？等万古过去，再把Creeper放出来？",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52750,7 +52750,7 @@
   },
   {
    "en": "That was one component to their strategy...\nSkars, this world was altered during the final conflict.  It was a military outpost specifically designed to withstand the Creeper.",
-   "zh": "那只是他们战略的一部分……\n斯卡斯，这颗星球在最终之战中被改造过。它是一座专为抵御 Creeper 而设计的军事前哨站。",
+   "zh": "那只是他们战略的一部分……\n斯卡斯，这颗星球在最终之战中被改造过。它是一座专为抵御Creeper而设计的军事前哨站。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52776,7 +52776,7 @@
   },
   {
    "en": "So they thought.  There are no emitters but there is still Creeper.  It is trapped inside a subspace rift and will explode onto the terrain once activity is detected.",
-   "zh": "他们是这么想的。没有发射器，可 Creeper 仍在。它被封在一个亚空间裂隙里，一旦探测到活动，就会喷涌到地表上。",
+   "zh": "他们是这么想的。没有发射器，可Creeper仍在。它被封在一个亚空间裂隙里，一旦探测到活动，就会喷涌到地表上。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52789,7 +52789,7 @@
   },
   {
    "en": "The final humans here managed to alter some physical constants in this region of space.  As such, the Creeper flows more slowly than normal.",
-   "zh": "这里最后的人类设法改动了这片空间的一些物理常数。因此，Creeper 的流动比正常情况更慢。",
+   "zh": "这里最后的人类设法改动了这片空间的一些物理常数。因此，Creeper的流动比正常情况更慢。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52815,7 +52815,7 @@
   },
   {
    "en": "Yes, but Skars... don't underestimate this Creeper.  The Tech Artifacts here are for a Siphon and a Terp.  The siphon will let you extract resources from Resource Packs.",
-   "zh": "是的，不过斯卡斯……别小看这些 Creeper。这里的技术圣物对应虹吸器和挖掘机。虹吸器能让你从资源包中提取资源。",
+   "zh": "是的，不过斯卡斯……别小看这些Creeper。这里的技术圣物对应虹吸器和挖掘机。虹吸器能让你从资源包中提取资源。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -52841,7 +52841,7 @@
   },
   {
    "en": "The Terp will allow you to terraform the land.  I recommend you repair the damage to the walls of the old ruins.  That will keep the Creeper at bay while you build up offensive strength.",
-   "zh": "挖掘机让你能改造地形。我建议你修复古废墟城墙上的破损。这样在你积累进攻力量时，能把 Creeper 挡在外面。",
+   "zh": "挖掘机让你能改造地形。我建议你修复古废墟城墙上的破损。这样在你积累进攻力量时，能把Creeper挡在外面。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53010,7 +53010,7 @@
   },
   {
    "en": "2 emitters should appear the the big rocks on the left and the right. Destroy those and you'll pass this test.",
-   "zh": "左右两边的巨石处应该会出现 2 个发射器。摧毁它们，你就通过这次测试了。",
+   "zh": "左右两边的巨石处应该会出现2个发射器。摧毁它们，你就通过这次测试了。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53062,7 +53062,7 @@
   },
   {
    "en": "No, creeper will pile up and it will take much longer to nulllify the structures. So land down a command node and start building!",
-   "zh": "不行，Creeper 会越堆越多，灭除建筑会拖得久得多。所以，空降指挥节点，开始建造吧！",
+   "zh": "不行，Creeper会越堆越多，灭除建筑会拖得久得多。所以，空降指挥节点，开始建造吧！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53244,7 +53244,7 @@
   },
   {
    "en": "It has also been compromised by the Creeper, so whatever it originally did it's a safe bet it does something that benefits the Creeper now.",
-   "zh": "它也被 Creeper 侵蚀了，所以无论它原本做什么，现在多半在做对 Creeper 有利的事。",
+   "zh": "它也被Creeper侵蚀了，所以无论它原本做什么，现在多半在做对Creeper有利的事。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53283,7 +53283,7 @@
   },
   {
    "en": "Yes, you only ever knew travel through Rift Space.  Rift Space was sealed many millennia ago in an attempt to stop the Creeper menace from returning.",
-   "zh": "是啊，你从前只知道通过裂隙空间旅行。许多个千年前，裂隙空间被封印，为的是阻止 Creeper 的威胁再度降临。",
+   "zh": "是啊，你从前只知道通过裂隙空间旅行。许多个千年前，裂隙空间被封印，为的是阻止Creeper的威胁再度降临。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53296,7 +53296,7 @@
   },
   {
    "en": "Unfortunately, it did not work.  The Creeper arrived in vessels that could bend the fabric of space-time.  Eventually, the few survivors of successive civilizations developed their own warp technology.",
-   "zh": "不幸的是，那没有用。Creeper 乘着能扭曲时空结构的飞船来了。最终，一个个文明余下的少数幸存者，各自发展出了跃迁技术。",
+   "zh": "不幸的是，那没有用。Creeper乘着能扭曲时空结构的飞船来了。最终，一个个文明余下的少数幸存者，各自发展出了跃迁技术。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53309,7 +53309,7 @@
   },
   {
    "en": "But no matter how strong and advanced each civilization grew, the Creeper would always eventually return.",
-   "zh": "可无论每个文明变得多么强大、多么先进，Creeper 终究会卷土重来。",
+   "zh": "可无论每个文明变得多么强大、多么先进，Creeper终究会卷土重来。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53387,7 +53387,7 @@
   },
   {
    "en": "Scan complete: This area has underground tunnels that emitters will use to dig their way to the surface like in CW2.",
-   "zh": "扫描完成：这片区域有地下隧道，发射器会像在 CW2 里那样，沿着隧道挖到地表。",
+   "zh": "扫描完成：这片区域有地下隧道，发射器会像在CW2里那样，沿着隧道挖到地表。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53400,7 +53400,7 @@
   },
   {
    "en": "Is CW2 a designation for some other planet? Nevermind, what do you suggest we do?",
-   "zh": "CW2 是另一颗星球的编号吗？算了，你建议我们怎么做？",
+   "zh": "CW2是另一颗星球的编号吗？算了，你建议我们怎么做？",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53413,7 +53413,7 @@
   },
   {
    "en": "It appears you can use TERPs to slow down their digging procedure, or to cover a hole left behind a nullified emitter.  Also the emitters will use the tunnels to release creeper in other locations.",
-   "zh": "看来你可以用挖掘机拖慢它们的挖掘进程，或者填平被灭除的发射器留下的坑洞。还有，发射器会借隧道在其他位置释放 Creeper。",
+   "zh": "看来你可以用挖掘机拖慢它们的挖掘进程，或者填平被灭除的发射器留下的坑洞。还有，发射器会借隧道在其他位置释放Creeper。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53478,7 +53478,7 @@
   },
   {
    "en": "I have few records of the Creeper ever acting in this fashion.  It is possible to warp space this way, but so far from a gravity well... it would require immense energy.  The mass energy of entire stars would be required....",
-   "zh": "关于 Creeper 有过这种行为，我的记录寥寥无几。这样扭曲空间是可能的，但离引力井如此之远……那需要极其庞大的能量。得耗尽好几颗恒星的质量能量才够……",
+   "zh": "关于Creeper有过这种行为，我的记录寥寥无几。这样扭曲空间是可能的，但离引力井如此之远……那需要极其庞大的能量。得耗尽好几颗恒星的质量能量才够……",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53491,7 +53491,7 @@
   },
   {
    "en": "I can only recommend that you stay clear of that area.  With that much Creeper collapsing into a small region of space, I'm not sure what the results might be.",
-   "zh": "我只能建议你远离那片区域。那么多 Creeper 向一小片空间坍缩，我无法确定会有什么后果。",
+   "zh": "我只能建议你远离那片区域。那么多Creeper向一小片空间坍缩，我无法确定会有什么后果。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53582,7 +53582,7 @@
   },
   {
    "en": "This is fascinating...  This artifact contains an instruction manual for the Guppy, volumes of literature, art, and video from old Earth, and a treatise from the 144th C.E. on the prospects of cyclical eternity.",
-   "zh": "这真有趣……这件圣物里存着补给船的操作手册、来自旧地球的成卷文学、艺术与影像资料，还有一篇写于第 144 循环历、探讨循环永恒之可能性的论文。",
+   "zh": "这真有趣……这件圣物里存着补给船的操作手册、来自旧地球的成卷文学、艺术与影像资料，还有一篇写于第144循环历、探讨循环永恒之可能性的论文。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53686,7 +53686,7 @@
   },
   {
    "en": "The treatise proposes that our universe is but one of many... nothing new there, this idea dates back to the 1st C.E.  It goes on to argue that it is possible to create a device... something unique and singular to each universe.",
-   "zh": "论文提出，我们的宇宙只是众多宇宙之一……这倒不新鲜，这种想法可以追溯到第 1 循环历。它接着论证，可以制造出一种装置……一种每个宇宙都独有而唯一的东西。",
+   "zh": "论文提出，我们的宇宙只是众多宇宙之一……这倒不新鲜，这种想法可以追溯到第1循环历。它接着论证，可以制造出一种装置……一种每个宇宙都独有而唯一的东西。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53751,7 +53751,7 @@
   },
   {
    "en": "The drones will destroy any structure in range immediatly. They will move freely over the map but prefer high ground, but not higher than 8. Try to get them trapped so you can nullify the drone-bases.",
-   "zh": "无人机一旦进入射程，就会立刻摧毁任何建筑。它们在地图上自由移动，偏好高地，但不会高于 8 层。试着把它们困住，这样你就能灭除那些无人机基地。",
+   "zh": "无人机一旦进入射程，就会立刻摧毁任何建筑。它们在地图上自由移动，偏好高地，但不会高于8层。试着把它们困住，这样你就能灭除那些无人机基地。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53777,7 +53777,7 @@
   },
   {
    "en": "(PZ) Terps are key",
-   "zh": "(PZ) 挖掘机是关键",
+   "zh": "(PZ)挖掘机是关键",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53869,7 +53869,7 @@
   },
   {
    "en": "Well, it will send a large wall of creeper to you. I recommend building stuff that can withstand some creeper or kill the creeper before it reaches you. Remember that units in flight can't get damaged.",
-   "zh": "嗯，它会朝你推来一大堵 Creeper 墙。我建议造些能扛住 Creeper 的东西，或者在 Creeper 过来之前就把它消灭。记住，飞行中的单位不会受伤。",
+   "zh": "嗯，它会朝你推来一大堵Creeper墙。我建议造些能扛住Creeper的东西，或者在Creeper过来之前就把它消灭。记住，飞行中的单位不会受伤。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53895,7 +53895,7 @@
   },
   {
    "en": "Lia, do you have any additional information about why I was brought to this time?  It seems as if the Creeper has destroyed everything we ever worked to save...",
-   "zh": "莉娅，你有更多关于我被带到这个时代的资料吗？看起来 Creeper 已经毁掉了我们曾为之奋斗的一切……",
+   "zh": "莉娅，你有更多关于我被带到这个时代的资料吗？看起来Creeper已经毁掉了我们曾为之奋斗的一切……",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53960,7 +53960,7 @@
   },
   {
    "en": "Welcome Back to the Custom Map Series, Simulation. This map is number 258685432. Please Enjoy, it is titled, \"The Name\".",
-   "zh": "欢迎回到自定义地图系列，模拟。本图编号 258685432。请尽情享受，它的标题是「The Name」。",
+   "zh": "欢迎回到自定义地图系列，模拟。本图编号258685432。请尽情享受，它的标题是「The Name」。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -53986,7 +53986,7 @@
   },
   {
    "en": "Records indicate that this world was based off of a privatly owned planet build to defend against the creeper, unforutonly it failed and proved very hard to take back.",
-   "zh": "记录显示，这个世界是以一颗私人星球为原型建造的，用来抵御 Creeper，可惜它失败了，而且极难夺回。",
+   "zh": "记录显示，这个世界是以一颗私人星球为原型建造的，用来抵御Creeper，可惜它失败了，而且极难夺回。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -54038,7 +54038,7 @@
   },
   {
    "en": "The first mission from the old alpha versions that seemed impossible. Good luck!",
-   "zh": "旧版 alpha 时期的第一个任务，当年看起来根本不可能完成。祝好运！",
+   "zh": "旧版alpha时期的第一个任务，当年看起来根本不可能完成。祝好运！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -54051,7 +54051,7 @@
   },
   {
    "en": "Welcome to Training Sim 58928593484628462!",
-   "zh": "欢迎来到训练模拟 58928593484628462！",
+   "zh": "欢迎来到训练模拟58928593484628462！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -54090,7 +54090,7 @@
   },
   {
    "en": "You no doubt remember one epoch of this world.  Far York was a mighty world and served as the center of commerce for 13 different civilizations.",
-   "zh": "你无疑记得这个世界的一个纪元。远约克曾是一个强大的世界，是 13 个不同文明的贸易中心。",
+   "zh": "你无疑记得这个世界的一个纪元。远约克曾是一个强大的世界，是13个不同文明的贸易中心。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -54480,7 +54480,7 @@
   },
   {
    "en": "Commander, that Emitter on the Black Rock seems to emit Anti-Creeper",
-   "zh": "指挥官，黑岩上那座发射器喷出的好像是 Anti-Creeper。",
+   "zh": "指挥官，黑岩上那座发射器喷出的好像是Anti-Creeper。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -54532,7 +54532,7 @@
   },
   {
    "en": "... He doesn't look too friendly... on the other hand, he's just about saving us... so I will take back my questions... for the moment...\nThe same foe? The Creeper, but which human does not fight them, heh?",
-   "zh": "……他看起来可不怎么友善……不过话说回来，他正要救我们……所以我把问题收回来……暂时……\n同一个敌人？Creeper 吗，可哪个人类不在跟它们打呢，嘿？",
+   "zh": "……他看起来可不怎么友善……不过话说回来，他正要救我们……所以我把问题收回来……暂时……\n同一个敌人？Creeper吗，可哪个人类不在跟它们打呢，嘿？",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -54805,7 +54805,7 @@
   },
   {
    "en": "It appears terrible weapons were used that ripped the world apart.  As you are seeing, humanity went to every extreme in its fight with the Creeper.",
-   "zh": "看起来是某种可怕的武器把这个星球撕裂了。如你所见，人类在与 Creeper 的战斗中走到了每一种极端。",
+   "zh": "看起来是某种可怕的武器把这个星球撕裂了。如你所见，人类在与Creeper的战斗中走到了每一种极端。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -54857,7 +54857,7 @@
   },
   {
    "en": "Yes, build ore mines on those ore deposits you see.  They will send ore to the Command Node.  From there, it will be processed into Anti-Creeper.",
-   "zh": "是的，在那些你看到的矿藏上建矿场。它们会把矿石送往指挥节点。在那里，矿石会被加工成 Anti-Creeper。",
+   "zh": "是的，在那些你看到的矿藏上建矿场。它们会把矿石送往指挥节点。在那里，矿石会被加工成Anti-Creeper。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -54870,7 +54870,7 @@
   },
   {
    "en": "Ahhh yes, Anti-Creeper.  It was my daughter Alia.... (sigh)\nIt was my daughter Aliana, who unlocked the secrets of Anti-Creeper long ago.",
-   "zh": "啊，对，Anti-Creeper。是我的女儿阿利娅……（叹气）\n是我的女儿阿利安娜，很久以前揭开了 Anti-Creeper 的秘密。",
+   "zh": "啊，对，Anti-Creeper。是我的女儿阿利娅……（叹气）\n是我的女儿阿利安娜，很久以前揭开了Anti-Creeper的秘密。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -54883,7 +54883,7 @@
   },
   {
    "en": "I assume the Sprayer will deliver Anti-Creeper to the battlefield?",
-   "zh": "我猜喷吐者会把 Anti-Creeper 送上战场？",
+   "zh": "我猜喷吐者会把Anti-Creeper送上战场？",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -54922,7 +54922,7 @@
   },
   {
    "en": "What's up Creeper World Commanders? This is my very first map I made. This map was created in one of the first builds, it has been remastered for your pleasure. Enjoy, and thanks for playing!",
-   "zh": "Creeper World 的指挥官们，近来可好？这是我最开始做的第一张地图。它诞生于最早期的某个版本，如今为了诸位重新打磨过。玩得开心，感谢试玩！",
+   "zh": "Creeper World的指挥官们，近来可好？这是我最开始做的第一张地图。它诞生于最早期的某个版本，如今为了诸位重新打磨过。玩得开心，感谢试玩！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -54935,7 +54935,7 @@
   },
   {
    "en": "This is a testing simulator of a little game where you have to move the green walls in such a way that they will survive as long as possible. Arrow keys to move. The game will end in 10 minutes. Good luck!",
-   "zh": "这是一个小游戏的测试模拟器：你要移动绿色墙壁，让它们尽可能活得久一些。用方向键移动。游戏将在 10 分钟后结束。祝你好运！",
+   "zh": "这是一个小游戏的测试模拟器：你要移动绿色墙壁，让它们尽可能活得久一些。用方向键移动。游戏将在10分钟后结束。祝你好运！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55039,7 +55039,7 @@
   },
   {
    "en": "Scans show they are in pristine condition and not being damaged by the Creeper.  If they work via the same technology as Fractal Collectors, it may be as simple as clearing out all of the Creeper from around each Power Center.",
-   "zh": "扫描显示它们完好无损，也没有被 Creeper 侵蚀。如果它们和分形收集器用的是同一套技术，那也许只要清掉每座能源中心周围的 Creeper 就行。",
+   "zh": "扫描显示它们完好无损，也没有被Creeper侵蚀。如果它们和分形收集器用的是同一套技术，那也许只要清掉每座能源中心周围的Creeper就行。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55182,7 +55182,7 @@
   },
   {
    "en": "Skars, the designator that appears within the contents appears to translate to; \"16th Transient Regiment, 4th Ephemeral Division, Loki Hive\".",
-   "zh": "斯卡斯，内容里出现的番号，翻译过来似乎是：「第 16 瞬变团，第 4 蜉蝣师，洛基巢穴」。",
+   "zh": "斯卡斯，内容里出现的番号，翻译过来似乎是：「第16瞬变团，第4蜉蝣师，洛基巢穴」。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55260,7 +55260,7 @@
   },
   {
    "en": "7 Minutes until 00.00.\nLet Operation Yashima begin.",
-   "zh": "距离 00.00 还有 7 分钟。\n开始「屋岛作战」。",
+   "zh": "距离00.00还有7分钟。\n开始「屋岛作战」。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55273,7 +55273,7 @@
   },
   {
    "en": "(Note: The Enemy Spore Towers will, after they finished building, throw insane amounts of spores at you (10 Spores every 2.5 Seconds)\nIt's very recommended to build overbuild Beams)",
-   "zh": "（注：敌方的孢子塔建成之后，会向你抛出疯狂数量的孢子（每 2.5 秒 10 颗孢子）\n非常建议多造、多堆光束）",
+   "zh": "（注：敌方的孢子塔建成之后，会向你抛出疯狂数量的孢子（每2.5秒10颗孢子）\n非常建议多造、多堆光束）",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55299,7 +55299,7 @@
   },
   {
    "en": "CW1 style!",
-   "zh": "CW1 风格！",
+   "zh": "CW1风格！",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55312,7 +55312,7 @@
   },
   {
    "en": "Are you going to let the Creeper push you around?",
-   "zh": "你打算任由 Creeper 摆布吗？",
+   "zh": "你打算任由Creeper摆布吗？",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55351,7 +55351,7 @@
   },
   {
    "en": "It's a piece of a left over magnetar... an artificial magnetar at that.  It was used in an attempt to construct a Dyson sphere around this system.  Which in turn was another failed attempt to hide from the Creeper.",
-   "zh": "它是一颗残留磁星的碎片……而且是人工磁星。它曾被用来在这个星系周围建造戴森球。那又是一次躲避 Creeper 的失败尝试。",
+   "zh": "它是一颗残留磁星的碎片……而且是人工磁星。它曾被用来在这个星系周围建造戴森球。那又是一次躲避Creeper的失败尝试。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55364,7 +55364,7 @@
   },
   {
    "en": "It's effect on the Creeper should be of concern.  Creeper is attracted by its intense gravitational field, so it should flow toward the Magnetar.  But the Magnetar is orbiting the world...",
-   "zh": "它对 Creeper 的影响值得警惕。Creeper 会被它强烈的引力场吸引，因此会朝磁星流动。可磁星正在环绕这颗星球运行……",
+   "zh": "它对Creeper的影响值得警惕。Creeper会被它强烈的引力场吸引，因此会朝磁星流动。可磁星正在环绕这颗星球运行……",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55377,7 +55377,7 @@
   },
   {
    "en": "So there will be a massive Creeper tide from helheim... that's what you are saying.",
-   "zh": "所以会有一场来自海尔海姆的 Creeper 巨潮……你是这个意思。",
+   "zh": "所以会有一场来自海尔海姆的Creeper巨潮……你是这个意思。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55780,7 +55780,7 @@
   },
   {
    "en": "The Creeper's purpose wasn't simply to destroy, it was to record.  It collected knowledge of everything it touched and it remembered.  Trillions and trillions of worlds covered with Creeper across billions of years, harvesting information...  Can't you see how elegant and beautiful that was, Lia?",
-   "zh": "Creeper 的目的不只是毁灭，而是记录。它收集自己触及的一切知识，然后记住。亿万年之间，数万亿又数万亿个被 Creeper 覆盖的世界，在收割信息……你难道看不出那有多么优雅、多么美吗，莉娅？",
+   "zh": "Creeper的目的不只是毁灭，而是记录。它收集自己触及的一切知识，然后记住。亿万年之间，数万亿又数万亿个被Creeper覆盖的世界，在收割信息……你难道看不出那有多么优雅、多么美吗，莉娅？",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55845,7 +55845,7 @@
   },
   {
    "en": "From what I can determine, it should be as simple as taking those six stations offline.  They are processing incoming Aether beams using a technology that I don't understand.  But, their power source is simple... they need Creeper to function.",
-   "zh": "据我判断，只要让那六座站点离线就行，就这么简单。它们在用一种我不理解的技术处理来袭的以太光束。但它们的能量来源很简单……它们需要 Creeper 才能运转。",
+   "zh": "据我判断，只要让那六座站点离线就行，就这么简单。它们在用一种我不理解的技术处理来袭的以太光束。但它们的能量来源很简单……它们需要Creeper才能运转。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55858,7 +55858,7 @@
   },
   {
    "en": "So, clear away the Creeper from the stations and they go offline.  That will buy us some time, then we can destroy those stations with nullifiers and prevent the Loki from revealing the Arc.",
-   "zh": "那么，把站点周围的 Creeper 清掉，它们就会离线。这样能给我们争取一些时间，然后我们就能用灭除器摧毁那些站点，阻止洛基揭示永恒之弧。",
+   "zh": "那么，把站点周围的Creeper清掉，它们就会离线。这样能给我们争取一些时间，然后我们就能用灭除器摧毁那些站点，阻止洛基揭示永恒之弧。",
    "cat": "asset",
    "grade": "other",
    "kind": "Dialog",
@@ -55897,7 +55897,7 @@
   },
   {
    "en": "4.2 An old Friend",
-   "zh": "4.2 老朋友",
+   "zh": "4.2老朋友",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56007,7 +56007,7 @@
   },
   {
    "en": "CW1 Tucana",
-   "zh": "CW1 图卡纳",
+   "zh": "CW1图卡纳",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56018,7 +56018,7 @@
   },
   {
    "en": "CW1 Tucana 2X",
-   "zh": "CW1 图卡纳 2X",
+   "zh": "CW1图卡纳2X",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56073,7 +56073,7 @@
   },
   {
    "en": "Conquest 2",
-   "zh": "征服 2",
+   "zh": "征服2",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56095,7 +56095,7 @@
   },
   {
    "en": "Creeper Hollow",
-   "zh": "Creeper 谷",
+   "zh": "Creeper谷",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56106,7 +56106,7 @@
   },
   {
    "en": "Creeper Wall 2",
-   "zh": "Creeper 墙 2",
+   "zh": "Creeper墙2",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56117,7 +56117,7 @@
   },
   {
    "en": "Creeper Wall 3",
-   "zh": "Creeper 墙 3",
+   "zh": "Creeper墙3",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56128,7 +56128,7 @@
   },
   {
    "en": "CreeperInTheWind",
-   "zh": "Creeper 随风",
+   "zh": "Creeper随风",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56139,7 +56139,7 @@
   },
   {
    "en": "CreeperWall",
-   "zh": "Creeper 墙",
+   "zh": "Creeper墙",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56249,7 +56249,7 @@
   },
   {
    "en": "FiringRangeB",
-   "zh": "靶场 B",
+   "zh": "靶场B",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56304,7 +56304,7 @@
   },
   {
    "en": "HardToSee1",
-   "zh": "难觅 1",
+   "zh": "难觅1",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56315,7 +56315,7 @@
   },
   {
    "en": "HardToSee2",
-   "zh": "难觅 2",
+   "zh": "难觅2",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56370,7 +56370,7 @@
   },
   {
    "en": "Landscape Abuse 101",
-   "zh": "地形滥用 101",
+   "zh": "地形滥用101",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56425,7 +56425,7 @@
   },
   {
    "en": "Megaland 2",
-   "zh": "巨陆 2",
+   "zh": "巨陆2",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56656,7 +56656,7 @@
   },
   {
    "en": "Stairway 13",
-   "zh": "阶梯 13",
+   "zh": "阶梯13",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56689,7 +56689,7 @@
   },
   {
    "en": "Super Tower 2",
-   "zh": "超级塔 2",
+   "zh": "超级塔2",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56821,7 +56821,7 @@
   },
   {
    "en": "The Totem 2",
-   "zh": "图腾 2",
+   "zh": "图腾2",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56931,7 +56931,7 @@
   },
   {
    "en": "Troublesome Trains 01 - Tutorial",
-   "zh": "麻烦列车 01 - 教程",
+   "zh": "麻烦列车01-教程",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56942,7 +56942,7 @@
   },
   {
    "en": "Troublesome Trains 02 - Freeplay",
-   "zh": "麻烦列车 02 - 自由模式",
+   "zh": "麻烦列车02-自由模式",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -56964,7 +56964,7 @@
   },
   {
    "en": "Unknown Scenario - Part 2",
-   "zh": "未知场景 - 第 2 部分",
+   "zh": "未知场景-第2部分",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57052,7 +57052,7 @@
   },
   {
    "en": "alpha_4.2 An old Friend",
-   "zh": "4.2 老朋友",
+   "zh": "4.2老朋友",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57151,7 +57151,7 @@
   },
   {
    "en": "alpha_CW1 Tucana",
-   "zh": "CW1 图卡纳",
+   "zh": "CW1图卡纳",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57162,7 +57162,7 @@
   },
   {
    "en": "alpha_CW1 Tucana 2X",
-   "zh": "CW1 图卡纳 2X",
+   "zh": "CW1图卡纳2X",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57217,7 +57217,7 @@
   },
   {
    "en": "alpha_Conquest 2",
-   "zh": "征服 2",
+   "zh": "征服2",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57239,7 +57239,7 @@
   },
   {
    "en": "alpha_Creeper Hollow",
-   "zh": "Creeper 谷",
+   "zh": "Creeper谷",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57250,7 +57250,7 @@
   },
   {
    "en": "alpha_Creeper Wall 2",
-   "zh": "Creeper 墙 2",
+   "zh": "Creeper墙2",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57261,7 +57261,7 @@
   },
   {
    "en": "alpha_Creeper Wall 3",
-   "zh": "Creeper 墙 3",
+   "zh": "Creeper墙3",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57272,7 +57272,7 @@
   },
   {
    "en": "alpha_CreeperInTheWind",
-   "zh": "Creeper 随风",
+   "zh": "Creeper随风",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57283,7 +57283,7 @@
   },
   {
    "en": "alpha_CreeperWall",
-   "zh": "Creeper 墙",
+   "zh": "Creeper墙",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57393,7 +57393,7 @@
   },
   {
    "en": "alpha_FiringRangeB",
-   "zh": "靶场 B",
+   "zh": "靶场B",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57437,7 +57437,7 @@
   },
   {
    "en": "alpha_HardToSee1",
-   "zh": "难觅 1",
+   "zh": "难觅1",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57448,7 +57448,7 @@
   },
   {
    "en": "alpha_HardToSee2",
-   "zh": "难觅 2",
+   "zh": "难觅2",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57503,7 +57503,7 @@
   },
   {
    "en": "alpha_Landscape Abuse 101",
-   "zh": "地形滥用 101",
+   "zh": "地形滥用101",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57558,7 +57558,7 @@
   },
   {
    "en": "alpha_Megaland 2",
-   "zh": "巨陆 2",
+   "zh": "巨陆2",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57789,7 +57789,7 @@
   },
   {
    "en": "alpha_Stairway 13",
-   "zh": "阶梯 13",
+   "zh": "阶梯13",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57822,7 +57822,7 @@
   },
   {
    "en": "alpha_Super Tower 2",
-   "zh": "超级塔 2",
+   "zh": "超级塔2",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -57954,7 +57954,7 @@
   },
   {
    "en": "alpha_The Totem 2",
-   "zh": "图腾 2",
+   "zh": "图腾2",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58064,7 +58064,7 @@
   },
   {
    "en": "alpha_Troublesome Trains 01 - Tutorial",
-   "zh": "麻烦列车 01 - 教程",
+   "zh": "麻烦列车01-教程",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58075,7 +58075,7 @@
   },
   {
    "en": "alpha_Troublesome Trains 02 - Freeplay",
-   "zh": "麻烦列车 02 - 自由模式",
+   "zh": "麻烦列车02-自由模式",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58097,7 +58097,7 @@
   },
   {
    "en": "alpha_Unknown Scenario - Part 2",
-   "zh": "未知场景 - 第 2 部分",
+   "zh": "未知场景-第2部分",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58207,7 +58207,7 @@
   },
   {
    "en": "alpha_floodgate v4",
-   "zh": "泄洪闸 v4",
+   "zh": "泄洪闸v4",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58273,7 +58273,7 @@
   },
   {
    "en": "alpha_teks001 runner farm",
-   "zh": "teks001 空降兵农场",
+   "zh": "teks001空降兵农场",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58284,7 +58284,7 @@
   },
   {
    "en": "alpha_teks002 get the gear",
-   "zh": "teks002 取得装备",
+   "zh": "teks002取得装备",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58295,7 +58295,7 @@
   },
   {
    "en": "alpha_teks003 creepy castle",
-   "zh": "teks003 惊悚城堡",
+   "zh": "teks003惊悚城堡",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58306,7 +58306,7 @@
   },
   {
    "en": "alpha_teks004 shield shove",
-   "zh": "teks004 护盾推挤",
+   "zh": "teks004护盾推挤",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58317,7 +58317,7 @@
   },
   {
    "en": "alpha_teks005 pyramid power",
-   "zh": "teks005 金字塔之力",
+   "zh": "teks005金字塔之力",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58328,7 +58328,7 @@
   },
   {
    "en": "alpha_teks006 AC is key",
-   "zh": "teks006 AC 是关键",
+   "zh": "teks006 AC是关键",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58339,7 +58339,7 @@
   },
   {
    "en": "alpha_teks007 spore spam",
-   "zh": "teks007 孢子海量",
+   "zh": "teks007孢子海量",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58350,7 +58350,7 @@
   },
   {
    "en": "alpha_teks008 point to point",
-   "zh": "teks008 点对点",
+   "zh": "teks008点对点",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58361,7 +58361,7 @@
   },
   {
    "en": "alpha_teks009 clear your castle",
-   "zh": "teks009 清空你的城堡",
+   "zh": "teks009清空你的城堡",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58372,7 +58372,7 @@
   },
   {
    "en": "alpha_teks010 thor's thunder",
-   "zh": "teks010 索尔之雷",
+   "zh": "teks010索尔之雷",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58427,7 +58427,7 @@
   },
   {
    "en": "floodgate v4",
-   "zh": "泄洪闸 v4",
+   "zh": "泄洪闸v4",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58493,7 +58493,7 @@
   },
   {
    "en": "teks001 runner farm",
-   "zh": "teks001 空降兵农场",
+   "zh": "teks001空降兵农场",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58504,7 +58504,7 @@
   },
   {
    "en": "teks002 get the gear",
-   "zh": "teks002 取得装备",
+   "zh": "teks002取得装备",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58515,7 +58515,7 @@
   },
   {
    "en": "teks003 creepy castle",
-   "zh": "teks003 惊悚城堡",
+   "zh": "teks003惊悚城堡",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58526,7 +58526,7 @@
   },
   {
    "en": "teks004 shield shove",
-   "zh": "teks004 护盾推挤",
+   "zh": "teks004护盾推挤",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58537,7 +58537,7 @@
   },
   {
    "en": "teks005 pyramid power",
-   "zh": "teks005 金字塔之力",
+   "zh": "teks005金字塔之力",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58548,7 +58548,7 @@
   },
   {
    "en": "teks006 AC is key",
-   "zh": "teks006 AC 是关键",
+   "zh": "teks006 AC是关键",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58559,7 +58559,7 @@
   },
   {
    "en": "teks007 spore spam",
-   "zh": "teks007 孢子海量",
+   "zh": "teks007孢子海量",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58570,7 +58570,7 @@
   },
   {
    "en": "teks008 point to point",
-   "zh": "teks008 点对点",
+   "zh": "teks008点对点",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58581,7 +58581,7 @@
   },
   {
    "en": "teks009 clear your castle",
-   "zh": "teks009 清空你的城堡",
+   "zh": "teks009清空你的城堡",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58592,7 +58592,7 @@
   },
   {
    "en": "teks010 thor's thunder",
-   "zh": "teks010 索尔之雷",
+   "zh": "teks010索尔之雷",
    "cat": "asset",
    "grade": "other",
    "kind": "Name",
@@ -58878,7 +58878,7 @@
   },
   {
    "en": "Select a Command Node from the menu below and land it\nin the gray area in the upper left corner of the map.\n\n***NOTE*** If necessary, you may move the map with:\nRIGHT MOUSE, ARROW KEYS, or WASD keys.\n You may zoom the map with: MOUSE WHEEL or Q and Z keys.",
-   "zh": "从下方菜单选择一个指挥节点，把它降落在\n地图左上角的灰色区域。\n\n***注意*** 如有必要，你可以用以下方式移动地图：\n鼠标右键、方向键 或 WASD 键。\n 你可以用以下方式缩放地图：鼠标滚轮 或 Q 和 Z 键。",
+   "zh": "从下方菜单选择一个指挥节点，把它降落在\n地图左上角的灰色区域。\n\n***注意***如有必要，你可以用以下方式移动地图：\n鼠标右键、方向键或WASD键。\n 你可以用以下方式缩放地图：鼠标滚轮或Q和Z键。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -58898,7 +58898,7 @@
   },
   {
    "en": "Excellent.\nNow build collectors and connect them to the Command Node.\nSpread them out for maximum energy collection.\nThe more green you see, the more energy you produce.\nBUILD 10 COLLECTORS.",
-   "zh": "很好。\n现在建造收集器，并把它们连接到指挥节点。\n把它们分散开来，以获得最大的能量收集。\n你看到的绿色越多，产生的能量就越多。\n建造 10 个收集器。",
+   "zh": "很好。\n现在建造收集器，并把它们连接到指挥节点。\n把它们分散开来，以获得最大的能量收集。\n你看到的绿色越多，产生的能量就越多。\n建造10个收集器。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -58918,7 +58918,7 @@
   },
   {
    "en": "Weapons are required for destroying the Creeper.\nBe careful to not overbuild and exceed your energy production.\nBuild 3 Pulse Cannons now.",
-   "zh": "摧毁 Creeper 需要武器。\n小心不要建造过多而超出你的能量产出。\n现在建造 3 门脉冲炮。",
+   "zh": "摧毁Creeper需要武器。\n小心不要建造过多而超出你的能量产出。\n现在建造3门脉冲炮。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -58938,7 +58938,7 @@
   },
   {
    "en": "Impressive.\nNow, spread your network and defeat the blue Creeper Emitter.\nYou will need to build a Nullifier near the emitter to destroy it.\nAlso, don't forget to connect your network to the pod behind the emitter.",
-   "zh": "令人印象深刻。\n现在，扩张你的网络，击败那个蓝色 Creeper 发射器。\n你需要在发射器附近建造一个灭除器来摧毁它。\n另外，别忘了把你的网络连接到发射器后面的科技舱。",
+   "zh": "令人印象深刻。\n现在，扩张你的网络，击败那个蓝色Creeper发射器。\n你需要在发射器附近建造一个灭除器来摧毁它。\n另外，别忘了把你的网络连接到发射器后面的科技舱。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -58958,7 +58958,7 @@
   },
   {
    "en": "Move your Pulse Cannons in close to the Creeper and surround it.\n Make sure they remain connected to your network\nso they can be resupplied with ammo.\nWhen possible build a nullifier near the emitter to destroy it!",
-   "zh": "把你的脉冲炮移近 Creeper，并把它包围起来。\n 确保它们始终与你的网络保持连接\n这样它们才能得到弹药补给。\n有机会时，在发射器附近建造灭除器把它摧毁！",
+   "zh": "把你的脉冲炮移近Creeper，并把它包围起来。\n 确保它们始终与你的网络保持连接\n这样它们才能得到弹药补给。\n有机会时，在发射器附近建造灭除器把它摧毁！",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59018,7 +59018,7 @@
   },
   {
    "en": "Build a Nullifier near the blue emitter.\nMove the map with RIGHT MOUSE, ARROW KEYS, or WASD keys.\n Zoom with MOUSE WHEEL or Q and Z keys.",
-   "zh": "在蓝色发射器附近建造灭除器。\n用鼠标右键、方向键 或 WASD 键移动地图。\n 用鼠标滚轮 或 Q 和 Z 键缩放。",
+   "zh": "在蓝色发射器附近建造灭除器。\n用鼠标右键、方向键或WASD键移动地图。\n 用鼠标滚轮或Q和Z键缩放。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59038,7 +59038,7 @@
   },
   {
    "en": "The right emitter emits creeper proportional to your ore mined",
-   "zh": "右侧发射器喷出的 Creeper 与你开采的矿石量成正比",
+   "zh": "右侧发射器喷出的Creeper与你开采的矿石量成正比",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59058,7 +59058,7 @@
   },
   {
    "en": "Strafers are remote strike aircraft.\nBuild 4 strafers and target two at each volcano.\nSingle click to create a circle strafe attack pattern.\nClick and drag to define a strafe line of attack.",
-   "zh": "俯冲机是远程打击飞行器。\n建造 4 架俯冲机，每座火山派两架。\n单击可创建环形俯冲攻击路线。\n点击并拖动可定义一条直线俯冲攻击线。",
+   "zh": "俯冲机是远程打击飞行器。\n建造4架俯冲机，每座火山派两架。\n单击可创建环形俯冲攻击路线。\n点击并拖动可定义一条直线俯冲攻击线。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59098,7 +59098,7 @@
   },
   {
    "en": "Bombers are aircraft that deliver AntiCreeper.\nBuild Bombers to saturate remote islands.\nMake sure to collect plenty of Ore!",
-   "zh": "轰炸机是投送 Anti-Creeper 的飞行器。\n建造轰炸机，用 Anti-Creeper 灌满远处的岛屿。\n一定要开采充足的矿石！",
+   "zh": "轰炸机是投送Anti-Creeper的飞行器。\n建造轰炸机，用Anti-Creeper灌满远处的岛屿。\n一定要开采充足的矿石！",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59158,7 +59158,7 @@
   },
   {
    "en": "Expand your network and build weapons to engage the Creeper.\nYour target is the large Warp Inhibitor in the lower right.\nBuild a nullifier near it to take it out.",
-   "zh": "扩张网络并建造武器，向 Creeper 发起攻击。\n你的目标是右下方那座大型跃迁抑制器。\n在它附近建造灭除器把它摧毁。",
+   "zh": "扩张网络并建造武器，向Creeper发起攻击。\n你的目标是右下方那座大型跃迁抑制器。\n在它附近建造灭除器把它摧毁。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59338,7 +59338,7 @@
   },
   {
    "en": "Build Terps to terraform land.\nBuild around 5 terps now.\nSpread them around near the edge of the old ruins.",
-   "zh": "建造挖掘机来改造地形。\n现在建造 5 台左右的挖掘机。\n把它们分散布置在古老废墟的边缘附近。",
+   "zh": "建造挖掘机来改造地形。\n现在建造5台左右的挖掘机。\n把它们分散布置在古老废墟的边缘附近。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59358,7 +59358,7 @@
   },
   {
    "en": "Click the Terraform Button then paint where to change the terrain.\nNearby Terps will automatically act on nearby terrain.\nSelect a brush size of 1, and a terrain height of 9.\nFill in the gaps in the ruin walls and watch the Terps terraform the land.",
-   "zh": "点击地形改造按钮，然后涂抹想要改造的地形。\n附近的挖掘机将自动对附近的地形施工。\n选择笔刷大小 1、地形高度 9。\n把废墟墙壁上的缺口填满，看挖掘机改造这片土地。",
+   "zh": "点击地形改造按钮，然后涂抹想要改造的地形。\n附近的挖掘机将自动对附近的地形施工。\n选择笔刷大小1、地形高度9。\n把废墟墙壁上的缺口填满，看挖掘机改造这片土地。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59458,7 +59458,7 @@
   },
   {
    "en": "The trains travel on a system of terrain level 8 rails.\nThe switches work by raising or lowering portions of track.",
-   "zh": "列车行驶在一套地形等级 8 的轨道系统上。\n道岔的工作原理是抬升或降低某段轨道。",
+   "zh": "列车行驶在一套地形等级8的轨道系统上。\n道岔的工作原理是抬升或降低某段轨道。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59478,7 +59478,7 @@
   },
   {
    "en": "Watch while I move the switches to direct the train to station #5.\n",
-   "zh": "看着我把道岔切换，把这列列车引到 5 号站。\n",
+   "zh": "看着我把道岔切换，把这列列车引到5号站。\n",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59498,7 +59498,7 @@
   },
   {
    "en": "\nIf the train arrives in the right place, your score goes up by 1.",
-   "zh": "\n如果列车到达正确的地点，你的得分会增加 1 分。",
+   "zh": "\n如果列车到达正确的地点，你的得分会增加1分。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59558,7 +59558,7 @@
   },
   {
    "en": "\nIf the train derails, your score goes down by 5 points.",
-   "zh": "\n如果列车脱轨，你的得分会减少 5 分。",
+   "zh": "\n如果列车脱轨，你的得分会减少5分。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59578,7 +59578,7 @@
   },
   {
    "en": "As you can see, a derailment does more than cost you 5 points. It\nalso disrupts the area, and destroys more tracks. These damaged tracks\nmay cause chain reactions of derailments, so you should fix them like this.",
-   "zh": "如你所见，脱轨不只是让你损失 5 分。它\n还会破坏周边区域，并摧毁更多轨道。这些受损的轨道\n可能引发连锁脱轨，所以你应该像这样修复它们。",
+   "zh": "如你所见，脱轨不只是让你损失5分。它\n还会破坏周边区域，并摧毁更多轨道。这些受损的轨道\n可能引发连锁脱轨，所以你应该像这样修复它们。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59598,7 +59598,7 @@
   },
   {
    "en": "Another way that you can lose points is by sending trains\nto the wrong stations. If a train arrives at the wrong station,\nyou will lose 2 points.",
-   "zh": "另一种失分的方式是把列车送到\n错误的车站。如果列车到达错误的车站，\n你会损失 2 分。",
+   "zh": "另一种失分的方式是把列车送到\n错误的车站。如果列车到达错误的车站，\n你会损失2分。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59638,7 +59638,7 @@
   },
   {
    "en": "During the game, your current score, as well as the time until the next\ntrain are displayed in the upper-right hand corner. You have 3 minutes to\nset up your terps before the first train. You win when your score is 100",
-   "zh": "游戏过程中，你当前的得分，以及距离下一班\n列车的时间，都会显示在右上角。你有 3 分钟时间\n在第一班列车到来前布置好挖掘机。得分达到 100 时你就获胜。",
+   "zh": "游戏过程中，你当前的得分，以及距离下一班\n列车的时间，都会显示在右上角。你有3分钟时间\n在第一班列车到来前布置好挖掘机。得分达到100时你就获胜。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59678,7 +59678,7 @@
   },
   {
    "en": "\nTime To Start: 0",
-   "zh": "\n开始倒计时： 0",
+   "zh": "\n开始倒计时：0",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59698,7 +59698,7 @@
   },
   {
    "en": "YOU LOSE! So maybe running a railroad just isn't your\nthing, but least there's other things you can do, like\nunder-creeper basket weaving, perhaps. Play again soon!",
-   "zh": "你输了！看来经营铁路也许不是你的\n强项，不过至少你还能做点别的，比如\n在 Creeper 底下编编篮子？很快就再来玩吧！",
+   "zh": "你输了！看来经营铁路也许不是你的\n强项，不过至少你还能做点别的，比如\n在Creeper底下编编篮子？很快就再来玩吧！",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59758,7 +59758,7 @@
   },
   {
    "en": "Reactors produce energy like collectors, but can be tightly packed.\nYou will need to build around 10 Reactors for this mission.\nBuild only a couple at a time till your energy production increases.",
-   "zh": "反应堆像收集器一样产生能量，但可以紧密堆叠。\n本任务中你需要建造 10 座左右反应堆。\n每次只建两三座，直到你的能量产出提升。",
+   "zh": "反应堆像收集器一样产生能量，但可以紧密堆叠。\n本任务中你需要建造10座左右反应堆。\n每次只建两三座，直到你的能量产出提升。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59818,7 +59818,7 @@
   },
   {
    "en": "NOTE*** If necessary, you may move the map with:\nRIGHT MOUSE, ARROW KEYS, or WASD keys.\n You may zoom the map with: MOUSE WHEEL or Q and Z keys.",
-   "zh": "注意*** 如有必要，你可以用以下方式移动地图：\n鼠标右键、方向键 或 WASD 键。\n 你可以用以下方式缩放地图：鼠标滚轮 或 Q 和 Z 键。",
+   "zh": "注意***如有必要，你可以用以下方式移动地图：\n鼠标右键、方向键或WASD键。\n 你可以用以下方式缩放地图：鼠标滚轮或Q和Z键。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59838,7 +59838,7 @@
   },
   {
    "en": "Build Ore Mines on the Ore Deposits to collect ore.\nOre can be used to make Anti-Creeper.\nAnti-Creeper destroys Creeper on contact.",
-   "zh": "在矿床建造矿场来开采矿石。\n矿石可用于制造 Anti-Creeper。\nAnti-Creeper 一接触就会摧毁 Creeper。",
+   "zh": "在矿床建造矿场来开采矿石。\n矿石可用于制造Anti-Creeper。\nAnti-Creeper一接触就会摧毁Creeper。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59858,7 +59858,7 @@
   },
   {
    "en": "Build Sprayers to make Anti-Creeper.\nDeploy sprayers near Creeper and they will fire blobs into the Creeper.\nThis can be useful for securing a beachhead.",
-   "zh": "建造喷吐者来制造 Anti-Creeper。\n把喷吐者部署在 Creeper 附近，它们会向 Creeper 发射弹团。\n这对建立登陆立足点很有用。",
+   "zh": "建造喷吐者来制造Anti-Creeper。\n把喷吐者部署在Creeper附近，它们会向Creeper发射弹团。\n这对建立登陆立足点很有用。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59918,7 +59918,7 @@
   },
   {
    "en": "The trains travel on a system of terrain level 8 rails.\r\nThe switches work by raising or lowering portions of track.\r\nPress the escape key now to skip the tutorial.",
-   "zh": "列车行驶在一套地形等级 8 的轨道系统上。\r\n道岔的工作原理是抬升或降低某段轨道。\r\n现在按 Esc 键可以跳过教程。",
+   "zh": "列车行驶在一套地形等级8的轨道系统上。\r\n道岔的工作原理是抬升或降低某段轨道。\r\n现在按Esc键可以跳过教程。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59958,7 +59958,7 @@
   },
   {
    "en": "As you can see, a derailment does more than cost you 5 points. It\r\nalso disrupts the area, and destroys more tracks. These damaged tracks\r\nmay cause chain reactions of derailments, so you should fix them like this.",
-   "zh": "如你所见，脱轨不只是让你损失 5 分。它\r\n还会破坏周边区域，并摧毁更多轨道。这些受损的轨道\r\n可能引发连锁脱轨，所以你应该像这样修复它们。",
+   "zh": "如你所见，脱轨不只是让你损失5分。它\r\n还会破坏周边区域，并摧毁更多轨道。这些受损的轨道\r\n可能引发连锁脱轨，所以你应该像这样修复它们。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -59978,7 +59978,7 @@
   },
   {
    "en": "Another way that you can lose points is by sending trains\r\nto the wrong stations. If a train arrives at the wrong station,\r\nyou will lose 2 points.",
-   "zh": "另一种失分的方式是把列车送到\r\n错误的车站。如果列车到达错误的车站，\r\n你会损失 2 分。",
+   "zh": "另一种失分的方式是把列车送到\r\n错误的车站。如果列车到达错误的车站，\r\n你会损失2分。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -60018,7 +60018,7 @@
   },
   {
    "en": "During the game, your current score, as well as the time until the next\r\ntrain are displayed in the upper-right hand corner. You have 3 minutes to\r\nset up your terps before the first train. You win when your score is 100",
-   "zh": "游戏过程中，你当前的得分，以及距离下一班\r\n列车的时间，都会显示在右上角。你有 3 分钟时间\r\n在第一班列车到来前布置好挖掘机。得分达到 100 时你就获胜。",
+   "zh": "游戏过程中，你当前的得分，以及距离下一班\r\n列车的时间，都会显示在右上角。你有3分钟时间\r\n在第一班列车到来前布置好挖掘机。得分达到100时你就获胜。",
    "cat": "dll",
    "grade": "ui",
    "kind": "crpl",
@@ -60058,7 +60058,7 @@
   },
   {
    "en": "CREEPER WORLD 5 WISHLIST NOW! -> ",
-   "zh": "CREEPER WORLD 5 加入愿望单！-> ",
+   "zh": "CREEPER WORLD 5加入愿望单！-> ",
    "cat": "dll",
    "grade": "other",
    "kind": "",
@@ -60118,7 +60118,7 @@
   },
   {
    "en": "How?  CRPL... Creeper Reverse Polish Language.  That's the scripting language available in CW3.",
-   "zh": "怎么做到的？CRPL……Creeper 逆波兰语言。这是 CW3 里可用的脚本语言。",
+   "zh": "怎么做到的？CRPL……Creeper逆波兰语言。这是CW3里可用的脚本语言。",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60138,7 +60138,7 @@
   },
   {
    "en": "Everything from the Gold Man, to his bullets, to the chests... even the walls that Creeper can't overflow.... all implemented using CRPL.",
-   "zh": "从金人到他的子弹，到那些宝箱……甚至连 Creeper 都无法漫过的墙……全都是用 CRPL 实现的。",
+   "zh": "从金人到他的子弹，到那些宝箱……甚至连Creeper都无法漫过的墙……全都是用CRPL实现的。",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60158,7 +60158,7 @@
   },
   {
    "en": "What's even better is that you can use CRPL to make maps like this or almost anything else you can think up!",
-   "zh": "更棒的是，你可以用 CRPL 做出这样的地图，或者几乎任何你能想到的东西！",
+   "zh": "更棒的是，你可以用CRPL做出这样的地图，或者几乎任何你能想到的东西！",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60178,7 +60178,7 @@
   },
   {
    "en": "Visit KnuckleCracker.com to learn more about CRPL, and making your own custom maps.",
-   "zh": "访问 KnuckleCracker.com，了解更多关于 CRPL 和制作你自己的自定义地图的信息。",
+   "zh": "访问KnuckleCracker.com，了解更多关于CRPL和制作你自己的自定义地图的信息。",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60258,7 +60258,7 @@
   },
   {
    "en": "Move: WASD or Arrow keys.\nFire: Left Mouse.\nDestroy Emitters: Get near, press SPACE",
-   "zh": "移动：WASD 或方向键。\n开火：鼠标左键。\n摧毁发射器：靠近，按空格",
+   "zh": "移动：WASD或方向键。\n开火：鼠标左键。\n摧毁发射器：靠近，按空格",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60558,7 +60558,7 @@
   },
   {
    "en": "This button creates 2000 creeper, but only once",
-   "zh": "这个按钮会产生 2000 点 Creeper，但只能用一次",
+   "zh": "这个按钮会产生2000点Creeper，但只能用一次",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60578,7 +60578,7 @@
   },
   {
    "en": "The left emitter emits creeper proportional to your energy generated",
-   "zh": "左侧发射器喷出的 Creeper 与你产生的能量成正比",
+   "zh": "左侧发射器喷出的Creeper与你产生的能量成正比",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60638,7 +60638,7 @@
   },
   {
    "en": "Which switches need to be closed to turn the light on?\n\tA: only A     B: only B     C: none     D: both",
-   "zh": "需要闭合哪些开关才能点亮这盏灯？\n\tA：只有 A     B：只有 B     C：都不用     D：两个都要",
+   "zh": "需要闭合哪些开关才能点亮这盏灯？\n\tA：只有A     B：只有B     C：都不用     D：两个都要",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60678,7 +60678,7 @@
   },
   {
    "en": "You can now skip questions\n\tSkipping adds 4 seconds to your penalty time and gives you a penalty\n\tWhich component do you have to place at the question mark\n\tto dim the lamp?",
-   "zh": "现在你可以跳过题目\n\t跳过会让你的罚时增加 4 秒，并记一次罚分\n\t你必须在问号处放置哪个元件\n\t才能把这盏灯调暗？",
+   "zh": "现在你可以跳过题目\n\t跳过会让你的罚时增加4秒，并记一次罚分\n\t你必须在问号处放置哪个元件\n\t才能把这盏灯调暗？",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60718,7 +60718,7 @@
   },
   {
    "en": "Will you be able to see the light from the lamp when the switch closes?\n\tA: Yes B: No",
-   "zh": "开关闭合时，你能看到灯发出的光吗？\n\tA：能 B：不能",
+   "zh": "开关闭合时，你能看到灯发出的光吗？\n\tA：能B：不能",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60738,7 +60738,7 @@
   },
   {
    "en": "What will happen when switch A closes?\n\tA: Short Circuit   B: The lamp will turn on",
-   "zh": "开关 A 闭合时会发生什么？\n\tA：短路   B：灯会亮起",
+   "zh": "开关A闭合时会发生什么？\n\tA：短路   B：灯会亮起",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60758,7 +60758,7 @@
   },
   {
    "en": "So if A is the right answer, you destroy the collector on pad B\n\tand then you destroy the collector on continue\n\tIf you destroyed the collector on pad A destroy the reset collector\n\tFor this 'question' your penalty won't increase so you can try it out",
-   "zh": "所以如果 A 是正确答案，你就摧毁 B 台上的收集器\n\t然后再摧毁「继续」上的收集器\n\t如果你摧毁了 A 台上的收集器，就摧毁那个重置收集器\n\t这道「题」不会增加你的罚时，你可以随便试",
+   "zh": "所以如果A是正确答案，你就摧毁B台上的收集器\n\t然后再摧毁「继续」上的收集器\n\t如果你摧毁了A台上的收集器，就摧毁那个重置收集器\n\t这道「题」不会增加你的罚时，你可以随便试",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60778,7 +60778,7 @@
   },
   {
    "en": "Hit continue to check the answer\n\tIf the answer is wrong, you'll get a 4-second penalty\n\tand you will have to try again\n\tThe penalty increases with one seconds each time",
-   "zh": "点击「继续」来检查答案\n\t如果答案错了，你会被罚 4 秒\n\t并且必须重试\n\t每次罚时都会再加 1 秒",
+   "zh": "点击「继续」来检查答案\n\t如果答案错了，你会被罚4秒\n\t并且必须重试\n\t每次罚时都会再加1秒",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60838,7 +60838,7 @@
   },
   {
    "en": "Mortars damage creeper that is deep.\nMove several mortars around each crater\nand they will suppress the creeper.",
-   "zh": "迫击炮能打伤深处的 Creeper。\n在每个弹坑周围摆几门迫击炮，\n就能把 Creeper 压制下去。",
+   "zh": "迫击炮能打伤深处的Creeper。\n在每个弹坑周围摆几门迫击炮，\n就能把Creeper压制下去。",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -60858,7 +60858,7 @@
   },
   {
    "en": "The terrain meter in the command bar at the bottom right of the screen\nshows the terrain height and creeper levels under the mouse.",
-   "zh": "屏幕右下角指挥栏里的地形计\n会显示鼠标所在处的地形高度和 Creeper 水位。",
+   "zh": "屏幕右下角指挥栏里的地形计\n会显示鼠标所在处的地形高度和Creeper水位。",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -61038,7 +61038,7 @@
   },
   {
    "en": "The Prism Ship has started its firing sequence....  You have 20 minutes to nullify it, or everything in this system will be destroyed.  That includes us, Skars.",
-   "zh": "棱镜飞船已经开始发射序列……你有 20 分钟把它灭除，否则这个星系里的一切都会被毁灭。包括我们，斯卡斯。",
+   "zh": "棱镜飞船已经开始发射序列……你有20分钟把它灭除，否则这个星系里的一切都会被毁灭。包括我们，斯卡斯。",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -61478,7 +61478,7 @@
   },
   {
    "en": "Yes, the structures are the remains of ancient and primitive weapons, missile silos from a primitive culture.  If we terraform down to level 1, we can access these remains.  I can program the nano-construction packets to rebuild them.",
-   "zh": "对，那些建筑是古代原始武器的遗迹，是某个原始文明的导弹发射井。如果我们把地形改造到 1 级，就能接触到这些遗迹。我可以给纳米建造能量包编程，把它们重建起来。",
+   "zh": "对，那些建筑是古代原始武器的遗迹，是某个原始文明的导弹发射井。如果我们把地形改造到1级，就能接触到这些遗迹。我可以给纳米建造能量包编程，把它们重建起来。",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -61518,7 +61518,7 @@
   },
   {
    "en": "I'll indicate the location of the silos, Father.  We must secure those locations and terraform them to level 1.  Once excavated, hook up our network and arm the silos.",
-   "zh": "父亲，我会标出发射井的位置。我们必须控制那些地点，并把它们改造到 1 级。挖掘出来之后，把网络接上去，让发射井进入待发状态。",
+   "zh": "父亲，我会标出发射井的位置。我们必须控制那些地点，并把它们改造到1级。挖掘出来之后，把网络接上去，让发射井进入待发状态。",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -62878,7 +62878,7 @@
   },
   {
    "en": "Once her shield is down, I will flood the area with Creeper until she is destroyed!  Then I will control the Arc and all of reality will be at my command!",
-   "zh": "等她的护盾一失效，我就用 Creeper 淹没那片区域，直到她被毁灭！然后我就掌控永恒之弧，整个现实都将听我号令！",
+   "zh": "等她的护盾一失效，我就用Creeper淹没那片区域，直到她被毁灭！然后我就掌控永恒之弧，整个现实都将听我号令！",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -62898,7 +62898,7 @@
   },
   {
    "en": "Move Nexus with WASD or Arrow keys.\nFire by holding down Left Mouse Button.",
-   "zh": "用 WASD 或方向键移动枢纽。\n按住鼠标左键开火。",
+   "zh": "用WASD或方向键移动枢纽。\n按住鼠标左键开火。",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
@@ -63178,7 +63178,7 @@
   },
   {
    "en": "But I remember being a child, growing up, living, fighting the Creeper... defeating a Nexus.  Platius saved me....",
-   "zh": "可我记得自己是个孩子，记得长大、活着、与 Creeper 作战……击败过一个枢纽。普拉提乌斯救了我……",
+   "zh": "可我记得自己是个孩子，记得长大、活着、与Creeper作战……击败过一个枢纽。普拉提乌斯救了我……",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",
