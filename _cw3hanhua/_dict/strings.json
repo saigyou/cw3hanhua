@@ -1,6 +1,6 @@
 {
  "version": 2,
- "generated": "2026-10-24 14:01:47",
+ "generated": "2026-10-24 14:40:16",
  "baked_charset": 7544,
  "strings": [
   {
@@ -17489,7 +17489,7 @@
   },
   {
    "en": " spore(s) in ",
-   "zh": "",
+   "zh": "枚孢子，",
    "cat": "dll",
    "grade": "ui",
    "ops": [
@@ -17505,7 +17505,7 @@
     "GameSpace.GameUpdate"
    ],
    "hits": 1,
-   "note": "以空格结尾 —— 拼接前缀样式（如 \"Score: \" + 数字）"
+   "note": "孢子计时条中缀（GameSpace.GameUpdate），拼出「1, 1枚孢子，0:59」"
   },
   {
    "en": "APPLY & CLOSE",
@@ -64237,6 +64237,46 @@
    "refs": [],
    "hits": 1,
    "note": "换行开头 key 的无换行副本（分段索引可达）"
+  },
+  {
+   "en": " spores",
+   "zh": "枚孢子",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "量词词缀（SporeTowerManager: waveCount + \" spores\"），拼出「1枚孢子」"
+  },
+  {
+   "en": " sec",
+   "zh": "秒",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "秒词缀（RunnerNestManager: \"Spawn Interval: \" + n + \" sec\"），拼出「生成间隔：3秒」"
   }
  ]
 }

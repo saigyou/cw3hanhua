@@ -307,6 +307,12 @@ CASES = [
     ("点击提示-P", "Click or 'P'"),
     ("点击提示-组合键", "Click or 'LeftControl-P'"),
     ("点击提示-空", "Click or ''"),
+    # ★ 2026-10-24 孢子计数 / 秒 词缀（m01235）
+    ("孢子塔数量", "1 spores"),
+    ("孢子计时条", "1, 1 spore(s) in 0:59, 0:59"),
+    ("空降兵生成间隔", "Spawn Interval: 3 sec"),
+    # 「Interval: 」+「 sec」两条词缀拼出来的合法结果（不是回归）
+    ("间隔-秒", "Interval: 3 sec"),
 ]
 
 # 必须保持英文 / 必须整句命中（错一个就是回归）
@@ -318,7 +324,11 @@ SAFETY = [
     ("SetCamera3D", None),
     ("Playlist", None),
     ("Community", None),
-    ("Interval: 3 sec", None),
+    # ★ 2026-10-24：加 ' sec' 词缀后，「间隔」类碎片的右边界仍须守住。
+    #   'Interval: 3 sec' 已从本表移入 CASES —— 词表里本来就有 'Interval: '→'间隔：'，
+    #   拼出「间隔：3秒」是正确行为；这里只守「sec 后面还跟着字母」的情形。
+    ("Interval: 3 secs", None),
+    ("just a sec, ok", None),
     ("Building x", None),
     ("MultiMesh", None),
     # ★ v1.3.2 新路径的守卫：缩写里的撇号不能被当成键名引号

@@ -1797,6 +1797,55 @@ dict 重建 **2332 条 / 249745 字节**；`check_charset.py` 1607 字符全在�
 
 ---
 
+### 4.15 ★ 数值 + 量词类拼接词缀：`1 spores` / `spore(s) in` / `sec`（2026-10-24）
+
+**症状**（用户 m01235 只贴了一行日志）：`[未命中] 1 spores`。
+
+**根因：词表缺「量词」词缀，而不是缺整句。** 这几种文本在 C# 里全是 `数字 + 词缀` 拼出来的，
+词表只要缺了那个词缀，整条就原样漏英文：
+
+| 现场 | 源码 | 拼出的串 |
+|---|---|---|
+| 孢子塔信息 | `SporeTowerManager` :128523/:128548 `waveCount + " spores"` | `1 spores` |
+| 孢子发射倒计时条 | `GameSpace.GameUpdate` :73618 `text += " spore(s) in "` + `GetTimeString` | `1, 1 spore(s) in 0:59, 0:59` |
+| 空降兵生成间隔 | `RunnerNestManager` :126722（`Start`）/:126747（`Update`） `"Spawn Interval: " + num + " sec"` | `Spawn Interval: 3 sec` |
+| Creeper 高度计 | `CommandCenter` :42062 `"AC " + 高度:F2` | `AC -0.01` |
+
+`waveCount`（:128474 `public int waveCount = 1;`）是**每波孢子数**，不是剩余波数 ⇒ 量词用「枚」。
+
+**修法（新增 3 条词缀，`batches/full_33_spore_affix.json`）**：
+
+| en | zh | 效果 |
+|---|---|---|
+| `' spores'` | `'枚孢子'` | `1 spores` → `1枚孢子` |
+| `' spore(s) in '` | `'枚孢子，'` | `1, 1 spore(s) in 0:59` → `1, 1枚孢子，0:59` |
+| `' sec'` | `'秒'` | `Spawn Interval: 3 sec` → `生成间隔：3秒` |
+
+`'AC '` 保持 identity（`glossary.md:11` 定 AC 保留英文），所以 `AC -0.01` 仍是英文 —— 那是设计要求。
+
+**关键点：词缀译文不要带前导空格。** 源码里 `" spores"` 自带前导空格，
+按 4.13「中英混排不加空格」，zh 里不能再留 —— 拼出来才是 `1枚孢子` 而不是 `1 枚孢子`。
+这正是 `audit_translations.py` 的「前导空白必须逐字保留」规则第一次需要放行的地方，
+为此加了 `lead_ok()`：en 前导是**纯空格**且 zh 以中文开头时放行；其余（`'  地形：'` 这类缩进对齐、
+`'  [ffffff]升级至等级：'` 这类带色标的）仍逐字校验。
+
+**`' sec'` 的边界风险已实测守住**：`SAFETY` 里原有一条 `('Interval: 3 sec', None)`，
+加词缀后它变成 `'间隔：3秒'` —— 因为词表里本来就有 `'Interval: '` → `'间隔：'`，
+两段拼起来是**正确行为**，所以把它从 SAFETY 移进 CASES，另加两条真正该守的：
+`'Interval: 3 secs'`（sec 后面还跟着字母 ⇒ 右边界不成立）、`'just a sec, ok'`（后接逗号+字母）仍必须为 None。
+
+**验证**：dict 重建 **2335 条 / 249805 字节**；四条目标查询全部出中文（`AC -0.01` 仍 None，符合设计）；
+`verify_lookup.py` 全绿（32 CASES + 16 SAFETY，`con:1 seg:32`）；
+`--idempotent` 0 条被改写；`check_charset.py` 1607 字符全在图集内；
+`audit_translations.py` 换行 0 / 占位符 0 / 首尾空白 0，只剩 14 处「标记」假阳性（4.10 已记的既有情况）。
+
+**还没译、但玩家可能看得到的空条目**（本轮没动，只记录）：`'  [ffffff]Fully Upgraded![-]'`、
+`'  [ffffff]Building...[-]'`、`'  [ffffff]AC:[-][00ffff] '`（`CommandCenter.GetUnitTitleDisplay` 的资源条碎片，
+同族别的都已译）、`'[ffffa0]"'`（地形编辑提示的引号）、`'CN '/`' CN'`（场景资产里，不在 C# 字面量中）。
+其余 ~380 条 grade=ui 空条目是 NGUI / VectorLine / CrplCompiler / SharpZipLib 等引擎与异常文案，**不要译**。
+
+---
+
 ## 五、环境与陷阱
 
 ### 5.1 沙箱写入权限

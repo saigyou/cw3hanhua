@@ -23,6 +23,26 @@ P = os.path.join(ROOT, "_dict", "strings.json")
 TAG = re.compile(r"\[[^\[\]\n]{1,20}\]")
 PH = re.compile(r"\{[^{}\n]{1,12}\}|%[sdf]|<[a-zA-Z/][^<>\n]{0,12}>")
 
+# 汉字 / 中文标点 / 全角符号：zh 以这些开头时，前面的半角空格属于
+# 「中文与拉丁/数字之间」的空隙，按 4.13 该删（`' spores'` → `'枚孢子'`）。
+CJK_HEAD = re.compile(r"[\u4e00-\u9fff\u3000-\u303f\uff01-\uff60]")
+
+
+def lead_ok(en, zh, le):
+    """前导空白校验。
+
+    默认：en 的前导空白必须逐字保留（`'  地形：'`、`'  [ffffff]升级至等级：'`
+    靠它缩进对齐）。唯一放行：en 前导是**纯空格**、而 zh 以中文开头 ——
+    这类是拼接词缀（`' spores'` → `'枚孢子'`，拼出 `1枚孢子`），
+    留空格就成了「1 枚孢子」，违反 4.13 定的「中英混排不加空格」。
+    """
+    if not le:
+        return True
+    head = en[:le]
+    if zh[:le] == head:
+        return True
+    return head.strip(" ") == "" and bool(CJK_HEAD.match(zh))
+
 
 def main():
     ap = argparse.ArgumentParser()
@@ -56,7 +76,7 @@ def main():
         le = len(en) - len(en.lstrip())
         te = len(en) - len(en.rstrip())
         tail_en = en[len(en) - te:] if te else ""
-        bad = zh[:le] != en[:le]
+        bad = not lead_ok(en, zh, le)
         if not bad and te:
             if tail_en.strip(" ") == "":      # en 尾部纯空格 → zh 可留可删
                 bad = not (zh[len(zh) - te:] == tail_en or not zh.endswith(" "))
