@@ -164,16 +164,17 @@ def precheck_writable(files):
     """提前确认能不能覆盖这些文件，别等改到一半才炸。
 
     ★ 踩过的坑（2026-10-20）：沙箱里跑 `.venv\\Scripts\\python.exe` 时**一个字节都写不进去**
-      （PermissionError: [Errno 13]），但同一 shell 里 pwsh 和 `C:\\Python314\\python.exe`
-      都能写。原因是 DSH 沙箱让「从工作区目录内启动的可执行文件」以 **Low 完整性级别**运行，
-      而游戏资产是 Medium —— Windows 的 no-write-up 规则禁止低完整性进程覆盖高完整性文件
-      （新建文件、删自己建的、写 _cw3hanhua 下的文件都不受影响，所以看起来"权限正常"）。
+      （PermissionError: [Errno 13]），但同一 shell 里 pwsh 和系统装的那个 python
+      （本机是 python314）都能写。原因是 DSH 沙箱让「从工作区目录内启动的可执行文件」
+      以 **Low 完整性级别**运行，而游戏资产是 Medium —— Windows 的 no-write-up 规则
+      禁止低完整性进程覆盖高完整性文件（新建文件、删自己建的、写 _cw3hanhua 下的文件
+      都不受影响，所以看起来"权限正常"）。
 
-      解法：用系统 python 解释器 + venv 的 site-packages，它由沙箱外的 C:\\Python314 启动，
+      解法：用系统 python 解释器 + venv 的 site-packages —— 它是在沙箱外直接启动的，
       拿的是 Medium 完整性，能正常写：
 
           $env:PYTHONPATH = "<根>\\_cw3hanhua\\.venv\\Lib\\site-packages"
-          & "C:\\Python314\\python.exe" "_cw3hanhua\\tools\\bake_textmesh_assets.py"
+          & "<系统 python 的路径>" "_cw3hanhua\\tools\\bake_textmesh_assets.py"
 
       下面这个探测就是为了把这条信息直接印出来，而不是丢一个裸的 errno 13。
     """
@@ -190,9 +191,9 @@ def precheck_writable(files):
     if bad:
         print("!! 无法覆盖这些资产文件（PermissionError）: %s" % ", ".join(bad))
         print("   最可能的原因：当前 python 以 Low 完整性级别运行，而游戏文件是 Medium。")
-        print("   用系统 python + venv 的 site-packages 重跑：")
+        print("   用系统 python（本机是 python314）+ venv 的 site-packages 重跑：")
         print('     $env:PYTHONPATH = "%s"' % os.path.join(ROOT, ".venv", "Lib", "site-packages"))
-        print('     & "C:\\Python314\\python.exe" "%s"' % os.path.abspath(__file__))
+        print('     & "<系统 python 的路径>" "%s"' % os.path.abspath(__file__))
         return False
     return True
 

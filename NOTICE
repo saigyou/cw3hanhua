@@ -1,0 +1,159 @@
+# NOTICE — Creeper World 3 汉化补丁
+
+本文件说明本项目的版权归属、第三方内容来源，以及使用限制。
+
+---
+
+## 〇、许可声明（LGPL-2.1 要求的措辞）
+
+```
+CW3 Hanhua — Creeper World 3 简体中文汉化补丁
+Copyright (C) 2026 saigyou
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+```
+
+该声明适用于 `_cw3hanhua/plugin/` 与 `_cw3hanhua/tools/` 下的全部源代码
+（见下表）。文本与数据类内容按 CC BY-SA 4.0 授权，不适用上面这段。
+
+---
+
+## 一、本项目原创部分
+
+本项目**分两类授权**：代码走 GNU LGPL-2.1，文本与数据走 CC BY-SA 4.0。
+两者是**独立的、并列的**两个作品集合，不构成结合作品（mere aggregation）。
+
+| 内容 | 路径 | 许可 |
+|---|---|---|
+| 插件源代码 | `_cw3hanhua/plugin/CW3Hanhua.cs`<br>`_cw3hanhua/plugin/CW3HanhuaText.cs` | **GNU LGPL v2.1** |
+| 工具链源代码 | `_cw3hanhua/tools/*.py`、`*.cmd`、`*.ps1`、`ilx/ilx.cs` | **GNU LGPL v2.1** |
+| 译文与词表 | `_cw3hanhua/_dict/strings.json`<br>`_cw3hanhua/_dict/zh_cn.dict`<br>`_cw3hanhua/_dict/batches/**`<br>`_cw3hanhua/_dict/glossary.md` | **CC BY-SA 4.0** |
+| 译文工作稿 | `_cw3hanhua/_dict/story_work/**`<br>`_cw3hanhua/_dict/story_candidates.json` | **CC BY-SA 4.0** |
+| 文档 | `README.md`、`_cw3hanhua/NOTES.md`、`_cw3hanhua/tools/README.md` | **CC BY-SA 4.0** |
+
+LGPL-2.1 全文见同目录的 [LICENSE](LICENSE)。
+CC BY-SA 4.0 全文见 <https://creativecommons.org/licenses/by-sa/4.0/legalcode>。
+
+
+### 1.1 关于字形位图（`_cw3hanhua/_font/font_16.*` 等）
+
+`_cw3hanhua/_font/` 下的 `font_16.*`、`font_20.*`、`font_28.*` 是用
+`tools/bake_font.py` 从**微软雅黑 Bold**（`msyhbd.ttc`，Windows 自带系统字体）
+离线烘焙出的**字形位图与度量数据**。
+
+**本项目对这些文件不主张著作权**，也不对它们施加任何许可限制 —— 它们是构建过程的
+中间产物。
+
+---
+
+## 二、第三方版权内容
+
+### 2.1 Creeper World 3（Knuckle Cracker）
+
+**Creeper World 3: Arc Eternal** 及其全部美术、音频、文本、代码资产的版权归
+**Knuckle Cracker** 所有。
+
+- 官方网站：<https://knucklecracker.com/>
+- Steam 商店页：<https://store.steampowered.com/app/280220/>
+
+**本项目与 Knuckle Cracker 没有任何关联，未获其授权、认可或技术支持。**
+本项目是一个非官方的、社区自发的本地化项目。
+
+本项目**不包含**任何游戏本体文件（`CW3.exe`、`CW3_Data\` 下的资源与程序集、
+`*.assets`、`Managed\*.dll` 等一概没有）。使用者必须自行购买游戏。
+
+以下两个文件包含 Knuckle Cracker 的版权内容，其版权不因本项目的许可声明而改变：
+
+1. **`_cw3hanhua/_font/atlas_zh.png`**
+   这是游戏原版 GUI 图集（NGUI Atlas）的**扩展**版本：原图 512×1024 的像素被 1:1
+   原样贴在左上角，中文字形追加在下方（最终 4096×8192）。
+   保留原图像素是技术上的必需 —— 文字与 UI 精灵必须共用同一份材质，才能落在同一个
+   draw call 里，从而维持原版的遮挡关系。**原图像素部分的版权归 Knuckle Cracker。**
+
+   本文件在 LGPL-2.1 / CC BY-SA 4.0 下提供的，仅限于本项目新增的中文字形与其排版数据。
+
+2. **`_cw3hanhua/_dict/story_raw.json`**
+   这是从游戏 `resources.assets` 中提取的剧情对话原文（584 条，117,757 字符），
+   仅用于翻译对照与质量校验。**原文版权归 Knuckle Cracker。**
+
+   本文件在 CC BY-SA 4.0 下提供的，仅限于本项目附带的译文。
+
+### 2.2 BepInEx
+
+Release 包里内置了 [BepInEx](https://github.com/BepInEx/BepInEx) **5.4.23.5 (x86)** 的
+运行时二进制，位于 `BepInEx/core/`、以及根目录的 `winhttp.dll` / `doorstop_config.ini` /
+`.doorstop_version`。
+
+- 许可：**LGPL-2.1**（与本项目选择的许可相同）
+- 本项目**未修改** BepInEx 的任何二进制
+
+### 2.3 字体
+
+中文字形由**微软雅黑 Bold**（`msyhbd.ttc`，Windows 自带）离线烘焙成位图，
+最终只以**像素图集**形式存在（`atlas_zh.png` + `atlas_zh.bin`）。
+
+**本项目不包含任何字体文件**，
+也没有打包字体的轮廓数据。字形本身的权利归字体版权方（微软 / 方正），
+不属于本项目作者；本项目对这些烘焙产物**不主张著作权**。
+
+### 2.4 Mono.Cecil（工具链）
+
+`_cw3hanhua/tools/Mono.Cecil.dll` 是从 `BepInEx/core/` 复制的，用于 `ilx.exe`
+做 IL 取证。许可 **MIT**，版权归 Jb Evain 与 Xamarin/Microsoft。
+
+---
+
+## 三、免责声明
+
+本补丁按「现状」提供，不附带任何明示或暗示的担保，包括但不限于对适销性、
+特定用途适用性的担保。使用本补丁的风险由使用者自行承担。
+
+在法律允许的最大范围内，作者不对因使用本补丁而产生的任何直接或间接损失负责，
+包括但不限于：游戏存档损坏、Steam 账号问题、游戏文件需要重新下载等。
+
+已知会修改游戏文件的操作只有一项，且是**可选**的：`bake_textmesh_assets.py`
+（第四节，改写 6 个 `.assets` 文件的 `TextMesh.m_Text` 字段）。该脚本自带
+`--restore`，可用 `_cw3hanhua/_assets_orig/manifest.json` 里的 SHA256 逐字节还原。
+除这一步之外，本补丁只读取游戏文件，不写入。
+
+请注意：本补丁会加载第三方代码到游戏进程中。虽然本项目不含恶意代码，
+但你应当只从本仓库的 Releases 页面下载，不要用来路不明的二次打包版本。
+
+---
+
+## 四、被修改的游戏文件（仅在使用可选烘焙时）
+
+| 文件 | 改动 |
+|---|---|
+| `CW3_Data/level1` | 13 条 `TextMesh.m_Text` → 中文 |
+| `CW3_Data/level2` | 1 条 |
+| `CW3_Data/level5` | 1 条 |
+| `CW3_Data/mainData` | 1 条 |
+| `CW3_Data/resources.assets` | 2 条 |
+| `CW3_Data/sharedassets6.assets` | 1 条 |
+
+---
+
+## 五、致谢
+
+- **Knuckle Cracker** —— 做出了 Creeper World 3。
+- **BepInEx 团队** —— 让 Unity 游戏的插件生态成为可能。
+- **Harmony / HarmonyX** —— 运行时方法替换的基础设施。
+- **UnityPy** —— 解析与改写 Unity 资产文件。
+- **NGUI**（已停止维护）—— 游戏 UI 框架，本项目大量取证依赖其源码。
+
+---
+
+*最后更新：2026-10-24*

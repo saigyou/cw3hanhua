@@ -21,13 +21,19 @@
 !/_cw3hanhua/
 !/BepInEx/
 
+# ---------- 对外发布物（GitHub 首页 / 许可，必须入库） ----------
+# README.md 是唯一允许的「第二份 md」：GitHub 首页没有它就等于没有门面。
+# 内部技术知识仍然只在 _cw3hanhua/NOTES.md 一份，见那边维护纪律第 1 条。
+!/README.md
+!/LICENSE
+!/NOTICE
+
 # ---------- BepInEx：只保留装机补丁的配置 ----------
 # core/ 是 BepInEx 自带二进制，重装即可；plugins/ 是编译产物
 /BepInEx/*
 !/BepInEx/config/
 /BepInEx/config/*
 !/BepInEx/config/BepInEx.cfg
-!/BepInEx/config/BepInEx.cfg.orig_entrypoint
 
 # 插件编译产物：用 _cw3hanhua\tools\build_plugin.cmd 重建
 /BepInEx/plugins/*.dll

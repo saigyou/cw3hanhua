@@ -16,8 +16,11 @@ A1: 从系统字体烘焙 BMFont 字形图集（离线，不碰游戏文件）
     glyph.advance         前进宽度
     BMGlyph.x/y/width/height/offsetX/offsetY/advance 一一对应
 
+默认字体是微软雅黑 **Bold**（`msyhbd.ttc`）+ 0.80 缩放 —— 这就是发布图集的参数，
+不带参数直接跑即可复现。换字体用 `--font` 覆盖。
+
 用法：
-    .venv\\Scripts\\python.exe tools\\bake_font.py [--sizes 16,20,28] [--font msyh.ttc] [--index 0]
+    .venv\\Scripts\\python.exe tools\\bake_font.py [--sizes 16,20,28] [--font msyhbd.ttc] [--index 0]
 """
 import argparse
 import json
@@ -30,7 +33,11 @@ from PIL import Image, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)                 # _cw3hanhua/
 DEFAULT_OUT = os.path.join(ROOT, "_font")
-DEFAULT_FONT = r"C:\Windows\Fonts\msyh.ttc"
+# 发布图集用的就是雅黑 Bold + 0.80 缩放。默认值跟发布保持一致，
+# 不带参数跑 `bake_font.py` 就能 1:1 复现仓库里的 _font/（已实测 sha256 相同）。
+# 换成 msyh.ttc（常规体）会得到另一套字形，观感比发布版细。
+DEFAULT_FONT = r"C:\Windows\Fonts\msyhbd.ttc"
+DEFAULT_SCALE = 0.80
 
 # ★ 插件实际装载的字号。check_charset / collect_ui_strings 只统计这几个字号都覆盖的字。
 #   插件 SwapOneUIFont 按 UIFont 的 size 取 font_<size>.fnt：
@@ -146,9 +153,10 @@ def measure(font, ch, ascent):
     return mask, mw, mh, bbox[0], bbox[1] + ascent, adv
 
 
-def bake(size, chars, outdir, font_path, font_index, scale=1.0, scale_y=None):
+def bake(size, chars, outdir, font_path, font_index, scale=DEFAULT_SCALE, scale_y=None):
     # 字形像素尺寸 = size * scale；charSize 仍用 size。
-    # 雅黑的字形比 Aldrich 更"满"，同 charSize 下看起来大一号，所以可以缩小字形像素。
+    # 雅黑 Bold 的字形比 Aldrich 更"满"、笔画更粗，同 charSize 下看起来大一号，
+    # 所以发布用的是 scale=0.80（实际栅格化字号 13/16/22 px）。
     #
     # scale_y 单独控制纵向：汉字天生接近正方形，而 Aldrich 的拉丁字形偏扁，
     # 等比缩放没法让两个方向同时对齐 —— 此时把 scale_y 设得比 scale 小即可"压扁"。
@@ -297,12 +305,14 @@ def main():
 
     ap = argparse.ArgumentParser()
     ap.add_argument("--sizes", default="16,20,28")
-    ap.add_argument("--font", default=DEFAULT_FONT)
+    ap.add_argument("--font", default=DEFAULT_FONT,
+                    help="字体文件；默认是雅黑 Bold（发布图集用的就是它）")
     ap.add_argument("--index", type=int, default=0)
     ap.add_argument("--out", default=DEFAULT_OUT)
     ap.add_argument("--extra", default="", help="额外要烘焙的字符（缺字时由 check_charset 给出）")
-    ap.add_argument("--scale", type=float, default=1.0,
-                    help="字形像素缩放（charSize 不变）。雅黑比 Aldrich 满，0.9 左右可对齐观感")
+    ap.add_argument("--scale", type=float, default=DEFAULT_SCALE,
+                    help="字形像素缩放（charSize 不变）；默认 0.80 与发布图集一致。"
+                         "雅黑比 Aldrich 满，粗体尤其，调大前先看 preview_<size>.png")
     ap.add_argument("--scale-y", type=float, default=None,
                     help="纵向单独缩放；不给则等于 --scale。比 --scale 小可以压扁字形（横向不变）")
     args = ap.parse_args()
@@ -324,6 +334,8 @@ def main():
                 extra_added += 1
     print("字符集: %d 个 (ASCII 95 + GB2312 一级 3755 + 额外 %d)" % (len(chars), extra_added))
     print("字体  : %s (index=%d)" % (args.font, args.index))
+    print("缩放  : scale=%s%s" % (args.scale,
+          "" if args.scale_y is None else " scale_y=%s" % args.scale_y))
     print("输出  : %s" % args.out)
     print("")
 

@@ -3063,7 +3063,7 @@
   },
   {
    "en": "[Music Credits]",
-   "zh": "",
+   "zh": "[音乐制作名单]",
    "cat": "asset",
    "grade": "ui",
    "kind": "UILabel",

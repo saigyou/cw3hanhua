@@ -3,6 +3,10 @@
 > **这是唯一文档。** 只保留**结论、证据、可复现操作**。
 > 过程性叙述、已废弃的方法不单独存档 —— 历史结论压成一句留在对应章节，或者直接删。
 > 维护纪律见文末。
+>
+> **例外**：仓库根的 `README.md`（给使用者看的安装/使用/限制说明）、
+> `LICENSE`、`NOTICE` 是**对外交付物**，可以存在，但技术细节一律回到本文。
+> 这三份文件的内容不归本文管。
 
 ---
 
@@ -39,9 +43,9 @@
 | 游戏本体 | **原版**，资产零改动（4.4a） |
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
-| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.5.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2319 条**）；**五条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）、`GUI.*` 的 String 重载只做精确命中（v1.5.0，4.12）。**五层全部已实测通过**。 |
+| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.5.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2336 条**）；**五条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）、`GUI.*` 的 String 重载只做精确命中（v1.5.0，4.12）。**五层全部已实测通过**。 |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
-| 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py` |
+| 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py`。**这两个值就是 `bake_font.py` 的默认值**（`DEFAULT_FONT`/`DEFAULT_SCALE`），裸跑即可复现（4.1） |
 | 按键 | **F3 汉化总开关**（两层一起开/关）/ **F5** 打印未命中 / **F9** 重载词表 / **F11** dump / **F12** HUD（共 5 个；**F4 已于 2026-10-23 退役并入 F3**）<br>启动**无条件自动开启**（**无配置项**，4.1「自动开启」） |
 | 待办 | `Andro` / `DMD` / `'4'` 是否翻待定（4.7②）；`' sec'` / `' spores'` 等尾缀常量保持英文（4.7①）；其余待确认项见 4.7② |
 
@@ -66,7 +70,7 @@ Rename-Item "$g\winhttp.dll" winhttp.dll.off   # 停用
 |---|---|---|
 | **Unity TextMesh** | 30 个对象 / 27 个有文字（level1 里 14 个 = 主菜单大按钮） | `UnityEngine.Font`（Aldrich 动态字体，无汉字） |
 | **NGUI UILabel** | 1206 对象 / **1029 条有文字**（level1 里 354 个，同一时刻仅约 4 个 active） | `UIFont` → BMFont **预烘焙图集** |
-| **DLL 写死字符串** | 822 条（与资产去重后，`strings.json` 现行 **3508 条**候选串，见 4.2） | 最终都落到上面两种载体上（CRPL 消息另走 IMGUI，见 4.7④） |
+| **DLL 写死字符串** | 822 条（与资产去重后，`strings.json` 现行 **3524 条**候选串，见 4.2） | 最终都落到上面两种载体上（CRPL 消息另走 IMGUI，见 4.7④） |
 
 **不是 uGUI**：全部资产里 `UnityEngine.UI.Text` 为 **0** 个；`Assembly-CSharp.dll` 里
 搜 `UnityEngine.UI` / `Canvas` 全部无命中。文本只有上面两条链路。
@@ -348,14 +352,22 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 
 **字形烘焙**（产出 `font_<size>.{png,json}`，是 `build_atlas.py` 的输入）
 
+`bake_font.py` 的**默认值就是发布参数**（`DEFAULT_FONT` = 雅黑 Bold、`DEFAULT_SCALE` = 0.80）：
+不带参数跑一次，产出与仓库 `_font/` 逐字节相同（2026-10-24 实测 6 个文件 sha256 全等）。
+
 ```powershell
-# 当前参数：雅黑 Bold + 0.80
+# 复现发布图集（默认已是雅黑 Bold + 0.80）
+& .venv\Scripts\python.exe tools\bake_font.py
+# 显式写出等价参数（调参时照这个改）
 & .venv\Scripts\python.exe tools\bake_font.py --font "C:\Windows\Fonts\msyhbd.ttc" --scale 0.80
 # 纵向单独压（汉字满格、Latin 偏窄，等比缩放无法两方向同时对齐）
 ... --scale 0.80 --scale-y 0.76
 # 缺字时（check_charset.py 会直接打印这条命令）
 ... --extra "缺的字"
 ```
+
+`msyhbd.ttc` 里有 2 款字体：`index=0` = `Microsoft YaHei` Bold、`index=1` = `Microsoft YaHei UI` Bold；
+发布用的是 index=0（默认）。换 `msyh.ttc`（常规体）会得到另一套细字形，**不是发布版**。
 
 烘完必须重跑 `build_atlas.py` 才生效。
 
@@ -364,6 +376,10 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 
 **调字号的两个约束**：① 当前 0.80 是靠英文调的，中文观感可能不同；
 ② 雅黑 Bold 笔画粗、覆盖率高于 Aldrich，粗体要比常规体用更小的 scale。
+
+★ **默认值 = 发布参数**：`bake_font.py` 的 `DEFAULT_FONT` / `DEFAULT_SCALE` 已固定为
+`msyhbd.ttc` / `0.80`，所以「裸跑脚本」与「显式给参数」等价。别把默认值改回常规体或 1.0，
+否则复现出来的 `_font/` 与仓库发布版不一致（而 `atlas_zh.{png,bin}` 会跟着变，插件读到的字形就换了）。
 
 ### 4.2 文本层：静态全量收集与词表
 
@@ -388,6 +404,8 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 `noise`（标识符 / PascalCase / 资源名 / 标准库异常 / 节点路径 / 正则 / 纯数字）丢弃。
 
 **当前量化结果**（权威数字只看 `_dict/STATUS.md`，由 `tools/dict_stats.py` 生成）
+⚠️ 下表是 2026-10-20 那次收集的快照，之后又补了剧情、CRPL、`[Music Credits]` 等批次，
+现行数字见 4.5「当前数字」与 `_dict/STATUS.md`。此表保留是为了说明当时的收集口径。
 
 | 项 | 数量 |
 |---|---|
@@ -757,10 +775,10 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 
 ### 4.5 全量翻译
 
-**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3509 条 / 已译 2319**；
-插件读的 `zh_cn.dict` = **2319 条**（249 367 字节，`--include-other` 编译、FNV 校验通过）；
-`check_charset.py` 报 **1547 字符（汉字 1448）✓ 全部在字集内** —— **不用重烘图集**。
-未译的 1209 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
+**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3524 条 / 已译 2336**；
+插件读的 `zh_cn.dict` = **2336 条**（249 844 字节，`--include-other` 编译、FNV 校验通过）；
+`check_charset.py` 报 **1607 字符（汉字 1506）✓ 全部在字集内** —— **不用重烘图集**。
+未译的 1188 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
 
 > 沿革（只看结论）：翻译是分四批进来的 —— 4.2 的 1144 条 → 4.8 剧情 +852 → 4.7③ 分段碎片 +22
 > （并删掉 41 条护盾枚举）→ 4.7④ CRPL 教学提示 +60。`kind` 维度与「故意不译」清单见下表。
@@ -780,7 +798,7 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 占位文案（`This is a message`/`This is a great big long label`/`View Demo Screen`/
 `Time:1:00:00.0`）。**换句话说：可见 UI 文本已清零。**
 
-**未译 1211 条的桶**（下表是 2026-10-20 统计的 1260 条分布，差额来自后续批次补译；
+**未译 1188 条的桶**（下表是 2026-10-20 统计的 1260 条分布，差额来自后续批次补译；
 口径为 `strings.json` 自算，可复现）
 
 | 桶 | 条数 | 为什么不译 |
@@ -794,8 +812,9 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 | 文件名（`*.dat`/`*.xml`/`maps/`）+ 调试日志（`ops` 带 `call Log`） | 53 | — |
 | 资源条模板串 17（已由 4.7③ 覆盖，只剩 `AC:`）+ 1–2 字符符号 13 + 哈希 11 | 41 | — |
 
-**批次清单**：`_dict/batches/` 共 25 份（`both_ui` + `full_01`…`full_25_crpl`；`full_03`/`full_16`
-全跳 —— 音频库与 VectorLine 日志）。**只改批次，不要手改 `strings.json`**（见「译文纪律」）。
+**批次清单**：`_dict/batches/` 共 37 份（`both_ui` + `full_01`…`full_34_music_credits`；
+`full_03`/`full_16` 全跳 —— 音频库与 VectorLine 日志）。
+**只改批次，不要手改 `strings.json`**（见「译文纪律」）。
 
 **几条译法备忘**（术语表之外新定的）：
 - `Return` → `返回`（按钮，不是回车键）
@@ -837,10 +856,10 @@ Aldrich 空格 = 0.300 em。18 条主菜单译文平均只占英文宽的 **68%*
 ```powershell
 # 备份（幂等，永不覆盖已有备份）→ _cw3hanhua\_assets_orig\（71.5 MB，已 gitignore）
 $env:PYTHONPATH = (Resolve-Path "_cw3hanhua\.venv\Lib\site-packages").Path
-& "C:\Python314\python.exe" _cw3hanhua\tools\bake_textmesh_assets.py --backup
-& "C:\Python314\python.exe" _cw3hanhua\tools\bake_textmesh_assets.py --dry-run   # 看会改什么
-& "C:\Python314\python.exe" _cw3hanhua\tools\bake_textmesh_assets.py             # 恢复+烘焙
-& "C:\Python314\python.exe" _cw3hanhua\tools\bake_textmesh_assets.py --restore   # 全部还原
+& "<系统 python（本机是 python314）>" _cw3hanhua\tools\bake_textmesh_assets.py --backup
+& "<系统 python（本机是 python314）>" _cw3hanhua\tools\bake_textmesh_assets.py --dry-run   # 看会改什么
+& "<系统 python（本机是 python314）>" _cw3hanhua\tools\bake_textmesh_assets.py             # 恢复+烘焙
+& "<系统 python（本机是 python314）>" _cw3hanhua\tools\bake_textmesh_assets.py --restore   # 全部还原
 ```
 
 **先把备份复制回游戏目录（清除旧修改）→ 再从备份副本重新烘焙 → 写回**，所以反复运行幂等
@@ -851,11 +870,11 @@ $env:PYTHONPATH = (Resolve-Path "_cw3hanhua\.venv\Lib\site-packages").Path
 **★ 沙箱坑：`.venv\Scripts\python.exe` 写不进游戏资产**
 
 现象 `PermissionError: [Errno 13] Permission denied: 'CW3_Data\level1'`，而同一 shell 里 `pwsh` 和
-`C:\Python314\python.exe` 都能写。根因：DSH 沙箱让「**从工作区目录内启动的可执行文件**」以
+系统装的那个 python（本机是 python314）都能写。根因：DSH 沙箱让「**从工作区目录内启动的可执行文件**」以
 **Low 完整性级别**运行，游戏资产是 Medium —— Windows 的 no-write-up 规则禁止低完整性进程覆盖
 高完整性文件；新建文件和写 `_cw3hanhua` 下自己的文件都不受影响，所以只有覆盖资产这一步失败，
 极易误判成"文件被占用"。**解法：系统 python + venv 的 site-packages**（`$env:PYTHONPATH` 指到
-venv 的 `Lib\site-packages`，由沙箱外的 `C:\Python314\python.exe` 启动，拿 Medium 完整性）。
+venv 的 `Lib\site-packages`，由沙箱外的系统 python 启动，拿 Medium 完整性）。
 脚本里 `precheck_writable()` 会直接把这条建议印出来。**只读脚本用 venv 跑没问题。**
 
 **★ `--restore` 曾静默失效（已修）**：资产已是中文后跑 `--restore` 什么都不做、退出码 0。
@@ -1275,7 +1294,7 @@ for part in m.group(1).split(";"):
 
 | 检查 | 方法 | 结果 |
 |---|---|---|
-| 自查找表 | 每条 `en` 送回 `Lookup()` 与自己的 `zh` 比对 | 2319 条全部命中自身；查不到 **0**、串到别条 **0** |
+| 自查找表 | 每条 `en` 送回 `Lookup()` 与自己的 `zh` 比对 | 当时 2319 条（现 2336 条）全部命中自身；查不到 **0**、串到别条 **0** |
 | 批次一致性 | 所有 `batches/*.json` 的 key 是否都在 `strings.json` | 对不上 **0** |
 | 结构 | 重复 `en` / 空 `en` / `en` 含汉字 | 分别 **0 / 0 / 0** |
 | CRPL 键 | 193 条 ShowMessage 键对原始资产字面量 | 不在 **0**（反向只差 2 条故意不译的 `at facility`、`Closest Unit `） |
@@ -1516,7 +1535,7 @@ anti-creeper 13/13 已译且形态统一；汉字全在字集内（1505 字）�
 `Next` / `Nexus` 这类塌成同一个键，丢失信息。
 
 **C 的污染评估（用户要求「看会不会有什么污染」）**：结论 **零污染**。
-- `verify_lookup.py --idempotent` → 2319 条译文再喂回去被改写 **0 条**。
+- `verify_lookup.py --idempotent` → 2319 条译文再喂回去被改写 **0 条**（当时口径；v1.5.0 后已到 2336 条）。
 - `--regress` 输出「3509 条，新旧不同 14 条」，与**改动前基线同为 14 条**（是既有的 concat 类，与 C 无关）。
 - 用 `git show HEAD:` 取旧版脚本、`importlib` 加载新旧两版逐条 diff `segment()`：全量 3509 条 en 中
   C 规则导致变化 **0 条**。
@@ -1846,6 +1865,66 @@ dict 重建 **2332 条 / 249745 字节**；`check_charset.py` 1607 字符全在�
 
 ---
 
+### 4.16 补译 `[Music Credits]`：唯一一条真漏的玩家可见文本（2026-10-24）
+
+**背景**：全表扫下来，`in_dict=False` 且带方括号的**只有两条**（`_cw3hanhua/tools/uilabel_inventory.json`）：
+`level1` 3625 `'[Music Credits]'`、`level3` 6536 `'[00ff00]100'`。后者是纯色标+数字的占位符，
+所以 `[Music Credits]` 是**全项目唯一一条真漏的玩家可见文本**（主菜单 → Music Credits 按钮）。
+
+**定位**（`read_typetree` + `TypeTreeGenerator('5.2.3f1')` + `load_local_dll_folder(CW3_Data/Managed)`）：
+
+| 项 | 值 |
+|---|---|
+| 文件 / path_id | `level1` / `3625`（MonoBehaviour，`byte_size=176`） |
+| GameObject | `298`，名 `Label` |
+| 层级 | `Label` → `MusicCreditsButton` → `Panel` → `Anchor` → `Camera` → `UI Root (2D)` |
+| `mText` | `[Music Credits]` |
+| `mFont` | `m_FileID=2` → `library/unity default resources` / `m_PathID=290` |
+| 其它 | `mMaxLineCount=0`、`mShrinkToFit=0`、`mMultiline=1`、`mColor` 灰 `0.51/0.51/0.51` |
+
+**★ 坑：这个 MonoBehaviour 用 UnityPy 直接 `read()` 会报
+`ValueError: Expected to read 176 bytes, but only read 32 bytes`。**
+原因不是资产坏了，而是它的 `m_Script` 指向 `m_FileID=16777216`（= 外部 DLL 里的 MonoScript）。
+必须走 `env.typetree_generator = gen` + `read_typetree()`，由 TypeTreeGenerator 从
+`CW3_Data/Managed` 的 DLL 现生成 type tree；用 `read(check_read=False)` 或者把
+`UnityPy.load()` 指向 `_assets_orig/level1`（那个目录里没有 `sharedassets0.assets`）
+都会静默失败/无输出。
+
+**为什么 key 必须带方括号**：`CW3HanhuaText.cs` 的 `TagLength(s,i)` 把
+`[Music Credits]` 判定成 NGUI 标记 —— `close-i-1 = 12` 落在 `n>=1 && n<=20` 且全是字母
+⇒ `return close-i+1`，**整段原样透传**。`Lookup` 顺序是 精确 → `LookupConcat` →
+`LookupNormalized` → `HasCjk` 闸门 → `LookupSegment`（分段重组才轮到 `TagLength`），
+所以只要词表里有带方括号的完整 key，第一级精确匹配就命中，压根走不到标记判定。
+先例：`'[executing maintance]'` → `'[正在执行维护]'` 也是保留方括号的写法。
+
+**字宽实测**（`_font/font_{16,20,28}.json` 的 `adv` 累加，EN `[Music Credits]` = 99/122/170）：
+
+| 候选 | 16 | 20 | 28 |
+|---|---:|---:|---:|
+| `[音乐制作名单]` ✅ 采用 | 88 (89%) | 108 (89%) | 150 (88%) |
+| `[音乐制作组]` | 75 (76%) | 92 (75%) | 128 (75%) |
+| `[音乐制作]` | 62 (63%) | 76 (62%) | 106 (62%) |
+| `[制作组]` | 49 (49%) | 60 (49%) | 84 (49%) |
+
+取 89% 那档：既不溢出（`Credits` → `制作组` 时实测 78% 就安全，105% 会溢出，见 `glossary.md:75`），
+也不至于短到和同排按钮视觉失衡。术语上「名单」比「组」更贴近 Credits 的语义，
+且 `glossary.md` 已把 `Credits`（DLL 上下文，指星系）定为 `制作组`，这里的 asset 条目
+`credits` → `制作名单`，与本次一致。
+
+**这条不需要烘焙资产**：它是序列化的 `UILabel.mText`，走 `ProcessText` 补丁；`Enable()` 里
+`RefreshAllLabels()`（`Resources.FindObjectsOfTypeAll(typeof(UILabel))` + `MarkAsChanged()`）
+在 F3 开启时会把屏上已有 label 催一遍，所以静态 label 也会被翻 —— 与 TextMesh 那 19 条
+（extern icall，只能改资产）本质不同。
+
+**验证**：`apply_translations.py` 新增 1 条 → `strings.json` **2336 / 3524**；
+`build_dict.py --include-other` → **2336 条 / 249844 字节**，CWH1 结构 + FNV-1a 校验通过、
+按 UTF-8 字节序有序；`verify_lookup.py "[Music Credits]"` → `[音乐制作名单]`；
+`--idempotent` 0 条被改写；回归 32 CASES + 18 SAFETY 全绿（`con:1 seg:32`）；
+`audit_translations.py` 换行 0 / 占位符 0 / 首尾空白 0，标记 14 → **15**（新增的这条同属
+方括号已译的既有假阳性类别）。
+
+---
+
 ## 五、环境与陷阱
 
 ### 5.1 沙箱写入权限
@@ -1934,6 +2013,21 @@ Remove-Item BepInEx\plugins\CW3Hanhua.dll.bak   # 旧文件解除映射后可删
 ```
 
 实测：改名后连续两次编译都 `== OK ==`，`.bak` 也能立刻删掉。游戏下次启动会加载新 DLL。
+
+★ **2026-10-24 18:17 复现，且探针这次误诊了 —— 探针的结论不可全信，要看报错措辞。**
+当时 `build_plugin.cmd` 报 `probe says: overwrite` 并打印「跨会话 SID 残留」，
+**但并排打出的两组 ACL 里 SID 完全相同**（DLL 与同目录新建的探针文件都是
+`S-1-4-631060305-198087963`）—— 按上面那条「只比两边是否一致」的规则，这恰恰**否定**了
+SID 假设。真实原因是**映射**：`[IO.File]::WriteAllBytes` 报
+
+```
+请求的操作无法在使用用户映射区域打开的文件上执行
+```
+
+即上面那段「游戏真开着」的情形（`copy /y` 与 `WriteAllBytes` 都失败、独占 `Open` 却成功）。
+**教训：探针只测出「拷不回去」，测不出「为什么拷不回去」**，它把两种情形都归到 SID 分支上。
+遇到这个报错先看 ACL 里两行 SID 是否一致，再决定走 SID 分支还是映射分支。
+本次的实际处置是直接 `Remove-Item` 掉 DLL 再重编（删除成功了，映射中的文件可以删名）。
 
 ### 5.2 编译插件
 
@@ -2171,19 +2265,28 @@ _cw3hanhua/
 
 **版本控制**：仓库根 = 游戏安装根目录（`.git` 与 `CW3.exe` 同级）。
 `.gitignore` 用「顶层白名单 + 子目录黑名单」，只放行 `_cw3hanhua\`、`BepInEx\config\`、
-`AGENTS.md`、`doorstop_config.ini`。
+`AGENTS.md`、`doorstop_config.ini`，以及对外交付物 `README.md` / `LICENSE` / `NOTICE`。
 ★ **本目录就是游戏安装目录，永远不要在这里执行 `git clean`** —— 会连游戏本体一起删掉。
 
 ### 维护纪律
 
 1. **只维护这一份文档。** 不要新建 `XXX.md` —— 新内容写进对应章节。
+   **唯一例外：仓库根的 `README.md`、`LICENSE`、`NOTICE`**（2026-10-24）
+   —— 这三个是**对外交付物**，GitHub 首页/许可协议必须有独立文件，无法折进本文。
+   它们不是「第二份技术文档」：`README.md` 只写**使用者**需要的东西（怎么装、怎么用、
+   已知限制），技术取证一律留在本文。改代码时**同步检查 README 里的事实性断言**
+   （版本号、按键、文件名、覆盖率口径），别让它烂掉。
 2. **控制篇幅，但不要为行数牺牲信息。** 只留**结论、证据、可复现操作**。
    判断标准是「这条信息会不会在下一次动手时救我一命」。
    **过时的中间过程、已废弃的方法直接删**（历史结论压成一句就够，或者进 5.7 的退役表）。
 3. **数字必须可复现。** 引用调用点/指令数时写明用 `tools\ilx.exe` 的哪条命令
    或 `tools\collect_ui_strings.py` 的哪次输出；手写解析器的数字一律不要引用（见 5.4）。
-   文本条数的唯一权威是 `_dict/STATUS.md`（现行 **3509** 条候选，已译 **2319** 条；
+   文本条数的唯一权威是 `_dict/STATUS.md`（现行 **3524** 条候选，已译 **2336** 条；
    `zh_cn.dict` 同数，见 4.2）。
+   ★ **对外别用 66.3% 这个数**：分母含 636 条纯标识符 + 11 条 md5 哈希 + 565 条刻意不译，
+   只有「玩家可见子集」（`kind in (UILabel,TextMesh)` 或 `cat in (asset,both)`）
+   的 **93.5%（1231/1317）** 才有意义。剧情台词 579/579 = 100%。
+   README 里的覆盖率口径固定按这个说法，不要改回全表百分比。
 4. **结论必须有证据等级**：区分「IL 静态证据」「运行时实测」「源码推断」。
    不要把推断写成事实 —— 本项目曾多次因"看起来像"而下错结论（最近一次：
    把资源条模板串的修法说成"前缀匹配"，反汇编后才证伪，见 4.7）。

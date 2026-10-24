@@ -8,7 +8,7 @@
 
 ★ 必须用系统 python 跑（venv 里的解释器是 Low 完整性，写不了游戏资产）：
   $env:PYTHONPATH = "<根>\\_cw3hanhua\\.venv\\Lib\\site-packages"
-  & "C:\\Python314\\python.exe" _cw3hanhua\\tools\\restore_files.py level1
+  & "<系统 python 的路径（本机是 python314）>" _cw3hanhua\\tools\\restore_files.py level1
 """
 import hashlib
 import json

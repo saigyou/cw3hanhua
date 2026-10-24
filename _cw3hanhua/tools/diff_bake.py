@@ -19,7 +19,7 @@
 
 用法（★ 必须用系统 python，见 NOTES 4.6 的 Low 完整性坑）：
   $env:PYTHONPATH = "<根>\\_cw3hanhua\\.venv\\Lib\\site-packages"
-  & "C:\\Python314\\python.exe" _cw3hanhua\\tools\\diff_bake.py
+  & "<系统 python 的路径（本机是 python314）>" _cw3hanhua\\tools\\diff_bake.py
 """
 import json
 import os

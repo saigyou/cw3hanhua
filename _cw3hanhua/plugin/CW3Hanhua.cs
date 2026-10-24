@@ -1,5 +1,10 @@
+// SPDX-License-Identifier: LGPL-2.1-or-later
+// Copyright (C) 2026 saigyou
+//
+// 本文件是 CW3 Hanhua 的一部分，按 GNU LGPL v2.1（或更新版本）授权。
+// 全文见仓库根目录的 LICENSE；许可分层与第三方声明见 NOTICE。
 // ============================================================================
-//  CW3 汉化插件 v1.4.0 —— 合并图集字体层（NOTES 4.4）+ 文本层（词表）+ 合并 HUD
+//  CW3 汉化插件 v1.5.0 —— 合并图集字体层（NOTES 4.4）+ 文本层（词表）+ 合并 HUD
 //
 //  ★ 2026-10-23：两个 DLL 合成一个。本文件与 CW3HanhuaText.cs 一起编进
 //    **CW3Hanhua.dll**，两层之间不再有任何反射调用 —— 字体层直接
@@ -54,10 +59,10 @@ using UnityEngine;
 
 namespace CW3Hanhua
 {
-    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua", "1.4.0")]
+    [BepInPlugin("cw3hanhua.core", "CW3 Hanhua", "1.5.0")]
     public class HanhuaPlugin : BaseUnityPlugin
     {
-        const string Ver = "1.4.0";
+        const string Ver = "1.5.0";
 
         static HanhuaPlugin inst;
         static string reportPath;

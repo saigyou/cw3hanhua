@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: LGPL-2.1-or-later
+// Copyright (C) 2026 saigyou
+//
+// 本文件是 CW3 Hanhua 的一部分，按 GNU LGPL v2.1（或更新版本）授权。
+// 全文见仓库根目录的 LICENSE；许可分层与第三方声明见 NOTICE。
 // ============================================================================
 //  CW3 汉化 · 文本层 v1.5.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息 + IMGUI
 //

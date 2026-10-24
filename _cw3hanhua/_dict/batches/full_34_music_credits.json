@@ -1,0 +1,6 @@
+{
+ "_note": "补译 assets 里唯一一条真漏的 UILabel：level1 path_id=3625（GameObject 'Label'，父级 MusicCreditsButton）。方括号必须保留 —— CW3HanhuaText.TagLength 会把 [Music Credits] 判成纯字母标记并整段透传，所以词表 key 必须是带方括号的完整串；运行时 Lookup 第一级精确匹配先命中，不会走到 TagLength。字宽实测 88-89%（16/20/28 三档），不溢出。",
+ "items": {
+  "[Music Credits]": "[音乐制作名单]"
+ }
+}
