@@ -24,7 +24,7 @@
 | `del_strings.py` | 按批次**删除** `strings.json` 里的条目（`del_strings.py <批次...> [--dry-run]`） | NOTES 4.2 |
 | `verify_lookup.py` | ★ 离线复刻插件四级查表链，验证命中/幂等/回归（改词表后必跑） | NOTES 4.2 |
 | `dict_stats.py` | 覆盖率报告 → `_dict\STATUS.md` | NOTES 4.2 |
-| `audit_translations.py` | ★ 全表审计：en/zh 的 `[标记]`/换行/占位符/首尾空白，四项全 0 才算过 | NOTES 4.5 |
+| `audit_translations.py` | ★ 全表审计：en/zh 的 `[标记]`/换行/占位符/首尾空白 + **按组的引号配对**（跨条目，见 NOTES 4.17），五项全 0 才算过 | NOTES 4.5 / 4.17 |
 | `prep_batches.py` | 未译项分流（规则化不译桶 + 待译）后切批，输出 `_dict\work\full_NN.src.json` | NOTES 4.5 |
 | `merge_work.py` | `work\full_NN.{src,zh}.json` → `batches\full_NN.json` | NOTES 4.5 |
 | `check_batch.py` | 单批译稿校验，不过 0 不许入库 | NOTES 4.5 |

@@ -19,7 +19,7 @@
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅** / **主线关 CRPL 文案 193 条 ✅（`scan_crpl.py` 修多脚本解析，纯词表；冗余 LF 键清理见 4.7⑧）** / **v1.4.1 DMD 三项修正（`Map Size: 101x101` 里的 x、`LandingPad`、按钮宽 90px 超框）+ 未命中按模板去重 ✅ 2026-10-24** / **v1.5.0 `GUI.*` 第五层（Return to Origin、产品密钥界面等 6 处直调点）✅ 2026-10-24** / **CRPL 短台词 6 条（`Lies!` 等）✅ 2026-10-25，`scan_crpl.py` 改按调用点收实参，见 4.7⑩** |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅** / **主线关 CRPL 文案 193 条 ✅（`scan_crpl.py` 修多脚本解析，纯词表；冗余 LF 键清理见 4.7⑧）** / **v1.4.1 DMD 三项修正（`Map Size: 101x101` 里的 x、`LandingPad`、按钮宽 90px 超框）+ 未命中按模板去重 ✅ 2026-10-24** / **v1.5.0 `GUI.*` 第五层（Return to Origin、产品密钥界面等 6 处直调点）✅ 2026-10-24** / **CRPL 短台词 6 条（`Lies!` 等）✅ 2026-10-25，`scan_crpl.py` 改按调用点收实参，见 4.7⑩** / **过场台词缺右括号 2 条 ✅ 2026-10-25，引号跨条目配对，见 4.17** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -776,7 +776,7 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 ### 4.5 全量翻译
 
 **当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3530 条 / 已译 2342**；
-插件读的 `zh_cn.dict` = **2342 条**（250 030 字节，`--include-other` 编译、FNV 校验通过）；
+插件读的 `zh_cn.dict` = **2342 条**（250 036 字节，`--include-other` 编译、FNV 校验通过）；
 `check_charset.py` 报 **1607 字符（汉字 1506）✓ 全部在字集内** —— **不用重烘图集**。
 未译的 1188 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
 
@@ -1413,7 +1413,8 @@ CALL = re.compile(r'\b(?:ShowMessage\w*|AddConversationMessage|AddMessage)'
 `add_strings.py --kind AddConversationMessage`（记录形态 `cat="dll"`, `grade="ui"`，
 与已有 193 条 CRPL 条目一致）。
 
-**验证（全绿）**：`build_dict.py --include-other` → **2342 条 / 250030 字节**（原 2336 / 249844）；
+**验证（全绿）**：`build_dict.py --include-other` → **2342 条 / 250030 字节**（原 2336 / 249844；
+2026-10-25 修过场台词括号后又 +6 字节 → 250 036，见 4.17）；
 `check_charset.py` **1607 字符（汉字 1506）✓ 在字集内**，不用重烘图集；
 `verify_lookup.py` 21 CASES + 18 SAFETY 全绿（`exact:0 concat:1 norm:0 seg:32`）、
 6 条新键逐条命中；`--idempotent` **0 条被改写**；`--regress` 3530 条里 13 条新旧不同，
@@ -1520,6 +1521,9 @@ C.E. → **第 N 循环历**（不写「公元」，也不写「第 X 纪元」�
 `PreludeManager.ShowText(String,Single,Single,Single,Int32,Single,Single)`，由文本层
 `PrefixAnyShowText` 查词表（4.6a）。**跨行旁白是真的拆成三条 ldstr**，每条单独查表，
 照原文逐句译即可。
+
+> **★ 但引号/括号是跨条目配对的** —— 一句台词的 `"` 可能开在 A 条、闭在 B 条，
+> 逐条翻容易把「」配对写错位（2026-10-25 就漏了两条右括号，见 **4.17**）。
 
 **改掉的 5 条**（批次 `full_10.json` / `full_11.json`，`apply_translations.py --override`）：
 
@@ -2012,6 +2016,78 @@ dict 重建 **2332 条 / 249745 字节**；`check_charset.py` 1607 字符全在�
 
 ---
 
+### 4.17 过场台词「缺右括号」：引号配对跨条目（2026-10-25）
+
+**症状**（用户报告 + 截图）：开场/尾声 transcript 画面（银河背景那屏）里，
+牛顿·蒙特的旁白「是的，议会。」「看来确实如此。」等段落**只有左「」没有右「」**。
+
+**★ 先说截图里的假线索**：截图最扎眼的两条 ——
+`Newton Mont: "Yes, Council.` → `牛顿·蒙特：「是的，议会。` 和
+`Newton Mont: "It would seem so.` → `牛顿·蒙特：「看来确实如此。` ——
+**本来就是对的，不要动**。它们在原文里只有**左引号**（引号是跨条配对的），
+所以中文也只有「。真正漏的是另外两条**以 `"` 结尾**的条目。
+
+| 原文 | 原译（缺） | 现译 |
+|---|---|---|
+| `One, we believe, is being employed by the Loki."` | 我们认为，其中一种正被洛基使用。 | …正被洛基使用。**」** |
+| `We also believe the Loki are aware of only one method to reveal the Arc."` | 我们还认为，洛基只知道一种揭示永恒之弧的方法。 | …揭示永恒之弧的方法。**」** |
+
+**根因：原文被硬拆成多条独立 ldstr，引号/换行天然跨条目**。`PreludeManager.ShowText`
+的实参是一条一条进词表的（4.9 / 4.6a），于是一句台词可能是
+`Newton Mont: "For this, I present our newest nominee for Research Fellow.` +
+`His insights led us to our conclusions."` ——
+**开括号在 A 条、闭括号在 B 条**。译者按「整句」的感觉翻，就把「」配对写进了错的条目：
+B 条补了 」、A 条补了「，而中间两条本该收尾的 `...the Loki."` / `...the Arc."` 忘了收。
+
+**定位方法：单条比对不够，必须做「序列奇偶校验」**（★ 记下来，以后同类问题照这个走）
+—— 60 条 `note` 以「过场叙事台词」开头的条目，**按 strings.json 里的原始顺序**累计统计：
+
+```python
+# en 每出现一个 " 就翻转一次；zh 每出现「就 +1、」就 -1。
+# 拆条台词的引号必须整体配对，所以逐条累计后任何一步两边不等就说明有漏。
+pq = pz = 0
+for e in [x for x in S if x.get("note", "").startswith("过场叙事台词")]:
+    pq = (pq + e["en"].count('"')) % 2
+    pz = (pz + e["zh"].count("「") - e["zh"].count("」")) % 2
+    if pq != pz:
+        print("MISMATCH at", e["en"][-50:])
+```
+
+修正前 mismatch 在 19 处堆叠；修正后 **mismatch 0、末态 en 奇偶=0 / zh=0**。
+只按「单条 en 的 `"` 数 vs zh 的「」数」比对的粗办法也能定位到 2 条，
+但会被 4 处**合法的**半引号带偏（`For this, I present…` / `It would seem so.` /
+`Yes, Council.` 三条只有开号，`His insights led us…` 一条只有闭号）。
+
+**顺手核过、确认不用改的**（离散点，别再查）：
+`'[ffffa0]"SHIFT-T" to select terrain height under mouse.'`、
+`'"  to select terrain height under mouse.'` 的英文 `"` 是**字形本身**（键位名），
+中文留 ASCII `"` 是刻意的；`'...as a "universal singleton", ...'`（en 2 / zh 4）与
+`'In English, "geste" is a homophone with "jest," ...'`（en 10 / zh 12）是中文把 `"x"` 和
+嵌套的 `'x'` **都统一成「」**，属正常一对多。全表 `zh` 含 ASCII 单引号 `'` 的 7 条里，
+除 `牛顿·蒙特：「'普拉提乌斯'，议会。…」` 外都是键位名 / `.crpl` / `Click or '`，
+**保留 ASCII 单引号是既有风格（92 条用「」/ 7 条用 `'`），用户只提了括号，不动。**
+
+**入库**：`_dict/batches/full_07.json` 改两行 → `apply_translations.py … --override`
+（覆盖 2、问题 0）→ `build_dict.py --include-other` → **2342 条 / 250 036 字节**（+6，两个「」）。
+`check_charset.py` 仍是 **1607 字符（汉字 1506）✓ 在字集内**，不用重烘图集；
+`verify_lookup.py` 21 CASES + 18 SAFETY 全绿（`exact:0 concat:1 norm:0 seg:32`）、
+`--idempotent` 0 条被改写；`audit_translations.py` 换行/占位符/首尾空白/引号配对
+**0/0/0/0**（标记 15 处仍是方括号已译假阳性）；直接解 `zh_cn.dict` 二进制确认两条译都已带 」。
+
+**★ 已把第五项做进工具**：`audit_translations.py` 新增 `quote_parity_bad(S)`，
+按 `note` 前缀 `过场叙事台词` 分组、组内按原始顺序累计奇偶（`pq`/`pz`），
+**只报失衡起点那一条**（一旦错开后后面每条都会"错"，全列出来只是噪音）。
+自测：把 `Arc."` 那条的 `」` 删掉 → 精确报出 `index 335`，恢复后回到 0。
+审计输出末尾由「✓ 四项全过」改为「✓ 五项全过」。
+
+**★ 教训**：`audit_translations.py` 原有的四项（标记/换行/占位符/空白）**查不出引号配对**，
+因为配对是**跨条目**的、单条看永远「合法」。凡是被引擎拆条显示的文本
+（`ShowText` 旁白、拼接串），一致性校验必须以**整组序列**为单位，而不是逐条。
+`apply_translations.py --override --dry-run` 同时会报 4 条「原文不在 strings.json 里」
+（`The trains travel on a system of terrain level 8 rails...` 等旧批次陈旧条目）—— **与本节无关，属既有现象**。
+
+---
+
 ## 五、环境与陷阱
 
 ### 5.1 沙箱写入权限
@@ -2319,7 +2395,7 @@ _cw3hanhua/
 │   ├─ build_crpl_batch.py     人工译文(txt) → 批次 JSON，按 crpl_all.json 顺序重建英文键
 │   ├─ build_dict.py           编译 zh_cn.dict
 │   ├─ apply_translations.py   批次译文注入 strings.json
-│   ├─ audit_translations.py   ★ 全表一致性审计（标记/换行/占位符/首尾空白）
+│   ├─ audit_translations.py   ★ 全表一致性审计（标记/换行/占位符/首尾空白 + 按组引号配对）
 │   ├─ test_classify.py        classify() 回归样例
 │   ├─ prep_batches.py         未译分流 + 切批（会重建 _dict/work/）
 │   ├─ merge_work.py           work/ 译稿 → batches/

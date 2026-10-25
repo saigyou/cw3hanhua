@@ -242,7 +242,7 @@ _cw3hanhua\.venv\Scripts\python.exe _cw3hanhua\tools\build_dict.py --include-oth
 
 `_cw3hanhua/_dict/batches/` 下是按批次组织的译稿，`apply_translations.py` 负责把它们
 注入 `strings.json`。贡献译文请从 `_cw3hanhua/_dict/story_work/TRANSLATION_BRIEF.md`
-读规范，并跑 `audit_translations.py` 确认标记/换行/占位符/首尾空白四项全 0。
+读规范，并跑 `audit_translations.py` 确认标记/换行/占位符/首尾空白/引号配对五项全 0。
 
 ### 只改字形、重烘图集
 

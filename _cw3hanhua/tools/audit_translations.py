@@ -1,13 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""译文一致性审计：逐条比对 en / zh 的 [颜色标记]、换行数、占位符、首尾空白。
+"""译文一致性审计：逐条比对 en / zh 的 [颜色标记]、换行数、占位符、首尾空白，
+外加**按组**的引号配对校验（跨条目，见 NOTES 4.17）。
 
 用法：
     .venv\\Scripts\\python.exe tools\\audit_translations.py
     .venv\\Scripts\\python.exe tools\\audit_translations.py --max 30   # 每类最多列 30 条
 
-四项全为 0 才算过。改完译文（尤其手工补的）都该跑一次；
+五项全为 0 才算过。改完译文（尤其手工补的）都该跑一次；
 `apply_translations.py` 只保证"原文能匹配上"，不保证标记/空白没被译丢。
+
+前四项是**逐条**的；第五项「引号配对」必须是**跨条目**的 —— 引擎把一句台词
+拆成多条独立字符串（`PreludeManager/EpilogueManager/DemoScreenManager.ShowText`），
+引号于是开在 A 条、闭在 B 条，单条看永远"合法"，只有按原顺序累计奇偶才发现漏配。
 """
 import argparse
 import json
@@ -27,6 +32,10 @@ PH = re.compile(r"\{[^{}\n]{1,12}\}|%[sdf]|<[a-zA-Z/][^<>\n]{0,12}>")
 # 「中文与拉丁/数字之间」的空隙，按 4.13 该删（`' spores'` → `'枚孢子'`）。
 CJK_HEAD = re.compile(r"[\u4e00-\u9fff\u3000-\u303f\uff01-\uff60]")
 
+# 引号配对校验（第五项）的组前缀：note 以此开头的一组条目是被引擎
+# 拆条显示的同一段台词，引号只能在**整组**里配对（NOTES 4.17）。
+QUOTE_GROUP = "\u8fc7\u573a\u53d9\u4e8b\u53f0\u8bcd"
+
 
 def lead_ok(en, zh, le):
     """前导空白校验。
@@ -42,6 +51,48 @@ def lead_ok(en, zh, le):
     if zh[:le] == head:
         return True
     return head.strip(" ") == "" and bool(CJK_HEAD.match(zh))
+
+
+def quote_parity_bad(S):
+    """按组校验引号配对（跨条目，见 NOTES 4.17）。
+
+    引擎会把**一句台词拆成多条独立字符串**（`ShowText` 的实参逐条进词表），
+    于是 `"` 开在 A 条、闭在 B 条 —— 单条看两边都"合法"，永远查不出来。
+    只有按 `strings.json` 的原始顺序累计奇偶，才暴露漏配的那一条：
+    `pq` 累计 en 的引号数、`pz` 累计 zh 的「」净数，任何一步不等即有漏。
+
+    组键取 `note`：同一批被拆条的台词共用一条 note
+    （「过场叙事台词：Prelude/Epilogue/Demo 的 ShowText 实参」）。
+    """
+    groups = {}
+    for i, it in enumerate(S):
+        n = it.get("note") or ""
+        if n.startswith(QUOTE_GROUP):
+            groups.setdefault(n, []).append((i, it))
+
+    bad = []
+    for _n, items in groups.items():
+        pq = pz = 0
+        ok = True
+        for i, it in items:
+            en, zh = it["en"], it.get("zh") or ""
+            pe = en.count('"') + en.count("\u201c") + en.count("\u201d")
+            if not zh:          # 未译 ⇒ 屏幕上还是英文，奇偶照原样走
+                pq = (pq + pe) % 2
+                pz = (pz + pe) % 2
+            else:
+                pq = (pq + pe) % 2
+                # zh 的「」成对；ASCII " 是键位名/占位符字形（'"SHIFT-T"'），
+                # 本身成对出现，计进去不影响奇偶。
+                pz = (pz + zh.count("\u300c") - zh.count("\u300d")
+                      + zh.count('"')) % 2
+            now_ok = pq == pz
+            # 只报**失衡起点**：一旦累计奇偶错开，后面每条都会「错」，
+            # 全列出来只是噪音；起点那一条才是要补括号的地方。
+            if ok and not now_ok:
+                bad.append((i, en, zh))
+            ok = now_ok
+    return bad
 
 
 def main():
@@ -85,14 +136,17 @@ def main():
         if bad:
             sp_bad.append((i, en, zh))
 
+    q_bad = quote_parity_bad(S)
+
     total = 0
     for name, arr in (("标记", tag_bad), ("换行", nl_bad),
-                      ("占位符", ph_bad), ("首尾空白", sp_bad)):
+                      ("占位符", ph_bad), ("首尾空白", sp_bad),
+                      ("引号配对", q_bad)):
         total += len(arr)
         print("== %s: %d" % (name, len(arr)))
         for i, en, zh in arr[:a.max]:
             print("  %d  %r -> %r" % (i, en, zh))
-    print("\n%s" % ("✓ 四项全过" if total == 0 else "✗ 共 %d 处问题" % total))
+    print("\n%s" % ("✓ 五项全过" if total == 0 else "✗ 共 %d 处问题" % total))
     return 1 if total else 0
 
 
