@@ -1,6 +1,6 @@
 {
  "version": 2,
- "generated": "2026-10-24 14:40:16",
+ "generated": "2026-10-25 11:15:14",
  "baked_charset": 7544,
  "strings": [
   {
@@ -64277,6 +64277,126 @@
    "refs": [],
    "hits": 1,
    "note": "秒词缀（RunnerNestManager: \"Spawn Interval: \" + n + \" sec\"），拼出「生成间隔：3秒」"
+  },
+  {
+   "en": "Lies!",
+   "zh": "胡说！",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "AddConversationMessage",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL 对话的短句（2026-10-25 修 scan_crpl 的 looks_like_prose 过滤后补全）"
+  },
+  {
+   "en": "Never!",
+   "zh": "绝不！",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "AddConversationMessage",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL 对话的短句（2026-10-25 修 scan_crpl 的 looks_like_prose 过滤后补全）"
+  },
+  {
+   "en": "Oh...?",
+   "zh": "哦……？",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "AddConversationMessage",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL 对话的短句（2026-10-25 修 scan_crpl 的 looks_like_prose 过滤后补全）"
+  },
+  {
+   "en": "How?!?",
+   "zh": "怎么做到的？！",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "AddConversationMessage",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL 对话的短句（2026-10-25 修 scan_crpl 的 looks_like_prose 过滤后补全）"
+  },
+  {
+   "en": "Noooooooooo!!!!!",
+   "zh": "不————！！！",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "AddConversationMessage",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL 对话的短句（2026-10-25 修 scan_crpl 的 looks_like_prose 过滤后补全）"
+  },
+  {
+   "en": "...'Platius'...",
+   "zh": "……「普拉提乌斯」……",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "AddConversationMessage",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "关卡内嵌 CRPL 对话的短句（2026-10-25 修 scan_crpl 的 looks_like_prose 过滤后补全）"
   }
  ]
 }

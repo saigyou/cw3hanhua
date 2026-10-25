@@ -139,12 +139,46 @@ def looks_like_prose(s):
     return True
 
 
+# 会真上屏的对话/提示调用：`ShowMessage("…")`、`ShowMessageDialog("…")`、
+# `AddConversationMessage(0 "…")`、`AddMessage("…")`。第一个参数可能是说话人编号
+# 或颜色，所以 `[^"]*?` 放在引号前面（不跨引号）。
+CALL = re.compile(
+    r'\b(?:ShowMessage\w*|AddConversationMessage|AddMessage)\s*\(\s*[^"()]*?"((?:[^"\\]|\\.)*)"',
+    re.S)
+
+
+def call_literals_of(src):
+    """只取**对话/提示调用实参**里的字面量，**不套 `looks_like_prose`**。
+
+    ★ 为什么需要（2026-10-25，用户报 `Lies!` 没翻）：`looks_like_prose()` 要求
+      `len>=8` 且含空格，而剧情对话里天然有大量短句 —— `Lies!` / `Never!` /
+      `Oh...?` / `How?!?` / `Noooooooooo!!!!!` / `...'Platius'...` 全被过滤掉，
+      于是 `strings.json` 里根本没有它们，插件查不到就原样显示英文。
+      这些调用实参**必然上屏**，长度门槛对它们没有意义，所以这里无条件收。
+    """
+    seen = []
+    for m in CALL.finditer(strip_comments(src)):
+        s = unescape(m.group(1))
+        if not s.strip():
+            continue
+        if "->" in s or "<-" in s:      # 赋值箭头 = 代码片段，不是文案
+            continue
+        if not any(ch.isalpha() for ch in s):
+            continue
+        if s not in seen:
+            seen.append(s)
+    return seen
+
+
 def literals_of(src):
     body = strip_comments(src)
     seen = []
     for m in LIT.finditer(body):
         s = unescape(m.group(1))
         if looks_like_prose(s) and s not in seen:
+            seen.append(s)
+    for s in call_literals_of(body):
+        if s not in seen:
             seen.append(s)
     return seen
 

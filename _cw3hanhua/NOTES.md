@@ -19,7 +19,7 @@
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅** / **主线关 CRPL 文案 193 条 ✅（`scan_crpl.py` 修多脚本解析，纯词表；冗余 LF 键清理见 4.7⑧）** / **v1.4.1 DMD 三项修正（`Map Size: 101x101` 里的 x、`LandingPad`、按钮宽 90px 超框）+ 未命中按模板去重 ✅ 2026-10-24** / **v1.5.0 `GUI.*` 第五层（Return to Origin、产品密钥界面等 6 处直调点）✅ 2026-10-24** |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅** / **主线关 CRPL 文案 193 条 ✅（`scan_crpl.py` 修多脚本解析，纯词表；冗余 LF 键清理见 4.7⑧）** / **v1.4.1 DMD 三项修正（`Map Size: 101x101` 里的 x、`LandingPad`、按钮宽 90px 超框）+ 未命中按模板去重 ✅ 2026-10-24** / **v1.5.0 `GUI.*` 第五层（Return to Origin、产品密钥界面等 6 处直调点）✅ 2026-10-24** / **CRPL 短台词 6 条（`Lies!` 等）✅ 2026-10-25，`scan_crpl.py` 改按调用点收实参，见 4.7⑩** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -43,7 +43,7 @@
 | 游戏本体 | **原版**，资产零改动（4.4a） |
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
-| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.5.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2336 条**）；**五条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）、`GUI.*` 的 String 重载只做精确命中（v1.5.0，4.12）。**五层全部已实测通过**。 |
+| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.5.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2342 条**）；**五条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）、`GUI.*` 的 String 重载只做精确命中（v1.5.0，4.12）。**五层全部已实测通过**。 |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py`。**这两个值就是 `bake_font.py` 的默认值**（`DEFAULT_FONT`/`DEFAULT_SCALE`），裸跑即可复现（4.1） |
 | 按键 | **F3 汉化总开关**（两层一起开/关）/ **F5** 打印未命中 / **F9** 重载词表 / **F11** dump / **F12** HUD（共 5 个；**F4 已于 2026-10-23 退役并入 F3**）<br>启动**无条件自动开启**（**无配置项**，4.1「自动开启」） |
@@ -70,7 +70,7 @@ Rename-Item "$g\winhttp.dll" winhttp.dll.off   # 停用
 |---|---|---|
 | **Unity TextMesh** | 30 个对象 / 27 个有文字（level1 里 14 个 = 主菜单大按钮） | `UnityEngine.Font`（Aldrich 动态字体，无汉字） |
 | **NGUI UILabel** | 1206 对象 / **1029 条有文字**（level1 里 354 个，同一时刻仅约 4 个 active） | `UIFont` → BMFont **预烘焙图集** |
-| **DLL 写死字符串** | 822 条（与资产去重后，`strings.json` 现行 **3524 条**候选串，见 4.2） | 最终都落到上面两种载体上（CRPL 消息另走 IMGUI，见 4.7④） |
+| **DLL 写死字符串** | 822 条（与资产去重后，`strings.json` 现行 **3530 条**候选串，见 4.2） | 最终都落到上面两种载体上（CRPL 消息另走 IMGUI，见 4.7④） |
 
 **不是 uGUI**：全部资产里 `UnityEngine.UI.Text` 为 **0** 个；`Assembly-CSharp.dll` 里
 搜 `UnityEngine.UI` / `Canvas` 全部无命中。文本只有上面两条链路。
@@ -775,13 +775,13 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 
 ### 4.5 全量翻译
 
-**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3524 条 / 已译 2336**；
-插件读的 `zh_cn.dict` = **2336 条**（249 844 字节，`--include-other` 编译、FNV 校验通过）；
+**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3530 条 / 已译 2342**；
+插件读的 `zh_cn.dict` = **2342 条**（250 030 字节，`--include-other` 编译、FNV 校验通过）；
 `check_charset.py` 报 **1607 字符（汉字 1506）✓ 全部在字集内** —— **不用重烘图集**。
 未译的 1188 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
 
 > 沿革（只看结论）：翻译是分四批进来的 —— 4.2 的 1144 条 → 4.8 剧情 +852 → 4.7③ 分段碎片 +22
-> （并删掉 41 条护盾枚举）→ 4.7④ CRPL 教学提示 +60。`kind` 维度与「故意不译」清单见下表。
+> （并删掉 41 条护盾枚举）→ 4.7④ CRPL 教学提示 +60 → 4.7⑩ CRPL 短台词 +6。`kind` 维度与「故意不译」清单见下表。
 
 `kind` 维度（判断"玩家到底看不看得见"）：
 
@@ -812,7 +812,7 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 | 文件名（`*.dat`/`*.xml`/`maps/`）+ 调试日志（`ops` 带 `call Log`） | 53 | — |
 | 资源条模板串 17（已由 4.7③ 覆盖，只剩 `AC:`）+ 1–2 字符符号 13 + 哈希 11 | 41 | — |
 
-**批次清单**：`_dict/batches/` 共 37 份（`both_ui` + `full_01`…`full_34_music_credits`；
+**批次清单**：`_dict/batches/` 共 38 份（`both_ui` + `full_01`…`full_35_conv_short`；
 `full_03`/`full_16` 全跳 —— 音频库与 VectorLine 日志）。
 **只改批次，不要手改 `strings.json`**（见「译文纪律」）。
 
@@ -1279,6 +1279,7 @@ for part in m.group(1).split(";"):
 3. `main()` 里**遍历全部脚本**去重收字面量（旧版只看 `scripts[0]`）。
 
 **复扫结果**：59 个资产 / **253 条去重字面量**（旧版 60 条）→ 补译 **193 条 / 18780 字符**。
+（2026-10-25 又在 ⑩ 里把调用点实参单独收一遍 → **259 条**，多的 6 条是短台词。）
 `Arca` 一关就 134 条（Imperator / Loki Hive / Aliana 的整段终局对白）。
 
 **★ 教训**：这个 bug 的形态是「**静默少收**」—— 不报错、不警告、结果看起来正常，
@@ -1294,7 +1295,7 @@ for part in m.group(1).split(";"):
 
 | 检查 | 方法 | 结果 |
 |---|---|---|
-| 自查找表 | 每条 `en` 送回 `Lookup()` 与自己的 `zh` 比对 | 当时 2319 条（现 2336 条）全部命中自身；查不到 **0**、串到别条 **0** |
+| 自查找表 | 每条 `en` 送回 `Lookup()` 与自己的 `zh` 比对 | 当时 2319 条（现 2342 条）全部命中自身；查不到 **0**、串到别条 **0** |
 | 批次一致性 | 所有 `batches/*.json` 的 key 是否都在 `strings.json` | 对不上 **0** |
 | 结构 | 重复 `en` / 空 `en` / `en` 含汉字 | 分别 **0 / 0 / 0** |
 | CRPL 键 | 193 条 ShowMessage 键对原始资产字面量 | 不在 **0**（反向只差 2 条故意不译的 `at facility`、`Closest Unit `） |
@@ -1349,6 +1350,92 @@ A2 的答案是**压根不猜**：只做精确命中、一行 Rect 都不碰，�
 **载荷长度可能是奇数（末位是终止符），须 `if len(pay) % 2: pay = pay[:-1]`
 再 `decode("utf-16-le")`**，否则整堆解出 0 条。这样能拿到 **4679** 条真实字面量
 （`Mission Results` / `ARM` / `Pulse Cannon` 全部命中）。
+
+#### ⑩ 对话短句「Lies!」不翻 —— 已修：`looks_like_prose()` 把短台词全滤掉了（2026-10-25）
+
+**症状**：`Arca` 关 Skarsgard Abraxis 的对话框里正文是英文 `Lies!`，而同屏的角色名
+（斯卡斯加德·阿布拉克斯）和按钮（全部跳过/上一个/下一个）都是中文。
+
+**定位（三步，前两步是死路）**：
+
+1. `_dict/` 全目录 + 全部 `strings.json`/`story_*.json`/`crpl_all.json` 字节扫描：`Lies` **0 命中**
+   → 词表里根本没有它，不是「有译文查不到」。
+2. 遍历 `CW3_Data/*.assets` 的**全部 TextAsset**：`Lies` **0 命中** → 不是 §4.8 的剧情 XML。
+3. 遍历 `resources.assets` 的 59 个 `<scripts>` 内嵌 CRPL：命中资产 **`Arca`** 的
+   **`RingBuilder.crpl`**，`STATE_BUILT3` 的 Loki 对话段：
+   `AddConversationMessage(0 "Lies!")`（前后是 Narrator 自述童年那句与 Loki Hive 的
+   「Is it not the one you call Platius that was the deceiver?」）。
+
+它走 §4.7④ 的 `CrplCore.ProcessCommands` postfix ⇒ **渲染链路本来就是通的**，
+单纯是词表缺条目。
+
+**★ 根因还是我们自己的工具**：`scan_crpl.py` 的 `literals_of()` 用 `looks_like_prose()` 过滤
+字面量，门槛是 **`len>=8` 且含空格**。对话台词大量是 `Lies!` / `Never!` / `Oh...?` 这种
+一到两个词的短句，**全被这个门槛滤掉**。全量对比：
+
+| 口径 | 条数 | 词表缺失 |
+|---|---:|---|
+| `AddConversationMessage(数字 "…")` 台词 | 162 | **6** |
+| `(ShowMessage*\|AddConversationMessage\|AddMessage)("…")` | 172 | 同样这 6 条 |
+
+缺的 6 条（全是短句/无空格，故被 `looks_like_prose` 滤掉）：
+
+| 原文 | 出处（资产 / 脚本 / 说话人编号） | 译文 |
+|---|---|---|
+| `Lies!` | `Arca` / `RingBuilder.crpl` / 0（Skars） | `胡说！` |
+| `Never!` | `Arca` / `Nexus.crpl` / 5（Aliana） | `绝不！` |
+| `Oh...?` | `Arca` / `CrashingThor.crpl` / 0（Skars） | `哦……？` |
+| `...'Platius'...` | `Arca` / `Nexus.crpl` / 0（Skars） | `……「普拉提乌斯」……` |
+| `How?!?` | `Farbor` / `MotherShip.crpl` / 0（Skars） | `怎么做到的？！` |
+| `Noooooooooo!!!!!` | `Arca` / `Nexus.crpl` / 4（Imperator） | `不————！！！` |
+
+译风沿用既有条目：`'Oh...'`→`'哦……'`、`'Nooooooo!!!!!  Impera.... tor...'`→
+`'不————！！！统……领……'`、`'This.... can.... not.... beeee....!!!!'`→`'这……不……可……能……！！！'`；
+引号统一「」（全表 92 条用「」，ASCII 单引号那 7 条都是键名透传）。
+
+**修法（`_cw3hanhua/tools/scan_crpl.py`）**：新增调用点识别，绕过散文阈值 ——
+
+```python
+CALL = re.compile(r'\b(?:ShowMessage\w*|AddConversationMessage|AddMessage)'
+                  r'\s*\(\s*[^"()]*?"((?:[^"\\]|\\.)*)"', re.S)
+```
+
+`call_literals_of(src)` 只收这三类调用的**第一个字符串实参**，**不套 `looks_like_prose`**
+（仍挡空串、`->`/`<-`、无字母的串，所以脚本名/图片名/音效名不会被误收 —— 全量核对过：
+其余短字面量确实是 `CRBullet.crpl`、`Misc19`、`Explosion3` 这类）。
+`literals_of()` 在原 LIT 循环之后追加调用实参（`if s not in seen`）。
+
+**复扫**：59 个资产 / **253 → 259 条**字面量，新增正好这 6 条，且这 6 条都不在 `strings.json`。
+仍缺的只有 `at facility` / `Closest Unit ` —— `build_crpl_batch.py` 的 `SKIP` 里
+**故意不译**的 `trace()` 调试碎片（见 4.7④）。
+
+**入库**：批次 `_dict/batches/full_35_conv_short.json`（6 条）→
+`add_strings.py --kind AddConversationMessage`（记录形态 `cat="dll"`, `grade="ui"`，
+与已有 193 条 CRPL 条目一致）。
+
+**验证（全绿）**：`build_dict.py --include-other` → **2342 条 / 250030 字节**（原 2336 / 249844）；
+`check_charset.py` **1607 字符（汉字 1506）✓ 在字集内**，不用重烘图集；
+`verify_lookup.py` 21 CASES + 18 SAFETY 全绿（`exact:0 concat:1 norm:0 seg:32`）、
+6 条新键逐条命中；`--idempotent` **0 条被改写**；`--regress` 3530 条里 13 条新旧不同，
+**全是旧=None → 现在能拼出来的既有改进**，无一条被改坏；
+分段器边界负例（`'Lies!  All lies!'`、`'I will never! do that'`、`'Your lies! are many'` 等）
+全部 → `None`，新短键不会被当碎片误拼进长句；`audit_translations.py` 换行/占位符/首尾空白
+**0/0/0**（标记 15 处仍是方括号已译的既有假阳性类别）。
+
+**横向核对（都已 100%，别再查一遍）**：
+
+- 剧情 XML：`resources.assets` 全部 TextAsset 的 `<Message><m>` 去重 **579 条，未进词表 0 条**
+  （短句也在内，§4.8 的收集器本来就不设长度门槛）；
+- `BepInEx/LogOutput.log` 的 `[未命中]` 64 条去重后，剔掉键位/标识符/分辨率
+  （`SHIFT-A`、`Alpha1`、`1920x1080`、`2.12 Steam`、`30.0 30.0 1X`、`AC -0.41`、`CN 1`、
+  `Level: 1.04X`、`Backslash`、`DownArrow` 等）**只剩 `Lies!` 一条是真漏**；
+- 结论：**CRPL 玩家可见文案（162 条 `AddConversationMessage` + 教学 `ShowMessage`）
+  现在 100% 进表。**
+
+**★ 教训**：`looks_like_prose()` 这类「看起来像散文」的启发式门槛，对**对话类调用实参**
+是错的判据 —— 台词可以只有一个词。凡是已知会上屏的调用点（`ShowMessage*` /
+`AddConversationMessage` / `AddMessage`），应当**按调用点收**，而不是按文本形态猜。
+与 ⑦ 同族：都是收集工具的「**静默少收**」（不报错、不警告、结果看起来正常）。
 
 ---
 
@@ -1535,7 +1622,7 @@ anti-creeper 13/13 已译且形态统一；汉字全在字集内（1505 字）�
 `Next` / `Nexus` 这类塌成同一个键，丢失信息。
 
 **C 的污染评估（用户要求「看会不会有什么污染」）**：结论 **零污染**。
-- `verify_lookup.py --idempotent` → 2319 条译文再喂回去被改写 **0 条**（当时口径；v1.5.0 后已到 2336 条）。
+- `verify_lookup.py --idempotent` → 2319 条译文再喂回去被改写 **0 条**（当时口径；v1.5.0 后已到 2342 条）。
 - `--regress` 输出「3509 条，新旧不同 14 条」，与**改动前基线同为 14 条**（是既有的 concat 类，与 C 无关）。
 - 用 `git show HEAD:` 取旧版脚本、`importlib` 加载新旧两版逐条 diff `segment()`：全量 3509 条 en 中
   C 规则导致变化 **0 条**。
@@ -1916,7 +2003,7 @@ dict 重建 **2332 条 / 249745 字节**；`check_charset.py` 1607 字符全在�
 在 F3 开启时会把屏上已有 label 催一遍，所以静态 label 也会被翻 —— 与 TextMesh 那 19 条
 （extern icall，只能改资产）本质不同。
 
-**验证**：`apply_translations.py` 新增 1 条 → `strings.json` **2336 / 3524**；
+**验证**（当时口径，现值见 4.5）：`apply_translations.py` 新增 1 条 → `strings.json` **2336 / 3524**；
 `build_dict.py --include-other` → **2336 条 / 249844 字节**，CWH1 结构 + FNV-1a 校验通过、
 按 UTF-8 字节序有序；`verify_lookup.py "[Music Credits]"` → `[音乐制作名单]`；
 `--idempotent` 0 条被改写；回归 32 CASES + 18 SAFETY 全绿（`con:1 seg:32`）；
@@ -2228,7 +2315,7 @@ _cw3hanhua/
 │   ├─ build_atlas.py          ★ 合并图集 4096×8192 生成器（4.4）
 │   ├─ check_charset.py        字集覆盖检查
 │   ├─ collect_ui_strings.py   静态全量收集（4.2）
-│   ├─ scan_crpl.py            关卡内嵌 CRPL 脚本字面量（4.7④⑦；多脚本按 , 切）
+│   ├─ scan_crpl.py            关卡内嵌 CRPL 脚本字面量（4.7④⑦⑩；多脚本按 , 切；<br>　　　　　　　　　　　　　　　　`ShowMessage*`/`AddConversationMessage`/`AddMessage` 的实参不受散文长度门槛限制）
 │   ├─ build_crpl_batch.py     人工译文(txt) → 批次 JSON，按 crpl_all.json 顺序重建英文键
 │   ├─ build_dict.py           编译 zh_cn.dict
 │   ├─ apply_translations.py   批次译文注入 strings.json
@@ -2281,7 +2368,7 @@ _cw3hanhua/
    **过时的中间过程、已废弃的方法直接删**（历史结论压成一句就够，或者进 5.7 的退役表）。
 3. **数字必须可复现。** 引用调用点/指令数时写明用 `tools\ilx.exe` 的哪条命令
    或 `tools\collect_ui_strings.py` 的哪次输出；手写解析器的数字一律不要引用（见 5.4）。
-   文本条数的唯一权威是 `_dict/STATUS.md`（现行 **3524** 条候选，已译 **2336** 条；
+   文本条数的唯一权威是 `_dict/STATUS.md`（现行 **3530** 条候选，已译 **2342** 条；
    `zh_cn.dict` 同数，见 4.2）。
    ★ **对外别用 66.3% 这个数**：分母含 636 条纯标识符 + 11 条 md5 哈希 + 565 条刻意不译，
    只有「玩家可见子集」（`kind in (UILabel,TextMesh)` 或 `cat in (asset,both)`）
