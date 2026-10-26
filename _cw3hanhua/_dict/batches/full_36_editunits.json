@@ -1,0 +1,14 @@
+{
+ "note": "地图编辑器「单位建造」按钮/下拉列表的名字。来源：TerraformMenuHandlers.HandleBuildButtons 的 case 赋值与 level3 里 UnitToBuildList(UIPopupList) 的 items。都属于绘制期替换，标签原值保持英文（TerraformCommandCenter.CreateUnit 会把 UnitToBuildLabel.text 当数据源查表）。",
+ "items": {
+  "AntiEmitter": "AC发射器",
+  "Anti Emitter": "AC发射器",
+  "CRPLCore": "CRPL核心",
+  "TechArtifact": "科技圣物",
+  "ShieldKey": "护盾钥匙",
+  "Energy Crystal Small": "小型能量晶体",
+  "Energy Crystal Medium": "中型能量晶体",
+  "Energy Crystal Large": "大型能量晶体",
+  "Energy Crystal Gigantic": "巨型能量晶体"
+ }
+}

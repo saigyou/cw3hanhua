@@ -1,6 +1,6 @@
 {
  "version": 2,
- "generated": "2026-10-25 11:15:14",
+ "generated": "2026-10-26 01:20:06",
  "baked_charset": 7544,
  "strings": [
   {
@@ -34406,7 +34406,7 @@
   },
   {
    "en": "CRPLCore",
-   "zh": "",
+   "zh": "CRPL核心",
    "cat": "dll",
    "grade": "other",
    "ops": [
@@ -64397,6 +64397,166 @@
    "refs": [],
    "hits": 1,
    "note": "关卡内嵌 CRPL 对话的短句（2026-10-25 修 scan_crpl 的 looks_like_prose 过滤后补全）"
+  },
+  {
+   "en": "AntiEmitter",
+   "zh": "AC发射器",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "HandleBuildButtons",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "地图编辑器单位建造按钮与下拉列表的名字（2026-10-26 修 AntiEmitter 未译时一并补齐）"
+  },
+  {
+   "en": "Anti Emitter",
+   "zh": "AC发射器",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "HandleBuildButtons",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "地图编辑器单位建造按钮与下拉列表的名字（2026-10-26 修 AntiEmitter 未译时一并补齐）"
+  },
+  {
+   "en": "TechArtifact",
+   "zh": "科技圣物",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "HandleBuildButtons",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "地图编辑器单位建造按钮与下拉列表的名字（2026-10-26 修 AntiEmitter 未译时一并补齐）"
+  },
+  {
+   "en": "ShieldKey",
+   "zh": "护盾钥匙",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "HandleBuildButtons",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "地图编辑器单位建造按钮与下拉列表的名字（2026-10-26 修 AntiEmitter 未译时一并补齐）"
+  },
+  {
+   "en": "Energy Crystal Small",
+   "zh": "小型能量晶体",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "HandleBuildButtons",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "地图编辑器单位建造按钮与下拉列表的名字（2026-10-26 修 AntiEmitter 未译时一并补齐）"
+  },
+  {
+   "en": "Energy Crystal Medium",
+   "zh": "中型能量晶体",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "HandleBuildButtons",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "地图编辑器单位建造按钮与下拉列表的名字（2026-10-26 修 AntiEmitter 未译时一并补齐）"
+  },
+  {
+   "en": "Energy Crystal Large",
+   "zh": "大型能量晶体",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "HandleBuildButtons",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "地图编辑器单位建造按钮与下拉列表的名字（2026-10-26 修 AntiEmitter 未译时一并补齐）"
+  },
+  {
+   "en": "Energy Crystal Gigantic",
+   "zh": "巨型能量晶体",
+   "cat": "dll",
+   "grade": "ui",
+   "kind": "HandleBuildButtons",
+   "ops": [
+    "call Concat"
+   ],
+   "srcs": [
+    "Assembly-CSharp.dll"
+   ],
+   "cls": [
+    "SystemManager",
+    "GalObject"
+   ],
+   "refs": [],
+   "hits": 1,
+   "note": "地图编辑器单位建造按钮与下拉列表的名字（2026-10-26 修 AntiEmitter 未译时一并补齐）"
   }
  ]
 }

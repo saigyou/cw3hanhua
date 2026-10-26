@@ -19,7 +19,7 @@
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅** / **主线关 CRPL 文案 193 条 ✅（`scan_crpl.py` 修多脚本解析，纯词表；冗余 LF 键清理见 4.7⑧）** / **v1.4.1 DMD 三项修正（`Map Size: 101x101` 里的 x、`LandingPad`、按钮宽 90px 超框）+ 未命中按模板去重 ✅ 2026-10-24** / **v1.5.0 `GUI.*` 第五层（Return to Origin、产品密钥界面等 6 处直调点）✅ 2026-10-24** / **CRPL 短台词 6 条（`Lies!` 等）✅ 2026-10-25，`scan_crpl.py` 改按调用点收实参，见 4.7⑩** / **过场台词缺右括号 2 条 ✅ 2026-10-25，引号跨条目配对，见 4.17** |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅** / **主线关 CRPL 文案 193 条 ✅（`scan_crpl.py` 修多脚本解析，纯词表；冗余 LF 键清理见 4.7⑧）** / **v1.4.1 DMD 三项修正（`Map Size: 101x101` 里的 x、`LandingPad`、按钮宽 90px 超框）+ 未命中按模板去重 ✅ 2026-10-24** / **v1.5.0 `GUI.*` 第五层（Return to Origin、产品密钥界面等 6 处直调点）✅ 2026-10-24** / **CRPL 短台词 6 条（`Lies!` 等）✅ 2026-10-25，`scan_crpl.py` 改按调用点收实参，见 4.7⑩** / **过场台词缺右括号 2 条 ✅ 2026-10-25，引号跨条目配对，见 4.17** / **地图编辑器单位名 `AntiEmitter`→AC发射器 + 同一 popup 补 8 条 ✅ 2026-10-26，纯词表，见 4.7⑪** / **v1.5.1 页签特判（竖排 `Terr`/`Unit` → 地形/单位）✅ 2026-10-26，`SpecialLabel()`，见 4.7⑫** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -43,7 +43,7 @@
 | 游戏本体 | **原版**，资产零改动（4.4a） |
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
-| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.5.0** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2342 条**）；**五条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）、`GUI.*` 的 String 重载只做精确命中（v1.5.0，4.12）。**五层全部已实测通过**。 |
+| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.5.1** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2351 条**）；**五条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）、`GUI.*` 的 String 重载只做精确命中（v1.5.0，4.12）。**五层全部已实测通过**。 |
 | 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py`。**这两个值就是 `bake_font.py` 的默认值**（`DEFAULT_FONT`/`DEFAULT_SCALE`），裸跑即可复现（4.1） |
 | 按键 | **F3 汉化总开关**（两层一起开/关）/ **F5** 打印未命中 / **F9** 重载词表 / **F11** dump / **F12** HUD（共 5 个；**F4 已于 2026-10-23 退役并入 F3**）<br>启动**无条件自动开启**（**无配置项**，4.1「自动开启」） |
@@ -70,7 +70,7 @@ Rename-Item "$g\winhttp.dll" winhttp.dll.off   # 停用
 |---|---|---|
 | **Unity TextMesh** | 30 个对象 / 27 个有文字（level1 里 14 个 = 主菜单大按钮） | `UnityEngine.Font`（Aldrich 动态字体，无汉字） |
 | **NGUI UILabel** | 1206 对象 / **1029 条有文字**（level1 里 354 个，同一时刻仅约 4 个 active） | `UIFont` → BMFont **预烘焙图集** |
-| **DLL 写死字符串** | 822 条（与资产去重后，`strings.json` 现行 **3530 条**候选串，见 4.2） | 最终都落到上面两种载体上（CRPL 消息另走 IMGUI，见 4.7④） |
+| **DLL 写死字符串** | 822 条（与资产去重后，`strings.json` 现行 **3538 条**候选串，见 4.2） | 最终都落到上面两种载体上（CRPL 消息另走 IMGUI，见 4.7④） |
 
 **不是 uGUI**：全部资产里 `UnityEngine.UI.Text` 为 **0** 个；`Assembly-CSharp.dll` 里
 搜 `UnityEngine.UI` / `Canvas` 全部无命中。文本只有上面两条链路。
@@ -280,7 +280,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 
 ### 4.1 字体烘焙与插件按键
 
-**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → 同一个 `CW3Hanhua.dll` v1.5.0，共 5 个）**
+**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → 同一个 `CW3Hanhua.dll` v1.5.1，共 5 个）**
 
 | 键 | 层 | 作用 |
 |---|---|---|
@@ -483,7 +483,7 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 - 译稿用**序号字典** `{"zh": {"3": "译文"}}`，缺省项视为 `@`（跳过不译）；
   **不要用数组形式**（漏一项就整体错位，踩过一次：89 vs 88，后 60 条全串行）。
 
-### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.5.0）
+### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.5.1）
 
 **查表链（四级，v1.1.0 新增第四级）**：
 
@@ -497,6 +497,11 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 前三级一字未动，第四级纯兜底。`LookupSegment` 的规则表与踩坑见 **4.7③**。
 `HasCjk` 闸门在第四级之前：**串里已有汉字就直接不翻**，防止 TextMesh 那条路
 把写进去的中文再喂回来二次改写。
+
+★ **v1.5.1 起，查表之前还有一道 `SpecialLabel()` 页签特判**：只有「父节点名叫
+`TerrButton`/`UnitButton` 且自己是 `LabelN`」的 label 才会命中，其余一律 `return null`
+落到上面这四级。它存在的唯一原因是那两个竖排页签是 8 个单字母 UILabel，
+而单字母 key 不能进词表（第四级会把它当碎片消费）。详见 **4.7⑫**。
 
 **生命周期由字体层统一驱动**（`TextPlugin` 没有自己的 `Awake`/`Update`/`OnGUI`）：
 
@@ -563,8 +568,8 @@ TextMesh 那五个写入点登记在独立的 `meshSwaps`（`MeshSwap = {mesh, e
   旧版按整串去重，`Collected: 12` 换个数字就是一条新记录，400 条几秒就爆，
   **真正缺的模板挤不进来** —— 「F5 里没有」不能当成「没经过补丁点」的证据（4.11）。
 - **F11 dump 里那一行**（v1.0.0 起直接调 `TextPlugin.DumpLine()`）：
-  `文本层 v1.5.0  开关=…  词表=…  prefix=调用/命中  拼接=…  分段=…  mesh=调用/命中  crpl=调用/命中  imgui=调用/命中(已装重载数)
-  gui=调用/命中(已装重载数)  未命中=…  CRPL字体=…`（`未命中=` 后面的数字从 v1.4.1 起是**模板种数**，不是串数；`gui=` 那一段是 v1.5.0 新加的 GUI.* 精确命中层，见 4.12）。
+  `文本层 v1.5.1  开关=…  词表=…  prefix=调用/命中  拼接=…  分段=…  mesh=调用/命中  crpl=调用/命中  imgui=调用/命中(已装重载数)
+  gui=调用/命中(已装重载数)  页签=…  未命中=…  CRPL字体=…`（`未命中=` 后面的数字从 v1.4.1 起是**模板种数**，不是串数；`gui=` 那一段是 v1.5.0 新加的 GUI.* 精确命中层，见 4.12；`页签=` 是 v1.5.1 新加的页签特判命中数，见 4.7⑫）。
   `prefix` 计数不动 = 补丁没装上；`mesh` 计数不动 = TextMesh 那五个补丁没装上或那段文本没被写过；
   **`分段` 计数不动 = 一条运行时拼接串都没走到第四级**（说明前三级全接住了，或者补丁没装）；
   **`crpl` 调用>0 而命中 0 = CRPL 文案词表未命中**（F5 会列出来），调用恒 0 = 补丁没装上。
@@ -775,13 +780,14 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 
 ### 4.5 全量翻译
 
-**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3530 条 / 已译 2342**；
-插件读的 `zh_cn.dict` = **2342 条**（250 036 字节，`--include-other` 编译、FNV 校验通过）；
+**当前数字**（`_dict/STATUS.md`，`tools/dict_stats.py` 生成）：`strings.json` **3538 条 / 已译 2351**；
+插件读的 `zh_cn.dict` = **2351 条**（250 336 字节，`--include-other` 编译、FNV 校验通过）；
 `check_charset.py` 报 **1607 字符（汉字 1506）✓ 全部在字集内** —— **不用重烘图集**。
-未译的 1188 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
+未译的 1187 条按设计不译（见下方桶表）。给新批次加条目后这三条要一起刷新。
 
 > 沿革（只看结论）：翻译是分四批进来的 —— 4.2 的 1144 条 → 4.8 剧情 +852 → 4.7③ 分段碎片 +22
-> （并删掉 41 条护盾枚举）→ 4.7④ CRPL 教学提示 +60 → 4.7⑩ CRPL 短台词 +6。`kind` 维度与「故意不译」清单见下表。
+> （并删掉 41 条护盾枚举）→ 4.7④ CRPL 教学提示 +60 → 4.7⑩ CRPL 短台词 +6 → 4.7⑪ 编辑器单位名 +9。
+> `kind` 维度与「故意不译」清单见下表。
 
 `kind` 维度（判断"玩家到底看不看得见"）：
 
@@ -798,7 +804,7 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 占位文案（`This is a message`/`This is a great big long label`/`View Demo Screen`/
 `Time:1:00:00.0`）。**换句话说：可见 UI 文本已清零。**
 
-**未译 1188 条的桶**（下表是 2026-10-20 统计的 1260 条分布，差额来自后续批次补译；
+**未译 1187 条的桶**（下表是 2026-10-20 统计的 1260 条分布，差额来自后续批次补译；
 口径为 `strings.json` 自算，可复现）
 
 | 桶 | 条数 | 为什么不译 |
@@ -812,7 +818,7 @@ img = img.transpose(Image.FLIP_TOP_BOTTOM)   # Unity 左下原点 → PIL 左上
 | 文件名（`*.dat`/`*.xml`/`maps/`）+ 调试日志（`ops` 带 `call Log`） | 53 | — |
 | 资源条模板串 17（已由 4.7③ 覆盖，只剩 `AC:`）+ 1–2 字符符号 13 + 哈希 11 | 41 | — |
 
-**批次清单**：`_dict/batches/` 共 38 份（`both_ui` + `full_01`…`full_35_conv_short`；
+**批次清单**：`_dict/batches/` 共 39 份（`both_ui` + `full_01`…`full_36_editunits`；
 `full_03`/`full_16` 全跳 —— 音频库与 VectorLine 日志）。
 **只改批次，不要手改 `strings.json`**（见「译文纪律」）。
 
@@ -1295,7 +1301,7 @@ for part in m.group(1).split(";"):
 
 | 检查 | 方法 | 结果 |
 |---|---|---|
-| 自查找表 | 每条 `en` 送回 `Lookup()` 与自己的 `zh` 比对 | 当时 2319 条（现 2342 条）全部命中自身；查不到 **0**、串到别条 **0** |
+| 自查找表 | 每条 `en` 送回 `Lookup()` 与自己的 `zh` 比对 | 当时 2319 条（现 2351 条）全部命中自身；查不到 **0**、串到别条 **0** |
 | 批次一致性 | 所有 `batches/*.json` 的 key 是否都在 `strings.json` | 对不上 **0** |
 | 结构 | 重复 `en` / 空 `en` / `en` 含汉字 | 分别 **0 / 0 / 0** |
 | CRPL 键 | 193 条 ShowMessage 键对原始资产字面量 | 不在 **0**（反向只差 2 条故意不译的 `at facility`、`Closest Unit `） |
@@ -1437,6 +1443,163 @@ CALL = re.compile(r'\b(?:ShowMessage\w*|AddConversationMessage|AddMessage)'
 是错的判据 —— 台词可以只有一个词。凡是已知会上屏的调用点（`ShowMessage*` /
 `AddConversationMessage` / `AddMessage`），应当**按调用点收**，而不是按文本形态猜。
 与 ⑦ 同族：都是收集工具的「**静默少收**」（不报错、不警告、结果看起来正常）。
+
+---
+
+#### ⑪ 地图编辑器「AntiEmitter」不翻 —— 名字来源在 C# 的 case 表，popup 选项另走资产（2026-10-26）
+
+**症状**（用户报告 + 截图）：地图编辑器里单位名 `AntiEmitter` 保持英文（日志有
+`[未命中] AntiEmitter`）；同一屏里 `TerrButton` / `UnitButton` 两个**竖排页签**也没翻，
+但日志**没报**这两条，看起来像「奇怪的 UI 绘制方式」。用户指定 `AntiEmitter` → 「AC发射器」。
+
+**① AntiEmitter 的来源**（不是资产、不是 `UnitManager.GetUnitGameName()`）：
+
+```csharp
+// TerraformMenuHandlers.HandleBuildButtons(string u)  —— 反编译行 212 起
+UILabel component = UberFind.Find("UI Root (2D)", "UnitToBuildLabel").GetComponent<UILabel>();  // 行 214
+...
+case "BuildAntiEmitterButton":      // 行 292
+    component.text = "AntiEmitter"; // 行 293
+```
+
+`UnitManager.GetUnitGameName()` 那张 `base.name → 显示名` 的大表里**没有** `AntiEmitter`
+分支（兜底 `return "UNKNOWN";`），所以单位标题走的是预制体名，不需要翻；
+真正上屏的只有 `HandleBuildButtons` 写进 `UnitToBuildLabel` 的这一条 `ldstr`。
+**⇒ 纯词表加一条即可，F9 重载生效，不碰 DLL。**
+
+**② 顺带把同一个 UI 里缺的一起补齐**（`level3` 的 `UnitToBuildList` 是 NGUI `UIPopupList`，
+`items` 33 项里有 6 条没译）：`Anti Emitter`（**带空格**，与 DLL 里无空格的写法是两条不同 key）、
+`Energy Crystal Small/Medium/Large/Gigantic`（DLL 里 0 命中，只存在于这个 popup）、
+`ShieldKey`、`TechArtifact`（带空格的 `Shield Key`/`Tech Artifact` 早已译）。
+另 `CRPLCore` 有条目但 `zh` 是空的，补成「CRPL核心」。共 9 条 →
+批次 `_dict/batches/full_36_editunits.json`。
+
+**③ 为什么给这些「数据源字符串」加译名是安全的**（★ 这条判据要记住）：
+`TerraformCommandCenter.CreateUnit` 拿的是 **label 文字**当 key：
+
+```csharp
+string text = UberFind.Find("UI Root (2D)", "UnitToBuildLabel").GetComponent<UILabel>().text;
+CreateUnit(text, ...);   // switch (s) 里全是 "Collector"/"Terp"/"AntiEmitter" 这样的英文字面量
+```
+
+但插件走的是 `UILabel.ProcessText` prefix/postfix —— **只在绘制期间换 `mText`，画完立刻还原**
+（`plugin/CW3HanhuaText.cs` 的 `PostfixProcessText`，注释「两个都必须写」）。
+所以词表里有中文不会污染数据源。**反过来：绝不能在资产里把 `UnitToBuildLabel` 的
+`mText` 改成中文**，那样按 B 建单位会拿到中文串、`switch` 全部落空。
+
+popup 侧同理：`UIPopupList.selection` 的 setter 是
+`mSelectedItem = value; textLabel.text = ...; eventReceiver.SendMessage(functionName, mSelectedItem, ...)`
+—— **传给游戏逻辑的永远是英文字符串**，翻译只影响 `textLabel.text` 的显示。
+
+**④ 竖排页签 `Terr` / `Unit`（查明，已由 v1.5.1 修掉 → 见 4.7⑫）**：`level3` 里 `TerraformPanel →
+TerrButton` 下有 4 个 label，`mText` 分别是 `T`/`e`/`r`/`r`（各占一行，靠 y 偏移 -7/-17/-27/-37
+竖排）；`UnitButton` 同理是 `U`/`n`/`i`/`t`。点击分发走
+`UICamera.lastHit.transform.name == "TerrButton"`（**GameObject 名，不是文字**），所以翻译不改行为。
+**日志其实报了**这些单字母（`[未命中] T`/`e`/`r`/`n`/`i` 各十余次），只是被当成噪声忽略了 ——
+「页签没报未命中」是误判。
+
+**单字母绝不能进词表**：`MatchKey` 的「全有或全无」设计下，键 `T` 会把所有含 T 的串拆碎
+（`CW3HanhuaText.cs` 里专门有注释讲这件事）。当时记录的两条路是
+(a) 改资产（8 个 label 的 `mText`；资产已烘焙过，得走恢复+重烘流程）、
+(b) 插件按 GameObject 名特判（要重编译 DLL）。**用户 m01592 选了 (b)**，已在 v1.5.1 落地。
+
+**入库与验证（全绿）**：`strings.json` 3530 → **3538 条**；
+`zh_cn.dict` **2342 → 2351 条 / 250 336 字节**（+9 条 / +300 字节）；
+`check_charset.py` 仍 **1607 字符（汉字 1506）✓ 在字集内**，不用重烘图集；
+`verify_lookup.py` 30 CASES + 17 SAFETY 全绿（`exact:0 concat:1 norm:0 seg:32`）、
+`--idempotent` 2351 条**改写 0**、`--regress` 13 条新旧不同全是旧=None 的既有改进；
+`audit_translations.py` 五项 15/0/0/0/0（标记那 15 处仍是方括号已译的既有假阳性）；
+直接解 `zh_cn.dict` 二进制逐条确认 9 条都在，且 `Emitter→发射器`、`Lies!→胡说！` 未受影响。
+
+**★ 教训**：UI 上的「单位名」有三套来源 —— ① C# `case` 表赋值（`AntiEmitter`）、
+② `GetUnitGameName()` 的 `name → 显示名` 映射（`TerraPod → Terp`）、③ 资产 popup 的
+`items` 数组（`Energy Crystal *`）。**同一个下拉列表里可能同时出现这三类**，
+按其中一处收全了不代表别的处也全 —— 这次 33 项里 27 项已译会让人以为「这块翻完了」。
+判断该不该加译名，看的是**会不会上屏**，不是它是不是「数据源」：
+只要插件是绘制期替换（`ProcessText` prefix/postfix），数据源字符串加译名就是安全的。
+
+---
+
+#### ⑫ 竖排页签「Terr / Unit」不翻 —— 一个词 4 个 UILabel，只能用 `SpecialLabel()` 特判（2026-10-26，v1.5.1）
+
+**症状**：地图编辑器左侧竖排页签显示 `T`/`e`/`r`/`r` 和 `U`/`n`/`i`/`t`。
+用户看到的是「页签没翻译」，而且**日志里看不到** `[未命中] Terr`。
+
+**为什么看起来「没报未命中」**：它压根不是 `Terr` 这个串。
+资产里是 **8 个各装一个字母的 UILabel**（GO 名 `Label0`..`Label3`，父节点 `TerrButton` / `UnitButton`），
+靠 `y = -7 / -17 / -27 / -37` 上下堆起来才像竖排。日志里其实一直在报单字母
+（`[未命中] T` / `e` / `r` / `n` / `i` 各十余次），只是被当成噪声忽略了。
+
+**为什么不能靠词表**（这是本条的关键）：单字母 key 会被 `LookupSegment` 当成碎片，
+在**任意串**里把这个字母消费掉 —— `MatchKey` 的「全有或全无」设计就是为了防这个，
+`CW3HanhuaText.cs` 里专门有注释（v1.3.2）。而且 `level1` 有一堆**真的**单字母按键 label
+（`A`/`C`/`E`/`F`/`X`…），往词表里加 `T`/`U` 必误伤。⇒ 只能走插件特判或改资产，
+用户 m01592 选了插件特判。
+
+**做法（v1.5.1）**：`plugin/CW3HanhuaText.cs` 里加一张极小白名单 + 一个 `SpecialLabel()`：
+
+```csharp
+static readonly Dictionary<string, string[]> tabSlots = new Dictionary<string, string[]>
+{
+    { "TerrButton", new string[] { "地", "", "形", "" } },
+    { "UnitButton", new string[] { "单", "", "位", "" } },
+};
+
+static string SpecialLabel(UILabel l, string en)
+{
+    if (en.Length != 1 || !IsLetter(en[0])) return null;
+    Transform p = (l.transform != null) ? l.transform.parent : null;
+    if (p == null) return null;
+    string[] slots;
+    if (!tabSlots.TryGetValue(p.name, out slots)) return null;   // 父节点必须是这两个
+    string n = l.name;
+    if (n.Length == 0) return null;
+    int idx = n[n.Length - 1] - '0';      // Label0..Label3 → 0..3
+    if (idx < 0 || idx >= slots.Length) return null;
+    return slots[idx];                    // "" = 这一行故意不画字
+}
+```
+
+接在 `PrefixProcessText` 的 `Lookup` **之前**：
+
+```csharp
+string zh = SpecialLabel(__instance, en);
+if (zh != null) tabHits++;
+else zh = Lookup(en);
+```
+
+语义三条：`null` = 没这条特判，走原查表；`""` = **故意空**，照样走完整套
+（写 `mText=""` → `ProcessText` 画空 → postfix 还原），但不产生未命中记录；
+`tabHits` 单独计数，F11 dump 里多了 `页签=N` 一项。
+
+**为什么空串能画空**：NGUI `UILabel.printedText` 是
+`if (!string.IsNullOrEmpty(mText)) {…} return mText;` —— `""` 走空分支，不画字。
+
+**为什么点得动**：点击由父节点的 BoxCollider 接，分发走
+`UICamera.lastHit.transform.name == "TerrButton"`（**GameObject 名，不是文字**）⇒ 翻译不改行为。
+
+**字形没问题（动手前专门查过）**：这 8 个 label 的 `mFont` 是
+`{m_FileID: 3, m_PathID: 290}`，`level3` 的 externals 依次是
+`[1] sharedassets0 [2] sharedassets4 [3] sharedassets2 [4] unity default resources [5] sharedassets3`
+⇒ FileID 3 = `CW3_Data/sharedassets2.assets`。那里 `path_id=290` 是 UIFont，
+`mAtlas = {0, 284}`、`mDynamicFont = {0,0}`（位图分支），而 `284` 的 GameObject 名正是
+**`GUI Atlas`** —— 就是 `EnsureMergedAtlas()` 换纹理的那一个，`ApplyFont()` 会遍历
+`Resources.FindObjectsOfTypeAll(typeof(UIFont))` 把它一起换掉。**不需要额外字体工作。**
+
+**字的间距（用户 m01865 实测后调过一次）**：4 个 label 的 `y` 是 `-7 / -17 / -27 / -37`，
+一开始把两个字放在 `Label0`/`Label1`（-7/-17），**两个字贴在一起、下面空一大块**；
+改成 `Label0`/`Label2`（-7/-27）中间空一行，视觉就均匀了。
+白名单数组的下标 = 行号，想再松/再紧直接挪下标，不用碰资产。
+
+**没做的事**：没碰资产（`level3` 仍是已烘产物，`_assets_orig` 六文件与现状全 DIFF）；
+没碰词表（`T`/`U` 依然不在 `zh_cn.dict` 里，单字母禁令不变）。
+
+**验证**：`build_plugin.cmd` → `BepInEx/plugins/CW3Hanhua.dll` 65536 字节、
+`TextPlugin.Ver = "1.5.1"`；`ilx find SpecialLabel` 命中
+`String CW3Hanhua.TextPlugin::SpecialLabel(UILabel,System.String) token=0x06000051`；
+`ilx fields tabSlots tabHits` 显示 `..cctor → stsfld tabSlots`、
+`PrefixProcessText → ldsfld/stsfld tabHits`、`DumpLine → ldsfld tabHits`，
+即特判确实接进了查表入口与 dump。**运行时效果要重启游戏才能看到（F9 重载词表不够，代码变了）。**
 
 ---
 
@@ -1626,7 +1789,7 @@ anti-creeper 13/13 已译且形态统一；汉字全在字集内（1505 字）�
 `Next` / `Nexus` 这类塌成同一个键，丢失信息。
 
 **C 的污染评估（用户要求「看会不会有什么污染」）**：结论 **零污染**。
-- `verify_lookup.py --idempotent` → 2319 条译文再喂回去被改写 **0 条**（当时口径；v1.5.0 后已到 2342 条）。
+- `verify_lookup.py --idempotent` → 2319 条译文再喂回去被改写 **0 条**（当时口径；v1.5.0 后已到 2351 条）。
 - `--regress` 输出「3509 条，新旧不同 14 条」，与**改动前基线同为 14 条**（是既有的 concat 类，与 C 无关）。
 - 用 `git show HEAD:` 取旧版脚本、`importlib` 加载新旧两版逐条 diff `segment()`：全量 3509 条 en 中
   C 规则导致变化 **0 条**。
@@ -2200,7 +2363,7 @@ SID 假设。真实原因是**映射**：`[IO.File]::WriteAllBytes` 报
 & "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3\_cw3hanhua\tools\build_plugin.cmd"
 ```
 
-★ **两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（现 v1.5.0，4.1）。
+★ **两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（现 v1.5.1，4.1）。
 脚本在编译前会**自动 `del` 掉旧的 `CW3HanhuaText.dll`** —— 那个文件是独立插件
 （GUID `cw3hanhua.text`），留着会在同一批游戏方法上**重复装一遍 Harmony 补丁**。
 
@@ -2406,7 +2569,7 @@ _cw3hanhua/
 │   ├─ diff_bake.py            ★ 烘焙回归：现役资产 vs 基线，确认没波及 UILabel
 │   └─ uilabel_inventory.json / textmesh_inventory.json
 │                              ★ 烘焙前的历史基线快照，**不可再生**（重跑 scan 会覆盖）
-├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.5.0**（4.1）
+├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.5.1**（4.1）
 │                      CW3Hanhua.cs（字体层 = 唯一 BepInPlugin / MonoBehaviour）
 │                      CW3HanhuaText.cs（文本层 = 同程序集普通类 TextPlugin）
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）
@@ -2444,9 +2607,9 @@ _cw3hanhua/
    **过时的中间过程、已废弃的方法直接删**（历史结论压成一句就够，或者进 5.7 的退役表）。
 3. **数字必须可复现。** 引用调用点/指令数时写明用 `tools\ilx.exe` 的哪条命令
    或 `tools\collect_ui_strings.py` 的哪次输出；手写解析器的数字一律不要引用（见 5.4）。
-   文本条数的唯一权威是 `_dict/STATUS.md`（现行 **3530** 条候选，已译 **2342** 条；
+   文本条数的唯一权威是 `_dict/STATUS.md`（现行 **3538** 条候选，已译 **2351** 条；
    `zh_cn.dict` 同数，见 4.2）。
-   ★ **对外别用 66.3% 这个数**：分母含 636 条纯标识符 + 11 条 md5 哈希 + 565 条刻意不译，
+   ★ **对外别用 66.4% 这个数**：分母含 636 条纯标识符 + 11 条 md5 哈希 + 565 条刻意不译，
    只有「玩家可见子集」（`kind in (UILabel,TextMesh)` 或 `cat in (asset,both)`）
    的 **93.5%（1231/1317）** 才有意义。剧情台词 579/579 = 100%。
    README 里的覆盖率口径固定按这个说法，不要改回全表百分比。

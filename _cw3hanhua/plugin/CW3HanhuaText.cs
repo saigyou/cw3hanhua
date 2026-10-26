@@ -4,7 +4,7 @@
 // 本文件是 CW3 Hanhua 的一部分，按 GNU LGPL v2.1（或更新版本）授权。
 // 全文见仓库根目录的 LICENSE；许可分层与第三方声明见 NOTICE。
 // ============================================================================
-//  CW3 汉化 · 文本层 v1.5.0 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息 + IMGUI
+//  CW3 汉化 · 文本层 v1.5.1 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息 + IMGUI
 //
 //  字体层负责"字形从哪来"，本层负责"英文串怎么变中文"。
 //
@@ -75,6 +75,22 @@
 //    **不碰 `GUI.TextField / TextArea`**：同 GUILayout，返回值是玩家输入。
 //    统计另开 `guiCalls/guiHits/guiPatched`，**不与 imgui 混算**（混了就分不清哪层在干活）。
 //
+//  ★ v1.5.1（2026-10-26）：给**页签特判**留一个口子 —— `SpecialLabel()`。
+//    起因：地图编辑器左边那两个竖排页签 `Terr` / `Unit` 一直是英文。
+//    它们不是一条字符串，而是 4 个各装一个单字母的 UILabel 上下堆起来
+//    （父节点 `TerrButton` / `UnitButton`，子节点 `Label0`..`Label3`），
+//    点击由父节点的 BoxCollider 接、分发走 GameObject 名，所以**文字怎么改都不影响行为**。
+//
+//    为什么不进词表：单字母 key 会被 `LookupSegment` 当作碎片在任意串里消费掉，
+//    整张词表都会碎（`MatchKey` 里 v1.3.2 那条注释说的就是这件事）；
+//    而且 level1 有一堆**真的**单字母按键 label（`A`/`C`/`E`/`F`/`X`…），加 `T`/`U` 必误伤。
+//
+//    做法：`PrefixProcessText` 在 `Lookup` **之前**问一句 `SpecialLabel()`，
+//    只有「父节点名在白名单里 + 自己是 `LabelN`」才返回译文，其余一律返回 null 走原路。
+//    白名单 4 格实际只用 2 格（`地/形`、`单/位`），后两格返回空串 ⇒ 那两行不画字，
+//    视觉上就是 2 个字落在原来 4 格里最上面两格的位置（略偏上，但不动资产坐标）。
+//    `tabHits` 单独计数，F11 dump 里能看出这条特判有没有生效。
+//
 //  ★ v1.1.0（2026-10-23）：查表加**第四级**「分段重组」LookupSegment。
 //    精确 → '\n' 拼接 → 归一化 → 分段重组。前三级都没动。
 //    起因：护盾提示 "Planet is shielded. ...:\n" + "[ff7f7f]Tempus" 这类
@@ -95,6 +111,7 @@
 //
 //  本层的替换路径：
 //    ① Harmony prefix + postfix on UILabel.ProcessText —— 全部 1029 个 UILabel 的总收口
+//         v1.5.1：进查表之前先过一遍 `SpecialLabel()` 页签特判（见下）
 //    ② 五个 TextMesh 写入点（v0.10.0，步骤 6）—— 资产改不到的那几条
 //         PreludeManager / EpilogueManager / DemoScreenManager 的 ShowText：prefix 改 __0
 //         StarManager.set_starName / PlanetManager.set_planetName：postfix 只改 TextMesh
@@ -175,7 +192,7 @@ namespace CW3Hanhua
     ///   与字体层同在一个程序集，不再有任何反射互调。</summary>
     public class TextPlugin
     {
-        public const string Ver = "1.5.0";
+        public const string Ver = "1.5.1";
 
         static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
 
@@ -1402,6 +1419,53 @@ namespace CW3Hanhua
         //   用实例 ID 做键，嵌套时各管各的；同一实例连续两次调用则用列表当栈。
         static readonly Dictionary<int, List<string>> pendEn = new Dictionary<int, List<string>>();
 
+        // ================================================================ 页签特判（v1.5.1）
+        /// <summary>★ v1.5.1：地图编辑器左边那两个竖排页签（Terr / Unit）。
+        ///
+        /// **它们不是一条字符串** —— 资产里是 4 个各装一个单字母的 UILabel
+        /// （GO 名 `Label0`..`Label3`，父节点 `TerrButton` / `UnitButton`），
+        /// 靠上下堆叠才看起来像竖排（点击由父节点的 BoxCollider 接，
+        /// 分发走 `UICamera.lastHit.transform.name`，与文字无关）。
+        ///
+        /// **为什么不能靠词表**：单字母 key 会被 `LookupSegment` 当成碎片，
+        /// 在任何串里把这个字母消费掉，整张词表都会碎（见 `MatchKey` 里 v1.3.2 的注释）。
+        /// 而且 level1 有大量**真的**单字母按键 label（`A`/`C`/`E`/`F`/`X`…），
+        /// 往词表里加 `T`/`U` 必误伤。
+        ///
+        /// 所以这里按「父节点名 + 行号」做一张极小的白名单：
+        ///   · 返回 null → 没这条特判，照常走 `Lookup`
+        ///   · 返回 ""   → 这一行**故意不画字**
+        /// 白名单只有两个键，`TryGetValue` 不中就 return null，等于「父节点名必须是这两个」。
+        ///
+        /// ★ 字的**位置**（用户 m01865 调过一次）：4 行实际只放 2 个字，一开始放在
+        ///   Label0/Label1（-7/-17），结果两个字挨在一起、下半截空一大块。改成
+        ///   Label0/Label2（-7/-27），中间空一行，视觉上就均匀了。想再松/再紧就挪下标。
+        /// </summary>
+        static readonly Dictionary<string, string[]> tabSlots = new Dictionary<string, string[]>
+        {
+            { "TerrButton", new string[] { "地", "", "形", "" } },
+            { "UnitButton", new string[] { "单", "", "位", "" } },
+        };
+        static int tabHits;
+
+        static string SpecialLabel(UILabel l, string en)
+        {
+            try
+            {
+                if (en.Length != 1 || !IsLetter(en[0])) return null;
+                Transform p = (l.transform != null) ? l.transform.parent : null;
+                if (p == null) return null;
+                string[] slots;
+                if (!tabSlots.TryGetValue(p.name, out slots)) return null;   // 父节点必须是这两个
+                string n = l.name;
+                if (n.Length == 0) return null;
+                int idx = n[n.Length - 1] - '0';      // Label0..Label3 → 0..3
+                if (idx < 0 || idx >= slots.Length) return null;
+                return slots[idx];
+            }
+            catch (Exception) { return null; }
+        }
+
         static void PrefixProcessText(UILabel __instance)
         {
             try
@@ -1411,7 +1475,12 @@ namespace CW3Hanhua
                 if (en == null || en.Length == 0) return;
 
                 prefixCalls++;
-                string zh = Lookup(en);
+                // v1.5.1：先试页签特判（只有那 8 个单字母 label 会返回非 null）。
+                // 返回 "" 的行照样走下面一整套（写 mText="" → ProcessText 画空 → postfix 还原），
+                // 只是不产生未命中记录 —— 它是**故意**空的，不是漏译。
+                string zh = SpecialLabel(__instance, en);
+                if (zh != null) tabHits++;
+                else zh = Lookup(en);
                 int id = __instance.GetInstanceID();
                 if (zh == null)
                 {
@@ -1851,6 +1920,7 @@ namespace CW3Hanhua
                     + "  crpl=" + crplCalls + "/" + crplHits
                     + "  imgui=" + imguiCalls + "/" + imguiHits + "(" + imguiPatched + ")"
                     + "  gui=" + guiCalls + "/" + guiHits + "(" + guiPatched + ")"
+                    + "  页签=" + tabHits
                     + "  CRPL字体=" + (cjkFontName.Length > 0 ? cjkFontName : "(无)")
                     + "  未命中=" + missSeen.Count
                     + "  已记录 label=" + swaps.Count
