@@ -20,6 +20,7 @@ import glob
 import json
 import os
 import sys
+import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -88,6 +89,9 @@ def main():
             print("   … 还有 %d 条" % (len(problems) - 40))
 
     if not args.dry_run and (added or updated):
+        # 与 add_strings.py / del_strings.py 保持一致：写盘就刷新 generated，
+        # 否则 STATUS.md 里的「生成时间」会停在很久以前，看不出词表动过。
+        data["generated"] = time.strftime("%Y-%m-%d %H:%M:%S")
         with open(STRINGS, "w", encoding="utf-8", newline="\n") as f:
             json.dump(data, f, ensure_ascii=False, indent=1)
 

@@ -19,7 +19,7 @@
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅** / **主线关 CRPL 文案 193 条 ✅（`scan_crpl.py` 修多脚本解析，纯词表；冗余 LF 键清理见 4.7⑧）** / **v1.4.1 DMD 三项修正（`Map Size: 101x101` 里的 x、`LandingPad`、按钮宽 90px 超框）+ 未命中按模板去重 ✅ 2026-10-24** / **v1.5.0 `GUI.*` 第五层（Return to Origin、产品密钥界面等 6 处直调点）✅ 2026-10-24** / **CRPL 短台词 6 条（`Lies!` 等）✅ 2026-10-25，`scan_crpl.py` 改按调用点收实参，见 4.7⑩** / **过场台词缺右括号 2 条 ✅ 2026-10-25，引号跨条目配对，见 4.17** / **地图编辑器单位名 `AntiEmitter`→AC发射器 + 同一 popup 补 8 条 ✅ 2026-10-26，纯词表，见 4.7⑪** / **v1.5.1 页签特判（竖排 `Terr`/`Unit` → 地形/单位）✅ 2026-10-26，`SpecialLabel()`，见 4.7⑫** |
+| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅** / **主线关 CRPL 文案 193 条 ✅（`scan_crpl.py` 修多脚本解析，纯词表；冗余 LF 键清理见 4.7⑧）** / **v1.4.1 DMD 三项修正（`Map Size: 101x101` 里的 x、`LandingPad`、按钮宽 90px 超框）+ 未命中按模板去重 ✅ 2026-10-24** / **v1.5.0 `GUI.*` 第五层（Return to Origin、产品密钥界面等 6 处直调点）✅ 2026-10-24** / **CRPL 短台词 6 条（`Lies!` 等）✅ 2026-10-25，`scan_crpl.py` 改按调用点收实参，见 4.7⑩** / **过场台词缺右括号 2 条 ✅ 2026-10-25，引号跨条目配对，见 4.17** / **地图编辑器单位名 `AntiEmitter`→AC发射器 + 同一 popup 补 8 条 ✅ 2026-10-26，纯词表，见 4.7⑪** / **v1.5.1 页签特判（竖排 `Terr`/`Unit` → 地形/单位）✅ 2026-10-26，`SpecialLabel()`，见 4.7⑫** / **v1.5.2 括号旁空格归一（CRPL 台词 `Clap clap...` 露英文）+ `逆波兰语言` 错译 ✅ 2026-10-27，见 4.18** |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
@@ -2248,6 +2248,97 @@ for e in [x for x in S if x.get("note", "").startswith("过场叙事台词")]:
 （`ShowText` 旁白、拼接串），一致性校验必须以**整组序列**为单位，而不是逐条。
 `apply_translations.py --override --dry-run` 同时会报 4 条「原文不在 strings.json 里」
 （`The trains travel on a system of terrain level 8 rails...` 等旧批次陈旧条目）—— **与本节无关，属既有现象**。
+
+---
+
+### 4.18 CRPL 台词「括号旁多空格」：`CrplCompiler` 盲替换 + 一处错译（2026-10-27）
+
+**现象**：credits 关（`FabulousObject.crpl`）的台词
+`Everyone give our winner a big welcome!  (Clap clap clap clap clap clap clap).`
+在游戏里是**英文**，F5 未命中清单里能抓到。词表里明明有这条（`index 3321`，
+`kind=ShowMessage`、`zh='大家给我们的赢家一个热烈的欢迎！（啪啪啪啪啪啪啪）'`）。
+
+**根因不在词表，在编译期**：`CrplCompiler.Compile(...)` 在分词前对整个脚本做**盲替换**，
+连引号里的字符串字面量也一起改（`ilspy -t CrplCompiler`，`asmcs.cs` 33206–33211 行）：
+
+```csharp
+string text = program.Replace("\r", string.Empty);
+text = text.Replace("\n", string.Empty);
+text = text.Trim();
+program = program.Replace("(", " ( ");     // ← 连字面量一起改
+program = program.Replace(")", " ) ");
+List<Token> list = SplitIntoTokens(program, ' ', '\t', '\r', '\n');
+```
+
+`SplitIntoTokens`（同文件 287–333 行）**在引号内不会切分**（`flag` 引号态 / `flag2` 注释态），
+token 只做 `.Trim()`，所以补出来的空格**原样留在字面量里**，经 `ADDCONVERSATIONMESSAGE` →
+`CRPLTowerManager.AddMessageDialogMessage` → `MessageDialogManager.set_currentMessage`
+（直接 `messageText.text = message.message`，无改写）上屏。
+
+**逐字节验证**：词表 key 做 `.replace('(',' ( ').replace(')',' ) ')` 得到
+`'...welcome!   ( Clap ... ) .'`（**len 82**），与 `_dict/miss_dump.txt` 里那条 `[raw]` **完全相等**。
+所以是「感叹号后 3 空格、`(` 后 1 空格、`)` 前 1 空格、`)` 与 `.` 之间 1 空格」。
+
+**影响面（实测，别重复调查）**：`_dict/crpl_all.json` 全部 59 个资产、268 条 CRPL 字面量里
+含括号的只有 **2 条**：本条与 `'HP(Creeper): '`（`alpha_Boss`）。
+全盘（`CW3_Data\` + `Documents\creeperworld3`，1124 文件，ASCII/UTF-16LE/UTF-16BE 三编码）
+只有三个日志文件含带空格版本 —— **游戏数据里没有第二份**，所以不用去改资产。
+
+**★ 修法（v1.5.2，改插件不改词表）**：`CW3HanhuaText.cs` 的 `Normalize()` 末尾加
+「括号旁空格归一」——`'('` 后的空格、`')'` 前的空格、`')'` 与**后随标点**（`.,;:!?`）之间的
+空格一律吃掉（`PunctAfterParen()`）。`LoadDict()` 建 `dictNorm` 与 `LookupNormalized()` 共用
+这同一个函数，两端一致，不会误配；不含括号的串提前 return，99% 走不到新代码。
+
+**★ 为什么只做括号、不做通用标点折叠**：试过加 `\s+([.,;:!?])`→`\1`，
+词表归一化碰撞组 12 → **13**，新增冲突是 `'Lost !'`（`失败？`）vs `'Lost!'`（`你失去了？`）——
+真冲突，弃用。只做括号：碰撞组 **12 → 12 不增**、`strings.json` 里受影响的 key **0 条**、
+规则**幂等**、`miss_dump.txt` 1626 条 `[raw]` 里只有 **9 条**结果变化，
+其中 **8 条**只是中间的连续空格被折叠（归一化前后译文都是 `None`），
+**唯一真正改变查表结果的就是这条台词**（`None` → 中文）。
+
+**★ 教训**：词表 key 必须按「**运行时到达文本层的字节**」写，而不是按「脚本源码里的字面量」写。
+凡 CRPL 里带 `(` `)` 的 `ShowMessage` / `AddConversationMessage` 文案，
+到插件手上都是被 `" ( "` / `" ) "` 撑开过的。**下次别再怀疑是空格清理或 CFG 解析**——
+`crpl_all.json` / `resources.assets` / 存档 `.cw3` 里都是紧贴的原始字面量。
+
+**同批错译修复**：`index 3316`
+`How?  CRPL... Creeper Reverse Polish Language.  That's the scripting language available in CW3.`
+原译 `怎么做到的？CRPL……Creeper逆波兰语言。这是CW3里可用的脚本语言。` ——
+「逆波兰语言」读起来像「波兰语」，是 `Reverse Polish` 的字面直译，属错译（用户 m00007 指出）。
+
+**CRPL 的全名不是笑话，`Polish` 指国籍**：官方 Wiki 原话是
+「CRPL (Creeper Reverse Polish Language) is a stack-based, Reverse Polish Notation language.
+*There, now that we've said it, what does it mean?*」——作者自己也知道这名字绕。
+`Reverse Polish` = **逆波兰表示法（RPN）**，中文标准名另有「后缀表达式」；正体的「波兰表示法」
+是 1924 年波兰逻辑学家 **Jan Łukasiewicz** 提出的前缀记法，冠的是他的国籍。
+同族命名先例：HP 计算器的 `RPL = Reverse Polish Lisp`。官方论坛 2012 年还有个标题为
+[The Creeper is Polish](https://knucklecracker.com/forums/index.php?topic=12228.0) 的帖子在拿这个玩梗，
+但那是玩家自发，不是作者藏彩蛋。**术语边界**：`Polish`（波兰的）vs `polish`（抛光）也与本串无关。
+
+**用户最终选定（m00577，推翻 m00352 的省略版）：保留全名、用正确译法**
+→ `怎么做到的？CRPL……Creeper逆波兰式语言。这是CW3里可用的脚本语言。`
+（先选过「只留 CRPL 不展开」= `怎么做到的？靠 CRPL——Creeper 的脚本语言，CW3 里就能用。`，
+得知全名来历后改回保留全名。日后若再动这条，认准这一版。）
+**注意「Creeper逆波兰式语言」中间没有空格** —— 初稿写成了 `Creeper 逆波兰式语言`，
+被 `fix_spaces.py` 按「中文与拉丁字母之间不加空格」的口径清掉了（这是既有规则，不是笔误）。
+同族 3317/3318/3319 一直都是保留 `CRPL` 原样，风格一致。
+`glossary.md` 已补两行：`CRPL`=保留英文、`Reverse Polish Language`=逆波兰式语言（含「不要译成逆波兰语言」的理由）。
+全表搜 `波兰`/`Polish` **只有这 1 条**。
+
+**入库**：`_dict/batches/full_37_polish_fix.json` → `apply_translations.py … --override`
+（覆盖 1、问题 0）→ `build_dict.py --include-other` → **2351 条 / 250 324 字节**。
+`check_charset.py _dict/strings.json` = 1607 字符（汉字 1506）**✓ 在字集内**，不用重烘图集；
+`verify_lookup.py` 加括号规则后 `--idempotent` **0 条被改写**；
+`audit_translations.py` 换行/占位符/首尾空白/引号配对 **0/0/0/0**
+（标记 15 处仍是方括号已译假阳性，既有现象）。
+**`verify_lookup.py --regress` 报的差异与本节无关**——它拿 `zh_cn.dict`（2351 条）当「旧」
+去比 `strings.json`（3538 条），本来就该差，属工具既有口径，不是回归。
+已单独核对：把 `normalize()` 里的括号规则关掉再跑 `--regress`，差异条数**完全相同**，
+即括号规则对 `--regress` 输出**零影响**（受影响的那一条 `Clap` 台词在 `--regress` 里
+新旧都命中同一条词典条目，不会被列为差异）。
+
+**★ 别忘了**：改插件后 `verify_lookup.py` 的 `normalize()` **必须同步改**，
+否则离线预演和游戏内行为会漂移（本次已同步）。
 
 ---
 

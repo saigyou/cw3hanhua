@@ -69,7 +69,44 @@ def normalize(s):
         out.append(c)
         i += 1
     r = "".join(out).rstrip(" \n\t")
+    # ★ v1.5.2 括号旁空格归一（与插件 Normalize 保持一致）：
+    #   CrplCompiler 在分词前盲替换 "(" -> " ( " 与 ")" -> " ) "，
+    #   连引号内字面量也改，所以运行时串里括号旁会多出空格。
+    if "(" in r or ")" in r:
+        r = paren_space(r)
     return r
+
+
+PAREN_PUNCT = ".,;:!?"
+
+
+def paren_space(s):
+    """把 ')' 后、句读标点前、'(' 后、')' 前的空格吃掉。只动空格，不增删括号本身。"""
+    out = []
+    i, n = 0, len(s)
+    while i < n:
+        c = s[i]
+        if c != " ":
+            out.append(c)
+            i += 1
+            continue
+        j = i
+        while j + 1 < n and s[j + 1] == " ":
+            j += 1
+        if out and out[-1] == "(":
+            i = j + 1
+            continue
+        if j + 1 < n:
+            nx = s[j + 1]
+            if nx == ")":
+                i = j + 1
+                continue
+            if out and out[-1] == ")" and nx in PAREN_PUNCT:
+                i = j + 1
+                continue
+        out.append(" ")
+        i = j + 1
+    return "".join(out)
 
 
 LETTER = re.compile(r"[A-Za-z]")

@@ -1,6 +1,6 @@
 {
  "version": 2,
- "generated": "2026-10-26 01:20:06",
+ "generated": "2026-10-27 18:38:33",
  "baked_charset": 7544,
  "strings": [
   {
@@ -60118,7 +60118,7 @@
   },
   {
    "en": "How?  CRPL... Creeper Reverse Polish Language.  That's the scripting language available in CW3.",
-   "zh": "怎么做到的？CRPL……Creeper逆波兰语言。这是CW3里可用的脚本语言。",
+   "zh": "怎么做到的？CRPL……Creeper逆波兰式语言。这是CW3里可用的脚本语言。",
    "cat": "dll",
    "grade": "ui",
    "kind": "ShowMessage",

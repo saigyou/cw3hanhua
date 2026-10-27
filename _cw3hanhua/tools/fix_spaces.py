@@ -36,6 +36,7 @@ import json
 import os
 import re
 import sys
+import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -220,6 +221,8 @@ def main():
         tot_c += cnt
         tot_n += sn
         if args.write and cnt:
+            if "generated" in d:
+                d["generated"] = time.strftime("%Y-%m-%d %H:%M:%S")
             with io.open(p, "w", encoding="utf-8", newline="\n") as f:
                 json.dump(d, f, ensure_ascii=False, indent=1)
 

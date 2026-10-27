@@ -4,7 +4,7 @@
 // 本文件是 CW3 Hanhua 的一部分，按 GNU LGPL v2.1（或更新版本）授权。
 // 全文见仓库根目录的 LICENSE；许可分层与第三方声明见 NOTICE。
 // ============================================================================
-//  CW3 汉化 · 文本层 v1.5.1 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息 + IMGUI
+//  CW3 汉化 · 文本层 v1.5.2 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息 + IMGUI
 //
 //  字体层负责"字形从哪来"，本层负责"英文串怎么变中文"。
 //
@@ -74,6 +74,17 @@
 //
 //    **不碰 `GUI.TextField / TextArea`**：同 GUILayout，返回值是玩家输入。
 //    统计另开 `guiCalls/guiHits/guiPatched`，**不与 imgui 混算**（混了就分不清哪层在干活）。
+//
+//  ★ v1.5.2（2026-10-27）：`Normalize()` 加「括号旁空格归一」。
+//    起因：CRPL 脚本里的台词 `Everyone give our winner a big welcome!  (Clap ...).`
+//    在游戏里显示成英文，未命中日志里抓到的运行时串是
+//    "...welcome!   ( Clap c... ) ." —— 括号两侧和句点前各多一个空格。
+//    根因不在词表，而在 `CrplCompiler.Compile`：它在分词前对整个脚本做
+//    `Replace("(", " ( ")` / `Replace(")", " ) ")` 的**盲替换**，连引号内的
+//    字符串字面量也一起改，所以补出来的空格最终进了 MessageDialogManager。
+//    修法见 Normalize()：'(' 后、')' 前、')' 与后随标点之间的空格一律吃掉。
+//    全表验证：受影响 key 仅 1 条，归一化碰撞组 12→12 不增，规则幂等。
+//    （注：`()` 本身不做去留处理，只动它们旁边的空格。）
 //
 //  ★ v1.5.1（2026-10-26）：给**页签特判**留一个口子 —— `SpecialLabel()`。
 //    起因：地图编辑器左边那两个竖排页签 `Terr` / `Unit` 一直是英文。
@@ -192,7 +203,7 @@ namespace CW3Hanhua
     ///   与字体层同在一个程序集，不再有任何反射互调。</summary>
     public class TextPlugin
     {
-        public const string Ver = "1.5.1";
+        public const string Ver = "1.5.2";
 
         static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
 
@@ -1087,8 +1098,20 @@ namespace CW3Hanhua
             return null;
         }
 
-        /// <summary>归一化：CRLF→LF、连续空格折叠、去尾部空白。
-        /// 注意**不动**行首空白（那是排版缩进）也不动中间换行结构。</summary>
+        /// <summary>归一化：CRLF→LF、连续空格折叠、括号旁空格归一、去尾部空白。
+        /// 注意**不动**行首空白（那是排版缩进）也不动中间换行结构。
+        ///
+        /// ★ v1.5.2：加「括号旁空格归一」。起因见 NOTES 第 4.18 节 ——
+        ///   `CrplCompiler.Compile` 在分词前对整个脚本做 `Replace("(", " ( ")` 与
+        ///   `Replace(")", " ) ")` 的**盲替换**，连引号里的字符串字面量也一起改：
+        ///     AddConversationMessage(6 "Everyone give our winner a big welcome!  (Clap ...).")
+        ///   到达文本层时已经变成 "...welcome!   ( Clap c... ) ."
+        ///   （感叹号后 3 个空格、'(' 后 1 个、')' 前 1 个、')' 与 '.' 之间 1 个），
+        ///   既过不了精确匹配，也过不了普通空格折叠，于是整条露英文。
+        ///   规则：'(' 后的空格去掉、')' 前的空格去掉、')' 与其后标点之间的空格去掉。
+        ///   建表与查表走同一个函数，两端一致，不会误配。
+        ///   实测全表 3538 条：受影响的 key 只有 1 条（就是这条台词），
+        ///   归一化碰撞组 12 → 12 不增；规则幂等。</summary>
         static string Normalize(string s)
         {
             if (s == null) return "";
@@ -1110,7 +1133,37 @@ namespace CW3Hanhua
             int end = sb.Length;
             while (end > 0 && (sb[end - 1] == ' ' || sb[end - 1] == '\n' || sb[end - 1] == '\t')) end--;
             sb.Length = end;
-            return sb.ToString();
+            // ★ v1.5.2 括号旁空格归一：只在原串真的含括号时才多走一遍（99% 的串走不到）。
+            if (s.IndexOf('(') < 0 && s.IndexOf(')') < 0) return sb.ToString();
+            StringBuilder pb = new StringBuilder(sb.Length);
+            for (int i = 0; i < sb.Length; i++)
+            {
+                if (sb[i] != ' ')
+                {
+                    pb.Append(sb[i]);
+                    continue;
+                }
+                // 紧凑空格段 [i..j]
+                int j = i;
+                while (j + 1 < sb.Length && sb[j + 1] == ' ') j++;
+                if (pb.Length > 0 && pb[pb.Length - 1] == '(') { i = j; continue; }        // "(  x" -> "(x"
+                if (j + 1 < sb.Length)
+                {
+                    char nx = sb[j + 1];
+                    if (nx == ')') { i = j; continue; }                                    // "x  )" -> "x)"
+                    char prev = (pb.Length > 0) ? pb[pb.Length - 1] : '\0';
+                    if (prev == ')' && PunctAfterParen(nx)) { i = j; continue; }            // ") ." -> ")."
+                }
+                pb.Append(' ');
+                i = j;
+            }
+            return pb.ToString();
+        }
+
+        /// <summary>v1.5.2 小工具：右括号后紧跟这些标点时把中间的空格吃掉。</summary>
+        static bool PunctAfterParen(char c)
+        {
+            return c == '.' || c == ',' || c == ';' || c == ':' || c == '!' || c == '?';
         }
 
         /// <summary>把整串在 '\n' 处切成两段，两段**各自精确命中**词表才拼接返回。
