@@ -6,185 +6,49 @@
 // ============================================================================
 //  CW3 汉化 · 文本层 v1.5.2 —— 词表 + UILabel.ProcessText + 5 个 TextMesh 写入点 + CRPL 消息 + IMGUI
 //
-//  字体层负责"字形从哪来"，本层负责"英文串怎么变中文"。
+//  字体层（CW3Hanhua.cs）负责「字形从哪来」，本层负责「英文串怎么变中文」。
+//  两层编进同一个 CW3Hanhua.dll，由 HanhuaPlugin 直接驱动（Init / Tick / SetOn），零反射。
 //
-//  ★ v1.3.0（2026-10-23）：把 CRPL 教学提示的翻译**提前到源头** ——
-//    补丁打在 `CrplCore.ProcessCommands` 的 postfix，直接把 `GameSpace.message`
-//    这个字段换成中文。这是用户点名的方案，确实比 v1.2.0 在 GUI.Label 上换更好：
-//      · 时机更早：CRPL 刚把英文写进字段，我们就换掉；
-//      · 盒子由游戏自己算：`GameSpace.OnGUI` 里 `CalcSize` 量的已经是中文，
-//        Rect / 居中 / 780 钳位全部天然正确 —— 我们**一行 Rect 都不用碰**，
-//        v1.2.0 那个靠「宽 ≈ 英文宽 ±28px」猜盒子的 FitBox 已随之删除；
-//      · 无状态：字段本身就是显示用的，`message` 全游戏只有 `GameSpace.OnGUI` 读
-//        （`ilx fields --type GameSpace message`：OnGUI 4×ldfld，另 1×stfld 是
-//         `GameSpace.GameUpdate` 每帧开头清空、2×stfld 是 `CrplCore.ProcessCommands`
-//         的 SHOWMESSAGE / SHOWMESSAGEDISMISSIBLE），没有任何逻辑判定拿它做比较。
-//    字体问题不变：仍要 `Font.CreateDynamicFontFromOSFont` 造中文字体，
-//    但改成塞进 `GameSpace.instance.skin` 的 `"message"` 样式 —— 游戏自己那句
-//    `skin.GetStyle("message")` 拿到的就是它。
+//  五条替换路径（各路径详细原理与边界见对应方法头注释）：
+//    ① Harmony prefix + postfix + finalizer on UILabel.ProcessText
+//         全部 1029 个 UILabel 的总收口（含资产序列化的 mText）。
+//         prefix 先过 SpecialLabel() 页签特判（地图编辑器竖排 Terr/Unit），再走四级查表；
+//         临时将 mText 设为中文供原方法计算 mProcessedText 与排版尺寸，
+//         postfix / finalizer 立即将 mText 与 mLastText 还原为英文，保证对外 .text 仍为英文。
+//    ② 五个动态 TextMesh 写入点（PatchTextMeshWriters）
+//         PreludeManager / EpilogueManager / DemoScreenManager.ShowText：prefix 改入参 __0
+//         StarManager.set_starName / PlanetManager.set_planetName：postfix 只改 TextMesh，不碰数据字段
+//         （其余 19 条静态大字由 tools/bake_textmesh_assets.py 离线烘进资产）
+//    ③ Harmony postfix on CrplCore.ProcessCommands（PatchCrplMessage）
+//         CRPL 教学提示的源头收口：将 GameSpace.message 直接换成中文，盒子宽度由游戏在
+//         GameSpace.OnGUI 中按中文自动量算；同时通过 Font.CreateDynamicFontFromOSFont
+//         创建系统中文字体赋给 GameSpace.skin 的 "message" 样式。
+//    ④ Harmony prefix on GUILayout.Label/Box/Button/RepeatButton/Toggle 文字重载（PatchIMGUI）
+//         在 GUILayoutUtility.GetRect 之前将入参换成中文，宽度由游戏按中文计算，不碰 Rect。
+//         覆盖结算面板、在线得分、地图编辑器、殖民空间站、统计成就等 IMGUI 界面。
+//    ⑤ Harmony prefix on GUI.Label/Box/Button/RepeatButton 的 String 重载（PatchGUI）
+//         只做精确命中（LookupGuiExact），补充覆盖不经 GUILayout 的直调点
+//         （Return to Origin / KeyEntryGUI / Menu.Clear 等）。
+//         注：不碰任何 TextField / TextArea（返回值是玩家输入数据）。
 //
-//  ★ v1.2.0（2026-10-23，**已于 v1.3.0 整段删除**）：曾经给 `GUI.Label` 打过一层
-//    prefix 做 IMGUI 总兜底。它确实能把那句教学提示翻掉（它是全六种重载的唯一收口），
-//    但要靠 `|r.width - 英文宽| <= 28px` 猜「这个盒子是不是自动量的」才能重排，
-//    且会波及 `SGT_CameraFPS` / `SGT_CameraMessage` / `KeyEntryGUI` 等处的定宽盒子。
-//    v1.3.0 改成在源头（`CrplCore.ProcessCommands` postfix）换字段后，
-//    `GameSpace.OnGUI` 自己就算对了盒子 —— 那层兜底**没有存在意义**，
-//    留着只会让「界面还是英文」这种问题多一条要排查的来源。
-//    → 已删。那套 `FitBox` 猜盒子的做法**不要复活**。
-//
-//  ★ v1.4.0（2026-10-23）：IMGUI 翻译层**重新加了回来，但换了个收口点和做法** ——
-//    这次打在 `GUILayout.Label/Box/Button/RepeatButton/Toggle` 的**文字重载**上
-//    （`ref string __N` / `ref GUIContent __N`），在 `GUILayoutUtility.GetRect`
-//    **之前**把入参换成中文 —— 宽度由游戏自己按中文量，**依然一行 Rect 都不碰**，
-//    没有 FitBox、没有「猜盒子」。覆盖的是完全不经 NGUI 的那些界面：
-//    结算面板 / 在线得分 / 地图编辑器 / 殖民空间站 / 世界机器 / 统计成就等。
-//    `imguiCalls/imguiHits/imguiPatched` 三个统计随之回归（见 F5 与 F11 dump）。
-//    详见 4.3a。**不碰 `GUILayout.TextField`**（返回值是玩家输入数据）。
-//
-//  ★ v1.5.0（2026-10-24）：补上 `GUI.*` 这一族 —— **方案 A2**（用户 m01714 拍板）。
-//    v1.4.0 只覆盖 `GUILayout`，而游戏里有一批界面直接调 `GUI.Xxx(Rect, String, GUIStyle)`：
-//    `WorldMachineManager.DoWorldMachineWindow` 的 `Return to Origin`、
-//    `KeyEntryGUI.ShowKeyEntry` 整个注册界面、`Menu.OnGUI` 的 `Clear` 等。
-//    它们不经过 GUILayout，所以 v1.4.0 的补丁点碰不到，日志里也不会留未命中。
-//
-//    **A2 = 只做精确命中，不做任何拼接/归一/分段**。理由：`GUI.*` 的字面量全部是
-//    完整的短串，压根不需要分段能力；而分段正是「猜」的来源 —— 在固定 Rect 里
-//    把 `FPS: ` 吃掉再把 `60.0` 透传，会发生什么完全不可控。
-//    所以 `LookupGuiExact` 只查 `dict[en]` 精确相等。代价是 `FPS: 60.0` / `Map Size: 1x1`
-//    这类拼接串在 GUI.* 面上一律不译（前者本来就不该动，后者走 GUILayout 已覆盖）。
-//
-//    **为什么打 String 重载不会干扰 v1.4.0 的 GUILayout 补丁**（这条是动手前专门验证的）：
-//      `GUILayout.Label(string,…)` 体内 `0001: call GUIContent.Temp(String)` 立刻转成
-//      GUIContent，再 `call GUILayout.DoLabel(GUIContent, …)` → `GUI.Label(Rect, GUIContent, GUIStyle)`。
-//      DoButton / DoBox / DoRepeatButton 同样只转发到 GUIContent 重载。
-//      ⇒ **GUILayout 那条链从不接触 `GUI.Xxx(Rect, String, …)`**，两组入口在类型上就不重叠。
-//      反过来 `GUI.Button(Rect, String, GUIStyle)` 是 `call GUIContent.Temp` 后
-//      **直接进 `GUI.DoButton(Rect, GUIContent, IntPtr)`**，不绕 GUIContent 重载 ⇒ 不会翻两次。
-//      也因此**绝不能**顺手把 GUIContent 重载也打上：那条链的 `GetRect` 在 `GUI.Label`
-//      **之前**跑，量宽早就用英文完成了，中文会被塞进英文尺寸的框里 —— 正是 v1.2.0 的形状。
-//
-//    **矩形风险**：`GUI.*` 没有 layout 阶段可以重算宽度，Rect 全是游戏写死的常量
-//    （`KeyEntryGUI` 四个 Label 里一个 `CalcSize` 都没有）。所以这一族**逐处核对过**：
-//    Return to Origin 120×22 / Enter Key 100×20 / Invalid Key… 280×20 / Product Key 280×100
-//    / Arc Eternal 270 宽(fontSize 26) / 产品密钥提示 600 宽 —— 中文都装得下。
-//
-//    **不译 `Creeper World III`**（用户 m01714 同批拍板）：它是游戏名本身，且
-//    fontSize 36、Rect 只有 270 宽。词表 zh 留空 ⇒ dict 里没有这条 ⇒ `TryGetValue`
-//    返回 false ⇒ 自然跳过 —— 不需要特判。
-//
-//    **不碰 `GUI.TextField / TextArea`**：同 GUILayout，返回值是玩家输入。
-//    统计另开 `guiCalls/guiHits/guiPatched`，**不与 imgui 混算**（混了就分不清哪层在干活）。
-//
-//  ★ v1.5.2（2026-10-27）：`Normalize()` 加「括号旁空格归一」。
-//    起因：CRPL 脚本里的台词 `Everyone give our winner a big welcome!  (Clap ...).`
-//    在游戏里显示成英文，未命中日志里抓到的运行时串是
-//    "...welcome!   ( Clap c... ) ." —— 括号两侧和句点前各多一个空格。
-//    根因不在词表，而在 `CrplCompiler.Compile`：它在分词前对整个脚本做
-//    `Replace("(", " ( ")` / `Replace(")", " ) ")` 的**盲替换**，连引号内的
-//    字符串字面量也一起改，所以补出来的空格最终进了 MessageDialogManager。
-//    修法见 Normalize()：'(' 后、')' 前、')' 与后随标点之间的空格一律吃掉。
-//    全表验证：受影响 key 仅 1 条，归一化碰撞组 12→12 不增，规则幂等。
-//    （注：`()` 本身不做去留处理，只动它们旁边的空格。）
-//
-//  ★ v1.5.1（2026-10-26）：给**页签特判**留一个口子 —— `SpecialLabel()`。
-//    起因：地图编辑器左边那两个竖排页签 `Terr` / `Unit` 一直是英文。
-//    它们不是一条字符串，而是 4 个各装一个单字母的 UILabel 上下堆起来
-//    （父节点 `TerrButton` / `UnitButton`，子节点 `Label0`..`Label3`），
-//    点击由父节点的 BoxCollider 接、分发走 GameObject 名，所以**文字怎么改都不影响行为**。
-//
-//    为什么不进词表：单字母 key 会被 `LookupSegment` 当作碎片在任意串里消费掉，
-//    整张词表都会碎（`MatchKey` 里 v1.3.2 那条注释说的就是这件事）；
-//    而且 level1 有一堆**真的**单字母按键 label（`A`/`C`/`E`/`F`/`X`…），加 `T`/`U` 必误伤。
-//
-//    做法：`PrefixProcessText` 在 `Lookup` **之前**问一句 `SpecialLabel()`，
-//    只有「父节点名在白名单里 + 自己是 `LabelN`」才返回译文，其余一律返回 null 走原路。
-//    白名单 4 格实际只用 2 格（`地/形`、`单/位`），后两格返回空串 ⇒ 那两行不画字，
-//    视觉上就是 2 个字落在原来 4 格里最上面两格的位置（略偏上，但不动资产坐标）。
-//    `tabHits` 单独计数，F11 dump 里能看出这条特判有没有生效。
-//
-//  ★ v1.1.0（2026-10-23）：查表加**第四级**「分段重组」LookupSegment。
-//    精确 → '\n' 拼接 → 归一化 → 分段重组。前三级都没动。
-//    起因：护盾提示 "Planet is shielded. ...:\n" + "[ff7f7f]Tempus" 这类
-//    「碎片常量 + 运行时值」的串，前三级一律落空；而往词表里穷举整串
-//    （41 条 × 颜色组合）不可扩展。分段器把碎片逐段翻掉、色标与变量原样透传。
-//    设计要点与边界规则见 LookupSegment 的注释；幂等性已用全量词表验证。
-//
-//  ★ v1.0.0（2026-10-23）：两个 DLL 合并成一个 —— 本文件与 CW3Hanhua.cs 一起
-//    编进 **CW3Hanhua.dll**，本类不再是 BepInPlugin / MonoBehaviour，而是被
-//    HanhuaPlugin 直接驱动的普通类（Init / Tick / SetOn）。两层之间零反射。
-//    仍然一文件一层、各自一个类，只是打在一个包里。
-//
-//    ★ 开关已合并 —— 本层没有自己的按键，跟着 F3 汉化总开关一起开/关
-//      （HanhuaPlugin.SetHanhua 直接调本类的 SetOn(bool)）。
+//  四级查表链（Lookup）：
+//    1. 精确匹配（dict[s]）
+//    2. '\n' 拼接（LookupConcat，按换行切分两段各自查表）
+//    3. 归一化兜底（LookupNormalized：CRLF→LF、连续空格折叠、括号旁空格归一、去尾部空白）
+//    4. 分段重组（LookupSegment：词表碎片 + 色标/数字/引号内键名/尺寸分隔符 x 原样透传）
 //
 //  词表：_cw3hanhua/_dict/zh_cn.dict（tools/build_dict.py 生成）
-//    格式见 build_dict.py 头注释：CWH1 + count + [klen,key,zlen,zh]* + uint32 FNV
+//    格式：CWH1 + int32 count + [uint16 klen, key, uint16 zlen, zh]* + uint32 FNV-1a
 //
-//  本层的替换路径：
-//    ① Harmony prefix + postfix on UILabel.ProcessText —— 全部 1029 个 UILabel 的总收口
-//         v1.5.1：进查表之前先过一遍 `SpecialLabel()` 页签特判（见下）
-//    ② 五个 TextMesh 写入点（v0.10.0，步骤 6）—— 资产改不到的那几条
-//         PreludeManager / EpilogueManager / DemoScreenManager 的 ShowText：prefix 改 __0
-//         StarManager.set_starName / PlanetManager.set_planetName：postfix 只改 TextMesh
-//       为什么后者不能改入参：见 PatchTextMeshWriters 里的注释（会毁存档路径）
-//    ③ Harmony postfix on CrplCore.ProcessCommands（v1.3.0）—— CRPL 消息的源头收口
-//         把 GameSpace.message 直接换成中文，盒子由游戏自己按中文算
-//         + Font.CreateDynamicFontFromOSFont 造中文字体塞进 GameSpace.skin 的 "message" 样式
-//       ★ 这是 CRPL 教学提示的**唯一**替换路径。v1.2.0 那层 GUI.Label prefix 已删除
-//         （见顶部 v1.2.0 条目），所以「教学提示还是英文」时只需要查这一条路。
-//    ④ Harmony prefix on GUILayout.Label/Box/Button/RepeatButton/Toggle 的文字重载（v1.4.0）
-//         在 GUILayoutUtility.GetRect 之前改入参 → 宽度由游戏按中文量，不碰 Rect
-//    ⑤ Harmony prefix on GUI.Label/Box/Button/RepeatButton 的 **String 重载**（v1.5.0）
-//         只做精确命中，补 ④ 碰不到的直调点（Return to Origin / KeyEntryGUI / Menu.Clear 等）
+//  按键（由 HanhuaPlugin.Update 统一驱动）：
+//    本层无独立开关，跟随 F3 汉化总开关同开同关；
+//    F5  打印未命中清单（数字已归一去重，上限 2000）
+//    F9  重新载入词表（改完 zh_cn.dict 无需重启游戏）
 //
-//  ★ v0.10.0：加 ②。改资产能覆盖 19 条静态 TextMesh，但有一批文本是运行时才写的
-//    （星区名/星球名、三段过场的台词），资产里只是占位值，烘中文也留不住。
+//  职责边界：本层只能还原经手替换过的运行时文本；离线烘进资产的 19 条静态 TextMesh
+//    需运行 `tools/bake_textmesh_assets.py --restore` 还原。
 //
-//  ★ v0.9.0：补丁点从 `set_text` 挪到 `ProcessText`。
-//    `set_text` 只有 322 个调用点，**资产里序列化的 mText 一个都不走它**
-//    （prefab 直接把值写进字段），所以 v0.8.5 删掉 sweep 之后那 622 处就露英文了。
-//    而 `ProcessText` 是**每条要显示出来的 UILabel 的必经之路**
-//    （它只有 3 个调用方：get_processedText / get_relativeSize / MakePixelPerfect，
-//     全在上屏路径上），在它外面套一层，资产文本与动态文本一次全覆盖、零闪烁。
-//
-//    具体做法（见 PrefixProcessText / PostfixProcessText 的注释）：
-//      prefix  把 mText 临时换成中文 → 原方法体照常跑，mProcessedText 与 mSize
-//              都按中文算出来（字宽、换行、shrinkToFit 全都对）
-//      postfix 立刻把 mText 与 mLastText 写回英文
-//    结果：**屏幕上永远是 mProcessedText（中文），而 `label.text` 对外始终是英文**。
-//    这一点是刻意的 —— ACTIVATE / RESUPPLY / 单位类型名等几处游戏逻辑在拿
-//    `label.text` 做字符串判定，改 mText 会让它们全部失效（NOTES 3.3）。
-//
-//  ★ v0.8.5：**整套 sweep 逻辑已删除**（v0.8.1~v0.8.4 的 ②③ 两条路）。
-//    原 ② 周期 sweep 管资产里序列化的 UILabel.mText，原 ③ 每帧快扫管 TextMesh。
-//    两条都在"事后补"，天生会闪一下英文；已改为**直接改资产**（把中文烘进 prefab，
-//    见 tools/bake_textmesh_assets.py 与 NOTES 4.6），对象一出现就是中文，没有闪烁。
-//    实测最后剩下的"必须走代码路线"的对象，在本文件里逐个打 Harmony prefix（步骤 6）。
-//    删掉的东西：labelCache / meshCache / RebuildCache / ReplaceLabels / ReplaceMeshes
-//    / Sweep / LateUpdate / IsSwapped / swMesh / hitMesh / swLabel / hitLabel。
-//    **保留** missSeen，但用途变了：F5 从"做一次替换"改成"打印未命中清单"，
-//    用来找步骤 6 那批"必须走代码路线"的对象。
-//
-//  v0.8.3：查表增加 LookupConcat —— 游戏有一批文本是运行时 Concat 出来的
-//    （主菜单悬浮框 body + "\n[ff5050]To Access:..."），词表里只有两个半截，
-//    精确匹配必然落空。见 LookupConcat 注释与 NOTES 3.3「拼接串」。
-//
-//  按键：
-//    （无）本层（文本层）没有自己的开关按键了。
-//    ★ 2026-10-23：F4 已退役 —— 文本层并入**汉化总开关 F3**，与字体层同开同关。
-//      F3 在 CW3Hanhua.cs 的 HanhuaPlugin 里，那边直接调本类的 SetOn(bool)。
-//    F5  打印未命中清单（缺哪些译文）
-//    F9  重新载入词表（改完 zh_cn.dict 不用重启游戏）
-//    这三个键都由 HanhuaPlugin.Update 驱动（F5/F9 走本文件的 Tick()）。
-//
-//  ★ 本层的边界：只能还原**本层经手**的文本（prefix 记下来的）。改资产烘进 prefab 的
-//    中文不归本层管，关不掉 —— 要还原得跑 tools/bake_textmesh_assets.py --restore。
-//
-//  编译（见 NOTES 5.2）：与 CW3Hanhua.cs 一起编进同一个 CW3Hanhua.dll
-//    csc /target:library /platform:x86 /codepage:65001
-//        /reference:BepInEx.dll /reference:0Harmony.dll
-//        /reference:UnityEngine.dll /reference:Assembly-CSharp.dll
-//        /out:...\CW3Hanhua.dll  CW3Hanhua.cs CW3HanhuaText.cs
+//  编译（见 NOTES 5.2）：tools\build_plugin.cmd
 // ============================================================================
 
 using System;
@@ -220,8 +84,6 @@ namespace CW3Hanhua
 
         // ---------------------------------------------------------------- 状态
         static bool textOn = false;
-        // frame 已删：v1.0.0 起场景切换由 HanhuaPlugin.Update 统一检测，
-        // 本层不再需要自己的帧计数（原先只用于「场景切换 #N」那行日志）。
 
         // 统计
         static int prefixCalls;
@@ -261,31 +123,24 @@ namespace CW3Hanhua
         static int crplCalls;
         static int crplHits;
 
-        // 走过 ProcessText 但词表里查不到的串。**按 key 去重、上限 2000**。
-        // v0.9.0 起补丁点在 ProcessText，所以这里收到的是**全部 UILabel** 的未命中
-        // （含资产序列化文本），不再是 set_text 那 322 个调用点的子集。
+        // 走过替换路径但词表里查不到的串。**按模板去重、上限 2000**。
         // 用途：F5 打印清单 → 补词表 → F9 重载即可，不用重启游戏。
         //
-        // ★ v1.4.1：改用 Dictionary<去重键, 首次出现的原串>，去重键 = MissKey(s)。
-        //   起因（用户 m00859 要求）：原来按**整串**去重，可游戏大量文案是
-        //   「碎片 + 运行时值」拼的 —— `Map Size: 162x121`、`Collected: 12`、
-        //   `Amt: 7` … 每换一个数字就是一条新记录，400 条上限几秒就爆，
-        //   真正缺的模板反而挤不进来（用户报「日志里没看到未命中」就是这个原因）。
-        //   现在把数字串归一成 `#`（`Map Size: #x#`），同一模板只记一次；
-        //   打印时仍给出**首次出现的原串**，可读性不降。上限同时提到 2000。
+        // ★ Dictionary<去重键, 首次出现的原串>，去重键 = MissKey(s)。
+        //   游戏大量文案是「碎片 + 运行时值」拼的（`Map Size: 162x121`、`Collected: 12`、
+        //   `Amt: 7`），若按整串去重，数字变化会迅速占满上限。
+        //   把数字串归一成 `#`（`Map Size: #x#`）后，同一模板只记一次；
+        //   打印时仍输出**首次出现的原串**，保持可读性。
         const int MissCap = 2000;
         static readonly Dictionary<string, string> missSeen = new Dictionary<string, string>();
 
         // ---------------------------------------------------------------- 日志
-        // ★ v1.0.0：直接转发到 HanhuaPlugin.Say —— 同一程序集，日志与 F11 报告合并成一份。
         static void Say(string s)
         {
             HanhuaPlugin.Say(s);
         }
 
         // ================================================================ 生命周期
-        // ★ v1.0.0：不再是 MonoBehaviour，由 HanhuaPlugin.Awake 调用一次。
-        //   顺序由字体层保证（它先装完自己的东西再 Init 本层）。
         public static void Init()
         {
             try
@@ -639,27 +494,18 @@ namespace CW3Hanhua
         /// <summary>给 `GUILayout.Label / Box / Button / RepeatButton / Toggle` 的**文字重载**打
         /// prefix，把文案入参换成中文。这是第四条替换路径，补的是「根本不经 UILabel」的那些界面。
         ///
-        /// **为什么现在才做**：v1.2.0 曾试过在 `GUI.Label` 上打补丁 + 用
-        /// `|r.width - enSize.x| <= 28f` 猜「这个盒子是不是自动量的」，结果误伤
-        /// `SGT_CameraFPS` / `SGT_CameraMessage` / `KeyEntryGUI` 的定宽盒子，
-        /// v1.3.0 整段删掉（用户要求「出问题时只能有一个来源」）。
-        /// 现在换了个更干净的收口点：**在 layout 之前改入参**，不动任何矩形。
+        /// **为什么打在 GUILayout 文字重载上**：
+        /// `GUILayout.Label` 等方法最终走 `GUILayout.DoLabel` → `GUILayoutUtility.GetRect(content, style, options)`
+        /// → `GUI.DoLabel(rect, content, style)`。`DoLabel` 是 private（Harmony 打不上），
+        /// 而 `GUILayout.Label` 的 6 个重载都是 public + 有真实 IL 体。
+        /// 更关键的是：`GetRect` 就在 `GUILayout.Label` 体内、**用我们改过的入参**去量宽，
+        /// 所以中文的宽度天然算对，不需要猜盒子，也不会溢出。
+        /// （早期 v1.2.0 曾试过在 `GUI.Label` 上靠 `|r.width - enSize.x| <= 28f` 猜盒子并重排，
+        ///   会误伤 `SGT_CameraFPS` / `KeyEntryGUI` 等定宽盒子，已于 v1.3.0 废弃。）
         ///
-        /// **为什么是 GUILayout 而不是 GUI**：两者最终都走
-        /// `GUILayout.DoLabel` → `GUILayoutUtility.GetRect(content, style, options)`
-        /// → `GUI.DoLabel(rect, content, style)`。`DoLabel` 是 private（Harmony 打不上）。
-        /// 而 `GUILayout.Label` 的 6 个重载都是 public + 有真实 IL 体 —— 可以打。
-        /// 更关键的是：`GetRect` 就在 `GUILayout.Label` 体内、**用我们改过的入参**
-        /// 去量宽，所以中文的宽度天然算对，不需要猜盒子，也不会溢出。
-        /// 全库 `GUILayout.*` 有 689 处、直接 `GUI.Label` 只有 58 处（多在编辑器 demo 里），
-        /// 所以覆盖 GUILayout 就是覆盖了 92% 的面。
-        ///
-        /// ★ 更正（2026-10-24，v1.5.0）：这里原来写「`GUI.Label` 的 6 个重载全是 abstract
-        ///   （reference stub，无 IL 体）」—— **这是错的**。`ilx dump GUI Label --dll UnityEngine.dll`
-        ///   实测 6 个重载全部有真实 IL 体（il=5~7，RVA 非 0），`GUI.Box/Button/RepeatButton` 同样。
-        ///   当年打不上的是 `GUI.DoLabel/DoButton`（private），不是 `GUI.Label`。
-        ///   所以 v1.5.0 起 `GUI.*` 的 String 重载由 PatchGUI() 接手（见那里）。
-        ///   本方法继续只管 GUILayout —— 两族的入口不重叠，见文件头 v1.5.0 的验证记录。
+        /// 直接调 `GUI.Label/Box/Button/RepeatButton(Rect, String, ...)` 的剩余界面
+        /// 由下方 `PatchGUI()`（v1.5.0）接手；`GUILayout` 内部转发只走 `GUI.Xxx(Rect, GUIContent, GUIStyle)`，
+        /// 因此两组补丁入口在参数类型上完全不重叠，不会二次翻译。
         ///
         /// **不碰 TextField**：它的返回值是玩家输入的文本，翻了会毁数据
         /// （玩家名字、存档名、CRPL 代码都是从这里出去的）。
@@ -731,10 +577,12 @@ namespace CW3Hanhua
         /// <summary>给 `GUI.Label / Box / Button / RepeatButton` 的 **String 重载**打 prefix。
         /// 这是第五条替换路径，补 v1.4.0（GUILayout）碰不到的那些直调点。
         ///
-        /// **只打 String 重载，绝不打 GUIContent 重载** —— 后者是 GUILayout 那条链的终点
-        /// （`GUILayout.DoLabel` → `GUI.Label(Rect, GUIContent, GUIStyle)`），
-        /// 打了会与 v1.4.0 的 prefix 叠加，而且 GetRect 早已用英文量完宽度，中文必然溢出。
-        /// 详见文件头 v1.5.0 条目里的调用链验证。
+        /// **只打 String 重载，绝不打 GUIContent 重载**：
+        /// `GUILayout.Label(string,…)` 体内先调 `GUIContent.Temp(String)` 转成 GUIContent，
+        /// 再调 `GUILayout.DoLabel` → `GUI.Label(Rect, GUIContent, GUIStyle)`（DoButton/DoBox/DoRepeatButton 同理）；
+        /// 而 `GUI.Button(Rect, String, GUIStyle)` 是 `GUIContent.Temp` 后直接进 `GUI.DoButton(Rect, GUIContent, IntPtr)`。
+        /// 因此只打 String 重载既不会与 GUILayout 补丁叠加，也不会在本身内部翻两次；
+        /// 若误打 GUIContent 重载，GetRect 早已用英文量完宽度，中文必然溢出。
         ///
         /// **只给 `(Rect, String)` 与 `(Rect, String, GUIStyle)` 两种形态打**：
         /// 文字恒在参数 1（Rect 在 0），所以用 `PrefixGuiExact1`（**不是** `PrefixGuiStr1` ——
@@ -746,8 +594,11 @@ namespace CW3Hanhua
         /// 翻了会毁数据（与 GUILayout 那条同一条纪律）。本方法的方法名白名单里没有它们。
         ///
         /// **A2 = 只精确命中**：prefix 用 `PrefixGuiExact1` → `LookupGuiExact`，只查 `dict[en]`。
-        /// 不走 v1.4.0 那套 `Lookup` 四级链 —— 这一族的 Rect 是常量、没有 layout 阶段可重算，
-        /// 分段拼出来的长度不可控。所以本层「查不到就不动」，宁可漏译也不猜。</summary>
+        /// 不走 `Lookup` 四级链 —— 这一族的 Rect 是游戏写死的常量、没有 layout 阶段可重算，
+        /// 分段拼出来的长度不可控。所以本层「查不到就不动」，宁可漏译也不猜。
+        /// （涉及的 Return to Origin 120×22 / Enter Key 100×20 / Invalid Key… 280×20 /
+        ///   Product Key 280×100 / Arc Eternal 270 宽 等固定矩形均已核对装得下中文；
+        ///   游戏标题 `Creeper World III` 词表 zh 留空，自然跳过不译。）</summary>
         static int guiCalls;
         static int guiHits;
         static int guiPatched;
@@ -1243,7 +1094,6 @@ namespace CW3Hanhua
                     if (IsLetter(c))
                     {
                         // ★ v1.3.2：单引号里的「键名」原样透传。
-                        //   起因（用户实测 F5 报 `Click or 'P'` 未译）：
                         //   GeneralHandlers.SetPauseButton 拼的是
                         //     "Click or '" + InputManager.GetKeyText(mod, key) + "'"
                         //   词表里 `Click or '` → `点击或 '` 有，但键名 `P` 是**单字母**，
@@ -1259,7 +1109,6 @@ namespace CW3Hanhua
                             continue;
                         }
                         // ★ v1.4.1：「数字x数字」里的那个 x 也当变量透传。
-                        //   起因（用户实测 DMD 界面 `Map Size: 101x101` 未译，日志有未命中）：
                         //   WorldMachineManager.DoWorldMachineWindow 拼的是
                         //     "Map Size: " + (Int16)w + "x" + (Int16)h
                         //   词表里 `Map Size: ` 命中、两侧数字本来就逐字符透传，
@@ -1287,13 +1136,12 @@ namespace CW3Hanhua
         /// 左边界必须在这里判，不能放到调用处 —— 标记透传那些分支不需要这个约束。
         ///
         /// ★ v1.3.2：左边界只在「key 自己也以字母起头」时才判。
-        ///   起因（用户实测 F5 报 `Shield Key  [ffffff]Health:[-][00ff00] 100%[-]` 未译）：
         ///   单位标题是 `GetUnitTitleDisplay` 拼的 —— `um.GetUnitGameName()` + "  [ffffff]Health:..."
         ///   而词表里存的碎片是 `"  [ffffff]Health:[-][00ff00] "`（**自带两个前导空格**）。
-        ///   旧规则 `if (i > 0 && IsLetter(s[i-1])) return null` 一看前一字符是 `Key` 的 `y`
-        ///   就直接拒绝，哪怕 key 自己以空格起头、边界天然成立 → 所有单位标题整体放弃。
-        ///   现在只有 key 首个字符是字母时才看左邻（防 "Windows" 被 "Window" 吃成「窗口s」），
-        ///   key 以空格或 `[` 起头则天然有边界，不必也不能再卡。</summary>
+        ///   若不区分 key 首字符、只要 `IsLetter(s[i-1])` 就拒绝，会因为前一字符是单位名末尾字母
+        ///   而误拒自带空格前缀的碎片。
+        ///   因此只有 key 首个字符是字母时才看左邻（防 "Windows" 被 "Window" 吃成「窗口s」），
+        ///   key 以空格或 `[` 起头则天然有边界。</summary>
         static string MatchKey(string s, int i)
         {
             if (i > 0 && IsLetter(s[i - 1]) && IsLetter(s[i])) return null;   // 不许从词中段起头
@@ -1490,9 +1338,8 @@ namespace CW3Hanhua
         ///   · 返回 ""   → 这一行**故意不画字**
         /// 白名单只有两个键，`TryGetValue` 不中就 return null，等于「父节点名必须是这两个」。
         ///
-        /// ★ 字的**位置**（用户 m01865 调过一次）：4 行实际只放 2 个字，一开始放在
-        ///   Label0/Label1（-7/-17），结果两个字挨在一起、下半截空一大块。改成
-        ///   Label0/Label2（-7/-27），中间空一行，视觉上就均匀了。想再松/再紧就挪下标。
+        /// ★ 字的**位置**：4 行实际只放 2 个字，放在 Label0/Label2（y=-7/-27），
+        ///   中间空一行（Label1/Label3 设为空串），视觉分布均匀。
         /// </summary>
         static readonly Dictionary<string, string[]> tabSlots = new Dictionary<string, string[]>
         {
@@ -1590,10 +1437,8 @@ namespace CW3Hanhua
         }
 
         // ================================================================ 开关
-        // ★ 2026-10-23：F4 已退役，文本层不再有自己的按键 —— 它跟着字体层的
-        //   **汉化总开关（F3）**一起动。v1.0.0 起两层在同一个程序集，HanhuaPlugin
-        //   直接调下面这个 SetOn(bool)（旧版是反射调用，已删除）。
-        //   ★ 返回值是 bool（不是 void）：字体层靠它判断"到底切上没有"。
+        // 文本层跟随字体层的汉化总开关（F3）同开同关，由 HanhuaPlugin 直接调用 SetOn(bool)。
+        // 返回值表示当前状态是否已切换成功。
         public static bool SetOn(bool on)
         {
             try
@@ -1886,17 +1731,13 @@ namespace CW3Hanhua
             return t.Length <= n ? t : t.Substring(0, n) + "…";
         }
 
-        // ================================================================ Tick（原 Update）
-        // ★ v1.0.0：不再是 MonoBehaviour，改由 HanhuaPlugin.Update 每帧调用。
-        //   F3 不在本层（总开关在字体层），F5 / F9 在这里。
-        //   场景切换的检测与打日志由 HanhuaPlugin.Update 统一做（一处一帧一次），
-        //   本层只在那边发现切换后收到 OnSceneChanged()。原先两层各有一份检测，
-        //   合并后会把同一行日志打两遍（v1.0.0 已修）。
+        // ================================================================ Tick
+        // 由 HanhuaPlugin.Update 每帧调用，处理 F5（打印未命中清单）与 F9（重载词表）。
+        // 场景切换由 HanhuaPlugin.Update 统一检测并调用 OnSceneChanged()。
         public static void Tick()
         {
             try
             {
-                // F4 已退役：文本层现在跟着字体层的汉化总开关（F3）走。
                 if (Input.GetKeyDown(KeyCode.F5)) DumpMisses();
                 if (Input.GetKeyDown(KeyCode.F9))
                 {
@@ -1908,9 +1749,7 @@ namespace CW3Hanhua
             catch (Exception e) { Say("!! Tick 异常: " + e.Message); }
         }
 
-        /// <summary>场景切换：由 HanhuaPlugin.Update 检测到后调用（一个事件只调一次）。
-        /// 原先这段住在文本层自己的 Update 里，合并成一个插件后必须挪出来，
-        /// 否则两层各打一份「=== 场景切换 ===」日志。</summary>
+        /// <summary>场景切换时由 HanhuaPlugin.Update 调用，清理已销毁对象的替换记录与本场景未命中表。</summary>
         public static void OnSceneChanged()
         {
             try
@@ -1947,17 +1786,8 @@ namespace CW3Hanhua
             if (missSeen.Count == 0) Say("  （空 —— 本场景所有经过 ProcessText 的串都命中词表了）");
         }
 
-        // ================================================================ HUD
-        // ★ 2026-10-21：HUD 只报**开关状态**，内部数字全部移到 F11 的 dump
-        //   （TextPlugin.DumpLine）—— 用户明确要求"这些信息不用暴露给用户"。
-        //   宿主是 HanhuaPlugin 的 OnGUI。
-        //   ★ 2026-10-23：HudLine() 已删除。它返回的 "文本层:开/关" 与总开关
-        //     永远同步（两层由 F3 同生同死），摆在 HUD 上只会让人以为能分开调。
-        //     文本层的真实状态仍然在 F11 dump 的 `开关=` 里（见 DumpLine）。
-        //   ★ v1.0.0：本层不再有自己的 OnGUI 兜底条 —— 两层同一个插件，
-        //     不再有"对方没装载"这种情况。
-
-        /// <summary>F11 dump 用的一整行：所有数字都在这里（HUD 上不显示）。</summary>
+        // ================================================================ 状态与异常汇报
+        /// <summary>F11 dump 用的一整行统计摘要（HUD 上不显示内部统计数字）。</summary>
         public static string DumpLine()
         {
             try

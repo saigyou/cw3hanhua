@@ -121,8 +121,7 @@ def main():
             ph_bad.append((i, en, zh))
         # 前导空白必须逐字保留：靠它缩进对齐（'  地形：'）
         # 尾随空白：en 尾部若只是空格（拼接前缀，如 'Collected: '），
-        # zh 允许整段删掉——中文全角标点自带间隔，再缀半角空格违反
-        # 用户 2026-10-24 定的「中英混排不加空格」（见 tools/fix_tail_space.py）。
+        # zh 允许整段删掉——中文全角标点自带间隔，无需再缀半角空格（见 tools/fix_tail_space.py）。
         # 但 en 尾部若含换行/制表符，仍必须逐字保留。
         le = len(en) - len(en.lstrip())
         te = len(en) - len(en.rstrip())

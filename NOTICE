@@ -46,16 +46,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 LGPL-2.1 全文见同目录的 [LICENSE](LICENSE)。
 CC BY-SA 4.0 全文见 <https://creativecommons.org/licenses/by-sa/4.0/legalcode>。
 
-
-### 1.1 关于字形位图（`_cw3hanhua/_font/font_16.*` 等）
-
-`_cw3hanhua/_font/` 下的 `font_16.*`、`font_20.*`、`font_28.*` 是用
-`tools/bake_font.py` 从**微软雅黑 Bold**（`msyhbd.ttc`，Windows 自带系统字体）
-离线烘焙出的**字形位图与度量数据**。
-
-**本项目对这些文件不主张著作权**，也不对它们施加任何许可限制 —— 它们是构建过程的
-中间产物。
-
 ---
 
 ## 二、第三方版权内容
@@ -74,21 +64,15 @@ CC BY-SA 4.0 全文见 <https://creativecommons.org/licenses/by-sa/4.0/legalcode
 本项目**不包含**任何游戏本体文件（`CW3.exe`、`CW3_Data\` 下的资源与程序集、
 `*.assets`、`Managed\*.dll` 等一概没有）。使用者必须自行购买游戏。
 
-以下两个文件包含 Knuckle Cracker 的版权内容，其版权不因本项目的许可声明而改变：
+以下文件包含 Knuckle Cracker 的版权内容，其版权不因本项目的许可声明而改变：
 
-1. **`_cw3hanhua/_font/atlas_zh.png`**
-   这是游戏原版 GUI 图集（NGUI Atlas）的**扩展**版本：原图 512×1024 的像素被 1:1
-   原样贴在左上角，中文字形追加在下方（最终 4096×8192）。
-   保留原图像素是技术上的必需 —— 文字与 UI 精灵必须共用同一份材质，才能落在同一个
-   draw call 里，从而维持原版的遮挡关系。**原图像素部分的版权归 Knuckle Cracker。**
+- **`_cw3hanhua/_font/atlas_zh.png`**
+  这是游戏原版 GUI 图集（NGUI Atlas）的**扩展**版本：原图 512×1024 的像素被 1:1
+  原样贴在左上角，中文字形追加在下方（最终 4096×8192）。
+  保留原图像素是技术上的必需 —— 文字与 UI 精灵必须共用同一份材质，才能落在同一个
+  draw call 里，从而维持原版的遮挡关系。**原图像素部分的版权归 Knuckle Cracker。**
 
-   本文件在 LGPL-2.1 / CC BY-SA 4.0 下提供的，仅限于本项目新增的中文字形与其排版数据。
-
-2. **`_cw3hanhua/_dict/story_raw.json`**
-   这是从游戏 `resources.assets` 中提取的剧情对话原文（584 条，117,757 字符），
-   仅用于翻译对照与质量校验。**原文版权归 Knuckle Cracker。**
-
-   本文件在 CC BY-SA 4.0 下提供的，仅限于本项目附带的译文。
+  本文件在 LGPL-2.1 / CC BY-SA 4.0 下提供的，仅限于本项目新增的中文字形与其排版数据。
 
 ### 2.2 BepInEx
 
@@ -99,14 +83,14 @@ Release 包里内置了 [BepInEx](https://github.com/BepInEx/BepInEx) **5.4.23.5
 - 许可：**LGPL-2.1**（与本项目选择的许可相同）
 - 本项目**未修改** BepInEx 的任何二进制
 
-### 2.3 字体
+### 2.3 字体与字形位图
 
-中文字形由**微软雅黑 Bold**（`msyhbd.ttc`，Windows 自带）离线烘焙成位图，
-最终只以**像素图集**形式存在（`atlas_zh.png` + `atlas_zh.bin`）。
+`_cw3hanhua/_font/` 下的 `font_{16,20,28}.*` 以及最终合并图集 `atlas_zh.png` / `atlas_zh.bin`
+中的中文字形，均由 `tools/bake_font.py` 从 Windows 自带的**微软雅黑 Bold**（`msyhbd.ttc`）
+离线烘焙为位图与度量数据。
 
-**本项目不包含任何字体文件**，
-也没有打包字体的轮廓数据。字形本身的权利归字体版权方（微软 / 方正），
-不属于本项目作者；本项目对这些烘焙产物**不主张著作权**。
+**本项目不包含任何字体文件**，也没有打包字体的矢量轮廓数据。字形本身的权利归字体版权方
+（微软 / 方正）所有；本项目对这些烘焙产物**不主张著作权**，也不施加额外许可限制。
 
 ### 2.4 Mono.Cecil（工具链）
 
@@ -153,7 +137,3 @@ Release 包里内置了 [BepInEx](https://github.com/BepInEx/BepInEx) **5.4.23.5
 - **Harmony / HarmonyX** —— 运行时方法替换的基础设施。
 - **UnityPy** —— 解析与改写 Unity 资产文件。
 - **NGUI**（已停止维护）—— 游戏 UI 框架，本项目大量取证依赖其源码。
-
----
-
-*最后更新：2026-10-24*

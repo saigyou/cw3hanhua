@@ -23,13 +23,11 @@ if not exist "%CSC%" (
   exit /b 1
 )
 
-REM ---- v1.4.1: probe that we can overwrite the target BEFORE calling csc ----
-REM If the DLL was written by a different DSH sandbox session it carries that
-REM session's S-1-4-... SID; this session cannot overwrite it nor change its
-REM ACL, and csc only says "CS0016: could not write to output file -- access
-REM denied", which invites wild guesses such as "the game must be running".
-REM See NOTES.md 5.1. The probe copies the file out and back in place, which
-REM exercises exactly the same write path csc needs.
+REM ---- probe that we can overwrite the target BEFORE calling csc ----
+REM csc only reports "CS0016: could not write to output file -- access denied"
+REM without distinguishing a locked file, a read-only attribute, or an ACL
+REM permission mismatch. The probe copies the file out and back in place,
+REM exercising the same write path csc needs.
 set "WTEST=%TEMP%\cw3_wtest.tmp"
 set "PROBE=ok"
 if not exist "%PLUGDIR%\CW3Hanhua.dll" goto :probe_done
@@ -90,7 +88,6 @@ echo [ERROR] %PLUGDIR%\CW3Hanhua.dll has the read-only attribute set.
 echo.
 echo   That alone makes csc fail with "CS0016 ... access denied", and the fix
 echo     is one word:  attrib -r "%PLUGDIR%\CW3Hanhua.dll"
-echo   Nothing to do with a running game or with sandbox ACLs.
 echo.
 endlocal & exit /b 1
 
@@ -98,35 +95,16 @@ endlocal & exit /b 1
 echo.
 echo [ERROR] cannot overwrite %PLUGDIR%\CW3Hanhua.dll -- probe says: %PROBE%
 echo.
-echo   This is NOT "the game is still running". Check it in one second:
-echo     no process usually loads the DLL at this point, and an exclusive
-echo     open with FileShare.None succeeds even while this error appears.
+echo   Possible causes:
+echo     1. CW3.exe is still running and holding the DLL open.
+echo     2. Current process lacks write/modify permission on the existing file
+echo        or directory ACL (e.g. created by another user or elevated session).
 echo.
-echo   The likely cause is a DSH sandbox SID left over from an earlier
-echo     session. Every file carries a S-1-4-... ACE naming the sandbox
-echo     session that created it. If that is not THIS session, we can neither
-echo     overwrite the file nor change its ACL -- icacls fails as well.
-echo     Symptom: 'danger-full-access' builds in a previous session are the
-echo     usual culprit, because csc deletes and recreates the file.
+echo   Fix: close the game if running, or delete "%PLUGDIR%\CW3Hanhua.dll"
+echo     manually and run this script again.
 echo.
-echo   Fix: delete the file by hand, then run this script again. The rebuild
-echo     creates a fresh file owned by the current session and stays writable.
-echo.
-echo   Proof, right here -- compare the S-1-4-... line of the two files below.
-echo     The DLL's line should name the SAME session SID as the fresh file's.
-echo.
-echo   --- ACL of the DLL we cannot write ---
+echo   --- Current ACL of %PLUGDIR%\CW3Hanhua.dll ---
 icacls "%PLUGDIR%\CW3Hanhua.dll"
-echo   --- ACL of a file this session just created IN THE SAME DIRECTORY ---
-echo probe> "%PLUGDIR%\_cw3_sidprobe.tmp"
-icacls "%PLUGDIR%\_cw3_sidprobe.tmp"
-del "%PLUGDIR%\_cw3_sidprobe.tmp" >nul 2>&1
-echo.
-echo   Compare against a file in the SAME directory on purpose: a file written
-echo     to the TEMP directory is created by a different helper and carries a
-echo     different SID, so it would "prove" a mismatch that means nothing.
-echo.
-echo   Also rule out the read-only attribute first:  attrib "%PLUGDIR%\CW3Hanhua.dll"
 echo.
 endlocal & exit /b 1
 

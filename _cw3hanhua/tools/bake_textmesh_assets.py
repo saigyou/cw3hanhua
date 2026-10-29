@@ -20,9 +20,9 @@
 
 设计要点
 --------
-* **默认行为 = 先恢复再烘焙**。用户明确要求脚本"先把备份放回游戏目录，以清除之前修改的影响，
-  再对被放回的资产进行修改"。这样重复执行是幂等的，不会在已改过的文件上叠加改动
-  （叠加会出问题：第二次读到的 m_Text 已是中文，词表查不到，虽然不会写坏但会误报一堆"未命中"）。
+* **默认行为 = 先恢复再烘焙**。每次执行先把备份放回游戏目录以清除之前修改的影响，
+  再对干净的原始资产进行修改。这样重复执行是幂等的，不会在已改过的文件上叠加改动
+  （叠加会导致第二次读到的 m_Text 已是中文，词表查不到而误报"未命中"）。
 * **备份永不覆盖**。若目标备份已存在就跳过 —— 否则一旦在"已改过"的状态下再 --backup，
   就会把中文版当成原件存起来，原始英文就永久丢了。
 * **只改词表里查得到的串**。查不到的一律跳过（`Andro` / `4` / `DMD` 这些原本就不译，
@@ -59,9 +59,8 @@ CLASS_TEXTMESH = 102
 #   MainMenu 的 6 个 sprite 字段里有 3 个绑到了错误脚本 → 运行时是"壳在、native
 #   ptr=0"的死组件 → MainMenu.Update 的悬停比较链里 callvirt get_gameObject() 抛
 #   NRE → 点击检测（IL 0477）永远走不到 → 主菜单按钮点不动。
-# 踩过的弯路：因为 raw_data 逐字节相同，一度判定"烘焙无辜"，静态查了十几项全清白。
 #
-# 证据（2026-10-20）：不改任何文本、只 UnityPy.load → sf.save() 纯往返，
+# 证据：不改任何文本、只 UnityPy.load → sf.save() 纯往返，
 #   level1 就有 316 字节差异，**全部落在 metadata 区**；修掉本 bug 后差异 = 0。
 #
 # 病根在 ObjectReader.py:109-112：
@@ -161,23 +160,7 @@ def game_running():
 
 
 def precheck_writable(files):
-    """提前确认能不能覆盖这些文件，别等改到一半才炸。
-
-    ★ 踩过的坑（2026-10-20）：沙箱里跑 `.venv\\Scripts\\python.exe` 时**一个字节都写不进去**
-      （PermissionError: [Errno 13]），但同一 shell 里 pwsh 和系统装的那个 python
-      （本机是 python314）都能写。原因是 DSH 沙箱让「从工作区目录内启动的可执行文件」
-      以 **Low 完整性级别**运行，而游戏资产是 Medium —— Windows 的 no-write-up 规则
-      禁止低完整性进程覆盖高完整性文件（新建文件、删自己建的、写 _cw3hanhua 下的文件
-      都不受影响，所以看起来"权限正常"）。
-
-      解法：用系统 python 解释器 + venv 的 site-packages —— 它是在沙箱外直接启动的，
-      拿的是 Medium 完整性，能正常写：
-
-          $env:PYTHONPATH = "<根>\\_cw3hanhua\\.venv\\Lib\\site-packages"
-          & "<系统 python 的路径>" "_cw3hanhua\\tools\\bake_textmesh_assets.py"
-
-      下面这个探测就是为了把这条信息直接印出来，而不是丢一个裸的 errno 13。
-    """
+    """提前确认能否以读写模式打开目标资产文件，避免写到一半因权限不足中断。"""
     bad = []
     for fn in files:
         p = os.path.join(DATA, fn)
@@ -190,10 +173,7 @@ def precheck_writable(files):
             pass                      # 其它异常留给真正的写盘去报
     if bad:
         print("!! 无法覆盖这些资产文件（PermissionError）: %s" % ", ".join(bad))
-        print("   最可能的原因：当前 python 以 Low 完整性级别运行，而游戏文件是 Medium。")
-        print("   用系统 python（本机是 python314）+ venv 的 site-packages 重跑：")
-        print('     $env:PYTHONPATH = "%s"' % os.path.join(ROOT, ".venv", "Lib", "site-packages"))
-        print('     & "<系统 python 的路径>" "%s"' % os.path.abspath(__file__))
+        print("   请检查游戏是否仍在运行、文件是否为只读，或当前终端是否有 Program Files (x86) 目录的写权限。")
         return False
     return True
 
@@ -393,11 +373,9 @@ def main():
     print("游戏目录: %s" % GAME)
     print("词表: %s" % DICT)
 
-    # ★ --restore 必须在算 plan **之前**处理，且完全不依赖 plan。
-    #   踩过的坑（2026-10-20 用户实测）：--restore 排在 scan() 之后，而烘焙完之后
-    #   资产里已经是中文，scan() 按「英文原文查词表」自然返回空 → 走到
-    #   「没有需要改的 TextMesh」直接 return 0，**恢复根本没执行**，也没有任何报错。
-    #   恢复只需要 manifest，跟词表、跟 plan 一点关系都没有，所以提到最前面。
+    # ★ --restore 必须在算 plan **之前**处理，且完全不依赖 plan：
+    #   烘焙完之后资产里已经是中文，scan() 按「英文原文查词表」会返回空；
+    #   恢复只需要 manifest，与词表和 plan 无关。
     if args.restore:
         if game_running() and not args.force:
             print("!! 检测到 CW3.exe 正在运行，先退出游戏再恢复。确认无碍可加 --force。")

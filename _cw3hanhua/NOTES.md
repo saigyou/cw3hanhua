@@ -19,16 +19,14 @@
 | UILabel 文本怎么变中文 | `UILabel.ProcessText` 的 prefix + postfix（**全部 1029 个 UILabel 的必经之路**，见 3.3） |
 | TextMesh 文本怎么变中文 | 两条腿：**改资产**把 19 条静态串烘进 prefab（3.6 / 4.6）；**代码补丁**管运行时才写的那几条（`ShowText` / `set_starName` / `set_planetName`，4.6a） |
 | 游戏自带多语言 | **是死的**（词典为空、`Get` 零调用，3.7） |
-| 当前进度 | 字体层 ✅ / UILabel 文本层 ✅ / TextMesh 静态 19 条 ✅ / TextMesh 动态补丁 ✅ / 单 DLL + F3 合并 + 无条件自动开启 ✅ / v1.1.0 分段重组 ✅ / v1.3.0 CRPL 源头换字 ✅（用户游戏内确认）/ **v1.3.1 HUD 默认关 + 去掉文本层开关 + Cannon/ARM 定名 ✅** / **v1.3.2 单位标题与「Click or 'P'」修好 ✅** / Alternate=备用 ✅ / **v1.4.0 IMGUI 层（结算面板等）✅ 用户游戏内确认** / **`Tech: RELAY` 等 20 个枚举名 + 主菜单新闻条 ✅** / **主线关 CRPL 文案 193 条 ✅（`scan_crpl.py` 修多脚本解析，纯词表；冗余 LF 键清理见 4.7⑧）** / **v1.4.1 DMD 三项修正（`Map Size: 101x101` 里的 x、`LandingPad`、按钮宽 90px 超框）+ 未命中按模板去重 ✅ 2026-10-24** / **v1.5.0 `GUI.*` 第五层（Return to Origin、产品密钥界面等 6 处直调点）✅ 2026-10-24** / **CRPL 短台词 6 条（`Lies!` 等）✅ 2026-10-25，`scan_crpl.py` 改按调用点收实参，见 4.7⑩** / **过场台词缺右括号 2 条 ✅ 2026-10-25，引号跨条目配对，见 4.17** / **地图编辑器单位名 `AntiEmitter`→AC发射器 + 同一 popup 补 8 条 ✅ 2026-10-26，纯词表，见 4.7⑪** / **v1.5.1 页签特判（竖排 `Terr`/`Unit` → 地形/单位）✅ 2026-10-26，`SpecialLabel()`，见 4.7⑫** / **v1.5.2 括号旁空格归一（CRPL 台词 `Clap clap...` 露英文）+ `逆波兰语言` 错译 ✅ 2026-10-27，见 4.18** |
+| 当前进度 | **全部核心模块已落地并实测通过（v1.5.2）**：<br>① **字体层**：离线烘焙 4096×8192 合并图集 + 单 DLL 无条件自动开启 + F3 总开关 / F12 HUD（默认关，4.1 / 4.4）<br>② **文本层五条替换路径**：`UILabel.ProcessText`（含四级查表链 + `SpecialLabel` 竖排页签特判，4.3 / 4.7⑫）、TextMesh 5 个动态写入点（4.6a）、`CrplCore.ProcessCommands` postfix（4.7④）、`GUILayout.*` IMGUI 层（4.3a）、`GUI.*` 精确命中层（4.12）<br>③ **静态资产烘焙**：19 条 Static TextMesh 离线烘焙脚本与回归校验（4.6）<br>④ **词表与排版**：2351 条译文（含全部主线剧情 XML、CRPL 关卡脚本、编辑器枚举与词缀）、中英混排去空格（4.13）、CRPL 括号空格归一与术语修正（4.18） |
 | 排查 NGUI 怪现象 | **先 `tools\ilspy.cmd` 反编译真实实现再推理** —— 本项目最有效的动作 |
 | 想量化文本量 | **不要靠跑游戏**，跑 `tools\collect_ui_strings.py`（静态扫全部 IL + 资产） |
 
-### 协作硬规则（用户明确要求过）
+### 协作硬规则
 
 1. **不要自己判断 Steam 是否在运行 —— 直接问用户。**
-   DSH 的 shell 跑在 **Low 完整性级别**，进程全表枚举**看不到**高完整性进程
-   （实测：活跃的 `steam.exe` PID 28188 能用 `-Id` 拿到，却不在全表 42 个进程里）。
-   **「枚举看不到」≠「没在运行」**；`-ErrorAction SilentlyContinue` 还会把权限错误吞成"没找到"。
+   受限终端环境可能看不到高完整性进程，「枚举看不到」≠「没在运行」；`-ErrorAction SilentlyContinue` 还会把权限错误吞成"没找到"。
 2. **不要自行启动 Steam 或游戏本体。** 需要时明确告知用户要做什么。
 3. **实验前先讨论。组改之前先问。** 一次只改一个变量。
 4. **除非用户显式命令，否则不要 git 提交。**
@@ -43,11 +41,11 @@
 | 游戏本体 | **原版**，资产零改动（4.4a） |
 | 存档与设置 | 已清空重建（`Documents\creeperworld3`、`%APPDATA%\creeperworld3`） |
 | BepInEx 5.4.23.5 | **已启用**（`winhttp.dll` 就位；注入点改动见附录 A） |
-| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.5.1** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2351 条**）；**五条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）、`GUI.*` 的 String 重载只做精确命中（v1.5.0，4.12）。**五层全部已实测通过**。 |
-| 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」），**用户已目视确认效果好多了**（提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
+| 插件（**单 DLL**） | `BepInEx/plugins/CW3Hanhua.dll` **v1.5.2** = `plugin/CW3Hanhua.cs`（字体层）**+** `plugin/CW3HanhuaText.cs`（文本层）<br>唯一的 `[BepInPlugin("cw3hanhua.core")]` 在字体层，文本层是同程序集普通类 `TextPlugin`，两层之间**零反射**（4.1）。<br>① 字体层：合并图集 + HUD（**默认关闭**，F12 开）+ 启动**无条件自动开启**（无配置项，4.1）。<br>② 文本层：读 `_dict/zh_cn.dict`（**2351 条**）；**五条替换路径**（4.3）：`ProcessText` 覆盖全部 UILabel、5 个 TextMesh 写入点、`CrplCore.ProcessCommands` postfix 覆盖全部 CRPL 消息、`GUILayout.*` 文字重载覆盖全部 IMGUI 界面（4.3a）、`GUI.*` 的 String 重载只做精确命中（v1.5.0，4.12）。**五层全部已实测通过**。 |
+| 合并图集 | `_font/atlas_zh.png` 4096×8192（6.0MB）+ `_font/atlas_zh.bin` —— **字体层的全部运行时输入**（4.4）<br>**2026-10-21 已修 alpha 平方 bug 并重建**（详见 4.4「已修的 bug」，提交 `cd60b9a`）。回退旧版本：`git cat-file blob 4933cf5:_cw3hanhua/_font/atlas_zh.png > _font/atlas_zh.png`（`.bin` 未变，不用换） |
 | 字形度量 | `_font/font_{16,20,28}.{json,png}` —— **重烘图集的必需输入**<br>雅黑 Bold @ `--scale 0.80`，每套 **7544 字形**。改了字集必须重跑 `build_atlas.py`。**这两个值就是 `bake_font.py` 的默认值**（`DEFAULT_FONT`/`DEFAULT_SCALE`），裸跑即可复现（4.1） |
 | 按键 | **F3 汉化总开关**（两层一起开/关）/ **F5** 打印未命中 / **F9** 重载词表 / **F11** dump / **F12** HUD（共 5 个；**F4 已于 2026-10-23 退役并入 F3**）<br>启动**无条件自动开启**（**无配置项**，4.1「自动开启」） |
-| 待办 | `Andro` / `DMD` / `'4'` 是否翻待定（4.7②）；`' sec'` / `' spores'` 等尾缀常量保持英文（4.7①）；其余待确认项见 4.7② |
+| 待办 | `Andro` / `DMD` / `'4'` 是否翻待定（4.7②）；其余零星边缘项见 4.7② 与 4.15 末段 |
 
 **启用 / 停用 BepInEx**
 
@@ -280,7 +278,7 @@ for (...) Fill(mChanged.buffer[k]);      // ← 只填这些
 
 ### 4.1 字体烘焙与插件按键
 
-**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → 同一个 `CW3Hanhua.dll` v1.5.1，共 5 个）**
+**按键（`plugin/CW3Hanhua.cs` + `plugin/CW3HanhuaText.cs` → 同一个 `CW3Hanhua.dll` v1.5.2，共 5 个）**
 
 | 键 | 层 | 作用 |
 |---|---|---|
@@ -483,7 +481,7 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 - 译稿用**序号字典** `{"zh": {"3": "译文"}}`，缺省项视为 `@`（跳过不译）；
   **不要用数组形式**（漏一项就整体错位，踩过一次：89 vs 88，后 60 条全串行）。
 
-### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.5.1）
+### 4.3 文本层（`CW3HanhuaText.cs` → 编进 `CW3Hanhua.dll` v1.5.2）
 
 **查表链（四级，v1.1.0 新增第四级）**：
 
@@ -491,10 +489,10 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 |---|---|---|---|
 | 1 | `dict[s]` 精确 | 整串在词表里 | 运行时拼出来的串 |
 | 2 | `LookupConcat` | 在 `'\n'` 处切两段、两段都精确命中 | 没有换行的拼接；尾段不在词表 |
-| 3 | `LookupNormalized` | CRLF / 连续空格 / 尾部空白差异 | 真的不是同一串 |
+| 3 | `LookupNormalized` | CRLF / 连续空格 / 括号旁空格（v1.5.2） / 尾部空白差异 | 真的不是同一串 |
 | 4 | **`LookupSegment`** | **碎片常量 + 运行时值**（色标透传、变量透传） | 有字母消费不掉（全有或全无） |
 
-前三级一字未动，第四级纯兜底。`LookupSegment` 的规则表与踩坑见 **4.7③**。
+前三级一字未动（v1.5.2 在第三级补了 CRPL 括号旁空格归一，见 4.18），第四级纯兜底。`LookupSegment` 的规则表与踩坑见 **4.7③**。
 `HasCjk` 闸门在第四级之前：**串里已有汉字就直接不翻**，防止 TextMesh 那条路
 把写进去的中文再喂回来二次改写。
 
@@ -518,14 +516,15 @@ $p = "_cw3hanhua\.venv\Scripts\python.exe"
 **日志也合并成一份**：`TextPlugin.Say` 转发到 `HanhuaPlugin.Say`，两层每行都同时进控制台和
 F11 的 dump，**一个文件看全两层**。装载顺序问题随之消失（同一个 DLL = 同一个 `Awake`）。
 
-**替换路径（就这四条，别处没有）**
+**替换路径（共五条，别处没有）**
 
 | 路径 | 覆盖什么 | 实现 |
 |---|---|---|
 | `UILabel.ProcessText` **prefix + postfix/finalizer** | **全部 1029 个 UILabel**：运行时动态文本 + 资产序列化的 `mText` | 见 3.3 |
 | `PreludeManager/EpilogueManager/DemoScreenManager.ShowText` **prefix 改 `__0`** + `StarManager.set_starName` / `PlanetManager.set_planetName` **postfix 只改 TextMesh** | TextMesh 五个写入点：三段过场台词（31+21+10 处调用）、星区名、星球名 | 见 4.6a，**name setter 不能改入参** |
 | `CrplCore.ProcessCommands` **postfix 改 `GameSpace.message`** | **全部 CRPL 教学提示**（`ShowMessage` / `ShowMessageDismissible` 的唯一出口） | 见 4.7④ |
-| **`GUILayout.Label/Box/Button/RepeatButton/Toggle` 的文字重载 prefix 改 `__0`/`__1`** | **全部 IMGUI 界面**：结算/在线得分、地图编辑器（237 处）、殖民空间站（88 处）、世界机器（74 处）、统计成就等 —— 689 处 `GUILayout.*` 调用 | 见 4.3a（v1.4.0） |
+| **`GUILayout.Label/Box/Button/RepeatButton/Toggle` 的文字重载 prefix 改 `__0`/`__1`** | **全部 IMGUI 自动布局界面**：结算/在线得分、地图编辑器（237 处）、殖民空间站（88 处）、世界机器（74 处）、统计成就等 —— 689 处 `GUILayout.*` 调用 | 见 4.3a（v1.4.0） |
+| **`GUI.Label/Box/Button/RepeatButton` 的 `(Rect, String[, GUIStyle])` 重载 prefix 改 `__1`** | **固定矩形 `GUI.*` 直调界面**：`Return to Origin`、产品密钥界面、`Menu.OnGUI` 等（只做精确命中） | 见 4.12（v1.5.0） |
 
 **代价（可接受）**：`label.text` 与屏上显示不一致（屏上中文、`.text` 英文）。
 `mSize` 是按中文算的 —— 这正是我们要的，字宽/换行/`mShrinkToFit` 全对。
@@ -568,7 +567,7 @@ TextMesh 那五个写入点登记在独立的 `meshSwaps`（`MeshSwap = {mesh, e
   旧版按整串去重，`Collected: 12` 换个数字就是一条新记录，400 条几秒就爆，
   **真正缺的模板挤不进来** —— 「F5 里没有」不能当成「没经过补丁点」的证据（4.11）。
 - **F11 dump 里那一行**（v1.0.0 起直接调 `TextPlugin.DumpLine()`）：
-  `文本层 v1.5.1  开关=…  词表=…  prefix=调用/命中  拼接=…  分段=…  mesh=调用/命中  crpl=调用/命中  imgui=调用/命中(已装重载数)
+  `文本层 v1.5.2  开关=…  词表=…  prefix=调用/命中  拼接=…  分段=…  mesh=调用/命中  crpl=调用/命中  imgui=调用/命中(已装重载数)
   gui=调用/命中(已装重载数)  页签=…  未命中=…  CRPL字体=…`（`未命中=` 后面的数字从 v1.4.1 起是**模板种数**，不是串数；`gui=` 那一段是 v1.5.0 新加的 GUI.* 精确命中层，见 4.12；`页签=` 是 v1.5.1 新加的页签特判命中数，见 4.7⑫）。
   `prefix` 计数不动 = 补丁没装上；`mesh` 计数不动 = TextMesh 那五个补丁没装上或那段文本没被写过；
   **`分段` 计数不动 = 一条运行时拼接串都没走到第四级**（说明前三级全接住了，或者补丁没装）；
@@ -861,27 +860,17 @@ Aldrich 空格 = 0.300 em。18 条主菜单译文平均只占英文宽的 **68%*
 
 ```powershell
 # 备份（幂等，永不覆盖已有备份）→ _cw3hanhua\_assets_orig\（71.5 MB，已 gitignore）
-$env:PYTHONPATH = (Resolve-Path "_cw3hanhua\.venv\Lib\site-packages").Path
-& "<系统 python（本机是 python314）>" _cw3hanhua\tools\bake_textmesh_assets.py --backup
-& "<系统 python（本机是 python314）>" _cw3hanhua\tools\bake_textmesh_assets.py --dry-run   # 看会改什么
-& "<系统 python（本机是 python314）>" _cw3hanhua\tools\bake_textmesh_assets.py             # 恢复+烘焙
-& "<系统 python（本机是 python314）>" _cw3hanhua\tools\bake_textmesh_assets.py --restore   # 全部还原
+$py = "_cw3hanhua\.venv\Scripts\python.exe"
+& $py _cw3hanhua\tools\bake_textmesh_assets.py --backup
+& $py _cw3hanhua\tools\bake_textmesh_assets.py --dry-run   # 看会改什么
+& $py _cw3hanhua\tools\bake_textmesh_assets.py             # 恢复+烘焙
+& $py _cw3hanhua\tools\bake_textmesh_assets.py --restore   # 全部还原
 ```
 
 **先把备份复制回游戏目录（清除旧修改）→ 再从备份副本重新烘焙 → 写回**，所以反复运行幂等
 （实测第二次跑打印「已是原始状态，无需恢复」）。只改 ① 类 20 条中的 19 条（`DMD` 词表无译文，
 跳过）；②③ 类不动。自带回读校验（写完重新解析资产、逐条比对中文），实测 **19/19 通过**。
 （UnityPy 重打包会重排字符串表，六个文件体积有小幅变化，属正常。）
-
-**★ 沙箱坑：`.venv\Scripts\python.exe` 写不进游戏资产**
-
-现象 `PermissionError: [Errno 13] Permission denied: 'CW3_Data\level1'`，而同一 shell 里 `pwsh` 和
-系统装的那个 python（本机是 python314）都能写。根因：DSH 沙箱让「**从工作区目录内启动的可执行文件**」以
-**Low 完整性级别**运行，游戏资产是 Medium —— Windows 的 no-write-up 规则禁止低完整性进程覆盖
-高完整性文件；新建文件和写 `_cw3hanhua` 下自己的文件都不受影响，所以只有覆盖资产这一步失败，
-极易误判成"文件被占用"。**解法：系统 python + venv 的 site-packages**（`$env:PYTHONPATH` 指到
-venv 的 `Lib\site-packages`，由沙箱外的系统 python 启动，拿 Medium 完整性）。
-脚本里 `precheck_writable()` 会直接把这条建议印出来。**只读脚本用 venv 跑没问题。**
 
 **★ `--restore` 曾静默失效（已修）**：资产已是中文后跑 `--restore` 什么都不做、退出码 0。
 根因：`--restore` 排在 `plan = scan(d)` 之后，而 `scan()` 按「英文原文查词表」生成计划 ——
@@ -1007,9 +996,7 @@ CommandCenter.GetUnitTitleDisplay(UnitManager)   token=0x06000A33  RVA=0x46EA4  
 `Armed:`、`Pad:`（两种颜色）、`Ammo:`（两种颜色）、`Energy:`（两种颜色）、`Aether:`、
 `Fully Upgraded!`。**故意不译** `AC:`（术语表规定 AC 保留英文）。
 
-**仍未覆盖的**：`Interval: 3 sec` / `Spawn Interval: 3 sec` 这类**尾缀**常量
-（`' sec'` 不在词表），以及 `MELEE`/`SPORE` 等被拼进名字的词。要覆盖得先补
-`' sec'`→`' 秒'` 这类尾缀条目；目前 `sec` 保持英文，属可接受残留。
+**后续已补齐的尾缀**：`Interval: 3 sec` / `Spawn Interval: 3 sec` / `1 spores` 这类数值 + 量词尾缀，已在 **4.15** 中通过新增 `' sec'`→`'秒'`、`' spores'`→`'枚孢子'` 等词缀条目覆盖。
 
 #### ② 其它待确认
 
@@ -1307,7 +1294,7 @@ for part in m.group(1).split(";"):
 | CRPL 键 | 193 条 ShowMessage 键对原始资产字面量 | 不在 **0**（反向只差 2 条故意不译的 `at facility`、`Closest Unit `） |
 
 **★ 走过的弯路：不要用「语料池覆盖面」判断死键。** 思路是把 DLL `#US` 堆、CRPL 字面量、
-`uilabel_inventory.json` / `textmesh_inventory.json`、`story_raw.json` / `story_candidates.json`、
+`uilabel_inventory.json` / `textmesh_inventory.json`、`story_candidates.json`、
 以及全部批次 key 合成一个池子，池里没有的就算死键。**结果误报 978 条** ——
 其中数百条 Dialog 剧情、295 条 Name 关卡名、大量 NGUI/`VectorLine` 编辑器警告，
 **这些确实存在于游戏里、用户已经在游戏里见过**。语料天然收不全，这条路只会制造误报，
@@ -1335,7 +1322,7 @@ The trains that come from the station have random targets. After one\ntrain…
 `tools\ilspy.cmd` 重生成）、`%TEMP%\cw3_commit_msg.txt`。
 **不是临时文件、要入库**：`_dict/crpl_all.json`、`_dict/crpl_todo.txt`、`_dict/crpl_zh_src.txt`、
 `tools/build_crpl_batch.py`（`build_crpl_batch.py` 依赖前两个重建英文键）。
-先例：`story_raw.json`、`story_candidates.json`、`uilabel_inventory.json`、
+先例：`story_candidates.json`、`uilabel_inventory.json`、
 `textmesh_inventory.json` 都已入库。
 
 #### ⑨ `GUI.*` 家族整片没覆盖（记作「A」，**已于 v1.5.0 解决，方案 A2**）
@@ -1345,8 +1332,7 @@ v1.4.0 的 IMGUI 层只遍历 `typeof(GUILayout)`。**带显式 `Rect` 的 `GUI.
 `Return to Origin`（两处同构）、`Enter Key`、`Clear`、`Arc Eternal`、
 `Invalid Key.  Double check the key and try again.`、`Creeper World III`（最后一条词表还缺）。
 
-**→ 2026-10-24 v1.5.0 已按方案 A2 解决**（用户 m01714「我支持A2 + 不译 Creeper World III」、
-m01762「开始做」）。含调用链互不干扰的实证与矩形核对表，见 4.12。
+**→ 2026-10-24 v1.5.0 已按方案 A2 解决**（保留 `Creeper World III` 英文原名）。含调用链互不干扰的实证与矩形核对表，见 4.12。
 讨论前必须解决的那个 v1.2.0 教训（在 `GUI.Label` 里按宽度猜盒子会误伤
 `SGT_CameraFPS` / `SGT_CameraMessage` / `KeyEntryGUI` 的定宽盒子）——
 A2 的答案是**压根不猜**：只做精确命中、一行 Rect 都不碰，所以那个教训不需要被「解决」，被绕开了。
@@ -1499,9 +1485,9 @@ TerrButton` 下有 4 个 label，`mText` 分别是 `T`/`e`/`r`/`r`（各占一�
 「页签没报未命中」是误判。
 
 **单字母绝不能进词表**：`MatchKey` 的「全有或全无」设计下，键 `T` 会把所有含 T 的串拆碎
-（`CW3HanhuaText.cs` 里专门有注释讲这件事）。当时记录的两条路是
+（`CW3HanhuaText.cs` 里专门有注释讲这件事）。可选方案是
 (a) 改资产（8 个 label 的 `mText`；资产已烘焙过，得走恢复+重烘流程）、
-(b) 插件按 GameObject 名特判（要重编译 DLL）。**用户 m01592 选了 (b)**，已在 v1.5.1 落地。
+(b) 插件按 GameObject 名特判（重编译 DLL）。最终采用方案 (b)，已在 v1.5.1 落地。
 
 **入库与验证（全绿）**：`strings.json` 3530 → **3538 条**；
 `zh_cn.dict` **2342 → 2351 条 / 250 336 字节**（+9 条 / +300 字节）；
@@ -1534,7 +1520,7 @@ TerrButton` 下有 4 个 label，`mText` 分别是 `T`/`e`/`r`/`r`（各占一�
 在**任意串**里把这个字母消费掉 —— `MatchKey` 的「全有或全无」设计就是为了防这个，
 `CW3HanhuaText.cs` 里专门有注释（v1.3.2）。而且 `level1` 有一堆**真的**单字母按键 label
 （`A`/`C`/`E`/`F`/`X`…），往词表里加 `T`/`U` 必误伤。⇒ 只能走插件特判或改资产，
-用户 m01592 选了插件特判。
+最终采用插件特判方案。
 
 **做法（v1.5.1）**：`plugin/CW3HanhuaText.cs` 里加一张极小白名单 + 一个 `SpecialLabel()`：
 
@@ -1586,8 +1572,8 @@ else zh = Lookup(en);
 **`GUI Atlas`** —— 就是 `EnsureMergedAtlas()` 换纹理的那一个，`ApplyFont()` 会遍历
 `Resources.FindObjectsOfTypeAll(typeof(UIFont))` 把它一起换掉。**不需要额外字体工作。**
 
-**字的间距（用户 m01865 实测后调过一次）**：4 个 label 的 `y` 是 `-7 / -17 / -27 / -37`，
-一开始把两个字放在 `Label0`/`Label1`（-7/-17），**两个字贴在一起、下面空一大块**；
+**字的间距**：4 个 label 的 `y` 是 `-7 / -17 / -27 / -37`，
+若把两个字放在 `Label0`/`Label1`（-7/-17），两个字会贴在一起、下面空一大块；
 改成 `Label0`/`Label2`（-7/-27）中间空一行，视觉就均匀了。
 白名单数组的下标 = 行号，想再松/再紧直接挪下标，不用碰资产。
 
@@ -1823,7 +1809,7 @@ A2 的答案是**根本不猜**（只精确命中、不碰 Rect），所以这�
 `GUI.Xxx(Rect, String, GUIStyle)`。它们**不经过 GUILayout**，所以既翻不掉、也不会在日志里
 留下未命中（4.11 的 `Return to Origin` 就是这么来的）。
 
-**用户选型**（m01714「我支持A2 + 不译 Creeper World III」、m01762「开始做」）：
+**设计选型**：
 - **A1**：全量打 + 完整 `LookupSegment` —— 能顺带译出 `FPS: 60.0` 这类拼接串。
 - **A2（采用）**：全量打 + **只做精确命中**（`LookupGuiExact`，只查 `dict[en]`）。
 - A3：只给白名单 6 条打 —— 要逐处特判，不做。
@@ -1833,7 +1819,7 @@ A2 的答案是**根本不猜**（只精确命中、不碰 Rect），所以这�
 分段拼出来的串长度不可控，一个 `Map Size: 1x1` 可能变成比 `101x101` 更长的中文。
 所以这一层的纪律是：**查不到就不动，宁可漏译也不猜。**
 
-**关键实证：两族入口在类型上不重叠，所以不会互相干扰**（这是 m01714 直接问的那个问题）
+**关键实证：两族入口在类型上不重叠，所以不会互相干扰**
 ```
 GUILayout.Label(string A, …)   0002: call GUIContent.Temp(String)   ← 立刻转成 GUIContent
                                0011: call GUILayout.DoLabel(GUIContent, GUIStyle, GUILayoutOption[])
@@ -1880,7 +1866,7 @@ GUILayout.Label(string A, …)   0002: call GUIContent.Temp(String)   ← 立刻
 | 同上 | `Enter your product key below.\n…` | 600 宽，fontSize 14 | 两行，第一行 15 字 ≈210 | ✓ |
 | `Menu.OnGUI` | `Clear` | — | 清除 | ✓ |
 
-**不译 `Creeper World III`**（用户 m01714 同批拍板）：它是游戏名本身，且 fontSize 36、Rect 只有 270 宽。
+**不译 `Creeper World III`**：它是游戏名本身，且 fontSize 36、Rect 只有 270 宽。
 词表 zh 留空 ⇒ `dict` 里根本没这条 ⇒ `TryGetValue` 返回 false ⇒ 自然跳过。**不需要为它写特判。**
 
 **刻意不覆盖 `ComboBox.List`**：它用 `GUI.Button(Rect, GUIContent, GUIStyle)`，`GUIContent` 由调用方
@@ -1897,8 +1883,8 @@ GUILayout.Label(string A, …)   0002: call GUIContent.Temp(String)   ← 立刻
 
 ### 4.13 ★ 去掉译文里中英混排的空格（2026-10-24）
 
-**症状**（用户 m00003，附 Lia 对话框截图）：「更糟的是，魔苋⌷/复制极快……」——
-`魔苋` 后面凭空多出一个换行；用户同时注意到 `Creeper` 后面也有。
+**症状**：Lia 对话框里「更糟的是，魔苋⌷/复制极快……」——
+`魔苋` 后面凭空多出一个换行，`Creeper` 后面同样会出现异常折行。
 
 **根因不是译文里有 `\r`，是 NGUI 把行尾空格改写成了 `\n`。**
 `UIFont.WrapText` 的 `EndLine` 里有一句
@@ -1909,103 +1895,51 @@ GUILayout.Label(string A, …)   0002: call GUIContent.Temp(String)   ← 立刻
 **空格是哪来的**：早期按「中英混排加空格（盘古之白）」在外语词两侧留了空格，
 `tools/story_normalize.py:29` 的 `Digitalis → 魔苋` 换词时**只换词、不清两侧空白**，
 于是 8 条剧情（`08_campaign.out.json` 的 id 313/315/316/317/318/319/321/323）留着 `被 魔苋 包围`。
-全库 29 条 `魔苋`，其余 21 条本来就紧贴，所以只有这 8 条可见。
 
-**用户决定（m00287，原文）**：「不对，不管是专有名词两侧，还是中英混排，都不需要加空格。
-修改译文和翻译规则。」⇒ **全面去空格，不是只修魔苋。**
+**排版原则定案**：**不管是专有名词两侧，还是中英混排（含隔着半角标点的情形），一律不加空格**。
 
 **做了什么**：
 
 | 动作 | 文件 |
 |---|---|
-| 新工具：按字符类别判定删空格，可反复运行 | `tools/fix_spaces.py`（新，四个 target：`strings` / `work` / `batches` / `both`） |
+| 新工具：按字符类别判定删空格，可反复运行 | `tools/fix_spaces.py`（四个 target：`strings` / `work` / `batches` / `both`） |
 | 加两条收尾规则（`Digitalis` 换词后清两侧） | `tools/story_normalize.py`（RULES 第 30-35 行附近） |
 | 规则写进术语表（新增「排版：空格」一节） | `_dict/glossary.md` |
 | 规则写进翻译规范（硬性规则 5b） | `_dict/story_work/TRANSLATION_BRIEF.md` |
-| 实际改译文 | `_dict/story_work/*.out.json` 190 条 / 337 空格；`_dict/batches/*.json` 178 条 / 326 空格；`_dict/strings.json` 366 条 / 658 空格 |
-| 重编译词表 | `tools/build_dict.py --include-other` → 2319 条 / 248709 字节 |
+| 批量清洗译文并重编译词表 | `_dict/story_work/*.out.json`、`_dict/batches/*.json`、`_dict/strings.json` → `tools/build_dict.py --include-other` |
 
 **`batches/*.json` 也要清**，这条容易漏：它是 en→zh 平面映射，将来谁跑一次
 `apply_translations.py --override` 就会把旧译文灌回 `strings.json`，空格原地复活。
 `fix_spaces.py` 默认 `--target both` 已包含 `batches`。
 （反过来说：**改完译文后若重跑了 `apply_translations.py`，必须再跑一遍 `fix_spaces.py`
-并重建 dict**。本次的顺序是 work → strings → batches → `apply_translations --override` → `build_dict`。）
+并重建 dict**。）
 
-**`fix_spaces.py` 的判定规则**（只处理单个 U+0020，两侧都非空白）：
-字符分四类 `IDEO`（汉字）/ `LAT`（拉丁字母数字）/ `PUNCT`（中文全角标点）/ `OTHER`，
-**一侧是汉字时删**（另一侧是 LAT/IDEO/PUNCT 均可），**`PUNCT` 与 `LAT` 相邻时也删**。
-颜色标记 `[ffffff]` / `[-]` 视为透明，判邻字符时跳过。
-**刻意保留**三类：多空格列对齐（`A：45 J     B：10800 J`）、行首尾拼接空白
-（`PACKET SPEED.  ` 这种，见术语表「保留不译」）、纯拉丁文本内部（`Knuckle Cracker, LLC`、
-`Finn M-K`、URL）。**没动任何 `\n`**：改动前后逐条比对，换行数变化的条目 **0**。
+**`fix_spaces.py` 的最终判定规则**（只处理单个 U+0020，两侧都非空白）：
+1. 字符分四类 `IDEO`（汉字）/ `LAT`（拉丁字母数字）/ `PUNCT`（中文全角标点）/ `OTHER`，
+   **一侧是汉字时删**（另一侧是 LAT/IDEO/PUNCT 均可），**`PUNCT` 与 `LAT` 相邻时也删**。
+2. **颜色标记与半角标点均视为透明**：判邻字符时跳过 `[ffffff]` / `[-]` 以及
+   `PUNCT_ASCII = set(":'\"()[]{}<>/\\|-_+=*&^%$#@!?.,;~")`（`skip_left` / `skip_right` 继续往外找非标点字符），
+   从而一并清掉 `按 '[ffff00]C[-]' 克隆` → `按'[ffff00]C[-]'克隆`、`(PZ) 挖掘机是关键` → `(PZ)挖掘机是关键`。
+   （注：`PUNCT_ASCII` 必须用 `set` 而非 `str`，否则 `'' in s` 恒真会死循环。）
+3. **三段符号夹空格折叠**：`RX_TRIP = re.compile(r"([^\s])[ \t]([-=+\u2014/])[ \t]([^\s])")` → `\1\2\3`，
+   处理 `20 - 256`、`麻烦列车01 - 教程`、`-1 = 不限制` 等结构。
+4. **刻意保留**三类：多空格列对齐（`A：45 J     B：10800 J`）、行首尾拼接空白
+   （`PACKET SPEED.  ` 这种，见术语表「保留不译」）、纯拉丁文本内部（`Knuckle Cracker, LLC`、
+   `Finn M-K`、`teks006 AC是关键` 里的 `teks006 AC`、`Creeper World`、URL）。
 
-**验证**：`strings.json` 里「汉字与拉丁数字相邻的单空格」剩 **0**；`zh_cn.dict` 解出来同样 **0**；
-`魔苋` 29 条全部无空格侧；`check_charset.py` 1607 字符全在图集内；
-`story_normalize.py` 连跑两遍第二遍命中 **0**（幂等）；`fix_spaces.py` 重跑 **0 条改动**；
-`verify_lookup.py --idempotent` 0 条被改写。
-另做了一次**逐条反证**：`strings.json` 与备份比 366 条不同，把空格全删掉后比较，
-**差异不能用空格解释的有 0 条** —— 说明这次只动了空格，没碰任何字。
-`\n` 数量：改动前后逐条比对，变化的条目 **0**。
+**验证**：
+- `strings.json` 与 `zh_cn.dict` 中「汉字↔拉丁（含隔半角标点）仍带单空格」残留为 **0**；
+- `fix_spaces.py` 重跑 **0 条改动**（幂等）；`verify_lookup.py --idempotent` **0 条**被改写；
+- 与清洗前备份逐条对比：换行数变化 **0 条**，去掉空格后仍不同的 **0 条**（只动空格，未改动任何文字）；
+- `check_charset.py`：1607 字符全在图集内。
 
-**留了两条拉丁-拉丁的空格没删**：`teks006 AC是关键`（en `teks006 AC is key`）。
-`teks006` 和 `AC` 都是拉丁串，中间那个空格属于「纯拉丁文本内部」，按规则保留。
-同理 `Creeper World` 里的空格也保留。
-
-**还有一类按规则保留、共 31 处 / 23 条**（↓ 这一段已被下一段「第二批」推翻，留作历史记录：
-当时判断是「暂按保留处理」，用户 m00563 说「也一并清掉」，这些最后全删了）：空格两侧是中英混着的，但**紧邻的是半角标点而不是汉字**，
-例如 `按 '[ffff00]C[-]' 克隆上次编辑的单位。`、`在星球上按住 'M' 可拖动它。`、
-`（仅允许字母、数字、_ 和 - ）`、`麻烦列车01 - 教程`、`(PZ) 挖掘机是关键`、
-`应用筛选 (`、`" 以选取鼠标下的地形高度。`、`日期：1014, 0201, …`。
-它们在 NGUI 里同样是**折行时会变成 `\n` 的隐患**，但多数是成对引号/括号把拉丁串夹住的排版，
-删了会变成 `按'[ffff00]C[-]'克隆` 这种挤在一起的观感。用户只说了「中英混排不加空格」，
-这类属于「中 ↔ 标点 ↔ 英」，暂按保留处理；**若日后觉得仍难看，改
-`tools/fix_spaces.py` 的 `drop()`：把「跳过半角标点后的字符」也纳入判定即可**。
-
-**第二批（用户 m00563「也一并清掉」）—— 半角标点也视为透明，全部清掉**：
-`fix_spaces.py` 加了 `PUNCT_ASCII = set(":'\"()[]{}<>/\\|-_+=*&^%$#@!?.,;~")`，
-判邻字符时`skip_left` / `skip_right` 会继续往外找，直到碰到非标点字符。
-所以 `按 '[ffff00]C[-]' 克隆` → `按'[ffff00]C[-]'克隆`（`PUNCT_ASCII` 用 `set` 而非 `str`，
-否则 `'' in s` 恒真会死循环）、`(PZ) 挖掘机是关键` → `(PZ)挖掘机是关键`、
-`（仅允许字母、数字、_ 和 - ）` → `（仅允许字母、数字、_和-）`。
-
-**只塌单空格被夹住的符号，不吃多空格/纯拉丁**：
-`RX_TRIP = re.compile(r"([^\s])[ \t]([-=+\u2014/])[ \t]([^\s])")` → `\1\2\3`。
-它一次吃掉 `20 - 256`、`麻烦列车01 - 教程`、`-1 = 不限制` 的三段结构；
-`Knuckle Cracker, LLC` 这种纯拉丁因为两侧都是 LAT 仍不动。
-**但 `X - Y` 里 X/Y 是汉字或字母都一样塌**，这是有意的（用户要的就是「不加空格」）。
-
-**第三批（同日，收尾）：连数字列表的逗号后空格也删了**。
-第二批曾留一条 `RX_KEEP = re.compile(r"(?<=[0-9]),[ \t]")` 白名单，理由是
-`日期：1014, 0201, 第144循环历` 里 `, ` 属于英文书写格式。后来判定这条原则站不住
-（用户的规则是「不加空格」，没有「英文原样」的豁免；而该条 `Date:  1014, 0201, 144th C.E.`
-出自 `EpilogueManager.FixedUpdate` 的结局日期行，不值得为它开特例），
-于是**删掉 `RX_KEEP` 与 `keep` 集合**，重跑后改动 2 条 / 删 2 空格
-（`strings.json` 1 条 + `batches\full_07.json` 1 条，同一句），
-`日期：1014, 0201,第144循环历`。dict 重建 → 2319 条 / **248670 字节**。
-
-**至此 `汉字↔拉丁` 隔空格的残留为 0**（dict 解包复核：`汉字<->拉丁(可隔半角标点) 仍带空格: 0`）。
-`fix_spaces.py` 重跑 0 条改动。
-
-**第二批改动量**：`strings.json` 23 条 / 38 空格；`story_work` 8 条 / 14 空格；
-`batches` 15 条 / 24 空格；合计 **46 条 / 76 空格**。
-重建 dict：2319 条 / **248671 字节**（第一批后 248709）。
-
-**第二批验证**（同一套脚本重跑）：
-- `fix_spaces.py` 重跑 **0 条改动**（幂等）；`story_normalize.py` 两条专名规则命中 **0**；
-  `verify_lookup.py --idempotent` **0 条**被改写。
-- 与 `strings.json.bak_spaces`（第一批之前的原始备份）对比：
-  **378 条**有差异，**换行数变化 0 条**，**去掉空格后仍不同的 0 条** ⇒ 两批加起来仍只动空格。
-- dict 解包校验：`汉字↔拉丁（可隔半角标点）仍带空格` 只剩 **1 处**，就是上面那条日期。
-- `check_charset.py`：1607 字符（汉字 1506 / ASCII 82 / 其它 16）全在图集内。
-
-**生效方式**：不需要编译 DLL —— 游戏里按 **F9** 重载 `zh_cn.dict` 即可（4.1 / 4.3）。
-用户当时正在游戏里，所以本次**没编译任何 DLL**。
+**生效方式**：只动词表时不需要重编 DLL —— 游戏里按 **F9** 重载 `zh_cn.dict` 即可（4.1 / 4.3）。
 
 ---
 
 ### 4.14 ★ 拼接串「Collected: CommandNode」不翻译的根因 + 尾空格收尾（2026-10-24）
 
-**症状**（用户 m00794 截图「系统通讯」弹窗）：正文
+**症状**（「系统通讯」弹窗）：正文
 `Collected: CommandNode` / `Control additional Command Nodes.` / `Additional Number: 1`
 三行**全英文**，而这三段在词表里其实是分开的。
 
@@ -2072,7 +2006,7 @@ dict 重建 **2332 条 / 249745 字节**；`check_charset.py` 1607 字符全在�
 
 ### 4.15 ★ 数值 + 量词类拼接词缀：`1 spores` / `spore(s) in` / `sec`（2026-10-24）
 
-**症状**（用户 m01235 只贴了一行日志）：`[未命中] 1 spores`。
+**症状**：日志报 `[未命中] 1 spores`。
 
 **根因：词表缺「量词」词缀，而不是缺整句。** 这几种文本在 C# 里全是 `数字 + 词缀` 拼出来的，
 词表只要缺了那个词缀，整条就原样漏英文：
@@ -2304,23 +2238,18 @@ token 只做 `.Trim()`，所以补出来的空格**原样留在字面量里**，
 **同批错译修复**：`index 3316`
 `How?  CRPL... Creeper Reverse Polish Language.  That's the scripting language available in CW3.`
 原译 `怎么做到的？CRPL……Creeper逆波兰语言。这是CW3里可用的脚本语言。` ——
-「逆波兰语言」读起来像「波兰语」，是 `Reverse Polish` 的字面直译，属错译（用户 m00007 指出）。
+「逆波兰语言」读起来像「波兰语」，是 `Reverse Polish` 的字面直译，属错译。
 
-**CRPL 的全名不是笑话，`Polish` 指国籍**：官方 Wiki 原话是
+**CRPL 的全名来历**：官方 Wiki 原话是
 「CRPL (Creeper Reverse Polish Language) is a stack-based, Reverse Polish Notation language.
-*There, now that we've said it, what does it mean?*」——作者自己也知道这名字绕。
+*There, now that we've said it, what does it mean?*」
 `Reverse Polish` = **逆波兰表示法（RPN）**，中文标准名另有「后缀表达式」；正体的「波兰表示法」
 是 1924 年波兰逻辑学家 **Jan Łukasiewicz** 提出的前缀记法，冠的是他的国籍。
-同族命名先例：HP 计算器的 `RPL = Reverse Polish Lisp`。官方论坛 2012 年还有个标题为
-[The Creeper is Polish](https://knucklecracker.com/forums/index.php?topic=12228.0) 的帖子在拿这个玩梗，
-但那是玩家自发，不是作者藏彩蛋。**术语边界**：`Polish`（波兰的）vs `polish`（抛光）也与本串无关。
+同族命名先例：HP 计算器的 `RPL = Reverse Polish Lisp`。
 
-**用户最终选定（m00577，推翻 m00352 的省略版）：保留全名、用正确译法**
+**最终选定译法：保留全名、译为「逆波兰式语言」**
 → `怎么做到的？CRPL……Creeper逆波兰式语言。这是CW3里可用的脚本语言。`
-（先选过「只留 CRPL 不展开」= `怎么做到的？靠 CRPL——Creeper 的脚本语言，CW3 里就能用。`，
-得知全名来历后改回保留全名。日后若再动这条，认准这一版。）
-**注意「Creeper逆波兰式语言」中间没有空格** —— 初稿写成了 `Creeper 逆波兰式语言`，
-被 `fix_spaces.py` 按「中文与拉丁字母之间不加空格」的口径清掉了（这是既有规则，不是笔误）。
+**注意「Creeper逆波兰式语言」中间没有空格** —— 按 4.13「中文与拉丁字母之间不加空格」的规则处理。
 同族 3317/3318/3319 一直都是保留 `CRPL` 原样，风格一致。
 `glossary.md` 已补两行：`CRPL`=保留英文、`Reverse Polish Language`=逆波兰式语言（含「不要译成逆波兰语言」的理由）。
 全表搜 `波兰`/`Polish` **只有这 1 条**。
@@ -2344,107 +2273,25 @@ token 只做 `.Trim()`，所以补出来的空格**原样留在字面量里**，
 
 ## 五、环境与陷阱
 
-### 5.1 沙箱写入权限
+### 5.1 编译输出文件被占用或权限受限（`CS0016`）
 
-游戏重装后，shell 的受限进程可能无法写工作区（连游戏目录根都不行），但磁盘权限本身正常
-（`diagnose-windows-sandbox-acl` 判定 `NOT_THIS_CLASS`）。
-**`write`/`edit` 文件工具仍正常**；`csc.exe` 输出 DLL 可能失败。
-
-**★ 2026-10-24 实测到的最精确形态（别再误判成「游戏没关」）**：`build_plugin.cmd` 报
+运行 `build_plugin.cmd` 时若报：
 
 ```
 error CS0016: 未能写入输出文件“…\BepInEx\plugins\CW3Hanhua.dll”--“拒绝访问。”
 ```
 
-此时三条同时成立（历史记录，结论后来被推翻，见下）：
+常见原因有三种，`build_plugin.cmd` 在调用 `csc.exe` 之前已内置前置探针（检查只读属性与覆盖写测试）：
 
-1. `Get-Process | %{ $_.Modules }` 里**没有任何进程**把该 DLL 当模块加载（游戏确实关了）；
-2. `BepInEx\plugins\` 目录**可新建文件**，但**已存在的 `CW3Hanhua.dll` 不能覆盖、不能重命名**
-   （`[IO.File]::Open($p,'Open','Write','None')` 报 `Access to the path … is denied.`）；
-3. 同一个文件在**非受限**（`sandbox_permissions: danger-full-access`）下写句柄一次就成功。
-
-**★★ 2026-10-24 当天晚些时候查到了真正的根因 —— 上面「判定」那段是错的，已作废。**
-
-真正的原因不是「覆写限制」，而是**跨会话的沙箱 SID 残留**：
-
-每个文件的安全描述符里都有一条 `S-1-4-…` 的 ACE，那是 **DSH 分配给它所属会话的临时身份**。
-旧 `CW3Hanhua.dll` 上记的是另一个会话的 `S-1-4-611063772-179713341-1`，而当前会话是
-`S-1-4-631060305-198087963`。当前身份在那个文件上**既没有写权限、也没有改 DACL 的权限**
-（`icacls /grant` 同样 `Access is denied`，退出码 5），所以连「换个办法绕过」的路都没有。
-
-关键鉴别对比（同一次扫描，直接看出差别）：
-
-| 文件 | 带的是哪个会话的 SID | 写 |
-|---|---|---|
-| `BepInEx\plugins\CW3Hanhua.dll` | `S-1-4-611063772-…`（**旧会话**） | **拒绝** |
-| `BepInEx\core\BepInEx.dll`、`_cw3hanhua\NOTES.md`、`_cw3hanhua\_dict\zh_cn.dict` | `S-1-4-631060305-…`（本会话） | 可以 |
-
-那个陌生 SID 是哪来的？**是用 `sandbox_permissions: danger-full-access` 编译时写进去的。**
-`csc /out` 对已存在文件是「先删再建」，新建的文件就带上了**那一次运行**的沙箱身份。
-所以「以前一直好好的、突然不行」的真相是：**上一次为了绕过 CS0016 而用 danger-full-access 编译，
-反而把文件写成了后续受限会话碰不了的样子** —— 是个自伤循环。
-
-**正确做法（已验证，2026-10-24）：**
-
-1. **不要用 `danger-full-access` 编译插件。** 它会污染产物的 SID。
-2. 撞上了就**让用户手动删掉 `BepInEx\plugins\CW3Hanhua.dll`**，再在受限身份下重跑
-   `build_plugin.cmd`。新建的文件带本会话 SID，之后本会话内可以反复覆盖
-   （实测连续第二次、第三次编译都 `== OK ==`）。
-3. 别为此去问用户「游戏关了没」，也别改 ACL —— 两个方向都不对。
-
-**已加自检**：`build_plugin.cmd` 在调 csc **之前**先探三件事，任一条不通就直接打印
-对应该情形的修法，而不是丢一句 `error CS0016` 让人瞎猜：
-
-1. **只读属性**（`for %%A in (...) do set "ATTR=%%~aA"`，看 `ATTR:R` 是否变化）→ 报
-   `attrib -r` 一句话就能解决，别往 SID 上想。
-2. **能不能覆盖**：把 DLL 拷到 `%TEMP%` 再**拷回原处**，走的就是 csc 需要的同一条写路径。
-   探不通报「跨会话 SID 残留」。
-3. 报 SID 残留时，顺手把**两个文件的 ACL 并排打出来**：冲突的那个 DLL，和
-   **同目录里当场新建**的一个探针文件。同目录很关键 —— `%TEMP%` 里的文件是另一个 helper
-   建的、带的是另一个 SID，拿它比对会"证明"出一个不存在的差异（实测过：
-   `%TEMP%` 探针是 `S-1-4-78774795-…`，`BepInEx\plugins\` 里新建的是 `S-1-4-631060305-…`，
-   后者才和 DLL 一致，能对上就说明"不是 SID 问题"）。
-
-探测用「拷回原处」而不是「探写句柄」是有意的：如果游戏真的开着、DLL 真被加载着，
-也照样能探出来（那时会报 `PROBE=overwrite`），一次覆盖两种情形。
-三条分支都实测过：正常 `== OK ==`、只读报只读、独占锁报 SID（并打出两组 ACL）。
-
-★ **会话 SID 是会变的**：同一天里两次观察到的本会话 SID 分别是
-`S-1-4-631060305-198087963`（文件系统 helper）与 `S-1-4-78774795-116483730-1`（`%TEMP%` 那侧的 helper）
-—— 别把某个具体 SID 当成「本会话的身份证」写死进判断，只比「两边是否一致」。
-
-★ **游戏真开着时又是另一种情形，而且能自己绕过去**（2026-10-24 实测）：DLL 被进程映射进内存后，
-文件句柄拿得到（`[IO.File]::Open(...,'None')` 成功）、`SetLength(0)` 却失败，`copy /y` 报
-
-```
-The requested operation cannot be performed on a file with a user-mapped section open.
-```
-
-注意这条报错和 CS0016 的「拒绝访问」**措辞完全不同**，别混为一谈 —— 前者是映射、后者是权限。
-此时**重命名是允许的**（`Rename-Item` 成功，映射跟着文件名走），所以不必请用户关游戏：
-
-```
-Rename-Item BepInEx\plugins\CW3Hanhua.dll BepInEx\plugins\CW3Hanhua.dll.bak
-& _cw3hanhua\tools\build_plugin.cmd      # 对着空位新建，== OK ==
-Remove-Item BepInEx\plugins\CW3Hanhua.dll.bak   # 旧文件解除映射后可删
-```
-
-实测：改名后连续两次编译都 `== OK ==`，`.bak` 也能立刻删掉。游戏下次启动会加载新 DLL。
-
-★ **2026-10-24 18:17 复现，且探针这次误诊了 —— 探针的结论不可全信，要看报错措辞。**
-当时 `build_plugin.cmd` 报 `probe says: overwrite` 并打印「跨会话 SID 残留」，
-**但并排打出的两组 ACL 里 SID 完全相同**（DLL 与同目录新建的探针文件都是
-`S-1-4-631060305-198087963`）—— 按上面那条「只比两边是否一致」的规则，这恰恰**否定**了
-SID 假设。真实原因是**映射**：`[IO.File]::WriteAllBytes` 报
-
-```
-请求的操作无法在使用用户映射区域打开的文件上执行
-```
-
-即上面那段「游戏真开着」的情形（`copy /y` 与 `WriteAllBytes` 都失败、独占 `Open` 却成功）。
-**教训：探针只测出「拷不回去」，测不出「为什么拷不回去」**，它把两种情形都归到 SID 分支上。
-遇到这个报错先看 ACL 里两行 SID 是否一致，再决定走 SID 分支还是映射分支。
-本次的实际处置是直接 `Remove-Item` 掉 DLL 再重编（删除成功了，映射中的文件可以删名）。
+1. **文件只读属性**：执行 `attrib -r "BepInEx\plugins\CW3Hanhua.dll"` 即可。
+2. **游戏正在运行（DLL 被进程映射进内存）**：
+   此时直接覆盖（`copy /y` 或 `csc /out`）会报 `The requested operation cannot be performed on a file with a user-mapped section open`，但 Windows 允许对映射中的文件**重命名或删除目录项**：
+   ```powershell
+   Remove-Item BepInEx\plugins\CW3Hanhua.dll
+   & _cw3hanhua\tools\build_plugin.cmd
+   ```
+   重编后下次启动游戏即加载新 DLL。
+3. **文件 DACL / 权限残留**：手动删除旧 `BepInEx\plugins\CW3Hanhua.dll` 后重跑 `build_plugin.cmd`，让编译器按当前用户权限重建文件。
 
 ### 5.2 编译插件
 
@@ -2454,7 +2301,7 @@ SID 假设。真实原因是**映射**：`[IO.File]::WriteAllBytes` 报
 & "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3\_cw3hanhua\tools\build_plugin.cmd"
 ```
 
-★ **两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（现 v1.5.1，4.1）。
+★ **两个 `.cs` 一起编进 `BepInEx\plugins\CW3Hanhua.dll`**（现 v1.5.2，4.1）。
 脚本在编译前会**自动 `del` 掉旧的 `CW3HanhuaText.dll`** —— 那个文件是独立插件
 （GUID `cw3hanhua.text`），留着会在同一批游戏方法上**重复装一遍 Harmony 补丁**。
 
@@ -2658,15 +2505,16 @@ _cw3hanhua/
 │   ├─ dict_stats.py           覆盖率报告 → _dict/STATUS.md
 │   ├─ scan_uilabel.py / scan_textmesh.py  只读资产盘点
 │   ├─ diff_bake.py            ★ 烘焙回归：现役资产 vs 基线，确认没波及 UILabel
-│   └─ uilabel_inventory.json / textmesh_inventory.json
-│                              ★ 烘焙前的历史基线快照，**不可再生**（重跑 scan 会覆盖）
-├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.5.1**（4.1）
+│   ├─ uilabel_inventory.json / textmesh_inventory.json
+│   │                          ★ 烘焙前的历史基线快照，**不可再生**（重跑 scan 会覆盖）
+│   └─ fix_spaces.py / fix_tail_space.py / verify_lookup.py / ...（完整清单见 tools/README.md）
+├─ plugin/             ★ 两个在用源文件，**一起编进同一个 CW3Hanhua.dll v1.5.2**（4.1）
 │                      CW3Hanhua.cs（字体层 = 唯一 BepInPlugin / MonoBehaviour）
 │                      CW3HanhuaText.cs（文本层 = 同程序集普通类 TextPlugin）
 ├─ _font/              ★ 运行时：atlas_zh.png + atlas_zh.bin（字体层的全部输入）
 │                      ★ 工具链：font_{16,20,28}.{json,png}（重烘图集的必需输入）
 ├─ _dict/              ★ 词表：strings.json（唯一数据）/ glossary.md（术语表）
-│                      / zh_cn.dict（编译产物）/ STATUS.md（自动生成）/ batches/（25 份批次）
+│                      / zh_cn.dict（编译产物）/ STATUS.md（自动生成）/ batches/（42 份批次）
 │                      / skipped_manual.json（565 条「人工判定不译」，勿删）
 ├─ _diag/              【已删除】原为 ilspy 反编译源码 + 诊断 PNG 的临时目录（见下）
 ├─ _ngui_repo/         NGUI 仓库 clone，77 MB（gitignore；查上游源码用）

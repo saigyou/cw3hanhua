@@ -78,3 +78,5 @@ __pycache__/
 /_cw3hanhua/_dict/*.bak
 # 插件运行时写的「未命中」诊断件（F5 的产物，每次开游戏都可能变，不入库）
 /_cw3hanhua/_dict/miss_dump.txt
+# 一次性剧情提取原始对照表（已废弃，不入库）
+/_cw3hanhua/_dict/story_raw.json

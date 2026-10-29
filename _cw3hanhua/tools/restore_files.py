@@ -6,9 +6,9 @@
   level1                 只还原 level1
   level1 resources.assets 只还原这两个
 
-★ 必须用系统 python 跑（venv 里的解释器是 Low 完整性，写不了游戏资产）：
-  $env:PYTHONPATH = "<根>\\_cw3hanhua\\.venv\\Lib\\site-packages"
-  & "<系统 python 的路径（本机是 python314）>" _cw3hanhua\\tools\\restore_files.py level1
+用法：
+  .venv\\Scripts\\python.exe tools\\restore_files.py --list
+  .venv\\Scripts\\python.exe tools\\restore_files.py level1
 """
 import hashlib
 import json

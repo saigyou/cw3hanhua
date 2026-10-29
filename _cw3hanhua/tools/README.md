@@ -1,37 +1,43 @@
 # tools —— 工具链
 
 给本项目做 IL 取证、字形烘焙、图集构建、词表编译用。**除了 `build_plugin.cmd`
-往 `BepInEx\plugins\` 写两个 DLL 之外，其余工具都不修改游戏文件。**
+往 `BepInEx\plugins\` 写一个 `CW3Hanhua.dll`、以及 `bake_textmesh_assets.py`（可选烘焙静态大字）之外，其余工具都不修改游戏文件。**
 
 ## 文件总览
 
 | 文件 | 用途 | 文档 |
 |---|---|---|
-| `build_plugin.cmd` | ★ **唯一编译入口**，一次编出 `CW3Hanhua.dll`（两层合一的单 DLL） | NOTES 5.2 |
+| `build_plugin.cmd` | ★ **唯一编译入口**，一次编出 `CW3Hanhua.dll`（v1.5.2，两层合一的单 DLL） | NOTES 5.2 |
 | `ilx.exe` / `ilx\ilx.cs` | 基于 **Mono.Cecil 0.10.4** 的 IL 检查器（源码 + 编译产物） | 下文 |
 | `Mono.Cecil.dll` | 从 `BepInEx\core\` 复制，MIT。让 tools 目录可整体搬走 | — |
 | `build-ilx.ps1` | 改过 `ilx.cs` 后重新编译 | — |
 | `ilx.cmd` / `ilspy.cmd` | 命令行包装（`ilx ...` / `ilspy ...`） | 下文 |
 | `ilspycmd\` | ILSpy 命令行版 7.2.1（net6.0），反编译成 C# | 下文 |
-| `bake_font.py` | 烘字形 PNG+FNT+JSON，`gb2312_chars()` / `charset_for()` 供别人复用 | NOTES 4.1 |
+| `bake_font.py` | 烘字形 PNG+FNT+JSON，`gb2312_chars()` / `charset_for()` 供复用 | NOTES 4.1 |
 | `build_atlas.py` | ★ 合并图集 4096×8192 生成器 → `_font\atlas_zh.{png,bin}`（`--write-json` 才额外出调试 JSON） | NOTES 4.4 |
+| `bake_textmesh_assets.py` | ★ 19 条 Static TextMesh 资产离线烘焙/备份/还原工具（`--backup` / `--dry-run` / `--restore`） | NOTES 4.6 |
 | `check_charset.py` | 查词表有没有超出已烘字集（**查三套字号的交集**） | NOTES 4.1 |
 | `collect_ui_strings.py` | 静态全量收集候选字符串（IL `ldstr` + 资产文本） | NOTES 4.2 |
-| `scan_crpl.py` | ★ 扫**关卡内嵌 CRPL 脚本**的字面量（`ShowMessage("…")` 一类，静态收集器收不到；`ShowMessage*`/`AddConversationMessage`/`AddMessage` 的实参按调用点全收，不受散文长度门槛限制） | NOTES 4.7④⑩ |
+| `scan_crpl.py` | ★ 扫**关卡内嵌 CRPL 脚本**的字面量（`ShowMessage*`/`AddConversationMessage`/`AddMessage` 的实参按调用点全收） | NOTES 4.7④⑩ |
+| `build_crpl_batch.py` | 把 `_dict\crpl_zh_src.txt` 按 `crpl_all.json` 顺序合成为批次 JSON | NOTES 4.7⑧ |
 | `build_dict.py` | 把 `strings.json` 编译成 `zh_cn.dict` | NOTES 4.2 |
 | `apply_translations.py` | 把 `batches/*.json` 译文注入 `strings.json`（**只填已存在的 en**） | NOTES 4.2 |
 | `add_strings.py` | 把批次里的**新条目**追加进 `strings.json`（原表里没有的 en 用这个） | NOTES 4.2 |
 | `del_strings.py` | 按批次**删除** `strings.json` 里的条目（`del_strings.py <批次...> [--dry-run]`） | NOTES 4.2 |
+| `fix_spaces.py` | ★ 按字符类别清理译文中英混排的多余单空格（幂等，`--write` 写回） | NOTES 4.13 |
+| `fix_tail_space.py` | ★ 清理拼接标签译文末尾「全角标点 + 半角空格」 | NOTES 4.14 |
 | `verify_lookup.py` | ★ 离线复刻插件四级查表链，验证命中/幂等/回归（改词表后必跑） | NOTES 4.2 |
+| `test_classify.py` | `collect_ui_strings.classify()` 的回归测试样例 | NOTES 4.2 |
 | `dict_stats.py` | 覆盖率报告 → `_dict\STATUS.md` | NOTES 4.2 |
 | `audit_translations.py` | ★ 全表审计：en/zh 的 `[标记]`/换行/占位符/首尾空白 + **按组的引号配对**（跨条目，见 NOTES 4.17），五项全 0 才算过 | NOTES 4.5 / 4.17 |
+| `extract_story_text.py` / `story_batches.py` / `story_merge.py` / `story_normalize.py` / `story_raw_check.py` / `audit_xml_text.py` | 主线剧情 XML 文本提取、切批、合并、术语归一化与校验工具组 | NOTES 4.8 |
 | `prep_batches.py` | 未译项分流（规则化不译桶 + 待译）后切批，输出 `_dict\work\full_NN.src.json` | NOTES 4.5 |
 | `merge_work.py` | `work\full_NN.{src,zh}.json` → `batches\full_NN.json` | NOTES 4.5 |
 | `check_batch.py` | 单批译稿校验，不过 0 不许入库 | NOTES 4.5 |
 | `pack_skips.py` | 把译稿里标 `@` 的「人工判定不译」固化到 `_dict\skipped_manual.json` | NOTES 4.5 |
 | `scan_uilabel.py` | 只读盘点全部资产里的 UILabel（`mText`）→ `uilabel_inventory.json` | NOTES 3 |
 | `scan_textmesh.py` | 只读盘点全部资产里的 TextMesh（class 102）→ `textmesh_inventory.json` | NOTES 3 |
-| `diff_bake.py` | ★ 烘焙后回归：重扫现役资产 vs `uilabel_inventory.json` 基线，确认没波及任何 UILabel | NOTES 4.3 |
+| `diff_bake.py` | ★ 烘焙后回归：重扫现役资产 vs `uilabel_inventory.json` 基线，确认没波及任何 UILabel | NOTES 4.6 |
 | `uilabel_inventory.json` | **烘焙前**的 UILabel 基线快照（1029 条有文本），`diff_bake.py` 的对比依据 | — |
 | `textmesh_inventory.json` | **烘焙前**的 TextMesh 快照（英文原文），改资产前的参照 | — |
 
@@ -77,7 +83,6 @@ $t = "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3\_cw3hanhua\t
 ## 环境要求
 
 - `ilx.exe`：.NET Framework 2.0+（Windows 自带即可）
-- `ilspycmd`：需要 .NET 6 运行时（本机已有 6.0.26）
-- 若 `ilspycmd\` 丢失：沙箱内 TLS 拿不到凭证，`dotnet tool install` 会失败；
-  用 Python 下载 nupkg 解压即可：
+- `ilspycmd`：需要 .NET 6 运行时
+- 若 `ilspycmd\` 丢失，可直接下载 nupkg 解压：
   `https://api.nuget.org/v3-flatcontainer/ilspycmd/7.2.1.6856/ilspycmd.7.2.1.6856.nupkg`

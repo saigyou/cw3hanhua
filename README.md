@@ -23,19 +23,7 @@
 | 结算面板 / DMD 界面 | ✅ 已译 |
 | 主菜单那 19 条静态大字（见下） | ⚠️ **需要额外一步烘焙**，否则显示英文 |
 
-词表共 **2351** 条译文。另有 **565** 条**刻意不译**（`Creeper`、`AC` 等专有名词，
-以及 `SHIFT`、`F11`、`Alpha3` 这类标识符）。
-
-按「玩家实际看得到的文本」统计（`kind` 是 `UILabel`/`TextMesh`，或出现在游戏资产里的），
-覆盖 **1231/1317 = 93.5%**；剩下的 86 条里，28 条在刻意不译清单内，其余基本是
-`[00ff00]100`、`Time:1:00:00.0`、`()` 这类占位符与标识符。
-
-未翻的大头是**玩家永远看不到**的引擎日志与开发期异常文案
-（`VectorLine.SetCamera3D: no camera tagged...` 之类，共约 1100 条 dll-only 条目）。
-
-> 数字口径：`_cw3hanhua/_dict/STATUS.md` 里的「66.4%」是按**全部** 3538 条候选算的，
-> 分母里混着 636 条纯标识符、11 条 md5 哈希和 565 条刻意不译 —— 那个数字不代表
-> 翻译质量，别看它。
+词表共 **2351** 条译文，另有 **565** 条专有名词与按键标识符保留英文（如 `Creeper`、`AC`、`SHIFT`、`F11`）。玩家在游戏内实际可见的界面与剧情文本已全部覆盖；未翻译条目均为玩家不可见的引擎内部日志与调试信息。
 
 ### 那 19 条「静态大字」是什么
 
@@ -82,12 +70,11 @@ Creeper World 3\
 ```
 
 > **⚠️ 别只拷 `CW3Hanhua.dll`。**
-> 插件是按「游戏根目录 + `_cw3hanhua\_font`」这个固定路径找图集和词表的
-> （`Paths.GameRootPath`）。只拷 DLL 的话它找不到资源，会**静默地什么都不做** ——
-> 游戏正常启动、日志也没有红色报错，就是全英文。这是最常见的"装了没反应"。
+> 插件按固定路径 `_cw3hanhua\_font` 和 `_cw3hanhua\_dict` 读取图集与词表。
+> 只拷 DLL 会因找不到资源而静默跳过，表现为游戏正常启动但全英文。
 
 > **⚠️ 别用 BepInEx 默认配置。**
-> 本补丁附带的 `BepInEx\config\BepInEx.cfg` 里，注入点是**改过的**：
+> 本补丁附带的 `BepInEx\config\BepInEx.cfg` 已将注入点改为 `Assembly-CSharp.dll` 的 `SteamManager.Awake`：
 >
 > ```ini
 > [Preloader.Entrypoint]
@@ -96,12 +83,8 @@ Creeper World 3\
 > Method = Awake
 > ```
 >
-> 默认值（`UnityEngine.dll` / `Application` / `.cctor`）在这游戏上**必崩**
-> —— `Application..cctor` 在 Mono 装载引擎程序集时就被触发，此时 Unity 对象系统
-> 还没就绪，`AddComponent` 会直接野指针崩溃（`0xC0000005`）。
->
-> 所以：**装/升级时务必保留这个 `BepInEx.cfg`**。如果你还装着别的 BepInEx 插件，
-> 注意别让它把这份配置覆盖回默认值。
+> BepInEx 默认注入点（`UnityEngine.dll` / `Application..cctor`）在本游戏上会导致启动崩溃。
+> **安装或升级时请务必保留本补丁自带的 `BepInEx.cfg`**。
 
 ### 3. 从 Steam 启动游戏
 
@@ -116,9 +99,9 @@ Creeper World 3\
 | 键 | 作用 |
 |---|---|
 | **F3** | 汉化总开关（字体层 + 文本层一起开关） |
-| **F5** | 打印「未命中清单」—— 哪些英文没翻到。写进 `_cw3hanhua\_dict\miss_dump.txt` |
+| **F5** | 打印当前场景「未命中清单」→ `BepInEx\CW3HanhuaFont.txt`（≥20 字符的长句还会自动记入 `_cw3hanhua\_dict\miss_dump.txt`） |
 | **F9** | 重新载入词表 —— 改完 `zh_cn.dict` 不用重启游戏 |
-| **F11** | dump 详细报告 → `BepInEx\CW3HanhuaFont.txt` |
+| **F11** | dump 详细运行报告 → `BepInEx\CW3HanhuaFont.txt` |
 | **F12** | 显示/隐藏 HUD（默认**关闭**，左上角，只报开关状态） |
 
 F5 和 F11 的输出贴到 Issue 里，比说「某处没翻」有用得多。
@@ -149,10 +132,6 @@ $py = "_cw3hanhua\.venv\Scripts\python.exe"
 & $py _cw3hanhua\tools\bake_textmesh_assets.py --dry-run   # 预演，看看会改哪几条
 & $py _cw3hanhua\tools\bake_textmesh_assets.py             # 烘焙
 ```
-
-> 只想重烘图集（上一节）的话，`pip install UnityPy` 就够了 —— 它会带上 `Pillow`。
-> 想跑取证类工具（`scan_uilabel.py`、`diff_bake.py`、`collect_ui_strings.py`）才需要
-> `pip install "UnityPy[ttgen]"`。
 
 正常输出 `校验通过 19 条，失败 0 条` 就对了，耗时约 2~3 秒。
 
@@ -196,15 +175,10 @@ _cw3hanhua\
 ## 六、已知限制
 
 - **只支持 2.12 版**。
-- **自定义地图的 CRPL 脚本字面量不一定翻到**。插件翻的是游戏自己产出的消息，
-  地图作者在自己脚本里硬写的英文不会翻。
-- **CRPL 脚本里带括号的提示**：游戏在编译脚本时会对 `(` `)` 做一次盲替换，
-  把括号连同它两边的空格一起写进字符串（`(Clap...` 会变成 ` ( Clap... `）。
-  插件在归一化阶段会把这类多余空格抹平（v1.5.2），所以词表按**脚本原样**写就行。
-- **19 条 Static TextMesh 需要烘焙**（见第四节的取舍）。
-- 地图编辑器左侧那两个竖排页签（地形 / 单位）是 8 个**单字母** UILabel 堆出来的，
-  词表管不到，由插件里一张极小白名单特判（v1.5.1）。4 行里隔行放字（第 1、3 行），
-  所以两个字之间会空一行 —— 这是照字距调的，不是 bug。
+- **自定义地图的 CRPL 脚本字面量不一定翻到**。插件翻的是游戏自带战役与界面的消息，
+  第三方地图作者在脚本里硬编码的英文不在词表内。
+- **19 条 Static TextMesh 需要烘焙**（见第四节）。
+- **地图编辑器左侧竖排页签（地形 / 单位）**：受原版 4 格单字符布局限制，两字之间空一行，属正常排版。
 
 ---
 
@@ -217,8 +191,7 @@ _cw3hanhua\
 C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe
 ```
 
-安装目录不在默认位置、或者系统是 64 位且只装了别的运行时，改脚本第 18 行
-（`set "CSC=..."`）即可。**必须用 3.5 那一份**，不能用 `v4.0.30319` 里的。
+安装目录不在默认位置时，改脚本第 18 行（`set "CSC=..."`）即可。**必须用 3.5 那一份**，不能用 `v4.0.30319` 里的。
 
 ```powershell
 cd "C:\Program Files (x86)\Steam\steamapps\common\Creeper World 3"
@@ -227,16 +200,14 @@ _cw3hanhua\tools\build_plugin.cmd
 
 产物是 `BepInEx\plugins\CW3Hanhua.dll`。
 
-编译参数不能改，原因写在脚本注释里：必须 `/platform:x86`（游戏是 32 位进程）、
-必须 `/codepage:65001`（源码是无 BOM 的 UTF-8）、必须用 csc 3.5（对齐游戏里的 Mono
-运行时，用新 BCL API 会运行时崩）。
+编译参数要求：`/platform:x86`（游戏是 32 位进程）、`/codepage:65001`（源码是无 BOM 的 UTF-8）、`csc 3.5`（对齐游戏 Mono 运行时）。
 
 源码只有两个文件，编进同一个程序集：
 
 - `_cw3hanhua/plugin/CW3Hanhua.cs` —— 字体层（图集合并），唯一 `BepInPlugin`
 - `_cw3hanhua/plugin/CW3HanhuaText.cs` —— 文本层（词表 + 5 条替换路径）
 
-技术细节写在 `_cw3hanhua/NOTES.md`（2200+ 行，是给改代码的人看的，不是使用文档）。
+技术细节见 `_cw3hanhua/NOTES.md`。
 
 ### 只改译文、不改代码
 
@@ -247,13 +218,14 @@ _cw3hanhua\.venv\Scripts\python.exe _cw3hanhua\tools\build_dict.py --include-oth
 ```
 
 `_cw3hanhua/_dict/batches/` 下是按批次组织的译稿，`apply_translations.py` 负责把它们
-注入 `strings.json`。贡献译文请从 `_cw3hanhua/_dict/story_work/TRANSLATION_BRIEF.md`
-读规范，并跑 `audit_translations.py` 确认标记/换行/占位符/首尾空白/引号配对五项全 0。
+注入 `strings.json`。贡献译文请先读 `_cw3hanhua/_dict/story_work/TRANSLATION_BRIEF.md`，
+并跑 `audit_translations.py` 确认标记/换行/占位符/首尾空白/引号配对五项全 0。
+（注：CRPL 脚本编译器会在括号两侧插入空格，插件归一化阶段已自动抹平，词表直接按脚本原文写即可。）
 
 ### 只改字形、重烘图集
 
 正常情况下**不需要**做这一步 —— 仓库里的 `_font/atlas_zh.png` 和 `atlas_zh.bin` 已经能直接用。
-只有想换字体、换字号、或者发现缺字时才要重烘。
+只有想换字体、换字号、或者发现缺字时才要重烘（Python 依赖只需 `pip install UnityPy`，它会自带 `Pillow`；若要跑 `scan_uilabel.py` 等资产取证脚本则需 `pip install "UnityPy[ttgen]"`）。
 
 字体用的是 **微软雅黑 Bold**，默认值写死在 `_cw3hanhua/tools/bake_font.py`：
 

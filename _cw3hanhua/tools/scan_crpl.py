@@ -150,7 +150,7 @@ CALL = re.compile(
 def call_literals_of(src):
     """只取**对话/提示调用实参**里的字面量，**不套 `looks_like_prose`**。
 
-    ★ 为什么需要（2026-10-25，用户报 `Lies!` 没翻）：`looks_like_prose()` 要求
+    ★ 为什么需要：`looks_like_prose()` 要求
       `len>=8` 且含空格，而剧情对话里天然有大量短句 —— `Lies!` / `Never!` /
       `Oh...?` / `How?!?` / `Noooooooooo!!!!!` / `...'Platius'...` 全被过滤掉，
       于是 `strings.json` 里根本没有它们，插件查不到就原样显示英文。

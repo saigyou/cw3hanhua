@@ -17,9 +17,8 @@
   全场实际有 1206 个 UILabel，多出的 177 个 `mText` 是空串。所以对比前必须把空串滤掉，
   否则会把那 177 个空 label 误报成「新增」。实测：滤空后 1206→1029，与基线正好对齐。
 
-用法（★ 必须用系统 python，见 NOTES 4.6 的 Low 完整性坑）：
-  $env:PYTHONPATH = "<根>\\_cw3hanhua\\.venv\\Lib\\site-packages"
-  & "<系统 python 的路径（本机是 python314）>" _cw3hanhua\\tools\\diff_bake.py
+用法：
+  .venv\\Scripts\\python.exe tools\\diff_bake.py
 """
 import json
 import os
